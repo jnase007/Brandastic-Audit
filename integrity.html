@@ -153,6 +153,7 @@ section{padding:6rem 2rem;position:relative}section:nth-child(even){background:v
     <div class="side-nav-dot" data-section="summary"><span class="tooltip">Summary</span></div>
     <div class="side-nav-dot" data-section="personas"><span class="tooltip">Personas</span></div>
     <div class="side-nav-dot" data-section="scorecard"><span class="tooltip">Scorecard</span></div>
+    <div class="side-nav-dot" data-section="pagespeed"><span class="tooltip">PageSpeed</span></div>
     <div class="side-nav-dot" data-section="traffic"><span class="tooltip">Traffic</span></div>
     <div class="side-nav-dot" data-section="keywords"><span class="tooltip">Keywords</span></div>
     <div class="side-nav-dot" data-section="ads"><span class="tooltip">Google Ads</span></div>
@@ -308,6 +309,65 @@ section{padding:6rem 2rem;position:relative}section:nth-child(even){background:v
     </div>
   </div>
 </section>
+
+<!-- ===== GOOGLE PAGESPEED INSIGHTS ===== -->
+<section id="pagespeed">
+  <div class="container reveal">
+    <div class="section-badge">📊 Google PageSpeed Insights</div>
+    <h2 class="section-title">Google <span class="gradient">PageSpeed Insights</span></h2>
+    <p class="section-sub">Real-time performance analysis from Google — May 2026</p>
+    <div class="grid-4" style="margin-bottom:2rem">
+      <div class="card" style="text-align:center;padding:2rem">
+        <div class="score-ring">
+          <svg viewBox="0 0 120 120"><circle class="bg" cx="60" cy="60" r="52"/><circle class="fg" cx="60" cy="60" r="52" stroke="var(--yellow)" stroke-dasharray="327" stroke-dashoffset="327" data-target="65"/></svg>
+          <div class="grade" style="color:var(--yellow);font-size:2.2rem">80</div>
+        </div>
+        <div style="font-weight:700;font-size:0.95rem">Performance</div>
+      </div>
+      <div class="card" style="text-align:center;padding:2rem">
+        <div class="score-ring">
+          <svg viewBox="0 0 120 120"><circle class="bg" cx="60" cy="60" r="52"/><circle class="fg" cx="60" cy="60" r="52" stroke="var(--yellow)" stroke-dasharray="327" stroke-dashoffset="327" data-target="75"/></svg>
+          <div class="grade" style="color:var(--yellow);font-size:2.2rem">77</div>
+        </div>
+        <div style="font-weight:700;font-size:0.95rem">Accessibility</div>
+      </div>
+      <div class="card" style="text-align:center;padding:2rem">
+        <div class="score-ring">
+          <svg viewBox="0 0 120 120"><circle class="bg" cx="60" cy="60" r="52"/><circle class="fg" cx="60" cy="60" r="52" stroke="var(--green)" stroke-dasharray="327" stroke-dashoffset="327" data-target="26"/></svg>
+          <div class="grade" style="color:var(--green);font-size:2.2rem">92</div>
+        </div>
+        <div style="font-weight:700;font-size:0.95rem">Best Practices</div>
+      </div>
+      <div class="card" style="text-align:center;padding:2rem">
+        <div class="score-ring">
+          <svg viewBox="0 0 120 120"><circle class="bg" cx="60" cy="60" r="52"/><circle class="fg" cx="60" cy="60" r="52" stroke="var(--red)" stroke-dasharray="327" stroke-dashoffset="327" data-target="173"/></svg>
+          <div class="grade" style="color:var(--red);font-size:2.2rem">47</div>
+        </div>
+        <div style="font-weight:700;font-size:0.95rem">SEO</div>
+      </div>
+    </div>
+
+    <!-- Core Web Vitals -->
+    <div class="card" style="padding:2rem;margin-bottom:2rem">
+      <div style="display:flex;align-items:center;gap:1rem;margin-bottom:0.5rem">
+        <span style="font-weight:700;font-size:1.1rem">Core Web Vitals</span>
+        <span class="badge" style="background:rgba(245,158,11,0.15);color:var(--yellow);font-size:0.75rem;font-weight:700;letter-spacing:0.08em">ASSESSMENT NEEDED</span>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-top:1.5rem"><div class="card" style="text-align:center;padding:1.5rem"><div style="font-size:1.5rem;font-weight:800;color:var(--text-muted)">—</div><div style="font-size:0.7rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-muted);margin-top:0.25rem">LCP</div><div style="font-size:0.7rem;color:var(--text-muted);margin-top:0.25rem">Check needed</div></div><div class="card" style="text-align:center;padding:1.5rem"><div style="font-size:1.5rem;font-weight:800;color:var(--text-muted)">—</div><div style="font-size:0.7rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-muted);margin-top:0.25rem">INP</div><div style="font-size:0.7rem;color:var(--text-muted);margin-top:0.25rem">Check needed</div></div><div class="card" style="text-align:center;padding:1.5rem"><div style="font-size:1.5rem;font-weight:800;color:var(--text-muted)">—</div><div style="font-size:0.7rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-muted);margin-top:0.25rem">CLS</div><div style="font-size:0.7rem;color:var(--text-muted);margin-top:0.25rem">Check needed</div></div></div>
+    </div>
+
+    <!-- Callout -->
+    <div class="warning-banner">
+      <div class="icon">⚠️</div>
+      <div>
+        <div class="text">⚠️ SEO score of 47/100 indicates critical technical SEO issues that are hurting your search visibility.</div>
+      </div>
+    </div>
+
+    <div style="text-align:center;margin-top:1.5rem;font-size:0.75rem;color:var(--text-muted)">Data from Google PageSpeed Insights • <a href="https://pagespeed.web.dev" target="_blank" style="color:var(--text-muted);text-decoration:underline">pagespeed.web.dev</a></div>
+  </div>
+</section>
+
 
 <!-- 6. TRAFFIC TREND -->
 <section id="traffic">
