@@ -54,7 +54,7 @@ section:nth-child(even){background:var(--bg-secondary);transition:background var
 .section-title .gradient{background:linear-gradient(135deg,#40B4E5,#CC22FF);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
 .section-sub{color:var(--text-secondary);font-size:1.05rem;max-width:700px;margin-bottom:3rem;line-height:1.7}
 /* ========== HERO ========== */
-.hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding-top:64px;position:relative;overflow:hidden}
+.hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding-top:64px;position:relative;overflow:hidden;background:linear-gradient(rgba(25,31,36,0.88),rgba(13,17,23,0.92)),url('images/team-meeting.jpg') center/cover no-repeat}[data-theme="light"] .hero{background:linear-gradient(rgba(245,243,239,0.9),rgba(255,255,255,0.92)),url('images/team-meeting.jpg') center/cover no-repeat}
 .hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 30% 20%,rgba(64,180,229,0.12) 0%,transparent 50%),radial-gradient(ellipse at 70% 80%,rgba(204,34,255,0.08) 0%,transparent 50%);pointer-events:none}
 .hero-company{font-size:clamp(2.5rem,7vw,5.5rem);font-weight:900;letter-spacing:-0.04em;line-height:1;margin-bottom:1.5rem;background:linear-gradient(135deg,#fff 0%,rgba(255,255,255,0.7) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
 [data-theme="light"] .hero-company{background:linear-gradient(135deg,#191F24 0%,rgba(25,31,36,0.7) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
@@ -867,6 +867,7 @@ const chartObs=new IntersectionObserver((entries)=>{entries.forEach(e=>{if(e.isI
   chartObs.unobserve(e.target);
 }})},{threshold:0.1});
 document.querySelectorAll('canvas').forEach(el=>chartObs.observe(el));
+setTimeout(()=>{if(!trafficChart)createTrafficChart();if(!competitorChart)createCompetitorChart();},3000);
 
 /* ========== SIDE DOT NAV ========== */
 (function(){
@@ -879,7 +880,7 @@ document.querySelectorAll('canvas').forEach(el=>chartObs.observe(el));
   dots.forEach(dot => {
     dot.addEventListener('click', () => {
       const target = document.getElementById(dot.dataset.section);
-      if(target){const y=target.getBoundingClientRect().top+window.pageYOffset-80;window.scrollTo({top:y,behavior:'smooth'});}
+      if(target){const y=target.offsetTop-80;window.scrollTo({top:y,behavior:'smooth'});setTimeout(()=>{target.scrollIntoView({block:'start'});window.scrollBy(0,-80)},100);}
     });
   });
 
