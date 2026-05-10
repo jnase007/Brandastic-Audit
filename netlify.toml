@@ -1,10 +1,25 @@
 [build]
   publish = "."
 
+[[redirects]]
+  from = "/onpoint"
+  to = "/onpoint.html"
+  status = 200
+
+[[redirects]]
+  from = "/integrity"
+  to = "/integrity.html"
+  status = 200
+
+[[redirects]]
+  from = "/fountainlife"
+  to = "/fountainlife.html"
+  status = 200
+
 [[headers]]
   for = "/*"
   [headers.values]
     X-Frame-Options = "SAMEORIGIN"
     X-Content-Type-Options = "nosniff"
     Referrer-Policy = "strict-origin-when-cross-origin"
-    Cache-Control = "public, max-age=3600"
+    Cache-Control = "public, max-age=0, must-revalidate"
