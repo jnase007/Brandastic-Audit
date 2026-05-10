@@ -67,6 +67,65 @@ section{padding:6rem 2rem;position:relative}section:nth-child(even){background:v
 .awards-row img{height:40px;width:auto;filter:brightness(0.9)}
 [data-theme="light"] .awards-row img{filter:brightness(0.4)}
 @media(max-width:768px){.stats-bar{grid-template-columns:repeat(2,1fr)}.value-cards{grid-template-columns:1fr}}
+
+/* ========== GOOGLE ADS REPLICA ========== */
+.google-serp-card{background:#fff;border:1px solid #dadce0;border-radius:12px;padding:1.5rem 2rem;margin-bottom:1.5rem;font-family:'Inter',Arial,sans-serif}
+[data-theme="dark"] .google-serp-card{background:rgba(32,33,36,0.95);border-color:rgba(255,255,255,0.1)}
+.serp-search-bar{display:flex;align-items:center;gap:10px;padding:10px 16px;border-radius:24px;border:1px solid #dfe1e5;background:#fff;margin-bottom:1.5rem;max-width:600px}
+[data-theme="dark"] .serp-search-bar{background:rgba(32,33,36,1);border-color:rgba(255,255,255,0.15)}
+.serp-search-bar svg{flex-shrink:0}
+.serp-search-bar .query{font-size:0.95rem;color:#202124;font-weight:400}
+[data-theme="dark"] .serp-search-bar .query{color:#e8eaed}
+.serp-ad{padding:1rem 0;border-bottom:1px solid #ebebeb}
+[data-theme="dark"] .serp-ad{border-bottom-color:rgba(255,255,255,0.06)}
+.serp-ad:last-child{border-bottom:none}
+.serp-sponsored{display:inline-block;font-size:0.7rem;font-weight:700;color:#202124;background:transparent;padding:0;letter-spacing:0.02em;margin-bottom:4px}
+[data-theme="dark"] .serp-sponsored{color:#e8eaed}
+.serp-ad-url{font-size:0.82rem;color:#006621;margin-bottom:2px;display:flex;align-items:center;gap:4px}
+[data-theme="dark"] .serp-ad-url{color:#99c794}
+.serp-ad-title{font-size:1.15rem;color:#1a0dab;font-weight:400;margin-bottom:4px;cursor:pointer;line-height:1.3}
+.serp-ad-title:hover{text-decoration:underline}
+[data-theme="dark"] .serp-ad-title{color:#8ab4f8}
+.serp-ad-desc{font-size:0.85rem;color:#4d5156;line-height:1.5}
+[data-theme="dark"] .serp-ad-desc{color:#bdc1c6}
+.serp-sitelinks{display:flex;flex-wrap:wrap;gap:0;margin-top:8px}
+.serp-sitelink{flex:1 1 45%;padding:6px 0;border-top:1px solid #ebebeb}
+[data-theme="dark"] .serp-sitelink{border-top-color:rgba(255,255,255,0.06)}
+.serp-sitelink-title{font-size:0.85rem;color:#1a0dab;font-weight:400;cursor:pointer}
+.serp-sitelink-title:hover{text-decoration:underline}
+[data-theme="dark"] .serp-sitelink-title{color:#8ab4f8}
+.serp-sitelink-desc{font-size:0.75rem;color:#4d5156}
+[data-theme="dark"] .serp-sitelink-desc{color:#9aa0a6}
+.serp-no-ads{padding:1.5rem;text-align:center;border:2px dashed rgba(239,68,68,0.3);border-radius:12px;margin:1rem 0}
+.serp-no-ads .label{font-size:1rem;font-weight:700;color:var(--red);margin-bottom:0.25rem}
+.serp-no-ads .sub{font-size:0.85rem;color:var(--text-secondary)}
+.ads-callout{background:linear-gradient(135deg,rgba(245,158,11,0.1),rgba(245,158,11,0.05));border:1px solid rgba(245,158,11,0.25);border-radius:12px;padding:1.5rem 2rem;margin-top:2rem;display:flex;align-items:start;gap:1rem}
+.ads-callout .icon{font-size:1.5rem;flex-shrink:0;line-height:1}
+.ads-callout .content{flex:1}
+.ads-callout .content .headline{font-weight:700;color:var(--yellow);font-size:0.95rem;margin-bottom:0.25rem}
+.ads-callout .content .body{color:var(--text-secondary);font-size:0.88rem;line-height:1.6}
+@media print{.google-serp-card{background:#fff!important;border:1px solid #ddd!important}.serp-ad-title{color:#1a0dab!important}.serp-ad-url{color:#006621!important}.ads-callout{border:2px solid #f59e0b!important}}
+
+/* ========== SEO COMPETITOR MATRIX ========== */
+.seo-matrix-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;margin-top:2rem;border-radius:16px;background:var(--bg-card);border:1px solid var(--bg-card-border);backdrop-filter:blur(10px)}
+.seo-matrix{width:100%;border-collapse:collapse;font-size:0.88rem;min-width:600px}
+.seo-matrix thead th{padding:1rem 1.25rem;font-size:0.7rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--text-muted);border-bottom:2px solid var(--bg-card-border);text-align:center;white-space:nowrap}
+.seo-matrix thead th:first-child{text-align:left}
+.seo-matrix thead th.highlight{background:linear-gradient(135deg,rgba(64,180,229,0.08),rgba(204,34,255,0.08));color:var(--accent-light);position:relative}
+.seo-matrix thead th.highlight::after{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,#40B4E5,#CC22FF);border-radius:3px 3px 0 0}
+.seo-matrix tbody td{padding:0.85rem 1.25rem;border-bottom:1px solid var(--bg-card-border);text-align:center;color:var(--text-secondary);white-space:nowrap}
+.seo-matrix tbody td:first-child{text-align:left;font-weight:600;color:var(--text-primary)}
+.seo-matrix tbody td.highlight{background:linear-gradient(135deg,rgba(64,180,229,0.04),rgba(204,34,255,0.04))}
+.seo-matrix tbody tr:hover td{background:var(--bg-card-hover)}
+.seo-matrix tbody tr:hover td.highlight{background:linear-gradient(135deg,rgba(64,180,229,0.08),rgba(204,34,255,0.08))}
+.seo-matrix .status-good{color:var(--green)}
+.seo-matrix .status-warn{color:var(--yellow)}
+.seo-matrix .status-bad{color:var(--red)}
+.seo-matrix .winner-row td{border-top:2px solid var(--bg-card-border);font-weight:700;font-size:0.75rem;letter-spacing:0.08em;text-transform:uppercase}
+.seo-matrix .winner-row td.winning{background:linear-gradient(135deg,rgba(34,197,94,0.1),rgba(34,197,94,0.05));color:var(--green)}
+.seo-matrix .winner-row td.losing{background:linear-gradient(135deg,rgba(239,68,68,0.1),rgba(239,68,68,0.05));color:var(--red)}
+.seo-matrix .winner-row td.neutral{color:var(--text-muted)}
+@media print{.seo-matrix-wrap{background:#fff!important;border:1px solid #ddd!important}.seo-matrix thead th.highlight,.seo-matrix tbody td.highlight{background:#f0f7ff!important}}
 </style>
 </head>
 <body>
@@ -86,7 +145,9 @@ section{padding:6rem 2rem;position:relative}section:nth-child(even){background:v
     <div class="side-nav-dot" data-section="scorecard"><span class="tooltip">Scorecard</span></div>
     <div class="side-nav-dot" data-section="traffic"><span class="tooltip">Traffic</span></div>
     <div class="side-nav-dot" data-section="keywords"><span class="tooltip">Keywords</span></div>
+    <div class="side-nav-dot" data-section="ads"><span class="tooltip">Google Ads</span></div>
     <div class="side-nav-dot" data-section="competitors"><span class="tooltip">Competitors</span></div>
+    <div class="side-nav-dot" data-section="seo-matrix"><span class="tooltip">SEO Matrix</span></div>
     <div class="side-nav-dot" data-section="solutions"><span class="tooltip">Solutions</span></div>
     <div class="side-nav-dot" data-section="gaps"><span class="tooltip">Gaps</span></div>
     <div class="side-nav-dot" data-section="findings"><span class="tooltip">Findings</span></div>
@@ -272,6 +333,53 @@ section{padding:6rem 2rem;position:relative}section:nth-child(even){background:v
   </div>
 </section>
 
+<!-- 7B. GOOGLE ADS PREVIEW -->
+<section id="ads">
+  <div class="container reveal">
+    <div class="section-badge">06B — Google Ads Preview</div>
+    <h2 class="section-title">Your <span class="gradient">Google Ads</span></h2>
+    <p class="section-sub">What prospects see when they search for longevity services — and the massive gap in your paid strategy.</p>
+
+    <!-- Non-branded search -->
+    <div class="google-serp-card">
+      <div class="serp-search-bar">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 01-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+        <span class="query">longevity clinic near me</span>
+      </div>
+
+      <div class="serp-no-ads">
+        <div class="label">❌ No Fountain Life Ads Showing</div>
+        <div class="sub">Fountain Life is invisible for 28,000+ monthly high-intent searches on non-branded terms</div>
+      </div>
+    </div>
+
+    <!-- Branded search -->
+    <div style="margin-top:1.5rem;font-size:0.75rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-muted);margin-bottom:1rem">Only showing ads on branded searches:</div>
+
+    <div class="google-serp-card">
+      <div class="serp-search-bar">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 01-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+        <span class="query">fountain life</span>
+      </div>
+
+      <div class="serp-ad">
+        <div class="serp-sponsored">Sponsored</div>
+        <div class="serp-ad-url">https://www.fountainlife.com</div>
+        <div class="serp-ad-title">Fountain Life — Precision Health & Longevity</div>
+        <div class="serp-ad-desc">World-Class Diagnostic Testing | 5 Locations | Precision Health & Longevity Membership</div>
+      </div>
+    </div>
+
+    <div class="ads-callout">
+      <div class="icon">⚠️</div>
+      <div class="content">
+        <div class="headline">Only Advertising to People Who Already Know You</div>
+        <div class="body">Fountain Life only shows ads on their own brand name. They're missing <strong>28,000+ monthly high-intent searches</strong> like "longevity clinic near me" and "executive health screening" — prospects actively looking for exactly what Fountain Life offers.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- 8. COMPETITOR COMPARISON -->
 <section id="competitors">
   <div class="container reveal">
@@ -279,6 +387,86 @@ section{padding:6rem 2rem;position:relative}section:nth-child(even){background:v
     <h2 class="section-title">How You <span class="gradient">Compare</span></h2>
     <p class="section-sub">While you lead in traffic volume, competitors are closing in — and TruDiagnostic's traffic value exceeds yours with far fewer keywords.</p>
     <div class="chart-wrap"><canvas id="competitorChart" height="120"></canvas></div>
+  </div>
+</section>
+
+<!-- 8B. SEO COMPETITOR MATRIX -->
+<section id="seo-matrix">
+  <div class="container reveal">
+    <div class="section-badge">07B — SEO Competitor Matrix</div>
+    <h2 class="section-title">Detailed <span class="gradient">Comparison</span></h2>
+    <p class="section-sub">Despite leading in raw traffic, critical gaps in content and technical SEO are eroding your competitive edge.</p>
+    <div class="seo-matrix-wrap">
+      <table class="seo-matrix">
+        <thead>
+          <tr>
+            <th>Metric</th>
+            <th class="highlight">Fountain Life</th>
+            <th>TruDiagnostic</th>
+            <th>healthylongevity.clinic</th>
+            <th>diamandis.com</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Organic Keywords</td>
+            <td class="highlight"><span class="status-good">5,982</span></td>
+            <td>775</td>
+            <td>1,340</td>
+            <td>2,355</td>
+          </tr>
+          <tr>
+            <td>Monthly Traffic</td>
+            <td class="highlight"><span class="status-good">10,332</span></td>
+            <td>5,132</td>
+            <td>5,465</td>
+            <td>9,043</td>
+          </tr>
+          <tr>
+            <td>Traffic Value</td>
+            <td class="highlight"><span class="status-warn">$16,121</span></td>
+            <td><span class="status-good">$28,487</span></td>
+            <td>$5,735</td>
+            <td>$9,669</td>
+          </tr>
+          <tr>
+            <td>Non-Branded %</td>
+            <td class="highlight"><span class="status-bad">~10%</span></td>
+            <td><span class="status-good">~80%</span></td>
+            <td><span class="status-good">~70%</span></td>
+            <td>~60%</td>
+          </tr>
+          <tr>
+            <td>Blog Active</td>
+            <td class="highlight"><span class="status-bad">❌ Dead (Sep 2024)</span></td>
+            <td><span class="status-good">✅ Weekly</span></td>
+            <td><span class="status-good">✅ Active</span></td>
+            <td><span class="status-good">✅ Active</span></td>
+          </tr>
+          <tr>
+            <td>Schema Markup</td>
+            <td class="highlight"><span class="status-bad">❌ None</span></td>
+            <td><span class="status-good">✅</span></td>
+            <td><span class="status-warn">⚠️</span></td>
+            <td><span class="status-good">✅</span></td>
+          </tr>
+          <tr>
+            <td>Location Pages</td>
+            <td class="highlight"><span class="status-warn">⚠️ Weak</span></td>
+            <td style="color:var(--text-muted)">N/A</td>
+            <td style="color:var(--text-muted)">N/A</td>
+            <td style="color:var(--text-muted)">N/A</td>
+          </tr>
+          <tr class="winner-row">
+            <td>Who's Winning</td>
+            <td class="highlight losing">Volume Only</td>
+            <td class="winning">Best Value</td>
+            <td class="neutral">Growing</td>
+            <td class="neutral">Steady</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
   </div>
 </section>
 
