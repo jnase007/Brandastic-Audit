@@ -220,6 +220,24 @@ section:nth-child(even){background:var(--bg-secondary);transition:background var
   .grid-3{grid-template-columns:repeat(3,1fr)!important}
   .grid-2{grid-template-columns:1fr 1fr!important}
 }
+.stats-bar{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem;margin-bottom:3rem}
+.stat-card{background:var(--glass-bg);border:1px solid var(--glass-border);border-radius:16px;padding:1.5rem;text-align:center;backdrop-filter:blur(10px)}
+.stat-card .stat-num{font-size:2.5rem;font-weight:800;background:linear-gradient(135deg,#40B4E5,#CC22FF);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1.2}
+.stat-card .stat-label{font-size:0.85rem;color:var(--text-muted);margin-top:0.25rem}
+.value-cards{display:grid;grid-template-columns:repeat(2,1fr);gap:1.5rem;margin:2.5rem 0;text-align:left}
+.value-card{background:var(--glass-bg);border:1px solid var(--glass-border);border-radius:16px;padding:1.75rem;backdrop-filter:blur(10px)}
+.value-card h4{font-size:1.05rem;font-weight:700;margin:0 0 0.5rem;color:var(--text-primary)}
+.value-card p{font-size:0.9rem;color:var(--text-secondary);margin:0;line-height:1.5}
+.client-logos{text-align:center;margin:2.5rem 0 1.5rem;font-size:0.8rem;color:var(--text-muted);letter-spacing:0.05em}
+.client-logos .label{font-size:0.7rem;text-transform:uppercase;letter-spacing:0.15em;font-weight:600;margin-bottom:0.75rem;color:var(--text-muted)}
+.testimonial-block{max-width:640px;margin:2rem auto 3rem;text-align:left}
+.testimonial-block blockquote{margin:0;padding:1.25rem 1.5rem;border-left:3px solid transparent;border-image:linear-gradient(180deg,#40B4E5,#CC22FF) 1;font-style:italic;font-size:0.95rem;color:var(--text-secondary);line-height:1.6}
+.testimonial-block .attribution{margin-top:0.75rem;padding-left:1.5rem;font-size:0.8rem;color:var(--text-muted)}
+[data-theme="light"] .client-logos img{filter:invert(1) brightness(0.3)}
+.awards-row{display:flex;justify-content:center;align-items:center;gap:1.5rem;flex-wrap:wrap;margin:1.5rem 0;opacity:0.45}
+.awards-row img{height:40px;width:auto;filter:brightness(0.9)}
+[data-theme="light"] .awards-row img{filter:brightness(0.4)}
+@media(max-width:768px){.stats-bar{grid-template-columns:repeat(2,1fr)}.value-cards{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -730,14 +748,52 @@ section:nth-child(even){background:var(--bg-secondary);transition:background var
 <!-- ===== 15. WHY BRANDASTIC + NEXT STEPS ===== -->
 <section class="cta-section" id="cta">
   <div class="container reveal">
-    <div class="section-badge">14 — Next Steps</div>
+    <div class="section-badge">Sparked By Creativity, Fueled By Results.</div>
     <h2 class="section-title">Why <span class="gradient">Brandastic?</span></h2>
-    <div class="value-props">
-      <div class="value-prop"><span class="check">✓</span> Data-driven strategy, not guesswork</div>
-      <div class="value-prop"><span class="check">✓</span> Nonprofit expertise & Ad Grants certified</div>
-      <div class="value-prop"><span class="check">✓</span> Full-stack: SEO, content, paid, design</div>
-      <div class="value-prop"><span class="check">✓</span> Transparent reporting & communication</div>
+
+    <!-- Stats Bar -->
+    <div class="stats-bar">
+      <div class="stat-card"><div class="stat-num">15+</div><div class="stat-label">Years in Business</div></div>
+      <div class="stat-card"><div class="stat-num">450+</div><div class="stat-label">Clients Served</div></div>
+      <div class="stat-card"><div class="stat-num">118x</div><div class="stat-label">Best ROAS Achieved</div></div>
+      <div class="stat-card"><div class="stat-num">48x</div><div class="stat-label">Average Top ROAS</div></div>
     </div>
+
+    <!-- Value Prop Cards -->
+    <div class="value-cards">
+      <div class="value-card"><h4>Full-Service Digital</h4><p>From brand discovery to PPC, SEO, social media, and web development — one partner for everything.</p></div>
+      <div class="value-card"><h4>Data-Driven Results</h4><p>48x ROAS for Mono B. 118x ROAS for CalOPS. 33x ROAS for DESS. We don't guess — we deliver.</p></div>
+      <div class="value-card"><h4>15+ Years of Expertise</h4><p>450+ clients across healthcare, education, fashion, dental, and enterprise. We become your industry experts.</p></div>
+      <div class="value-card"><h4>Award-Winning Agency</h4><p>Sparked by creativity, fueled by results. Orange County's premier digital marketing agency.</p></div>
+    </div>
+
+    <!-- Client Logos -->
+    <div class="client-logos">
+      <div class="label">Trusted By</div>
+      <div style="margin:1rem auto;max-width:800px;opacity:0.6">
+        <img src="https://brandastic.com/wp-content/uploads/2021/11/Group-26719@2x.png" alt="Trusted by Ricoh, UFC Gym, Pocky, Orangetheory Fitness, Kia, and more" style="width:100%;filter:brightness(0.8);display:block" loading="lazy">
+      </div>
+      <div style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0)">Orangetheory Fitness · Kia · Ricoh · UFC Gym · Fujifilm · Meathead Movers · CalOPS · DESS-USA</div>
+    </div>
+
+    <!-- Awards -->
+    <div class="awards-row">
+      <img src="https://brandastic.com/wp-content/uploads/2024/10/ava.svg" alt="AVA Digital Award" loading="lazy">
+      <img src="https://brandastic.com/wp-content/uploads/2024/10/gdusa.svg" alt="GDUSA Award" loading="lazy">
+      <img src="https://brandastic.com/wp-content/uploads/2024/10/hermes.svg" alt="Hermes Creative Award" loading="lazy">
+      <img src="https://brandastic.com/wp-content/uploads/2024/10/marcom.svg" alt="MarCom Award" loading="lazy">
+      <img src="https://brandastic.com/wp-content/uploads/2024/10/ocda.svg" alt="OCDA Award" loading="lazy">
+      <img src="https://brandastic.com/wp-content/uploads/2024/10/topseo.svg" alt="TopSEO Award" loading="lazy">
+    </div>
+
+    <!-- Testimonial -->
+    <div class="testimonial-block">
+      <blockquote>"Working with the Brandastic team has been excellent. They are very responsive and have great marketing ideas and strategies!"</blockquote>
+      <div class="attribution">— Haziel Mitchell, Director of Marketing &amp; Sales, Ricoh</div>
+    </div>
+
+    <!-- Next Steps -->
+    <div class="section-badge" style="margin-top:1rem">Next Steps</div>
     <div class="steps">
       <div class="step">
         <div class="step-num">1</div>
