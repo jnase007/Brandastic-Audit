@@ -161,7 +161,7 @@ section:nth-child(even){background:var(--bg-secondary);transition:background var
 /* ========== WATERMARK ========== */
 .watermark{position:fixed;bottom:20px;left:20px;display:flex;align-items:center;gap:6px;padding:8px 16px;border-radius:10px;background:var(--glass-bg);border:1px solid var(--glass-border);backdrop-filter:blur(10px);font-size:0.7rem;font-weight:600;color:var(--text-muted);letter-spacing:0.05em;z-index:999;transition:background var(--transition)}
 /* ========== SCROLL ANIMATION ========== */
-.reveal{opacity:0;transform:translateY(30px);transition:opacity 0.8s ease,transform 0.8s ease}
+.reveal{opacity:0;transform:translateY(30px);will-change:opacity,transform;transition:opacity 0.8s ease,transform 0.8s ease}
 .reveal.visible{opacity:1;transform:translateY(0)}
 /* ========== PERSONA ========== */
 .persona-card{padding:2rem;text-align:center}
@@ -758,8 +758,8 @@ function toggleTheme(){applyTheme(document.documentElement.getAttribute('data-th
 applyTheme(getPreferredTheme());
 
 /* ========== INTERSECTION OBSERVER ========== */
-const obs=new IntersectionObserver((entries)=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target)}})},{threshold:0.1});
-document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+const obs=new IntersectionObserver((entries)=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add("visible");obs.unobserve(e.target)}})},{threshold:0.05,rootMargin:"50px"});
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));setTimeout(()=>{document.querySelectorAll('.reveal:not(.visible)').forEach(el=>el.classList.add('visible'))},2000);
 
 /* ========== ANIMATED COUNTERS ========== */
 function animateCounter(el,target,prefix='',suffix=''){
@@ -856,5 +856,5 @@ const chartObs=new IntersectionObserver((entries)=>{entries.forEach(e=>{if(e.isI
 }})},{threshold:0.1});
 document.querySelectorAll('canvas').forEach(el=>chartObs.observe(el));
 </script>
-</body>
+<noscript><style>.reveal{opacity:1!important;transform:none!important}</style></noscript></body>
 </html>
