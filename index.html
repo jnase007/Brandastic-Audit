@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Digital Audit Portal — Brandastic</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg-primary: #191F24;
+  --bg-secondary: #0d1117;
+  --bg-card: rgba(255,255,255,0.05);
+  --bg-card-border: rgba(255,255,255,0.08);
+  --text-primary: #ffffff;
+  --text-secondary: rgba(255,255,255,0.7);
+  --text-muted: rgba(255,255,255,0.4);
+  --accent-blue: #0644ED;
+  --accent-light: #40B4E5;
+  --accent-purple: #CC22FF;
+  --coastal-fog: #F5F3EF;
+  --glass-bg: rgba(255,255,255,0.05);
+  --glass-border: rgba(255,255,255,0.1);
+  --shadow: 0 8px 32px rgba(0,0,0,0.3);
+  --transition: 0.3s ease;
+}
+[data-theme="light"] {
+  --bg-primary: #F5F3EF;
+  --bg-secondary: #ffffff;
+  --bg-card: rgba(255,255,255,0.8);
+  --bg-card-border: rgba(0,0,0,0.08);
+  --text-primary: #191F24;
+  --text-secondary: rgba(25,31,36,0.7);
+  --text-muted: rgba(25,31,36,0.4);
+  --glass-bg: rgba(255,255,255,0.8);
+  --glass-border: rgba(0,0,0,0.08);
+  --shadow: 0 8px 32px rgba(0,0,0,0.08);
+}
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+body {
+  font-family:'Inter',system-ui,-apple-system,sans-serif;
+  background:var(--bg-primary);
+  color:var(--text-primary);
+  min-height:100vh;
+  transition: background-color var(--transition), color var(--transition);
+  overflow-x:hidden;
+}
+.theme-toggle {
+  position:fixed; top:24px; right:24px; z-index:1000;
+  width:56px; height:30px; border-radius:15px; border:none; cursor:pointer;
+  background:linear-gradient(135deg,#40B4E5,#CC22FF);
+  padding:2px; display:flex; align-items:center;
+  transition: var(--transition);
+}
+.theme-toggle .knob {
+  width:26px; height:26px; border-radius:50%;
+  background:var(--bg-primary);
+  display:flex; align-items:center; justify-content:center;
+  font-size:14px;
+  transition: transform var(--transition), background-color var(--transition);
+  transform:translateX(0);
+}
+[data-theme="light"] .theme-toggle .knob { transform:translateX(26px); }
+.hero {
+  min-height:100vh;
+  display:flex; flex-direction:column; align-items:center; justify-content:center;
+  text-align:center;
+  position:relative;
+  padding:2rem;
+}
+.hero::before {
+  content:'';
+  position:absolute; inset:0;
+  background:radial-gradient(ellipse at 30% 20%, rgba(64,180,229,0.15) 0%, transparent 50%),
+             radial-gradient(ellipse at 70% 80%, rgba(204,34,255,0.1) 0%, transparent 50%);
+  pointer-events:none;
+}
+.hero-badge {
+  display:inline-flex; align-items:center; gap:8px;
+  padding:8px 20px;
+  border-radius:50px;
+  background:var(--glass-bg);
+  border:1px solid var(--glass-border);
+  backdrop-filter:blur(10px);
+  font-size:0.8rem;
+  font-weight:600;
+  letter-spacing:0.15em;
+  text-transform:uppercase;
+  color:var(--text-secondary);
+  margin-bottom:2rem;
+  animation:fadeInDown 0.8s ease;
+}
+.hero-badge .dot {
+  width:8px; height:8px; border-radius:50%;
+  background:linear-gradient(135deg,#40B4E5,#CC22FF);
+  animation:pulse 2s infinite;
+}
+@keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0.5;transform:scale(0.8)} }
+@keyframes fadeInDown { from{opacity:0;transform:translateY(-20px)} to{opacity:1;transform:translateY(0)} }
+@keyframes fadeInUp { from{opacity:0;transform:translateY(30px)} to{opacity:1;transform:translateY(0)} }
+@keyframes gradientShift { 0%{background-position:0% 50%} 50%{background-position:100% 50%} 100%{background-position:0% 50%} }
+h1 {
+  font-size:clamp(2.5rem,6vw,5rem);
+  font-weight:900;
+  letter-spacing:-0.03em;
+  line-height:1.05;
+  margin-bottom:1rem;
+  animation:fadeInUp 0.8s ease 0.2s both;
+}
+h1 .gradient-text {
+  background:linear-gradient(135deg,#40B4E5,#CC22FF,#40B4E5);
+  background-size:200% auto;
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  background-clip:text;
+  animation:gradientShift 4s ease infinite;
+}
+.hero-sub {
+  font-size:clamp(1rem,2vw,1.3rem);
+  color:var(--text-secondary);
+  max-width:500px;
+  animation:fadeInUp 0.8s ease 0.4s both;
+}
+.cards-section {
+  max-width:1200px;
+  margin:-10vh auto 4rem;
+  padding:0 2rem;
+  position:relative;
+  z-index:1;
+}
+.cards-grid {
+  display:grid;
+  grid-template-columns:repeat(auto-fit, minmax(320px, 1fr));
+  gap:2rem;
+}
+.audit-card {
+  background:var(--bg-card);
+  border:1px solid var(--bg-card-border);
+  border-radius:20px;
+  padding:2.5rem;
+  backdrop-filter:blur(10px);
+  transition:transform var(--transition), box-shadow var(--transition), border-color var(--transition);
+  text-decoration:none;
+  color:var(--text-primary);
+  display:flex; flex-direction:column; gap:1rem;
+  position:relative;
+  overflow:hidden;
+  animation:fadeInUp 0.6s ease both;
+}
+.audit-card:nth-child(1){animation-delay:0.3s}
+.audit-card:nth-child(2){animation-delay:0.45s}
+.audit-card:nth-child(3){animation-delay:0.6s}
+.audit-card::before {
+  content:'';
+  position:absolute; top:0; left:0; right:0; height:3px;
+  background:linear-gradient(90deg,#40B4E5,#CC22FF);
+  opacity:0;
+  transition:opacity var(--transition);
+}
+.audit-card:hover { transform:translateY(-6px); box-shadow:var(--shadow); }
+.audit-card:hover::before { opacity:1; }
+.audit-card:hover { border-color:rgba(64,180,229,0.3); }
+.card-icon {
+  width:56px; height:56px; border-radius:14px;
+  background:linear-gradient(135deg,rgba(64,180,229,0.15),rgba(204,34,255,0.15));
+  display:flex; align-items:center; justify-content:center;
+  font-size:1.5rem;
+}
+.card-title { font-size:1.5rem; font-weight:700; letter-spacing:-0.02em; }
+.card-desc { color:var(--text-secondary); font-size:0.95rem; line-height:1.6; }
+.card-meta {
+  display:flex; gap:1rem; flex-wrap:wrap;
+  margin-top:auto; padding-top:1rem;
+  border-top:1px solid var(--bg-card-border);
+}
+.card-meta span {
+  font-size:0.75rem;
+  font-weight:600;
+  letter-spacing:0.1em;
+  text-transform:uppercase;
+  color:var(--text-muted);
+}
+.card-meta .value {
+  color:var(--accent-light);
+  text-transform:none;
+  letter-spacing:0;
+}
+.card-arrow {
+  position:absolute;
+  bottom:2.5rem; right:2.5rem;
+  width:36px; height:36px; border-radius:50%;
+  background:var(--glass-bg);
+  border:1px solid var(--glass-border);
+  display:flex; align-items:center; justify-content:center;
+  font-size:1.1rem;
+  color:var(--text-muted);
+  transition:all var(--transition);
+}
+.audit-card:hover .card-arrow {
+  background:linear-gradient(135deg,#40B4E5,#CC22FF);
+  color:#fff;
+  border-color:transparent;
+}
+footer {
+  text-align:center;
+  padding:3rem 2rem;
+  color:var(--text-muted);
+  font-size:0.85rem;
+}
+footer a { color:var(--accent-light); text-decoration:none; }
+@media(max-width:768px) {
+  .cards-section { margin-top:-4vh; }
+  .cards-grid { grid-template-columns:1fr; }
+}
+</style>
+</head>
+<body>
+<button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme"><div class="knob">🌙</div></button>
+
+<section class="hero">
+  <div class="hero-badge"><span class="dot"></span> Brandastic Intelligence</div>
+  <h1>Digital Audit<br><span class="gradient-text">Portal</span></h1>
+  <p class="hero-sub">Premium digital marketing audits. Deep analysis. Actionable strategy. Real results.</p>
+</section>
+
+<section class="cards-section">
+  <div class="cards-grid">
+    <a href="onpoint.html" class="audit-card">
+      <div class="card-icon">🎓</div>
+      <div class="card-title">On Point for College</div>
+      <div class="card-desc">Nonprofit helping first-generation students get into and through college. Syracuse, NY based with nationwide impact.</div>
+      <div class="card-meta">
+        <span>Traffic: <span class="value">916/mo</span></span>
+        <span>Score: <span class="value">27/100</span></span>
+      </div>
+      <div class="card-arrow">→</div>
+    </a>
+    <a href="integrity.html" class="audit-card">
+      <div class="card-icon">🤝</div>
+      <div class="card-title">Integrity Solutions</div>
+      <div class="card-desc">B2B sales training company building ethical, relationship-based sales cultures across healthcare, banking, and pharma.</div>
+      <div class="card-meta">
+        <span>Traffic: <span class="value">2,260/mo</span></span>
+        <span>Score: <span class="value">48/100</span></span>
+      </div>
+      <div class="card-arrow">→</div>
+    </a>
+    <a href="fountainlife.html" class="audit-card">
+      <div class="card-icon">🧬</div>
+      <div class="card-title">Fountain Life</div>
+      <div class="card-desc">Premium longevity clinic backed by Peter Diamandis. AI-powered diagnostics and concierge health across 5 locations.</div>
+      <div class="card-meta">
+        <span>Traffic: <span class="value">10,332/mo</span></span>
+        <span>Score: <span class="value">42/100</span></span>
+      </div>
+      <div class="card-arrow">→</div>
+    </a>
+  </div>
+</section>
+
+<footer>
+  <p>© 2026 <a href="https://brandastic.com" target="_blank">Brandastic</a> · hello@brandastic.com · All audits confidential</p>
+</footer>
+
+<script>
+function getPreferredTheme(){
+  const s=localStorage.getItem('brandastic-theme');
+  if(s)return s;
+  return window.matchMedia('(prefers-color-scheme:light)').matches?'light':'dark';
+}
+function applyTheme(t){
+  document.documentElement.setAttribute('data-theme',t);
+  localStorage.setItem('brandastic-theme',t);
+  document.querySelector('.theme-toggle .knob').textContent=t==='dark'?'🌙':'☀️';
+}
+function toggleTheme(){
+  const c=document.documentElement.getAttribute('data-theme');
+  applyTheme(c==='dark'?'light':'dark');
+}
+applyTheme(getPreferredTheme());
+</script>
+</body>
+</html>
