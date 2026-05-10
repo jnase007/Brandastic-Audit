@@ -39,9 +39,6 @@ a{color:var(--accent-light);text-decoration:none}
 .nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:0 2rem;height:64px;display:flex;align-items:center;justify-content:space-between;background:var(--glass-bg);backdrop-filter:blur(20px);border-bottom:1px solid var(--glass-border);transition:background var(--transition)}
 .nav-brand{font-weight:700;font-size:0.9rem;letter-spacing:0.05em;display:flex;align-items:center;gap:8px}
 .nav-brand .dot{width:8px;height:8px;border-radius:50%;background:linear-gradient(135deg,#40B4E5,#CC22FF)}
-.nav-links{display:flex;align-items:center;gap:4px;flex-wrap:wrap}
-.nav-links a{padding:6px 12px;border-radius:8px;font-size:0.75rem;font-weight:500;color:var(--text-secondary);transition:all var(--transition);letter-spacing:0.02em}
-.nav-links a:hover{background:var(--bg-card);color:var(--text-primary)}
 .nav-actions{display:flex;align-items:center;gap:12px}
 .theme-toggle{width:48px;height:26px;border-radius:13px;border:none;cursor:pointer;background:linear-gradient(135deg,#40B4E5,#CC22FF);padding:2px;display:flex;align-items:center;transition:var(--transition);flex-shrink:0}
 .theme-toggle .knob{width:22px;height:22px;border-radius:50%;background:var(--bg-primary);display:flex;align-items:center;justify-content:center;font-size:11px;transition:transform var(--transition),background-color var(--transition);transform:translateX(0)}
@@ -173,12 +170,22 @@ section:nth-child(even){background:var(--bg-secondary);transition:background var
 .persona-discover{font-size:0.85rem;color:var(--text-secondary);line-height:1.6}
 /* ========== CHART WRAPPER ========== */
 .chart-wrap{background:var(--bg-card);border:1px solid var(--bg-card-border);border-radius:16px;padding:2rem;backdrop-filter:blur(10px);transition:background var(--transition),border-color var(--transition)}
+
+/* ========== SIDE DOT NAV ========== */
+.side-nav{position:fixed;right:1.2rem;top:50%;transform:translateY(-50%);z-index:999;display:flex;flex-direction:column;align-items:center;padding:14px 8px;border-radius:999px;background:var(--glass-bg);backdrop-filter:blur(20px);border:1px solid var(--glass-border);box-shadow:var(--shadow);transition:background var(--transition),border-color var(--transition)}
+.side-nav-line{position:absolute;top:14px;bottom:14px;width:1px;background:var(--glass-border);z-index:0}
+.side-nav-dot{position:relative;z-index:1;width:8px;height:8px;border-radius:50%;background:var(--text-muted);margin:7px 0;cursor:pointer;transition:all 0.3s ease;flex-shrink:0}
+.side-nav-dot:hover{background:var(--text-secondary);transform:scale(1.3)}
+.side-nav-dot.active{width:10px;height:10px;background:linear-gradient(135deg,#40B4E5,#CC22FF);box-shadow:0 0 10px rgba(64,180,229,0.5);margin:6px 0}
+.side-nav-dot .tooltip{position:absolute;right:calc(100% + 12px);top:50%;transform:translateY(-50%) translateX(6px);background:var(--glass-bg);backdrop-filter:blur(16px);border:1px solid var(--glass-border);color:var(--text-primary);padding:4px 10px;border-radius:8px;font-size:0.7rem;font-weight:600;letter-spacing:0.03em;white-space:nowrap;opacity:0;pointer-events:none;transition:all 0.25s ease;box-shadow:var(--shadow)}
+.side-nav-dot:hover .tooltip{opacity:1;transform:translateY(-50%) translateX(0)}
+@media(max-width:768px){.side-nav{display:none}}
+@media print{.side-nav{display:none}}
 /* ========== RESPONSIVE ========== */
 @media(max-width:1024px){.grid-4{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:768px){
   .grid-2,.grid-3,.grid-4{grid-template-columns:1fr}
-  .nav-links{display:none}
-  .ps-row{grid-template-columns:1fr;text-align:center}
+    .ps-row{grid-template-columns:1fr;text-align:center}
   .ps-arrow{transform:rotate(90deg)}
   .timeline{flex-direction:column;gap:2rem}
   .timeline::before{display:none}
@@ -217,26 +224,27 @@ section:nth-child(even){background:var(--bg-secondary);transition:background var
 <!-- NAV -->
 <nav class="nav">
   <div class="nav-brand"><span class="dot"></span> BRANDASTIC</div>
-  <div class="nav-links">
-    <a href="#overview">Overview</a>
-    <a href="#summary">Summary</a>
-    <a href="#personas">Personas</a>
-    <a href="#scorecard">Scorecard</a>
-    <a href="#traffic">Traffic</a>
-    <a href="#keywords">Keywords</a>
-    <a href="#competitors">Competitors</a>
-    <a href="#solutions">Solutions</a>
-    <a href="#gaps">Gaps</a>
-    <a href="#findings">Findings</a>
-    <a href="#strategy">Strategy</a>
-    <a href="#roadmap">Roadmap</a>
-    <a href="#roi">ROI</a>
-  </div>
   <div class="nav-actions">
     <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme"><div class="knob">🌙</div></button>
     <button class="pdf-btn" onclick="window.print()">📄 Download PDF</button>
   </div>
 </nav>
+<div class="side-nav">
+  <div class="side-nav-line"></div>
+    <div class="side-nav-dot active" data-section="overview"><span class="tooltip">Overview</span></div>
+    <div class="side-nav-dot" data-section="summary"><span class="tooltip">Summary</span></div>
+    <div class="side-nav-dot" data-section="personas"><span class="tooltip">Personas</span></div>
+    <div class="side-nav-dot" data-section="scorecard"><span class="tooltip">Scorecard</span></div>
+    <div class="side-nav-dot" data-section="traffic"><span class="tooltip">Traffic</span></div>
+    <div class="side-nav-dot" data-section="keywords"><span class="tooltip">Keywords</span></div>
+    <div class="side-nav-dot" data-section="competitors"><span class="tooltip">Competitors</span></div>
+    <div class="side-nav-dot" data-section="solutions"><span class="tooltip">Solutions</span></div>
+    <div class="side-nav-dot" data-section="gaps"><span class="tooltip">Gaps</span></div>
+    <div class="side-nav-dot" data-section="findings"><span class="tooltip">Findings</span></div>
+    <div class="side-nav-dot" data-section="strategy"><span class="tooltip">Strategy</span></div>
+    <div class="side-nav-dot" data-section="roadmap"><span class="tooltip">Roadmap</span></div>
+    <div class="side-nav-dot" data-section="roi"><span class="tooltip">ROI</span></div>
+</div>
 
 <!-- WATERMARK -->
 <div class="watermark"><span class="dot" style="width:6px;height:6px;border-radius:50%;background:linear-gradient(135deg,#40B4E5,#CC22FF);display:inline-block"></span> Prepared by Brandastic</div>
@@ -855,6 +863,34 @@ const chartObs=new IntersectionObserver((entries)=>{entries.forEach(e=>{if(e.isI
   chartObs.unobserve(e.target);
 }})},{threshold:0.1});
 document.querySelectorAll('canvas').forEach(el=>chartObs.observe(el));
+
+/* ========== SIDE DOT NAV ========== */
+(function(){
+  const sections = document.querySelectorAll('section[id]');
+  const nav = document.querySelector('.side-nav');
+  if(!nav || !sections.length) return;
+  const dots = nav.querySelectorAll('.side-nav-dot');
+
+  /* Click → smooth scroll */
+  dots.forEach(dot => {
+    dot.addEventListener('click', () => {
+      const target = document.getElementById(dot.dataset.section);
+      if(target) target.scrollIntoView({behavior:'smooth',block:'start'});
+    });
+  });
+
+  /* IntersectionObserver → active dot */
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if(e.isIntersecting){
+        dots.forEach(d => d.classList.remove('active'));
+        const active = nav.querySelector('[data-section="'+e.target.id+'"]');
+        if(active) active.classList.add('active');
+      }
+    });
+  }, {rootMargin:'-20% 0px -70% 0px'});
+  sections.forEach(s => obs.observe(s));
+})();
 </script>
 <noscript><style>.reveal{opacity:1!important;transform:none!important}</style></noscript></body>
 </html>
