@@ -846,11 +846,11 @@ document.querySelectorAll('[data-count]').forEach(el=>counterObs.observe(el));se
 
 /* ========== SCORE RINGS ========== */
 const ringObs=new IntersectionObserver((entries)=>{entries.forEach(e=>{if(e.isIntersecting){e.target.querySelectorAll('.fg[data-target]').forEach(fg=>{fg.style.strokeDashoffset=fg.dataset.target});ringObs.unobserve(e.target)}})},{threshold:0.3});
-document.querySelectorAll('#scorecard .container').forEach(el=>ringObs.observe(el));
+document.querySelectorAll('#scorecard .container').forEach(el=>ringObs.observe(el));setTimeout(()=>{document.querySelectorAll('.fg[data-target]').forEach(fg=>{fg.style.strokeDashoffset=fg.dataset.target})},2000);
 
 /* ========== OVERALL BAR ========== */
 const barObs=new IntersectionObserver((entries)=>{entries.forEach(e=>{if(e.isIntersecting){e.target.querySelector('.fill').style.width=e.target.querySelector('.fill').dataset.target+'%';barObs.unobserve(e.target)}})},{threshold:0.3});
-document.querySelectorAll('.overall-bar').forEach(el=>barObs.observe(el));
+document.querySelectorAll('.overall-bar').forEach(el=>barObs.observe(el));setTimeout(()=>{document.querySelectorAll('.overall-bar .fill').forEach(el=>{if(el.style.width==='0%')el.style.width=el.dataset.target+'%'})},2000);
 
 /* ========== CHARTS ========== */
 let trafficChart,competitorChart;
