@@ -413,14 +413,52 @@ section{padding:6rem 2rem;position:relative}section:nth-child(even){background:v
 <!-- 15. WHY BRANDASTIC + CTA -->
 <section class="cta-section" id="cta">
   <div class="container reveal">
-    <div class="section-badge">14 — Next Steps</div>
+    <div class="section-badge">Sparked By Creativity, Fueled By Results.</div>
     <h2 class="section-title">Why <span class="gradient">Brandastic?</span></h2>
-    <div class="value-props">
-      <div class="value-prop"><span class="check">✓</span> Healthcare & longevity marketing expertise</div>
-      <div class="value-prop"><span class="check">✓</span> Multi-location local SEO specialists</div>
-      <div class="value-prop"><span class="check">✓</span> Full-stack: SEO, content, paid, design</div>
-      <div class="value-prop"><span class="check">✓</span> Transparent reporting & communication</div>
+
+    <!-- Stats Bar -->
+    <div class="stats-bar">
+      <div class="stat-card"><div class="stat-num">15+</div><div class="stat-label">Years in Business</div></div>
+      <div class="stat-card"><div class="stat-num">450+</div><div class="stat-label">Clients Served</div></div>
+      <div class="stat-card"><div class="stat-num">118x</div><div class="stat-label">Best ROAS Achieved</div></div>
+      <div class="stat-card"><div class="stat-num">48x</div><div class="stat-label">Average Top ROAS</div></div>
     </div>
+
+    <!-- Value Prop Cards -->
+    <div class="value-cards">
+      <div class="value-card"><h4>Full-Service Digital</h4><p>From brand discovery to PPC, SEO, social media, and web development — one partner for everything.</p></div>
+      <div class="value-card"><h4>Data-Driven Results</h4><p>48x ROAS for Mono B. 118x ROAS for CalOPS. 33x ROAS for DESS. We don't guess — we deliver.</p></div>
+      <div class="value-card"><h4>15+ Years of Expertise</h4><p>450+ clients across healthcare, education, fashion, dental, and enterprise. We become your industry experts.</p></div>
+      <div class="value-card"><h4>Award-Winning Agency</h4><p>Sparked by creativity, fueled by results. Orange County's premier digital marketing agency.</p></div>
+    </div>
+
+    <!-- Client Logos -->
+    <div class="client-logos">
+      <div class="label">Trusted By</div>
+      <div style="margin:1rem auto;max-width:800px;opacity:0.6">
+        <img src="https://brandastic.com/wp-content/uploads/2021/11/Group-26719@2x.png" alt="Trusted by Ricoh, UFC Gym, Pocky, Orangetheory Fitness, Kia, and more" style="width:100%;filter:brightness(0.8);display:block" loading="lazy">
+      </div>
+      <div style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0)">Orangetheory Fitness · Kia · Ricoh · UFC Gym · Fujifilm · Meathead Movers · CalOPS · DESS-USA</div>
+    </div>
+
+    <!-- Awards -->
+    <div class="awards-row">
+      <img src="https://brandastic.com/wp-content/uploads/2024/10/ava.svg" alt="AVA Digital Award" loading="lazy">
+      <img src="https://brandastic.com/wp-content/uploads/2024/10/gdusa.svg" alt="GDUSA Award" loading="lazy">
+      <img src="https://brandastic.com/wp-content/uploads/2024/10/hermes.svg" alt="Hermes Creative Award" loading="lazy">
+      <img src="https://brandastic.com/wp-content/uploads/2024/10/marcom.svg" alt="MarCom Award" loading="lazy">
+      <img src="https://brandastic.com/wp-content/uploads/2024/10/ocda.svg" alt="OCDA Award" loading="lazy">
+      <img src="https://brandastic.com/wp-content/uploads/2024/10/topseo.svg" alt="TopSEO Award" loading="lazy">
+    </div>
+
+    <!-- Testimonial -->
+    <div class="testimonial-block">
+      <blockquote>"Working with the Brandastic team has been excellent. They are very responsive and have great marketing ideas and strategies!"</blockquote>
+      <div class="attribution">— Haziel Mitchell, Director of Marketing &amp; Sales, Ricoh</div>
+    </div>
+
+    <!-- Next Steps -->
+    <div class="section-badge" style="margin-top:1rem">Next Steps</div>
     <div class="steps">
       <div class="step"><div class="step-num">1</div><div class="title">Kickoff Call</div><div class="desc">We're here — reviewing your audit and discussing goals</div></div>
       <div class="step"><div class="step-num">2</div><div class="title">Roadmap Review</div><div class="desc">Custom strategy roadmap tailored to your goals and budget</div></div>
@@ -438,7 +476,7 @@ function toggleTheme(){applyTheme(document.documentElement.getAttribute('data-th
 applyTheme(getPreferredTheme());
 const obs=new IntersectionObserver((entries)=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target)}})},{threshold:0.1});document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));setTimeout(()=>{document.querySelectorAll('.reveal:not(.visible)').forEach(el=>el.classList.add('visible'))},2000);
 function animateCounter(el,target,prefix='',suffix=''){const duration=2000;const start=performance.now();const fmt=n=>n>=1000000?(n/1000000).toFixed(1)+'M':n>=10000?Math.round(n).toLocaleString():n.toLocaleString();function step(now){const p=Math.min((now-start)/duration,1);const eased=1-Math.pow(1-p,3);el.textContent=prefix+fmt(Math.round(target*eased))+suffix;if(p<1)requestAnimationFrame(step)}requestAnimationFrame(step)}
-const counterObs=new IntersectionObserver((entries)=>{entries.forEach(e=>{if(e.isIntersecting){const t=parseInt(e.target.dataset.count);if(!t)return;const p=e.target.dataset.prefix||'';const s=e.target.dataset.suffix||'';animateCounter(e.target,t,p,s);counterObs.unobserve(e.target)}})},{threshold:0.3});document.querySelectorAll('[data-count]').forEach(el=>counterObs.observe(el));
+const counterObs=new IntersectionObserver((entries)=>{entries.forEach(e=>{if(e.isIntersecting){const t=parseInt(e.target.dataset.count);if(!t)return;const p=e.target.dataset.prefix||'';const s=e.target.dataset.suffix||'';animateCounter(e.target,t,p,s);counterObs.unobserve(e.target)}})},{threshold:0.3});document.querySelectorAll('[data-count]').forEach(el=>counterObs.observe(el));setTimeout(()=>{document.querySelectorAll('[data-count]').forEach(el=>{if(el.textContent==='0'){const t=parseInt(el.dataset.count);if(!t)return;const p=el.dataset.prefix||'';const s=el.dataset.suffix||'';animateCounter(el,t,p,s)}})},2000);
 const ringObs=new IntersectionObserver((entries)=>{entries.forEach(e=>{if(e.isIntersecting){e.target.querySelectorAll('.fg[data-target]').forEach(fg=>{fg.style.strokeDashoffset=fg.dataset.target});ringObs.unobserve(e.target)}})},{threshold:0.3});document.querySelectorAll('#scorecard .container').forEach(el=>ringObs.observe(el));
 const barObs=new IntersectionObserver((entries)=>{entries.forEach(e=>{if(e.isIntersecting){e.target.querySelector('.fill').style.width=e.target.querySelector('.fill').dataset.target+'%';barObs.unobserve(e.target)}})},{threshold:0.3});document.querySelectorAll('.overall-bar').forEach(el=>barObs.observe(el));
 

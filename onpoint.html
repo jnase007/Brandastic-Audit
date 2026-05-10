@@ -842,7 +842,7 @@ function animateCounter(el,target,prefix='',suffix=''){
   requestAnimationFrame(step);
 }
 const counterObs=new IntersectionObserver((entries)=>{entries.forEach(e=>{if(e.isIntersecting){const t=parseInt(e.target.dataset.count);const p=e.target.dataset.prefix||'';const s=e.target.dataset.suffix||'';animateCounter(e.target,t,p,s);counterObs.unobserve(e.target)}})},{threshold:0.3});
-document.querySelectorAll('[data-count]').forEach(el=>counterObs.observe(el));
+document.querySelectorAll('[data-count]').forEach(el=>counterObs.observe(el));setTimeout(()=>{document.querySelectorAll('[data-count]').forEach(el=>{if(el.textContent==='0'){const t=parseInt(el.dataset.count);if(!t)return;const p=el.dataset.prefix||'';const s=el.dataset.suffix||'';animateCounter(el,t,p,s)}})},2000);
 
 /* ========== SCORE RINGS ========== */
 const ringObs=new IntersectionObserver((entries)=>{entries.forEach(e=>{if(e.isIntersecting){e.target.querySelectorAll('.fg[data-target]').forEach(fg=>{fg.style.strokeDashoffset=fg.dataset.target});ringObs.unobserve(e.target)}})},{threshold:0.3});
