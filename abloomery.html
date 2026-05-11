@@ -193,6 +193,7 @@ section{padding:3.5rem 2rem;position:relative}section:nth-child(even){background
 <!-- NAV -->
 <nav class="nav">
   <div class="nav-brand"><span class="dot"></span> BRANDASTIC</div>
+  <div class="nav-slide-title" id="navSlideTitle"></div>
   <div class="nav-actions">
     <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme"><div class="knob">☀️</div></button>
     <button class="pdf-btn" onclick="window.print()">📄 Download PDF</button>
@@ -684,6 +685,10 @@ function getPreferredTheme(){const s=localStorage.getItem('brandastic-theme');if
 function applyTheme(t){document.documentElement.setAttribute('data-theme',t);localStorage.setItem('brandastic-theme',t);document.querySelector('.theme-toggle .knob').textContent=t==='dark'?'🌙':'☀️'}
 function toggleTheme(){applyTheme(document.documentElement.getAttribute('data-theme')==='dark'?'light':'dark')}
 applyTheme(getPreferredTheme());
+
+/* ========== NAV SLIDE TITLE ========== */
+.nav-slide-title{position:absolute;left:50%;transform:translateX(-50%);font-size:0.75rem;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:var(--text-muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:40%;opacity:0;transition:opacity 0.3s ease;pointer-events:none}
+body.slide-mode .nav-slide-title{opacity:1}
 
 /* ===== SIDE DOT NAV ===== */
 (function(){
@@ -1278,6 +1283,13 @@ body.slide-mode .slide-arrow { display: flex; }
   function updateUI() {
     /* Counter */
     counter.textContent = (currentSlide + 1) + ' / ' + slides.length;
+    /* Nav slide title */
+    var navTitle = document.getElementById('navSlideTitle');
+    if (navTitle && slides[currentSlide]) {
+      var badge = slides[currentSlide].querySelector('.section-badge');
+      var title = slides[currentSlide].querySelector('.section-title');
+      navTitle.textContent = badge ? badge.textContent.trim() : (title ? title.textContent.trim().substring(0,50) : '');
+    }
     /* Progress */
     const pct = slides.length > 1 ? (currentSlide / (slides.length - 1)) * 100 : 100;
     progress.style.width = pct + '%';
