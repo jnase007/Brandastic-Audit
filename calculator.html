@@ -265,8 +265,8 @@ const DEFAULTS = {
     b2c: { closeRate: 35, dealValue: 500, ltv: 2000 }
   },
   ecommerce: {
-    b2b: { aov: 250, repeatRate: 40, ltv: 1000 },
-    b2c: { aov: 75, repeatRate: 25, ltv: 300 }
+    b2b: { aov: 250, repeatRate: 3, ltv: 1000 },
+    b2c: { aov: 75, repeatRate: 2, ltv: 300 }
   }
 };
 
@@ -280,7 +280,7 @@ const RANGES = {
   dealValue: { min: 50, max: 500000, step: 50 },
   ltv: { min: 100, max: 1000000, step: 100 },
   aov: { min: 10, max: 10000, step: 5 },
-  repeatRate: { min: 0, max: 100, step: 1 },
+  repeatRate: { min: 1, max: 10, step: 0.5 },
   ltv_ecom: { min: 50, max: 50000, step: 50 }
 };
 
@@ -370,7 +370,7 @@ function renderInputs() {
     title.textContent = 'E-commerce Settings';
     mode.innerHTML = `<h3 style="font-size:1rem;font-weight:700;margin-bottom:1.5rem;color:var(--text-primary)">E-commerce Settings</h3>` +
       makeInput('aov', 'Average Order Value', '$', '', RANGES.aov) +
-      makeInput('repeatRate', 'Repeat Purchase Rate', '', '%', RANGES.repeatRate) +
+      makeInput('repeatRate', 'Repeat Purchases', '', 'x', RANGES.repeatRate) +
       makeInput('ltv', 'Customer Lifetime Value', '$', '', { min: 50, max: 50000, step: 50 });
   }
 }
@@ -416,7 +416,7 @@ function updateLabel(el) {
   const key = el.dataset.key;
   const v = values[key];
   const isCurrency = ['budget','agencyFee','cpc','dealValue','ltv','aov'].includes(key);
-  const isPercent = ['convRate','profitMargin','closeRate','repeatRate'].includes(key);
+  const isPercent = ['convRate','profitMargin','closeRate'].includes(key);
   if (isCurrency) {
     labelSpan.textContent = '$' + (v % 1 !== 0 ? v.toFixed(2) : Number(v).toLocaleString('en-US'));
   } else if (isPercent) {
@@ -454,7 +454,7 @@ function calculate() {
     const roas = totalCost > 0 ? monthlyRevenue / totalCost : 0;
     const monthlyProfit = (monthlyRevenue * (profitMargin / 100)) - totalCost;
     // LTV: each customer brings lifetime value considering repeat purchases
-    const ltvRevenue = orders * ltv;
+    const ltvRevenue = orders * aov * repeatRate;
     const ltvRoas = totalCost > 0 ? ltvRevenue / totalCost : 0;
 
     return {
