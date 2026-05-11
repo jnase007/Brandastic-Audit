@@ -54,7 +54,8 @@ section:nth-child(even){background:var(--bg-secondary);transition:background var
 .section-title .gradient{background:linear-gradient(135deg,#40B4E5,#CC22FF);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
 .section-sub{color:var(--text-secondary);font-size:1.05rem;max-width:700px;margin-bottom:3rem;line-height:1.7}
 /* ========== HERO ========== */
-.hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding-top:64px;position:relative;overflow:hidden;background:linear-gradient(rgba(25,31,36,0.88),rgba(13,17,23,0.92)),url('images/team-meeting.jpg') center/cover no-repeat}[data-theme="light"] .hero{background:linear-gradient(rgba(245,243,239,0.9),rgba(255,255,255,0.92)),url('images/team-meeting.jpg') center/cover no-repeat}
+.hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding-top:64px;position:relative;overflow:hidden;background:#0d1117}[data-theme="light"] .hero{background:#f5f3ef}
+.hero-video{position:absolute;inset:0;z-index:0;overflow:hidden;pointer-events:none}.hero-video::after{content:'';position:absolute;inset:0;background:linear-gradient(rgba(13,17,23,0.7),rgba(13,17,23,0.85))}[data-theme="light"] .hero-video::after{background:linear-gradient(rgba(245,243,239,0.75),rgba(255,255,255,0.85))}.hero-video iframe{position:absolute;top:50%;left:50%;width:180vw;height:180vh;min-width:180%;min-height:180%;transform:translate(-50%,-50%);border:0}.hero>*:not(.hero-video){position:relative;z-index:1}
 .hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 30% 20%,rgba(64,180,229,0.12) 0%,transparent 50%),radial-gradient(ellipse at 70% 80%,rgba(204,34,255,0.08) 0%,transparent 50%);pointer-events:none}
 .hero-company{font-size:clamp(2.5rem,7vw,5.5rem);font-weight:900;letter-spacing:-0.04em;line-height:1;margin-bottom:1.5rem;background:linear-gradient(135deg,#fff 0%,rgba(255,255,255,0.7) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
 [data-theme="light"] .hero-company{background:linear-gradient(135deg,#191F24 0%,rgba(25,31,36,0.7) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
@@ -337,6 +338,7 @@ section:nth-child(even){background:var(--bg-secondary);transition:background var
 
 <!-- ===== 1. HERO ===== -->
 <section class="hero" id="hero">
+  <div class="hero-video"><iframe src="https://www.youtube.com/embed/qKzzqic7Gis?autoplay=1&mute=1&loop=1&playlist=qKzzqic7Gis&controls=0&showinfo=0&rel=0&modestbranding=1&playsinline=1&start=2" allow="autoplay; encrypted-media" allowfullscreen></iframe></div>
   <div class="section-badge" style="margin-bottom:2rem">Digital Marketing Audit</div>
   <h1 class="hero-company">On Point<br>for College</h1>
   <p style="color:var(--text-secondary);font-size:1.1rem;max-width:500px;text-align:center;margin-top:1rem">Comprehensive digital presence analysis & growth strategy</p>
