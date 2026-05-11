@@ -1166,6 +1166,7 @@ window.addEventListener("load",function(){setTimeout(function(){if(!trafficChart
 /* ========== NAV SLIDE TITLE ========== */
 .nav-slide-title{position:absolute;left:50%;transform:translateX(-50%);font-size:0.75rem;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:var(--text-muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:40%;opacity:0;transition:opacity 0.3s ease;pointer-events:none}
 body.slide-mode .nav-slide-title{opacity:1}
+.nav-slide-title.visible{opacity:1}
 
 /* ========== SIDE DOT NAV ========== */
 (function(){
@@ -1237,19 +1238,24 @@ body.slide-mode .nav-slide-title{opacity:1}
     sectionNames[s.id] = badge ? badge.textContent.trim() : (title ? title.textContent.trim().substring(0,40) : s.id);
   });
   let currentSection = '';
+  const navTitle = document.getElementById('navSlideTitle');
   const pillObs = new IntersectionObserver((entries) => {
     entries.forEach(e => {
       if(e.isIntersecting && e.target.id) {
         currentSection = sectionNames[e.target.id] || e.target.id;
         pill.textContent = currentSection;
         pill.classList.add('visible');
+        if(navTitle && !document.body.classList.contains('slide-mode')) {
+          navTitle.textContent = currentSection;
+          navTitle.classList.add('visible');
+        }
       }
     });
   }, {rootMargin:'-80px 0px -85% 0px'});
   sections.forEach(s => pillObs.observe(s));
   // Hide pill at top
   window.addEventListener('scroll', () => {
-    if(window.scrollY < 200) pill.classList.remove('visible');
+    if(window.scrollY < 200) { pill.classList.remove('visible'); if(navTitle) navTitle.classList.remove('visible'); }
   }, {passive:true});
 })();
 
