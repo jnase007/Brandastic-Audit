@@ -1479,7 +1479,7 @@ window.addEventListener("load",function(){setTimeout(function(){if(!trafficChart
   dots.forEach(dot => {
     dot.addEventListener('click', () => {
       const target = document.getElementById(dot.dataset.section);
-      if(target){const y=target.offsetTop-80;window.scrollTo({top:y,behavior:'smooth'});setTimeout(()=>{target.scrollIntoView({block:'start'});window.scrollBy(0,-80)},100);}
+      if(target){window.scrollTo({top:target.offsetTop-80,behavior:'instant'});}
     });
   });
 
