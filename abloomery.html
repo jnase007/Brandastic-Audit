@@ -296,6 +296,14 @@ section{padding:3.5rem 2rem;position:relative}section:nth-child(even){background
 @media print { .presenter-marker { display: none !important; } }
 
 
+
+/* Logo Marquee */
+.logo-marquee { overflow: hidden; width: 100%; position: relative; mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent); -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent); }
+.logo-marquee-track { display: flex; align-items: center; gap: 3rem; animation: marquee 25s linear infinite; width: max-content; }
+.logo-marquee-track img { height: 30px; opacity: 0.5; filter: grayscale(100%); transition: opacity 0.3s, filter 0.3s; flex-shrink: 0; }
+.logo-marquee-track img:hover { opacity: 1; filter: grayscale(0%); }
+@keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+
 /* Category Tags */
 .category-tag {
   display:inline-flex;align-items:center;gap:4px;
@@ -768,15 +776,38 @@ section{padding:3.5rem 2rem;position:relative}section:nth-child(even){background
 
     <div style="margin-top:2rem">
       <p style="color:var(--text-muted);font-size:0.7rem;font-weight:600;letter-spacing:0.15em;text-transform:uppercase;margin-bottom:1rem">Brands Who Trust Us</p>
-      <div style="display:flex;align-items:center;justify-content:center;gap:2rem;flex-wrap:wrap;opacity:0.5;filter:grayscale(100%)">
-        <img src="images/logos/Group-26705-1.svg" alt="Ricoh" style="height:28px">
-        <img src="images/logos/Group-26709.svg" alt="UFC Gym" style="height:28px">
-        <img src="images/logos/Group-26707-1.svg" alt="Pocky" style="height:28px">
-        <img src="images/logos/Group-26695.svg" alt="Orangetheory" style="height:28px">
-        <img src="images/logos/Group-26659.svg" alt="KIA" style="height:28px">
-        <img src="images/logos/Group-26661.svg" alt="HyperX" style="height:28px">
-        <img src="images/logos/Group-26663.svg" alt="" style="height:28px">
-        <img src="images/logos/Group-26664.svg" alt="" style="height:28px">
+      <div class="logo-marquee">
+        <div class="logo-marquee-track">
+          <img src="images/logos/Group-26705-1.svg" alt="Ricoh" style="height:30px">
+          <img src="images/logos/Group-26709.svg" alt="UFC Gym" style="height:30px">
+          <img src="images/logos/Group-26707-1.svg" alt="Pocky" style="height:30px">
+          <img src="images/logos/Group-26695.svg" alt="Orangetheory" style="height:30px">
+          <img src="images/logos/Group-26659.svg" alt="KIA" style="height:30px">
+          <img src="images/logos/Group-26661.svg" alt="HyperX" style="height:30px">
+          <img src="images/logos/Group-26663.svg" alt="" style="height:30px">
+          <img src="images/logos/Group-26664.svg" alt="" style="height:30px">
+          <img src="images/logos/Group-26672.svg" alt="" style="height:30px">
+          <img src="images/logos/Group-26674.svg" alt="" style="height:30px">
+          <img src="images/logos/Group-26693.svg" alt="" style="height:30px">
+          <img src="images/logos/Group-26691.svg" alt="" style="height:30px">
+          <img src="images/logos/Group-26700.svg" alt="" style="height:30px">
+          <img src="images/logos/Group-26703.svg" alt="" style="height:30px">
+          <!-- duplicate set for seamless loop -->
+          <img src="images/logos/Group-26705-1.svg" alt="Ricoh" style="height:30px">
+          <img src="images/logos/Group-26709.svg" alt="UFC Gym" style="height:30px">
+          <img src="images/logos/Group-26707-1.svg" alt="Pocky" style="height:30px">
+          <img src="images/logos/Group-26695.svg" alt="Orangetheory" style="height:30px">
+          <img src="images/logos/Group-26659.svg" alt="KIA" style="height:30px">
+          <img src="images/logos/Group-26661.svg" alt="HyperX" style="height:30px">
+          <img src="images/logos/Group-26663.svg" alt="" style="height:30px">
+          <img src="images/logos/Group-26664.svg" alt="" style="height:30px">
+          <img src="images/logos/Group-26672.svg" alt="" style="height:30px">
+          <img src="images/logos/Group-26674.svg" alt="" style="height:30px">
+          <img src="images/logos/Group-26693.svg" alt="" style="height:30px">
+          <img src="images/logos/Group-26691.svg" alt="" style="height:30px">
+          <img src="images/logos/Group-26700.svg" alt="" style="height:30px">
+          <img src="images/logos/Group-26703.svg" alt="" style="height:30px">
+        </div>
       </div>
     </div>
   </div>
