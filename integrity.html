@@ -153,14 +153,10 @@ section{padding:6rem 2rem;position:relative}section:nth-child(even){background:v
 @media print{.section-pill{display:none!important}}
 
 /* --- TOC Navigator --- */
-.toc-toggle{position:fixed;bottom:80px;left:20px;width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,#40B4E5,#CC22FF);color:#fff;border:none;cursor:pointer;font-size:1.2rem;display:flex;align-items:center;justify-content:center;z-index:1000;box-shadow:0 4px 20px rgba(64,180,229,0.3);transition:transform 0.3s ease,box-shadow 0.3s ease}
-.toc-toggle:hover{transform:scale(1.1);box-shadow:0 6px 30px rgba(64,180,229,0.5)}
-.toc-item{display:flex;align-items:center;gap:10px;padding:8px 12px;border-radius:8px;cursor:pointer;font-size:0.82rem;font-weight:500;color:var(--text-secondary);transition:all 0.2s ease;margin-bottom:2px}
-.toc-item:hover{background:var(--bg-card-hover);color:var(--text-primary)}
-.toc-item.passed{color:var(--green)}
-.toc-item .toc-check{width:18px;height:18px;border-radius:50%;border:2px solid var(--bg-card-border);display:flex;align-items:center;justify-content:center;font-size:0.6rem;flex-shrink:0;transition:all 0.3s ease}
-.toc-item.passed .toc-check{border-color:var(--green);background:rgba(34,197,94,0.15);color:var(--green)}
-@media(max-width:768px){.toc-toggle{display:none}}
+
+
+
+@media(max-width:768px){}
 
 /* --- Gradient Section Dividers --- */
 .gradient-divider{height:2px;background:linear-gradient(90deg,transparent,#40B4E5,#CC22FF,transparent);margin:0;opacity:0;transform:scaleX(0);transition:opacity 0.8s ease,transform 1s cubic-bezier(0.22,1,0.36,1);transform-origin:center}
@@ -1150,53 +1146,7 @@ window.addEventListener("load",function(){setTimeout(function(){if(!trafficChart
   }, {passive:true});
 })();
 
-/* --- 4. Table of Contents Navigator --- */
-(function(){
-  const toggle = document.createElement('button');
-  toggle.className = 'toc-toggle';
-  toggle.innerHTML = '📋';
-  toggle.title = 'Table of Contents';
-  toggle.setAttribute('aria-label', 'Table of Contents');
-  document.body.appendChild(toggle);
 
-  const panel = document.createElement('div');
-  panel.innerHTML = '<h3>Audit Sections</h3>';
-  document.body.appendChild(panel);
-
-  const sections = document.querySelectorAll('section[id]');
-  const items = [];
-  sections.forEach(s => {
-    const badge = s.querySelector('.section-badge');
-    const title = s.querySelector('.section-title');
-    const name = badge ? badge.textContent.trim() : (title ? title.textContent.trim().substring(0,40) : s.id);
-    const item = document.createElement('div');
-    item.className = 'toc-item';
-    item.innerHTML = '<div class="toc-check">✓</div><span>' + name + '</span>';
-    item.addEventListener('click', () => {
-      const y = s.offsetTop - 80;
-      window.scrollTo({top:y, behavior:'smooth'});
-      panel.classList.remove('open');
-    });
-    panel.appendChild(item);
-    items.push({el:item, section:s});
-  });
-
-  toggle.addEventListener('click', () => panel.classList.toggle('open'));
-  document.addEventListener('click', (e) => {
-    if(!panel.contains(e.target) && !toggle.contains(e.target)) panel.classList.remove('open');
-  });
-
-  // Track passed sections
-  const tocObs = new IntersectionObserver((entries) => {
-    entries.forEach(e => {
-      if(e.isIntersecting) {
-        const match = items.find(i => i.section === e.target);
-        if(match) match.el.classList.add('passed');
-      }
-    });
-  }, {rootMargin:'0px 0px -80% 0px'});
-  sections.forEach(s => tocObs.observe(s));
-})();
 
 /* --- 5. Gradient Section Dividers --- */
 (function(){
