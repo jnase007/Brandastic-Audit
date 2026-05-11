@@ -1,0 +1,801 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta name="robots" content="noindex, nofollow">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A Bloomery — Digital Growth Proposal by Brandastic</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{--bg-primary:#191F24;--bg-secondary:#0d1117;--bg-tertiary:#151a20;--bg-card:rgba(100,116,139,0.15);--bg-card-hover:rgba(100,116,139,0.2);--bg-card-border:rgba(100,116,139,0.2);--text-primary:#ffffff;--text-secondary:rgba(255,255,255,0.7);--text-muted:rgba(255,255,255,0.4);--accent-blue:#0644ED;--accent-light:#40B4E5;--accent-purple:#CC22FF;--coastal-fog:#F5F3EF;--glass-bg:rgba(100,116,139,0.15);--glass-border:rgba(255,255,255,0.1);--shadow:0 8px 32px rgba(0,0,0,0.3);--red:#ef4444;--yellow:#f59e0b;--green:#22c55e;--chart-grid:rgba(255,255,255,0.06);--chart-text:rgba(255,255,255,0.5);--transition:0.3s ease}
+[data-theme="light"]{--bg-primary:#F5F3EF;--bg-secondary:#ffffff;--bg-tertiary:#f0ede8;--bg-card:rgba(255,255,255,0.85);--bg-card-hover:rgba(255,255,255,0.95);--bg-card-border:rgba(0,0,0,0.08);--text-primary:#191F24;--text-secondary:rgba(25,31,36,0.7);--text-muted:rgba(25,31,36,0.4);--glass-bg:rgba(255,255,255,0.85);--glass-border:rgba(0,0,0,0.08);--shadow:0 8px 32px rgba(0,0,0,0.06);--chart-grid:rgba(0,0,0,0.06);--chart-text:rgba(0,0,0,0.5)}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth}body{font-family:'Inter',system-ui,-apple-system,sans-serif;background:var(--bg-primary);color:var(--text-primary);line-height:1.6;transition:background-color var(--transition),color var(--transition);overflow-x:hidden}a{color:var(--accent-light);text-decoration:none}
+
+/* NAV */
+.nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:0 2rem;height:64px;display:flex;align-items:center;justify-content:space-between;background:var(--glass-bg);backdrop-filter:blur(20px);border-bottom:1px solid var(--glass-border);transition:background var(--transition)}.nav-brand{font-weight:700;font-size:1.15rem;letter-spacing:0.05em;display:flex;align-items:center;gap:10px}.nav-brand .dot{width:10px;height:10px;border-radius:50%;background:linear-gradient(135deg,#40B4E5,#CC22FF)}.nav-actions{display:flex;align-items:center;gap:12px}
+.theme-toggle{width:56px;height:32px;min-width:44px;min-height:44px;border-radius:13px;border:none;cursor:pointer;background:linear-gradient(135deg,#40B4E5,#CC22FF);padding:2px;display:flex;align-items:center;transition:var(--transition);flex-shrink:0}.theme-toggle .knob{width:28px;height:28px;border-radius:50%;background:var(--bg-primary);display:flex;align-items:center;justify-content:center;font-size:11px;transition:transform var(--transition),background-color var(--transition);transform:translateX(0)}[data-theme="light"] .theme-toggle .knob{transform:translateX(24px)}
+.pdf-btn{display:inline-flex;align-items:center;gap:6px;padding:8px 18px;border-radius:10px;border:none;cursor:pointer;background:linear-gradient(135deg,#40B4E5,#CC22FF);color:#fff;font-family:inherit;font-size:0.78rem;font-weight:600;letter-spacing:0.03em;transition:transform var(--transition),box-shadow var(--transition);white-space:nowrap}.pdf-btn:hover{transform:translateY(-1px);box-shadow:0 4px 20px rgba(64,180,229,0.4)}
+
+/* SECTIONS */
+section{padding:3.5rem 2rem;position:relative}section:nth-child(even){background:var(--bg-secondary);transition:background var(--transition)}.container{max-width:1200px;margin:0 auto}
+.section-badge{display:inline-flex;align-items:center;gap:6px;padding:6px 16px;border-radius:50px;background:var(--glass-bg);border:1px solid var(--glass-border);font-size:0.7rem;font-weight:600;letter-spacing:0.15em;text-transform:uppercase;color:var(--text-muted);margin-bottom:1.5rem;backdrop-filter:blur(10px)}
+.section-title{font-size:clamp(1.8rem,4vw,2.8rem);font-weight:800;letter-spacing:-0.03em;margin-bottom:1rem;line-height:1.15}.section-title .gradient{background:linear-gradient(135deg,#40B4E5,#CC22FF);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}.section-sub{color:var(--text-secondary);font-size:1.05rem;max-width:700px;margin-bottom:3rem;line-height:1.7}
+
+/* HERO */
+.hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding-top:64px;position:relative;overflow:hidden;background:linear-gradient(135deg,#0c2a3a 0%,#0d1117 40%,#191F24 100%)}
+[data-theme="light"] .hero{background:linear-gradient(135deg,#e8f4f8 0%,#f5f3ef 40%,#ffffff 100%)}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 30% 20%,rgba(64,180,229,0.15) 0%,transparent 50%),radial-gradient(ellipse at 70% 80%,rgba(204,34,255,0.1) 0%,transparent 50%);pointer-events:none}
+.hero>*{position:relative;z-index:1}
+.hero-company{font-size:clamp(2.5rem,7vw,5.5rem);font-weight:900;letter-spacing:-0.04em;line-height:1;margin-bottom:1.5rem;background:linear-gradient(135deg,#fff 0%,rgba(255,255,255,0.7) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}[data-theme="light"] .hero-company{background:linear-gradient(135deg,#191F24 0%,rgba(25,31,36,0.7) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hero-meta{display:flex;flex-wrap:wrap;gap:1rem;justify-content:center;margin-top:1rem;margin-bottom:3rem}.hero-meta span{padding:8px 20px;border-radius:50px;background:var(--glass-bg);border:1px solid var(--glass-border);backdrop-filter:blur(10px);font-size:0.8rem;font-weight:500;color:var(--text-secondary)}
+.hero-scroll{position:absolute;bottom:1rem;animation:bounce 2s infinite;opacity:0.5}@keyframes bounce{0%,100%{transform:translateY(0)}50%{transform:translateY(8px)}}
+
+/* GRIDS */
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:2rem;align-items:start}.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}.grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem}
+
+/* CARDS */
+.card{background:var(--bg-card);border:1px solid var(--bg-card-border);border-radius:16px;padding:2rem;backdrop-filter:blur(10px);transition:transform var(--transition),box-shadow var(--transition),background var(--transition),border-color var(--transition)}.card:hover{transform:translateY(-3px);box-shadow:var(--shadow);border-color:rgba(64,180,229,0.2)}
+.metric-card{text-align:center;padding:2rem 1.5rem}.metric-card .value{font-size:2.2rem;font-weight:800;letter-spacing:-0.03em;background:linear-gradient(135deg,#40B4E5,#CC22FF);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}.metric-card .label{font-size:0.75rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--text-muted);margin-top:0.5rem}.metric-card .change{font-size:0.8rem;margin-top:0.3rem;font-weight:600}.metric-card .change.up{color:var(--green)}
+
+/* STRATEGY CARDS */
+.strategy-card{padding:2.5rem 2rem;border-top:3px solid transparent;background-image:linear-gradient(var(--bg-card),var(--bg-card)),linear-gradient(135deg,#40B4E5,#CC22FF);background-origin:border-box;background-clip:padding-box,border-box;border-radius:16px;text-align:center}.strategy-card .icon{font-size:2.5rem;margin-bottom:1rem}.strategy-card .title{font-weight:700;font-size:1.1rem;margin-bottom:0.75rem}.strategy-card .desc{color:var(--text-secondary);font-size:0.9rem;line-height:1.6;margin-bottom:1rem}.strategy-card .outcome{padding:0.75rem;border-radius:8px;background:rgba(64,180,229,0.08);font-size:0.8rem;font-weight:600;color:var(--accent-light)}
+
+/* TIMELINE */
+.timeline{display:flex;gap:0;margin-top:2rem;position:relative}.timeline::before{content:'';position:absolute;top:40px;left:0;right:0;height:3px;background:var(--bg-card-border)}.timeline-phase{flex:1;position:relative;padding-top:60px;padding-right:1.5rem}.timeline-dot{position:absolute;top:32px;left:0;width:18px;height:18px;border-radius:50%;background:linear-gradient(135deg,#40B4E5,#CC22FF);border:3px solid var(--bg-primary);z-index:1;transition:border-color var(--transition)}.timeline-phase .phase-label{font-size:0.7rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--accent-light);margin-bottom:0.5rem}.timeline-phase .phase-title{font-weight:700;font-size:1.1rem;margin-bottom:0.75rem}.timeline-phase .phase-items{list-style:none;display:flex;flex-direction:column;gap:0.4rem}.timeline-phase .phase-items li{font-size:0.9rem;color:var(--text-secondary);padding-left:1.2rem;position:relative}.timeline-phase .phase-items li::before{content:'';position:absolute;left:0;top:8px;width:6px;height:6px;border-radius:50%;background:var(--accent-light)}
+
+/* ROI GRID */
+.roi-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1.5rem}.roi-card{text-align:center;padding:2rem 1.5rem}.roi-card .label{font-size:0.7rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--text-muted);margin-bottom:0.75rem}.roi-card .after{font-size:2rem;font-weight:800;background:linear-gradient(135deg,#40B4E5,#CC22FF);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}.roi-card .detail{font-size:0.85rem;color:var(--text-secondary);margin-top:0.5rem}
+
+/* PERSONA */
+.persona-card{padding:2rem;text-align:center}.persona-avatar{width:72px;height:72px;border-radius:50%;margin:0 auto 1rem;display:flex;align-items:center;justify-content:center;font-size:2rem;background:linear-gradient(135deg,rgba(64,180,229,0.15),rgba(204,34,255,0.15))}.persona-name{font-weight:700;font-size:1.1rem;margin-bottom:0.25rem}.persona-demo{font-size:0.85rem;color:var(--text-muted);margin-bottom:1rem}.persona-channels{display:flex;flex-wrap:wrap;gap:6px;justify-content:center;margin-bottom:1rem}.persona-channels .ch{padding:4px 10px;border-radius:6px;background:var(--glass-bg);border:1px solid var(--glass-border);font-size:0.7rem;font-weight:600;color:var(--text-secondary)}.persona-discover{font-size:0.85rem;color:var(--text-secondary);line-height:1.6}
+
+/* STATS BAR / VALUE CARDS */
+.stats-bar{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem;margin-bottom:3rem}
+.stat-card{background:var(--glass-bg);border:1px solid var(--glass-border);border-radius:16px;padding:1.5rem;text-align:center;backdrop-filter:blur(10px)}
+.stat-card .stat-num{font-size:2.5rem;font-weight:800;background:linear-gradient(135deg,#40B4E5,#CC22FF);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1.2}
+.stat-card .stat-label{font-size:0.85rem;color:var(--text-muted);margin-top:0.25rem}
+.value-cards{display:grid;grid-template-columns:repeat(2,1fr);gap:1.5rem;margin:2.5rem 0;text-align:left}
+.value-card{background:var(--glass-bg);border:1px solid var(--glass-border);border-radius:16px;padding:1.75rem;backdrop-filter:blur(10px)}
+.value-card h4{font-size:1.05rem;font-weight:700;margin:0 0 0.5rem;color:var(--text-primary)}
+.value-card p{font-size:0.9rem;color:var(--text-secondary);margin:0;line-height:1.5}
+
+/* CTA SECTION */
+.cta-section{text-align:center;padding:8rem 2rem;position:relative;overflow:hidden;background:var(--bg-secondary)}
+.cta-section::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 50%,rgba(64,180,229,0.1) 0%,transparent 60%);pointer-events:none}
+.cta-btn{display:inline-flex;align-items:center;gap:8px;padding:16px 40px;border-radius:14px;background:linear-gradient(135deg,#40B4E5,#CC22FF);color:#fff;font-family:inherit;font-size:1.1rem;font-weight:700;border:none;cursor:pointer;transition:transform var(--transition),box-shadow var(--transition)}.cta-btn:hover{transform:translateY(-2px);box-shadow:0 8px 30px rgba(64,180,229,0.4)}
+@keyframes ctaPulse{0%{box-shadow:0 0 0 0 rgba(64,180,229,0.4)}70%{box-shadow:0 0 0 15px rgba(64,180,229,0)}100%{box-shadow:0 0 0 0 rgba(64,180,229,0)}}
+.cta-btn.pulse{animation:ctaPulse 2s ease-in-out infinite}
+
+/* WATERMARK */
+.watermark{position:fixed;bottom:20px;left:20px;display:flex;align-items:center;gap:6px;padding:8px 16px;border-radius:10px;background:var(--glass-bg);border:1px solid var(--glass-border);backdrop-filter:blur(10px);font-size:0.7rem;font-weight:600;color:var(--text-muted);letter-spacing:0.05em;z-index:999;transition:background var(--transition)}
+
+/* SIDE NAV */
+.side-nav{position:fixed;right:1.2rem;top:50%;transform:translateY(-50%);z-index:999;display:flex;flex-direction:column;align-items:center;padding:14px 8px;border-radius:999px;background:var(--glass-bg);backdrop-filter:blur(20px);border:1px solid var(--glass-border);box-shadow:var(--shadow);transition:background var(--transition),border-color var(--transition)}
+.side-nav-line{position:absolute;top:14px;bottom:14px;width:1px;background:var(--glass-border);z-index:0}
+.side-nav-dot{position:relative;z-index:1;width:8px;height:8px;border-radius:50%;background:var(--text-muted);margin:7px 0;cursor:pointer;transition:all 0.3s ease;flex-shrink:0}
+.side-nav-dot:hover{background:var(--text-secondary);transform:scale(1.3)}
+.side-nav-dot.active{width:10px;height:10px;background:linear-gradient(135deg,#40B4E5,#CC22FF);box-shadow:0 0 10px rgba(64,180,229,0.5);margin:6px 0}
+.side-nav-dot .tooltip{position:absolute;right:calc(100% + 12px);top:50%;transform:translateY(-50%) translateX(6px);background:var(--glass-bg);backdrop-filter:blur(16px);border:1px solid var(--glass-border);color:var(--text-primary);padding:4px 10px;border-radius:8px;font-size:0.7rem;font-weight:600;letter-spacing:0.03em;white-space:nowrap;opacity:0;pointer-events:none;transition:all 0.25s ease;box-shadow:var(--shadow)}
+.side-nav-dot:hover .tooltip{opacity:1;transform:translateY(-50%) translateX(0)}
+
+/* READING PROGRESS */
+.reading-progress{position:fixed;top:64px;left:0;width:0%;height:3px;background:linear-gradient(90deg,#40B4E5,#CC22FF);z-index:1001;transition:width 0.1s linear;pointer-events:none}
+
+/* SECTION PILL */
+.section-pill{position:fixed;top:58px;left:50%;transform:translateX(-50%) translateY(-10px);z-index:1001;padding:6px 18px;border-radius:50px;background:var(--glass-bg);backdrop-filter:blur(16px);border:1px solid var(--glass-border);font-size:0.7rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-muted);opacity:0;transition:opacity 0.3s ease,transform 0.3s ease;pointer-events:none;white-space:nowrap}
+.section-pill.visible{opacity:1;transform:translateX(-50%) translateY(0)}
+
+/* GRADIENT DIVIDER */
+.gradient-divider{height:2px;background:linear-gradient(90deg,transparent,#40B4E5,#CC22FF,transparent);margin:0;opacity:0;transform:scaleX(0);transition:opacity 0.8s ease,transform 1s cubic-bezier(0.22,1,0.36,1);transform-origin:center}
+.gradient-divider.active{opacity:1;transform:scaleX(1)}
+
+/* PRICING TABLE */
+.pricing-card{background:var(--bg-card);border:2px solid rgba(64,180,229,0.2);border-radius:20px;padding:3rem;text-align:center;backdrop-filter:blur(10px);position:relative;overflow:hidden}
+.pricing-card::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,#40B4E5,#CC22FF)}
+.pricing-card .price{font-size:3rem;font-weight:900;background:linear-gradient(135deg,#40B4E5,#CC22FF);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin:1rem 0 0.25rem}
+.pricing-card .price-sub{color:var(--text-muted);font-size:0.9rem;margin-bottom:2rem}
+.pricing-card .includes{list-style:none;text-align:left;display:flex;flex-direction:column;gap:0.75rem;margin-bottom:2rem}
+.pricing-card .includes li{color:var(--text-secondary);font-size:0.9rem;padding-left:1.5rem;position:relative}
+.pricing-card .includes li::before{content:'✓';position:absolute;left:0;color:var(--green);font-weight:700}
+
+/* RECOMMENDATION CARDS */
+.rec-card{padding:2rem;position:relative;overflow:hidden}
+.rec-card .rec-icon{width:56px;height:56px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:1.5rem;margin-bottom:1.25rem;background:linear-gradient(135deg,rgba(64,180,229,0.15),rgba(204,34,255,0.15))}
+.rec-card .rec-title{font-weight:700;font-size:1.1rem;margin-bottom:0.75rem}
+.rec-card .rec-items{list-style:none;display:flex;flex-direction:column;gap:0.5rem}
+.rec-card .rec-items li{color:var(--text-secondary);font-size:0.9rem;padding-left:1.2rem;position:relative}
+.rec-card .rec-items li::before{content:'→';position:absolute;left:0;color:var(--accent-light);font-weight:600}
+
+/* PHASE 2 CARDS */
+.future-card{padding:1.75rem;text-align:center}.future-card .future-icon{font-size:2rem;margin-bottom:0.75rem}.future-card .future-title{font-weight:700;font-size:1rem;margin-bottom:0.5rem}.future-card .future-desc{color:var(--text-secondary);font-size:0.85rem;line-height:1.6}
+
+/* RESPONSIVE */
+@media(max-width:1024px){.grid-4{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:768px){.grid-2,.grid-3,.grid-4{grid-template-columns:1fr}.timeline{flex-direction:column;gap:2rem}.timeline::before{display:none}.timeline-phase{padding-top:0;padding-left:2rem}.timeline-dot{top:0;left:0}section{padding:4rem 1.5rem}.side-nav{display:none}.stats-bar{grid-template-columns:repeat(2,1fr)}.value-cards{grid-template-columns:1fr}.reading-progress{top:64px}}
+
+/* PRINT */
+.print-only{display:none!important}
+.print-cover{page-break-after:always;text-align:center;padding:4rem 2rem;min-height:90vh;flex-direction:column;align-items:center;justify-content:center}
+.print-cover .cover-dot{width:40px;height:40px;border-radius:50%;background:#0644ED;margin:0 auto 1.5rem}
+.print-cover .cover-brand{font-size:1.8rem;font-weight:800;letter-spacing:0.08em;color:#191F24;margin-bottom:3rem}
+.print-cover .cover-type{font-size:0.85rem;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:#64748b;margin-bottom:1rem}
+.print-cover .cover-client{font-size:3rem;font-weight:900;color:#191F24;margin-bottom:0.5rem;letter-spacing:-0.03em}
+.print-cover .cover-domain{font-size:1rem;color:#64748b;margin-bottom:3rem}
+.print-cover .cover-prepared{font-size:0.9rem;color:#64748b;margin-bottom:1rem}
+.print-cover .cover-confidential{font-size:0.7rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:#ef4444;margin-top:3rem;padding:8px 24px;border:2px solid #ef4444;border-radius:4px;display:inline-block}
+.print-toc{page-break-after:always;padding:3rem 2rem}
+.print-toc h2{font-size:1.8rem;font-weight:800;color:#191F24;margin-bottom:2rem;letter-spacing:-0.03em}
+.print-toc-item{display:flex;align-items:center;padding:0.6rem 0;border-bottom:1px solid #e5e7eb;font-size:0.9rem;color:#374151}
+.print-toc-item .toc-num{width:30px;font-weight:700;color:#0644ED;flex-shrink:0}
+.print-toc-item .toc-name{flex:1}
+.print-qr{text-align:center;margin-top:3rem;padding:2rem;border:1px solid #e5e7eb;border-radius:12px;page-break-inside:avoid}
+.print-qr p{font-size:0.85rem;color:#64748b;margin-bottom:1rem}
+.print-qr img{width:150px;height:150px}
+
+@media print{
+  *{transition:none!important;animation:none!important}
+  body{background:#fff!important;color:#191F24!important;font-size:10pt}
+  .nav,.theme-toggle,.pdf-btn,.watermark,.hero-scroll,.side-nav,.reading-progress,.section-pill{display:none!important}
+  section{padding:2rem 0!important;background:#fff!important;page-break-inside:avoid;break-inside:avoid}
+  section:nth-child(even){background:#fff!important}
+  .hero{min-height:auto!important;padding:3rem 0!important;background:#fff!important}
+  .hero::before{display:none!important}
+  .hero-company{-webkit-text-fill-color:#191F24!important;font-size:2.5rem!important}
+  .card{background:#f9f9f9!important;border:1px solid #ddd!important;backdrop-filter:none!important;box-shadow:none!important;page-break-inside:avoid!important}
+  .section-title .gradient,.gradient{-webkit-text-fill-color:#0644ED!important;background:none!important;color:#0644ED!important}
+  .metric-card .value,.roi-card .after,.stat-card .stat-num,.pricing-card .price{-webkit-text-fill-color:#0644ED!important}
+  .reveal{opacity:1!important;transform:none!important}
+  .container{max-width:100%!important}
+  @page{margin:1.5cm;size:letter}
+  h1,h2,h3{page-break-after:avoid}
+  .grid-4{grid-template-columns:repeat(4,1fr)!important}
+  .grid-3{grid-template-columns:repeat(3,1fr)!important}
+  .grid-2{grid-template-columns:1fr 1fr!important}
+  .print-only{display:block!important}
+  .print-cover{display:flex!important}
+  .print-cover .cover-dot{background:#0644ED!important;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .card{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .reviews-wrap{display:none!important}
+  #overview,#recommendations,#audiences,#strategy,#roadmap,#phase2,#investment,#results,#cta{page-break-before:always}
+  .pricing-card::before{background:#0644ED!important;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+}
+
+@media print{.section-pill{display:none!important}}
+</style>
+</head>
+<body>
+
+<!-- ===== PRINT-ONLY: COVER PAGE ===== -->
+<div class="print-only print-cover" style="display:none">
+  <img src="https://brandastic.com/wp-content/uploads/2026/02/mark.png" alt="Brandastic" style="width:50px;height:auto;margin:0 auto 1.5rem;display:block">
+  <div class="cover-brand">BRANDASTIC</div>
+  <div class="cover-type">Digital Growth Proposal</div>
+  <div class="cover-client">A Bloomery</div>
+  <div class="cover-domain">abloomery.com</div>
+  <div class="cover-prepared">Prepared by Brandastic &nbsp;|&nbsp; May 2026</div>
+  <div class="cover-confidential">CONFIDENTIAL</div>
+</div>
+
+<!-- ===== PRINT-ONLY: TABLE OF CONTENTS ===== -->
+<div class="print-only print-toc" style="display:none">
+  <h2>Table of Contents</h2>
+  <div class="print-toc-item"><span class="toc-num">01</span><span class="toc-name">Business Overview</span></div>
+  <div class="print-toc-item"><span class="toc-num">02</span><span class="toc-name">Key Recommendations</span></div>
+  <div class="print-toc-item"><span class="toc-num">03</span><span class="toc-name">Target Audiences</span></div>
+  <div class="print-toc-item"><span class="toc-num">04</span><span class="toc-name">Strategy Overview</span></div>
+  <div class="print-toc-item"><span class="toc-num">05</span><span class="toc-name">Phase 1 Roadmap</span></div>
+  <div class="print-toc-item"><span class="toc-num">06</span><span class="toc-name">Phase 2 — Future Expansion</span></div>
+  <div class="print-toc-item"><span class="toc-num">07</span><span class="toc-name">Investment</span></div>
+  <div class="print-toc-item"><span class="toc-num">08</span><span class="toc-name">Projected Results</span></div>
+  <div class="print-toc-item"><span class="toc-num">—</span><span class="toc-name">Why Brandastic & Next Steps</span></div>
+</div>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="nav-brand"><span class="dot"></span> BRANDASTIC</div>
+  <div class="nav-actions">
+    <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme"><div class="knob">☀️</div></button>
+    <button class="pdf-btn" onclick="window.print()">📄 Download PDF</button>
+  </div>
+</nav>
+
+<!-- SIDE NAV DOTS -->
+<div class="side-nav">
+  <div class="side-nav-line"></div>
+  <div class="side-nav-dot active" data-section="hero"><span class="tooltip">Home</span></div>
+  <div class="side-nav-dot" data-section="overview"><span class="tooltip">Overview</span></div>
+  <div class="side-nav-dot" data-section="recommendations"><span class="tooltip">Recommendations</span></div>
+  <div class="side-nav-dot" data-section="audiences"><span class="tooltip">Audiences</span></div>
+  <div class="side-nav-dot" data-section="strategy"><span class="tooltip">Strategy</span></div>
+  <div class="side-nav-dot" data-section="roadmap"><span class="tooltip">Roadmap</span></div>
+  <div class="side-nav-dot" data-section="phase2"><span class="tooltip">Phase 2</span></div>
+  <div class="side-nav-dot" data-section="investment"><span class="tooltip">Investment</span></div>
+  <div class="side-nav-dot" data-section="results"><span class="tooltip">Results</span></div>
+  <div class="side-nav-dot" data-section="cta"><span class="tooltip">Next Steps</span></div>
+</div>
+
+<!-- WATERMARK -->
+<div class="watermark"><span class="dot" style="width:6px;height:6px;border-radius:50%;background:linear-gradient(135deg,#40B4E5,#CC22FF);display:inline-block"></span> Prepared by Brandastic</div>
+
+<!-- ==================== 1. HERO ==================== -->
+<section class="hero" id="hero">
+  <div class="section-badge" style="margin-bottom:2rem">Digital Growth Proposal</div>
+  <h1 class="hero-company">A Bloomery</h1>
+  <p style="color:var(--text-secondary);font-size:1.15rem;max-width:600px;text-align:center;margin-top:1rem;line-height:1.7">Luxury Faux Florals — E-Commerce Growth Strategy</p>
+  <div class="hero-meta" style="margin-bottom:3rem">
+    <span>Prepared by Brandastic</span>
+    <span>May 2026</span>
+    <span>abloomery.com</span>
+  </div>
+  <div class="hero-scroll" style="color:var(--text-muted);font-size:1.2rem">↓</div>
+</section>
+
+<!-- ==================== 2. BUSINESS OVERVIEW ==================== -->
+<section id="overview">
+  <div class="container reveal">
+    <div class="section-badge">01 — Business Overview</div>
+    <div class="grid-2">
+      <div>
+        <h2 class="section-title">Luxury Permanent <span class="gradient">Florals</span></h2>
+        <p class="section-sub" style="margin-bottom:1.5rem">A Bloomery is a luxury faux floral brand on Shopify, offering real-touch arrangements so lifelike that guests think they're real. Founded by Jannah Rostoum, the brand began in wedding florals and has evolved into a direct-to-consumer home décor destination.</p>
+        <p style="color:var(--text-secondary);line-height:1.7;margin-bottom:1.5rem">With arrangements priced around $100–110, A Bloomery sits in the premium home décor space — but the biggest challenge today is that the website doesn't instantly communicate that these are faux (permanent) flowers, not fresh blooms.</p>
+        <p style="color:var(--text-secondary);line-height:1.7">This proposal outlines a comprehensive digital growth strategy to clarify the brand message, drive targeted traffic through Meta ads, and build a retention engine with Klaviyo email automation.</p>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:1rem">
+        <div class="card" style="border-left:3px solid var(--accent-light)">
+          <div style="font-size:0.7rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--accent-light);margin-bottom:0.5rem">Brand Snapshot</div>
+          <ul style="list-style:none;display:flex;flex-direction:column;gap:0.5rem">
+            <li style="color:var(--text-secondary);font-size:0.9rem">✦ Luxury real-touch faux floral arrangements</li>
+            <li style="color:var(--text-secondary);font-size:0.9rem">✦ Shopify e-commerce — DTC model</li>
+            <li style="color:var(--text-secondary);font-size:0.9rem">✦ Origin: wedding florals → home décor</li>
+            <li style="color:var(--text-secondary);font-size:0.9rem">✦ ~$100–110 average product price</li>
+          </ul>
+        </div>
+        <div class="card" style="border-left:3px solid var(--yellow)">
+          <div style="font-size:0.7rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--yellow);margin-bottom:0.5rem">Key Challenge</div>
+          <ul style="list-style:none;display:flex;flex-direction:column;gap:0.5rem">
+            <li style="color:var(--text-secondary);font-size:0.9rem">⚠ Site doesn't clearly communicate flowers are FAUX</li>
+            <li style="color:var(--text-secondary);font-size:0.9rem">⚠ Brand story & narrative need strengthening</li>
+            <li style="color:var(--text-secondary);font-size:0.9rem">⚠ No email automation or retention flows</li>
+            <li style="color:var(--text-secondary);font-size:0.9rem">⚠ Meta ads need UGC video & better targeting</li>
+          </ul>
+        </div>
+        <div class="card" style="border-left:3px solid var(--green)">
+          <div style="font-size:0.7rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--green);margin-bottom:0.5rem">Opportunity</div>
+          <ul style="list-style:none;display:flex;flex-direction:column;gap:0.5rem">
+            <li style="color:var(--text-secondary);font-size:0.9rem">✦ Premium product with strong visual appeal</li>
+            <li style="color:var(--text-secondary);font-size:0.9rem">✦ Wedding client base = warm audience</li>
+            <li style="color:var(--text-secondary);font-size:0.9rem">✦ Massive seasonal demand (Mother's Day, etc.)</li>
+            <li style="color:var(--text-secondary);font-size:0.9rem">✦ Interior designer market untapped</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== 3. KEY RECOMMENDATIONS ==================== -->
+<section id="recommendations">
+  <div class="container reveal">
+    <div class="section-badge">02 — Key Recommendations</div>
+    <h2 class="section-title">What We'd <span class="gradient">Change</span></h2>
+    <p class="section-sub">Based on our discovery call, here are the three pillars of immediate action to accelerate A Bloomery's growth.</p>
+    <div class="grid-3">
+      <div class="card rec-card">
+        <div class="rec-icon">🌐</div>
+        <div class="rec-title">Website & Messaging</div>
+        <ul class="rec-items">
+          <li>Make it INSTANTLY clear flowers are faux/permanent</li>
+          <li>Strengthen Jannah's personal story & brand narrative</li>
+          <li>Add urgency elements (limited stock, seasonal)</li>
+          <li>Social proof: reviews, UGC photos, trust badges</li>
+          <li>Conversion-focused product page optimization</li>
+        </ul>
+      </div>
+      <div class="card rec-card">
+        <div class="rec-icon">📱</div>
+        <div class="rec-title">Meta Ads Optimization</div>
+        <ul class="rec-items">
+          <li>Incorporate influencer & UGC video content</li>
+          <li>In-app lead gen forms integrated with Klaviyo</li>
+          <li>Test new audiences: interior designers, lookalikes</li>
+          <li>Retargeting flows for cart abandoners</li>
+          <li>Creative testing framework for ad fatigue</li>
+        </ul>
+      </div>
+      <div class="card rec-card">
+        <div class="rec-icon">📧</div>
+        <div class="rec-title">Email Marketing (Klaviyo)</div>
+        <ul class="rec-items">
+          <li>Welcome series: brand story + first purchase incentive</li>
+          <li>Abandoned cart recovery flows</li>
+          <li>Post-purchase: care tips, cross-sell, review request</li>
+          <li>Seasonal drop campaigns (holidays, new collections)</li>
+          <li>VIP/loyalty segmentation for repeat buyers</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== 4. TARGET AUDIENCES ==================== -->
+<section id="audiences">
+  <div class="container reveal">
+    <div class="section-badge">03 — Target Audiences</div>
+    <h2 class="section-title">Who We're <span class="gradient">Reaching</span></h2>
+    <p class="section-sub">Four high-value personas that represent A Bloomery's core growth opportunity.</p>
+    <div class="grid-4">
+      <div class="card persona-card">
+        <div class="persona-avatar">🏡</div>
+        <div class="persona-name">Home Décor Enthusiast</div>
+        <div class="persona-demo">Women 28–45 · Instagram-driven</div>
+        <div class="persona-channels">
+          <span class="ch">Instagram</span>
+          <span class="ch">Pinterest</span>
+          <span class="ch">Facebook</span>
+        </div>
+        <div class="persona-discover">Scrolls home décor inspo daily. Wants her space to look magazine-worthy without the maintenance of real flowers.</div>
+      </div>
+      <div class="card persona-card">
+        <div class="persona-avatar">🎨</div>
+        <div class="persona-name">Interior Designer</div>
+        <div class="persona-demo">Professional buyers · Bulk/trade</div>
+        <div class="persona-channels">
+          <span class="ch">LinkedIn</span>
+          <span class="ch">Google</span>
+          <span class="ch">Trade Shows</span>
+        </div>
+        <div class="persona-discover">Needs reliable, high-quality permanent florals for client projects. Values wholesale pricing and consistency.</div>
+      </div>
+      <div class="card persona-card">
+        <div class="persona-avatar">🎁</div>
+        <div class="persona-name">Gift Buyer</div>
+        <div class="persona-demo">Seasonal · Mother's Day · Valentine's</div>
+        <div class="persona-channels">
+          <span class="ch">Google Search</span>
+          <span class="ch">Meta Ads</span>
+          <span class="ch">Email</span>
+        </div>
+        <div class="persona-discover">Searches for unique, lasting gifts for special occasions. Loves the "forever flowers" angle for Mother's Day and housewarming.</div>
+      </div>
+      <div class="card persona-card">
+        <div class="persona-avatar">💒</div>
+        <div class="persona-name">Former Wedding Client</div>
+        <div class="persona-demo">Already knows the quality</div>
+        <div class="persona-channels">
+          <span class="ch">Email</span>
+          <span class="ch">Instagram</span>
+          <span class="ch">Word of Mouth</span>
+        </div>
+        <div class="persona-discover">Had A Bloomery for their wedding. Perfect retargeting audience — already trusts the product and brand.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== 5. STRATEGY OVERVIEW ==================== -->
+<section id="strategy">
+  <div class="container reveal">
+    <div class="section-badge">04 — Strategy Overview</div>
+    <h2 class="section-title">Three Pillars of <span class="gradient">Growth</span></h2>
+    <p class="section-sub">A cohesive strategy that clarifies the brand, drives acquisition, and builds lifetime value.</p>
+    <div class="grid-3">
+      <div class="card strategy-card">
+        <div class="icon">💎</div>
+        <div class="title">Brand Clarity</div>
+        <div class="desc">Website messaging overhaul so visitors instantly know these are luxury permanent florals — not fresh flowers. Strengthen the founder's story and premium positioning.</div>
+        <div class="outcome">Goal: Instant brand recognition & trust</div>
+      </div>
+      <div class="card strategy-card">
+        <div class="icon">🎯</div>
+        <div class="title">Paid Acquisition</div>
+        <div class="desc">Meta ads powered by UGC/influencer video, in-app lead gen forms, lookalike audiences, and retargeting. Reach the right people with the right creative.</div>
+        <div class="outcome">Goal: 3–5x ROAS on Meta campaigns</div>
+      </div>
+      <div class="card strategy-card">
+        <div class="icon">🔄</div>
+        <div class="title">Retention Engine</div>
+        <div class="desc">Klaviyo email automation for welcome series, abandoned cart, post-purchase, seasonal drops, and VIP segmentation. Turn one-time buyers into loyal fans.</div>
+        <div class="outcome">Goal: +15–25% revenue from email</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== 6. PHASE 1 ROADMAP ==================== -->
+<section id="roadmap">
+  <div class="container reveal">
+    <div class="section-badge">05 — Phase 1 Roadmap</div>
+    <h2 class="section-title">Months <span class="gradient">1–3</span></h2>
+    <p class="section-sub">A focused 90-day sprint to establish the foundation, launch campaigns, and begin scaling.</p>
+    <div class="timeline">
+      <div class="timeline-phase">
+        <div class="timeline-dot"></div>
+        <div class="phase-label">Month 1</div>
+        <div class="phase-title">Foundation & Setup</div>
+        <ul class="phase-items">
+          <li>Website messaging audit & updates</li>
+          <li>Klaviyo setup — welcome + abandoned cart flows</li>
+          <li>Meta ad account audit & restructure</li>
+          <li>Creative asset plan (UGC, lifestyle, product)</li>
+          <li>Tracking & analytics configuration</li>
+        </ul>
+      </div>
+      <div class="timeline-phase">
+        <div class="timeline-dot"></div>
+        <div class="phase-label">Month 2</div>
+        <div class="phase-title">Launch & Test</div>
+        <ul class="phase-items">
+          <li>Launch new Meta campaigns with UGC video</li>
+          <li>A/B test audiences: designers, lookalikes</li>
+          <li>First seasonal email campaign</li>
+          <li>Conversion rate optimization on product pages</li>
+          <li>Lead gen form testing on Meta</li>
+        </ul>
+      </div>
+      <div class="timeline-phase">
+        <div class="timeline-dot"></div>
+        <div class="phase-label">Month 3</div>
+        <div class="phase-title">Optimize & Scale</div>
+        <ul class="phase-items">
+          <li>Scale winning ad sets & creative</li>
+          <li>Launch retargeting flows</li>
+          <li>Post-purchase email automation live</li>
+          <li>Performance review & Phase 2 planning</li>
+          <li>Monthly reporting & strategy refinement</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== 7. PHASE 2 ==================== -->
+<section id="phase2">
+  <div class="container reveal">
+    <div class="section-badge">06 — Phase 2</div>
+    <h2 class="section-title">Future <span class="gradient">Expansion</span></h2>
+    <p class="section-sub">After the 90-day foundation, these growth channels unlock the next level of scale.</p>
+    <div class="grid-4">
+      <div class="card future-card">
+        <div class="future-icon">📦</div>
+        <div class="future-title">Amazon Expansion</div>
+        <div class="future-desc">Strategic pricing and listing optimization to capture marketplace demand without cannibalizing DTC margins.</div>
+      </div>
+      <div class="card future-card">
+        <div class="future-icon">🌸</div>
+        <div class="future-title">Seasonal Collections</div>
+        <div class="future-desc">Limited-edition drops tied to holidays and seasons — creating urgency and repeat purchase behavior.</div>
+      </div>
+      <div class="card future-card">
+        <div class="future-icon">🤝</div>
+        <div class="future-title">Affiliate Program</div>
+        <div class="future-desc">Shopify-powered affiliate program leveraging interior designers, home décor bloggers, and wedding planners.</div>
+      </div>
+      <div class="card future-card">
+        <div class="future-icon">🎬</div>
+        <div class="future-title">Influencer at Scale</div>
+        <div class="future-desc">Systematize influencer partnerships to continuously generate fresh UGC content for ads and organic.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== 8. INVESTMENT ==================== -->
+<section id="investment">
+  <div class="container reveal">
+    <div class="section-badge">07 — Investment</div>
+    <h2 class="section-title">Your <span class="gradient">Investment</span></h2>
+    <p class="section-sub">A transparent, results-driven partnership designed to maximize your return.</p>
+    <div style="max-width:640px;margin:0 auto">
+      <div class="pricing-card">
+        <div style="font-size:0.75rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:var(--accent-light);margin-bottom:0.5rem">Growth Partnership</div>
+        <div class="price">$3,500<span style="font-size:1rem;font-weight:400;opacity:0.6">/month</span></div>
+        <div class="price-sub">20 hours/month · $175/hr · 3-month minimum</div>
+        <ul class="includes">
+          <li>Digital growth strategy & ongoing consultation</li>
+          <li>Meta Ads management & creative direction</li>
+          <li>Klaviyo email setup, automation & campaigns</li>
+          <li>Website CRO recommendations & messaging</li>
+          <li>Monthly performance reporting & strategy calls</li>
+          <li>Audience research & competitive analysis</li>
+        </ul>
+        <div style="padding:1.5rem;border-radius:12px;background:rgba(64,180,229,0.06);border:1px solid rgba(64,180,229,0.15);margin-bottom:1.5rem">
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:0.75rem">
+            <span style="color:var(--text-secondary);font-size:0.9rem">Agency Fee</span>
+            <span style="font-weight:700;font-size:1rem">$3,500/mo</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:0.75rem">
+            <span style="color:var(--text-secondary);font-size:0.9rem">Recommended Ad Spend</span>
+            <span style="font-weight:700;font-size:1rem">$4,000–$6,500/mo</span>
+          </div>
+          <div style="height:1px;background:var(--bg-card-border);margin:1rem 0"></div>
+          <div style="display:flex;justify-content:space-between;align-items:center">
+            <span style="font-weight:700;font-size:1rem">Total Monthly Investment</span>
+            <span style="font-weight:800;font-size:1.2rem;background:linear-gradient(135deg,#40B4E5,#CC22FF);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">$7,500–$10,000</span>
+          </div>
+        </div>
+        <div style="font-size:0.8rem;color:var(--text-muted);font-style:italic">3-month minimum commitment · No long-term contracts</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== 9. PROJECTED RESULTS ==================== -->
+<section id="results">
+  <div class="container reveal">
+    <div class="section-badge">08 — Projected Results</div>
+    <h2 class="section-title">Conservative <span class="gradient">Projections</span></h2>
+    <p class="section-sub">What you can expect within the first 90 days based on our experience with similar e-commerce brands.</p>
+    <div class="roi-grid">
+      <div class="card roi-card">
+        <div class="label">Email Revenue (Klaviyo)</div>
+        <div class="after">+15–25%</div>
+        <div class="detail">of total revenue driven by automated email flows and campaigns</div>
+      </div>
+      <div class="card roi-card">
+        <div class="label">Meta ROAS Target</div>
+        <div class="after">3–5x</div>
+        <div class="detail">return on ad spend through optimized creative and audience targeting</div>
+      </div>
+      <div class="card roi-card">
+        <div class="label">Conversion Rate</div>
+        <div class="after">+20–40%</div>
+        <div class="detail">improvement through messaging clarity, CRO, and trust signals</div>
+      </div>
+      <div class="card roi-card">
+        <div class="label">Customer Acquisition Cost</div>
+        <div class="after">-25%</div>
+        <div class="detail">reduction through better targeting, retargeting, and email capture</div>
+      </div>
+    </div>
+    <div class="card" style="text-align:center;padding:2rem;margin-top:2rem;border:1px solid rgba(64,180,229,0.2);background:rgba(64,180,229,0.05)">
+      <div style="font-size:0.75rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--accent-light);margin-bottom:0.5rem">The Bottom Line</div>
+      <p style="color:var(--text-secondary);font-size:1rem;line-height:1.7;max-width:600px;margin:0 auto">With the right messaging, targeted ads, and automated email flows, A Bloomery has the foundation to become <strong style="color:var(--text-primary)">the go-to luxury permanent floral brand</strong> online.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== 10. WHY BRANDASTIC + CTA ==================== -->
+<section class="cta-section" id="cta">
+  <div class="container reveal">
+    <div class="section-badge">Sparked By Creativity, Fueled By Results.</div>
+    <h2 class="section-title">Why <span class="gradient">Brandastic?</span></h2>
+
+    <!-- Stats Bar -->
+    <div class="stats-bar">
+      <div class="stat-card"><div class="stat-num">15+</div><div class="stat-label">Years in Business</div></div>
+      <div class="stat-card"><div class="stat-num">450+</div><div class="stat-label">Clients Served</div></div>
+      <div class="stat-card"><div class="stat-num">118x</div><div class="stat-label">Best ROAS Achieved</div></div>
+      <div class="stat-card"><div class="stat-num">48x</div><div class="stat-label">Average Top ROAS</div></div>
+    </div>
+
+    <!-- Value Prop Cards -->
+    <div class="value-cards">
+      <div class="value-card"><h4>Full-Service Digital</h4><p>From brand strategy to Meta ads, email marketing, and web optimization — one partner for everything.</p></div>
+      <div class="value-card"><h4>Data-Driven Results</h4><p>48x ROAS for Mono B. 118x ROAS for CalOPS. 33x ROAS for DESS. We don't guess — we deliver.</p></div>
+      <div class="value-card"><h4>15+ Years of Expertise</h4><p>450+ clients across e-commerce, healthcare, education, fashion, and luxury brands. We become your industry experts.</p></div>
+      <div class="value-card"><h4>E-Commerce Specialists</h4><p>Deep experience with Shopify, Klaviyo, Meta ads, and DTC brands. We know what converts.</p></div>
+    </div>
+
+    <!-- Reviews -->
+    <div class="reviews-wrap">
+    <div style="text-align:center;margin:4rem 0 2rem">
+      <div style="display:inline-flex;align-items:center;gap:8px;margin-bottom:1rem">
+        <svg width="24" height="24" viewBox="0 0 24 24"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 01-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+        <span style="color:#FBBC05;font-size:1.1rem">★★★★★</span>
+        <span style="color:var(--text-muted);font-size:0.9rem">5.0</span>
+      </div>
+      <h3 style="font-size:clamp(1.8rem,4vw,2.5rem);font-weight:800;margin-bottom:0.5rem">What Our Clients Say</h3>
+      <p style="margin-bottom:2rem"><a href="https://shorturl.at/wViCP" target="_blank" style="color:var(--accent-light);text-decoration:none;font-size:0.9rem">40+ Five-Star Reviews on Google →</a></p>
+    </div>
+    <div style="display:flex;gap:24px;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;padding:0 4px 20px;scrollbar-width:none;margin-bottom:3rem">
+      <div class="card" style="flex:0 0 380px;scroll-snap-align:start;padding:36px 32px;text-align:left;border:1px solid rgba(64,180,229,0.15)">
+        <div style="font-size:48px;line-height:1;color:var(--accent-light);opacity:0.4;font-family:Georgia,serif;margin-bottom:12px">"</div>
+        <p style="color:var(--text-secondary);font-size:0.95rem;line-height:1.7;margin-bottom:1.5rem">Brandastic has been a fantastic agency to work with. They've made significant improvements in our company's digital presence and overall performance. A special shout-out to Tri and Aimee!</p>
+        <p style="font-weight:600;font-size:0.9rem;margin-bottom:4px">Cinthya Baez</p>
+        <div style="display:flex;gap:2px"><span style="color:#FBBC05">★★★★★</span></div>
+      </div>
+      <div class="card" style="flex:0 0 380px;scroll-snap-align:start;padding:36px 32px;text-align:left;border:1px solid rgba(64,180,229,0.15)">
+        <div style="font-size:48px;line-height:1;color:var(--accent-light);opacity:0.4;font-family:Georgia,serif;margin-bottom:12px">"</div>
+        <p style="color:var(--text-secondary);font-size:0.95rem;line-height:1.7;margin-bottom:1.5rem">I had the pleasure of working with Ben at Brandastic, and I can't say enough good things about the experience. From start to finish, Ben was incredibly helpful, professional, and attentive.</p>
+        <p style="font-weight:600;font-size:0.9rem;margin-bottom:4px">Pedro Matabuena</p>
+        <div style="display:flex;gap:2px"><span style="color:#FBBC05">★★★★★</span></div>
+      </div>
+      <div class="card" style="flex:0 0 380px;scroll-snap-align:start;padding:36px 32px;text-align:left;border:1px solid rgba(64,180,229,0.15)">
+        <div style="font-size:48px;line-height:1;color:var(--accent-light);opacity:0.4;font-family:Georgia,serif;margin-bottom:12px">"</div>
+        <p style="color:var(--text-secondary);font-size:0.95rem;line-height:1.7;margin-bottom:1.5rem">I have worked with Lachelle and Justin now for over 5 years, and I have to say they are hands down the best marketing company we have used.</p>
+        <p style="font-weight:600;font-size:0.9rem;margin-bottom:4px">Corey S</p>
+        <div style="display:flex;gap:2px"><span style="color:#FBBC05">★★★★★</span></div>
+      </div>
+      <div class="card" style="flex:0 0 380px;scroll-snap-align:start;padding:36px 32px;text-align:left;border:1px solid rgba(64,180,229,0.15)">
+        <div style="font-size:48px;line-height:1;color:var(--accent-light);opacity:0.4;font-family:Georgia,serif;margin-bottom:12px">"</div>
+        <p style="color:var(--text-secondary);font-size:0.95rem;line-height:1.7;margin-bottom:1.5rem">Working with the Brandastic team has been excellent. They are very responsive and have great marketing ideas and strategies! Looking forward to many more years of partnership!</p>
+        <p style="font-weight:600;font-size:0.9rem;margin-bottom:4px">Haziel Mitchell</p>
+        <p style="color:var(--text-muted);font-size:0.8rem;margin-bottom:4px">Director of Marketing & Sales, Ricoh</p>
+        <div style="display:flex;gap:2px"><span style="color:#FBBC05">★★★★★</span></div>
+      </div>
+    </div>
+    </div>
+
+    <p style="margin-top:2rem;color:var(--text-muted);font-size:0.9rem">brandastic.com · info@brandastic.com</p>
+  </div>
+</section>
+
+<!-- NEXT STEPS + CONTACT -->
+<section style="padding:5rem 2rem;background:var(--bg-secondary);text-align:center">
+  <div class="container" style="max-width:900px">
+    <h2 style="font-size:clamp(2rem,5vw,3.5rem);font-weight:900;letter-spacing:-0.03em;margin-bottom:2.5rem">
+      <span class="gradient">Next Steps</span>
+    </h2>
+    <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:2rem;margin-bottom:3rem">
+      <div class="card" style="flex:1;min-width:200px;max-width:260px;padding:1.5rem;text-align:center">
+        <div style="width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,#40B4E5,#CC22FF);display:flex;align-items:center;justify-content:center;margin:0 auto 0.75rem;font-weight:800;color:#fff;font-size:1.1rem">1</div>
+        <div style="font-weight:700;margin-bottom:0.25rem">Review Proposal</div>
+        <div style="color:var(--text-muted);font-size:0.85rem">You're here — reviewing strategy, investment, and projected results</div>
+      </div>
+      <div class="card" style="flex:1;min-width:200px;max-width:260px;padding:1.5rem;text-align:center">
+        <div style="width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,#40B4E5,#CC22FF);display:flex;align-items:center;justify-content:center;margin:0 auto 0.75rem;font-weight:800;color:#fff;font-size:1.1rem">2</div>
+        <div style="font-weight:700;margin-bottom:0.25rem">Strategy Call</div>
+        <div style="color:var(--text-muted);font-size:0.85rem">Align on goals, finalize scope, and answer any questions</div>
+      </div>
+      <div class="card" style="flex:1;min-width:200px;max-width:260px;padding:1.5rem;text-align:center">
+        <div style="width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,#40B4E5,#CC22FF);display:flex;align-items:center;justify-content:center;margin:0 auto 0.75rem;font-weight:800;color:#fff;font-size:1.1rem">3</div>
+        <div style="font-weight:700;margin-bottom:0.25rem">Launch</div>
+        <div style="color:var(--text-muted);font-size:0.85rem">Kick off Month 1 — website, Klaviyo, Meta ads, and creative</div>
+      </div>
+    </div>
+    <div style="display:flex;align-items:center;justify-content:center;gap:1.5rem;flex-wrap:wrap;padding:2rem;border-radius:16px;background:var(--bg-card);border:1px solid var(--bg-card-border)">
+      <img src="https://brandastic.com/wp-content/uploads/2024/10/justin-evil-laugh.png" alt="Justin Nassie" style="width:80px;height:80px;object-fit:cover;object-position:top;border-radius:50%;flex-shrink:0;-webkit-print-color-adjust:exact;print-color-adjust:exact" loading="lazy">
+      <div style="text-align:left">
+        <div style="font-weight:800;font-size:1.1rem">Justin Nassie</div>
+        <div style="color:var(--text-muted);font-size:0.85rem;margin-bottom:0.25rem">President, Brandastic</div>
+        <div style="display:flex;flex-wrap:wrap;gap:1rem;font-size:0.85rem">
+          <a href="tel:9498928944" style="color:var(--accent-light);text-decoration:none">📱 (949) 892-8944</a>
+          <a href="mailto:justin@brandastic.com" style="color:var(--accent-light);text-decoration:none">✉️ justin@brandastic.com</a>
+        </div>
+      </div>
+    </div>
+    <div style="margin-top:2rem">
+      <a href="https://brandastic.com/contact/" target="_blank" class="cta-btn">Let's Get Started →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== PRINT-ONLY: QR CODE ===== -->
+<div class="print-only print-qr" style="display:none">
+  <p><strong>Scan to view the interactive version of this proposal:</strong></p>
+  <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https%3A%2F%2Fbrandastic-audit.netlify.app%2Fabloomery.html" alt="QR Code" />
+  <p style="margin-top:0.75rem;font-size:0.8rem;color:#64748b">https://brandastic-audit.netlify.app/abloomery.html</p>
+</div>
+
+<!-- ===== PRINT-ONLY: FOOTER ===== -->
+<div class="print-only" style="display:none;text-align:center;padding:1rem;font-size:0.75rem;color:#64748b;border-top:1px solid #e5e7eb;margin-top:2rem">
+  Brandastic Digital Growth Proposal | A Bloomery | brandastic.com | (949) 892-8944 | CONFIDENTIAL
+</div>
+
+<noscript><style>.reveal,.reveal.active{opacity:1!important;transform:none!important;transition:none!important}</style></noscript>
+
+<script>
+/* ===== THEME ===== */
+if('scrollRestoration' in history) history.scrollRestoration='manual';
+window.scrollTo(0,0);
+function getPreferredTheme(){const s=localStorage.getItem('brandastic-theme');if(s)return s;return 'light'}
+function applyTheme(t){document.documentElement.setAttribute('data-theme',t);localStorage.setItem('brandastic-theme',t);document.querySelector('.theme-toggle .knob').textContent=t==='dark'?'🌙':'☀️'}
+function toggleTheme(){applyTheme(document.documentElement.getAttribute('data-theme')==='dark'?'light':'dark')}
+applyTheme(getPreferredTheme());
+
+/* ===== SIDE DOT NAV ===== */
+(function(){
+  const sections = document.querySelectorAll('section[id]');
+  const nav = document.querySelector('.side-nav');
+  if(!nav || !sections.length) return;
+  const dots = nav.querySelectorAll('.side-nav-dot');
+  dots.forEach(dot => {
+    dot.addEventListener('click', () => {
+      const target = document.getElementById(dot.dataset.section);
+      if(target){window.scrollTo({top:target.offsetTop-80,behavior:'instant'});}
+    });
+  });
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if(e.isIntersecting){
+        dots.forEach(d => d.classList.remove('active'));
+        const active = nav.querySelector('[data-section="'+e.target.id+'"]');
+        if(active) active.classList.add('active');
+      }
+    });
+  }, {rootMargin:'-20% 0px -70% 0px'});
+  sections.forEach(s => obs.observe(s));
+})();
+
+/* ===== SCROLL REVEAL ===== */
+(function(){
+  const style = document.createElement('style');
+  style.textContent = '.reveal{opacity:0;transform:translateY(30px);transition:opacity 0.8s ease,transform 0.8s ease}.reveal.active{opacity:1;transform:translateY(0)}';
+  document.head.appendChild(style);
+  const revealObs = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if(e.isIntersecting) e.target.classList.add('active');
+    });
+  }, {threshold:0.05, rootMargin:'50px'});
+  document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
+  setTimeout(() => {
+    document.querySelectorAll('.reveal:not(.active)').forEach(el => el.classList.add('active'));
+  }, 3000);
+})();
+
+/* ===== READING PROGRESS BAR ===== */
+(function(){
+  const bar = document.createElement('div');
+  bar.className = 'reading-progress';
+  document.body.appendChild(bar);
+  window.addEventListener('scroll', () => {
+    const scrollTop = window.scrollY;
+    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    bar.style.width = (scrollTop / docHeight * 100) + '%';
+  }, {passive:true});
+})();
+
+/* ===== STICKY SECTION PILL ===== */
+(function(){
+  const pill = document.createElement('div');
+  pill.className = 'section-pill';
+  document.body.appendChild(pill);
+  const sections = document.querySelectorAll('section[id]');
+  const sectionNames = {};
+  sections.forEach(s => {
+    const badge = s.querySelector('.section-badge');
+    const title = s.querySelector('.section-title');
+    sectionNames[s.id] = badge ? badge.textContent.trim() : (title ? title.textContent.trim().substring(0,40) : s.id);
+  });
+  const pillObs = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if(e.isIntersecting && e.target.id) {
+        pill.textContent = sectionNames[e.target.id] || e.target.id;
+        pill.classList.add('visible');
+      }
+    });
+  }, {rootMargin:'-80px 0px -85% 0px'});
+  sections.forEach(s => pillObs.observe(s));
+  window.addEventListener('scroll', () => {
+    if(window.scrollY < 200) pill.classList.remove('visible');
+  }, {passive:true});
+})();
+
+/* ===== GRADIENT DIVIDERS ===== */
+(function(){
+  const sections = document.querySelectorAll('section[id]');
+  sections.forEach((s, i) => {
+    if(i === 0) return;
+    const divider = document.createElement('div');
+    divider.className = 'gradient-divider';
+    s.parentNode.insertBefore(divider, s);
+  });
+  const divObs = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if(e.isIntersecting) {
+        e.target.classList.add('active');
+        divObs.unobserve(e.target);
+      }
+    });
+  }, {threshold:0.5});
+  document.querySelectorAll('.gradient-divider').forEach(d => divObs.observe(d));
+})();
+
+/* ===== CTA PULSE ===== */
+(function(){
+  const ctaObs = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if(e.isIntersecting) {
+        e.target.querySelectorAll('.cta-btn').forEach(btn => btn.classList.add('pulse'));
+      }
+    });
+  }, {threshold:0.3});
+  document.querySelectorAll('.cta-section, #cta').forEach(s => ctaObs.observe(s));
+  const lastSection = document.querySelector('section:last-of-type');
+  if(lastSection) ctaObs.observe(lastSection);
+})();
+</script>
+
+</body>
+</html>
