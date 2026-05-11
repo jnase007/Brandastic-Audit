@@ -897,15 +897,40 @@ body.slide-mode .slide-track > section {
 
 /* Grids expand to fill available space */
 body.slide-mode .grid-2,
-body.slide-mode .grid-3,
+body.slide-mode .grid-3 {
+  gap: 1.2rem !important;
+  flex: 1 !important;
+  align-content: stretch !important;
+}
 body.slide-mode .grid-4 {
   grid-template-columns: repeat(2, 1fr) !important;
-  gap: 0.5rem !important;
+  gap: 1.2rem !important;
   flex: 1 !important;
-  align-content: center !important;
+  align-content: stretch !important;
 }
 
 
+
+/* Cards stretch to fill grid cells - no gaps */
+body.slide-mode .grid-4 > .card,
+body.slide-mode .grid-3 > .card,
+body.slide-mode .grid-2 > .card {
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: center !important;
+  height: 100% !important;
+  min-height: 0 !important;
+}
+body.slide-mode .grid-4 > .card .desc,
+body.slide-mode .grid-3 > .card .desc {
+  flex: 1 !important;
+}
+
+/* Stats bar also 2x2 in slide mode */
+body.slide-mode .stats-bar {
+  grid-template-columns: repeat(2, 1fr) !important;
+  gap: 1.2rem !important;
+}
 /* Force 2x2 grid for strategy cards in slide mode */
 body.slide-mode .grid-4.strategy-grid,
 body.slide-mode section#strategy .grid-4 {
