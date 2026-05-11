@@ -591,8 +591,8 @@ section:nth-child(even){background:var(--bg-secondary);transition:background var
 <section id="traffic">
   <div class="container reveal">
     <div class="section-badge">05 — Traffic Trend</div>
-    <h2 class="section-title">6-Month <span class="gradient">Performance</span></h2>
-    <p class="section-sub">Organic traffic and keyword trends show a concerning decline that needs immediate attention.</p>
+    <h2 class="section-title">12-Month <span class="gradient">Performance</span></h2>
+    <p class="section-sub">12 months of organic traffic and keyword data reveals a steep decline that needs immediate attention.</p>
     <div class="chart-wrap">
       <canvas id="trafficChart" height="100"></canvas>
     </div>
@@ -1301,10 +1301,10 @@ function createTrafficChart(){
   trafficChart=new Chart(ctx,{
     type:'line',
     data:{
-      labels:['Nov','Dec','Jan','Feb','Mar','Apr'],
+      labels:['May '25','Jun','Jul','Aug','Sep','Oct','Nov','Dec','Jan '26','Feb','Mar','Apr'],
       datasets:[
-        {label:'Traffic',data:[1247,729,741,693,660,926],borderColor:'#40B4E5',backgroundColor:'rgba(64,180,229,0.1)',fill:true,tension:0.4,pointRadius:5,pointBackgroundColor:'#40B4E5',yAxisID:'y'},
-        {label:'Keywords',data:[505,528,554,575,471,389],borderColor:'#CC22FF',backgroundColor:'rgba(204,34,255,0.1)',fill:true,tension:0.4,pointRadius:5,pointBackgroundColor:'#CC22FF',yAxisID:'y1'}
+        {label:'Traffic',data:[1344,1780,1867,3796,3871,1302,1247,729,741,693,660,926],borderColor:'#40B4E5',backgroundColor:'rgba(64,180,229,0.1)',fill:true,tension:0.4,pointRadius:5,pointBackgroundColor:'#40B4E5',yAxisID:'y'},
+        {label:'Keywords',data:[573,560,481,426,496,503,505,528,554,575,471,389],borderColor:'#CC22FF',backgroundColor:'rgba(204,34,255,0.1)',fill:true,tension:0.4,pointRadius:5,pointBackgroundColor:'#CC22FF',yAxisID:'y1'}
       ]
     },
     options:{
