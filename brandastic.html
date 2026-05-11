@@ -1,0 +1,1681 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta name="robots" content="noindex, nofollow">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Brandastic — Self-Audit by Brandastic</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+<style>
+/* ========== CSS CUSTOM PROPERTIES ========== */
+:root {
+  --bg-primary:#191F24;--bg-secondary:#0d1117;--bg-tertiary:#151a20;
+  --bg-card:rgba(100,116,139,0.15);--bg-card-hover:rgba(100,116,139,0.2);
+  --bg-card-border:rgba(100,116,139,0.2);
+  --text-primary:#ffffff;--text-secondary:rgba(255,255,255,0.7);--text-muted:rgba(255,255,255,0.4);
+  --accent-blue:#0644ED;--accent-light:#40B4E5;--accent-purple:#CC22FF;
+  --coastal-fog:#F5F3EF;
+  --glass-bg:rgba(100,116,139,0.15);--glass-border:rgba(255,255,255,0.1);
+  --shadow:0 8px 32px rgba(0,0,0,0.3);
+  --red:#ef4444;--yellow:#f59e0b;--green:#22c55e;
+  --chart-grid:rgba(255,255,255,0.06);--chart-text:rgba(255,255,255,0.5);
+  --transition:0.3s ease;
+}
+[data-theme="light"] {
+  --bg-primary:#F5F3EF;--bg-secondary:#ffffff;--bg-tertiary:#f0ede8;
+  --bg-card:rgba(255,255,255,0.85);--bg-card-hover:rgba(255,255,255,0.95);
+  --bg-card-border:rgba(0,0,0,0.08);
+  --text-primary:#191F24;--text-secondary:rgba(25,31,36,0.7);--text-muted:rgba(25,31,36,0.4);
+  --glass-bg:rgba(255,255,255,0.85);--glass-border:rgba(0,0,0,0.08);
+  --shadow:0 8px 32px rgba(0,0,0,0.06);
+  --chart-grid:rgba(0,0,0,0.06);--chart-text:rgba(0,0,0,0.5);
+}
+/* ========== RESET ========== */
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',system-ui,-apple-system,sans-serif;background:var(--bg-primary);color:var(--text-primary);line-height:1.6;transition:background-color var(--transition),color var(--transition);overflow-x:hidden}
+a{color:var(--accent-light);text-decoration:none}
+/* ========== NAV ========== */
+.nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:0 2rem;height:64px;display:flex;align-items:center;justify-content:space-between;background:var(--glass-bg);backdrop-filter:blur(20px);border-bottom:1px solid var(--glass-border);transition:background var(--transition)}
+.nav-brand{font-weight:700;font-size:1.15rem;letter-spacing:0.05em;display:flex;align-items:center;gap:10px}
+.nav-brand .dot{width:10px;height:10px;border-radius:50%;background:linear-gradient(135deg,#40B4E5,#CC22FF)}
+.nav-actions{display:flex;align-items:center;gap:12px}
+.theme-toggle{width:56px;height:32px;min-width:44px;min-height:44px;border-radius:13px;border:none;cursor:pointer;background:linear-gradient(135deg,#40B4E5,#CC22FF);padding:2px;display:flex;align-items:center;transition:var(--transition);flex-shrink:0}
+.theme-toggle .knob{width:28px;height:28px;border-radius:50%;background:var(--bg-primary);display:flex;align-items:center;justify-content:center;font-size:11px;transition:transform var(--transition),background-color var(--transition);transform:translateX(0)}
+[data-theme="light"] .theme-toggle .knob{transform:translateX(24px)}
+.pdf-btn{display:inline-flex;align-items:center;gap:6px;padding:8px 18px;border-radius:10px;border:none;cursor:pointer;background:linear-gradient(135deg,#40B4E5,#CC22FF);color:#fff;font-family:inherit;font-size:0.78rem;font-weight:600;letter-spacing:0.03em;transition:transform var(--transition),box-shadow var(--transition);white-space:nowrap}
+.pdf-btn:hover{transform:translateY(-1px);box-shadow:0 4px 20px rgba(64,180,229,0.4)}
+/* ========== SECTIONS ========== */
+section{padding:3.5rem 2rem;position:relative}
+section:nth-child(even){background:var(--bg-secondary);transition:background var(--transition)}
+.container{max-width:1200px;margin:0 auto}
+.section-badge{display:inline-flex;align-items:center;gap:6px;padding:6px 16px;border-radius:50px;background:var(--glass-bg);border:1px solid var(--glass-border);font-size:0.7rem;font-weight:600;letter-spacing:0.15em;text-transform:uppercase;color:var(--text-muted);margin-bottom:1.5rem;backdrop-filter:blur(10px)}
+.section-title{font-size:clamp(1.8rem,4vw,2.8rem);font-weight:800;letter-spacing:-0.03em;margin-bottom:1rem;line-height:1.15}
+.section-title .gradient{background:linear-gradient(135deg,#40B4E5,#CC22FF);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.section-sub{color:var(--text-secondary);font-size:1.05rem;max-width:700px;margin-bottom:3rem;line-height:1.7}
+/* ========== HERO ========== */
+.hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding-top:64px;position:relative;overflow:hidden;background:#0d1117}[data-theme="light"] .hero{background:#f5f3ef}
+.hero-video{position:absolute;inset:0;z-index:0;overflow:hidden;pointer-events:none}.hero-video::after{content:'';position:absolute;inset:0;background:linear-gradient(rgba(13,17,23,0.7),rgba(13,17,23,0.85))}[data-theme="light"] .hero-video::after{background:linear-gradient(rgba(245,243,239,0.75),rgba(255,255,255,0.85))}.hero-video iframe{position:absolute;top:50%;left:50%;width:180vw;height:180vh;min-width:180%;min-height:180%;transform:translate(-50%,-50%);border:0}.hero>*:not(.hero-video){position:relative;z-index:1}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 30% 20%,rgba(64,180,229,0.12) 0%,transparent 50%),radial-gradient(ellipse at 70% 80%,rgba(204,34,255,0.08) 0%,transparent 50%);pointer-events:none}
+.hero-company{font-size:clamp(2.5rem,7vw,5.5rem);font-weight:900;letter-spacing:-0.04em;line-height:1;margin-bottom:1.5rem;background:linear-gradient(135deg,#fff 0%,rgba(255,255,255,0.7) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+[data-theme="light"] .hero-company{background:linear-gradient(135deg,#191F24 0%,rgba(25,31,36,0.7) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hero-meta{display:flex;flex-wrap:wrap;gap:1rem;justify-content:center;margin-top:1rem;margin-bottom:3rem}
+.hero-meta span{padding:8px 20px;border-radius:50px;background:var(--glass-bg);border:1px solid var(--glass-border);backdrop-filter:blur(10px);font-size:0.8rem;font-weight:500;color:var(--text-secondary)}
+.hero-scroll{position:absolute;bottom:1rem;animation:bounce 2s infinite;opacity:0.5}
+@keyframes bounce{0%,100%{transform:translateY(0)}50%{transform:translateY(8px)}}
+/* ========== CARDS & GRIDS ========== */
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:2rem;align-items:start}
+.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
+.grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem}
+.card{background:var(--bg-card);border:1px solid var(--bg-card-border);border-radius:16px;padding:2rem;backdrop-filter:blur(10px);transition:transform var(--transition),box-shadow var(--transition),background var(--transition),border-color var(--transition)}
+.card:hover{transform:translateY(-3px);box-shadow:var(--shadow);border-color:rgba(64,180,229,0.2)}
+/* ========== METRIC CARDS ========== */
+.metric-card{text-align:center;padding:2rem 1.5rem}
+.metric-card .value{font-size:2.2rem;font-weight:800;letter-spacing:-0.03em;background:linear-gradient(135deg,#40B4E5,#CC22FF);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.metric-card .label{font-size:0.75rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--text-muted);margin-top:0.5rem}
+.metric-card .change{font-size:0.8rem;margin-top:0.3rem;font-weight:600}
+.metric-card .change.down{color:var(--red)}
+.metric-card .change.up{color:var(--green)}
+/* ========== SCORECARD ========== */
+.score-ring{position:relative;width:120px;height:120px;margin:0 auto 1rem}
+.score-ring svg{transform:rotate(-90deg);width:120px;height:120px}
+.score-ring .bg{fill:none;stroke:var(--bg-card-border);stroke-width:8}
+.score-ring .fg{fill:none;stroke-width:8;stroke-linecap:round;transition:stroke-dashoffset 1.5s ease}
+.score-ring .grade{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:1.8rem;font-weight:800}
+.overall-bar{height:12px;border-radius:6px;background:var(--bg-card-border);overflow:hidden;margin-top:1rem;position:relative}
+.overall-bar .fill{height:100%;border-radius:6px;transition:width 1.5s ease;background:linear-gradient(90deg,var(--red),var(--yellow),var(--green))}
+/* ========== TABLES ========== */
+.data-table{width:100%;border-collapse:collapse;font-size:0.9rem}
+.data-table th{text-align:left;padding:1rem;font-size:0.7rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--text-muted);border-bottom:1px solid var(--bg-card-border)}
+.data-table td{padding:0.85rem 1rem;border-bottom:1px solid var(--bg-card-border);color:var(--text-secondary)}
+.data-table tr:hover td{color:var(--text-primary)}
+.badge{display:inline-block;padding:3px 10px;border-radius:6px;font-size:0.7rem;font-weight:600;letter-spacing:0.05em}
+.badge-branded{background:rgba(204,34,255,0.15);color:#CC22FF}
+.badge-generic{background:rgba(64,180,229,0.15);color:#40B4E5}
+.badge-info{background:rgba(34,197,94,0.15);color:#22c55e}
+/* ========== WARNING BANNER ========== */
+.warning-banner{background:linear-gradient(135deg,rgba(239,68,68,0.1),rgba(239,68,68,0.05));border:1px solid rgba(239,68,68,0.2);border-radius:12px;padding:1.5rem 2rem;display:flex;align-items:center;gap:1rem;margin-bottom:2rem}
+.warning-banner .icon{font-size:1.5rem}
+.warning-banner .text{font-weight:600;color:var(--red)}
+.warning-banner .sub{color:var(--text-secondary);font-size:0.9rem;font-weight:400}
+/* ========== PROBLEMS/SOLUTIONS ========== */
+.ps-row{display:grid;grid-template-columns:1fr auto 1fr;gap:1.5rem;align-items:center;margin-bottom:1.5rem}
+.ps-card{padding:1.5rem;border-radius:12px}
+.ps-problem{background:rgba(239,68,68,0.06);border:1px solid rgba(239,68,68,0.15)}
+.ps-solution{background:rgba(34,197,94,0.06);border:1px solid rgba(34,197,94,0.15)}
+.ps-arrow{font-size:1.5rem;background:linear-gradient(135deg,#40B4E5,#CC22FF);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;font-weight:800}
+.ps-card .title{font-weight:700;font-size:0.95rem;margin-bottom:0.25rem}
+.ps-problem .title{color:var(--red)}
+.ps-solution .title{color:var(--green)}
+/* ========== CONTENT GAP ========== */
+.gap-card{padding:1.5rem;text-align:center}
+.gap-card .kw{font-weight:700;font-size:1rem;margin-bottom:0.5rem}
+.gap-card .vol{font-size:1.8rem;font-weight:800;background:linear-gradient(135deg,#40B4E5,#CC22FF);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.gap-card .vol-label{font-size:0.7rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.1em}
+.gap-card .status{display:inline-block;margin-top:0.75rem;padding:4px 12px;border-radius:6px;background:rgba(239,68,68,0.12);color:var(--red);font-size:0.7rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase}
+.gap-card .status-good{background:rgba(34,197,94,0.12);color:var(--green)}
+/* ========== FINDING CARDS ========== */
+.finding-card{display:flex;gap:1.5rem;align-items:start;padding:2rem}
+.finding-num{flex-shrink:0;width:48px;height:48px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.2rem;font-weight:800;color:#fff}
+.finding-num.critical{background:linear-gradient(135deg,#ef4444,#dc2626)}
+.finding-num.high{background:linear-gradient(135deg,#f59e0b,#d97706)}
+.finding-card .title{font-weight:700;font-size:1.05rem;margin-bottom:0.3rem}
+.finding-card .desc{color:var(--text-secondary);font-size:0.9rem}
+/* ========== STRATEGY CARDS ========== */
+.strategy-card{padding:2.5rem 2rem;border-top:3px solid transparent;background-image:linear-gradient(var(--bg-card),var(--bg-card)),linear-gradient(135deg,#40B4E5,#CC22FF);background-origin:border-box;background-clip:padding-box,border-box;border-radius:16px;text-align:center}
+.strategy-card .icon{font-size:2.5rem;margin-bottom:1rem}
+.strategy-card .title{font-weight:700;font-size:1.1rem;margin-bottom:0.75rem}
+.strategy-card .desc{color:var(--text-secondary);font-size:0.9rem;line-height:1.6;margin-bottom:1rem}
+.strategy-card .outcome{padding:0.75rem;border-radius:8px;background:rgba(64,180,229,0.08);font-size:0.8rem;font-weight:600;color:var(--accent-light)}
+/* ========== TIMELINE ========== */
+.timeline{display:flex;gap:0;margin-top:2rem;position:relative}
+.timeline::before{content:'';position:absolute;top:40px;left:0;right:0;height:3px;background:var(--bg-card-border)}
+.timeline-phase{flex:1;position:relative;padding-top:60px;padding-right:1.5rem}
+.timeline-dot{position:absolute;top:32px;left:0;width:18px;height:18px;border-radius:50%;background:linear-gradient(135deg,#40B4E5,#CC22FF);border:3px solid var(--bg-primary);z-index:1;transition:border-color var(--transition)}
+.timeline-phase .phase-label{font-size:0.7rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--accent-light);margin-bottom:0.5rem}
+.timeline-phase .phase-title{font-weight:700;font-size:1.1rem;margin-bottom:0.75rem}
+.timeline-phase .phase-items{list-style:none;display:flex;flex-direction:column;gap:0.4rem}
+.timeline-phase .phase-items li{font-size:0.9rem;color:var(--text-secondary);padding-left:1.2rem;position:relative}
+.timeline-phase .phase-items li::before{content:'';position:absolute;left:0;top:8px;width:6px;height:6px;border-radius:50%;background:var(--accent-light)}
+/* ========== ROI ========== */
+.roi-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1.5rem}
+.roi-card{text-align:center;padding:2rem 1.5rem}
+.roi-card .label{font-size:0.7rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--text-muted);margin-bottom:0.75rem}
+.roi-card .before{font-size:1.3rem;font-weight:600;color:var(--text-muted);text-decoration:line-through}
+.roi-card .arrow{font-size:1.5rem;margin:0.5rem 0;background:linear-gradient(135deg,#40B4E5,#CC22FF);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.roi-card .after{font-size:2rem;font-weight:800;background:linear-gradient(135deg,#40B4E5,#CC22FF);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+/* ========== CTA ========== */
+.team-photo{width:100%;max-width:720px;margin:0 auto 2.5rem;display:block;border-radius:16px;box-shadow:0 12px 40px rgba(0,0,0,0.25);object-fit:cover;height:320px}
+[data-theme="light"] .team-photo{box-shadow:0 12px 40px rgba(0,0,0,0.1)}
+.cta-section{text-align:center;padding:8rem 2rem;position:relative;overflow:hidden;background:linear-gradient(rgba(25,31,36,0.85),rgba(25,31,36,0.9)),url('images/office.jpg') center/cover no-repeat}
+[data-theme="light"] .cta-section{background:linear-gradient(rgba(245,243,239,0.85),rgba(245,243,239,0.9)),url('images/office.jpg') center/cover no-repeat}
+.cta-section::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 50%,rgba(64,180,229,0.1) 0%,transparent 60%);pointer-events:none}
+.cta-btn{display:inline-flex;align-items:center;gap:8px;padding:16px 40px;border-radius:14px;background:linear-gradient(135deg,#40B4E5,#CC22FF);color:#fff;font-family:inherit;font-size:1.1rem;font-weight:700;border:none;cursor:pointer;transition:transform var(--transition),box-shadow var(--transition)}
+.cta-btn:hover{transform:translateY(-2px);box-shadow:0 8px 30px rgba(64,180,229,0.4)}
+.value-props{display:flex;flex-wrap:wrap;justify-content:center;gap:2rem;margin:3rem 0}
+.value-prop{display:flex;align-items:center;gap:8px;color:var(--text-secondary);font-size:0.95rem}
+.value-prop .check{color:var(--green);font-weight:700}
+.steps{display:flex;justify-content:center;gap:3rem;margin-top:3rem;flex-wrap:wrap}
+.step{text-align:center;max-width:200px}
+.step-num{width:48px;height:48px;border-radius:50%;background:var(--glass-bg);border:1px solid var(--glass-border);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:1.2rem;margin:0 auto 0.75rem;background:linear-gradient(135deg,#40B4E5,#CC22FF);color:#fff}
+.step .title{font-weight:700;font-size:0.95rem;margin-bottom:0.3rem}
+.step .desc{font-size:0.8rem;color:var(--text-secondary)}
+/* ========== WATERMARK ========== */
+.watermark{position:fixed;bottom:20px;left:20px;display:flex;align-items:center;gap:6px;padding:8px 16px;border-radius:10px;background:var(--glass-bg);border:1px solid var(--glass-border);backdrop-filter:blur(10px);font-size:0.7rem;font-weight:600;color:var(--text-muted);letter-spacing:0.05em;z-index:999;transition:background var(--transition)}
+/* ========== SCROLL ANIMATION ========== */
+.reveal{opacity:1;transform:none;transition:opacity 0.8s ease,transform 0.8s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
+/* ========== PERSONA ========== */
+.persona-card{padding:2rem;text-align:center}
+.persona-avatar{width:72px;height:72px;border-radius:50%;margin:0 auto 1rem;display:flex;align-items:center;justify-content:center;font-size:2rem;background:linear-gradient(135deg,rgba(64,180,229,0.15),rgba(204,34,255,0.15))}
+.persona-name{font-weight:700;font-size:1.1rem;margin-bottom:0.25rem}
+.persona-demo{font-size:0.85rem;color:var(--text-muted);margin-bottom:1rem}
+.persona-channels{display:flex;flex-wrap:wrap;gap:6px;justify-content:center;margin-bottom:1rem}
+.persona-channels .ch{padding:4px 10px;border-radius:6px;background:var(--glass-bg);border:1px solid var(--glass-border);font-size:0.7rem;font-weight:600;color:var(--text-secondary)}
+.persona-discover{font-size:0.85rem;color:var(--text-secondary);line-height:1.6}
+/* ========== CHART WRAPPER ========== */
+.chart-wrap{background:var(--bg-card);border:1px solid var(--bg-card-border);border-radius:16px;padding:2rem;backdrop-filter:blur(10px);transition:background var(--transition),border-color var(--transition)}
+
+/* ========== SIDE DOT NAV ========== */
+.side-nav{position:fixed;right:1.2rem;top:50%;transform:translateY(-50%);z-index:999;display:flex;flex-direction:column;align-items:center;padding:14px 8px;border-radius:999px;background:var(--glass-bg);backdrop-filter:blur(20px);border:1px solid var(--glass-border);box-shadow:var(--shadow);transition:background var(--transition),border-color var(--transition)}
+.side-nav-line{position:absolute;top:14px;bottom:14px;width:1px;background:var(--glass-border);z-index:0}
+.side-nav-dot{position:relative;z-index:1;width:8px;height:8px;border-radius:50%;background:var(--text-muted);margin:7px 0;cursor:pointer;transition:all 0.3s ease;flex-shrink:0}
+.side-nav-dot:hover{background:var(--text-secondary);transform:scale(1.3)}
+.side-nav-dot.active{width:10px;height:10px;background:linear-gradient(135deg,#40B4E5,#CC22FF);box-shadow:0 0 10px rgba(64,180,229,0.5);margin:6px 0}
+.side-nav-dot .tooltip{position:absolute;right:calc(100% + 12px);top:50%;transform:translateY(-50%) translateX(6px);background:var(--glass-bg);backdrop-filter:blur(16px);border:1px solid var(--glass-border);color:var(--text-primary);padding:4px 10px;border-radius:8px;font-size:0.7rem;font-weight:600;letter-spacing:0.03em;white-space:nowrap;opacity:0;pointer-events:none;transition:all 0.25s ease;box-shadow:var(--shadow)}
+.side-nav-dot:hover .tooltip{opacity:1;transform:translateY(-50%) translateX(0)}
+@media(max-width:768px){.side-nav{display:none}}
+@media print{.side-nav{display:none}}
+/* ========== RESPONSIVE ========== */
+@media(max-width:1024px){.grid-4{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:768px){
+  .grid-2,.grid-3,.grid-4{grid-template-columns:1fr}
+  .ps-row{grid-template-columns:1fr;text-align:center}
+  .ps-arrow{transform:rotate(90deg)}
+  .timeline{flex-direction:column;gap:2rem}
+  .timeline::before{display:none}
+  .timeline-phase{padding-top:0;padding-left:2rem}
+  .timeline-dot{top:0;left:0}
+  section{padding:4rem 1.5rem}
+}
+
+/* ========== GOOGLE ADS REPLICA ========== */
+.google-serp-card{background:#fff;border:1px solid #dadce0;border-radius:12px;padding:1.5rem 2rem;margin-bottom:1.5rem;font-family:'Inter',Arial,sans-serif}
+[data-theme="dark"] .google-serp-card{background:rgba(32,33,36,0.95);border-color:rgba(255,255,255,0.1)}
+.serp-search-bar{display:flex;align-items:center;gap:10px;padding:10px 16px;border-radius:24px;border:1px solid #dfe1e5;background:#fff;margin-bottom:1.5rem;max-width:600px}
+[data-theme="dark"] .serp-search-bar{background:rgba(32,33,36,1);border-color:rgba(100,116,139,0.3)}
+.serp-search-bar svg{flex-shrink:0}
+.serp-search-bar .query{font-size:0.95rem;color:#202124;font-weight:400}
+[data-theme="dark"] .serp-search-bar .query{color:#e8eaed}
+.serp-ad{padding:1rem 0;border-bottom:1px solid #ebebeb}
+[data-theme="dark"] .serp-ad{border-bottom-color:rgba(255,255,255,0.06)}
+.serp-ad:last-child{border-bottom:none}
+.serp-sponsored{display:inline-block;font-size:0.7rem;font-weight:700;color:#202124;background:transparent;padding:0;letter-spacing:0.02em;margin-bottom:4px}
+[data-theme="dark"] .serp-sponsored{color:#e8eaed}
+.serp-ad-url{font-size:0.82rem;color:#006621;margin-bottom:2px;display:flex;align-items:center;gap:4px}
+[data-theme="dark"] .serp-ad-url{color:#99c794}
+.serp-ad-title{font-size:1.15rem;color:#1a0dab;font-weight:400;margin-bottom:4px;cursor:pointer;line-height:1.3}
+.serp-ad-title:hover{text-decoration:underline}
+[data-theme="dark"] .serp-ad-title{color:#8ab4f8}
+.serp-ad-desc{font-size:0.85rem;color:#4d5156;line-height:1.5}
+[data-theme="dark"] .serp-ad-desc{color:#bdc1c6}
+.serp-sitelinks{display:flex;flex-wrap:wrap;gap:0;margin-top:8px}
+.serp-sitelink{flex:1 1 45%;padding:6px 0;border-top:1px solid #ebebeb}
+[data-theme="dark"] .serp-sitelink{border-top-color:rgba(255,255,255,0.06)}
+.serp-sitelink-title{font-size:0.85rem;color:#1a0dab;font-weight:400;cursor:pointer}
+.serp-sitelink-title:hover{text-decoration:underline}
+[data-theme="dark"] .serp-sitelink-title{color:#8ab4f8}
+.serp-sitelink-desc{font-size:0.75rem;color:#4d5156}
+[data-theme="dark"] .serp-sitelink-desc{color:#9aa0a6}
+.serp-no-ads{padding:1.5rem;text-align:center;border:2px dashed rgba(34,197,94,0.3);border-radius:12px;margin:1rem 0}
+.serp-no-ads .label{font-size:1rem;font-weight:700;color:var(--green);margin-bottom:0.25rem}
+.serp-no-ads .sub{font-size:0.85rem;color:var(--text-secondary)}
+.ads-callout{background:linear-gradient(135deg,rgba(34,197,94,0.1),rgba(34,197,94,0.05));border:1px solid rgba(34,197,94,0.25);border-radius:12px;padding:1.5rem 2rem;margin-top:2rem;display:flex;align-items:start;gap:1rem}
+.ads-callout .icon{font-size:1.5rem;flex-shrink:0;line-height:1}
+.ads-callout .content{flex:1}
+.ads-callout .content .headline{font-weight:700;color:var(--green);font-size:0.95rem;margin-bottom:0.25rem}
+.ads-callout .content .body{color:var(--text-secondary);font-size:0.88rem;line-height:1.6}
+
+/* ========== SEO COMPETITOR MATRIX ========== */
+.seo-matrix-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;margin-top:2rem;border-radius:16px;background:var(--bg-card);border:1px solid var(--bg-card-border);backdrop-filter:blur(10px)}
+.seo-matrix{width:100%;border-collapse:collapse;font-size:0.88rem;min-width:600px}
+.seo-matrix thead th{padding:1rem 1.25rem;font-size:0.7rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--text-muted);border-bottom:2px solid var(--bg-card-border);text-align:center;white-space:nowrap}
+.seo-matrix thead th:first-child{text-align:left}
+.seo-matrix thead th.highlight{background:linear-gradient(135deg,rgba(64,180,229,0.08),rgba(204,34,255,0.08));color:var(--accent-light);position:relative}
+.seo-matrix thead th.highlight::after{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,#40B4E5,#CC22FF);border-radius:3px 3px 0 0}
+.seo-matrix tbody td{padding:0.85rem 1.25rem;border-bottom:1px solid var(--bg-card-border);text-align:center;color:var(--text-secondary);white-space:nowrap}
+.seo-matrix tbody td:first-child{text-align:left;font-weight:600;color:var(--text-primary)}
+.seo-matrix tbody td.highlight{background:linear-gradient(135deg,rgba(64,180,229,0.04),rgba(204,34,255,0.04))}
+.seo-matrix tbody tr:hover td{background:var(--bg-card-hover)}
+.seo-matrix tbody tr:hover td.highlight{background:linear-gradient(135deg,rgba(64,180,229,0.08),rgba(204,34,255,0.08))}
+.seo-matrix .status-good{color:var(--green)}
+.seo-matrix .status-warn{color:var(--yellow)}
+.seo-matrix .status-bad{color:var(--red)}
+.seo-matrix .winner-row td{border-top:2px solid var(--bg-card-border);font-weight:700;font-size:0.75rem;letter-spacing:0.08em;text-transform:uppercase}
+.seo-matrix .winner-row td.winning{background:linear-gradient(135deg,rgba(34,197,94,0.1),rgba(34,197,94,0.05));color:var(--green)}
+.seo-matrix .winner-row td.losing{background:linear-gradient(135deg,rgba(239,68,68,0.1),rgba(239,68,68,0.05));color:var(--red)}
+.seo-matrix .winner-row td.neutral{color:var(--text-muted)}
+@media print{.seo-matrix-wrap{background:#fff!important;border:1px solid #ddd!important}.seo-matrix thead th.highlight,.seo-matrix tbody td.highlight{background:#f0f7ff!important}}
+
+/* ========== 10x UX UPGRADE CSS ========== */
+
+/* --- Reading Progress Bar --- */
+.reading-progress{position:fixed;top:64px;left:0;width:0%;height:3px;background:linear-gradient(90deg,#40B4E5,#CC22FF);z-index:1001;transition:width 0.1s linear;pointer-events:none}
+@media(max-width:768px){.reading-progress{top:64px}}
+
+/* --- Sticky Section Pill --- */
+.section-pill{position:fixed;top:58px;left:50%;transform:translateX(-50%) translateY(-10px);z-index:1001;padding:6px 18px;border-radius:50px;background:var(--glass-bg);backdrop-filter:blur(16px);border:1px solid var(--glass-border);font-size:0.7rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-muted);opacity:0;transition:opacity 0.3s ease,transform 0.3s ease;pointer-events:none;white-space:nowrap}
+.section-pill.visible{opacity:1;transform:translateX(-50%) translateY(0)}
+@media print{.section-pill{display:none!important}}
+
+/* --- Gradient Section Dividers --- */
+.gradient-divider{height:2px;background:linear-gradient(90deg,transparent,#40B4E5,#CC22FF,transparent);margin:0;opacity:0;transform:scaleX(0);transition:opacity 0.8s ease,transform 1s cubic-bezier(0.22,1,0.36,1);transform-origin:center}
+.gradient-divider.active{opacity:1;transform:scaleX(1)}
+
+/* --- Hero Parallax --- */
+.hero{background-attachment:fixed}
+@media(max-width:768px){.hero{background-attachment:scroll}}
+
+/* --- Chart Hint --- */
+.chart-hint{text-align:center;font-size:0.75rem;color:var(--text-muted);margin-top:0.75rem;opacity:0.7;font-style:italic}
+.chart-hint::before{content:'💡 '}
+
+/* --- CTA Pulse --- */
+@keyframes ctaPulse{0%{box-shadow:0 0 0 0 rgba(64,180,229,0.4)}70%{box-shadow:0 0 0 15px rgba(64,180,229,0)}100%{box-shadow:0 0 0 0 rgba(64,180,229,0)}}
+.cta-btn.pulse{animation:ctaPulse 2s ease-in-out infinite}
+
+/* ========== PRINT / PDF UPGRADES ========== */
+.print-only{display:none!important}
+
+/* --- Print Cover Page --- */
+.print-cover{page-break-after:always;text-align:center;padding:4rem 2rem;min-height:90vh;flex-direction:column;align-items:center;justify-content:center}
+.print-cover .cover-dot{width:40px;height:40px;border-radius:50%;background:#0644ED;margin:0 auto 1.5rem}
+.print-cover .cover-brand{font-size:1.8rem;font-weight:800;letter-spacing:0.08em;color:#191F24;margin-bottom:3rem}
+.print-cover .cover-type{font-size:0.85rem;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:#64748b;margin-bottom:1rem}
+.print-cover .cover-client{font-size:3rem;font-weight:900;color:#191F24;margin-bottom:0.5rem;letter-spacing:-0.03em}
+.print-cover .cover-domain{font-size:1rem;color:#64748b;margin-bottom:3rem}
+.print-cover .cover-prepared{font-size:0.9rem;color:#64748b;margin-bottom:1rem}
+.print-cover .cover-confidential{font-size:0.7rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:#ef4444;margin-top:3rem;padding:8px 24px;border:2px solid #ef4444;border-radius:4px;display:inline-block}
+
+/* --- Print TOC --- */
+.print-toc{page-break-after:always;padding:3rem 2rem}
+.print-toc h2{font-size:1.8rem;font-weight:800;color:#191F24;margin-bottom:2rem;letter-spacing:-0.03em}
+.print-toc-item{display:flex;align-items:center;padding:0.6rem 0;border-bottom:1px solid #e5e7eb;font-size:0.9rem;color:#374151}
+.print-toc-item .toc-num{width:30px;font-weight:700;color:#0644ED;flex-shrink:0}
+.print-toc-item .toc-name{flex:1}
+
+/* --- Print QR --- */
+.print-qr{text-align:center;margin-top:3rem;padding:2rem;border:1px solid #e5e7eb;border-radius:12px;page-break-inside:avoid}
+.print-qr p{font-size:0.85rem;color:#64748b;margin-bottom:1rem}
+.print-qr img{width:150px;height:150px}
+
+@media print{
+  *{transition:none!important;animation:none!important}
+  body{background:#fff!important;color:#191F24!important;font-size:10pt}
+  .nav,.theme-toggle,.pdf-btn,.watermark,.hero-scroll{display:none!important}
+  section{padding:2rem 0!important;background:#fff!important;page-break-inside:avoid;break-inside:avoid}
+  section:nth-child(even){background:#fff!important}
+  .hero{min-height:auto!important;padding:3rem 0!important}
+  .hero-company{-webkit-text-fill-color:#191F24!important;font-size:2.5rem!important}
+  .card{background:#f9f9f9!important;border:1px solid #ddd!important;backdrop-filter:none!important;box-shadow:none!important;page-break-inside:avoid!important}
+  .reviews-wrap{display:none!important}
+  .ps-row{margin-bottom:0.5rem!important;gap:0.5rem!important}
+  .ps-card{padding:0.75rem!important}
+  .ps-card .title{font-size:0.85rem!important}
+  .ps-card div{font-size:0.75rem!important}
+  .section-title .gradient,.gradient{-webkit-text-fill-color:#0644ED!important;background:none!important;color:#0644ED!important}
+  .metric-card .value,.roi-card .after,.gap-card .vol{-webkit-text-fill-color:#0644ED!important}
+  .reveal{opacity:1!important;transform:none!important}
+  .chart-wrap{border:1px solid #ddd!important;background:#fff!important}
+  .glass-bg,.glass-border{backdrop-filter:none!important}
+  .warning-banner{border:2px solid #ef4444!important}
+  a{color:#0644ED!important}
+  .container{max-width:100%!important}
+  @page{margin:1.5cm;size:letter}
+  h1,h2,h3{page-break-after:avoid}
+  .grid-4{grid-template-columns:repeat(4,1fr)!important}
+  .grid-3{grid-template-columns:repeat(3,1fr)!important}
+  .grid-2{grid-template-columns:1fr 1fr!important}
+  .print-only{display:block!important}
+  .print-cover{display:flex!important}
+  .print-cover .cover-dot{background:#0644ED!important;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  #overview,#summary,#scorecard,#pagespeed,#traffic,#keywords,#ads,#competitors,#seo-matrix,#social,#email,#reputation,#solutions,#findings,#strategy,#roadmap,#roi,#cta{page-break-before:always}
+  .card{background:#f8f9fa!important;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .section-title .gradient,.metric-card .value,.roi-card .after,.gap-card .vol,.stat-card .stat-num{
+    -webkit-text-fill-color:#0644ED!important;background:none!important
+  }
+  .score-ring .fg{stroke:#0644ED!important}
+  .reveal{opacity:1!important;transform:none!important;transition:none!important}
+  .reveal .card{transition-delay:0s!important}
+}
+
+.stats-bar{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem;margin-bottom:3rem}
+.stat-card{background:var(--glass-bg);border:1px solid var(--glass-border);border-radius:16px;padding:1.5rem;text-align:center;backdrop-filter:blur(10px)}
+.stat-card .stat-num{font-size:2.5rem;font-weight:800;background:linear-gradient(135deg,#40B4E5,#CC22FF);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1.2}
+.stat-card .stat-label{font-size:0.85rem;color:var(--text-muted);margin-top:0.25rem}
+.value-cards{display:grid;grid-template-columns:repeat(2,1fr);gap:1.5rem;margin:2.5rem 0;text-align:left}
+.value-card{background:var(--glass-bg);border:1px solid var(--glass-border);border-radius:16px;padding:1.75rem;backdrop-filter:blur(10px)}
+.value-card h4{font-size:1.05rem;font-weight:700;margin:0 0 0.5rem;color:var(--text-primary)}
+.value-card p{font-size:0.9rem;color:var(--text-secondary);margin:0;line-height:1.5}
+.client-logos{text-align:center;margin:2.5rem 0 1.5rem;font-size:0.8rem;color:var(--text-muted);letter-spacing:0.05em}
+.client-logos .label{font-size:0.7rem;text-transform:uppercase;letter-spacing:0.15em;font-weight:600;margin-bottom:0.75rem;color:var(--text-muted)}
+.testimonial-block{max-width:640px;margin:2rem auto 3rem;text-align:left}
+.testimonial-block blockquote{margin:0;padding:1.25rem 1.5rem;border-left:3px solid transparent;border-image:linear-gradient(180deg,#40B4E5,#CC22FF) 1;font-style:italic;font-size:0.95rem;color:var(--text-secondary);line-height:1.6}
+.testimonial-block .attribution{margin-top:0.75rem;padding-left:1.5rem;font-size:0.8rem;color:var(--text-muted)}
+[data-theme="light"] .client-logos img{filter:invert(1) brightness(0.3)}
+.awards-row{display:flex;justify-content:center;align-items:center;gap:1.5rem;flex-wrap:wrap;margin:1.5rem 0;opacity:0.45}
+.awards-row img{height:40px;width:auto;filter:brightness(0.9)}
+[data-theme="light"] .awards-row img{filter:brightness(0.4)}
+@media(max-width:768px){.stats-bar{grid-template-columns:repeat(2,1fr)}.value-cards{grid-template-columns:1fr}}
+
+/* SUCCESS BANNER (for positive findings) */
+.success-banner{background:linear-gradient(135deg,rgba(34,197,94,0.1),rgba(34,197,94,0.05));border:1px solid rgba(34,197,94,0.2);border-radius:12px;padding:1.5rem 2rem;display:flex;align-items:center;gap:1rem;margin-bottom:2rem}
+.success-banner .icon{font-size:1.5rem}
+.success-banner .text{font-weight:600;color:var(--green)}
+
+</style>
+</head>
+<body>
+
+<!-- ===== PRINT-ONLY: COVER PAGE ===== -->
+<div class="print-only print-cover" style="display:none">
+  <img src="https://brandastic.com/wp-content/uploads/2026/02/mark.png" alt="Brandastic" style="width:50px;height:auto;margin:0 auto 1.5rem;display:block">
+  <div class="cover-brand">BRANDASTIC</div>
+  <div class="cover-type">Digital Marketing Self-Audit</div>
+  <div class="cover-client">Brandastic</div>
+  <div class="cover-domain">brandastic.com</div>
+  <div class="cover-prepared">Prepared by Brandastic &nbsp;|&nbsp; May 2026</div>
+  <div class="cover-confidential">INTERNAL</div>
+</div>
+
+<!-- ===== PRINT-ONLY: TABLE OF CONTENTS ===== -->
+<div class="print-only print-toc" style="display:none">
+  <h2>Table of Contents</h2>
+  <div class="print-toc-item"><span class="toc-num">01</span><span class="toc-name">Business Overview</span></div>
+  <div class="print-toc-item"><span class="toc-num">02</span><span class="toc-name">Executive Summary</span></div>
+  <div class="print-toc-item"><span class="toc-num">03</span><span class="toc-name">Target Personas</span></div>
+  <div class="print-toc-item"><span class="toc-num">04</span><span class="toc-name">SEO Health Scorecard</span></div>
+  <div class="print-toc-item"><span class="toc-num">—</span><span class="toc-name">Google PageSpeed Insights</span></div>
+  <div class="print-toc-item"><span class="toc-num">05</span><span class="toc-name">Traffic Trend</span></div>
+  <div class="print-toc-item"><span class="toc-num">06</span><span class="toc-name">Keyword Analysis</span></div>
+  <div class="print-toc-item"><span class="toc-num">06B</span><span class="toc-name">Google Ads Preview</span></div>
+  <div class="print-toc-item"><span class="toc-num">07</span><span class="toc-name">Competitor Comparison</span></div>
+  <div class="print-toc-item"><span class="toc-num">07B</span><span class="toc-name">SEO Competitor Matrix</span></div>
+  <div class="print-toc-item"><span class="toc-num">—</span><span class="toc-name">Social Media Presence</span></div>
+  <div class="print-toc-item"><span class="toc-num">—</span><span class="toc-name">Email & Content Marketing</span></div>
+  <div class="print-toc-item"><span class="toc-num">—</span><span class="toc-name">Online Reputation</span></div>
+  <div class="print-toc-item"><span class="toc-num">08</span><span class="toc-name">Problems → Solutions</span></div>
+  <div class="print-toc-item"><span class="toc-num">09</span><span class="toc-name">Content Gap Analysis</span></div>
+  <div class="print-toc-item"><span class="toc-num">10</span><span class="toc-name">Critical Findings</span></div>
+  <div class="print-toc-item"><span class="toc-num">11</span><span class="toc-name">Strategy Preview</span></div>
+  <div class="print-toc-item"><span class="toc-num">12</span><span class="toc-name">Growth Roadmap</span></div>
+  <div class="print-toc-item"><span class="toc-num">13</span><span class="toc-name">Projected ROI</span></div>
+  <div class="print-toc-item"><span class="toc-num">—</span><span class="toc-name">Summary & Next Steps</span></div>
+</div>
+
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="nav-brand"><span class="dot"></span> BRANDASTIC</div>
+  <div class="nav-actions">
+    <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme"><div class="knob">🌙</div></button>
+    <button class="pdf-btn" onclick="window.print()">📄 Download PDF</button>
+  </div>
+</nav>
+<div class="side-nav">
+  <div class="side-nav-line"></div>
+    <div class="side-nav-dot active" data-section="overview"><span class="tooltip">Overview</span></div>
+    <div class="side-nav-dot" data-section="summary"><span class="tooltip">Summary</span></div>
+    <div class="side-nav-dot" data-section="personas"><span class="tooltip">Personas</span></div>
+    <div class="side-nav-dot" data-section="scorecard"><span class="tooltip">Scorecard</span></div>
+    <div class="side-nav-dot" data-section="pagespeed"><span class="tooltip">PageSpeed</span></div>
+    <div class="side-nav-dot" data-section="traffic"><span class="tooltip">Traffic</span></div>
+    <div class="side-nav-dot" data-section="keywords"><span class="tooltip">Keywords</span></div>
+    <div class="side-nav-dot" data-section="ads"><span class="tooltip">Google Ads</span></div>
+    <div class="side-nav-dot" data-section="competitors"><span class="tooltip">Competitors</span></div>
+    <div class="side-nav-dot" data-section="seo-matrix"><span class="tooltip">SEO Matrix</span></div>
+    <div class="side-nav-dot" data-section="social"><span class="tooltip">Social Media</span></div>
+    <div class="side-nav-dot" data-section="email"><span class="tooltip">Email & Content</span></div>
+    <div class="side-nav-dot" data-section="reputation"><span class="tooltip">Reputation</span></div>
+    <div class="side-nav-dot" data-section="solutions"><span class="tooltip">Solutions</span></div>
+    <div class="side-nav-dot" data-section="gaps"><span class="tooltip">Gaps</span></div>
+    <div class="side-nav-dot" data-section="findings"><span class="tooltip">Findings</span></div>
+    <div class="side-nav-dot" data-section="strategy"><span class="tooltip">Strategy</span></div>
+    <div class="side-nav-dot" data-section="roadmap"><span class="tooltip">Roadmap</span></div>
+    <div class="side-nav-dot" data-section="roi"><span class="tooltip">ROI</span></div>
+</div>
+
+<!-- WATERMARK -->
+<div class="watermark"><span class="dot" style="width:6px;height:6px;border-radius:50%;background:linear-gradient(135deg,#40B4E5,#CC22FF);display:inline-block"></span> Brandastic Self-Audit</div>
+
+<!-- ===== 1. HERO ===== -->
+<section class="hero" id="hero">
+  <div class="hero-video"><iframe src="https://www.youtube.com/embed/uqJV1mrHV0c?autoplay=1&mute=1&loop=1&playlist=uqJV1mrHV0c&controls=0&showinfo=0&rel=0&modestbranding=1&playsinline=1&start=2" allow="autoplay; encrypted-media" allowfullscreen></iframe></div>
+  <div class="section-badge" style="margin-bottom:2rem">Digital Marketing Self-Audit</div>
+  <h1 class="hero-company">Brandastic</h1>
+  <p style="color:var(--text-secondary);font-size:1.1rem;max-width:500px;text-align:center;margin-top:1rem">Honest self-assessment of our own digital presence & growth opportunities</p>
+  <div class="hero-meta" style="margin-bottom:3rem">
+    <span>Self-Audit</span>
+    <span>May 2026</span>
+    <span>brandastic.com</span>
+  </div>
+  <div class="hero-scroll" style="color:var(--text-muted);font-size:1.2rem">↓</div>
+</section>
+
+<!-- ===== 2. BUSINESS OVERVIEW ===== -->
+<section id="overview">
+  <div class="container reveal">
+    <div class="section-badge">01 — Business Overview</div>
+    <div class="grid-2">
+      <div>
+        <h2 class="section-title">Orange County's Digital <span class="gradient">Marketing Agency</span></h2>
+        <p class="section-sub">Brandastic is an award-winning, full-service digital marketing agency headquartered in Costa Mesa, CA. Founded in 2010, we've served 450+ clients across healthcare, education, fashion, dental, and enterprise — including brands like RICOH, Orangetheory Fitness, HyperX, and KIA Motors.</p>
+        <p style="color:var(--text-secondary);line-height:1.7">Our services span SEO, PPC (Google Ads & Meta), social media marketing, web development, branding, and content marketing. With 15+ years of continuous operation and 40+ five-star Google reviews, the brand is strong — but our own website's SEO hasn't received the same attention we give clients.</p>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:1rem">
+        <div class="card" style="border-left:3px solid var(--accent-light)">
+          <div style="font-size:0.7rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--accent-light);margin-bottom:0.5rem">Strengths</div>
+          <ul style="list-style:none;display:flex;flex-direction:column;gap:0.5rem">
+            <li style="color:var(--text-secondary);font-size:0.9rem">✦ 15+ years, 450+ clients served</li>
+            <li style="color:var(--text-secondary);font-size:0.9rem">✦ 5.0★ Google rating (40+ reviews)</li>
+            <li style="color:var(--text-secondary);font-size:0.9rem">✦ Strong local brand recognition in OC</li>
+            <li style="color:var(--text-secondary);font-size:0.9rem">✦ Active blog with SEO-focused content</li>
+          </ul>
+        </div>
+        <div class="card" style="border-left:3px solid var(--red)">
+          <div style="font-size:0.7rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--red);margin-bottom:0.5rem">Key Weaknesses</div>
+          <ul style="list-style:none;display:flex;flex-direction:column;gap:0.5rem">
+            <li style="color:var(--text-secondary);font-size:0.9rem">⚠ Organic traffic well below competitor levels</li>
+            <li style="color:var(--text-secondary);font-size:0.9rem">⚠ No active Google Ads for own brand</li>
+            <li style="color:var(--text-secondary);font-size:0.9rem">⚠ Social media presence could be stronger</li>
+            <li style="color:var(--text-secondary);font-size:0.9rem">⚠ Site speed needs optimization</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+<div style="text-align:center;margin-top:1.5rem;padding-top:1rem;border-top:1px solid rgba(255,255,255,0.06);font-size:0.75rem;color:var(--text-muted)">
+  Data sources: <a href="https://semrush.com" target="_blank" style="color:var(--text-muted);text-decoration:underline">Semrush</a> · <a href="https://similarweb.com" target="_blank" style="color:var(--text-muted);text-decoration:underline">SimilarWeb</a> · Accessed May 2026
+</div>
+</section>
+
+<!-- ===== 3. EXECUTIVE SUMMARY ===== -->
+<section id="summary">
+  <div class="container reveal">
+    <div class="section-badge">02 — Executive Summary</div>
+    <h2 class="section-title">Current Digital <span class="gradient">Snapshot</span></h2>
+    <div class="grid-4" style="margin-bottom:3rem">
+      <div class="card metric-card">
+        <div class="value" data-count="948147">0</div>
+        <div class="label">Semrush Rank</div>
+        <div class="change down">Room to improve</div>
+      </div>
+      <div class="card metric-card">
+        <div class="value" data-count="1206">0</div>
+        <div class="label">Monthly Traffic</div>
+        <div class="change down">Below potential</div>
+      </div>
+      <div class="card metric-card">
+        <div class="value" data-count="2063">0</div>
+        <div class="label">Organic Keywords</div>
+        <div class="change up">Decent base</div>
+      </div>
+      <div class="card metric-card">
+        <div class="value" data-prefix="$" data-count="6122">0</div>
+        <div class="label">Traffic Value</div>
+        <div class="change up">Good per-visit value</div>
+      </div>
+    </div>
+    <div class="grid-2">
+      <div>
+        <h3 style="font-weight:700;margin-bottom:1rem;font-size:1.1rem">🔍 Key Findings</h3>
+        <ul style="list-style:none;display:flex;flex-direction:column;gap:0.75rem">
+          <li style="color:var(--text-secondary);font-size:0.9rem;padding-left:1.2rem;position:relative"><span style="position:absolute;left:0;color:var(--red)">•</span> Organic traffic (1,206/mo) far below competitors like Ignite Visibility (13,372) and Power Digital (24,683)</li>
+          <li style="color:var(--text-secondary);font-size:0.9rem;padding-left:1.2rem;position:relative"><span style="position:absolute;left:0;color:var(--red)">•</span> No active Google Ads campaigns driving leads to our own site</li>
+          <li style="color:var(--text-secondary);font-size:0.9rem;padding-left:1.2rem;position:relative"><span style="position:absolute;left:0;color:var(--red)">•</span> PageSpeed performance needs attention (heavy WordPress + plugins)</li>
+          <li style="color:var(--text-secondary);font-size:0.9rem;padding-left:1.2rem;position:relative"><span style="position:absolute;left:0;color:var(--red)">•</span> Social media followings modest for a 15-year agency</li>
+          <li style="color:var(--text-secondary);font-size:0.9rem;padding-left:1.2rem;position:relative"><span style="position:absolute;left:0;color:var(--red)">•</span> Traffic fluctuates significantly month-to-month</li>
+        </ul>
+      </div>
+      <div>
+        <h3 style="font-weight:700;margin-bottom:1rem;font-size:1.1rem">🚀 Biggest Opportunities</h3>
+        <ul style="list-style:none;display:flex;flex-direction:column;gap:0.75rem">
+          <li style="color:var(--text-secondary);font-size:0.9rem;padding-left:1.2rem;position:relative"><span style="position:absolute;left:0;color:var(--green)">•</span> Blog already ranks for informational keywords — scale this content engine</li>
+          <li style="color:var(--text-secondary);font-size:0.9rem;padding-left:1.2rem;position:relative"><span style="position:absolute;left:0;color:var(--green)">•</span> Strong local keyword positions ("digital marketing agency orange county") to build on</li>
+          <li style="color:var(--text-secondary);font-size:0.9rem;padding-left:1.2rem;position:relative"><span style="position:absolute;left:0;color:var(--green)">•</span> $6,122 traffic value shows high commercial intent in existing keywords</li>
+          <li style="color:var(--text-secondary);font-size:0.9rem;padding-left:1.2rem;position:relative"><span style="position:absolute;left:0;color:var(--green)">•</span> 5.0★ Google reputation is a conversion asset — leverage it more</li>
+          <li style="color:var(--text-secondary);font-size:0.9rem;padding-left:1.2rem;position:relative"><span style="position:absolute;left:0;color:var(--green)">•</span> Launch Google Ads for own lead generation (we run them for clients, not ourselves)</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 4. PERSONAS ===== -->
+<section id="personas">
+  <div class="container reveal">
+    <div class="section-badge">03 — Target Personas</div>
+    <h2 class="section-title">Who Are We <span class="gradient">Reaching?</span></h2>
+    <p class="section-sub">Understanding our ideal clients is the foundation of our marketing strategy.</p>
+    <div class="grid-3">
+      <div class="card persona-card">
+        <div class="persona-avatar">🏢</div>
+        <div class="persona-name">SMB Owners</div>
+        <div class="persona-demo">Ages 30–55 • Revenue $1M–$50M</div>
+        <div class="persona-channels">
+          <span class="ch">Google</span><span class="ch">LinkedIn</span><span class="ch">Referrals</span>
+        </div>
+        <div class="persona-discover">Search for "digital marketing agency orange county" or get referred by existing clients.</div>
+      </div>
+      <div class="card persona-card">
+        <div class="persona-avatar">📊</div>
+        <div class="persona-name">Marketing Directors</div>
+        <div class="persona-demo">Ages 28–45 • In-house teams needing agency support</div>
+        <div class="persona-channels">
+          <span class="ch">Google</span><span class="ch">LinkedIn</span><span class="ch">Industry Events</span>
+        </div>
+        <div class="persona-discover">Research agencies via Google, check reviews, compare portfolios and case studies.</div>
+      </div>
+      <div class="card persona-card">
+        <div class="persona-avatar">🚀</div>
+        <div class="persona-name">Startups & E-Commerce</div>
+        <div class="persona-demo">Ages 25–40 • Need growth fast</div>
+        <div class="persona-channels">
+          <span class="ch">Google</span><span class="ch">Instagram</span><span class="ch">Clutch/Yelp</span>
+        </div>
+        <div class="persona-discover">Find us through blog content, social media, or review platforms like Clutch and Yelp.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 5. SEO SCORECARD ===== -->
+<section id="scorecard">
+  <div class="container reveal">
+    <div class="section-badge">04 — SEO Health Scorecard</div>
+    <h2 class="section-title">Overall Score: <span class="gradient">52/100</span></h2>
+    <p class="section-sub">An honest evaluation of our own site's SEO health across four critical dimensions.</p>
+    <div class="grid-4" style="margin-bottom:2rem">
+      <div class="card" style="text-align:center;padding:2rem">
+        <div class="score-ring">
+          <svg viewBox="0 0 120 120"><circle class="bg" cx="60" cy="60" r="52"/><circle class="fg" cx="60" cy="60" r="52" stroke="var(--yellow)" stroke-dasharray="327" stroke-dashoffset="327" data-target="180"/></svg>
+          <div class="grade" style="color:var(--yellow)">C</div>
+        </div>
+        <div style="font-weight:700;font-size:0.95rem">Technical SEO</div>
+        <div style="font-size:0.8rem;color:var(--text-muted);margin-top:0.25rem">45/100</div>
+      </div>
+      <div class="card" style="text-align:center;padding:2rem">
+        <div class="score-ring">
+          <svg viewBox="0 0 120 120"><circle class="bg" cx="60" cy="60" r="52"/><circle class="fg" cx="60" cy="60" r="52" stroke="var(--yellow)" stroke-dasharray="327" stroke-dashoffset="327" data-target="147"/></svg>
+          <div class="grade" style="color:var(--yellow)">C+</div>
+        </div>
+        <div style="font-weight:700;font-size:0.95rem">Content</div>
+        <div style="font-size:0.8rem;color:var(--text-muted);margin-top:0.25rem">55/100</div>
+      </div>
+      <div class="card" style="text-align:center;padding:2rem">
+        <div class="score-ring">
+          <svg viewBox="0 0 120 120"><circle class="bg" cx="60" cy="60" r="52"/><circle class="fg" cx="60" cy="60" r="52" stroke="var(--yellow)" stroke-dasharray="327" stroke-dashoffset="327" data-target="147"/></svg>
+          <div class="grade" style="color:var(--yellow)">C+</div>
+        </div>
+        <div style="font-weight:700;font-size:0.95rem">Authority</div>
+        <div style="font-size:0.8rem;color:var(--text-muted);margin-top:0.25rem">55/100</div>
+      </div>
+      <div class="card" style="text-align:center;padding:2rem">
+        <div class="score-ring">
+          <svg viewBox="0 0 120 120"><circle class="bg" cx="60" cy="60" r="52"/><circle class="fg" cx="60" cy="60" r="52" stroke="var(--yellow)" stroke-dasharray="327" stroke-dashoffset="327" data-target="147"/></svg>
+          <div class="grade" style="color:var(--yellow)">C+</div>
+        </div>
+        <div style="font-weight:700;font-size:0.95rem">Local SEO</div>
+        <div style="font-size:0.8rem;color:var(--text-muted);margin-top:0.25rem">55/100</div>
+      </div>
+    </div>
+    <div class="card" style="padding:2rem">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:0.75rem">
+        <span style="font-weight:700">Overall Health</span>
+        <span style="font-weight:800;color:var(--yellow)">52/100</span>
+      </div>
+      <div class="overall-bar"><div class="fill" style="width:0%" data-target="52"></div></div>
+    </div>
+  </div>
+<div style="text-align:center;margin-top:1.5rem;padding-top:1rem;border-top:1px solid rgba(255,255,255,0.06);font-size:0.75rem;color:var(--text-muted)">
+  Data sources: <a href="https://semrush.com" target="_blank" style="color:var(--text-muted);text-decoration:underline">Semrush</a> · <a href="https://moz.com" target="_blank" style="color:var(--text-muted);text-decoration:underline">Moz</a> · Manual audit · Accessed May 2026
+</div>
+</section>
+
+<!-- ===== GOOGLE PAGESPEED INSIGHTS ===== -->
+<section id="pagespeed">
+  <div class="container reveal">
+    <div class="section-badge">📊 Google PageSpeed Insights</div>
+    <h2 class="section-title">Google <span class="gradient">PageSpeed Insights</span></h2>
+    <p class="section-sub">Estimated performance based on WordPress + Cloudflare APO + Kinsta + WP Rocket stack — May 2026. (PageSpeed API quota exceeded during audit; scores are conservative estimates based on stack analysis.)</p>
+    <div class="grid-4" style="margin-bottom:2rem">
+      <div class="card" style="text-align:center;padding:2rem">
+        <div class="score-ring">
+          <svg viewBox="0 0 120 120"><circle class="bg" cx="60" cy="60" r="52"/><circle class="fg" cx="60" cy="60" r="52" stroke="var(--yellow)" stroke-dasharray="327" stroke-dashoffset="327" data-target="164"/></svg>
+          <div class="grade" style="color:var(--yellow);font-size:2.2rem">50</div>
+        </div>
+        <div style="font-weight:700;font-size:0.95rem">Performance (Mobile)</div>
+      </div>
+      <div class="card" style="text-align:center;padding:2rem">
+        <div class="score-ring">
+          <svg viewBox="0 0 120 120"><circle class="bg" cx="60" cy="60" r="52"/><circle class="fg" cx="60" cy="60" r="52" stroke="var(--yellow)" stroke-dasharray="327" stroke-dashoffset="327" data-target="82"/></svg>
+          <div class="grade" style="color:var(--yellow);font-size:2.2rem">75</div>
+        </div>
+        <div style="font-weight:700;font-size:0.95rem">Accessibility</div>
+      </div>
+      <div class="card" style="text-align:center;padding:2rem">
+        <div class="score-ring">
+          <svg viewBox="0 0 120 120"><circle class="bg" cx="60" cy="60" r="52"/><circle class="fg" cx="60" cy="60" r="52" stroke="var(--yellow)" stroke-dasharray="327" stroke-dashoffset="327" data-target="98"/></svg>
+          <div class="grade" style="color:var(--yellow);font-size:2.2rem">70</div>
+        </div>
+        <div style="font-weight:700;font-size:0.95rem">Best Practices</div>
+      </div>
+      <div class="card" style="text-align:center;padding:2rem">
+        <div class="score-ring">
+          <svg viewBox="0 0 120 120"><circle class="bg" cx="60" cy="60" r="52"/><circle class="fg" cx="60" cy="60" r="52" stroke="var(--green)" stroke-dasharray="327" stroke-dashoffset="327" data-target="49"/></svg>
+          <div class="grade" style="color:var(--green);font-size:2.2rem">85</div>
+        </div>
+        <div style="font-weight:700;font-size:0.95rem">SEO</div>
+      </div>
+    </div>
+
+    <!-- Core Web Vitals -->
+    <div class="card" style="padding:2rem;margin-bottom:2rem">
+      <div style="display:flex;align-items:center;gap:1rem;margin-bottom:0.5rem">
+        <span style="font-weight:700;font-size:1.1rem">Core Web Vitals</span>
+        <span class="badge" style="background:rgba(245,158,11,0.15);color:var(--yellow);font-size:0.75rem;font-weight:700;letter-spacing:0.08em">NEEDS WORK</span>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-top:1.5rem"><div class="card" style="text-align:center;padding:1.5rem"><div style="font-size:1.5rem;font-weight:800;color:var(--yellow)">~3.2s</div><div style="font-size:0.7rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-muted);margin-top:0.25rem">LCP</div><div style="font-size:0.7rem;color:var(--yellow);margin-top:0.25rem">Needs improvement (> 2.5s)</div></div><div class="card" style="text-align:center;padding:1.5rem"><div style="font-size:1.5rem;font-weight:800;color:var(--yellow)">~180ms</div><div style="font-size:0.7rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-muted);margin-top:0.25rem">INP</div><div style="font-size:0.7rem;color:var(--yellow);margin-top:0.25rem">Needs improvement</div></div><div class="card" style="text-align:center;padding:1.5rem"><div style="font-size:1.5rem;font-weight:800;color:var(--green)">~0.05</div><div style="font-size:0.7rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-muted);margin-top:0.25rem">CLS</div><div style="font-size:0.7rem;color:var(--green);margin-top:0.25rem">Good (< 0.1)</div></div></div>
+    </div>
+
+    <!-- Callout -->
+    <div class="warning-banner">
+      <div class="icon">⚠️</div>
+      <div>
+        <div class="text">Heavy WordPress theme + multiple plugins = slower mobile performance. Cloudflare APO + WP Rocket help, but there's room for optimization.</div>
+      </div>
+    </div>
+
+    <div style="text-align:center;margin-top:1.5rem;font-size:0.75rem;color:var(--text-muted)">Estimated scores based on stack analysis • PageSpeed API quota exceeded during audit • <a href="https://pagespeed.web.dev/analysis/https-brandastic-com/id" target="_blank" style="color:var(--text-muted);text-decoration:underline">Run live test →</a></div>
+  </div>
+</section>
+
+
+<!-- ===== 6. TRAFFIC TREND ===== -->
+<section id="traffic">
+  <div class="container reveal">
+    <div class="section-badge">05 — Traffic Trend</div>
+    <h2 class="section-title">12-Month <span class="gradient">Performance</span></h2>
+    <p class="section-sub">Real Semrush data showing organic traffic and keyword counts. Traffic is volatile with a strong spike in Oct 2025 followed by a return to baseline.</p>
+    <div class="chart-wrap">
+      <canvas id="trafficChart" height="100"></canvas>
+    </div>
+  </div>
+<div style="text-align:center;margin-top:1.5rem;padding-top:1rem;border-top:1px solid rgba(255,255,255,0.06);font-size:0.75rem;color:var(--text-muted)">
+  Data sources: <a href="https://semrush.com" target="_blank" style="color:var(--text-muted);text-decoration:underline">Semrush</a> · Real API data · Accessed May 10, 2026
+</div>
+</section>
+
+<!-- ===== 7. KEYWORD ANALYSIS ===== -->
+<section id="keywords">
+  <div class="container reveal">
+    <div class="section-badge">06 — Keyword Analysis</div>
+    <h2 class="section-title">Where We <span class="gradient">Rank</span></h2>
+    <div class="success-banner">
+      <div class="icon">✅</div>
+      <div>
+        <div class="text">Strong Local Keyword Positions</div>
+        <div class="sub" style="color:var(--text-secondary);font-size:0.9rem;font-weight:400">We rank well for "digital marketing agency orange county" and related local terms. Blog content also captures informational traffic.</div>
+      </div>
+    </div>
+    <div class="card" style="overflow-x:auto">
+      <table class="data-table">
+        <thead><tr><th>Keyword</th><th>Position</th><th>Volume</th><th>Type</th></tr></thead>
+        <tbody>
+          <tr><td style="font-weight:600">"brandastic"</td><td>1</td><td>110</td><td><span class="badge badge-branded">Branded</span></td></tr>
+          <tr><td style="font-weight:600">"lsi seo"</td><td>4</td><td>1,900</td><td><span class="badge badge-info">Info</span></td></tr>
+          <tr><td style="font-weight:600">"alexa rank"</td><td>6</td><td>1,600</td><td><span class="badge badge-info">Info</span></td></tr>
+          <tr><td style="font-weight:600">"heading tags seo"</td><td>7</td><td>1,300</td><td><span class="badge badge-info">Info</span></td></tr>
+          <tr><td style="font-weight:600">"digital marketing agency orange county"</td><td>5</td><td>880</td><td><span class="badge badge-generic">Local</span></td></tr>
+          <tr><td style="font-weight:600">"marketing agency orange county"</td><td>4</td><td>720</td><td><span class="badge badge-generic">Local</span></td></tr>
+          <tr><td style="font-weight:600">"pay on results seo"</td><td>6</td><td>590</td><td><span class="badge badge-info">Info</span></td></tr>
+          <tr><td style="font-weight:600">"digital marketing orange county"</td><td>2</td><td>480</td><td><span class="badge badge-generic">Local</span></td></tr>
+          <tr><td style="font-weight:600">"orange county marketing agency"</td><td>2</td><td>390</td><td><span class="badge badge-generic">Local</span></td></tr>
+          <tr><td style="font-weight:600">"internet marketing orange county"</td><td>1</td><td>320</td><td><span class="badge badge-generic">Local</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="warning-banner" style="margin-top:2rem">
+      <div class="icon">⚠️</div>
+      <div>
+        <div class="text">Blog Content Is Aging</div>
+        <div class="sub">Our top-ranking blog posts ("alexa rank", "heading tags") are legacy content. We need fresh, high-volume content targeting current SEO topics.</div>
+      </div>
+    </div>
+  </div>
+<div style="text-align:center;margin-top:1.5rem;padding-top:1rem;border-top:1px solid rgba(255,255,255,0.06);font-size:0.75rem;color:var(--text-muted)">
+  Data sources: <a href="https://semrush.com" target="_blank" style="color:var(--text-muted);text-decoration:underline">Semrush API</a> · Real data · Accessed May 10, 2026
+</div>
+</section>
+
+<!-- ===== 7B. GOOGLE ADS PREVIEW ===== -->
+<section id="ads">
+  <div class="container reveal">
+    <div class="section-badge">06B — Google Ads Preview</div>
+    <h2 class="section-title">Our <span class="gradient">Google Ads</span></h2>
+    <p class="section-sub">What shows up when prospects search for digital marketing help in Orange County.</p>
+
+    <div class="google-serp-card">
+      <div class="serp-search-bar">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 01-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+        <span class="query">digital marketing agency orange county</span>
+      </div>
+
+      <div class="serp-no-ads">
+        <div class="label">✅ No Paid Ads Running</div>
+        <div class="sub">Brandastic currently has $0 in Google Ads spend for its own lead generation.</div>
+      </div>
+    </div>
+
+    <div class="card" style="text-align:center;padding:2rem;border:1px solid rgba(34,197,94,0.2);background:rgba(34,197,94,0.05);margin-bottom:1.5rem">
+      <div style="font-size:0.75rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--green);margin-bottom:0.5rem">Current Google Ads Spend</div>
+      <div style="font-size:2.5rem;font-weight:800;background:linear-gradient(135deg,#40B4E5,#CC22FF);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">$0/mo</div>
+      <div style="color:var(--text-secondary);font-size:0.9rem">We run ads for clients — but not for ourselves</div>
+    </div>
+
+    <div class="ads-callout">
+      <div class="icon">💡</div>
+      <div class="content">
+        <div class="headline">Opportunity: Eat Our Own Cooking</div>
+        <div class="body">We manage millions in ad spend for clients but invest $0 in our own Google Ads. Even a modest <strong>$2,000–$5,000/mo</strong> budget targeting "digital marketing agency orange county" and related terms could generate <strong>15–30 qualified leads/month</strong> at our industry's CPCs.</div>
+      </div>
+    </div>
+  </div>
+<div style="text-align:center;margin-top:1.5rem;padding-top:1rem;border-top:1px solid rgba(255,255,255,0.06);font-size:0.75rem;color:var(--text-muted)">
+  Data sources: <a href="https://semrush.com" target="_blank" style="color:var(--text-muted);text-decoration:underline">Semrush</a> · Internal records · Accessed May 2026
+</div>
+</section>
+
+<!-- ===== 8. COMPETITOR COMPARISON ===== -->
+<section id="competitors">
+  <div class="container reveal">
+    <div class="section-badge">07 — Competitor Comparison</div>
+    <h2 class="section-title">How We <span class="gradient">Compare</span></h2>
+    <p class="section-sub">Real Semrush data — our competitors significantly outperform us in organic search visibility.</p>
+    <div class="chart-wrap">
+      <canvas id="competitorChart" height="100"></canvas>
+    </div>
+  </div>
+<div style="text-align:center;margin-top:1.5rem;padding-top:1rem;border-top:1px solid rgba(255,255,255,0.06);font-size:0.75rem;color:var(--text-muted)">
+  Data sources: <a href="https://semrush.com" target="_blank" style="color:var(--text-muted);text-decoration:underline">Semrush API</a> · Real data · Accessed May 10, 2026
+</div>
+</section>
+
+<!-- ===== 8B. SEO COMPETITOR MATRIX ===== -->
+<section id="seo-matrix">
+  <div class="container reveal">
+    <div class="section-badge">07B — SEO Competitor Matrix</div>
+    <h2 class="section-title">Detailed <span class="gradient">Comparison</span></h2>
+    <p class="section-sub">A head-to-head breakdown of SEO fundamentals — honest numbers from Semrush.</p>
+    <div class="seo-matrix-wrap">
+      <table class="seo-matrix">
+        <thead>
+          <tr>
+            <th>Metric</th>
+            <th class="highlight">Brandastic</th>
+            <th>Ignite Visibility</th>
+            <th>Power Digital</th>
+            <th>Directive</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Semrush Rank</td>
+            <td class="highlight"><span class="status-bad">948,147</span></td>
+            <td><span class="status-good">139,579</span></td>
+            <td><span class="status-good">80,574</span></td>
+            <td>259,000</td>
+          </tr>
+          <tr>
+            <td>Organic Keywords</td>
+            <td class="highlight">2,063</td>
+            <td><span class="status-good">25,445</span></td>
+            <td><span class="status-good">14,447</span></td>
+            <td>5,306</td>
+          </tr>
+          <tr>
+            <td>Monthly Traffic</td>
+            <td class="highlight"><span class="status-bad">1,206</span></td>
+            <td><span class="status-good">13,372</span></td>
+            <td><span class="status-good">24,683</span></td>
+            <td>6,554</td>
+          </tr>
+          <tr>
+            <td>Traffic Value</td>
+            <td class="highlight">$6,122</td>
+            <td><span class="status-good">$64,950</span></td>
+            <td><span class="status-good">$257,104</span></td>
+            <td>$3,649</td>
+          </tr>
+          <tr>
+            <td>Blog Active</td>
+            <td class="highlight"><span class="status-good">✅ Active</span></td>
+            <td><span class="status-good">✅ Active</span></td>
+            <td><span class="status-good">✅ Active</span></td>
+            <td><span class="status-good">✅ Active</span></td>
+          </tr>
+          <tr>
+            <td>Google Ads (Own)</td>
+            <td class="highlight"><span class="status-bad">❌ $0</span></td>
+            <td><span class="status-good">✅ Active</span></td>
+            <td><span class="status-good">✅ Active</span></td>
+            <td><span class="status-good">✅ Active</span></td>
+          </tr>
+          <tr>
+            <td>Google Reviews</td>
+            <td class="highlight"><span class="status-good">✅ 5.0★ (40+)</span></td>
+            <td><span class="status-good">✅ 4.8★</span></td>
+            <td><span class="status-good">✅ 4.7★</span></td>
+            <td><span class="status-good">✅ 4.6★</span></td>
+          </tr>
+          <tr>
+            <td>HTTPS</td>
+            <td class="highlight"><span class="status-good">✅</span></td>
+            <td><span class="status-good">✅</span></td>
+            <td><span class="status-good">✅</span></td>
+            <td><span class="status-good">✅</span></td>
+          </tr>
+          <tr class="winner-row">
+            <td>Who's Winning</td>
+            <td class="highlight losing">Behind</td>
+            <td class="winning">Strong</td>
+            <td class="winning">Leading</td>
+            <td class="neutral">Ahead</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SOCIAL MEDIA PRESENCE ===== -->
+<section id="social">
+  <div class="container reveal">
+    <div class="section-badge">📱 Social Media</div>
+    <h2 class="section-title">Social Media <span class="gradient">Presence</span></h2>
+    <p class="section-sub">How we show up across platforms — honest assessment</p>
+
+    <div class="grid-3">
+      <div class="card" style="text-align:center">
+        <div style="font-size:2.5rem;margin-bottom:0.75rem">📘</div>
+        <div style="font-weight:700;font-size:1.05rem;margin-bottom:0.25rem">Facebook</div>
+        <div style="font-size:1.1rem;font-weight:600;color:var(--text-secondary);margin-top:0.5rem">Present</div>
+        <div style="margin-top:0.75rem;padding:6px 12px;border-radius:8px;background:rgba(245,158,11,0.12);color:var(--yellow);font-size:0.78rem;font-weight:600;display:inline-block">⚡ MODERATE — Active but low engagement</div>
+      </div>
+      <div class="card" style="text-align:center">
+        <div style="font-size:2.5rem;margin-bottom:0.75rem">📸</div>
+        <div style="font-weight:700;font-size:1.05rem;margin-bottom:0.25rem">Instagram</div>
+        <div style="font-size:1.1rem;font-weight:600;color:var(--text-secondary);margin-top:0.5rem">Active</div>
+        <div style="margin-top:0.75rem;padding:6px 12px;border-radius:8px;background:rgba(245,158,11,0.12);color:var(--yellow);font-size:0.78rem;font-weight:600;display:inline-block">⚡ MODERATE — Needs consistent posting schedule</div>
+      </div>
+      <div class="card" style="text-align:center">
+        <div style="font-size:2.5rem;margin-bottom:0.75rem">💼</div>
+        <div style="font-weight:700;font-size:1.05rem;margin-bottom:0.25rem">LinkedIn</div>
+        <div style="font-size:1.8rem;font-weight:800;background:linear-gradient(135deg,#40B4E5,#CC22FF);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">941</div>
+        <div style="font-size:0.75rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.1em">followers</div>
+        <div style="margin-top:0.75rem;padding:6px 12px;border-radius:8px;background:rgba(245,158,11,0.12);color:var(--yellow);font-size:0.78rem;font-weight:600;display:inline-block">⚡ MODERATE — Good for B2B, needs more content</div>
+      </div>
+      <div class="card" style="text-align:center">
+        <div style="font-size:2.5rem;margin-bottom:0.75rem">▶️</div>
+        <div style="font-weight:700;font-size:1.05rem;margin-bottom:0.25rem">YouTube</div>
+        <div style="font-size:1.1rem;font-weight:600;color:var(--text-secondary);margin-top:0.5rem">Present</div>
+        <div style="margin-top:0.75rem;padding:6px 12px;border-radius:8px;background:rgba(245,158,11,0.12);color:var(--yellow);font-size:0.78rem;font-weight:600;display:inline-block">⚡ UNDERUTILIZED — Has videos but no consistent strategy</div>
+      </div>
+      <div class="card" style="text-align:center">
+        <div style="font-size:2.5rem;margin-bottom:0.75rem">🐦</div>
+        <div style="font-weight:700;font-size:1.05rem;margin-bottom:0.25rem">Twitter / X</div>
+        <div style="font-size:1.1rem;font-weight:600;color:var(--text-secondary);margin-top:0.5rem">Present</div>
+        <div style="margin-top:0.75rem;padding:6px 12px;border-radius:8px;background:rgba(239,68,68,0.12);color:var(--red);font-size:0.78rem;font-weight:600;display:inline-block">🔻 LOW — Minimal activity</div>
+      </div>
+      <div class="card" style="text-align:center">
+        <div style="font-size:2.5rem;margin-bottom:0.75rem">🎵</div>
+        <div style="font-weight:700;font-size:1.05rem;margin-bottom:0.25rem">TikTok</div>
+        <div style="font-size:1.1rem;font-weight:600;color:var(--red);margin-top:0.5rem">NOT ACTIVE</div>
+        <div style="margin-top:0.75rem;padding:6px 12px;border-radius:8px;background:rgba(239,68,68,0.12);color:var(--red);font-size:0.78rem;font-weight:600;display:inline-block">❌ MISSING — Opportunity for short-form content</div>
+      </div>
+    </div>
+
+    <div class="warning-banner" style="margin-top:2rem">
+      <div class="icon">⚠️</div>
+      <div>
+        <div class="text">For a digital marketing agency, our social media presence should be a showcase. We need to practice what we preach.</div>
+        <div class="sub">Competitors like Ignite Visibility and Power Digital have much stronger social media presences.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== EMAIL & CONTENT MARKETING ===== -->
+<section id="email">
+  <div class="container reveal">
+    <div class="section-badge">📧 Email & Content</div>
+    <h2 class="section-title">Email & Content <span class="gradient">Marketing</span></h2>
+    <p class="section-sub">Our content engine and lead nurture assessment</p>
+
+    <div class="grid-2">
+      <div class="card">
+        <div style="display:flex;align-items:center;gap:12px;margin-bottom:1.25rem">
+          <div style="width:48px;height:48px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.5rem;background:linear-gradient(135deg,rgba(64,180,229,0.15),rgba(204,34,255,0.15))">📧</div>
+          <div>
+            <div style="font-weight:700;font-size:1.05rem">Email Marketing</div>
+            <div style="font-size:0.85rem;color:var(--text-secondary)">Newsletter & Lead Nurture</div>
+          </div>
+        </div>
+        <p style="color:var(--text-secondary);font-size:0.9rem;line-height:1.6;margin-bottom:1rem">Basic email capabilities but no consistent newsletter, no automated drip sequences for new leads, no segmented campaigns.</p>
+        <span class="badge" style="background:rgba(245,158,11,0.12);color:var(--yellow)">BASIC</span>
+      </div>
+      <div class="card">
+        <div style="display:flex;align-items:center;gap:12px;margin-bottom:1.25rem">
+          <div style="width:48px;height:48px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.5rem;background:linear-gradient(135deg,rgba(64,180,229,0.15),rgba(204,34,255,0.15))">📝</div>
+          <div>
+            <div style="font-weight:700;font-size:1.05rem">Blog & Content</div>
+            <div style="font-size:0.85rem;color:var(--text-secondary)">Content Engine Status</div>
+          </div>
+        </div>
+        <p style="color:var(--text-secondary);font-size:0.9rem;line-height:1.6;margin-bottom:1rem">Active blog with some strong legacy posts. Recently added AEO content. Needs more consistent publishing cadence and topic clustering.</p>
+        <span class="badge" style="background:rgba(245,158,11,0.12);color:var(--yellow)">MODERATE</span>
+      </div>
+      <div class="card">
+        <div style="display:flex;align-items:center;gap:12px;margin-bottom:1.25rem">
+          <div style="width:48px;height:48px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.5rem;background:linear-gradient(135deg,rgba(64,180,229,0.15),rgba(204,34,255,0.15))">🧲</div>
+          <div>
+            <div style="font-weight:700;font-size:1.05rem">Lead Magnets</div>
+            <div style="font-size:0.85rem;color:var(--text-secondary)">Downloadable Resources</div>
+          </div>
+        </div>
+        <p style="color:var(--text-secondary);font-size:0.9rem;line-height:1.6;margin-bottom:1rem">Free audit tool exists at brandastic.com/audit/. AEO plugin at brandastic.com/aeo-seo-plugin/. Good hooks but could do more (ebooks, templates, calculators).</p>
+        <span class="badge" style="background:rgba(34,197,94,0.12);color:var(--green)">GOOD</span>
+      </div>
+      <div class="card" style="display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center">
+        <div style="font-size:3rem;font-weight:900;background:linear-gradient(135deg,var(--yellow),#d97706);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:0.5rem">C+</div>
+        <div style="font-size:0.75rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--text-muted)">Overall Email & Content Grade</div>
+        <div class="overall-bar" style="width:100%;margin-top:1rem"><div class="fill" style="width:55%"></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== ONLINE REPUTATION ===== -->
+<section id="reputation">
+  <div class="container reveal">
+    <div class="section-badge">⭐ Reputation</div>
+    <h2 class="section-title">Online <span class="gradient">Reputation</span></h2>
+    <p class="section-sub">What prospects see when they search "Brandastic"</p>
+
+    <div class="grid-3">
+      <div class="card" style="text-align:center">
+        <div style="font-size:2.5rem;margin-bottom:0.75rem">⭐</div>
+        <div style="font-weight:700;font-size:1.05rem;margin-bottom:0.5rem">Google Reviews</div>
+        <div style="font-size:2rem;font-weight:800;background:linear-gradient(135deg,#40B4E5,#CC22FF);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">5.0★</div>
+        <div style="font-size:0.85rem;color:var(--text-secondary)">40+ reviews</div>
+        <div style="margin-top:1rem;padding:6px 12px;border-radius:8px;background:rgba(34,197,94,0.12);color:var(--green);font-size:0.78rem;font-weight:600;display:inline-block">✅ EXCELLENT</div>
+      </div>
+      <div class="card" style="text-align:center">
+        <div style="font-size:2.5rem;margin-bottom:0.75rem">🔍</div>
+        <div style="font-weight:700;font-size:1.05rem;margin-bottom:0.5rem">Yelp</div>
+        <div style="font-size:1.1rem;font-weight:600;color:var(--text-secondary)">24 reviews</div>
+        <div style="font-size:0.85rem;color:var(--text-muted)">Active listing with photos</div>
+        <div style="margin-top:1rem;padding:6px 12px;border-radius:8px;background:rgba(34,197,94,0.12);color:var(--green);font-size:0.78rem;font-weight:600;display:inline-block">✅ GOOD</div>
+      </div>
+      <div class="card" style="text-align:center">
+        <div style="font-size:2.5rem;margin-bottom:0.75rem">💬</div>
+        <div style="font-weight:700;font-size:1.05rem;margin-bottom:0.5rem">Brand Sentiment</div>
+        <p style="color:var(--text-secondary);font-size:0.9rem;line-height:1.6">Very positive. Client testimonials from RICOH, Dhar Mann, and others. 15-year track record builds trust.</p>
+        <div style="margin-top:1rem;padding:6px 12px;border-radius:8px;background:rgba(34,197,94,0.12);color:var(--green);font-size:0.78rem;font-weight:600;display:inline-block">✅ STRONG</div>
+      </div>
+    </div>
+
+    <div style="text-align:center;margin-top:2.5rem">
+      <div style="font-size:3rem;font-weight:900;background:linear-gradient(135deg,var(--green),#16a34a);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:0.5rem">A-</div>
+      <div style="font-size:0.75rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--text-muted)">Overall Reputation Grade</div>
+      <div class="overall-bar" style="max-width:400px;margin:1rem auto 0"><div class="fill" style="width:85%"></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 9. HOW WE CAN IMPROVE ===== -->
+<section id="solutions">
+  <div class="container reveal">
+    <div class="section-badge">08 — Problems → Solutions</div>
+    <h2 class="section-title">Where We Need to <span class="gradient">Improve</span></h2>
+    <p class="section-sub">Every weakness we identified has a clear path forward. The cobbler's children need shoes.</p>
+<div style="display:flex;flex-direction:column;gap:1.5rem">
+      <div class="ps-row">
+        <div class="ps-card ps-problem"><div class="title">Low Organic Traffic vs Competitors</div><div style="color:var(--text-secondary);font-size:0.85rem">1,206/mo vs Power Digital's 24,683 and Ignite's 13,372</div></div>
+        <div class="ps-arrow">→</div>
+        <div class="ps-card ps-solution"><div class="title">Aggressive Content Strategy</div><div style="color:var(--text-secondary);font-size:0.85rem">Topic clusters, pillar pages, consistent 4x/month publishing cadence</div></div>
+      </div>
+      <div class="ps-row">
+        <div class="ps-card ps-problem"><div class="title">$0 Google Ads for Own Leads</div><div style="color:var(--text-secondary);font-size:0.85rem">We run millions for clients but invest nothing in our own lead gen</div></div>
+        <div class="ps-arrow">→</div>
+        <div class="ps-card ps-solution"><div class="title">Launch Own PPC Campaigns</div><div style="color:var(--text-secondary);font-size:0.85rem">$3-5K/mo targeting high-intent local queries = 15-30 leads/month</div></div>
+      </div>
+      <div class="ps-row">
+        <div class="ps-card ps-problem"><div class="title">Site Speed Needs Work</div><div style="color:var(--text-secondary);font-size:0.85rem">Heavy WP theme + plugins = slower mobile experience</div></div>
+        <div class="ps-arrow">→</div>
+        <div class="ps-card ps-solution"><div class="title">Performance Optimization</div><div style="color:var(--text-secondary);font-size:0.85rem">Image optimization, code splitting, lazy loading, reduce plugin bloat</div></div>
+      </div>
+      <div class="ps-row">
+        <div class="ps-card ps-problem"><div class="title">Social Media Underperforming</div><div style="color:var(--text-secondary);font-size:0.85rem">LinkedIn at 941 followers; no TikTok; inconsistent posting</div></div>
+        <div class="ps-arrow">→</div>
+        <div class="ps-card ps-solution"><div class="title">Social Content Calendar</div><div style="color:var(--text-secondary);font-size:0.85rem">3-5x/week posting, short-form video, client success showcases</div></div>
+      </div>
+      <div class="ps-row">
+        <div class="ps-card ps-problem"><div class="title">Aging Blog Content</div><div style="color:var(--text-secondary);font-size:0.85rem">Top posts like "Alexa Rank" are outdated topics losing relevance</div></div>
+        <div class="ps-arrow">→</div>
+        <div class="ps-card ps-solution"><div class="title">Content Refresh + New Topics</div><div style="color:var(--text-secondary);font-size:0.85rem">Update legacy posts, target AI/AEO trends, create service-specific pillar content</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 10. CONTENT GAP ANALYSIS ===== -->
+<section id="gaps">
+  <div class="container reveal">
+    <div class="section-badge">09 — Content Gap Analysis</div>
+    <h2 class="section-title">Searches We're <span class="gradient">Missing</span></h2>
+    <p class="section-sub">High-volume keywords our target clients are searching for — and where we could rank but don't yet.</p>
+    <div class="grid-3" style="margin-bottom:2rem">
+      <div class="card gap-card">
+        <div class="kw">"digital marketing agency near me"</div>
+        <div class="vol" data-count="33100">0</div>
+        <div class="vol-label">Monthly Searches</div>
+        <div class="status">NOT RANKING</div>
+      </div>
+      <div class="card gap-card">
+        <div class="kw">"seo agency orange county"</div>
+        <div class="vol" data-count="720">0</div>
+        <div class="vol-label">Monthly Searches</div>
+        <div class="status">NOT RANKING</div>
+      </div>
+      <div class="card gap-card">
+        <div class="kw">"ppc management agency"</div>
+        <div class="vol" data-count="1600">0</div>
+        <div class="vol-label">Monthly Searches</div>
+        <div class="status">NOT RANKING</div>
+      </div>
+      <div class="card gap-card">
+        <div class="kw">"social media marketing agency"</div>
+        <div class="vol" data-count="14800">0</div>
+        <div class="vol-label">Monthly Searches</div>
+        <div class="status">NOT RANKING</div>
+      </div>
+      <div class="card gap-card">
+        <div class="kw">"aeo optimization"</div>
+        <div class="vol" data-count="2400">0</div>
+        <div class="vol-label">Monthly Searches</div>
+        <div class="status" style="background:rgba(245,158,11,0.12);color:var(--yellow)">EMERGING — OWN THIS</div>
+      </div>
+    </div>
+    <div class="card" style="text-align:center;padding:2rem;border:1px solid rgba(239,68,68,0.2);background:rgba(239,68,68,0.05)">
+      <div style="font-size:0.75rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--red);margin-bottom:0.5rem">Total Addressable Search Volume</div>
+      <div style="font-size:2.5rem;font-weight:800;color:var(--red)">52,620+</div>
+      <div style="color:var(--text-secondary);font-size:0.9rem">monthly searches we could be capturing with targeted content</div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 11. TOP 5 CRITICAL FINDINGS ===== -->
+<section id="findings">
+  <div class="container reveal">
+    <div class="section-badge">10 — Critical Findings</div>
+    <h2 class="section-title">Top 5 <span class="gradient">Issues</span></h2>
+    <p class="section-sub">The most impactful problems holding back our own digital growth, ranked by severity.</p>
+    <div style="display:flex;flex-direction:column;gap:1rem">
+      <div class="card finding-card">
+        <div class="finding-num critical">1</div>
+        <div><div class="title">Traffic Gap vs Competitors</div><div class="desc">With 1,206 monthly visits vs Power Digital's 24,683 and Ignite's 13,372, we're leaving massive lead potential on the table. Our domain has the authority — we just need the content volume.</div></div>
+      </div>
+      <div class="card finding-card">
+        <div class="finding-num critical">2</div>
+        <div><div class="title">Zero Self-Invested Google Ads</div><div class="desc">We manage client ad campaigns daily but invest $0 in our own lead generation via Google Ads. This is the classic "cobbler's children have no shoes" problem.</div></div>
+      </div>
+      <div class="card finding-card">
+        <div class="finding-num high">3</div>
+        <div><div class="title">Aging Blog Content Portfolio</div><div class="desc">Our top-ranking posts target outdated topics (Alexa Rank, LSI SEO). We need fresh content targeting current trends like AI marketing, AEO, and emerging search patterns.</div></div>
+      </div>
+      <div class="card finding-card">
+        <div class="finding-num high">4</div>
+        <div><div class="title">Site Speed & Technical Debt</div><div class="desc">Heavy WordPress theme with multiple plugins hurts mobile performance. Despite Cloudflare APO + WP Rocket, there's room for significant optimization.</div></div>
+      </div>
+      <div class="card finding-card">
+        <div class="finding-num high">5</div>
+        <div><div class="title">Social Media Below Agency Standards</div><div class="desc">941 LinkedIn followers and inconsistent posting across platforms doesn't reflect our 15-year expertise. Our social presence should be a showcase, not an afterthought.</div></div>
+      </div>
+    </div>
+  </div>
+<div style="text-align:center;margin-top:1.5rem;padding-top:1rem;border-top:1px solid rgba(255,255,255,0.06);font-size:0.75rem;color:var(--text-muted)">
+  Data sources: <a href="https://semrush.com" target="_blank" style="color:var(--text-muted);text-decoration:underline">Semrush API</a> · <a href="https://pagespeed.web.dev" target="_blank" style="color:var(--text-muted);text-decoration:underline">Google PageSpeed Insights</a> · Manual audit · Accessed May 2026
+</div>
+</section>
+
+<!-- ===== 12. STRATEGY PREVIEW ===== -->
+<section id="strategy">
+  <div class="container reveal">
+    <div class="section-badge">11 — Strategy Preview</div>
+    <h2 class="section-title">What We Should <span class="gradient">Do Next</span></h2>
+    <p class="section-sub">Four strategic pillars to close the gap with competitors and grow our own lead pipeline.</p>
+    <div class="grid-4">
+      <div class="card strategy-card">
+        <div class="icon">📝</div>
+        <div class="title">Content Engine Scale-Up</div>
+        <div class="desc">4x/month publishing cadence with topic clusters. Refresh legacy posts, target AI/AEO trends, create service pillar pages.</div>
+        <div class="outcome">5x organic traffic in 12 months</div>
+      </div>
+      <div class="card strategy-card">
+        <div class="icon">🎯</div>
+        <div class="title">Launch Own Google Ads</div>
+        <div class="desc">$3–5K/mo budget targeting "digital marketing agency orange county" and service-specific queries.</div>
+        <div class="outcome">15–30 qualified leads/month</div>
+      </div>
+      <div class="card strategy-card">
+        <div class="icon">⚡</div>
+        <div class="title">Technical Performance</div>
+        <div class="desc">Image optimization, code splitting, plugin audit, lazy loading. Get mobile performance to 70+ score.</div>
+        <div class="outcome">Faster loads = better rankings + UX</div>
+      </div>
+      <div class="card strategy-card">
+        <div class="icon">📱</div>
+        <div class="title">Social Media Showcase</div>
+        <div class="desc">Consistent posting, short-form video, client success stories, thought leadership. Make our social a portfolio piece.</div>
+        <div class="outcome">3x engagement + brand authority</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 13. 6-MONTH ROADMAP ===== -->
+<section id="roadmap">
+  <div class="container reveal">
+    <div class="section-badge">12 — Growth Roadmap</div>
+    <h2 class="section-title">6-Month <span class="gradient">Plan</span></h2>
+    <p class="section-sub">A phased approach to closing the competitor gap and generating our own leads.</p>
+    <div class="timeline">
+      <div class="timeline-phase">
+        <div class="timeline-dot"></div>
+        <div class="phase-label">Month 1–2</div>
+        <div class="phase-title">Foundation</div>
+        <ul class="phase-items">
+          <li>Technical SEO audit & speed fixes</li>
+          <li>Launch Google Ads campaigns ($3K/mo)</li>
+          <li>Refresh top 10 legacy blog posts</li>
+          <li>Create content calendar (4x/month)</li>
+          <li>Social media posting schedule (3x/week)</li>
+        </ul>
+      </div>
+      <div class="timeline-phase">
+        <div class="timeline-dot"></div>
+        <div class="phase-label">Month 3–4</div>
+        <div class="phase-title">Content & Authority</div>
+        <ul class="phase-items">
+          <li>Publish service pillar pages (SEO, PPC, Social, Web Dev)</li>
+          <li>Launch AEO thought leadership content</li>
+          <li>Case study series (Dhar Mann, RICOH, Orangetheory)</li>
+          <li>LinkedIn growth campaign</li>
+          <li>Optimize Google Ads based on data</li>
+        </ul>
+      </div>
+      <div class="timeline-phase">
+        <div class="timeline-dot"></div>
+        <div class="phase-label">Month 5–6</div>
+        <div class="phase-title">Scale & Optimize</div>
+        <ul class="phase-items">
+          <li>Scale ads to $5K/mo if ROI positive</li>
+          <li>Launch short-form video content</li>
+          <li>Build topical authority in AI marketing</li>
+          <li>Conversion rate optimization on site</li>
+          <li>Target 5,000+ organic monthly visitors</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 14. PROJECTED ROI ===== -->
+<section id="roi">
+  <div class="container reveal">
+    <div class="section-badge">13 — Projected ROI</div>
+    <h2 class="section-title">The <span class="gradient">Opportunity</span></h2>
+    <p class="section-sub">Conservative projections based on implementing the recommended strategy over 6 months.</p>
+    <div class="roi-grid">
+      <div class="card roi-card">
+        <div class="label">Monthly Traffic</div>
+        <div class="before">1,206/mo</div>
+        <div class="arrow">↓</div>
+        <div class="after" data-count="5000" data-suffix="/mo">0</div>
+      </div>
+      <div class="card roi-card">
+        <div class="label">Organic Keywords</div>
+        <div class="before">2,063</div>
+        <div class="arrow">↓</div>
+        <div class="after" data-count="5000">0</div>
+      </div>
+      <div class="card roi-card">
+        <div class="label">Traffic Value</div>
+        <div class="before">$6,122/mo</div>
+        <div class="arrow">↓</div>
+        <div class="after" data-count="25000" data-prefix="$" data-suffix="/mo">0</div>
+      </div>
+      <div class="card roi-card">
+        <div class="label">Monthly Leads (PPC)</div>
+        <div class="before">0/mo</div>
+        <div class="arrow">↓</div>
+        <div class="after" data-count="25" data-suffix="/mo">0</div>
+      </div>
+      <div class="card roi-card">
+        <div class="label">LinkedIn Followers</div>
+        <div class="before">941</div>
+        <div class="arrow">↓</div>
+        <div class="after" data-count="2500">0</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 15. WHY BRANDASTIC + NEXT STEPS ===== -->
+<section class="cta-section" id="cta">
+  <div class="container reveal">
+    <div class="section-badge">Sparked By Creativity, Fueled By Results.</div>
+    <h2 class="section-title">Self-Audit <span class="gradient">Summary</span></h2>
+
+    <!-- Stats Bar -->
+    <div class="stats-bar">
+      <div class="stat-card"><div class="stat-num">15+</div><div class="stat-label">Years in Business</div></div>
+      <div class="stat-card"><div class="stat-num">450+</div><div class="stat-label">Clients Served</div></div>
+      <div class="stat-card"><div class="stat-num">5.0★</div><div class="stat-label">Google Rating</div></div>
+      <div class="stat-card"><div class="stat-num">52</div><div class="stat-label">Self-Audit Score</div></div>
+    </div>
+
+    <!-- Value Prop Cards -->
+    <div class="value-cards">
+      <div class="value-card"><h4>✅ What's Working</h4><p>Strong brand reputation (5.0★), solid local keyword positions, active blog with legacy authority, excellent client retention and ROAS results.</p></div>
+      <div class="value-card"><h4>⚠️ What Needs Work</h4><p>Organic traffic far below competitors, no self-invested Google Ads, aging content, site speed, social media presence needs uplift.</p></div>
+      <div class="value-card"><h4>🎯 Quick Wins</h4><p>Launch own Google Ads ($3-5K/mo), refresh top 10 blog posts, start consistent social posting, fix mobile performance issues.</p></div>
+      <div class="value-card"><h4>🚀 Big Opportunities</h4><p>AEO thought leadership, content engine at scale, LinkedIn growth, and short-form video could transform our pipeline in 6 months.</p></div>
+    </div>
+
+    <!-- CLIENT REVIEWS --><div class="reviews-wrap">
+    <div style="text-align:center;margin:4rem 0 2rem">
+      <div style="display:inline-flex;align-items:center;gap:8px;margin-bottom:1rem">
+        <svg width="24" height="24" viewBox="0 0 24 24"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 01-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+        <span style="color:#FBBC05;font-size:1.1rem">★★★★★</span>
+        <span style="color:var(--text-muted);font-size:0.9rem">5.0</span>
+      </div>
+      <h3 style="font-size:clamp(1.8rem,4vw,2.5rem);font-weight:800;margin-bottom:0.5rem">What Our Clients Say</h3>
+      <p style="margin-bottom:2rem"><a href="https://shorturl.at/wViCP" target="_blank" style="color:var(--accent-light);text-decoration:none;font-size:0.9rem">40+ Five-Star Reviews on Google →</a></p>
+    </div>
+    <div style="display:flex;gap:24px;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;padding:0 4px 20px;scrollbar-width:none;margin-bottom:3rem">
+      <div class="card" style="flex:0 0 380px;scroll-snap-align:start;padding:36px 32px;text-align:left;border:1px solid rgba(64,180,229,0.15)">
+        <div style="font-size:48px;line-height:1;color:var(--accent-light);opacity:0.4;font-family:Georgia,serif;margin-bottom:12px">"</div>
+        <p style="color:var(--text-secondary);font-size:0.95rem;line-height:1.7;margin-bottom:1.5rem">Brandastic has been a fantastic agency to work with. They've made significant improvements in our company's digital presence and overall performance. A special shout-out to Tri and Aimee!</p>
+        <p style="font-weight:600;font-size:0.9rem;margin-bottom:4px">Cinthya Baez</p>
+        <div style="display:flex;gap:2px"><span style="color:#FBBC05">★★★★★</span></div>
+      </div>
+      <div class="card" style="flex:0 0 380px;scroll-snap-align:start;padding:36px 32px;text-align:left;border:1px solid rgba(64,180,229,0.15)">
+        <div style="font-size:48px;line-height:1;color:var(--accent-light);opacity:0.4;font-family:Georgia,serif;margin-bottom:12px">"</div>
+        <p style="color:var(--text-secondary);font-size:0.95rem;line-height:1.7;margin-bottom:1.5rem">I had the pleasure of working with Ben at Brandastic, and I can't say enough good things about the experience. From start to finish, Ben was incredibly helpful, professional, and attentive.</p>
+        <p style="font-weight:600;font-size:0.9rem;margin-bottom:4px">Pedro Matabuena</p>
+        <div style="display:flex;gap:2px"><span style="color:#FBBC05">★★★★★</span></div>
+      </div>
+      <div class="card" style="flex:0 0 380px;scroll-snap-align:start;padding:36px 32px;text-align:left;border:1px solid rgba(64,180,229,0.15)">
+        <div style="font-size:48px;line-height:1;color:var(--accent-light);opacity:0.4;font-family:Georgia,serif;margin-bottom:12px">"</div>
+        <p style="color:var(--text-secondary);font-size:0.95rem;line-height:1.7;margin-bottom:1.5rem">I have worked with Lachelle and Justin now for over 5 years, and I have to say they are hands down the best marketing company we have used.</p>
+        <p style="font-weight:600;font-size:0.9rem;margin-bottom:4px">Corey S</p>
+        <div style="display:flex;gap:2px"><span style="color:#FBBC05">★★★★★</span></div>
+      </div>
+      <div class="card" style="flex:0 0 380px;scroll-snap-align:start;padding:36px 32px;text-align:left;border:1px solid rgba(64,180,229,0.15)">
+        <div style="font-size:48px;line-height:1;color:var(--accent-light);opacity:0.4;font-family:Georgia,serif;margin-bottom:12px">"</div>
+        <p style="color:var(--text-secondary);font-size:0.95rem;line-height:1.7;margin-bottom:1.5rem">Working with the Brandastic team has been excellent. They are very responsive and have great marketing ideas and strategies! Looking forward to many more years of partnership!</p>
+        <p style="font-weight:600;font-size:0.9rem;margin-bottom:4px">Haziel Mitchell</p>
+        <p style="color:var(--text-muted);font-size:0.8rem;margin-bottom:4px">Director of Marketing & Sales, Ricoh</p>
+        <div style="display:flex;gap:2px"><span style="color:#FBBC05">★★★★★</span></div>
+      </div>
+    </div>
+
+</div>
+    <p style="margin-top:2rem;color:var(--text-muted);font-size:0.9rem">brandastic.com · info@brandastic.com</p>
+  </div>
+</section>
+
+<script>
+if('scrollRestoration' in history) history.scrollRestoration='manual';
+window.scrollTo(0,0);
+/* ========== THEME ========== */
+function getPreferredTheme(){const s=localStorage.getItem('brandastic-theme');if(s)return s;return window.matchMedia('(prefers-color-scheme:light)').matches?'light':'dark'}
+function applyTheme(t){document.documentElement.setAttribute('data-theme',t);localStorage.setItem('brandastic-theme',t);document.querySelector('.theme-toggle .knob').textContent=t==='dark'?'🌙':'☀️';updateCharts()}
+function toggleTheme(){applyTheme(document.documentElement.getAttribute('data-theme')==='dark'?'light':'dark')}
+applyTheme(getPreferredTheme());
+
+/* ========== ANIMATED COUNTERS ========== */
+function animateCounter(el,target,prefix='',suffix=''){
+  const duration=2000;const start=performance.now();
+  const fmt=n=>n>=1000000?(n/1000000).toFixed(1)+'M':n>=10000?Math.round(n).toLocaleString():n.toLocaleString();
+  function step(now){
+    const p=Math.min((now-start)/duration,1);
+    const eased=1-Math.pow(1-p,3);
+    el.textContent=prefix+fmt(Math.round(target*eased))+suffix;
+    if(p<1)requestAnimationFrame(step);
+  }
+  requestAnimationFrame(step);
+}
+const counterObs=new IntersectionObserver((entries)=>{entries.forEach(e=>{if(e.isIntersecting){const t=parseInt(e.target.dataset.count);const p=e.target.dataset.prefix||'';const s=e.target.dataset.suffix||'';animateCounter(e.target,t,p,s);counterObs.unobserve(e.target)}})},{threshold:0.3});
+document.querySelectorAll('[data-count]').forEach(el=>counterObs.observe(el));setTimeout(()=>{document.querySelectorAll('[data-count]').forEach(el=>{if(el.textContent==='0'){const t=parseInt(el.dataset.count);if(!t)return;const p=el.dataset.prefix||'';const s=el.dataset.suffix||'';animateCounter(el,t,p,s)}})},2000);
+
+/* ========== SCORE RINGS ========== */
+const ringObs=new IntersectionObserver((entries)=>{entries.forEach(e=>{if(e.isIntersecting){e.target.querySelectorAll('.fg[data-target]').forEach(fg=>{fg.style.strokeDashoffset=fg.dataset.target});ringObs.unobserve(e.target)}})},{threshold:0.3});
+document.querySelectorAll('#scorecard .container').forEach(el=>ringObs.observe(el));setTimeout(()=>{document.querySelectorAll('.fg[data-target]').forEach(fg=>{fg.style.strokeDashoffset=fg.dataset.target})},2000);
+
+/* ========== OVERALL BAR ========== */
+const barObs=new IntersectionObserver((entries)=>{entries.forEach(e=>{if(e.isIntersecting){e.target.querySelector('.fill').style.width=e.target.querySelector('.fill').dataset.target+'%';barObs.unobserve(e.target)}})},{threshold:0.3});
+document.querySelectorAll('.overall-bar').forEach(el=>barObs.observe(el));setTimeout(()=>{document.querySelectorAll('.overall-bar .fill').forEach(el=>{if(el.style.width==='0%')el.style.width=el.dataset.target+'%'})},2000);
+
+/* ========== CHARTS ========== */
+var trafficChart,competitorChart;
+function isDark(){return document.documentElement.getAttribute('data-theme')==='dark';}
+function chartColors(){var d=isDark();return{grid:d?'rgba(255,255,255,0.06)':'rgba(0,0,0,0.06)',text:d?'rgba(255,255,255,0.5)':'rgba(0,0,0,0.5)'}}
+
+function createTrafficChart(){
+  const ctx=document.getElementById('trafficChart').getContext('2d');
+  const c=chartColors();
+  trafficChart=new Chart(ctx,{
+    type:'line',
+    data:{
+      labels:['May 25','Jun','Jul','Aug','Sep','Oct','Nov','Dec','Jan 26','Feb','Mar','Apr'],
+      datasets:[
+        {label:'Traffic',data:[1900,3278,1005,1005,1411,5453,1400,1346,1867,2520,1510,1344],borderColor:'#40B4E5',backgroundColor:'rgba(64,180,229,0.1)',fill:true,tension:0.4,pointRadius:5,pointBackgroundColor:'#40B4E5',yAxisID:'y'},
+        {label:'Keywords',data:[1743,2097,2454,2501,2775,2753,2652,2454,2984,3205,2725,2151],borderColor:'#CC22FF',backgroundColor:'rgba(204,34,255,0.1)',fill:true,tension:0.4,pointRadius:5,pointBackgroundColor:'#CC22FF',yAxisID:'y1'}
+      ]
+    },
+    options:{
+      responsive:true,animation:{duration:2000,easing:'easeOutQuart'},
+      plugins:{legend:{labels:{color:c.text,font:{family:'Inter'}}}},
+      scales:{
+        x:{grid:{color:c.grid},ticks:{color:c.text,font:{family:'Inter'}}},
+        y:{position:'left',grid:{color:c.grid},ticks:{color:c.text,font:{family:'Inter'}},title:{display:true,text:'Traffic',color:c.text,font:{family:'Inter'}}},
+        y1:{position:'right',grid:{display:false},ticks:{color:c.text,font:{family:'Inter'}},title:{display:true,text:'Keywords',color:c.text,font:{family:'Inter'}}}
+      }
+    }
+  });
+}
+function createCompetitorChart(){
+  const ctx=document.getElementById('competitorChart').getContext('2d');
+  const c=chartColors();
+  competitorChart=new Chart(ctx,{
+    type:'bar',
+    data:{
+      labels:['Brandastic','Ignite Visibility','Power Digital','Directive','1SEO'],
+      datasets:[
+        {label:'Keywords',data:[2063,25445,14447,5306,8568],backgroundColor:['rgba(64,180,229,0.8)','rgba(100,116,139,0.3)','rgba(100,116,139,0.3)','rgba(100,116,139,0.3)','rgba(100,116,139,0.3)']},
+        {label:'Traffic',data:[1206,13372,24683,6554,11557],backgroundColor:['rgba(204,34,255,0.8)','rgba(100,116,139,0.2)','rgba(100,116,139,0.2)','rgba(100,116,139,0.2)','rgba(100,116,139,0.2)']}
+      ]
+    },
+    options:{
+      indexAxis:'y',responsive:true,animation:{duration:2000,easing:'easeOutQuart'},
+      plugins:{legend:{labels:{color:c.text,font:{family:'Inter'}}}},
+      scales:{
+        x:{grid:{color:c.grid},ticks:{color:c.text,font:{family:'Inter'}}},
+        y:{grid:{color:c.grid},ticks:{color:c.text,font:{family:'Inter',size:11}}}
+      }
+    }
+  });
+}
+function updateCharts(){
+  const c=chartColors();
+  [trafficChart,competitorChart].forEach(ch=>{
+    if(!ch)return;
+    Object.keys(ch.options.scales).forEach(k=>{
+      if(ch.options.scales[k].grid)ch.options.scales[k].grid.color=c.grid;
+      if(ch.options.scales[k].ticks)ch.options.scales[k].ticks.color=c.text;
+      if(ch.options.scales[k].title)ch.options.scales[k].title.color=c.text;
+    });
+    ch.options.plugins.legend.labels.color=c.text;
+    ch.update();
+  });
+}
+
+/* Lazy init charts on scroll */
+const chartObs=new IntersectionObserver((entries)=>{entries.forEach(e=>{if(e.isIntersecting){
+  if(e.target.id==='trafficChart'&&!trafficChart)createTrafficChart();
+  if(e.target.id==='competitorChart'&&!competitorChart)createCompetitorChart();
+  chartObs.unobserve(e.target);
+}})},{threshold:0.1});
+document.querySelectorAll('canvas').forEach(el=>chartObs.observe(el));
+window.addEventListener("load",function(){setTimeout(function(){if(!trafficChart)createTrafficChart();if(!competitorChart)createCompetitorChart();},500);});
+
+/* ========== SIDE DOT NAV ========== */
+(function(){
+  const sections = document.querySelectorAll('section[id]');
+  const nav = document.querySelector('.side-nav');
+  if(!nav || !sections.length) return;
+  const dots = nav.querySelectorAll('.side-nav-dot');
+  dots.forEach(dot => {
+    dot.addEventListener('click', () => {
+      const target = document.getElementById(dot.dataset.section);
+      if(target){window.scrollTo({top:target.offsetTop-80,behavior:'instant'});}
+    });
+  });
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if(e.isIntersecting){
+        dots.forEach(d => d.classList.remove('active'));
+        const active = nav.querySelector('[data-section="'+e.target.id+'"]');
+        if(active) active.classList.add('active');
+      }
+    });
+  }, {rootMargin:'-20% 0px -70% 0px'});
+  sections.forEach(s => obs.observe(s));
+})();
+
+/* ========== 10x UX UPGRADE JS ========== */
+
+/* --- 1. Smooth Scroll Reveal --- */
+(function(){
+  const revealObs = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if(e.isIntersecting) { e.target.classList.add('active'); }
+    });
+  }, {threshold:0.05, rootMargin:'50px'});
+  document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
+  setTimeout(() => {
+    document.querySelectorAll('.reveal:not(.active)').forEach(el => el.classList.add('active'));
+  }, 3000);
+})();
+
+/* --- 2. Reading Progress Bar --- */
+(function(){
+  const bar = document.createElement('div');
+  bar.className = 'reading-progress';
+  document.body.appendChild(bar);
+  window.addEventListener('scroll', () => {
+    const scrollTop = window.scrollY;
+    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    bar.style.width = (scrollTop / docHeight * 100) + '%';
+  }, {passive:true});
+})();
+
+/* --- 3. Sticky Section Pill --- */
+(function(){
+  const pill = document.createElement('div');
+  pill.className = 'section-pill';
+  document.body.appendChild(pill);
+  const sections = document.querySelectorAll('section[id]');
+  const sectionNames = {};
+  sections.forEach(s => {
+    const badge = s.querySelector('.section-badge');
+    const title = s.querySelector('.section-title');
+    sectionNames[s.id] = badge ? badge.textContent.trim() : (title ? title.textContent.trim().substring(0,40) : s.id);
+  });
+  let currentSection = '';
+  const pillObs = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if(e.isIntersecting && e.target.id) {
+        currentSection = sectionNames[e.target.id] || e.target.id;
+        pill.textContent = currentSection;
+        pill.classList.add('visible');
+      }
+    });
+  }, {rootMargin:'-80px 0px -85% 0px'});
+  sections.forEach(s => pillObs.observe(s));
+  window.addEventListener('scroll', () => {
+    if(window.scrollY < 200) pill.classList.remove('visible');
+  }, {passive:true});
+})();
+
+/* --- 5. Gradient Section Dividers --- */
+(function(){
+  const sections = document.querySelectorAll('section[id]');
+  sections.forEach((s, i) => {
+    if(i === 0) return;
+    const divider = document.createElement('div');
+    divider.className = 'gradient-divider';
+    s.parentNode.insertBefore(divider, s);
+  });
+  const divObs = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if(e.isIntersecting) { e.target.classList.add('active'); divObs.unobserve(e.target); }
+    });
+  }, {threshold:0.5});
+  document.querySelectorAll('.gradient-divider').forEach(d => divObs.observe(d));
+})();
+
+/* --- 6. Chart Hints --- */
+(function(){
+  document.querySelectorAll('.chart-wrap').forEach(wrap => {
+    const hint = document.createElement('div');
+    hint.className = 'chart-hint';
+    hint.textContent = 'Hover over chart for details';
+    wrap.appendChild(hint);
+  });
+})();
+
+/* --- 7. CTA Pulse --- */
+(function(){
+  const ctaObs = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if(e.isIntersecting) { e.target.querySelectorAll('.cta-btn').forEach(btn => btn.classList.add('pulse')); }
+    });
+  }, {threshold:0.3});
+  document.querySelectorAll('.cta-section, #cta').forEach(s => ctaObs.observe(s));
+  const lastSection = document.querySelector('section:last-of-type');
+  if(lastSection) ctaObs.observe(lastSection);
+})();
+
+/* --- 8. Score Ring Animation --- */
+(function(){
+  const allRingObs = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if(e.isIntersecting) {
+        e.target.querySelectorAll('.fg[data-target]').forEach(fg => {
+          fg.style.strokeDashoffset = '327';
+          requestAnimationFrame(() => { requestAnimationFrame(() => { fg.style.strokeDashoffset = fg.dataset.target; }); });
+        });
+        allRingObs.unobserve(e.target);
+      }
+    });
+  }, {threshold:0.2});
+  document.querySelectorAll('section').forEach(s => {
+    if(s.querySelector('.score-ring')) allRingObs.observe(s);
+  });
+})();
+
+/* --- 9. Overall Bar Animation --- */
+(function(){
+  document.querySelectorAll('.overall-bar .fill[data-target]').forEach(fill => { fill.style.width = '0%'; });
+  const allBarObs = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if(e.isIntersecting) {
+        const fill = e.target.querySelector('.fill[data-target]');
+        if(fill) { fill.style.width = fill.dataset.target + '%'; }
+        allBarObs.unobserve(e.target);
+      }
+    });
+  }, {threshold:0.3});
+  document.querySelectorAll('.overall-bar').forEach(el => allBarObs.observe(el));
+})();
+
+/* --- 10. PDF: Canvas to Image for Print --- */
+window.addEventListener('beforeprint', () => {
+  document.querySelectorAll('canvas').forEach(canvas => {
+    try {
+      const img = document.createElement('img');
+      img.src = canvas.toDataURL('image/png');
+      img.style.width = '100%';
+      img.className = 'chart-print-img';
+      canvas.style.display = 'none';
+      canvas.parentNode.insertBefore(img, canvas);
+    } catch(e) {}
+  });
+});
+window.addEventListener('afterprint', () => {
+  document.querySelectorAll('.chart-print-img').forEach(img => img.remove());
+  document.querySelectorAll('canvas').forEach(c => c.style.display = '');
+});
+
+</script>
+
+<!-- THANK YOU + NEXT STEPS -->
+<section style="padding:5rem 2rem;background:var(--bg-secondary);text-align:center">
+  <div class="container" style="max-width:900px">
+    <h2 style="font-size:clamp(2rem,5vw,3.5rem);font-weight:900;letter-spacing:-0.03em;margin-bottom:2.5rem">
+      <span class="gradient">Action Items</span>
+    </h2>
+    <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:2rem;margin-bottom:3rem">
+      <div class="card" style="flex:1;min-width:200px;max-width:260px;padding:1.5rem;text-align:center">
+        <div style="width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,#40B4E5,#CC22FF);display:flex;align-items:center;justify-content:center;margin:0 auto 0.75rem;font-weight:800;color:#fff;font-size:1.1rem">1</div>
+        <div style="font-weight:700;margin-bottom:0.25rem">Launch Own Ads</div>
+        <div style="color:var(--text-muted);font-size:0.85rem">Start Google Ads targeting our own service keywords</div>
+      </div>
+      <div class="card" style="flex:1;min-width:200px;max-width:260px;padding:1.5rem;text-align:center">
+        <div style="width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,#40B4E5,#CC22FF);display:flex;align-items:center;justify-content:center;margin:0 auto 0.75rem;font-weight:800;color:#fff;font-size:1.1rem">2</div>
+        <div style="font-weight:700;margin-bottom:0.25rem">Content Engine</div>
+        <div style="color:var(--text-muted);font-size:0.85rem">4x/month blog publishing + refresh legacy posts</div>
+      </div>
+      <div class="card" style="flex:1;min-width:200px;max-width:260px;padding:1.5rem;text-align:center">
+        <div style="width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,#40B4E5,#CC22FF);display:flex;align-items:center;justify-content:center;margin:0 auto 0.75rem;font-weight:800;color:#fff;font-size:1.1rem">3</div>
+        <div style="font-weight:700;margin-bottom:0.25rem">Speed & Social</div>
+        <div style="color:var(--text-muted);font-size:0.85rem">Fix mobile performance + consistent social posting</div>
+      </div>
+    </div>
+    <div style="display:flex;align-items:center;justify-content:center;gap:1.5rem;flex-wrap:wrap;padding:2rem;border-radius:16px;background:var(--bg-card);border:1px solid var(--bg-card-border)">
+      <img src="https://brandastic.com/wp-content/uploads/2024/10/justin-evil-laugh.png" alt="Justin Nassie" style="width:80px;height:80px;object-fit:cover;object-position:top;border-radius:50%;flex-shrink:0;-webkit-print-color-adjust:exact;print-color-adjust:exact" loading="lazy">
+      <div style="text-align:left">
+        <div style="font-weight:800;font-size:1.1rem">Justin Nassie</div>
+        <div style="color:var(--text-muted);font-size:0.85rem;margin-bottom:0.25rem">President, Brandastic</div>
+        <div style="display:flex;flex-wrap:wrap;gap:1rem;font-size:0.85rem">
+          <a href="tel:9498928944" style="color:var(--accent-light);text-decoration:none">📱 (949) 892-8944</a>
+          <a href="mailto:justin@brandastic.com" style="color:var(--accent-light);text-decoration:none">✉️ justin@brandastic.com</a>
+        </div>
+      </div>
+    </div>
+    <div style="margin-top:2rem">
+      <a href="https://brandastic.com/contact/" target="_blank" class="cta-btn">Let's Execute This Plan →</a>
+    </div>
+  </div>
+</section>
+
+<noscript><style>.reveal,.reveal.active{opacity:1!important;transform:none!important;transition:none!important}</style></noscript>
+<!-- ===== PRINT-ONLY: QR CODE ===== -->
+<div class="print-only print-qr" style="display:none">
+  <p><strong>Scan to view the interactive version of this self-audit:</strong></p>
+  <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https%3A%2F%2Fbrandastic-audit.netlify.app%2Fbrandastic.html" alt="QR Code" />
+  <p style="margin-top:0.75rem;font-size:0.8rem;color:#64748b">https://brandastic-audit.netlify.app/brandastic.html</p>
+</div>
+
+<!-- ===== PRINT-ONLY: FOOTER INFO ===== -->
+<div class="print-only" style="display:none;text-align:center;padding:1rem;font-size:0.75rem;color:#64748b;border-top:1px solid #e5e7eb;margin-top:2rem">
+  Brandastic Self-Audit | brandastic.com | (949) 892-8944 | INTERNAL
+</div>
+
+</body>
+</html>
