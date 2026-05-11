@@ -1810,18 +1810,18 @@ body.slide-mode .section-subtitle + * { margin-top: 0.5rem !important; }
 body.slide-mode .slide-track > section > .container {
   display: flex !important;
   flex-direction: column !important;
-  justify-content: flex-start !important;
+  justify-content: space-evenly !important;
   flex: 1 !important;
   max-width: 1200px !important;
   width: 100% !important;
   margin: 0 auto !important;
   overflow: hidden !important;
-  gap: 1rem !important;
+  gap: 0 !important;
 }
 body.slide-mode .slide-track > section {
   display: flex !important;
   flex-direction: column !important;
-  justify-content: center !important;
+  justify-content: stretch !important;
   align-items: center !important;
 }
 
@@ -1832,6 +1832,32 @@ body.slide-mode .grid-4 {
   gap: 0.5rem !important;
   flex: 1 !important;
   align-content: center !important;
+}
+
+/* Section sub-text and title should not flex-grow */
+body.slide-mode .section-title,
+body.slide-mode .section-sub {
+  flex-shrink: 0 !important;
+}
+
+/* Cards and grids fill remaining space */
+body.slide-mode .grid-2,
+body.slide-mode .grid-3,
+body.slide-mode .grid-4,
+body.slide-mode .card,
+body.slide-mode .chart-wrap,
+body.slide-mode .ps-row {
+  flex: 1 1 auto !important;
+  min-height: 0 !important;
+}
+
+/* Metric cards row should vertically center its content */
+body.slide-mode .grid-4 .metric-card,
+body.slide-mode .grid-3 .card,
+body.slide-mode .grid-2 .card {
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: center !important;
 }
 
 /* ===== WARNING BANNERS ===== */
