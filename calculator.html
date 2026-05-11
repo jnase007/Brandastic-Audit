@@ -364,7 +364,7 @@ function renderInputs() {
     title.textContent = 'Lead Generation Settings';
     mode.innerHTML = `<h3 style="font-size:1rem;font-weight:700;margin-bottom:1.5rem;color:var(--text-primary)">Lead Generation Settings</h3>` +
       makeInput('closeRate', 'Close Rate', '', '%', RANGES.closeRate) +
-      makeInput('dealValue', 'Average Deal Value', '$', '', RANGES.dealValue) +
+      makeInput('dealValue', 'Average Sale Value', '$', '', RANGES.dealValue) +
       makeInput('ltv', 'Customer Lifetime Value', '$', '', { min: 100, max: 1000000, step: 100 });
   } else {
     title.textContent = 'E-commerce Settings';
@@ -495,12 +495,12 @@ function renderResults() {
   /* Matches Justin's sheet layout exactly */
   html += card('$' + fmt(r.totalCost), 'Monthly Total Cost');
   html += card(fmt(r.clicks, 0), 'Total Clicks');
-  html += card(fmt(r.leads, 1), 'Leads Per Month');
+  html += card(fmt(r.leads, 1), currentModel === 'leadgen' ? 'Leads Per Month' : 'Conversions');
   html += card('$' + fmt(r.costPerLead, 2), 'Avg Cost Per Lead (CPA)');
 
   if (currentModel === 'leadgen') {
     html += card('$' + fmt(r.costPerSale, 2), 'Cost Per Sale');
-    html += card(fmt(r.orders, 1), 'Orders/mo');
+    html += card(fmt(r.orders, 1), 'Sales/mo');
     html += card('$' + fmt(r.roiPerSale, 2), 'ROI Per Sale', r.roiPerSale >= 0 ? 'positive' : 'negative');
     html += card('$' + fmt(r.roiPerCustomer, 2), 'ROI Per Customer', r.roiPerCustomer >= 0 ? 'positive' : 'negative');
     html += card('$' + fmt(r.monthlyProfit, 2), 'Current Profit/mo', r.monthlyProfit >= 0 ? 'positive' : 'negative');
