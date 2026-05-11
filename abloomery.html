@@ -798,5 +798,557 @@ applyTheme(getPreferredTheme());
 })();
 </script>
 
+
+<style id="slide-mode-css">
+/* ===== PRESENTATION SLIDE MODE ===== */
+body.slide-mode { overflow: hidden !important; margin: 0; }
+body.slide-mode .side-nav { display: none !important; }
+body.slide-mode .reading-progress { display: none !important; }
+body.slide-mode .section-pill { display: none !important; }
+body.slide-mode .reveal { opacity: 1 !important; transform: none !important; transition: none !important; }
+body.slide-mode .reveal .card { transition-delay: 0s !important; }
+
+/* Slide viewport */
+.slide-viewport {
+  position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
+  overflow: hidden; z-index: 900;
+  display: none;
+}
+body.slide-mode .slide-viewport { display: block; }
+body.slide-mode > *:not(.slide-viewport):not(.nav):not(.slide-progress):not(.slide-counter):not(.slide-dots):not(.slide-arrow):not(script):not(style):not(link):not(noscript) {
+  display: none !important;
+}
+body.slide-mode .nav { z-index: 1001; }
+body.slide-mode .watermark { display: none !important; }
+
+.slide-track {
+  display: flex; width: max-content;
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  height: 100vh;
+}
+
+.slide-track > section {
+  width: 100vw !important; min-height: 100vh !important; max-height: 100vh !important;
+  overflow: hidden !important; flex-shrink: 0;
+  box-sizing: border-box;
+  display: flex !important; flex-direction: column; align-items: stretch; justify-content: center;
+  position: relative;
+}
+
+/* Compact everything in slide mode */
+body.slide-mode section { padding: 1.5rem 2rem !important; padding-top: 64px !important; }
+body.slide-mode section.hero { padding: 0 2rem !important; padding-top: 0 !important; }
+body.slide-mode .container { max-width: 1200px; margin: 0 auto; }
+body.slide-mode .section-title { font-size: 1.5rem !important; margin-bottom: 0.5rem !important; }
+body.slide-mode .section-subtitle { font-size: 0.8rem !important; margin-bottom: 0.75rem !important; }
+body.slide-mode .section-badge { font-size: 0.6rem !important; padding: 4px 12px !important; margin-bottom: 0.5rem !important; }
+body.slide-mode p { font-size: 0.82rem !important; line-height: 1.4 !important; margin-bottom: 0.4rem !important; }
+body.slide-mode .card { padding: 1rem !important; border-radius: 12px !important; }
+body.slide-mode .card h3 { font-size: 0.9rem !important; margin-bottom: 0.3rem !important; }
+body.slide-mode .card p { font-size: 0.78rem !important; }
+body.slide-mode .metric-card { padding: 0.75rem !important; }
+body.slide-mode .metric-card .value { font-size: 1.4rem !important; }
+body.slide-mode .metric-card .label { font-size: 0.65rem !important; }
+body.slide-mode .grid-2 { gap: 0.75rem !important; }
+body.slide-mode .grid-3 { gap: 0.75rem !important; }
+body.slide-mode .grid-4 { gap: 0.75rem !important; }
+body.slide-mode .chart-wrap { max-height: 220px !important; }
+body.slide-mode canvas { max-height: 200px !important; }
+body.slide-mode table { font-size: 0.72rem !important; }
+body.slide-mode th, body.slide-mode td { padding: 0.35rem 0.5rem !important; }
+body.slide-mode .gap-card { padding: 0.75rem 1rem !important; }
+body.slide-mode .gap-card h4 { font-size: 0.8rem !important; }
+body.slide-mode .gap-card p { font-size: 0.72rem !important; }
+body.slide-mode .roi-card { padding: 0.75rem !important; }
+body.slide-mode .roi-card .label { font-size: 0.65rem !important; }
+body.slide-mode .roi-card .before, body.slide-mode .roi-card .after { font-size: 1.1rem !important; }
+body.slide-mode .timeline-item { padding: 0.6rem 0 !important; }
+body.slide-mode .timeline-item h4 { font-size: 0.8rem !important; }
+body.slide-mode .timeline-item p { font-size: 0.72rem !important; }
+body.slide-mode h1 { font-size: 1.6rem !important; }
+body.slide-mode h2 { font-size: 1.3rem !important; }
+body.slide-mode h3 { font-size: 1rem !important; }
+body.slide-mode h4 { font-size: 0.85rem !important; }
+body.slide-mode ul, body.slide-mode ol { font-size: 0.8rem !important; margin: 0.3rem 0 !important; padding-left: 1.2rem !important; }
+body.slide-mode li { margin-bottom: 0.15rem !important; }
+body.slide-mode .warning-banner { padding: 0.75rem 1rem !important; font-size: 0.78rem !important; }
+body.slide-mode .divider-wave, body.slide-mode .divider-dots { display: none !important; }
+
+/* Score rings compact */
+body.slide-mode .score-ring svg { width: 80px !important; height: 80px !important; }
+body.slide-mode .score-ring .score-label { font-size: 0.65rem !important; }
+body.slide-mode .score-ring .score-value { font-size: 1.1rem !important; }
+
+/* PS cards compact */
+body.slide-mode .ps-card { padding: 0.6rem !important; }
+body.slide-mode .ps-card h4 { font-size: 0.75rem !important; }
+body.slide-mode .ps-card div { font-size: 0.7rem !important; }
+body.slide-mode .ps-card .score-ring svg { width: 60px !important; height: 60px !important; }
+
+/* Competitor cards */
+body.slide-mode .competitor-card { padding: 0.75rem !important; }
+body.slide-mode .competitor-card h4 { font-size: 0.8rem !important; }
+
+/* Solution/problem rows compact */
+body.slide-mode .solution-row, body.slide-mode .problem-row { padding: 0.5rem 0.75rem !important; gap: 0.5rem !important; }
+body.slide-mode .finding-card { padding: 0.6rem !important; }
+body.slide-mode .finding-card h4 { font-size: 0.78rem !important; }
+
+/* Hero slide */
+body.slide-mode .hero { min-height: 100vh !important; max-height: 100vh !important; }
+body.slide-mode .hero-company { font-size: clamp(2rem, 5vw, 4rem) !important; }
+
+/* CTA section compact */
+body.slide-mode .cta-section h2 { font-size: 1.4rem !important; }
+body.slide-mode .team-photo { width: 90px !important; height: 90px !important; }
+body.slide-mode .cta-btn { padding: 10px 28px !important; font-size: 0.85rem !important; }
+
+/* SEO matrix compact */
+body.slide-mode .seo-matrix-table th,
+body.slide-mode .seo-matrix-table td { padding: 0.25rem 0.4rem !important; font-size: 0.68rem !important; }
+
+/* Persona cards */
+body.slide-mode .persona-card { padding: 0.75rem !important; }
+body.slide-mode .persona-card h3 { font-size: 0.85rem !important; }
+body.slide-mode .persona-avatar { width: 40px !important; height: 40px !important; font-size: 1.2rem !important; }
+
+/* Email / social cards */
+body.slide-mode .email-card, body.slide-mode .social-card { padding: 0.75rem !important; }
+
+/* Slide progress bar at top */
+.slide-progress {
+  position: fixed; top: 64px; left: 0; height: 3px; z-index: 1002;
+  background: linear-gradient(90deg, #40B4E5, #CC22FF);
+  transition: width 0.5s ease; pointer-events: none;
+  display: none;
+}
+body.slide-mode .slide-progress { display: block; }
+
+/* Slide counter pill */
+.slide-counter {
+  position: fixed; bottom: 50px; left: 50%; transform: translateX(-50%);
+  z-index: 1002; padding: 6px 20px; border-radius: 50px;
+  background: var(--glass-bg); backdrop-filter: blur(16px);
+  border: 1px solid var(--glass-border); box-shadow: var(--shadow);
+  font-size: 0.75rem; font-weight: 600; letter-spacing: 0.08em;
+  color: var(--text-secondary); white-space: nowrap;
+  display: none; font-family: 'Inter', sans-serif;
+}
+body.slide-mode .slide-counter { display: block; }
+
+/* Bottom dot navigation */
+.slide-dots {
+  position: fixed; bottom: 18px; left: 50%; transform: translateX(-50%);
+  z-index: 1002; display: none; align-items: center; gap: 6px;
+  padding: 6px 14px; border-radius: 50px;
+  background: var(--glass-bg); backdrop-filter: blur(16px);
+  border: 1px solid var(--glass-border); box-shadow: var(--shadow);
+}
+body.slide-mode .slide-dots { display: flex; }
+.slide-dot {
+  width: 7px; height: 7px; border-radius: 50%;
+  background: var(--text-muted); cursor: pointer;
+  transition: all 0.3s ease; flex-shrink: 0;
+}
+.slide-dot:hover { background: var(--text-secondary); transform: scale(1.3); }
+.slide-dot.active {
+  width: 9px; height: 9px; background: linear-gradient(135deg, #40B4E5, #CC22FF);
+  box-shadow: 0 0 8px rgba(64, 180, 229, 0.5);
+}
+
+/* Navigation arrows */
+.slide-arrow {
+  position: fixed; top: 50%; transform: translateY(-50%);
+  z-index: 1002; width: 48px; height: 48px; border-radius: 50%;
+  background: var(--glass-bg); backdrop-filter: blur(16px);
+  border: 1px solid var(--glass-border); box-shadow: var(--shadow);
+  cursor: pointer; display: none; align-items: center; justify-content: center;
+  font-size: 1.2rem; color: var(--text-secondary);
+  transition: all 0.3s ease; opacity: 0.4;
+  -webkit-tap-highlight-color: transparent;
+}
+body.slide-mode .slide-arrow { display: flex; }
+.slide-arrow:hover { opacity: 1; transform: translateY(-50%) scale(1.1); }
+.slide-arrow-left { left: 16px; }
+.slide-arrow-right { right: 16px; }
+.slide-arrow.disabled { opacity: 0.15; cursor: default; pointer-events: none; }
+
+/* Toggle button in nav */
+.slide-toggle-btn {
+  display: inline-flex; align-items: center; gap: 5px;
+  padding: 6px 14px; border-radius: 10px; border: none; cursor: pointer;
+  background: var(--glass-bg); backdrop-filter: blur(10px);
+  border: 1px solid var(--glass-border); color: var(--text-secondary);
+  font-family: inherit; font-size: 0.72rem; font-weight: 600;
+  letter-spacing: 0.03em; transition: all 0.3s ease; white-space: nowrap;
+}
+.slide-toggle-btn:hover { color: var(--text-primary); border-color: var(--text-muted); }
+.slide-toggle-btn.active {
+  background: linear-gradient(135deg, #40B4E5, #CC22FF); color: #fff;
+  border-color: transparent;
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+  body.slide-mode section { padding: 1rem 1rem !important; padding-top: 56px !important; }
+  body.slide-mode section.hero { padding: 0 1rem !important; }
+  .slide-arrow { width: 36px; height: 36px; font-size: 1rem; opacity: 0.5; }
+  .slide-arrow-left { left: 8px; }
+  .slide-arrow-right { right: 8px; }
+  .slide-counter { font-size: 0.8rem; bottom: 48px; }
+  .slide-dots { bottom: 14px; gap: 5px; }
+  .slide-dot { width: 6px; height: 6px; }
+  .slide-dot.active { width: 8px; height: 8px; }
+  body.slide-mode .section-title { font-size: 1.2rem !important; }
+  body.slide-mode .grid-4 { grid-template-columns: repeat(2, 1fr) !important; }
+  body.slide-mode .hero-company { font-size: clamp(1.6rem, 6vw, 2.5rem) !important; }
+  .slide-toggle-btn span.label-text { display: none; }
+}
+
+/* Print: disable slide mode */
+@media print {
+  body.slide-mode { overflow: visible !important; }
+  .slide-viewport, .slide-progress, .slide-counter, .slide-dots,
+  .slide-arrow, .slide-toggle-btn { display: none !important; }
+  body.slide-mode > * { display: block !important; }
+  body.slide-mode .side-nav { display: none !important; }
+  body.slide-mode section {
+    width: auto !important; min-height: auto !important; max-height: none !important;
+    overflow: visible !important; padding: 2rem !important;
+  }
+}
+
+/* Extra compaction for content-heavy slides */
+body.slide-mode section { padding-bottom: 80px !important; }
+body.slide-mode section.hero { padding-bottom: 60px !important; }
+body.slide-mode .section-title { margin-top: 0 !important; }
+body.slide-mode .data-source { font-size: 0.65rem !important; margin-top: 0.3rem !important; margin-bottom: 0 !important; }
+
+/* Crawl / issues lists — very compact */
+body.slide-mode .issue-list li, body.slide-mode .crawl-issues li { 
+  font-size: 0.72rem !important; line-height: 1.3 !important; margin-bottom: 0.1rem !important; 
+}
+body.slide-mode .issue-card, body.slide-mode .crawl-card { padding: 0.6rem !important; }
+body.slide-mode .issue-card h4, body.slide-mode .crawl-card h4 { font-size: 0.8rem !important; margin-bottom: 0.25rem !important; }
+
+/* Lists in cards — aggressive compact */
+body.slide-mode .card ul li { font-size: 0.72rem !important; line-height: 1.25 !important; margin-bottom: 0.08rem !important; }
+body.slide-mode .card ul { margin: 0.2rem 0 !important; }
+
+/* Tables - limit visible rows via max-height */
+body.slide-mode .table-wrap { max-height: 280px !important; overflow: hidden !important; }
+body.slide-mode table { margin-bottom: 0 !important; }
+
+/* Smaller section badge */  
+body.slide-mode .section-badge { margin-bottom: 0.3rem !important; }
+
+/* Warning banners compact */
+body.slide-mode .warning-banner { padding: 0.5rem 0.75rem !important; font-size: 0.72rem !important; margin-top: 0.5rem !important; margin-bottom: 0.5rem !important; }
+body.slide-mode .warning-banner .warning-icon { font-size: 1.2rem !important; }
+
+/* Grid containers tighter */
+body.slide-mode .container { padding: 0 !important; }
+
+/* Metric cards even tighter */
+body.slide-mode .metric-card { padding: 0.6rem !important; }
+body.slide-mode .metric-card .value { font-size: 1.2rem !important; line-height: 1.2 !important; }
+body.slide-mode .metric-card .label { font-size: 0.6rem !important; margin-top: 0.15rem !important; }
+body.slide-mode .metric-card .change { font-size: 0.65rem !important; }
+
+/* Reduce gap between section title and content */
+body.slide-mode .section-subtitle + * { margin-top: 0.5rem !important; }
+
+/* Tighter overall section spacing */
+body.slide-mode .grid-2, body.slide-mode .grid-3, body.slide-mode .grid-4 { gap: 0.6rem !important; }
+
+/* Ensure hidden overflow on section content */
+body.slide-mode section .container { overflow: hidden !important; }
+
+</style>
+
+<script id="slide-mode-js">
+(function(){
+  'use strict';
+
+  /* ---- State ---- */
+  let slideMode = localStorage.getItem('brandastic-slide-mode') !== 'off';
+  let currentSlide = 0;
+  let slides = [];
+  let viewport, track, counter, progress, dotsContainer, arrowL, arrowR;
+
+  /* ---- Build DOM ---- */
+  function buildSlideUI() {
+    /* Viewport wrapper */
+    viewport = document.createElement('div');
+    viewport.className = 'slide-viewport';
+
+    track = document.createElement('div');
+    track.className = 'slide-track';
+    viewport.appendChild(track);
+    document.body.appendChild(viewport);
+
+    /* Progress bar */
+    progress = document.createElement('div');
+    progress.className = 'slide-progress';
+    document.body.appendChild(progress);
+
+    /* Counter pill */
+    counter = document.createElement('div');
+    counter.className = 'slide-counter';
+    document.body.appendChild(counter);
+
+    /* Dots */
+    dotsContainer = document.createElement('div');
+    dotsContainer.className = 'slide-dots';
+    document.body.appendChild(dotsContainer);
+
+    /* Arrows */
+    arrowL = document.createElement('button');
+    arrowL.className = 'slide-arrow slide-arrow-left';
+    arrowL.innerHTML = '&#8249;';
+    arrowL.setAttribute('aria-label', 'Previous slide');
+    arrowL.addEventListener('click', () => goTo(currentSlide - 1));
+    document.body.appendChild(arrowL);
+
+    arrowR = document.createElement('button');
+    arrowR.className = 'slide-arrow slide-arrow-right';
+    arrowR.innerHTML = '&#8250;';
+    arrowR.setAttribute('aria-label', 'Next slide');
+    arrowR.addEventListener('click', () => goTo(currentSlide + 1));
+    document.body.appendChild(arrowR);
+  }
+
+  /* ---- Collect sections ---- */
+  function collectSlides() {
+    const allSections = document.querySelectorAll('body > section');
+    slides = [];
+    allSections.forEach(s => {
+      if (s.classList.contains('print-only') || s.closest('.print-only')) return;
+      if (s.style.display === 'none' && s.classList.contains('print-only')) return;
+      slides.push(s);
+    });
+    return slides;
+  }
+
+  /* ---- Populate track ---- */
+  function populateTrack() {
+    track.innerHTML = '';
+    dotsContainer.innerHTML = '';
+    slides.forEach((s, i) => {
+      track.appendChild(s);
+      const dot = document.createElement('div');
+      dot.className = 'slide-dot' + (i === currentSlide ? ' active' : '');
+      dot.addEventListener('click', () => goTo(i));
+      dotsContainer.appendChild(dot);
+    });
+  }
+
+  /* ---- Restore sections to body (exit slide mode) ---- */
+  let originalOrder = []; // {element, nextSibling}
+
+  function saveOriginalOrder() {
+    originalOrder = [];
+    const allSections = document.querySelectorAll('body > section');
+    allSections.forEach(s => {
+      originalOrder.push({ el: s, next: s.nextSibling });
+    });
+  }
+
+  function restoreSections() {
+    /* Move slides back from track to body in original positions */
+    slides.forEach(s => {
+      const entry = originalOrder.find(o => o.el === s);
+      if (entry && entry.next && entry.next.parentNode === document.body) {
+        document.body.insertBefore(s, entry.next);
+      } else {
+        /* Append before viewport as fallback */
+        document.body.insertBefore(s, viewport);
+      }
+    });
+  }
+
+  /* ---- Navigate ---- */
+  function goTo(idx) {
+    if (idx < 0 || idx >= slides.length) return;
+    currentSlide = idx;
+    track.style.transform = 'translateX(-' + (currentSlide * 100) + 'vw)';
+    updateUI();
+    triggerAnimations(slides[currentSlide]);
+  }
+
+  function updateUI() {
+    /* Counter */
+    counter.textContent = (currentSlide + 1) + ' / ' + slides.length;
+    /* Progress */
+    const pct = slides.length > 1 ? (currentSlide / (slides.length - 1)) * 100 : 100;
+    progress.style.width = pct + '%';
+    /* Dots */
+    dotsContainer.querySelectorAll('.slide-dot').forEach((d, i) => {
+      d.classList.toggle('active', i === currentSlide);
+    });
+    /* Arrows */
+    arrowL.classList.toggle('disabled', currentSlide === 0);
+    arrowR.classList.toggle('disabled', currentSlide === slides.length - 1);
+  }
+
+  /* ---- Trigger animations on active slide ---- */
+  function triggerAnimations(section) {
+    if (!section) return;
+    /* Counters */
+    section.querySelectorAll('[data-count]').forEach(el => {
+      const t = parseInt(el.dataset.count);
+      if (!t) return;
+      const p = el.dataset.prefix || '';
+      const s = el.dataset.suffix || '';
+      if (typeof animateCounter === 'function') animateCounter(el, t, p, s);
+    });
+    /* Score rings */
+    section.querySelectorAll('.fg[data-target]').forEach(fg => {
+      fg.style.strokeDashoffset = fg.dataset.target;
+    });
+    /* Bars */
+    section.querySelectorAll('.overall-bar .fill, .fill[data-target]').forEach(el => {
+      if (el.dataset.target) el.style.width = el.dataset.target + '%';
+    });
+    /* Reveal */
+    section.querySelectorAll('.reveal').forEach(el => el.classList.add('active'));
+    /* Charts — try creating them if canvas is in this section */
+    section.querySelectorAll('canvas').forEach(cv => {
+      if (cv.id === 'trafficChart' && typeof createTrafficChart === 'function' && !window.trafficChart) {
+        try { createTrafficChart(); } catch(e){}
+      }
+      if (cv.id === 'competitorChart' && typeof createCompetitorChart === 'function' && !window.competitorChart) {
+        try { createCompetitorChart(); } catch(e){}
+      }
+    });
+    /* CTA animations */
+    section.querySelectorAll('.cta-animate').forEach(el => el.classList.add('active'));
+  }
+
+  /* ---- Toggle ---- */
+  function enableSlideMode() {
+    slideMode = true;
+    localStorage.setItem('brandastic-slide-mode', 'on');
+    collectSlides();
+    saveOriginalOrder();
+    populateTrack();
+    document.body.classList.add('slide-mode');
+    currentSlide = 0;
+    goTo(0);
+    const btn = document.getElementById('slideToggleBtn');
+    if (btn) { btn.classList.add('active'); btn.querySelector('.label-text').textContent = 'Scroll'; }
+  }
+
+  function disableSlideMode() {
+    slideMode = false;
+    localStorage.setItem('brandastic-slide-mode', 'off');
+    document.body.classList.remove('slide-mode');
+    restoreSections();
+    const btn = document.getElementById('slideToggleBtn');
+    if (btn) { btn.classList.remove('active'); btn.querySelector('.label-text').textContent = 'Slides'; }
+  }
+
+  function toggleSlideMode() {
+    if (slideMode) disableSlideMode();
+    else enableSlideMode();
+  }
+
+  /* ---- Keyboard ---- */
+  document.addEventListener('keydown', function(e) {
+    if (!slideMode) return;
+    if (e.key === 'ArrowRight' || e.key === 'ArrowDown') { e.preventDefault(); goTo(currentSlide + 1); }
+    if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') { e.preventDefault(); goTo(currentSlide - 1); }
+    if (e.key === 'Home') { e.preventDefault(); goTo(0); }
+    if (e.key === 'End') { e.preventDefault(); goTo(slides.length - 1); }
+    if (e.key === 'Escape') { disableSlideMode(); }
+  });
+
+  /* ---- Touch / Swipe ---- */
+  let touchStartX = 0, touchStartY = 0;
+  document.addEventListener('touchstart', function(e) {
+    if (!slideMode) return;
+    touchStartX = e.touches[0].clientX;
+    touchStartY = e.touches[0].clientY;
+  }, { passive: true });
+  document.addEventListener('touchend', function(e) {
+    if (!slideMode) return;
+    const dx = e.changedTouches[0].clientX - touchStartX;
+    const dy = e.changedTouches[0].clientY - touchStartY;
+    if (Math.abs(dx) > 50 && Math.abs(dx) > Math.abs(dy)) {
+      if (dx < 0) goTo(currentSlide + 1);
+      else goTo(currentSlide - 1);
+    }
+  }, { passive: true });
+
+  /* ---- Print handling ---- */
+  window.addEventListener('beforeprint', function() {
+    if (slideMode) {
+      document.body.classList.remove('slide-mode');
+      restoreSections();
+    }
+  });
+  window.addEventListener('afterprint', function() {
+    if (slideMode) {
+      collectSlides();
+      saveOriginalOrder();
+      populateTrack();
+      document.body.classList.add('slide-mode');
+      goTo(currentSlide);
+    }
+  });
+
+  /* Override PDF button to handle slide mode */
+  const pdfBtn = document.querySelector('.pdf-btn');
+  if (pdfBtn) {
+    pdfBtn.onclick = function() {
+      if (slideMode) {
+        document.body.classList.remove('slide-mode');
+        restoreSections();
+        setTimeout(function() {
+          window.print();
+          setTimeout(function() {
+            if (slideMode) {
+              collectSlides();
+              saveOriginalOrder();
+              populateTrack();
+              document.body.classList.add('slide-mode');
+              goTo(currentSlide);
+            }
+          }, 500);
+        }, 100);
+      } else {
+        window.print();
+      }
+    };
+  }
+
+  /* ---- Init ---- */
+  function init() {
+    buildSlideUI();
+    /* Add toggle button to nav */
+    const navActions = document.querySelector('.nav-actions');
+    if (navActions) {
+      const btn = document.createElement('button');
+      btn.id = 'slideToggleBtn';
+      btn.className = 'slide-toggle-btn' + (slideMode ? ' active' : '');
+      btn.innerHTML = '▶️ <span class="label-text">' + (slideMode ? 'Scroll' : 'Slides') + '</span>';
+      btn.addEventListener('click', toggleSlideMode);
+      navActions.insertBefore(btn, navActions.firstChild);
+    }
+    if (slideMode) enableSlideMode();
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+
+  /* Expose for external use */
+  window.toggleSlideMode = toggleSlideMode;
+  window.goToSlide = goTo;
+})();
+</script>
+
 </body>
 </html>
