@@ -62,11 +62,11 @@ body {
 }
 [data-theme="light"] .theme-toggle .knob { transform:translateX(26px); }
 .hero {
-  min-height:100vh;
+  min-height:50vh;
   display:flex; flex-direction:column; align-items:center; justify-content:center;
   text-align:center;
   position:relative;
-  padding:2rem;
+  padding:2rem 2rem 3rem;
   background:linear-gradient(rgba(25,31,36,0.82), rgba(25,31,36,0.88)), url('images/office.jpg') center/cover no-repeat;
 }
 [data-theme="light"] .hero {
@@ -104,7 +104,7 @@ body {
 @keyframes fadeInUp { from{opacity:0;transform:translateY(30px)} to{opacity:1;transform:translateY(0)} }
 @keyframes gradientShift { 0%{background-position:0% 50%} 50%{background-position:100% 50%} 100%{background-position:0% 50%} }
 h1 {
-  font-size:clamp(2.5rem,6vw,5rem);
+  font-size:clamp(2rem,5vw,3.5rem);
   font-weight:900;
   letter-spacing:-0.03em;
   line-height:1.05;
@@ -127,7 +127,7 @@ h1 .gradient-text {
 }
 .cards-section {
   max-width:1200px;
-  margin:-10vh auto 4rem;
+  margin:-2vh auto 4rem;
   padding:0 2rem;
   position:relative;
   z-index:1;
