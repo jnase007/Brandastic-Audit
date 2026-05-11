@@ -89,8 +89,8 @@ section:nth-child(even){background:var(--bg-secondary);transition:background var
 .num-input:focus{outline:none;border-color:var(--accent-light)}
 
 /* ========== RESULTS CARDS ========== */
-.results-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:1.25rem;margin-bottom:1.5rem}
-.result-card{background:var(--bg-card);border:1px solid var(--bg-card-border);border-radius:12px;padding:1rem;text-align:center;backdrop-filter:blur(10px);transition:transform var(--transition),box-shadow var(--transition),background var(--transition)}
+.results-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:0.5rem;margin-bottom:0.5rem}
+.result-card{background:var(--bg-card);border:1px solid var(--bg-card-border);border-radius:10px;padding:0.6rem 0.5rem;text-align:center;backdrop-filter:blur(10px);transition:transform var(--transition),box-shadow var(--transition),background var(--transition)}
 .result-card:hover{transform:translateY(-3px);box-shadow:var(--shadow)}
 .result-card .value{font-size:1.8rem;font-weight:800;letter-spacing:-0.03em;background:linear-gradient(135deg,#40B4E5,#CC22FF);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1.2;word-break:break-word}
 .result-card .label{font-size:0.7rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-muted);margin-top:0.5rem}
@@ -120,14 +120,13 @@ section:nth-child(even){background:var(--bg-secondary);transition:background var
 /* ========== RESPONSIVE ========== */
 @media(max-width:1024px){.stats-bar{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:768px){
+  #dashGrid{grid-template-columns:1fr!important}
   .inputs-grid{grid-template-columns:1fr}
   .results-grid{grid-template-columns:repeat(2,1fr)}
-  .stats-bar{grid-template-columns:repeat(2,1fr)}
-  section{padding:2.5rem 1.5rem}
-  .toggle-bar{flex-direction:column;align-items:stretch;gap:1rem}
+  .stats-bar{grid-template-columns:repeat(2,1fr)!important}
+  section{padding:1.5rem 1rem}
   .toggle-group{justify-content:center}
   .num-input{width:90px}
-  .hero{padding-top:80px;min-height:35vh}
 }
 @media(max-width:480px){
   .results-grid{grid-template-columns:1fr}
@@ -165,77 +164,59 @@ section:nth-child(even){background:var(--bg-secondary);transition:background var
   </div>
 </nav>
 
-<!-- HERO -->
-<section class="hero">
-  <div class="section-badge">📊 Interactive Tool</div>
-  <h1 class="hero-company">PPC ROI <span class="gradient">Calculator</span></h1>
-  <p class="hero-sub">Model your paid search investment, project revenue, and find your break-even point — in real time.</p>
-</section>
-
-<!-- TOGGLE BAR + INPUTS + RESULTS -->
-<section>
+<!-- DASHBOARD: Everything on one screen -->
+<section style="padding-top:60px;padding-bottom:0.5rem">
   <div class="container">
-    <!-- Toggle Bar -->
-    <div class="toggle-bar">
-      <div class="toggle-group">
-        <span class="toggle-label">Business Model</span>
-        <div class="pill-toggle" id="modelToggle">
-          <button class="active" data-value="ecommerce" onclick="setModel('ecommerce')">E-commerce</button>
-          <button data-value="leadgen" onclick="setModel('leadgen')">Lead Generation</button>
-          <div class="pill-bg"></div>
+    <!-- Header + Toggles inline -->
+    <div style="display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:1rem;margin-bottom:0.75rem">
+      <h1 style="font-size:1.5rem;font-weight:900;letter-spacing:-0.03em;margin:0">PPC ROI <span class="gradient">Calculator</span></h1>
+      <div style="display:flex;flex-wrap:wrap;gap:1rem;align-items:center">
+        <div class="toggle-group" style="margin:0">
+          <span class="toggle-label" style="font-size:0.65rem">Model</span>
+          <div class="pill-toggle" id="modelToggle">
+            <button class="active" data-value="ecommerce" onclick="setModel('ecommerce')">E-commerce</button>
+            <button data-value="leadgen" onclick="setModel('leadgen')">Lead Gen</button>
+            <div class="pill-bg"></div>
+          </div>
         </div>
-      </div>
-      <div class="toggle-group">
-        <span class="toggle-label">Market</span>
-        <div class="pill-toggle" id="marketToggle">
-          <button data-value="b2b" onclick="setMarket('b2b')">B2B</button>
-          <button class="active" data-value="b2c" onclick="setMarket('b2c')">B2C</button>
-          <div class="pill-bg"></div>
+        <div class="toggle-group" style="margin:0">
+          <span class="toggle-label" style="font-size:0.65rem">Market</span>
+          <div class="pill-toggle" id="marketToggle">
+            <button data-value="b2b" onclick="setMarket('b2b')">B2B</button>
+            <button class="active" data-value="b2c" onclick="setMarket('b2c')">B2C</button>
+            <div class="pill-bg"></div>
+          </div>
         </div>
       </div>
     </div>
 
-    <!-- Inputs -->
-    <div class="inputs-grid" id="inputsContainer">
-      <div class="input-card" id="sharedInputs">
-        <h3 style="font-size:1rem;font-weight:700;margin-bottom:1.5rem;color:var(--text-primary)">Campaign Settings</h3>
-        <!-- Shared inputs rendered by JS -->
+    <!-- MAIN DASHBOARD GRID: Inputs left, Results right -->
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1rem" id="dashGrid">
+      <!-- LEFT: All Inputs -->
+      <div>
+        <div class="input-card" id="sharedInputs" style="margin-bottom:0.75rem;padding:1rem">
+          <h3 style="font-size:0.85rem;font-weight:700;margin-bottom:0.75rem;color:var(--text-primary)">Campaign Settings</h3>
+        </div>
+        <div class="input-card" id="modeInputs" style="padding:1rem">
+          <h3 id="modeInputsTitle" style="font-size:0.85rem;font-weight:700;margin-bottom:0.75rem;color:var(--text-primary)">E-commerce Settings</h3>
+        </div>
       </div>
-      <div class="input-card" id="modeInputs">
-        <h3 id="modeInputsTitle" style="font-size:1rem;font-weight:700;margin-bottom:1.5rem;color:var(--text-primary)">E-commerce Settings</h3>
-        <!-- Mode-specific inputs rendered by JS -->
+      <!-- RIGHT: Results + Key Metrics -->
+      <div>
+        <div class="results-grid" id="resultsGrid" style="margin-bottom:0.75rem"></div>
+        <div id="breakevenCallout" style="margin-bottom:0.5rem"></div>
+        <div class="stats-bar" id="summaryStats" style="grid-template-columns:repeat(2,1fr);gap:0.75rem"></div>
       </div>
     </div>
-  </div>
-</section>
 
-<!-- RESULTS -->
-<section>
-  <div class="container">
-    <div class="section-badge">💰 Real-Time Results</div>
-    <h2 class="section-title">Monthly <span class="gradient">Projections</span></h2>
-    <div class="results-grid" id="resultsGrid"></div>
-  </div>
-</section>
-
-<!-- CHART -->
-<section>
-  <div class="container">
-    <div class="section-badge">📈 6-Month Forecast</div>
-    <h2 class="section-title">Projection <span class="gradient">Chart</span></h2>
-    <div class="chart-wrap">
-      <canvas id="projectionChart"></canvas>
+    <!-- CHART: Full width below, compact -->
+    <div class="chart-wrap" style="padding:1rem;margin-bottom:0.5rem">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:0.5rem">
+        <h3 style="font-size:0.85rem;font-weight:700;color:var(--text-primary);margin:0">📈 6-Month Projection</h3>
+        <span id="summaryHeadline" style="font-size:0.75rem;color:var(--text-muted)"></span>
+      </div>
+      <canvas id="projectionChart" style="max-height:220px"></canvas>
     </div>
-  </div>
-</section>
-
-<!-- SUMMARY -->
-<section>
-  <div class="container">
-    <div class="section-badge">🎯 6-Month Summary</div>
-    <h2 class="section-title" id="summaryHeadline">Projected <span class="gradient">6-Month Totals</span></h2>
-    <div id="breakevenCallout"></div>
-    <div class="stats-bar" id="summaryStats"></div>
   </div>
 </section>
 
