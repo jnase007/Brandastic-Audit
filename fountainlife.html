@@ -245,6 +245,7 @@ section{padding:3.5rem 2rem;position:relative}section:nth-child(even){background
   <div class="print-toc-item"><span class="toc-num">03</span><span class="toc-name">Target Personas</span></div>
   <div class="print-toc-item"><span class="toc-num">04</span><span class="toc-name">SEO Health Scorecard</span></div>
   <div class="print-toc-item"><span class="toc-num">—</span><span class="toc-name">Google PageSpeed Insights</span></div>
+  <div class="print-toc-item"><span class="toc-num">—</span><span class="toc-name">Technical Site Crawl</span></div>
   <div class="print-toc-item"><span class="toc-num">05</span><span class="toc-name">Traffic Trend</span></div>
   <div class="print-toc-item"><span class="toc-num">06</span><span class="toc-name">Keyword Analysis</span></div>
   <div class="print-toc-item"><span class="toc-num">06B</span><span class="toc-name">Google Ads Preview</span></div>
@@ -277,6 +278,7 @@ section{padding:3.5rem 2rem;position:relative}section:nth-child(even){background
     <div class="side-nav-dot" data-section="personas"><span class="tooltip">Personas</span></div>
     <div class="side-nav-dot" data-section="scorecard"><span class="tooltip">Scorecard</span></div>
     <div class="side-nav-dot" data-section="pagespeed"><span class="tooltip">PageSpeed</span></div>
+    <div class="side-nav-dot" data-section="crawl"><span class="tooltip">Site Crawl</span></div>
     <div class="side-nav-dot" data-section="traffic"><span class="tooltip">Traffic</span></div>
     <div class="side-nav-dot" data-section="keywords"><span class="tooltip">Keywords</span></div>
     <div class="side-nav-dot" data-section="ads"><span class="tooltip">Google Ads</span></div>
@@ -498,6 +500,112 @@ section{padding:3.5rem 2rem;position:relative}section:nth-child(even){background
     </div>
 
     <div style="text-align:center;margin-top:1.5rem;font-size:0.75rem;color:var(--text-muted)">Data from Google PageSpeed Insights • <a href="https://pagespeed.web.dev" target="_blank" style="color:var(--text-muted);text-decoration:underline">pagespeed.web.dev</a></div>
+  </div>
+</section>
+
+
+<!-- TECHNICAL SITE CRAWL -->
+<section id="crawl">
+  <div class="container reveal">
+    <div class="section-badge">— Technical Site Crawl</div>
+    <h2 class="section-title">Screaming Frog <span class="gradient">Crawl Analysis</span></h2>
+    <p class="section-sub">A full-site crawl of 1,424 URLs reveals severe technical SEO failures across Fountain Life's entire website — among the worst we've audited.</p>
+
+    <div class="grid-4" style="margin-bottom:2rem">
+      <div class="card metric-card">
+        <div class="value">409</div>
+        <div class="label">Pages Crawled</div>
+      </div>
+      <div class="card metric-card">
+        <div class="value">204</div>
+        <div class="label">Missing Titles</div>
+        <div class="change down">49.9% of pages</div>
+      </div>
+      <div class="card metric-card">
+        <div class="value">205</div>
+        <div class="label">Missing Descriptions</div>
+        <div class="change down">50.1% of pages</div>
+      </div>
+      <div class="card metric-card">
+        <div class="value">193</div>
+        <div class="label">Non-Indexable</div>
+        <div class="change down">47.2% of pages</div>
+      </div>
+    </div>
+
+    <div class="warning-banner" style="border-color:rgba(239,68,68,0.4);background:linear-gradient(135deg,rgba(239,68,68,0.15),rgba(239,68,68,0.08))">
+      <div class="icon">🚨</div>
+      <div>
+        <div class="text">⚠️ CRITICAL: 50% of Fountain Life's pages are missing titles and meta descriptions. 64% have no H1 tag. Nearly half the site is non-indexable. This is among the worst technical SEO we've audited.</div>
+      </div>
+    </div>
+
+    <div class="warning-banner" style="margin-bottom:2rem;background:linear-gradient(135deg,rgba(204,34,255,0.1),rgba(204,34,255,0.05));border-color:rgba(204,34,255,0.3)">
+      <div class="icon">🔒</div>
+      <div>
+        <div class="text" style="color:#CC22FF">Security Concern: Suspicious JavaScript injection detected</div>
+        <div class="sub">Crawl found URLs like <code style="font-size:0.8rem;background:var(--glass-bg);padding:2px 6px;border-radius:4px">fountainlife.com/"/s.ksrndkehqnwntyxlhgto.com/136610.js"</code> — this may indicate a compromised script or third-party injection that requires immediate investigation.</div>
+      </div>
+    </div>
+
+    <div class="grid-2">
+      <div class="card" style="padding:2rem">
+        <h3 style="font-weight:700;font-size:1.1rem;margin-bottom:1.25rem">On-Page Issues</h3>
+        <div style="display:flex;flex-direction:column;gap:0.75rem">
+          <div style="display:flex;align-items:start;gap:0.75rem">
+            <span style="color:var(--red);font-size:1.1rem;line-height:1">●</span>
+            <span style="color:var(--text-secondary);font-size:0.9rem"><strong style="color:var(--text-primary)">204 missing page titles</strong> (49.9%) — half the site has no title tag whatsoever</span>
+          </div>
+          <div style="display:flex;align-items:start;gap:0.75rem">
+            <span style="color:var(--red);font-size:1.1rem;line-height:1">●</span>
+            <span style="color:var(--text-secondary);font-size:0.9rem"><strong style="color:var(--text-primary)">205 missing meta descriptions</strong> (50.1%) — Google is guessing what these pages are about</span>
+          </div>
+          <div style="display:flex;align-items:start;gap:0.75rem">
+            <span style="color:var(--red);font-size:1.1rem;line-height:1">●</span>
+            <span style="color:var(--text-secondary);font-size:0.9rem"><strong style="color:var(--text-primary)">261 missing H1 tags</strong> (63.8%) — nearly two-thirds of pages lack primary headings</span>
+          </div>
+          <div style="display:flex;align-items:start;gap:0.75rem">
+            <span style="color:var(--red);font-size:1.1rem;line-height:1">●</span>
+            <span style="color:var(--text-secondary);font-size:0.9rem"><strong style="color:var(--text-primary)">8 duplicate title groups</strong> — 8× "Fountain Life in the news", 5× "Preventive Healthcare", 4× "Longevity"</span>
+          </div>
+          <div style="display:flex;align-items:start;gap:0.75rem">
+            <span style="color:var(--red);font-size:1.1rem;line-height:1">●</span>
+            <span style="color:var(--text-secondary);font-size:0.9rem"><strong style="color:var(--text-primary)">62 titles too long</strong> (&gt;60 chars) + <strong style="color:var(--text-primary)">65 descriptions too long</strong> (&gt;160 chars)</span>
+          </div>
+        </div>
+      </div>
+      <div class="card" style="padding:2rem">
+        <h3 style="font-weight:700;font-size:1.1rem;margin-bottom:1.25rem">Technical Issues</h3>
+        <div style="display:flex;flex-direction:column;gap:0.75rem">
+          <div style="display:flex;align-items:start;gap:0.75rem">
+            <span style="color:var(--red);font-size:1.1rem;line-height:1">●</span>
+            <span style="color:var(--text-secondary);font-size:0.9rem"><strong style="color:var(--text-primary)">193 non-indexable pages</strong> (47.2%) — nearly half the site is invisible to Google</span>
+          </div>
+          <div style="display:flex;align-items:start;gap:0.75rem">
+            <span style="color:var(--red);font-size:1.1rem;line-height:1">●</span>
+            <span style="color:var(--text-secondary);font-size:0.9rem"><strong style="color:var(--text-primary)">159 redirect chains</strong> (301s) — massive redirect bloat wasting crawl budget</span>
+          </div>
+          <div style="display:flex;align-items:start;gap:0.75rem">
+            <span style="color:var(--red);font-size:1.1rem;line-height:1">●</span>
+            <span style="color:var(--text-secondary);font-size:0.9rem"><strong style="color:var(--text-primary)">26 pages returning 404</strong> — broken pages actively hurting user experience</span>
+          </div>
+          <div style="display:flex;align-items:start;gap:0.75rem">
+            <span style="color:var(--red);font-size:1.1rem;line-height:1">●</span>
+            <span style="color:var(--text-secondary);font-size:0.9rem"><strong style="color:var(--text-primary)">15 timeout errors</strong> — server response failures indicating infrastructure problems</span>
+          </div>
+          <div style="display:flex;align-items:start;gap:0.75rem">
+            <span style="color:var(--red);font-size:1.1rem;line-height:1">●</span>
+            <span style="color:var(--text-secondary);font-size:0.9rem"><strong style="color:var(--text-primary)">JavaScript injection URLs</strong> — suspicious external scripts embedded in site markup</span>
+          </div>
+          <div style="display:flex;align-items:start;gap:0.75rem">
+            <span style="color:var(--red);font-size:1.1rem;line-height:1">●</span>
+            <span style="color:var(--text-secondary);font-size:0.9rem"><strong style="color:var(--text-primary)">Only 224 of 1,424 URLs</strong> returned 200 OK — 84% of discovered URLs have issues</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div style="text-align:center;margin-top:1.5rem;font-size:0.75rem;color:var(--text-muted)">Data source: Screaming Frog SEO Spider · Full crawl May 2026</div>
   </div>
 </section>
 
