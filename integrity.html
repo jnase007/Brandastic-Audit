@@ -1446,7 +1446,7 @@ body.slide-mode .watermark { display: none !important; }
   width: 100vw !important; min-height: 100vh !important; max-height: 100vh !important;
   overflow: hidden !important; flex-shrink: 0;
   box-sizing: border-box;
-  display: flex !important; flex-direction: column; align-items: center; justify-content: center;
+  display: flex !important; flex-direction: column; align-items: stretch; justify-content: flex-start;
   position: relative;
 }
 
@@ -1473,11 +1473,11 @@ body.slide-mode .section-sub { font-size: 0.75rem !important; margin-bottom: 0.5
 body.slide-mode .section-title { font-size: 1.3rem !important; margin-bottom: 0.3rem !important; margin-top: 0 !important; }
 body.slide-mode .section-subtitle { font-size: 0.8rem !important; margin-bottom: 0.75rem !important; }
 body.slide-mode .section-badge { font-size: 0.6rem !important; padding: 4px 12px !important; margin-bottom: 0.3rem !important; }
-body.slide-mode p { font-size: 0.75rem !important; line-height: 1.35 !important; margin-bottom: 0.25rem !important; }
-body.slide-mode .card { padding: 0.75rem !important; border-radius: 12px !important; }
+body.slide-mode p { font-size: 0.85rem !important; line-height: 1.45 !important; margin-bottom: 0.4rem !important; }
+body.slide-mode .card { padding: 1rem !important; border-radius: 12px !important; }
 body.slide-mode .card h3 { font-size: 0.9rem !important; margin-bottom: 0.3rem !important; }
 body.slide-mode .card p { font-size: 0.78rem !important; }
-body.slide-mode li { font-size: 0.72rem !important; line-height: 1.3 !important; margin-bottom: 0.1rem !important; }
+body.slide-mode li { font-size: 0.8rem !important; line-height: 1.4 !important; margin-bottom: 0.15rem !important; }
 body.slide-mode h1 { font-size: 1.6rem !important; }
 body.slide-mode h2 { font-size: 1.3rem !important; }
 body.slide-mode h3 { font-size: 1rem !important; }
@@ -1491,9 +1491,12 @@ body.slide-mode .section-subtitle + * { margin-top: 0.5rem !important; }
 body.slide-mode .slide-track > section > .container {
   display: flex !important;
   flex-direction: column !important;
-  justify-content: center !important;
-  min-height: calc(100vh - 80px) !important;
-  max-height: calc(100vh - 80px) !important;
+  justify-content: space-evenly !important;
+  flex: 1 !important;
+  max-width: 1200px !important;
+  width: 100% !important;
+  margin: 0 auto !important;
+  overflow: hidden !important;
 }
 body.slide-mode .slide-track > section {
   display: flex !important;
@@ -1518,14 +1521,14 @@ body.slide-mode .warning-banner .text { font-size: 0.72rem !important; }
 body.slide-mode .warning-banner .sub { font-size: 0.68rem !important; }
 
 /* ===== METRIC CARDS ===== */
-body.slide-mode .metric-card { padding: 0.5rem !important; }
+body.slide-mode .metric-card { padding: 1rem !important; }
 body.slide-mode .metric-card .value { font-size: 1.2rem !important; line-height: 1.2 !important; }
 body.slide-mode .metric-card .label { font-size: 0.6rem !important; margin-top: 0.15rem !important; }
 body.slide-mode .metric-card .change { font-size: 0.6rem !important; }
 
 /* ===== SCORE RINGS ===== */
-body.slide-mode .score-ring { width: 70px !important; height: 70px !important; margin-bottom: 0.25rem !important; }
-body.slide-mode .score-ring svg { width: 70px !important; height: 70px !important; }
+body.slide-mode .score-ring { width: 90px !important; height: 90px !important; margin: 0 auto 0.5rem !important; }
+body.slide-mode .score-ring svg { width: 90px !important; height: 90px !important; }
 body.slide-mode .score-ring .grade { font-size: 1.2rem !important; }
 body.slide-mode .score-ring .score-label { font-size: 0.65rem !important; }
 body.slide-mode .score-ring .score-value { font-size: 1.1rem !important; }
@@ -1572,7 +1575,7 @@ body.slide-mode .roi-card .arrow { font-size: 1rem !important; margin: 0.15rem 0
 
 /* ===== CHARTS — FILL AVAILABLE SPACE ===== */
 body.slide-mode .chart-wrap { max-height: none !important; padding: 1rem !important; flex: 1 !important; }
-body.slide-mode canvas { max-height: calc(100vh - 250px) !important; height: calc(100vh - 250px) !important; }
+body.slide-mode canvas { max-height: calc(100vh - 200px) !important; height: auto !important; }
 body.slide-mode .chart-hint { display: none !important; }
 
 /* ===== GOOGLE ADS / SERP ===== */
@@ -1618,8 +1621,8 @@ body.slide-mode .cta-btn { padding: 10px 28px !important; font-size: 0.85rem !im
 
 /* ===== PERSONA CARDS ===== */
 body.slide-mode .persona-card { padding: 0.6rem !important; }
-body.slide-mode .persona-avatar { width: 36px !important; height: 36px !important; font-size: 1rem !important; margin-bottom: 0.25rem !important; }
-body.slide-mode .persona-name { font-size: 0.8rem !important; }
+body.slide-mode .persona-avatar { width: 48px !important; height: 48px !important; font-size: 1.3rem !important; margin-bottom: 0.4rem !important; }
+body.slide-mode .persona-name { font-size: 0.9rem !important; }
 body.slide-mode .persona-demo { font-size: 0.68rem !important; margin-bottom: 0.3rem !important; }
 body.slide-mode .persona-channels { gap: 3px !important; margin-bottom: 0.3rem !important; }
 body.slide-mode .persona-channels .ch { padding: 2px 6px !important; font-size: 0.6rem !important; }
