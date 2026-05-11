@@ -49,16 +49,16 @@ a{color:var(--accent-light);text-decoration:none}
 .pdf-btn:hover{transform:translateY(-1px);box-shadow:0 4px 20px rgba(64,180,229,0.4)}
 
 /* ========== SECTIONS ========== */
-section{padding:3.5rem 2rem;position:relative}
+section{padding:1.5rem 2rem;position:relative}
 section:nth-child(even){background:var(--bg-secondary);transition:background var(--transition)}
 .container{max-width:1200px;margin:0 auto}
-.section-badge{display:inline-flex;align-items:center;gap:6px;padding:6px 16px;border-radius:50px;background:var(--glass-bg);border:1px solid var(--glass-border);font-size:0.7rem;font-weight:600;letter-spacing:0.15em;text-transform:uppercase;color:var(--text-muted);margin-bottom:1.5rem;backdrop-filter:blur(10px)}
+.section-badge{display:inline-flex;align-items:center;gap:6px;padding:6px 16px;border-radius:50px;background:var(--glass-bg);border:1px solid var(--glass-border);font-size:0.7rem;font-weight:600;letter-spacing:0.15em;text-transform:uppercase;color:var(--text-muted);margin-bottom:1rem;backdrop-filter:blur(10px)}
 .section-title{font-size:clamp(1.8rem,4vw,2.8rem);font-weight:800;letter-spacing:-0.03em;margin-bottom:1rem;line-height:1.15}
 .section-title .gradient{background:linear-gradient(135deg,#40B4E5,#CC22FF);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
 .section-sub{color:var(--text-secondary);font-size:1.05rem;max-width:700px;margin-bottom:2rem;line-height:1.7}
 
 /* ========== HERO ========== */
-.hero{min-height:50vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding-top:80px;padding-bottom:2rem;position:relative;overflow:hidden;background:var(--bg-secondary)}
+.hero{min-height:auto;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding-top:70px;padding-bottom:1rem;position:relative;overflow:hidden;background:var(--bg-secondary)}
 .hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 30% 20%,rgba(64,180,229,0.12) 0%,transparent 50%),radial-gradient(ellipse at 70% 80%,rgba(204,34,255,0.08) 0%,transparent 50%);pointer-events:none}
 .hero>*{position:relative;z-index:1}
 .hero-company{font-size:clamp(2rem,5vw,3.5rem);font-weight:900;letter-spacing:-0.04em;line-height:1.1;margin-bottom:0.5rem}
@@ -67,7 +67,7 @@ section:nth-child(even){background:var(--bg-secondary);transition:background var
 .hero-sub{color:var(--text-secondary);font-size:1.1rem;max-width:600px;margin:0.5rem auto 0}
 
 /* ========== TOGGLE BAR ========== */
-.toggle-bar{display:flex;flex-wrap:wrap;justify-content:center;gap:2rem;padding:1.5rem 2rem;background:var(--glass-bg);border:1px solid var(--glass-border);border-radius:16px;backdrop-filter:blur(10px);margin-bottom:2.5rem}
+.toggle-bar{display:flex;flex-wrap:wrap;justify-content:center;gap:2rem;padding:1.5rem 2rem;background:var(--glass-bg);border:1px solid var(--glass-border);border-radius:16px;backdrop-filter:blur(10px);margin-bottom:1.5rem}
 .toggle-group{display:flex;align-items:center;gap:12px}
 .toggle-label{font-size:0.75rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-muted)}
 .pill-toggle{display:flex;background:var(--bg-card);border:1px solid var(--bg-card-border);border-radius:10px;overflow:hidden;position:relative}
@@ -89,8 +89,8 @@ section:nth-child(even){background:var(--bg-secondary);transition:background var
 .num-input:focus{outline:none;border-color:var(--accent-light)}
 
 /* ========== RESULTS CARDS ========== */
-.results-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:1.25rem;margin-bottom:2.5rem}
-.result-card{background:var(--bg-card);border:1px solid var(--bg-card-border);border-radius:16px;padding:1.5rem;text-align:center;backdrop-filter:blur(10px);transition:transform var(--transition),box-shadow var(--transition),background var(--transition)}
+.results-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:1.25rem;margin-bottom:1.5rem}
+.result-card{background:var(--bg-card);border:1px solid var(--bg-card-border);border-radius:12px;padding:1rem;text-align:center;backdrop-filter:blur(10px);transition:transform var(--transition),box-shadow var(--transition),background var(--transition)}
 .result-card:hover{transform:translateY(-3px);box-shadow:var(--shadow)}
 .result-card .value{font-size:1.8rem;font-weight:800;letter-spacing:-0.03em;background:linear-gradient(135deg,#40B4E5,#CC22FF);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1.2;word-break:break-word}
 .result-card .label{font-size:0.7rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-muted);margin-top:0.5rem}
@@ -99,12 +99,12 @@ section:nth-child(even){background:var(--bg-secondary);transition:background var
 .result-card.negative .value{background:linear-gradient(135deg,#ef4444,#dc2626);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
 
 /* ========== CHART ========== */
-.chart-wrap{background:var(--bg-card);border:1px solid var(--bg-card-border);border-radius:16px;padding:2rem;backdrop-filter:blur(10px);transition:background var(--transition),border-color var(--transition);margin-bottom:2.5rem}
+.chart-wrap{background:var(--bg-card);border:1px solid var(--bg-card-border);border-radius:12px;padding:1.25rem;backdrop-filter:blur(10px);transition:background var(--transition),border-color var(--transition);margin-bottom:1.5rem}
 .chart-wrap canvas{max-height:400px}
 
 /* ========== SUMMARY / STAT BAR ========== */
 .stats-bar{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem;margin-bottom:2rem}
-.stat-card{background:var(--glass-bg);border:1px solid var(--glass-border);border-radius:16px;padding:1.5rem;text-align:center;backdrop-filter:blur(10px)}
+.stat-card{background:var(--glass-bg);border:1px solid var(--glass-border);border-radius:12px;padding:1rem;text-align:center;backdrop-filter:blur(10px)}
 .stat-card .stat-num{font-size:2rem;font-weight:800;background:linear-gradient(135deg,#40B4E5,#CC22FF);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1.2}
 .stat-card .stat-label{font-size:0.75rem;color:var(--text-muted);margin-top:0.25rem;font-weight:600;letter-spacing:0.08em;text-transform:uppercase}
 .breakeven-callout{background:linear-gradient(135deg,rgba(34,197,94,0.1),rgba(34,197,94,0.05));border:1px solid rgba(34,197,94,0.2);border-radius:12px;padding:1.5rem 2rem;text-align:center;margin-bottom:2rem}
