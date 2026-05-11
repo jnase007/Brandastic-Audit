@@ -294,9 +294,81 @@ section{padding:3.5rem 2rem;position:relative}section:nth-child(even){background
 }
 body:not(.slide-mode) .presenter-marker { display: none; }
 @media print { .presenter-marker { display: none !important; } }
+
+/* Passcode Lock */
+.passcode-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+  background: #0d1117;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+}
+[data-theme="light"] .passcode-overlay { background: #f5f3ef; }
+.passcode-overlay .lock-icon { font-size: 3rem; }
+.passcode-overlay .lock-title {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+.passcode-overlay .lock-sub {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin-top: -0.5rem;
+}
+.passcode-overlay .lock-input {
+  background: var(--glass-bg);
+  border: 2px solid var(--glass-border);
+  border-radius: 12px;
+  padding: 0.85rem 1.2rem;
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: 0.5em;
+  text-align: center;
+  width: 200px;
+  color: var(--text-primary);
+  outline: none;
+  transition: border-color 0.2s;
+  -webkit-text-security: disc;
+}
+.passcode-overlay .lock-input:focus { border-color: var(--accent); }
+.passcode-overlay .lock-input.shake {
+  animation: shake 0.4s ease;
+  border-color: var(--red);
+}
+.passcode-overlay .lock-error {
+  font-size: 0.8rem;
+  color: var(--red);
+  min-height: 1.2em;
+}
+.passcode-overlay .lock-brand {
+  position: absolute;
+  bottom: 2rem;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  letter-spacing: 0.15em;
+}
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-8px); }
+  50% { transform: translateX(8px); }
+  75% { transform: translateX(-4px); }
+}
 </style>
 </head>
 <body>
+<div id="passcodeOverlay" class="passcode-overlay">
+  <div class="lock-icon">🔒</div>
+  <div class="lock-title">Protected Audit</div>
+  <div class="lock-sub">Enter access code to continue</div>
+  <input type="password" class="lock-input" id="passcodeInput" maxlength="4" inputmode="numeric" pattern="[0-9]*" autofocus placeholder="····">
+  <div class="lock-error" id="passcodeError"></div>
+  <div class="lock-brand">BRANDASTIC</div>
+</div>
+
 
 <!-- ===== PRINT-ONLY: COVER PAGE ===== -->
 <div class="print-only print-cover" style="display:none">
@@ -1704,5 +1776,49 @@ function togglePresenterNotes() {
         <div class="pn-item"><div class="pn-title">🎯 Our Recommendation</div><div class="pn-body">Local SEO domination + technical fixes to capture nearby customers searching for their services.</div></div>
   </div>
 </div>
+
+<script>
+(function(){
+  const CODE = '3121';
+  const STORAGE_KEY = 'brandastic_audit_unlocked';
+  
+  // Check if already unlocked this session
+  if (sessionStorage.getItem(STORAGE_KEY) === 'true') {
+    const ov = document.getElementById('passcodeOverlay');
+    if (ov) ov.remove();
+    return;
+  }
+  
+  // Lock the page
+  document.body.style.overflow = 'hidden';
+  
+  const input = document.getElementById('passcodeInput');
+  const error = document.getElementById('passcodeError');
+  
+  if (input) {
+    input.addEventListener('input', function() {
+      error.textContent = '';
+      input.classList.remove('shake');
+      
+      if (this.value.length === 4) {
+        if (this.value === CODE) {
+          sessionStorage.setItem(STORAGE_KEY, 'true');
+          const ov = document.getElementById('passcodeOverlay');
+          ov.style.transition = 'opacity 0.3s';
+          ov.style.opacity = '0';
+          setTimeout(() => { ov.remove(); document.body.style.overflow = ''; }, 300);
+        } else {
+          input.classList.add('shake');
+          error.textContent = 'Incorrect code';
+          setTimeout(() => { this.value = ''; input.classList.remove('shake'); }, 500);
+        }
+      }
+    });
+    
+    // Focus on click anywhere on overlay
+    document.getElementById('passcodeOverlay').addEventListener('click', () => input.focus());
+  }
+})();
+</script>
 </body>
 </html>
