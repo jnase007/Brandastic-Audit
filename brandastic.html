@@ -381,6 +381,90 @@ body.slide-mode .section-pill{display:none !important}
 .success-banner .icon{font-size:1.5rem}
 .success-banner .text{font-weight:600;color:var(--green)}
 
+
+/* Presenter Notes Panel */
+.presenter-notes-panel {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  max-height: 0;
+  overflow: hidden;
+  background: var(--bg-card);
+  border-top: 2px solid var(--accent);
+  box-shadow: 0 -8px 32px rgba(0,0,0,0.3);
+  z-index: 10000;
+  transition: max-height 0.3s ease, padding 0.3s ease;
+  padding: 0 2rem;
+}
+.presenter-notes-panel.open {
+  max-height: 60vh;
+  padding: 1.5rem 2rem;
+  overflow-y: auto;
+}
+.pn-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.25rem;
+}
+.pn-heading {
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: var(--text-primary);
+}
+.pn-close {
+  background: none;
+  border: none;
+  color: var(--text-muted);
+  font-size: 1.2rem;
+  cursor: pointer;
+  padding: 4px 8px;
+}
+.pn-close:hover { color: var(--text-primary); }
+.pn-subtitle {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  margin-bottom: 1rem;
+}
+.pn-items {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+.pn-item {
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: 10px;
+  padding: 1rem 1.25rem;
+}
+.pn-title {
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: var(--text-primary);
+  margin-bottom: 0.3rem;
+}
+.pn-body {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+.pn-btn {
+  background: none;
+  border: 1px solid var(--glass-border);
+  color: var(--text-muted);
+  cursor: pointer;
+  border-radius: 8px;
+  padding: 6px 10px;
+  font-size: 0.85rem;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+.pn-btn:hover { color: var(--text-primary); border-color: var(--text-muted); }
+.pn-btn.active { color: var(--accent); border-color: var(--accent); }
+@media print { .presenter-notes-panel, .pn-btn { display: none !important; } }
 </style>
 </head>
 <body>
@@ -428,6 +512,7 @@ body.slide-mode .section-pill{display:none !important}
   <div class="nav-slide-title" id="navSlideTitle"></div>
   <div class="nav-actions">
     <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme"><div class="knob">🌙</div></button>
+    <button id="presenterNotesBtn" class="pn-btn" onclick="togglePresenterNotes()">📋 <span class="label-text">Notes</span></button>
     <button class="pdf-btn" onclick="window.print()">📄 Download PDF</button>
   </div>
 </nav>
@@ -2419,7 +2504,31 @@ body.slide-mode .slide-arrow { display: flex; }
   window.toggleSlideMode = toggleSlideMode;
   window.goToSlide = goTo;
 })();
+
+
+function togglePresenterNotes() {
+  const panel = document.getElementById('presenterNotes');
+  if (panel) {
+    panel.classList.toggle('open');
+    const btn = document.getElementById('presenterNotesBtn');
+    if (btn) btn.classList.toggle('active', panel.classList.contains('open'));
+  }
+}
+
 </script>
 
+
+<!-- Presenter Notes -->
+<div id="presenterNotes" class="presenter-notes-panel">
+  <div class="pn-header">
+    <span class="pn-heading">📋 Presenter Notes</span>
+    <button class="pn-close" onclick="togglePresenterNotes()">✕</button>
+  </div>
+  <div class="pn-subtitle">Key talking points for Brandastic</div>
+  <div class="pn-items">
+    <div class="pn-item"><div class="pn-title">📊 Self-Audit</div><div class="pn-body">Practice what we preach — keep our own SEO sharp and site performing well.</div></div>
+        <div class="pn-item"><div class="pn-title">🎯 Key Focus</div><div class="pn-body">Lead by example with technical SEO, content, and performance.</div></div>
+  </div>
+</div>
 </body>
 </html>
