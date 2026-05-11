@@ -67,7 +67,7 @@ section:nth-child(even){background:var(--bg-secondary);transition:background var
 /* ========== CARDS & GRIDS ========== */
 .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:2rem;align-items:start}
 .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
-.grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem}
+.grid-4{display:grid;grid-template-columns:repeat(2,1fr);gap:1.5rem}
 .card{background:var(--bg-card);border:1px solid var(--bg-card-border);border-radius:16px;padding:2rem;backdrop-filter:blur(10px);transition:transform var(--transition),box-shadow var(--transition),background var(--transition),border-color var(--transition)}
 .card:hover{transform:translateY(-3px);box-shadow:var(--shadow);border-color:rgba(64,180,229,0.2)}
 /* ========== METRIC CARDS ========== */
@@ -230,11 +230,11 @@ body.slide-mode .section-pill{display:none !important}
   .container{max-width:100%!important}
   @page{margin:1.5cm;size:letter}
   h1,h2,h3{page-break-after:avoid}
-  .grid-4{grid-template-columns:repeat(4,1fr)!important}
+  .grid-4{grid-template-columns:repeat(2,1fr)!important}
   .grid-3{grid-template-columns:repeat(3,1fr)!important}
   .grid-2{grid-template-columns:1fr 1fr!important}
 }
-.stats-bar{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem;margin-bottom:3rem}
+.stats-bar{display:grid;grid-template-columns:repeat(2,1fr);gap:1.5rem;margin-bottom:3rem}
 .stat-card{background:var(--glass-bg);border:1px solid var(--glass-border);border-radius:16px;padding:1.5rem;text-align:center;backdrop-filter:blur(10px)}
 .stat-card .stat-num{font-size:2.5rem;font-weight:800;background:linear-gradient(135deg,#40B4E5,#CC22FF);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1.2}
 .stat-card .stat-label{font-size:0.85rem;color:var(--text-muted);margin-top:0.25rem}
