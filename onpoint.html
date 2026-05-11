@@ -484,6 +484,55 @@ body.slide-mode .section-pill{display:none !important}
 .pn-btn:hover { color: var(--text-primary); border-color: var(--text-muted); }
 .pn-btn.active { color: var(--accent); border-color: var(--accent); }
 @media print { .presenter-notes-panel, .pn-btn { display: none !important; } }
+
+/* Presenter Markers */
+.presenter-marker {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  z-index: 100;
+  cursor: pointer;
+}
+.presenter-marker .pm-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #0644ED, #40B4E5);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.9rem;
+  box-shadow: 0 2px 8px rgba(6,68,237,0.3);
+  transition: transform 0.2s;
+}
+.presenter-marker:hover .pm-icon { transform: scale(1.15); }
+.presenter-marker .pm-tooltip {
+  position: absolute;
+  top: 40px;
+  right: 0;
+  width: 320px;
+  background: var(--bg-card);
+  border: 1px solid var(--accent);
+  border-radius: 10px;
+  padding: 0.85rem 1rem;
+  font-size: 0.82rem;
+  line-height: 1.5;
+  color: var(--text-secondary);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.25);
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(-8px);
+  transition: opacity 0.2s, transform 0.2s;
+  white-space: normal;
+}
+.presenter-marker.open .pm-tooltip {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+body:not(.slide-mode) .presenter-marker { display: none; }
+@media print { .presenter-marker { display: none !important; } }
 </style>
 </head>
 <body>
@@ -576,7 +625,7 @@ body.slide-mode .section-pill{display:none !important}
 </section>
 
 <!-- ===== 2. BUSINESS OVERVIEW ===== -->
-<section id="overview">
+<section id="overview" style="position:relative"><div class="presenter-marker" onclick="this.classList.toggle('open')"><div class="pm-icon">📋</div><div class="pm-tooltip">💰 Spending ~$154K/mo on PPC with no organic foundation — $1.8M/yr that could be reduced with proper SEO</div></div>
   <div class="container reveal">
     <div class="section-badge">01 — Business Overview</div>
     <div class="grid-2">
@@ -703,7 +752,7 @@ body.slide-mode .section-pill{display:none !important}
 </section>
 
 <!-- ===== 5. SEO SCORECARD ===== -->
-<section id="scorecard">
+<section id="scorecard" style="position:relative"><div class="presenter-marker" onclick="this.classList.toggle('open')"><div class="pm-icon">📋</div><div class="pm-tooltip">📉 All SEO scores are low — the technical foundation doesn&#39;t exist. Google can&#39;t properly crawl or index the site</div></div>
   <div class="container reveal">
     <div class="section-badge">04 — SEO Health Scorecard</div>
     <h2 class="section-title">Overall Score: <span class="gradient">27/100</span></h2>
@@ -756,7 +805,7 @@ body.slide-mode .section-pill{display:none !important}
 </section>
 
 <!-- ===== GOOGLE PAGESPEED INSIGHTS ===== -->
-<section id="pagespeed">
+<section id="pagespeed" style="position:relative"><div class="presenter-marker" onclick="this.classList.toggle('open')"><div class="pm-icon">📋</div><div class="pm-tooltip">🔧 Performance 29/100 — site loads slow on mobile, Google penalizes this in rankings</div></div>
   <div class="container reveal">
     <div class="section-badge">📊 Google PageSpeed Insights</div>
     <h2 class="section-title">Google <span class="gradient">PageSpeed Insights</span></h2>
@@ -815,7 +864,7 @@ body.slide-mode .section-pill{display:none !important}
 
 
 <!-- ===== 6. TRAFFIC TREND ===== -->
-<section id="traffic">
+<section id="traffic" style="position:relative"><div class="presenter-marker" onclick="this.classList.toggle('open')"><div class="pm-icon">📋</div><div class="pm-tooltip">📉 Organic traffic trending down month over month — heading toward 100% paid dependency</div></div>
   <div class="container reveal">
     <div class="section-badge">05 — Traffic Trend</div>
     <h2 class="section-title">12-Month <span class="gradient">Performance</span></h2>
@@ -830,7 +879,7 @@ body.slide-mode .section-pill{display:none !important}
 </section>
 
 <!-- ===== 7. KEYWORD ANALYSIS ===== -->
-<section id="keywords">
+<section id="keywords" style="position:relative"><div class="presenter-marker" onclick="this.classList.toggle('open')"><div class="pm-icon">📋</div><div class="pm-tooltip">📝 All traffic is brand-only. Zero content targeting keywords their audience actually searches (FAFSA, financial aid, college prep)</div></div>
   <div class="container reveal">
     <div class="section-badge">06 — Keyword Analysis</div>
     <h2 class="section-title">Where You <span class="gradient">Rank</span></h2>
@@ -1267,7 +1316,7 @@ body.slide-mode .section-pill{display:none !important}
 </section>
 
 <!-- ===== 12. STRATEGY PREVIEW ===== -->
-<section id="strategy">
+<section id="strategy" style="position:relative"><div class="presenter-marker" onclick="this.classList.toggle('open')"><div class="pm-icon">📋</div><div class="pm-tooltip">🎯 Pitch: Technical SEO + content strategy to build organic engine. Reduce paid dependency over 6-12 months. Google Ad Grants can supplement ($5 CPC cap, must maintain 5% CTR)</div></div>
   <div class="container reveal">
     <div class="section-badge">11 — Strategy Preview</div>
     <h2 class="section-title">What It <span class="gradient">Could Look Like</span></h2>

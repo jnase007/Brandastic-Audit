@@ -245,6 +245,55 @@ section{padding:3.5rem 2rem;position:relative}section:nth-child(even){background
 .pn-btn:hover { color: var(--text-primary); border-color: var(--text-muted); }
 .pn-btn.active { color: var(--accent); border-color: var(--accent); }
 @media print { .presenter-notes-panel, .pn-btn { display: none !important; } }
+
+/* Presenter Markers */
+.presenter-marker {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  z-index: 100;
+  cursor: pointer;
+}
+.presenter-marker .pm-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #0644ED, #40B4E5);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.9rem;
+  box-shadow: 0 2px 8px rgba(6,68,237,0.3);
+  transition: transform 0.2s;
+}
+.presenter-marker:hover .pm-icon { transform: scale(1.15); }
+.presenter-marker .pm-tooltip {
+  position: absolute;
+  top: 40px;
+  right: 0;
+  width: 320px;
+  background: var(--bg-card);
+  border: 1px solid var(--accent);
+  border-radius: 10px;
+  padding: 0.85rem 1rem;
+  font-size: 0.82rem;
+  line-height: 1.5;
+  color: var(--text-secondary);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.25);
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(-8px);
+  transition: opacity 0.2s, transform 0.2s;
+  white-space: normal;
+}
+.presenter-marker.open .pm-tooltip {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+body:not(.slide-mode) .presenter-marker { display: none; }
+@media print { .presenter-marker { display: none !important; } }
 </style>
 </head>
 <body>
@@ -317,7 +366,7 @@ section{padding:3.5rem 2rem;position:relative}section:nth-child(even){background
 </section>
 
 <!-- ==================== 2. BUSINESS OVERVIEW ==================== -->
-<section id="overview">
+<section id="overview" style="position:relative"><div class="presenter-marker" onclick="this.classList.toggle('open')"><div class="pm-icon">📋</div><div class="pm-tooltip">📉 Low organic visibility — not ranking for terms customers search for</div></div>
   <div class="container reveal">
     <div class="section-badge">01 — Business Overview</div>
     <div class="grid-2">
@@ -461,7 +510,7 @@ section{padding:3.5rem 2rem;position:relative}section:nth-child(even){background
 </section>
 
 <!-- ==================== 5. STRATEGY OVERVIEW ==================== -->
-<section id="strategy">
+<section id="strategy" style="position:relative"><div class="presenter-marker" onclick="this.classList.toggle('open')"><div class="pm-icon">📋</div><div class="pm-tooltip">🎯 Pitch: Local SEO domination + technical fixes to capture nearby customers</div></div>
   <div class="container reveal">
     <div class="section-badge">04 — Strategy Overview</div>
     <h2 class="section-title">Three Pillars of <span class="gradient">Growth</span></h2>
