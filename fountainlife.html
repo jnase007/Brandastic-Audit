@@ -356,6 +356,15 @@ section{padding:3.5rem 2rem;position:relative}section:nth-child(even){background
 body:not(.slide-mode) .presenter-marker { display: none; }
 @media print { .presenter-marker { display: none !important; } }
 
+
+/* Category Tags */
+.category-tag {
+  display:inline-flex;align-items:center;gap:4px;
+  padding:4px 10px;border-radius:50px;
+  font-size:0.65rem;font-weight:700;letter-spacing:0.12em;
+  text-transform:uppercase;margin-left:8px;
+  vertical-align:middle;
+}
 /* Passcode Lock */
 .passcode-overlay {
   position: fixed;
@@ -516,7 +525,7 @@ body:not(.slide-mode) .presenter-marker { display: none; }
 <!-- 2. BUSINESS OVERVIEW -->
 <section id="overview" style="position:relative"><div class="presenter-marker" onclick="this.classList.toggle('open')"><div class="pm-icon">📋</div><div class="pm-tooltip">📉 High-value health & longevity keywords going to competitors. Has authority but not leveraging it</div></div>
   <div class="container reveal">
-    <div class="section-badge">01 — Business Overview</div>
+    <div class="section-badge">01 — Business Overview<span class="category-tag" style="background:#6366f122;color:#6366f1;border:1px solid #6366f144">📊 OVERVIEW</span></div>
     <div class="grid-2">
       <div>
         <h2 class="section-title">The Future of <span class="gradient">Longevity</span></h2>
@@ -553,7 +562,7 @@ body:not(.slide-mode) .presenter-marker { display: none; }
 <!-- 3. EXECUTIVE SUMMARY -->
 <section id="summary">
   <div class="container reveal">
-    <div class="section-badge">02 — Executive Summary</div>
+    <div class="section-badge">02 — Executive Summary<span class="category-tag" style="background:#6366f122;color:#6366f1;border:1px solid #6366f144">📊 OVERVIEW</span></div>
     <h2 class="section-title">Current Digital <span class="gradient">Snapshot</span></h2>
     <div class="grid-4" style="margin-bottom:3rem">
       <div class="card metric-card"><div class="value" data-count="175266">0</div><div class="label">Semrush Rank</div><div class="change down">Declining</div></div>
@@ -589,7 +598,7 @@ body:not(.slide-mode) .presenter-marker { display: none; }
 <!-- 4. PERSONAS -->
 <section id="personas">
   <div class="container reveal">
-    <div class="section-badge">03 — Target Personas</div>
+    <div class="section-badge">03 — Target Personas<span class="category-tag" style="background:#6366f122;color:#6366f1;border:1px solid #6366f144">📊 OVERVIEW</span></div>
     <h2 class="section-title">Who Are You <span class="gradient">Reaching?</span></h2>
     <p class="section-sub">High-value prospects in the longevity space have specific discovery patterns you need to dominate.</p>
     <div class="grid-3">
@@ -621,7 +630,7 @@ body:not(.slide-mode) .presenter-marker { display: none; }
 <!-- 5. SEO SCORECARD -->
 <section id="scorecard" style="position:relative"><div class="presenter-marker" onclick="this.classList.toggle('open')"><div class="pm-icon">📋</div><div class="pm-tooltip">🔧 Technical foundation gaps need attention to unlock ranking potential</div></div>
   <div class="container reveal">
-    <div class="section-badge">04 — SEO Health Scorecard</div>
+    <div class="section-badge">04 — SEO Health Scorecar<span class="category-tag" style="background:#10b98122;color:#10b981;border:1px solid #10b98144">🔍 SEO</span></div>
     <h2 class="section-title">Overall Score: <span class="gradient">42/100</span></h2>
     <p class="section-sub">Strong brand authority but critical gaps in content, technical SEO, and local optimization.</p>
     <div class="grid-4" style="margin-bottom:2rem">
@@ -655,7 +664,7 @@ body:not(.slide-mode) .presenter-marker { display: none; }
 <!-- ===== GOOGLE PAGESPEED INSIGHTS ===== -->
 <section id="pagespeed">
   <div class="container reveal">
-    <div class="section-badge">📊 Google PageSpeed Insights</div>
+    <div class="section-badge">📊 Google PageSpeed Insights<span class="category-tag" style="background:#10b98122;color:#10b981;border:1px solid #10b98144">🔍 SEO</span></div>
     <h2 class="section-title">Google <span class="gradient">PageSpeed Insights</span></h2>
     <p class="section-sub">Real-time performance analysis from Google — May 2026</p>
     <div class="grid-4" style="margin-bottom:2rem">
@@ -820,7 +829,7 @@ body:not(.slide-mode) .presenter-marker { display: none; }
 <!-- 6. TRAFFIC TREND -->
 <section id="traffic">
   <div class="container reveal">
-    <div class="section-badge">05 — Traffic Trend</div>
+    <div class="section-badge">05 — Traffic Tren<span class="category-tag" style="background:#10b98122;color:#10b981;border:1px solid #10b98144">🔍 SEO</span></div>
     <h2 class="section-title">12-Month <span class="gradient">Performance</span></h2>
     <p class="section-sub">Traffic and keywords are both in decline — a direct result of content stagnation and increasing competition.</p>
     <div class="chart-wrap"><canvas id="trafficChart" height="100"></canvas></div>
@@ -833,7 +842,7 @@ body:not(.slide-mode) .presenter-marker { display: none; }
 <!-- 7. KEYWORD ANALYSIS -->
 <section id="keywords" style="position:relative"><div class="presenter-marker" onclick="this.classList.toggle('open')"><div class="pm-icon">📋</div><div class="pm-tooltip">📝 Longevity/health space is exploding. Strategic content could capture massive search demand</div></div>
   <div class="container reveal">
-    <div class="section-badge">06 — Keyword Analysis</div>
+    <div class="section-badge">06 — Keyword Analysis<span class="category-tag" style="background:#10b98122;color:#10b981;border:1px solid #10b98144">🔍 SEO</span></div>
     <h2 class="section-title">Where You <span class="gradient">Rank</span></h2>
     <div class="warning-banner">
       <div class="icon">🚨</div>
@@ -860,7 +869,7 @@ body:not(.slide-mode) .presenter-marker { display: none; }
 <!-- 7B. GOOGLE ADS PREVIEW -->
 <section id="ads">
   <div class="container reveal">
-    <div class="section-badge">06B — Google Ads Preview</div>
+    <div class="section-badge">06B — Google Ads Preview<span class="category-tag" style="background:#f59e0b22;color:#f59e0b;border:1px solid #f59e0b44">💰 PPC</span></div>
     <h2 class="section-title">Your <span class="gradient">Google Ads</span></h2>
     <p class="section-sub">What prospects see when they search for longevity services — and the massive gap in your paid strategy.</p>
 
@@ -910,7 +919,7 @@ body:not(.slide-mode) .presenter-marker { display: none; }
 <!-- 8. COMPETITOR COMPARISON -->
 <section id="competitors">
   <div class="container reveal">
-    <div class="section-badge">07 — Competitor Comparison</div>
+    <div class="section-badge">07 — Competitor Comparison<span class="category-tag" style="background:#10b98122;color:#10b981;border:1px solid #10b98144">🔍 SEO</span></div>
     <h2 class="section-title">How You <span class="gradient">Compare</span></h2>
     <p class="section-sub">While you lead in traffic volume, competitors are closing in — and TruDiagnostic's traffic value exceeds yours with far fewer keywords.</p>
     <div class="chart-wrap"><canvas id="competitorChart" height="120"></canvas></div>
@@ -923,7 +932,7 @@ body:not(.slide-mode) .presenter-marker { display: none; }
 <!-- 8B. SEO COMPETITOR MATRIX -->
 <section id="seo-matrix">
   <div class="container reveal">
-    <div class="section-badge">07B — SEO Competitor Matrix</div>
+    <div class="section-badge">07B — SEO Competitor Matrix<span class="category-tag" style="background:#10b98122;color:#10b981;border:1px solid #10b98144">🔍 SEO</span></div>
     <h2 class="section-title">Detailed <span class="gradient">Comparison</span></h2>
     <p class="section-sub">Despite leading in raw traffic, critical gaps in content and technical SEO are eroding your competitive edge.</p>
     <div class="seo-matrix-wrap">
@@ -1003,7 +1012,7 @@ body:not(.slide-mode) .presenter-marker { display: none; }
 <!-- ===== SOCIAL MEDIA PRESENCE ===== -->
 <section id="social">
   <div class="container reveal">
-    <div class="section-badge">📱 Social Media</div>
+    <div class="section-badge">📱 Social Media<span class="category-tag" style="background:#a855f722;color:#a855f7;border:1px solid #a855f744">📱 SOCIAL</span></div>
     <h2 class="section-title">Social Media <span class="gradient">Presence</span></h2>
     <p class="section-sub">How you show up across platforms</p>
 
@@ -1061,7 +1070,7 @@ body:not(.slide-mode) .presenter-marker { display: none; }
 <!-- ===== EMAIL & CONTENT MARKETING ===== -->
 <section id="email">
   <div class="container reveal">
-    <div class="section-badge">📧 Email & Content</div>
+    <div class="section-badge">📧 Email & Content<span class="category-tag" style="background:#06b6d422;color:#06b6d4;border:1px solid #06b6d444">📝 CONTENT</span></div>
     <h2 class="section-title">Email & Content <span class="gradient">Marketing</span></h2>
     <p class="section-sub">Lead nurture and content engine analysis</p>
 
@@ -1111,7 +1120,7 @@ body:not(.slide-mode) .presenter-marker { display: none; }
 <!-- ===== ONLINE REPUTATION ===== -->
 <section id="reputation">
   <div class="container reveal">
-    <div class="section-badge">⭐ Reputation</div>
+    <div class="section-badge">⭐ Reputation<span class="category-tag" style="background:#ec489922;color:#ec4899;border:1px solid #ec489944">⭐ REPUTATION</span></div>
     <h2 class="section-title">Online <span class="gradient">Reputation</span></h2>
     <p class="section-sub">What people see when they search your brand</p>
 
@@ -1148,7 +1157,7 @@ body:not(.slide-mode) .presenter-marker { display: none; }
 <!-- 9. PROBLEMS → SOLUTIONS -->
 <section id="solutions">
   <div class="container reveal">
-    <div class="section-badge">08 — Problems → Solutions</div>
+    <div class="section-badge">08 — Problems → Solutions<span class="category-tag" style="background:#0644ED22;color:#0644ED;border:1px solid #0644ED44">🚀 STRATEGY</span></div>
     <h2 class="section-title">How Brandastic <span class="gradient">Can Help</span></h2>
     <p class="section-sub">Every vulnerability has a solution. Here's how we transform your digital presence.</p>
 <div style="display:flex;flex-direction:column;gap:1.5rem">
@@ -1184,7 +1193,7 @@ body:not(.slide-mode) .presenter-marker { display: none; }
 <!-- 10. CONTENT GAP ANALYSIS -->
 <section id="gaps">
   <div class="container reveal">
-    <div class="section-badge">09 — Content Gap Analysis</div>
+    <div class="section-badge">09 — Content Gap Analysis<span class="category-tag" style="background:#10b98122;color:#10b981;border:1px solid #10b98144">🔍 SEO</span></div>
     <h2 class="section-title">Searches You're <span class="gradient">Missing</span></h2>
     <p class="section-sub">These are the exact searches your ideal patients are typing into Google — and you're nowhere to be found.</p>
     <div class="grid-3" style="margin-bottom:1rem">
@@ -1209,7 +1218,7 @@ body:not(.slide-mode) .presenter-marker { display: none; }
 <!-- 11. TOP 5 CRITICAL FINDINGS -->
 <section id="findings">
   <div class="container reveal">
-    <div class="section-badge">10 — Critical Findings</div>
+    <div class="section-badge">10 — Critical Findings<span class="category-tag" style="background:#0644ED22;color:#0644ED;border:1px solid #0644ED44">🚀 STRATEGY</span></div>
     <h2 class="section-title">Top 5 <span class="gradient">Issues</span></h2>
     <p class="section-sub">The most impactful problems holding Fountain Life back from digital dominance.</p>
     <div style="display:flex;flex-direction:column;gap:1rem">
@@ -1228,7 +1237,7 @@ body:not(.slide-mode) .presenter-marker { display: none; }
 <!-- 12. STRATEGY PREVIEW -->
 <section id="strategy" style="position:relative"><div class="presenter-marker" onclick="this.classList.toggle('open')"><div class="pm-icon">📋</div><div class="pm-tooltip">🎯 Pitch: Technical cleanup + content strategy around high-value health keywords for sustainable organic traffic</div></div>
   <div class="container reveal">
-    <div class="section-badge">11 — Strategy Preview</div>
+    <div class="section-badge">11 — Strategy Preview<span class="category-tag" style="background:#0644ED22;color:#0644ED;border:1px solid #0644ED44">🚀 STRATEGY</span></div>
     <h2 class="section-title">What It <span class="gradient">Could Look Like</span></h2>
     <p class="section-sub">Four pillars to transform Fountain Life from brand-dependent to the dominant longevity content authority.</p>
     <div class="grid-4">
@@ -1243,7 +1252,7 @@ body:not(.slide-mode) .presenter-marker { display: none; }
 <!-- 13. ROADMAP -->
 <section id="roadmap">
   <div class="container reveal">
-    <div class="section-badge">12 — Growth Roadmap</div>
+    <div class="section-badge">12 — Growth Roadmap<span class="category-tag" style="background:#0644ED22;color:#0644ED;border:1px solid #0644ED44">🚀 STRATEGY</span></div>
     <h2 class="section-title">6-Month <span class="gradient">Plan</span></h2>
     <p class="section-sub">A phased approach starting with technical foundations, then content revival, then market domination.</p>
     <div class="timeline">
@@ -1258,7 +1267,7 @@ body:not(.slide-mode) .presenter-marker { display: none; }
 <!-- 14. PROJECTED ROI -->
 <section id="roi">
   <div class="container reveal">
-    <div class="section-badge">13 — Projected ROI</div>
+    <div class="section-badge">13 — Projected ROI<span class="category-tag" style="background:#0644ED22;color:#0644ED;border:1px solid #0644ED44">🚀 STRATEGY</span></div>
     <h2 class="section-title">The <span class="gradient">Transformation</span></h2>
     <p class="section-sub">Conservative projections based on implementing our recommended strategy over 6 months.</p>
     <div class="roi-grid">
@@ -1278,7 +1287,7 @@ body:not(.slide-mode) .presenter-marker { display: none; }
 <!-- 15. WHY BRANDASTIC + CTA -->
 <section class="cta-section" id="cta">
   <div class="container reveal">
-    <div class="section-badge">Sparked By Creativity, Fueled By Results.</div>
+    <div class="section-badge">Sparked By Creativity, Fueled By Results.<span class="category-tag" style="background:#0644ED22;color:#0644ED;border:1px solid #0644ED44">🚀 STRATEGY</span></div>
     <h2 class="section-title">Why <span class="gradient">Brandastic?</span></h2>
 
     <!-- Stats Bar -->
