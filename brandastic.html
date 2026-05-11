@@ -182,7 +182,8 @@ section:nth-child(even){background:var(--bg-secondary);transition:background var
 .nav-slide-title{position:absolute;left:50%;transform:translateX(-50%);font-size:0.75rem;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:var(--text-muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:40%;opacity:0;transition:opacity 0.3s ease;pointer-events:none}
 body.slide-mode .nav-slide-title{opacity:1}
 .nav-slide-title.visible{opacity:1}
-body.nav-title-active .section-badge{display:none}
+body.nav-title-active .section-badge,body.nav-title-active .section-pill{display:none}
+body.slide-mode .section-pill{display:none !important}
 
 .side-nav{position:fixed;right:1.2rem;top:50%;transform:translateY(-50%);z-index:999;display:flex;flex-direction:column;align-items:center;padding:14px 8px;border-radius:999px;background:var(--glass-bg);backdrop-filter:blur(20px);border:1px solid var(--glass-border);box-shadow:var(--shadow);transition:background var(--transition),border-color var(--transition)}
 .side-nav-line{position:absolute;top:14px;bottom:14px;width:1px;background:var(--glass-border);z-index:0}
