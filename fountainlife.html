@@ -168,7 +168,7 @@ section{padding:6rem 2rem;position:relative}section:nth-child(even){background:v
 .print-only{display:none!important}
 
 /* --- Print Cover Page --- */
-.print-cover{page-break-after:always;text-align:center;padding:4rem 2rem;min-height:90vh;display:flex;flex-direction:column;align-items:center;justify-content:center}
+.print-cover{page-break-after:always;text-align:center;padding:4rem 2rem;min-height:90vh;flex-direction:column;align-items:center;justify-content:center}
 .print-cover .cover-dot{width:40px;height:40px;border-radius:50%;background:#0644ED;margin:0 auto 1.5rem}
 .print-cover .cover-brand{font-size:1.8rem;font-weight:800;letter-spacing:0.08em;color:#191F24;margin-bottom:3rem}
 .print-cover .cover-type{font-size:0.85rem;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:#64748b;margin-bottom:1rem}
@@ -191,6 +191,7 @@ section{padding:6rem 2rem;position:relative}section:nth-child(even){background:v
 
 @media print{
   .print-only{display:block!important}
+  .print-cover{display:flex!important}
   
   /* Cover page */
   .print-cover .cover-dot{background:#0644ED!important;-webkit-print-color-adjust:exact;print-color-adjust:exact}
