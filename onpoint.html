@@ -1292,8 +1292,8 @@ document.querySelectorAll('.overall-bar').forEach(el=>barObs.observe(el));setTim
 
 /* ========== CHARTS ========== */
 var trafficChart,competitorChart;
-const isDark=()=>document.documentElement.getAttribute('data-theme')==='dark';
-function chartColors(){return{grid:isDark()?'rgba(255,255,255,0.06)':'rgba(0,0,0,0.06)',text:isDark()?'rgba(255,255,255,0.5)':'rgba(0,0,0,0.5)'}}
+function isDark(){return document.documentElement.getAttribute('data-theme')==='dark';}
+function chartColors(){var d=isDark();return{grid:d?'rgba(255,255,255,0.06)':'rgba(0,0,0,0.06)',text:d?'rgba(255,255,255,0.5)':'rgba(0,0,0,0.5)'}}
 
 function createTrafficChart(){
   const ctx=document.getElementById('trafficChart').getContext('2d');
