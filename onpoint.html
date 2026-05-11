@@ -531,7 +531,7 @@ body.slide-mode .section-pill{display:none !important}
   pointer-events: auto;
   transform: translateY(0);
 }
-body:not(.slide-mode) .presenter-marker { display: none; }
+/* presenter-marker: visible in both modes */
 @media print { .presenter-marker { display: none !important; } }
 
 
@@ -1938,7 +1938,20 @@ body.slide-mode .container { max-width: 1200px; margin: 0 auto; padding: 0 !impo
 body.slide-mode .section-sub { font-size: 1rem !important; margin-bottom: 0.75rem !important; line-height: 1.4 !important; }
 body.slide-mode .section-title { font-size: 1.8rem !important; margin-bottom: 0.3rem !important; margin-top: 0 !important; }
 body.slide-mode .section-subtitle { font-size: 0.95rem !important; margin-bottom: 0.75rem !important; }
-body.slide-mode .section-badge { display: none !important; } /* was: font-size: 0.6rem !important; padding: 4px 12px !important; margin-bottom: 0.3rem !important; }
+body.slide-mode .section-badge { display: none !important; }
+
+/* Presenter marker slide-mode fix */
+body.slide-mode .presenter-marker {
+  display: block !important;
+  position: absolute !important;
+  top: 70px !important;
+  right: 20px !important;
+  z-index: 1010 !important;
+}
+body.slide-mode .presenter-marker .pm-tooltip {
+  z-index: 1011 !important;
+}
+
 body.slide-mode p { font-size: 1rem !important; line-height: 1.5 !important; margin-bottom: 0.4rem !important; }
 body.slide-mode .card { padding: 0.75rem !important; border-radius: 12px !important; }
 body.slide-mode .card h3 { font-size: 1.1rem !important; margin-bottom: 0.3rem !important; }
