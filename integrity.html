@@ -48,6 +48,10 @@ section{padding:3.5rem 2rem;position:relative}section:nth-child(even){background
 .persona-card{padding:2rem;text-align:center}.persona-avatar{width:72px;height:72px;border-radius:50%;margin:0 auto 1rem;display:flex;align-items:center;justify-content:center;font-size:2rem;background:linear-gradient(135deg,rgba(64,180,229,0.15),rgba(204,34,255,0.15))}.persona-name{font-weight:700;font-size:1.1rem;margin-bottom:0.25rem}.persona-demo{font-size:0.85rem;color:var(--text-muted);margin-bottom:1rem}.persona-channels{display:flex;flex-wrap:wrap;gap:6px;justify-content:center;margin-bottom:1rem}.persona-channels .ch{padding:4px 10px;border-radius:6px;background:var(--glass-bg);border:1px solid var(--glass-border);font-size:0.7rem;font-weight:600;color:var(--text-secondary)}.persona-discover{font-size:0.85rem;color:var(--text-secondary);line-height:1.6}
 .chart-wrap{background:var(--bg-card);border:1px solid var(--bg-card-border);border-radius:16px;padding:2rem;backdrop-filter:blur(10px);transition:background var(--transition),border-color var(--transition)}
 
+/* ========== NAV SLIDE TITLE ========== */
+.nav-slide-title{position:absolute;left:50%;transform:translateX(-50%);font-size:0.75rem;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:var(--text-muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:40%;opacity:0;transition:opacity 0.3s ease;pointer-events:none}
+body.slide-mode .nav-slide-title{opacity:1}
+
 /* ========== SIDE DOT NAV ========== */
 .side-nav{position:fixed;right:1.2rem;top:50%;transform:translateY(-50%);z-index:999;display:flex;flex-direction:column;align-items:center;padding:14px 8px;border-radius:999px;background:var(--glass-bg);backdrop-filter:blur(20px);border:1px solid var(--glass-border);box-shadow:var(--shadow);transition:background var(--transition),border-color var(--transition)}
 .side-nav-line{position:absolute;top:14px;bottom:14px;width:1px;background:var(--glass-border);z-index:0}
@@ -276,6 +280,7 @@ section{padding:3.5rem 2rem;position:relative}section:nth-child(even){background
 
 <nav class="nav">
   <div class="nav-brand"><span class="dot"></span> BRANDASTIC</div>
+  <div class="nav-slide-title" id="navSlideTitle"></div>
   <div class="nav-actions">
     <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme"><div class="knob">🌙</div></button>
     <button class="pdf-btn" onclick="window.print()">📄 Download PDF</button>
@@ -1893,6 +1898,13 @@ body.slide-mode .slide-arrow { display: flex; }
   function updateUI() {
     /* Counter */
     counter.textContent = (currentSlide + 1) + ' / ' + slides.length;
+    /* Nav slide title */
+    var navTitle = document.getElementById('navSlideTitle');
+    if (navTitle && slides[currentSlide]) {
+      var badge = slides[currentSlide].querySelector('.section-badge');
+      var title = slides[currentSlide].querySelector('.section-title');
+      navTitle.textContent = badge ? badge.textContent.trim() : (title ? title.textContent.trim().substring(0,50) : '');
+    }
     /* Progress */
     const pct = slides.length > 1 ? (currentSlide / (slides.length - 1)) * 100 : 100;
     progress.style.width = pct + '%';
