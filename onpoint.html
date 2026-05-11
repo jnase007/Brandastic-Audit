@@ -366,7 +366,7 @@ section:nth-child(even){background:var(--bg-secondary);transition:background var
 .print-qr img{width:150px;height:150px}
 
 @media print{
-  .print-only{display:block!important}
+  .print-only{display:block!important}/* overrides inline style */
   .print-cover{display:flex!important}
   
   /* Cover page */
@@ -398,7 +398,7 @@ section:nth-child(even){background:var(--bg-secondary);transition:background var
 <body>
 
 <!-- ===== PRINT-ONLY: COVER PAGE ===== -->
-<div class="print-only print-cover">
+<div class="print-only print-cover" style="display:none">
   <div class="cover-dot"></div>
   <div class="cover-brand">BRANDASTIC</div>
   <div class="cover-type">Digital Marketing Audit</div>
@@ -409,7 +409,7 @@ section:nth-child(even){background:var(--bg-secondary);transition:background var
 </div>
 
 <!-- ===== PRINT-ONLY: TABLE OF CONTENTS ===== -->
-<div class="print-only print-toc">
+<div class="print-only print-toc" style="display:none">
   <h2>Table of Contents</h2>
   <div class="print-toc-item"><span class="toc-num">01</span><span class="toc-name">Business Overview</span></div>
   <div class="print-toc-item"><span class="toc-num">02</span><span class="toc-name">Executive Summary</span></div>
@@ -1716,14 +1716,14 @@ window.addEventListener('afterprint', () => {
 
 <noscript><style>.reveal,.reveal.active{opacity:1!important;transform:none!important;transition:none!important}</style></noscript>
 <!-- ===== PRINT-ONLY: QR CODE ===== -->
-<div class="print-only print-qr">
+<div class="print-only print-qr" style="display:none">
   <p><strong>Scan to view the interactive version of this audit:</strong></p>
   <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https%3A%2F%2Fjnase007.github.io%2FBrandastic-Audit%2Fonpoint.html" alt="QR Code" />
   <p style="margin-top:0.75rem;font-size:0.8rem;color:#64748b">https://jnase007.github.io/Brandastic-Audit/onpoint.html</p>
 </div>
 
 <!-- ===== PRINT-ONLY: FOOTER INFO ===== -->
-<div class="print-only" style="text-align:center;padding:1rem;font-size:0.75rem;color:#64748b;border-top:1px solid #e5e7eb;margin-top:2rem">
+<div class="print-only" style="display:none;text-align:center;padding:1rem;font-size:0.75rem;color:#64748b;border-top:1px solid #e5e7eb;margin-top:2rem">
   Brandastic Digital Audit | On Point for College | brandastic.com | (949) 617-2731 | CONFIDENTIAL
 </div>
 
