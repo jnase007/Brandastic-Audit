@@ -1291,7 +1291,7 @@ const barObs=new IntersectionObserver((entries)=>{entries.forEach(e=>{if(e.isInt
 document.querySelectorAll('.overall-bar').forEach(el=>barObs.observe(el));setTimeout(()=>{document.querySelectorAll('.overall-bar .fill').forEach(el=>{if(el.style.width==='0%')el.style.width=el.dataset.target+'%'})},2000);
 
 /* ========== CHARTS ========== */
-let trafficChart,competitorChart;
+var trafficChart,competitorChart;
 const isDark=()=>document.documentElement.getAttribute('data-theme')==='dark';
 function chartColors(){return{grid:isDark()?'rgba(255,255,255,0.06)':'rgba(0,0,0,0.06)',text:isDark()?'rgba(255,255,255,0.5)':'rgba(0,0,0,0.5)'}}
 
@@ -1361,7 +1361,7 @@ const chartObs=new IntersectionObserver((entries)=>{entries.forEach(e=>{if(e.isI
   chartObs.unobserve(e.target);
 }})},{threshold:0.1});
 document.querySelectorAll('canvas').forEach(el=>chartObs.observe(el));
-setTimeout(()=>{if(!trafficChart)createTrafficChart();if(!competitorChart)createCompetitorChart();},3000);
+window.addEventListener("load",function(){setTimeout(function(){if(!trafficChart)createTrafficChart();if(!competitorChart)createCompetitorChart();},500);});
 
 /* ========== SIDE DOT NAV ========== */
 (function(){
