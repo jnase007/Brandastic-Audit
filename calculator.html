@@ -1,0 +1,778 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta name="robots" content="noindex, nofollow">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PPC ROI Calculator — Brandastic</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+<style>
+/* ========== CSS CUSTOM PROPERTIES ========== */
+:root {
+  --bg-primary:#191F24;--bg-secondary:#0d1117;--bg-tertiary:#151a20;
+  --bg-card:rgba(100,116,139,0.15);--bg-card-hover:rgba(100,116,139,0.2);
+  --bg-card-border:rgba(100,116,139,0.2);
+  --text-primary:#ffffff;--text-secondary:rgba(255,255,255,0.7);--text-muted:rgba(255,255,255,0.4);
+  --accent-blue:#0644ED;--accent-light:#40B4E5;--accent-purple:#CC22FF;
+  --coastal-fog:#F5F3EF;
+  --glass-bg:rgba(100,116,139,0.15);--glass-border:rgba(255,255,255,0.1);
+  --shadow:0 8px 32px rgba(0,0,0,0.3);
+  --red:#ef4444;--yellow:#f59e0b;--green:#22c55e;
+  --chart-grid:rgba(255,255,255,0.06);--chart-text:rgba(255,255,255,0.5);
+  --transition:0.3s ease;
+}
+[data-theme="light"] {
+  --bg-primary:#F5F3EF;--bg-secondary:#ffffff;--bg-tertiary:#f0ede8;
+  --bg-card:rgba(255,255,255,0.85);--bg-card-hover:rgba(255,255,255,0.95);
+  --bg-card-border:rgba(0,0,0,0.08);
+  --text-primary:#191F24;--text-secondary:rgba(25,31,36,0.7);--text-muted:rgba(25,31,36,0.4);
+  --glass-bg:rgba(255,255,255,0.85);--glass-border:rgba(0,0,0,0.08);
+  --shadow:0 8px 32px rgba(0,0,0,0.06);
+  --chart-grid:rgba(0,0,0,0.06);--chart-text:rgba(0,0,0,0.5);
+}
+/* ========== RESET ========== */
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',system-ui,-apple-system,sans-serif;background:var(--bg-primary);color:var(--text-primary);line-height:1.6;transition:background-color var(--transition),color var(--transition);overflow-x:hidden}
+a{color:var(--accent-light);text-decoration:none}
+
+/* ========== NAV ========== */
+.nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:0 2rem;height:64px;display:flex;align-items:center;justify-content:space-between;background:var(--glass-bg);backdrop-filter:blur(20px);border-bottom:1px solid var(--glass-border);transition:background var(--transition)}
+.nav-brand{font-weight:700;font-size:1.15rem;letter-spacing:0.05em;display:flex;align-items:center;gap:10px;color:var(--text-primary);text-decoration:none}
+.nav-brand .dot{width:10px;height:10px;border-radius:50%;background:linear-gradient(135deg,#40B4E5,#CC22FF)}
+.nav-actions{display:flex;align-items:center;gap:12px}
+.theme-toggle{width:56px;height:32px;min-width:44px;min-height:44px;border-radius:13px;border:none;cursor:pointer;background:linear-gradient(135deg,#40B4E5,#CC22FF);padding:2px;display:flex;align-items:center;transition:var(--transition);flex-shrink:0}
+.theme-toggle .knob{width:28px;height:28px;border-radius:50%;background:var(--bg-primary);display:flex;align-items:center;justify-content:center;font-size:11px;transition:transform var(--transition),background-color var(--transition);transform:translateX(0)}
+[data-theme="light"] .theme-toggle .knob{transform:translateX(24px)}
+.pdf-btn{display:inline-flex;align-items:center;gap:6px;padding:8px 18px;border-radius:10px;border:none;cursor:pointer;background:linear-gradient(135deg,#40B4E5,#CC22FF);color:#fff;font-family:inherit;font-size:0.78rem;font-weight:600;letter-spacing:0.03em;transition:transform var(--transition),box-shadow var(--transition);white-space:nowrap}
+.pdf-btn:hover{transform:translateY(-1px);box-shadow:0 4px 20px rgba(64,180,229,0.4)}
+
+/* ========== SECTIONS ========== */
+section{padding:3.5rem 2rem;position:relative}
+section:nth-child(even){background:var(--bg-secondary);transition:background var(--transition)}
+.container{max-width:1200px;margin:0 auto}
+.section-badge{display:inline-flex;align-items:center;gap:6px;padding:6px 16px;border-radius:50px;background:var(--glass-bg);border:1px solid var(--glass-border);font-size:0.7rem;font-weight:600;letter-spacing:0.15em;text-transform:uppercase;color:var(--text-muted);margin-bottom:1.5rem;backdrop-filter:blur(10px)}
+.section-title{font-size:clamp(1.8rem,4vw,2.8rem);font-weight:800;letter-spacing:-0.03em;margin-bottom:1rem;line-height:1.15}
+.section-title .gradient{background:linear-gradient(135deg,#40B4E5,#CC22FF);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.section-sub{color:var(--text-secondary);font-size:1.05rem;max-width:700px;margin-bottom:2rem;line-height:1.7}
+
+/* ========== HERO ========== */
+.hero{min-height:50vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding-top:80px;padding-bottom:2rem;position:relative;overflow:hidden;background:var(--bg-secondary)}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 30% 20%,rgba(64,180,229,0.12) 0%,transparent 50%),radial-gradient(ellipse at 70% 80%,rgba(204,34,255,0.08) 0%,transparent 50%);pointer-events:none}
+.hero>*{position:relative;z-index:1}
+.hero-company{font-size:clamp(2rem,5vw,3.5rem);font-weight:900;letter-spacing:-0.04em;line-height:1.1;margin-bottom:0.5rem}
+.hero-company .gradient{background:linear-gradient(135deg,#40B4E5,#CC22FF,#40B4E5);background-size:200% auto;-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;animation:gradientShift 4s ease infinite}
+@keyframes gradientShift{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
+.hero-sub{color:var(--text-secondary);font-size:1.1rem;max-width:600px;margin:0.5rem auto 0}
+
+/* ========== TOGGLE BAR ========== */
+.toggle-bar{display:flex;flex-wrap:wrap;justify-content:center;gap:2rem;padding:1.5rem 2rem;background:var(--glass-bg);border:1px solid var(--glass-border);border-radius:16px;backdrop-filter:blur(10px);margin-bottom:2.5rem}
+.toggle-group{display:flex;align-items:center;gap:12px}
+.toggle-label{font-size:0.75rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-muted)}
+.pill-toggle{display:flex;background:var(--bg-card);border:1px solid var(--bg-card-border);border-radius:10px;overflow:hidden;position:relative}
+.pill-toggle button{padding:10px 22px;border:none;background:transparent;color:var(--text-secondary);font-family:inherit;font-size:0.85rem;font-weight:600;cursor:pointer;transition:all var(--transition);position:relative;z-index:1}
+.pill-toggle button.active{color:#fff}
+.pill-toggle .pill-bg{position:absolute;top:2px;bottom:2px;border-radius:8px;background:linear-gradient(135deg,#40B4E5,#CC22FF);transition:all 0.35s cubic-bezier(0.4,0,0.2,1);z-index:0}
+
+/* ========== INPUT SECTION ========== */
+.inputs-grid{display:grid;grid-template-columns:1fr 1fr;gap:2rem}
+.input-card{background:var(--bg-card);border:1px solid var(--bg-card-border);border-radius:16px;padding:2rem;backdrop-filter:blur(10px);transition:background var(--transition),border-color var(--transition)}
+.input-group{margin-bottom:1.5rem}
+.input-group:last-child{margin-bottom:0}
+.input-group label{display:flex;justify-content:space-between;align-items:center;font-size:0.8rem;font-weight:600;color:var(--text-secondary);margin-bottom:0.75rem;letter-spacing:0.02em}
+.input-row{display:flex;align-items:center;gap:12px}
+.input-row input[type="range"]{flex:1;-webkit-appearance:none;appearance:none;height:6px;border-radius:3px;background:var(--bg-card-border);outline:none;cursor:pointer}
+.input-row input[type="range"]::-webkit-slider-thumb{-webkit-appearance:none;width:20px;height:20px;border-radius:50%;background:linear-gradient(135deg,#40B4E5,#CC22FF);cursor:pointer;box-shadow:0 2px 8px rgba(64,180,229,0.4)}
+.input-row input[type="range"]::-moz-range-thumb{width:20px;height:20px;border-radius:50%;background:linear-gradient(135deg,#40B4E5,#CC22FF);cursor:pointer;border:none;box-shadow:0 2px 8px rgba(64,180,229,0.4)}
+.num-input{width:110px;padding:8px 12px;border-radius:8px;border:1px solid var(--bg-card-border);background:var(--glass-bg);color:var(--text-primary);font-family:inherit;font-size:0.9rem;font-weight:600;text-align:right;transition:border-color var(--transition)}
+.num-input:focus{outline:none;border-color:var(--accent-light)}
+
+/* ========== RESULTS CARDS ========== */
+.results-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:1.25rem;margin-bottom:2.5rem}
+.result-card{background:var(--bg-card);border:1px solid var(--bg-card-border);border-radius:16px;padding:1.5rem;text-align:center;backdrop-filter:blur(10px);transition:transform var(--transition),box-shadow var(--transition),background var(--transition)}
+.result-card:hover{transform:translateY(-3px);box-shadow:var(--shadow)}
+.result-card .value{font-size:1.8rem;font-weight:800;letter-spacing:-0.03em;background:linear-gradient(135deg,#40B4E5,#CC22FF);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1.2;word-break:break-word}
+.result-card .label{font-size:0.7rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-muted);margin-top:0.5rem}
+.result-card.highlight-card{border-image:linear-gradient(135deg,#40B4E5,#CC22FF) 1;border-width:2px;border-style:solid}
+.result-card.positive .value{background:linear-gradient(135deg,#22c55e,#16a34a);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.result-card.negative .value{background:linear-gradient(135deg,#ef4444,#dc2626);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+
+/* ========== CHART ========== */
+.chart-wrap{background:var(--bg-card);border:1px solid var(--bg-card-border);border-radius:16px;padding:2rem;backdrop-filter:blur(10px);transition:background var(--transition),border-color var(--transition);margin-bottom:2.5rem}
+.chart-wrap canvas{max-height:400px}
+
+/* ========== SUMMARY / STAT BAR ========== */
+.stats-bar{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem;margin-bottom:2rem}
+.stat-card{background:var(--glass-bg);border:1px solid var(--glass-border);border-radius:16px;padding:1.5rem;text-align:center;backdrop-filter:blur(10px)}
+.stat-card .stat-num{font-size:2rem;font-weight:800;background:linear-gradient(135deg,#40B4E5,#CC22FF);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1.2}
+.stat-card .stat-label{font-size:0.75rem;color:var(--text-muted);margin-top:0.25rem;font-weight:600;letter-spacing:0.08em;text-transform:uppercase}
+.breakeven-callout{background:linear-gradient(135deg,rgba(34,197,94,0.1),rgba(34,197,94,0.05));border:1px solid rgba(34,197,94,0.2);border-radius:12px;padding:1.5rem 2rem;text-align:center;margin-bottom:2rem}
+.breakeven-callout .icon{font-size:2rem;margin-bottom:0.5rem}
+.breakeven-callout .text{font-size:1.3rem;font-weight:800;color:var(--green)}
+.breakeven-callout .sub{font-size:0.9rem;color:var(--text-secondary);margin-top:0.25rem}
+.breakeven-callout.no-breakeven{background:linear-gradient(135deg,rgba(239,68,68,0.1),rgba(239,68,68,0.05));border-color:rgba(239,68,68,0.2)}
+.breakeven-callout.no-breakeven .text{color:var(--red)}
+
+/* ========== WATERMARK ========== */
+.watermark{position:fixed;bottom:20px;left:20px;display:flex;align-items:center;gap:6px;padding:8px 16px;border-radius:10px;background:var(--glass-bg);border:1px solid var(--glass-border);backdrop-filter:blur(10px);font-size:0.7rem;font-weight:600;color:var(--text-muted);letter-spacing:0.05em;z-index:999;transition:background var(--transition)}
+
+/* ========== RESPONSIVE ========== */
+@media(max-width:1024px){.stats-bar{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:768px){
+  .inputs-grid{grid-template-columns:1fr}
+  .results-grid{grid-template-columns:repeat(2,1fr)}
+  .stats-bar{grid-template-columns:repeat(2,1fr)}
+  section{padding:2.5rem 1.5rem}
+  .toggle-bar{flex-direction:column;align-items:stretch;gap:1rem}
+  .toggle-group{justify-content:center}
+  .num-input{width:90px}
+  .hero{padding-top:80px;min-height:35vh}
+}
+@media(max-width:480px){
+  .results-grid{grid-template-columns:1fr}
+  .stats-bar{grid-template-columns:1fr}
+}
+
+/* ========== PRINT STYLES ========== */
+@media print{
+  *{transition:none!important;animation:none!important}
+  body{background:#fff!important;color:#191F24!important;font-size:10pt}
+  .nav,.watermark{display:none!important}
+  section{padding:1.5rem 0!important;background:#fff!important;page-break-inside:avoid;break-inside:avoid}
+  section:nth-child(even){background:#fff!important}
+  .hero{min-height:auto!important;padding:2rem 0!important}
+  .input-card,.result-card,.stat-card,.chart-wrap,.breakeven-callout,.toggle-bar{background:#f9f9f9!important;border:1px solid #ddd!important;backdrop-filter:none!important;box-shadow:none!important;page-break-inside:avoid!important}
+  .result-card .value,.stat-card .stat-num,.section-title .gradient{-webkit-text-fill-color:#0644ED!important;background:none!important;color:#0644ED!important}
+  .result-card.positive .value{-webkit-text-fill-color:#16a34a!important;color:#16a34a!important}
+  .result-card.negative .value{-webkit-text-fill-color:#ef4444!important;color:#ef4444!important}
+  .pill-toggle button.active{color:#0644ED!important;font-weight:800!important}
+  a{color:#0644ED!important}
+  .container{max-width:100%!important}
+  @page{margin:1.5cm;size:letter}
+  h1,h2,h3{page-break-after:avoid}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <a href="index.html" class="nav-brand"><span class="dot"></span> BRANDASTIC</a>
+  <div class="nav-actions">
+    <button class="pdf-btn" onclick="window.print()">📄 Download PDF</button>
+    <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme"><div class="knob">☀️</div></button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="section-badge">📊 Interactive Tool</div>
+  <h1 class="hero-company">PPC ROI <span class="gradient">Calculator</span></h1>
+  <p class="hero-sub">Model your paid search investment, project revenue, and find your break-even point — in real time.</p>
+</section>
+
+<!-- TOGGLE BAR + INPUTS + RESULTS -->
+<section>
+  <div class="container">
+    <!-- Toggle Bar -->
+    <div class="toggle-bar">
+      <div class="toggle-group">
+        <span class="toggle-label">Business Model</span>
+        <div class="pill-toggle" id="modelToggle">
+          <button class="active" data-value="ecommerce" onclick="setModel('ecommerce')">E-commerce</button>
+          <button data-value="leadgen" onclick="setModel('leadgen')">Lead Generation</button>
+          <div class="pill-bg"></div>
+        </div>
+      </div>
+      <div class="toggle-group">
+        <span class="toggle-label">Market</span>
+        <div class="pill-toggle" id="marketToggle">
+          <button data-value="b2b" onclick="setMarket('b2b')">B2B</button>
+          <button class="active" data-value="b2c" onclick="setMarket('b2c')">B2C</button>
+          <div class="pill-bg"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Inputs -->
+    <div class="inputs-grid" id="inputsContainer">
+      <div class="input-card" id="sharedInputs">
+        <h3 style="font-size:1rem;font-weight:700;margin-bottom:1.5rem;color:var(--text-primary)">Campaign Settings</h3>
+        <!-- Shared inputs rendered by JS -->
+      </div>
+      <div class="input-card" id="modeInputs">
+        <h3 id="modeInputsTitle" style="font-size:1rem;font-weight:700;margin-bottom:1.5rem;color:var(--text-primary)">E-commerce Settings</h3>
+        <!-- Mode-specific inputs rendered by JS -->
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RESULTS -->
+<section>
+  <div class="container">
+    <div class="section-badge">💰 Real-Time Results</div>
+    <h2 class="section-title">Monthly <span class="gradient">Projections</span></h2>
+    <div class="results-grid" id="resultsGrid"></div>
+  </div>
+</section>
+
+<!-- CHART -->
+<section>
+  <div class="container">
+    <div class="section-badge">📈 6-Month Forecast</div>
+    <h2 class="section-title">Projection <span class="gradient">Chart</span></h2>
+    <div class="chart-wrap">
+      <canvas id="projectionChart"></canvas>
+    </div>
+  </div>
+</section>
+
+<!-- SUMMARY -->
+<section>
+  <div class="container">
+    <div class="section-badge">🎯 6-Month Summary</div>
+    <h2 class="section-title" id="summaryHeadline">Projected <span class="gradient">6-Month Totals</span></h2>
+    <div id="breakevenCallout"></div>
+    <div class="stats-bar" id="summaryStats"></div>
+  </div>
+</section>
+
+<!-- WATERMARK -->
+<div class="watermark"><span class="dot" style="width:8px;height:8px;border-radius:50%;background:linear-gradient(135deg,#40B4E5,#CC22FF);display:inline-block"></span> Brandastic PPC Calculator</div>
+
+<script>
+/* ========== SCROLL TO TOP ========== */
+if('scrollRestoration' in history) history.scrollRestoration='manual';
+window.scrollTo(0,0);
+
+/* ========== THEME ========== */
+function getPreferredTheme(){const s=localStorage.getItem('brandastic-theme');if(s)return s;return window.matchMedia('(prefers-color-scheme:light)').matches?'light':'dark'}
+function applyTheme(t){document.documentElement.setAttribute('data-theme',t);localStorage.setItem('brandastic-theme',t);document.querySelector('.theme-toggle .knob').textContent=t==='dark'?'🌙':'☀️'}
+function toggleTheme(){const c=document.documentElement.getAttribute('data-theme');applyTheme(c==='dark'?'light':'dark');updateChart()}
+applyTheme(getPreferredTheme());
+
+/* ========== STATE ========== */
+let currentModel = 'ecommerce'; // ecommerce | leadgen
+let currentMarket = 'b2c'; // b2b | b2c
+
+/* Default values keyed by model+market */
+const DEFAULTS = {
+  shared: { budget: 5000, agencyFee: 2500, cpc: 3.50, convRate: 3, profitMargin: 30 },
+  leadgen: {
+    b2b: { closeRate: 20, dealValue: 5000, ltv: 25000 },
+    b2c: { closeRate: 35, dealValue: 500, ltv: 2000 }
+  },
+  ecommerce: {
+    b2b: { aov: 250, repeatRate: 40, ltv: 1000 },
+    b2c: { aov: 75, repeatRate: 25, ltv: 300 }
+  }
+};
+
+const RANGES = {
+  budget: { min: 500, max: 100000, step: 100 },
+  agencyFee: { min: 0, max: 25000, step: 100 },
+  cpc: { min: 0.50, max: 50, step: 0.10 },
+  convRate: { min: 0.5, max: 20, step: 0.1 },
+  profitMargin: { min: 5, max: 90, step: 1 },
+  closeRate: { min: 5, max: 80, step: 1 },
+  dealValue: { min: 50, max: 500000, step: 50 },
+  ltv: { min: 100, max: 1000000, step: 100 },
+  aov: { min: 10, max: 10000, step: 5 },
+  repeatRate: { min: 0, max: 100, step: 1 },
+  ltv_ecom: { min: 50, max: 50000, step: 50 }
+};
+
+let values = {};
+
+function resetValues() {
+  const s = DEFAULTS.shared;
+  values = { budget: s.budget, agencyFee: s.agencyFee, cpc: s.cpc, convRate: s.convRate, profitMargin: s.profitMargin };
+  if (currentModel === 'leadgen') {
+    const m = DEFAULTS.leadgen[currentMarket];
+    values.closeRate = m.closeRate;
+    values.dealValue = m.dealValue;
+    values.ltv = m.ltv;
+  } else {
+    const m = DEFAULTS.ecommerce[currentMarket];
+    values.aov = m.aov;
+    values.repeatRate = m.repeatRate;
+    values.ltv = m.ltv;
+  }
+}
+
+/* ========== TOGGLE LOGIC ========== */
+function updatePillBg(container) {
+  const btns = container.querySelectorAll('button');
+  const bg = container.querySelector('.pill-bg');
+  btns.forEach(b => {
+    if (b.classList.contains('active')) {
+      bg.style.left = b.offsetLeft + 'px';
+      bg.style.width = b.offsetWidth + 'px';
+    }
+  });
+}
+
+function setModel(m) {
+  currentModel = m;
+  const btns = document.querySelectorAll('#modelToggle button');
+  btns.forEach(b => b.classList.toggle('active', b.dataset.value === m));
+  updatePillBg(document.getElementById('modelToggle'));
+  resetValues();
+  renderInputs();
+  recalc();
+}
+
+function setMarket(m) {
+  currentMarket = m;
+  const btns = document.querySelectorAll('#marketToggle button');
+  btns.forEach(b => b.classList.toggle('active', b.dataset.value === m));
+  updatePillBg(document.getElementById('marketToggle'));
+  resetValues();
+  renderInputs();
+  recalc();
+}
+
+/* ========== INPUT RENDERING ========== */
+function makeInput(key, label, prefix, suffix, range) {
+  const v = values[key];
+  const displayVal = (prefix === '$') ? (v >= 1000 ? v.toLocaleString('en-US') : v) : v;
+  return `
+    <div class="input-group">
+      <label><span>${label}</span><span style="color:var(--accent-light);font-weight:700">${prefix}${typeof v === 'number' && v % 1 !== 0 ? v.toFixed(2) : Number(v).toLocaleString('en-US')}${suffix}</span></label>
+      <div class="input-row">
+        <input type="range" min="${range.min}" max="${range.max}" step="${range.step}" value="${v}" data-key="${key}" oninput="onSlider(this)">
+        <input type="number" class="num-input" min="${range.min}" max="${range.max}" step="${range.step}" value="${v}" data-key="${key}" oninput="onNumber(this)" onblur="clampInput(this)">
+      </div>
+    </div>`;
+}
+
+function renderInputs() {
+  const shared = document.getElementById('sharedInputs');
+  const mode = document.getElementById('modeInputs');
+  const title = document.getElementById('modeInputsTitle');
+
+  shared.innerHTML = `<h3 style="font-size:1rem;font-weight:700;margin-bottom:1.5rem;color:var(--text-primary)">Campaign Settings</h3>` +
+    makeInput('budget', 'Monthly Ad Budget', '$', '', RANGES.budget) +
+    makeInput('agencyFee', 'Monthly Agency Management Fee', '$', '', RANGES.agencyFee) +
+    makeInput('cpc', 'Average Cost Per Click', '$', '', RANGES.cpc) +
+    makeInput('convRate', 'Website Conversion Rate', '', '%', RANGES.convRate) +
+    makeInput('profitMargin', 'Profit Margin', '', '%', RANGES.profitMargin);
+
+  if (currentModel === 'leadgen') {
+    title.textContent = 'Lead Generation Settings';
+    mode.innerHTML = `<h3 style="font-size:1rem;font-weight:700;margin-bottom:1.5rem;color:var(--text-primary)">Lead Generation Settings</h3>` +
+      makeInput('closeRate', 'Close Rate', '', '%', RANGES.closeRate) +
+      makeInput('dealValue', 'Average Deal Value', '$', '', RANGES.dealValue) +
+      makeInput('ltv', 'Customer Lifetime Value', '$', '', { min: 100, max: 1000000, step: 100 });
+  } else {
+    title.textContent = 'E-commerce Settings';
+    mode.innerHTML = `<h3 style="font-size:1rem;font-weight:700;margin-bottom:1.5rem;color:var(--text-primary)">E-commerce Settings</h3>` +
+      makeInput('aov', 'Average Order Value', '$', '', RANGES.aov) +
+      makeInput('repeatRate', 'Repeat Purchase Rate', '', '%', RANGES.repeatRate) +
+      makeInput('ltv', 'Customer Lifetime Value', '$', '', { min: 50, max: 50000, step: 50 });
+  }
+}
+
+function onSlider(el) {
+  const key = el.dataset.key;
+  const val = parseFloat(el.value);
+  values[key] = val;
+  const numInput = el.parentElement.querySelector('.num-input');
+  numInput.value = val;
+  updateLabel(el);
+  recalc();
+}
+
+function onNumber(el) {
+  const key = el.dataset.key;
+  const val = parseFloat(el.value);
+  if (isNaN(val)) return;
+  values[key] = val;
+  const slider = el.parentElement.querySelector('input[type="range"]');
+  slider.value = val;
+  updateLabel(el);
+  recalc();
+}
+
+function clampInput(el) {
+  const min = parseFloat(el.min);
+  const max = parseFloat(el.max);
+  let val = parseFloat(el.value);
+  if (isNaN(val)) val = min;
+  val = Math.max(min, Math.min(max, val));
+  el.value = val;
+  values[el.dataset.key] = val;
+  const slider = el.parentElement.querySelector('input[type="range"]');
+  slider.value = val;
+  updateLabel(el);
+  recalc();
+}
+
+function updateLabel(el) {
+  const group = el.closest('.input-group');
+  const labelSpan = group.querySelector('label span:last-child');
+  const key = el.dataset.key;
+  const v = values[key];
+  const isCurrency = ['budget','agencyFee','cpc','dealValue','ltv','aov'].includes(key);
+  const isPercent = ['convRate','profitMargin','closeRate','repeatRate'].includes(key);
+  if (isCurrency) {
+    labelSpan.textContent = '$' + (v % 1 !== 0 ? v.toFixed(2) : Number(v).toLocaleString('en-US'));
+  } else if (isPercent) {
+    labelSpan.textContent = (v % 1 !== 0 ? v.toFixed(1) : v) + '%';
+  }
+}
+
+/* ========== CALCULATIONS ========== */
+function calculate() {
+  const { budget, agencyFee, cpc, convRate, profitMargin } = values;
+  const totalCost = budget + agencyFee;
+  const clicks = budget / cpc;
+  const conversions = clicks * (convRate / 100);
+
+  if (currentModel === 'leadgen') {
+    const { closeRate, dealValue, ltv } = values;
+    const leads = conversions;
+    const sales = leads * (closeRate / 100);
+    const costPerLead = leads > 0 ? totalCost / leads : 0;
+    const costPerSale = sales > 0 ? totalCost / sales : 0;
+    const monthlyRevenue = sales * dealValue;
+    const monthlyProfit = (monthlyRevenue * (profitMargin / 100)) - totalCost;
+    const roiPerSale = costPerSale > 0 ? ((dealValue * (profitMargin / 100) - costPerSale) / costPerSale * 100) : 0;
+    const ltvProfit = (sales * ltv * (profitMargin / 100)) - totalCost;
+
+    return {
+      totalCost, clicks, leads, sales, costPerLead, costPerSale,
+      monthlyRevenue, monthlyProfit, roiPerSale, ltvProfit, ltv,
+      conversions, profitMargin
+    };
+  } else {
+    const { aov, repeatRate, ltv } = values;
+    const orders = conversions;
+    const monthlyRevenue = orders * aov;
+    const roas = totalCost > 0 ? monthlyRevenue / totalCost : 0;
+    const monthlyProfit = (monthlyRevenue * (profitMargin / 100)) - totalCost;
+    // LTV: each customer brings lifetime value considering repeat purchases
+    const ltvRevenue = orders * ltv;
+    const ltvRoas = totalCost > 0 ? ltvRevenue / totalCost : 0;
+
+    return {
+      totalCost, clicks, orders, monthlyRevenue, roas, monthlyProfit,
+      ltvRevenue, ltvRoas, aov, repeatRate, ltv,
+      conversions, profitMargin
+    };
+  }
+}
+
+function fmt(n, decimals) {
+  if (decimals === undefined) decimals = 0;
+  if (Math.abs(n) >= 1000000) return (n / 1000000).toFixed(1) + 'M';
+  if (Math.abs(n) >= 100000) return (n / 1000).toFixed(0) + 'K';
+  return n.toFixed(decimals).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+}
+
+function renderResults() {
+  const r = calculate();
+  const grid = document.getElementById('resultsGrid');
+  let html = '';
+
+  const card = (val, label, cls) => `<div class="result-card ${cls||''}"><div class="value">${val}</div><div class="label">${label}</div></div>`;
+
+  html += card('$' + fmt(r.totalCost), 'Monthly Total Cost');
+  html += card(fmt(r.clicks, 0), 'Total Clicks');
+
+  if (currentModel === 'leadgen') {
+    html += card(fmt(r.leads, 0), 'Leads Per Month');
+    html += card('$' + fmt(r.costPerLead, 2), 'Cost Per Lead');
+    html += card(fmt(r.sales, 1), 'Sales Per Month');
+    html += card('$' + fmt(r.costPerSale, 2), 'Cost Per Sale');
+    html += card(fmt(r.roiPerSale, 0) + '%', 'ROI Per Sale', r.roiPerSale >= 0 ? 'positive' : 'negative');
+    html += card('$' + fmt(r.monthlyProfit), 'Monthly Profit', r.monthlyProfit >= 0 ? 'positive' : 'negative');
+    html += card('$' + fmt(r.ltvProfit), 'LTV Profit (Monthly Cohort)', r.ltvProfit >= 0 ? 'positive' : 'negative');
+  } else {
+    html += card(fmt(r.orders, 0), 'Orders Per Month');
+    html += card('$' + fmt(r.monthlyRevenue), 'Monthly Revenue');
+    html += card(fmt(r.roas, 2) + 'x', 'ROAS');
+    html += card('$' + fmt(r.monthlyProfit), 'Monthly Profit', r.monthlyProfit >= 0 ? 'positive' : 'negative');
+    html += card('$' + fmt(r.ltvRevenue), 'LTV Revenue (Monthly Cohort)');
+    html += card(fmt(r.ltvRoas, 2) + 'x', 'LTV ROAS');
+  }
+
+  grid.innerHTML = html;
+}
+
+/* ========== 6-MONTH PROJECTION ========== */
+const EFFICIENCY = [0.80, 0.90, 1.00, 1.00, 1.00, 1.00];
+
+function project6Months() {
+  const r = calculate();
+  const months = [];
+  let cumRevenue = 0, cumProfit = 0, cumCost = 0, breakEvenMonth = null;
+
+  for (let i = 0; i < 6; i++) {
+    const eff = EFFICIENCY[i];
+    const monthlyCost = r.totalCost;
+    cumCost += monthlyCost;
+
+    let monthRevenue, monthProfit, monthLeads, monthSales, monthOrders, monthRoas;
+    if (currentModel === 'leadgen') {
+      const leads = r.leads * eff;
+      const sales = leads * (values.closeRate / 100);
+      monthRevenue = sales * values.dealValue;
+      monthProfit = (monthRevenue * (values.profitMargin / 100)) - monthlyCost;
+      monthLeads = leads;
+      monthSales = sales;
+    } else {
+      const orders = r.orders * eff;
+      monthRevenue = orders * values.aov;
+      monthProfit = (monthRevenue * (values.profitMargin / 100)) - monthlyCost;
+      monthOrders = orders;
+      monthRoas = monthlyCost > 0 ? monthRevenue / monthlyCost : 0;
+    }
+
+    cumRevenue += monthRevenue;
+    cumProfit += monthProfit;
+
+    if (breakEvenMonth === null && cumProfit >= 0) {
+      breakEvenMonth = i + 1;
+    }
+
+    months.push({
+      month: i + 1, eff, monthlyCost, monthRevenue, monthProfit,
+      cumRevenue, cumProfit, cumCost,
+      monthLeads, monthSales, monthOrders, monthRoas
+    });
+  }
+
+  return { months, breakEvenMonth };
+}
+
+/* ========== CHART ========== */
+let chartInstance = null;
+
+function updateChart() {
+  const { months, breakEvenMonth } = project6Months();
+  const isDark = document.documentElement.getAttribute('data-theme') !== 'light';
+  const gridColor = isDark ? 'rgba(255,255,255,0.06)' : 'rgba(0,0,0,0.06)';
+  const textColor = isDark ? 'rgba(255,255,255,0.5)' : 'rgba(0,0,0,0.5)';
+
+  const labels = months.map(m => 'Month ' + m.month);
+  const cumRevData = months.map(m => m.cumRevenue);
+  const cumProfitData = months.map(m => m.cumProfit);
+  const cumCostData = months.map(m => m.cumCost);
+
+  const datasets = [
+    {
+      label: 'Cumulative Revenue',
+      data: cumRevData,
+      borderColor: '#40B4E5',
+      backgroundColor: 'rgba(64,180,229,0.1)',
+      fill: true,
+      tension: 0.3,
+      borderWidth: 3,
+      pointRadius: 4,
+      pointBackgroundColor: '#40B4E5',
+      yAxisID: 'y'
+    },
+    {
+      label: 'Cumulative Profit',
+      data: cumProfitData,
+      borderColor: '#22c55e',
+      backgroundColor: 'rgba(34,197,94,0.1)',
+      fill: true,
+      tension: 0.3,
+      borderWidth: 3,
+      pointRadius: 4,
+      pointBackgroundColor: '#22c55e',
+      yAxisID: 'y'
+    },
+    {
+      label: 'Cumulative Cost',
+      data: cumCostData,
+      borderColor: '#ef4444',
+      borderDash: [8, 4],
+      backgroundColor: 'transparent',
+      fill: false,
+      tension: 0.3,
+      borderWidth: 2,
+      pointRadius: 3,
+      pointBackgroundColor: '#ef4444',
+      yAxisID: 'y'
+    }
+  ];
+
+  // Additional lines based on mode
+  if (currentModel === 'leadgen') {
+    datasets.push({
+      label: 'Cumulative Leads',
+      data: months.map((m, i) => months.slice(0, i + 1).reduce((s, x) => s + (x.monthLeads || 0), 0)),
+      borderColor: '#CC22FF',
+      backgroundColor: 'transparent',
+      fill: false,
+      tension: 0.3,
+      borderWidth: 2,
+      pointRadius: 3,
+      pointBackgroundColor: '#CC22FF',
+      borderDash: [4, 2],
+      yAxisID: 'y1'
+    });
+  } else {
+    datasets.push({
+      label: 'Monthly ROAS',
+      data: months.map(m => m.monthRoas || 0),
+      borderColor: '#CC22FF',
+      backgroundColor: 'transparent',
+      fill: false,
+      tension: 0.3,
+      borderWidth: 2,
+      pointRadius: 3,
+      pointBackgroundColor: '#CC22FF',
+      borderDash: [4, 2],
+      yAxisID: 'y1'
+    });
+  }
+
+  // Break-even annotation via point styling
+  if (breakEvenMonth) {
+    const beIdx = breakEvenMonth - 1;
+    const pointRadii = cumProfitData.map((_, i) => i === beIdx ? 10 : 4);
+    const pointStyles = cumProfitData.map((_, i) => i === beIdx ? 'star' : 'circle');
+    datasets[1].pointRadius = pointRadii;
+    datasets[1].pointStyle = pointStyles;
+  }
+
+  const ctx = document.getElementById('projectionChart').getContext('2d');
+
+  if (chartInstance) {
+    chartInstance.data.labels = labels;
+    chartInstance.data.datasets = datasets;
+    chartInstance.options.scales.y.grid.color = gridColor;
+    chartInstance.options.scales.y.ticks.color = textColor;
+    chartInstance.options.scales.y1.grid.color = 'transparent';
+    chartInstance.options.scales.y1.ticks.color = textColor;
+    chartInstance.options.scales.x.grid.color = gridColor;
+    chartInstance.options.scales.x.ticks.color = textColor;
+    chartInstance.options.plugins.legend.labels.color = textColor;
+    if (currentModel === 'leadgen') {
+      chartInstance.options.scales.y1.title.text = 'Cumulative Leads';
+    } else {
+      chartInstance.options.scales.y1.title.text = 'ROAS';
+    }
+    chartInstance.update();
+    return;
+  }
+
+  chartInstance = new Chart(ctx, {
+    type: 'line',
+    data: { labels, datasets },
+    options: {
+      responsive: true,
+      maintainAspectRatio: true,
+      interaction: { mode: 'index', intersect: false },
+      plugins: {
+        legend: { labels: { color: textColor, font: { family: 'Inter', size: 12, weight: '600' }, padding: 20, usePointStyle: true } },
+        tooltip: {
+          backgroundColor: isDark ? 'rgba(13,17,23,0.95)' : 'rgba(255,255,255,0.95)',
+          titleColor: isDark ? '#fff' : '#191F24',
+          bodyColor: isDark ? 'rgba(255,255,255,0.7)' : 'rgba(25,31,36,0.7)',
+          borderColor: isDark ? 'rgba(255,255,255,0.1)' : 'rgba(0,0,0,0.08)',
+          borderWidth: 1,
+          padding: 12,
+          cornerRadius: 10,
+          titleFont: { family: 'Inter', weight: '700' },
+          bodyFont: { family: 'Inter' },
+          callbacks: {
+            label: function(ctx) {
+              let label = ctx.dataset.label || '';
+              if (label.includes('ROAS')) return label + ': ' + ctx.parsed.y.toFixed(2) + 'x';
+              if (label.includes('Leads')) return label + ': ' + Math.round(ctx.parsed.y);
+              return label + ': $' + ctx.parsed.y.toLocaleString('en-US', { maximumFractionDigits: 0 });
+            }
+          }
+        }
+      },
+      scales: {
+        y: {
+          position: 'left',
+          grid: { color: gridColor },
+          ticks: { color: textColor, font: { family: 'Inter', size: 11 }, callback: v => '$' + (Math.abs(v) >= 1000 ? (v/1000).toFixed(0) + 'K' : v) },
+          title: { display: true, text: 'Revenue / Profit / Cost', color: textColor, font: { family: 'Inter', size: 11, weight: '600' } }
+        },
+        y1: {
+          position: 'right',
+          grid: { color: 'transparent' },
+          ticks: { color: textColor, font: { family: 'Inter', size: 11 } },
+          title: { display: true, text: currentModel === 'leadgen' ? 'Cumulative Leads' : 'ROAS', color: textColor, font: { family: 'Inter', size: 11, weight: '600' } }
+        },
+        x: {
+          grid: { color: gridColor },
+          ticks: { color: textColor, font: { family: 'Inter', size: 11, weight: '600' } }
+        }
+      }
+    }
+  });
+}
+
+/* ========== SUMMARY ========== */
+function renderSummary() {
+  const { months, breakEvenMonth } = project6Months();
+  const last = months[5];
+  const r = calculate();
+  const container = document.getElementById('summaryStats');
+  const beContainer = document.getElementById('breakevenCallout');
+
+  let html = '';
+  if (currentModel === 'leadgen') {
+    const totalLeads = months.reduce((s, m) => s + (m.monthLeads || 0), 0);
+    const totalSales = months.reduce((s, m) => s + (m.monthSales || 0), 0);
+    html += `<div class="stat-card"><div class="stat-num">$${fmt(last.cumRevenue)}</div><div class="stat-label">6-Mo Revenue</div></div>`;
+    html += `<div class="stat-card"><div class="stat-num">$${fmt(last.cumProfit)}</div><div class="stat-label">6-Mo Profit</div></div>`;
+    html += `<div class="stat-card"><div class="stat-num">${fmt(totalLeads, 0)}</div><div class="stat-label">Total Leads</div></div>`;
+    html += `<div class="stat-card"><div class="stat-num">${fmt(totalSales, 0)}</div><div class="stat-label">Total Sales</div></div>`;
+  } else {
+    const totalOrders = months.reduce((s, m) => s + (m.monthOrders || 0), 0);
+    const avgRoas = last.cumCost > 0 ? last.cumRevenue / last.cumCost : 0;
+    html += `<div class="stat-card"><div class="stat-num">$${fmt(last.cumRevenue)}</div><div class="stat-label">6-Mo Revenue</div></div>`;
+    html += `<div class="stat-card"><div class="stat-num">$${fmt(last.cumProfit)}</div><div class="stat-label">6-Mo Profit</div></div>`;
+    html += `<div class="stat-card"><div class="stat-num">${fmt(totalOrders, 0)}</div><div class="stat-label">Total Orders</div></div>`;
+    html += `<div class="stat-card"><div class="stat-num">${fmt(avgRoas, 2)}x</div><div class="stat-label">6-Mo ROAS</div></div>`;
+  }
+  container.innerHTML = html;
+
+  // Break-even callout
+  if (breakEvenMonth) {
+    beContainer.innerHTML = `<div class="breakeven-callout"><div class="icon">🎯</div><div class="text">Break-Even: Month ${breakEvenMonth}</div><div class="sub">Your cumulative profit turns positive in month ${breakEvenMonth} of the campaign</div></div>`;
+  } else {
+    beContainer.innerHTML = `<div class="breakeven-callout no-breakeven"><div class="icon">⚠️</div><div class="text">No Break-Even in 6 Months</div><div class="sub">Consider adjusting your budget, conversion rate, or deal values to reach profitability faster</div></div>`;
+  }
+}
+
+/* ========== RECALC ========== */
+function recalc() {
+  renderResults();
+  updateChart();
+  renderSummary();
+}
+
+/* ========== INIT ========== */
+resetValues();
+renderInputs();
+
+// Position pill backgrounds after render
+requestAnimationFrame(() => {
+  updatePillBg(document.getElementById('modelToggle'));
+  updatePillBg(document.getElementById('marketToggle'));
+});
+
+// Small delay for chart (avoid Chart.js + layout race)
+setTimeout(() => { recalc(); }, 100);
+
+// Handle resize for pill toggle positioning
+window.addEventListener('resize', () => {
+  updatePillBg(document.getElementById('modelToggle'));
+  updatePillBg(document.getElementById('marketToggle'));
+});
+</script>
+</body>
+</html>
