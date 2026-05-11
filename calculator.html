@@ -259,14 +259,16 @@ let currentMarket = 'b2c'; // b2b | b2c
 
 /* Default values keyed by model+market */
 const DEFAULTS = {
-  shared: { budget: 5000, agencyFee: 2500, cpc: 3.50, convRate: 3, profitMargin: 30 },
+  /* Defaults match Justin's tested sheet: $6500 budget, $3500 fee, $13.68 CPC, 30% conv, 80% margin */
+  shared: { budget: 6500, agencyFee: 3500, cpc: 13.68, convRate: 30, profitMargin: 80 },
   leadgen: {
     b2b: { closeRate: 20, dealValue: 5000, ltv: 25000 },
     b2c: { closeRate: 35, dealValue: 500, ltv: 2000 }
   },
   ecommerce: {
-    b2b: { aov: 250, repeatRate: 3, ltv: 1000, closeRate: 100 },
-    b2c: { aov: 75, repeatRate: 2, ltv: 300, closeRate: 100 }
+    /* Sheet defaults: AOV $150, LTV $300, Close Rate 100% */
+    b2b: { aov: 150, repeatRate: 2, ltv: 300, closeRate: 100 },
+    b2c: { aov: 150, repeatRate: 2, ltv: 300, closeRate: 100 }
   }
 };
 
@@ -562,7 +564,7 @@ function project6Months() {
     months.push({
       month: i + 1, eff, monthlyCost, monthRevenue, monthProfit,
       cumRevenue, cumProfit, cumCost,
-      monthLeads, monthSales, monthOrders, monthRoas
+      monthLeads, monthSales: monthOrders, monthOrders, monthRoas
     });
   }
 
