@@ -265,8 +265,8 @@ const DEFAULTS = {
     b2c: { closeRate: 35, dealValue: 500, ltv: 2000 }
   },
   ecommerce: {
-    b2b: { aov: 250, repeatRate: 3, ltv: 1000 },
-    b2c: { aov: 75, repeatRate: 2, ltv: 300 }
+    b2b: { aov: 250, repeatRate: 3, ltv: 1000, closeRate: 100 },
+    b2c: { aov: 75, repeatRate: 2, ltv: 300, closeRate: 100 }
   }
 };
 
@@ -369,6 +369,7 @@ function renderInputs() {
   } else {
     title.textContent = 'E-commerce Settings';
     mode.innerHTML = `<h3 style="font-size:1rem;font-weight:700;margin-bottom:1.5rem;color:var(--text-primary)">E-commerce Settings</h3>` +
+      makeInput('closeRate', 'Close Rate', '', '%', RANGES.closeRate) +
       makeInput('aov', 'Average Order Value', '$', '', RANGES.aov) +
       makeInput('repeatRate', 'Repeat Purchases', '', 'x', RANGES.repeatRate) +
       makeInput('ltv', 'Customer Lifetime Value', '$', '', { min: 50, max: 50000, step: 50 });
@@ -427,40 +428,52 @@ function updateLabel(el) {
 /* ========== CALCULATIONS ========== */
 function calculate() {
   const { budget, agencyFee, cpc, convRate, profitMargin } = values;
-  const totalCost = budget + agencyFee;
-  const clicks = budget / cpc;
-  const conversions = clicks * (convRate / 100);
+  /* === FORMULAS MATCH JUSTIN'S TESTED GOOGLE SHEET EXACTLY === */
+  /* D8  */ const totalCost = budget + agencyFee;
+  /* D12 */ const clicks = budget / cpc;
+  /* D16 */ const leads = clicks * (convRate / 100);
+  /* D18 */ const costPerLead = leads > 0 ? totalCost / leads : 0;
+  /* J16 */ const adCostPerLead = cpc / (convRate / 100); // Sheet uses ad-spend-only for profit calc
+  /* J18 = leads (same as D16) */
 
   if (currentModel === 'leadgen') {
     const { closeRate, dealValue, ltv } = values;
-    const leads = conversions;
-    const sales = leads * (closeRate / 100);
-    const costPerLead = leads > 0 ? totalCost / leads : 0;
-    const costPerSale = sales > 0 ? totalCost / sales : 0;
-    const monthlyRevenue = sales * dealValue;
-    const monthlyProfit = (monthlyRevenue * (profitMargin / 100)) - totalCost;
-    const roiPerSale = costPerSale > 0 ? ((dealValue * (profitMargin / 100) - costPerSale) / costPerSale * 100) : 0;
-    const ltvProfit = (sales * ltv * (profitMargin / 100)) - totalCost;
+    /* D24 */ const orders = leads * (closeRate / 100);
+    /* D22 */ const costPerSale = orders > 0 ? totalCost / orders : 0;
+    /* J10: ROI Per Sale = (AOV × Margin) - CostPerSale */
+    const roiPerSale = (dealValue * (profitMargin / 100)) - costPerSale;
+    /* J12: ROI Per Customer = (LTV × Margin) - CostPerSale */
+    const roiPerCustomer = (ltv * (profitMargin / 100)) - costPerSale;
+    /* J20: Profit = ((AOV×Margin) × (Leads×CloseRate)) - (adCostPerLead × Leads) */
+    const monthlyProfit = ((dealValue * (profitMargin / 100)) * (leads * (closeRate / 100))) - (adCostPerLead * leads);
+    /* J22: LTV Profit = ((LTV×Margin) × (Leads×CloseRate)) - (adCostPerLead × Leads) */
+    const ltvProfit = ((ltv * (profitMargin / 100)) * (leads * (closeRate / 100))) - (adCostPerLead * leads);
+    const monthlyRevenue = orders * dealValue;
 
     return {
-      totalCost, clicks, leads, sales, costPerLead, costPerSale,
-      monthlyRevenue, monthlyProfit, roiPerSale, ltvProfit, ltv,
-      conversions, profitMargin
+      totalCost, clicks, leads, orders, costPerLead, costPerSale,
+      roiPerSale, roiPerCustomer, monthlyRevenue, monthlyProfit, ltvProfit,
+      dealValue, ltv, conversions: leads, profitMargin
     };
   } else {
     const { aov, repeatRate, ltv } = values;
-    const orders = conversions;
+    const closeRate = values.closeRate || 100;
+    /* D24 */ const orders = leads * (closeRate / 100);
+    /* D22 */ const costPerSale = orders > 0 ? totalCost / orders : 0;
+    /* J10 */ const roiPerSale = (aov * (profitMargin / 100)) - costPerSale;
+    /* J12 */ const roiPerCustomer = (ltv * (profitMargin / 100)) - costPerSale;
     const monthlyRevenue = orders * aov;
     const roas = totalCost > 0 ? monthlyRevenue / totalCost : 0;
-    const monthlyProfit = (monthlyRevenue * (profitMargin / 100)) - totalCost;
-    // LTV: each customer brings lifetime value considering repeat purchases
+    /* J20 */ const monthlyProfit = ((aov * (profitMargin / 100)) * (leads * (closeRate / 100))) - (adCostPerLead * leads);
+    /* J22 */ const ltvProfit = ((ltv * (profitMargin / 100)) * (leads * (closeRate / 100))) - (adCostPerLead * leads);
     const ltvRevenue = orders * aov * repeatRate;
     const ltvRoas = totalCost > 0 ? ltvRevenue / totalCost : 0;
 
     return {
-      totalCost, clicks, orders, monthlyRevenue, roas, monthlyProfit,
-      ltvRevenue, ltvRoas, aov, repeatRate, ltv,
-      conversions, profitMargin
+      totalCost, clicks, orders, leads, costPerLead, costPerSale,
+      roiPerSale, roiPerCustomer, monthlyRevenue, roas, monthlyProfit,
+      ltvRevenue, ltvRoas, ltvProfit, aov, repeatRate, ltv,
+      conversions: leads, profitMargin
     };
   }
 }
@@ -479,24 +492,28 @@ function renderResults() {
 
   const card = (val, label, cls) => `<div class="result-card ${cls||''}"><div class="value">${val}</div><div class="label">${label}</div></div>`;
 
+  /* Matches Justin's sheet layout exactly */
   html += card('$' + fmt(r.totalCost), 'Monthly Total Cost');
   html += card(fmt(r.clicks, 0), 'Total Clicks');
+  html += card(fmt(r.leads, 1), 'Leads Per Month');
+  html += card('$' + fmt(r.costPerLead, 2), 'Avg Cost Per Lead (CPA)');
 
   if (currentModel === 'leadgen') {
-    html += card(fmt(r.leads, 0), 'Leads Per Month');
-    html += card('$' + fmt(r.costPerLead, 2), 'Cost Per Lead');
-    html += card(fmt(r.sales, 1), 'Sales Per Month');
     html += card('$' + fmt(r.costPerSale, 2), 'Cost Per Sale');
-    html += card(fmt(r.roiPerSale, 0) + '%', 'ROI Per Sale', r.roiPerSale >= 0 ? 'positive' : 'negative');
-    html += card('$' + fmt(r.monthlyProfit), 'Monthly Profit', r.monthlyProfit >= 0 ? 'positive' : 'negative');
-    html += card('$' + fmt(r.ltvProfit), 'LTV Profit (Monthly Cohort)', r.ltvProfit >= 0 ? 'positive' : 'negative');
+    html += card(fmt(r.orders, 1), 'Orders/mo');
+    html += card('$' + fmt(r.roiPerSale, 2), 'ROI Per Sale', r.roiPerSale >= 0 ? 'positive' : 'negative');
+    html += card('$' + fmt(r.roiPerCustomer, 2), 'ROI Per Customer', r.roiPerCustomer >= 0 ? 'positive' : 'negative');
+    html += card('$' + fmt(r.monthlyProfit, 2), 'Current Profit/mo', r.monthlyProfit >= 0 ? 'positive' : 'negative');
+    html += card('$' + fmt(r.ltvProfit, 2), 'Current LTV Profit', r.ltvProfit >= 0 ? 'positive' : 'negative');
   } else {
-    html += card(fmt(r.orders, 0), 'Orders Per Month');
+    html += card('$' + fmt(r.costPerSale, 2), 'Cost Per Sale');
+    html += card(fmt(r.orders, 1), 'Orders/mo');
+    html += card('$' + fmt(r.roiPerSale, 2), 'ROI Per Sale', r.roiPerSale >= 0 ? 'positive' : 'negative');
+    html += card('$' + fmt(r.roiPerCustomer, 2), 'ROI Per Customer', r.roiPerCustomer >= 0 ? 'positive' : 'negative');
     html += card('$' + fmt(r.monthlyRevenue), 'Monthly Revenue');
     html += card(fmt(r.roas, 2) + 'x', 'ROAS');
-    html += card('$' + fmt(r.monthlyProfit), 'Monthly Profit', r.monthlyProfit >= 0 ? 'positive' : 'negative');
-    html += card('$' + fmt(r.ltvRevenue), 'LTV Revenue (Monthly Cohort)');
-    html += card(fmt(r.ltvRoas, 2) + 'x', 'LTV ROAS');
+    html += card('$' + fmt(r.monthlyProfit, 2), 'Current Profit/mo', r.monthlyProfit >= 0 ? 'positive' : 'negative');
+    html += card('$' + fmt(r.ltvProfit, 2), 'Current LTV Profit', r.ltvProfit >= 0 ? 'positive' : 'negative');
   }
 
   grid.innerHTML = html;
@@ -515,18 +532,22 @@ function project6Months() {
     const monthlyCost = r.totalCost;
     cumCost += monthlyCost;
 
-    let monthRevenue, monthProfit, monthLeads, monthSales, monthOrders, monthRoas;
+    let monthRevenue, monthProfit, monthLeads, monthOrders, monthRoas;
+    /* Use same formulas as Justin's sheet */
+    const mLeads = r.leads * eff;
+    const adCostPerLead = values.cpc / (values.convRate / 100);
     if (currentModel === 'leadgen') {
-      const leads = r.leads * eff;
-      const sales = leads * (values.closeRate / 100);
-      monthRevenue = sales * values.dealValue;
-      monthProfit = (monthRevenue * (values.profitMargin / 100)) - monthlyCost;
-      monthLeads = leads;
-      monthSales = sales;
+      const closeRate = values.closeRate / 100;
+      const orders = mLeads * closeRate;
+      monthRevenue = orders * values.dealValue;
+      monthProfit = ((values.dealValue * (values.profitMargin / 100)) * (mLeads * closeRate)) - (adCostPerLead * mLeads);
+      monthLeads = mLeads;
+      monthOrders = orders;
     } else {
-      const orders = r.orders * eff;
+      const closeRate = (values.closeRate || 100) / 100;
+      const orders = mLeads * closeRate;
       monthRevenue = orders * values.aov;
-      monthProfit = (monthRevenue * (values.profitMargin / 100)) - monthlyCost;
+      monthProfit = ((values.aov * (values.profitMargin / 100)) * (mLeads * closeRate)) - (adCostPerLead * mLeads);
       monthOrders = orders;
       monthRoas = monthlyCost > 0 ? monthRevenue / monthlyCost : 0;
     }
