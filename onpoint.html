@@ -1829,9 +1829,18 @@ body.slide-mode .slide-track > section {
 body.slide-mode .grid-2,
 body.slide-mode .grid-3,
 body.slide-mode .grid-4 {
+  grid-template-columns: repeat(2, 1fr) !important;
   gap: 0.5rem !important;
   flex: 1 !important;
   align-content: center !important;
+}
+
+
+/* Force 2x2 grid for strategy cards in slide mode */
+body.slide-mode .grid-4.strategy-grid,
+body.slide-mode section#strategy .grid-4 {
+  grid-template-columns: repeat(2, 1fr) !important;
+  gap: 1.5rem !important;
 }
 
 /* Section sub-text and title should not flex-grow */
