@@ -1723,7 +1723,7 @@ body.slide-mode .watermark { display: none !important; }
   width: 100vw !important; min-height: 100vh !important; max-height: 100vh !important;
   overflow: hidden !important; flex-shrink: 0;
   box-sizing: border-box;
-  display: flex !important; flex-direction: column; align-items: stretch; justify-content: flex-start; padding-top: 64px !important;
+  display: flex !important; flex-direction: column; align-items: stretch; justify-content: center; padding-top: 64px !important;
   position: relative;
 }
 
@@ -1733,7 +1733,7 @@ body.slide-mode .watermark { display: none !important; }
 }
 
 /* ===== AGGRESSIVE COMPACTION ===== */
-body.slide-mode section { padding: 0.5rem 2rem !important; padding-top: 70px !important; padding-bottom: 20px !important; }
+body.slide-mode section { padding: 0.5rem 2rem !important; padding-top: 60px !important; padding-bottom: 10px !important; }
 body.slide-mode section.hero { padding: 0 2rem !important; padding-top: 80px !important; padding-bottom: 60px !important; }
 body.slide-mode .container { max-width: 1200px; margin: 0 auto; padding: 0 !important; overflow: hidden !important; }
 body.slide-mode .section-sub { font-size: 1rem !important; margin-bottom: 0.75rem !important; line-height: 1.4 !important; }
@@ -1759,12 +1759,12 @@ body.slide-mode .slide-track > section > .container {
   display: flex !important;
   flex-direction: column !important;
   justify-content: center !important;
-  flex: 1 !important;
+  flex: 0 1 auto !important;
   max-width: 1200px !important;
   width: 100% !important;
   margin: 0 auto !important;
-  overflow: auto !important;
-  gap: 0.75rem !important;
+  overflow: visible !important;
+  gap: 0.5rem !important;
 }
 body.slide-mode .slide-track > section {
   display: flex !important;
@@ -1816,6 +1816,18 @@ body.slide-mode section#strategy .grid-4 {
   gap: 1.5rem !important;
 }
 
+
+/* Score ring cards - compact in slide mode */
+body.slide-mode .score-ring { margin-bottom: 0.25rem !important; }
+body.slide-mode .score-ring .grade { font-size: 1.2rem !important; }
+body.slide-mode section#pagespeed .card[style*="padding:2rem"],
+body.slide-mode section#pagespeed .card[style*="padding: 2rem"] {
+  padding: 0.75rem !important;
+}
+body.slide-mode section#scorecard .card[style*="padding:2rem"],
+body.slide-mode section#scorecard .card[style*="padding: 2rem"] {
+  padding: 0.75rem !important;
+}
 /* Section sub-text and title should not flex-grow */
 body.slide-mode .section-title,
 body.slide-mode .section-sub {
@@ -1855,8 +1867,8 @@ body.slide-mode .metric-card .label { font-size: 0.8rem !important; margin-top: 
 body.slide-mode .metric-card .change { font-size: 0.6rem !important; }
 
 /* ===== SCORE RINGS ===== */
-body.slide-mode .score-ring { width: 80px !important; height: 80px !important; margin: 0 auto 0.5rem !important; }
-body.slide-mode .score-ring svg { width: 80px !important; height: 80px !important; }
+body.slide-mode .score-ring { width: 60px !important; height: 60px !important; margin: 0 auto 0.5rem !important; }
+body.slide-mode .score-ring svg { width: 60px !important; height: 60px !important; }
 body.slide-mode .score-ring .grade { font-size: 1.2rem !important; }
 body.slide-mode .score-ring .score-label { font-size: 0.65rem !important; }
 body.slide-mode .score-ring .score-value { font-size: 1.1rem !important; }
