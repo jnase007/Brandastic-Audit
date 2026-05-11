@@ -212,6 +212,60 @@ footer {
   font-size:0.85rem;
 }
 footer a { color:var(--accent-light); text-decoration:none; }
+/* Search Bar */
+.search-wrapper {
+  max-width:1200px;
+  margin:0 auto 2rem;
+  padding:0 2rem;
+  position:relative;
+}
+.search-bar {
+  width:100%;
+  padding:1rem 1.5rem 1rem 3.2rem;
+  border-radius:16px;
+  border:1px solid var(--glass-border);
+  background:var(--glass-bg);
+  backdrop-filter:blur(10px);
+  color:var(--text-primary);
+  font-family:'Inter',sans-serif;
+  font-size:1rem;
+  font-weight:500;
+  outline:none;
+  transition:border-color var(--transition), box-shadow var(--transition);
+}
+.search-bar::placeholder { color:var(--text-muted); }
+.search-bar:focus {
+  border-color:var(--accent-light);
+  box-shadow:0 0 0 3px rgba(64,180,229,0.15);
+}
+.search-icon {
+  position:absolute;
+  left:calc(2rem + 14px);
+  top:50%;
+  transform:translateY(-50%);
+  font-size:1.1rem;
+  color:var(--text-muted);
+  pointer-events:none;
+}
+.search-count {
+  text-align:right;
+  margin-top:0.5rem;
+  font-size:0.75rem;
+  font-weight:600;
+  letter-spacing:0.1em;
+  text-transform:uppercase;
+  color:var(--text-muted);
+}
+.audit-card.hidden { display:none; }
+.no-results {
+  grid-column:1/-1;
+  text-align:center;
+  padding:3rem;
+  color:var(--text-muted);
+  font-size:1.1rem;
+  display:none;
+}
+
 @media(max-width:768px) {
   .cards-section { margin-top:-4vh; }
   .cards-grid { grid-template-columns:1fr; }
@@ -300,7 +354,12 @@ footer a { color:var(--accent-light); text-decoration:none; }
 </section>
 
 <section class="cards-section">
-  <div class="cards-grid">
+  <div class="search-wrapper">
+    <span class="search-icon">🔍</span>
+    <input type="text" class="search-bar" id="searchBar" placeholder="Search audits by name, industry, or keyword..." autocomplete="off">
+    <div class="search-count" id="searchCount"></div>
+  </div>
+  <div class="cards-grid" id="cardsGrid">
     <a href="onpoint.html" class="audit-card">
       <div class="card-icon">🎓</div>
       <div class="card-title">On Point for College</div>
@@ -351,6 +410,7 @@ footer a { color:var(--accent-light); text-decoration:none; }
       </div>
       <div class="card-arrow">→</div>
     </a>
+    <div class="no-results" id="noResults">No audits match your search.</div>
   </div>
 </section>
 
@@ -374,6 +434,38 @@ function toggleTheme(){
   applyTheme(c==='dark'?'light':'dark');
 }
 applyTheme(getPreferredTheme());
+
+// Search
+(function(){
+  const search = document.getElementById('searchBar');
+  const grid = document.getElementById('cardsGrid');
+  const countEl = document.getElementById('searchCount');
+  const noResults = document.getElementById('noResults');
+  
+  function updateCount() {
+    const cards = grid.querySelectorAll('.audit-card');
+    const visible = grid.querySelectorAll('.audit-card:not(.hidden)');
+    if (search.value.trim()) {
+      countEl.textContent = visible.length + ' of ' + cards.length + ' audits';
+      noResults.style.display = visible.length === 0 ? 'block' : 'none';
+    } else {
+      countEl.textContent = cards.length + ' audits';
+      noResults.style.display = 'none';
+    }
+  }
+  
+  search.addEventListener('input', function() {
+    const q = this.value.toLowerCase().trim();
+    const cards = grid.querySelectorAll('.audit-card');
+    cards.forEach(card => {
+      const text = card.textContent.toLowerCase();
+      card.classList.toggle('hidden', q && !text.includes(q));
+    });
+    updateCount();
+  });
+  
+  updateCount();
+})();
 </script>
 
 <script>
