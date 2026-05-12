@@ -1066,6 +1066,12 @@ body.slide-mode .section-pill{display:none !important}
             <td><span class="status-warn">⚠️ Average</span></td>
             <td><span class="status-good">✅ Good</span></td>
           </tr>
+          <tr>
+            <td>Est. Monthly Ad Spend</td>
+            <td class="highlight"><span class="status-bad">$0</span></td>
+            <td><span class="status-warn">~$5K</span></td>
+            <td><span class="status-good">~$15K</span></td>
+          </tr>
           <tr class="winner-row">
             <td>Who's Winning</td>
             <td class="highlight losing">Behind</td>
@@ -1616,7 +1622,8 @@ function createCompetitorChart(){
       labels:['On Point for College','onpointallegan.org','onpointgroup.com','onpoint-us.com'],
       datasets:[
         {label:'Keywords',data:[388,183,309,429],backgroundColor:['rgba(64,180,229,0.8)','rgba(100,116,139,0.3)','rgba(100,116,139,0.3)','rgba(100,116,139,0.3)']},
-        {label:'Traffic',data:[916,5231,710,2730],backgroundColor:['rgba(204,34,255,0.8)','rgba(100,116,139,0.2)','rgba(100,116,139,0.2)','rgba(100,116,139,0.2)']}
+        {label:'Traffic',data:[916,5231,710,2730],backgroundColor:['rgba(204,34,255,0.8)','rgba(100,116,139,0.2)','rgba(100,116,139,0.2)','rgba(100,116,139,0.2)']},
+        {label:'Est. Ad Spend ($)',data:[0,5000,8000,15000],backgroundColor:['rgba(245,158,11,0.8)','rgba(100,116,139,0.15)','rgba(100,116,139,0.15)','rgba(100,116,139,0.15)']}
       ]
     },
     options:{
