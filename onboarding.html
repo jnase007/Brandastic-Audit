@@ -124,6 +124,10 @@
         <span class="w-6 h-6 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center text-xs font-bold" id="num-11">12</span>
         Instacart
       </button>
+      <button onclick="showStep(12)" id="tab-12" class="tab-btn flex items-center gap-2 px-4 py-2.5 rounded-xl text-sm font-semibold border border-gray-200 bg-white whitespace-nowrap transition-all">
+        <span class="w-6 h-6 rounded-full bg-cyan-100 text-cyan-700 flex items-center justify-center text-xs font-bold" id="num-12">13</span>
+        Bing / Microsoft
+      </button>
     </div>
 
     <!-- Progress Bar -->
@@ -691,6 +695,62 @@
       </div>
     </div>
 
+    <!-- Step 13: Bing / Microsoft Ads -->
+    <div class="step-panel" id="panel-12">
+      <div class="bg-white rounded-2xl border border-gray-200 p-8">
+        <div class="flex items-center gap-3 mb-6">
+          <div class="w-10 h-10 rounded-xl bg-cyan-50 flex items-center justify-center">
+            <span class="text-lg font-bold text-cyan-600">13</span>
+          </div>
+          <div>
+            <h2 class="text-xl font-bold">Microsoft / Bing Ads</h2>
+            <p class="text-sm text-gray-400">Share Microsoft Advertising account access</p>
+          </div>
+        </div>
+        <div class="space-y-4 mb-8">
+          <div class="flex items-start gap-3 p-4 bg-gray-50 rounded-xl">
+            <span class="w-7 h-7 rounded-full bg-cyan-100 text-cyan-700 flex items-center justify-center text-xs font-bold flex-shrink-0 mt-0.5">a</span>
+            <div>
+              <p class="text-sm font-medium text-gray-900">Visit Microsoft Advertising</p>
+              <p class="text-xs text-gray-500 mt-0.5">Go to <a href="https://ads.microsoft.com/" target="_blank" class="text-blue-600 underline">ads.microsoft.com</a> and sign in</p>
+            </div>
+          </div>
+          <div class="flex items-start gap-3 p-4 bg-gray-50 rounded-xl">
+            <span class="w-7 h-7 rounded-full bg-cyan-100 text-cyan-700 flex items-center justify-center text-xs font-bold flex-shrink-0 mt-0.5">b</span>
+            <div>
+              <p class="text-sm font-medium text-gray-900">Invite us to your account</p>
+              <p class="text-xs text-gray-500 mt-0.5">Go to <strong>Tools → Account Access → Invite User</strong> → enter <strong>seo@brandastic.com</strong> → select <strong>Super Admin</strong> or <strong>Standard User</strong> role</p>
+            </div>
+          </div>
+          <div class="flex items-start gap-3 p-4 bg-gray-50 rounded-xl">
+            <span class="w-7 h-7 rounded-full bg-cyan-100 text-cyan-700 flex items-center justify-center text-xs font-bold flex-shrink-0 mt-0.5">c</span>
+            <div>
+              <p class="text-sm font-medium text-gray-900">Or link to our Manager Account</p>
+              <p class="text-xs text-gray-500 mt-0.5">Go to <strong>Accounts → Link to Manager Account</strong> and enter our Manager Account ID (ask your account manager for this)</p>
+            </div>
+          </div>
+          <div class="flex items-start gap-3 p-4 bg-gray-50 rounded-xl">
+            <span class="w-7 h-7 rounded-full bg-cyan-100 text-cyan-700 flex items-center justify-center text-xs font-bold flex-shrink-0 mt-0.5">d</span>
+            <div>
+              <p class="text-sm font-medium text-gray-900">Share your Microsoft Ads Account Number</p>
+              <p class="text-xs text-gray-500 mt-0.5">Send us your <strong>Account Number</strong> and <strong>Customer ID</strong> from the top of your Microsoft Ads dashboard</p>
+            </div>
+          </div>
+          <div class="flex items-start gap-3 p-4 bg-gray-50 rounded-xl">
+            <span class="w-7 h-7 rounded-full bg-cyan-100 text-cyan-700 flex items-center justify-center text-xs font-bold flex-shrink-0 mt-0.5">e</span>
+            <div>
+              <p class="text-sm font-medium text-gray-900">UET Tag access (if set up)</p>
+              <p class="text-xs text-gray-500 mt-0.5">Ensure we have access to your <strong>UET (Universal Event Tracking)</strong> tag for conversion tracking</p>
+            </div>
+          </div>
+        </div>
+        <div class="flex items-center justify-between">
+          <button onclick="markDone(12)" id="done-12" class="px-6 py-2.5 bg-gray-900 text-white rounded-full text-sm font-semibold hover:bg-gray-700 transition">Mark as Done ✓</button>
+          <button onclick="showStep(11)" class="text-sm text-gray-400 hover:text-gray-900 font-medium transition">← Back</button>
+        </div>
+      </div>
+    </div>
+
     <!-- All Done Panel -->
     <div class="step-panel" id="panel-done">
       <div class="bg-gray-900 rounded-2xl p-10 text-center">
@@ -715,7 +775,7 @@
   </footer>
 
   <script>
-    const completed = [false, false, false, false, false, false, false, false, false, false, false, false];
+    const completed = [false, false, false, false, false, false, false, false, false, false, false, false, false];
     let currentStep = 0;
 
     function showStep(index) {
@@ -743,10 +803,10 @@
 
       // Update progress
       const doneCount = completed.filter(Boolean).length;
-      document.getElementById('progress').style.width = (doneCount / 12 * 100) + '%';
+      document.getElementById('progress').style.width = (doneCount / 13 * 100) + '%';
 
       // If all done, show completion
-      if (doneCount === 12) {
+      if (doneCount === 13) {
         setTimeout(() => {
           document.querySelectorAll('.step-panel').forEach(p => p.classList.remove('active'));
           document.getElementById('panel-done').classList.add('active');
