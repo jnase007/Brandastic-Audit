@@ -7,6 +7,26 @@
   status = 200
 
 [[redirects]]
+  from = "/onpoint/scroll"
+  to = "/onpoint.html?mode=scroll"
+  status = 302
+
+[[redirects]]
+  from = "/onpoint/slide"
+  to = "/onpoint.html?mode=slide"
+  status = 302
+
+[[redirects]]
+  from = "/integrity/scroll"
+  to = "/integrity.html?mode=scroll"
+  status = 302
+
+[[redirects]]
+  from = "/fountainlife/scroll"
+  to = "/fountainlife.html?mode=scroll"
+  status = 302
+
+[[redirects]]
   from = "/integrity"
   to = "/integrity.html"
   status = 200
