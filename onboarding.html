@@ -116,6 +116,14 @@
         <span class="w-6 h-6 rounded-full bg-teal-100 text-teal-700 flex items-center justify-center text-xs font-bold" id="num-9">10</span>
         Website
       </button>
+      <button onclick="showStep(10)" id="tab-10" class="tab-btn flex items-center gap-2 px-4 py-2.5 rounded-xl text-sm font-semibold border border-gray-200 bg-white whitespace-nowrap transition-all">
+        <span class="w-6 h-6 rounded-full bg-red-100 text-red-700 flex items-center justify-center text-xs font-bold" id="num-10">11</span>
+        DoorDash
+      </button>
+      <button onclick="showStep(11)" id="tab-11" class="tab-btn flex items-center gap-2 px-4 py-2.5 rounded-xl text-sm font-semibold border border-gray-200 bg-white whitespace-nowrap transition-all">
+        <span class="w-6 h-6 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center text-xs font-bold" id="num-11">12</span>
+        Instacart
+      </button>
     </div>
 
     <!-- Progress Bar -->
@@ -582,6 +590,107 @@
       </div>
     </div>
 
+    <!-- Step 11: DoorDash -->
+    <div class="step-panel" id="panel-10">
+      <div class="bg-white rounded-2xl border border-gray-200 p-8">
+        <div class="flex items-center gap-3 mb-6">
+          <div class="w-10 h-10 rounded-xl bg-red-50 flex items-center justify-center">
+            <span class="text-lg font-bold text-red-600">11</span>
+          </div>
+          <div>
+            <h2 class="text-xl font-bold">DoorDash Ads</h2>
+            <p class="text-sm text-gray-400">Share DoorDash Merchant or Ads Manager access</p>
+          </div>
+        </div>
+        <div class="space-y-4 mb-8">
+          <div class="flex items-start gap-3 p-4 bg-gray-50 rounded-xl">
+            <span class="w-7 h-7 rounded-full bg-red-100 text-red-700 flex items-center justify-center text-xs font-bold flex-shrink-0 mt-0.5">a</span>
+            <div>
+              <p class="text-sm font-medium text-gray-900">Visit DoorDash Merchant Portal</p>
+              <p class="text-xs text-gray-500 mt-0.5">Go to <a href="https://merchants.doordash.com/" target="_blank" class="text-blue-600 underline">merchants.doordash.com</a> and sign in</p>
+            </div>
+          </div>
+          <div class="flex items-start gap-3 p-4 bg-gray-50 rounded-xl">
+            <span class="w-7 h-7 rounded-full bg-red-100 text-red-700 flex items-center justify-center text-xs font-bold flex-shrink-0 mt-0.5">b</span>
+            <div>
+              <p class="text-sm font-medium text-gray-900">Add us as a team member</p>
+              <p class="text-xs text-gray-500 mt-0.5">Go to <strong>Settings → Team Management → Add Member</strong> → enter <strong>seo@brandastic.com</strong> with <strong>Admin</strong> or <strong>Manager</strong> role</p>
+            </div>
+          </div>
+          <div class="flex items-start gap-3 p-4 bg-gray-50 rounded-xl">
+            <span class="w-7 h-7 rounded-full bg-red-100 text-red-700 flex items-center justify-center text-xs font-bold flex-shrink-0 mt-0.5">c</span>
+            <div>
+              <p class="text-sm font-medium text-gray-900">Share Sponsored Listings / Ads access</p>
+              <p class="text-xs text-gray-500 mt-0.5">Ensure our account has access to <strong>Promotions</strong> and <strong>Sponsored Listings</strong> sections so we can manage ad campaigns</p>
+            </div>
+          </div>
+          <div class="flex items-start gap-3 p-4 bg-gray-50 rounded-xl">
+            <span class="w-7 h-7 rounded-full bg-red-100 text-red-700 flex items-center justify-center text-xs font-bold flex-shrink-0 mt-0.5">d</span>
+            <div>
+              <p class="text-sm font-medium text-gray-900">Send us your Store ID(s)</p>
+              <p class="text-xs text-gray-500 mt-0.5">Share your DoorDash Store ID so we can identify and manage the correct locations</p>
+            </div>
+          </div>
+        </div>
+        <div class="flex items-center justify-between">
+          <button onclick="markDone(10)" id="done-10" class="px-6 py-2.5 bg-gray-900 text-white rounded-full text-sm font-semibold hover:bg-gray-700 transition">Mark as Done ✓</button>
+          <div class="flex gap-3">
+            <button onclick="showStep(9)" class="text-sm text-gray-400 hover:text-gray-900 font-medium transition">← Back</button>
+            <button onclick="showStep(11)" class="text-sm text-gray-400 hover:text-gray-900 font-medium transition">Next: Instacart →</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Step 12: Instacart -->
+    <div class="step-panel" id="panel-11">
+      <div class="bg-white rounded-2xl border border-gray-200 p-8">
+        <div class="flex items-center gap-3 mb-6">
+          <div class="w-10 h-10 rounded-xl bg-emerald-50 flex items-center justify-center">
+            <span class="text-lg font-bold text-emerald-600">12</span>
+          </div>
+          <div>
+            <h2 class="text-xl font-bold">Instacart Ads</h2>
+            <p class="text-sm text-gray-400">Share Instacart Ads Portal access for sponsored product campaigns</p>
+          </div>
+        </div>
+        <div class="space-y-4 mb-8">
+          <div class="flex items-start gap-3 p-4 bg-gray-50 rounded-xl">
+            <span class="w-7 h-7 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center text-xs font-bold flex-shrink-0 mt-0.5">a</span>
+            <div>
+              <p class="text-sm font-medium text-gray-900">Visit Instacart Ads Manager</p>
+              <p class="text-xs text-gray-500 mt-0.5">Go to <a href="https://ads.instacart.com/" target="_blank" class="text-blue-600 underline">ads.instacart.com</a> and sign in</p>
+            </div>
+          </div>
+          <div class="flex items-start gap-3 p-4 bg-gray-50 rounded-xl">
+            <span class="w-7 h-7 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center text-xs font-bold flex-shrink-0 mt-0.5">b</span>
+            <div>
+              <p class="text-sm font-medium text-gray-900">Add us as a team member</p>
+              <p class="text-xs text-gray-500 mt-0.5">Go to <strong>Settings → User Management → Invite User</strong> → enter <strong>seo@brandastic.com</strong> with <strong>Admin</strong> access</p>
+            </div>
+          </div>
+          <div class="flex items-start gap-3 p-4 bg-gray-50 rounded-xl">
+            <span class="w-7 h-7 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center text-xs font-bold flex-shrink-0 mt-0.5">c</span>
+            <div>
+              <p class="text-sm font-medium text-gray-900">Grant campaign management access</p>
+              <p class="text-xs text-gray-500 mt-0.5">Ensure our account can manage <strong>Sponsored Products</strong>, <strong>Display Ads</strong>, and view <strong>Analytics / Reporting</strong></p>
+            </div>
+          </div>
+          <div class="flex items-start gap-3 p-4 bg-gray-50 rounded-xl">
+            <span class="w-7 h-7 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center text-xs font-bold flex-shrink-0 mt-0.5">d</span>
+            <div>
+              <p class="text-sm font-medium text-gray-900">Share your Brand / Advertiser ID</p>
+              <p class="text-xs text-gray-500 mt-0.5">Send us your Instacart Advertiser ID so we can confirm we're managing the correct account</p>
+            </div>
+          </div>
+        </div>
+        <div class="flex items-center justify-between">
+          <button onclick="markDone(11)" id="done-11" class="px-6 py-2.5 bg-gray-900 text-white rounded-full text-sm font-semibold hover:bg-gray-700 transition">Mark as Done ✓</button>
+          <button onclick="showStep(10)" class="text-sm text-gray-400 hover:text-gray-900 font-medium transition">← Back</button>
+        </div>
+      </div>
+    </div>
+
     <!-- All Done Panel -->
     <div class="step-panel" id="panel-done">
       <div class="bg-gray-900 rounded-2xl p-10 text-center">
@@ -606,7 +715,7 @@
   </footer>
 
   <script>
-    const completed = [false, false, false, false, false, false, false, false, false, false];
+    const completed = [false, false, false, false, false, false, false, false, false, false, false, false];
     let currentStep = 0;
 
     function showStep(index) {
@@ -634,10 +743,10 @@
 
       // Update progress
       const doneCount = completed.filter(Boolean).length;
-      document.getElementById('progress').style.width = (doneCount / 10 * 100) + '%';
+      document.getElementById('progress').style.width = (doneCount / 12 * 100) + '%';
 
       // If all done, show completion
-      if (doneCount === 10) {
+      if (doneCount === 12) {
         setTimeout(() => {
           document.querySelectorAll('.step-panel').forEach(p => p.classList.remove('active'));
           document.getElementById('panel-done').classList.add('active');
