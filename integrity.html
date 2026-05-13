@@ -34,7 +34,7 @@ section{padding:3.5rem 2rem;position:relative}section:nth-child(even){background
 .gap-card{padding:1.5rem;text-align:center}.gap-card .kw{font-weight:700;font-size:1rem;margin-bottom:0.5rem}.gap-card .vol{font-size:1.8rem;font-weight:800;background:linear-gradient(135deg,#40B4E5,#CC22FF);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}.gap-card .vol-label{font-size:0.7rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.1em}.gap-card .status{display:inline-block;margin-top:0.75rem;padding:4px 12px;border-radius:6px;background:rgba(239,68,68,0.12);color:var(--red);font-size:0.7rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase}
 .finding-card{display:flex;gap:1.5rem;align-items:start;padding:2rem}.finding-num{flex-shrink:0;width:48px;height:48px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.2rem;font-weight:800;color:#fff}.finding-num.critical{background:linear-gradient(135deg,#ef4444,#dc2626)}.finding-num.high{background:linear-gradient(135deg,#f59e0b,#d97706)}.finding-card .title{font-weight:700;font-size:1.05rem;margin-bottom:0.3rem}.finding-card .desc{color:var(--text-secondary);font-size:0.9rem}
 .strategy-card{padding:2.5rem 2rem;border-top:3px solid transparent;background-image:linear-gradient(var(--bg-card),var(--bg-card)),linear-gradient(135deg,#40B4E5,#CC22FF);background-origin:border-box;background-clip:padding-box,border-box;border-radius:16px;text-align:center}.strategy-card .icon{font-size:2.5rem;margin-bottom:1rem}.strategy-card .title{font-weight:700;font-size:1.1rem;margin-bottom:0.75rem}.strategy-card .desc{color:var(--text-secondary);font-size:0.9rem;line-height:1.6;margin-bottom:1rem}.strategy-card .outcome{padding:0.75rem;border-radius:8px;background:rgba(64,180,229,0.08);font-size:0.8rem;font-weight:600;color:var(--accent-light)}
-.timeline{display:flex;gap:0;margin-top:2rem;position:relative}.timeline::before{content:'';position:absolute;top:40px;left:0;right:0;height:3px;background:var(--bg-card-border)}.timeline-phase{flex:1;position:relative;padding-top:60px;padding-right:1.5rem}.timeline-dot{position:absolute;top:32px;left:0;width:18px;height:18px;border-radius:50%;background:linear-gradient(135deg,#40B4E5,#CC22FF);border:3px solid var(--bg-primary);z-index:1;transition:border-color var(--transition)}.timeline-phase .phase-label{font-size:0.7rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--accent-light);margin-bottom:0.5rem}.timeline-phase .phase-title{font-weight:700;font-size:1.1rem;margin-bottom:0.75rem}.timeline-phase .phase-items{list-style:none;display:flex;flex-direction:column;gap:0.4rem}.timeline-phase .phase-items li{font-size:0.9rem;color:var(--text-secondary);padding-left:1.2rem;position:relative}.timeline-phase .phase-items li::before{content:'';position:absolute;left:0;top:8px;width:6px;height:6px;border-radius:50%;background:var(--accent-light)}
+.timeline{display:flex;gap:0;margin-top:2rem;position:relative}.timeline::before{content:'';position:absolute;top:40px;left:0;right:0;height:3px;background:var(--bg-card-border)}.timeline-phase{flex:1;position:relative;padding-top:60px;padding-right:1.5rem}.timeline-dot{position:absolute;top:32px;left:0;width:18px;height:18px;border-radius:50%;background:linear-gradient(135deg,#40B4E5,#CC22FF);border:3px solid var(--bg-primary);z-index:1;transition:border-color var(--transition)}.timeline-phase .phase-label{font-size:0.7rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--accent-light);margin-bottom:0.5rem}.timeline-phase .phase-title{font-weight:700;font-size:1.1rem;margin-bottom:0.75rem}.timeline-phase .phase-items{list-style:none;display:flex;flex-direction:column;gap:0.4rem}.timeline-phase .phase-items li{font-size:0.9rem;color:var(--text-secondary);padding-left:1.2rem;position:relative}.timeline-phase .phase-items li::before{content:'';position:absolute;left:0;top:8px;width:6px;height:6px;border-radius:50%;background:#40B4E5}
 .roi-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1.5rem}.roi-card{text-align:center;padding:2rem 1.5rem}.roi-card .label{font-size:0.7rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--text-muted);margin-bottom:0.75rem}.roi-card .before{font-size:1.3rem;font-weight:600;color:var(--text-muted);text-decoration:line-through}.roi-card .arrow{font-size:1.5rem;margin:0.5rem 0;background:linear-gradient(135deg,#40B4E5,#CC22FF);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}.roi-card .after{font-size:2rem;font-weight:800;background:linear-gradient(135deg,#40B4E5,#CC22FF);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
 .team-photo{width:100%;max-width:720px;margin:0 auto 2.5rem;display:block;border-radius:16px;box-shadow:0 12px 40px rgba(0,0,0,0.25);object-fit:cover;height:320px}
 [data-theme="light"] .team-photo{box-shadow:0 12px 40px rgba(0,0,0,0.1)}
@@ -439,7 +439,7 @@ body.slide-mode .section-pill{display:none !important}
 
 
 <nav class="nav">
-  <div class="nav-brand"><span class="dot"></span> BRANDASTIC <span style="opacity:0.4;margin:0 6px;">·</span> <span style="font-weight:700;opacity:0.9">Integrity Solutions</span></div>
+  <div class="nav-brand">BRANDASTIC <span style="opacity:0.4;margin:0 6px;">·</span> <span style="font-weight:700;opacity:0.9">Integrity Solutions</span></div>
   <div class="nav-slide-title" id="navSlideTitle"></div>
   <div class="nav-actions">
     <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme"><div class="knob">🌙</div></button>
@@ -534,21 +534,21 @@ body.slide-mode .section-pill{display:none !important}
       <div>
         <h3 style="font-weight:700;margin-bottom:1rem;font-size:1.1rem">🔍 Key Findings</h3>
         <ul style="list-style:none;display:flex;flex-direction:column;gap:0.75rem">
-          <li style="color:var(--text-secondary);font-size:0.9rem;padding-left:1.2rem;position:relative"><span style="position:absolute;left:0;color:var(--red)">•</span> 43% traffic decline since January peak</li>
-          <li style="color:var(--text-secondary);font-size:0.9rem;padding-left:1.2rem;position:relative"><span style="position:absolute;left:0;color:var(--red)">•</span> Competitors outperform by 2-10x in organic traffic</li>
-          <li style="color:var(--text-secondary);font-size:0.9rem;padding-left:1.2rem;position:relative"><span style="position:absolute;left:0;color:var(--red)">•</span> Service pages are invisible in search</li>
-          <li style="color:var(--text-secondary);font-size:0.9rem;padding-left:1.2rem;position:relative"><span style="position:absolute;left:0;color:var(--red)">•</span> Missing high-value industry vertical pages</li>
-          <li style="color:var(--text-secondary);font-size:0.9rem;padding-left:1.2rem;position:relative"><span style="position:absolute;left:0;color:var(--red)">•</span> 26 keywords in positions 4-10 (quick win zone)</li>
+          <li style="color:var(--text-secondary);font-size:0.9rem;padding-left:1.2rem;position:relative"><span style="position:absolute;left:0;color:#40B4E5">•</span> 43% traffic decline since January peak</li>
+          <li style="color:var(--text-secondary);font-size:0.9rem;padding-left:1.2rem;position:relative"><span style="position:absolute;left:0;color:#40B4E5">•</span> Competitors outperform by 2-10x in organic traffic</li>
+          <li style="color:var(--text-secondary);font-size:0.9rem;padding-left:1.2rem;position:relative"><span style="position:absolute;left:0;color:#40B4E5">•</span> Service pages are invisible in search</li>
+          <li style="color:var(--text-secondary);font-size:0.9rem;padding-left:1.2rem;position:relative"><span style="position:absolute;left:0;color:#40B4E5">•</span> Missing high-value industry vertical pages</li>
+          <li style="color:var(--text-secondary);font-size:0.9rem;padding-left:1.2rem;position:relative"><span style="position:absolute;left:0;color:#40B4E5">•</span> 26 keywords in positions 4-10 (quick win zone)</li>
         </ul>
       </div>
       <div>
         <h3 style="font-weight:700;margin-bottom:1rem;font-size:1.1rem">🚀 Biggest Opportunities</h3>
         <ul style="list-style:none;display:flex;flex-direction:column;gap:0.75rem">
-          <li style="color:var(--text-secondary);font-size:0.9rem;padding-left:1.2rem;position:relative"><span style="position:absolute;left:0;color:var(--green)">•</span> 26 keywords one push from page 1 top 3</li>
-          <li style="color:var(--text-secondary);font-size:0.9rem;padding-left:1.2rem;position:relative"><span style="position:absolute;left:0;color:var(--green)">•</span> 14,900+ monthly searches in content gaps</li>
-          <li style="color:var(--text-secondary);font-size:0.9rem;padding-left:1.2rem;position:relative"><span style="position:absolute;left:0;color:var(--green)">•</span> Industry vertical pages = untapped lead gen</li>
-          <li style="color:var(--text-secondary);font-size:0.9rem;padding-left:1.2rem;position:relative"><span style="position:absolute;left:0;color:var(--green)">•</span> Thought leadership + LinkedIn = authority links</li>
-          <li style="color:var(--text-secondary);font-size:0.9rem;padding-left:1.2rem;position:relative"><span style="position:absolute;left:0;color:var(--green)">•</span> Traffic value from $8K to $25-35K/mo potential</li>
+          <li style="color:var(--text-secondary);font-size:0.9rem;padding-left:1.2rem;position:relative"><span style="position:absolute;left:0;color:#40B4E5">•</span> 26 keywords one push from page 1 top 3</li>
+          <li style="color:var(--text-secondary);font-size:0.9rem;padding-left:1.2rem;position:relative"><span style="position:absolute;left:0;color:#40B4E5">•</span> 14,900+ monthly searches in content gaps</li>
+          <li style="color:var(--text-secondary);font-size:0.9rem;padding-left:1.2rem;position:relative"><span style="position:absolute;left:0;color:#40B4E5">•</span> Industry vertical pages = untapped lead gen</li>
+          <li style="color:var(--text-secondary);font-size:0.9rem;padding-left:1.2rem;position:relative"><span style="position:absolute;left:0;color:#40B4E5">•</span> Thought leadership + LinkedIn = authority links</li>
+          <li style="color:var(--text-secondary);font-size:0.9rem;padding-left:1.2rem;position:relative"><span style="position:absolute;left:0;color:#40B4E5">•</span> Traffic value from $8K to $25-35K/mo potential</li>
         </ul>
       </div>
     </div>
@@ -822,6 +822,27 @@ body.slide-mode .section-pill{display:none !important}
 </div>
 </section>
 
+
+<section id="gaps">
+  <div class="container reveal">
+    <div class="section-badge">09 — Content Gap Analysis<span class="category-tag" style="background:#10b98122;color:#10b981;border:1px solid #10b98144">🔍 SEO</span></div>
+    <h2 class="section-title">Searches You're <span class="gradient">Missing</span></h2>
+    <p class="section-sub">High-volume, high-intent keywords your competitors are ranking for — and you're not.</p>
+    <div class="grid-3" style="margin-bottom:2rem">
+      <div class="card gap-card"><div class="kw">"sales enablement"</div><div class="vol" data-count="6600">0</div><div class="vol-label">Monthly Searches</div><div class="status">NOT RANKING</div></div>
+      <div class="card gap-card"><div class="kw">"sales training programs"</div><div class="vol" data-count="3600">0</div><div class="vol-label">Monthly Searches</div><div class="status">NOT RANKING</div></div>
+      <div class="card gap-card"><div class="kw">"B2B sales training"</div><div class="vol" data-count="2400">0</div><div class="vol-label">Monthly Searches</div><div class="status">NOT RANKING</div></div>
+      <div class="card gap-card"><div class="kw">"sales coaching certification"</div><div class="vol" data-count="1300">0</div><div class="vol-label">Monthly Searches</div><div class="status">NOT RANKING</div></div>
+      <div class="card gap-card"><div class="kw">"enterprise sales training"</div><div class="vol" data-count="1000">0</div><div class="vol-label">Monthly Searches</div><div class="status">NOT RANKING</div></div>
+    </div>
+    <div class="card" style="text-align:center;padding:2rem;border:1px solid rgba(239,68,68,0.2);background:rgba(239,68,68,0.05)">
+      <div style="font-size:0.75rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--red);margin-bottom:0.5rem">Total Missed Opportunity</div>
+      <div style="font-size:2.5rem;font-weight:800;color:var(--red)">14,900+</div>
+      <div style="color:var(--text-secondary);font-size:0.9rem">monthly searches you could be capturing</div>
+    </div>
+  </div>
+</section>
+
 <!-- 7B. GOOGLE ADS PREVIEW -->
 <section id="ads">
   <div class="container reveal">
@@ -867,19 +888,6 @@ body.slide-mode .section-pill{display:none !important}
   </div>
 <div style="text-align:center;margin-top:1.5rem;padding-top:1rem;border-top:1px solid rgba(255,255,255,0.06);font-size:0.75rem;color:var(--text-muted)">
   Data sources: <a href="https://semrush.com" target="_blank" style="color:var(--text-muted);text-decoration:underline">Semrush</a> · <a href="https://spyfu.com" target="_blank" style="color:var(--text-muted);text-decoration:underline">SpyFu</a> · <a href="https://adstransparency.google.com" target="_blank" style="color:var(--text-muted);text-decoration:underline">Google Ads Transparency Center</a> · Accessed May 2026
-</div>
-</section>
-
-<!-- 8. COMPETITOR COMPARISON -->
-<section id="competitors">
-  <div class="container reveal">
-    <div class="section-badge">07 — Competitor Comparison<span class="category-tag" style="background:#10b98122;color:#10b981;border:1px solid #10b98144">🔍 SEO</span></div>
-    <h2 class="section-title">How You <span class="gradient">Compare</span></h2>
-    <p class="section-sub">Your biggest competitors are investing heavily in content and SEO — and it's showing in their numbers.</p>
-    <div class="chart-wrap"><canvas id="competitorChart" height="120"></canvas></div>
-  </div>
-<div style="text-align:center;margin-top:1.5rem;padding-top:1rem;border-top:1px solid rgba(255,255,255,0.06);font-size:0.75rem;color:var(--text-muted)">
-  Data sources: <a href="https://semrush.com" target="_blank" style="color:var(--text-muted);text-decoration:underline">Semrush</a> · <a href="https://similarweb.com" target="_blank" style="color:var(--text-muted);text-decoration:underline">SimilarWeb</a> · <a href="https://ahrefs.com" target="_blank" style="color:var(--text-muted);text-decoration:underline">Ahrefs</a> · Accessed May 2026
 </div>
 </section>
 
@@ -1156,27 +1164,6 @@ body.slide-mode .section-pill{display:none !important}
   </div>
 </section>
 
-<!-- 10. CONTENT GAP ANALYSIS -->
-<section id="gaps">
-  <div class="container reveal">
-    <div class="section-badge">09 — Content Gap Analysis<span class="category-tag" style="background:#10b98122;color:#10b981;border:1px solid #10b98144">🔍 SEO</span></div>
-    <h2 class="section-title">Searches You're <span class="gradient">Missing</span></h2>
-    <p class="section-sub">High-volume, high-intent keywords your competitors are ranking for — and you're not.</p>
-    <div class="grid-3" style="margin-bottom:2rem">
-      <div class="card gap-card"><div class="kw">"sales enablement"</div><div class="vol" data-count="6600">0</div><div class="vol-label">Monthly Searches</div><div class="status">NOT RANKING</div></div>
-      <div class="card gap-card"><div class="kw">"sales training programs"</div><div class="vol" data-count="3600">0</div><div class="vol-label">Monthly Searches</div><div class="status">NOT RANKING</div></div>
-      <div class="card gap-card"><div class="kw">"B2B sales training"</div><div class="vol" data-count="2400">0</div><div class="vol-label">Monthly Searches</div><div class="status">NOT RANKING</div></div>
-      <div class="card gap-card"><div class="kw">"sales coaching certification"</div><div class="vol" data-count="1300">0</div><div class="vol-label">Monthly Searches</div><div class="status">NOT RANKING</div></div>
-      <div class="card gap-card"><div class="kw">"enterprise sales training"</div><div class="vol" data-count="1000">0</div><div class="vol-label">Monthly Searches</div><div class="status">NOT RANKING</div></div>
-    </div>
-    <div class="card" style="text-align:center;padding:2rem;border:1px solid rgba(239,68,68,0.2);background:rgba(239,68,68,0.05)">
-      <div style="font-size:0.75rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--red);margin-bottom:0.5rem">Total Missed Opportunity</div>
-      <div style="font-size:2.5rem;font-weight:800;color:var(--red)">14,900+</div>
-      <div style="color:var(--text-secondary);font-size:0.9rem">monthly searches you could be capturing</div>
-    </div>
-  </div>
-</section>
-
 <!-- 11. TOP 5 CRITICAL FINDINGS -->
 <section id="findings">
   <div class="container reveal">
@@ -1207,7 +1194,6 @@ body.slide-mode .section-pill{display:none !important}
       <div class="card strategy-card"><div class="icon">🚨</div><div class="title">Stop the Bleeding</div><div class="desc">Refresh top 10 blog posts, fix technical issues, reclaim decaying rankings. Emergency stabilization first.</div><div class="outcome">Recover 30-40% lost traffic in 60 days</div></div>
       <div class="card strategy-card"><div class="icon">🏥</div><div class="title">Industry Vertical Domination</div><div class="desc">Dedicated landing pages for healthcare, dental, banking, pharma, and insurance with vertical-specific content.</div><div class="outcome">New lead gen channels per vertical</div></div>
       <div class="card strategy-card"><div class="icon">⚔️</div><div class="title">Competitive Content Warfare</div><div class="desc">Build pillar pages to match and exceed Rain, Richardson, and Brooks Group on key topic clusters.</div><div class="outcome">Close the 2-10x traffic gap</div></div>
-      <div class="card strategy-card"><div class="icon">💡</div><div class="title">LinkedIn Thought Leadership</div><div class="desc">Executive content strategy, guest posting, podcast appearances — build authority and earn high-value backlinks.</div><div class="outcome">2x domain authority improvement</div></div>
     </div>
   </div>
 </section>
@@ -1221,7 +1207,7 @@ body.slide-mode .section-pill{display:none !important}
     <div class="timeline">
       <div class="timeline-phase"><div class="timeline-dot"></div><div class="phase-label">Month 1</div><div class="phase-title">Emergency Stabilization</div><ul class="phase-items"><li>Full technical SEO audit</li><li>Refresh top 10 decaying posts</li><li>Fix crawl & indexation issues</li><li>Quick win keyword optimization (26 targets)</li></ul></div>
       <div class="timeline-phase"><div class="timeline-dot"></div><div class="phase-label">Month 2–3</div><div class="phase-title">Industry Pages + Content Velocity</div><ul class="phase-items"><li>Launch 5 industry vertical pages</li><li>Service page SEO overhaul</li><li>Content calendar: 4 posts/month</li><li>Internal linking architecture</li></ul></div>
-      <div class="timeline-phase"><div class="timeline-dot"></div><div class="phase-label">Month 4–6</div><div class="phase-title">Competitive Gap Closure</div><ul class="phase-items"><li>Pillar page content strategy</li><li>LinkedIn thought leadership launch</li><li>Guest posting & PR campaign</li><li>Advanced analytics & conversion tracking</li></ul></div>
+      <div class="timeline-phase"><div class="timeline-dot"></div><div class="phase-label">Month 4–6</div><div class="phase-title">Competitive Gap Closure</div><ul class="phase-items"><li>Pillar page content strategy</li><li>Guest posting & PR campaign</li><li>Advanced analytics & conversion tracking</li></ul></div>
     </div>
   </div>
 </section>
