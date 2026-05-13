@@ -2058,7 +2058,7 @@ body.slide-mode .slide-arrow { display: flex; }
   'use strict';
 
   /* ---- State ---- */
-  let slideMode = localStorage.getItem('brandastic-slide-mode') !== 'off';
+  let slideMode = localStorage.getItem('brandastic-slide-mode') === 'on';
   let currentSlide = 0;
   let slides = [];
   let viewport, track, counter, progress, dotsContainer, arrowL, arrowR;

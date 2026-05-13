@@ -2432,7 +2432,7 @@ body.slide-mode .slide-arrow { display: flex; }
   /* ---- State ---- */
   // URL param ?mode=scroll forces scroll mode, ?mode=slide forces slide mode
   const urlMode = new URLSearchParams(window.location.search).get('mode');
-  let slideMode = urlMode === 'scroll' ? false : urlMode === 'slide' ? true : localStorage.getItem('brandastic-slide-mode') !== 'off';
+  let slideMode = urlMode === 'scroll' ? false : urlMode === 'slide' ? true : localStorage.getItem('brandastic-slide-mode') === 'on';
   let currentSlide = 0;
   let slides = [];
   let viewport, track, counter, progress, dotsContainer, arrowL, arrowR;
