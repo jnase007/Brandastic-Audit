@@ -37,8 +37,8 @@ html{scroll-behavior:smooth}
 body{font-family:'Inter',system-ui,-apple-system,sans-serif;background:var(--bg-primary);color:var(--text-primary);line-height:1.6;transition:background-color var(--transition),color var(--transition);overflow-x:hidden}
 a{color:var(--accent-light);text-decoration:none}
 /* ========== NAV ========== */
-.nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:0 2rem;height:64px;display:flex;align-items:center;justify-content:space-between;background:var(--glass-bg);backdrop-filter:blur(20px);border-bottom:1px solid var(--glass-border);transition:background var(--transition)}
-.nav-brand{font-weight:700;font-size:1.15rem;letter-spacing:0.05em;display:flex;align-items:center;gap:10px}
+.nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:0 2rem;height:64px;display:flex;align-items:center;justify-content:space-between;gap:8px;background:var(--glass-bg);backdrop-filter:blur(20px);border-bottom:1px solid var(--glass-border);transition:background var(--transition);overflow:hidden}
+.nav-brand{font-weight:700;font-size:1.15rem;letter-spacing:0.05em;display:flex;align-items:center;gap:10px;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;min-width:0;flex-shrink:1}
 .nav-brand .dot{width:10px;height:10px;border-radius:50%;background:linear-gradient(135deg,#40B4E5,#CC22FF)}
 .nav-actions{display:flex;align-items:center;gap:12px}
 .theme-toggle{width:56px;height:32px;min-width:44px;min-height:44px;border-radius:13px;border:none;cursor:pointer;background:linear-gradient(135deg,#40B4E5,#CC22FF);padding:2px;display:flex;align-items:center;transition:var(--transition);flex-shrink:0}
@@ -210,10 +210,12 @@ body.slide-mode .section-pill{display:none !important}
   .data-table th,.data-table td{padding:0.5rem 0.4rem}
   .seo-matrix{font-size:0.7rem;min-width:500px}
   .nav{padding:0 0.75rem}
-  .nav-brand{font-size:0.75rem;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;max-width:55vw}
+  .nav-brand{font-size:0.8rem}
+  .nav-client-name{display:none!important}
   .nav-actions{gap:2px;flex-shrink:0}
   .nav-actions button,.nav-actions .pn-btn{padding:6px 8px;font-size:0.7rem}
   .pdf-btn{display:none!important}
+  .nav-slide-title{font-size:0.65rem!important;max-width:30vw;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
   .nav-actions .label-text{display:none}
   .chart-wrap{padding:1rem}
   .ads-callout{flex-direction:column;text-align:center}
@@ -616,7 +618,7 @@ body.slide-mode .section-pill{display:none !important}
 
 <!-- NAV -->
 <nav class="nav">
-  <div class="nav-brand"><span class="dot"></span> BRANDASTIC <span style="opacity:0.4;margin:0 6px;">·</span> <span style="font-weight:700;opacity:0.9">On Point for College</span></div>
+  <div class="nav-brand"><span class="dot"></span> BRANDASTIC <span class="nav-client-name" style="opacity:0.4;margin:0 6px;">·</span> <span class="nav-client-name" style="font-weight:700;opacity:0.9">On Point for College</span></div>
   <div class="nav-slide-title" id="navSlideTitle"></div>
   <div class="nav-actions">
     <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme"><div class="knob">🌙</div></button>
