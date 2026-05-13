@@ -46,6 +46,34 @@
       <p class="text-gray-500 max-w-lg mx-auto">Complete each step to share access to your marketing platforms. Click each tab, follow the instructions, and mark it done.</p>
     </div>
 
+    <!-- Brandastic IDs Quick Reference -->
+    <div class="bg-white rounded-2xl border border-gray-200 p-5 mb-8">
+      <p class="text-xs font-bold text-gray-400 uppercase tracking-widest mb-3">Brandastic IDs — Copy & Paste</p>
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+        <div class="flex items-center justify-between bg-gray-50 rounded-xl px-4 py-3">
+          <div>
+            <p class="text-[10px] text-gray-400 uppercase font-semibold">Email</p>
+            <p class="text-sm font-bold text-gray-900">seo@brandastic.com</p>
+          </div>
+          <button onclick="navigator.clipboard.writeText('seo@brandastic.com'); this.textContent='✓'; setTimeout(()=>this.textContent='Copy',2000)" class="text-xs bg-gray-900 text-white px-3 py-1 rounded-full hover:bg-gray-700 transition">Copy</button>
+        </div>
+        <div class="flex items-center justify-between bg-gray-50 rounded-xl px-4 py-3">
+          <div>
+            <p class="text-[10px] text-gray-400 uppercase font-semibold">Meta Business ID</p>
+            <p class="text-sm font-bold text-gray-900">815447868632897</p>
+          </div>
+          <button onclick="navigator.clipboard.writeText('815447868632897'); this.textContent='✓'; setTimeout(()=>this.textContent='Copy',2000)" class="text-xs bg-gray-900 text-white px-3 py-1 rounded-full hover:bg-gray-700 transition">Copy</button>
+        </div>
+        <div class="flex items-center justify-between bg-gray-50 rounded-xl px-4 py-3">
+          <div>
+            <p class="text-[10px] text-gray-400 uppercase font-semibold">Google Ads MCC</p>
+            <p class="text-sm font-bold text-gray-900">Ask your AM</p>
+          </div>
+          <span class="text-xs text-gray-400">—</span>
+        </div>
+      </div>
+    </div>
+
     <!-- Tab Navigation -->
     <div class="flex gap-2 mb-8 overflow-x-auto pb-2">
       <button onclick="showStep(0)" id="tab-0" class="tab-btn active flex items-center gap-2 px-4 py-2.5 rounded-xl text-sm font-semibold border border-gray-200 bg-white whitespace-nowrap transition-all">
@@ -299,15 +327,19 @@
           <div class="flex items-start gap-3 p-4 bg-gray-50 rounded-xl">
             <span class="w-7 h-7 rounded-full bg-sky-100 text-sky-700 flex items-center justify-center text-xs font-bold flex-shrink-0 mt-0.5">c</span>
             <div>
-              <p class="text-sm font-medium text-gray-900">Add our email with Admin access</p>
-              <p class="text-xs text-gray-500 mt-0.5">Enter <strong>seo@brandastic.com</strong> → select <strong>Full Control / Admin</strong> → click <strong>Invite</strong></p>
+              <p class="text-sm font-medium text-gray-900">Add Brandastic as a Partner</p>
+              <p class="text-xs text-gray-500 mt-0.5">Go to <strong>Settings → Business Partners → Add</strong> → enter our Business ID:</p>
+              <div class="mt-2 inline-flex items-center gap-2 bg-white border border-sky-200 rounded-lg px-3 py-2">
+                <code class="text-sm font-bold text-sky-700">815447868632897</code>
+                <button onclick="navigator.clipboard.writeText('815447868632897'); this.textContent='Copied!'; setTimeout(()=>this.textContent='Copy',2000)" class="text-[10px] bg-sky-600 text-white px-2 py-0.5 rounded-full hover:bg-sky-700 transition">Copy</button>
+              </div>
             </div>
           </div>
           <div class="flex items-start gap-3 p-4 bg-gray-50 rounded-xl">
             <span class="w-7 h-7 rounded-full bg-sky-100 text-sky-700 flex items-center justify-center text-xs font-bold flex-shrink-0 mt-0.5">d</span>
             <div>
-              <p class="text-sm font-medium text-gray-900">Share Ad Account access</p>
-              <p class="text-xs text-gray-500 mt-0.5">Go to <strong>Ad Accounts</strong> → select your account → <strong>Add People</strong> → add <strong>seo@brandastic.com</strong> with <strong>Manage Campaigns</strong> permission</p>
+              <p class="text-sm font-medium text-gray-900">Assign Ad Account & Pages</p>
+              <p class="text-xs text-gray-500 mt-0.5">After adding us as a partner, assign access to your <strong>Ad Account</strong>, <strong>Facebook Page</strong>, and <strong>Instagram Account</strong> with <strong>Manage Campaigns</strong> permission</p>
             </div>
           </div>
           <div class="flex items-start gap-3 p-4 bg-gray-50 rounded-xl">
