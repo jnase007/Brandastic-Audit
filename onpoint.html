@@ -1691,7 +1691,9 @@ const chartObs=new IntersectionObserver((entries)=>{entries.forEach(e=>{if(e.isI
   chartObs.unobserve(e.target);
 }})},{threshold:0.1});
 document.querySelectorAll('canvas').forEach(el=>chartObs.observe(el));
-window.addEventListener("load",function(){setTimeout(function(){if(!trafficChart)createTrafficChart();if(!competitorChart)createCompetitorChart();},500);});
+window.addEventListener("load",function(){setTimeout(function(){if(!trafficChart)createTrafficChart();if(!competitorChart)createCompetitorChart();},300);});
+window.addEventListener("DOMContentLoaded",function(){setTimeout(function(){if(!trafficChart)createTrafficChart();if(!competitorChart)createCompetitorChart();},1000);});
+document.addEventListener("scroll",function(){if(!trafficChart)createTrafficChart();if(!competitorChart)createCompetitorChart();},{once:true});
 
 /* ========== SIDE DOT NAV ========== */
 (function(){
