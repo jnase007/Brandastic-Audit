@@ -8,195 +8,253 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
-      theme: {
-        extend: {
-          fontFamily: { sans: ['Inter', 'system-ui', 'sans-serif'] },
-        }
-      }
+      theme: { extend: { fontFamily: { sans: ['Inter', 'system-ui', 'sans-serif'] } } }
     }
   </script>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
     body { font-family: 'Inter', system-ui, sans-serif; }
-    .step-card { transition: all 0.2s; }
-    .step-card:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(0,0,0,0.12); }
-    .copy-btn { transition: all 0.15s; }
-    .copy-btn:active { transform: scale(0.95); }
+    .step-panel { display: none; animation: fadeIn 0.3s ease; }
+    .step-panel.active { display: block; }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+    .tab-btn.active { background: #111; color: #fff; }
+    .tab-btn.completed { background: #10b981; color: #fff; }
   </style>
 </head>
 <body class="bg-gray-50 text-gray-900 min-h-screen">
 
   <!-- Header -->
   <header class="bg-white border-b border-gray-200 sticky top-0 z-50">
-    <div class="max-w-5xl mx-auto px-6 py-4 flex items-center justify-between">
-      <a href="/" class="flex items-center gap-3">
-        <img src="images/brandastic-logo.svg" alt="Brandastic" class="h-8" onerror="this.style.display='none'">
+    <div class="max-w-4xl mx-auto px-6 py-4 flex items-center justify-between">
+      <a href="/" class="flex items-center gap-2">
         <span class="text-xl font-bold text-gray-900">Brandastic</span>
       </a>
-      <span class="text-sm text-gray-400">Client Onboarding</span>
+      <div class="flex items-center gap-3">
+        <span class="text-xs text-gray-400 hidden sm:inline">Share access to:</span>
+        <span class="text-xs font-bold text-gray-900 bg-gray-100 px-3 py-1.5 rounded-full">seo@brandastic.com
+          <button onclick="copyEmail()" id="copyBtn" class="ml-1.5 text-[10px] bg-gray-900 text-white px-2 py-0.5 rounded-full hover:bg-gray-700 transition">Copy</button>
+        </span>
+      </div>
     </div>
   </header>
 
-  <!-- Hero -->
-  <section class="bg-white border-b border-gray-100">
-    <div class="max-w-5xl mx-auto px-6 py-16 text-center">
-      <h1 class="text-4xl sm:text-5xl font-extrabold text-gray-900 leading-tight mb-4">
-        Welcome to Brandastic
-      </h1>
-      <p class="text-lg text-gray-500 max-w-2xl mx-auto leading-relaxed mb-6">
-        To get started, we need access to your marketing platforms. Follow the steps below to share credentials securely — it only takes a few minutes.
-      </p>
-      <div class="inline-flex items-center gap-2 bg-gray-100 rounded-full px-4 py-2 text-sm text-gray-600">
-        <span class="font-semibold">Share access to:</span>
-        <span class="text-gray-900 font-bold">seo@brandastic.com</span>
-        <button onclick="copyEmail()" class="copy-btn ml-1 px-2 py-0.5 bg-gray-900 text-white text-xs rounded-full hover:bg-gray-700" id="copyBtn">Copy</button>
-      </div>
-    </div>
-  </section>
+  <main class="max-w-4xl mx-auto px-6 py-10">
 
-  <!-- Steps -->
-  <main class="max-w-5xl mx-auto px-6 py-12 space-y-8">
+    <!-- Hero -->
+    <div class="text-center mb-10">
+      <h1 class="text-3xl sm:text-4xl font-extrabold text-gray-900 mb-3">Client Onboarding</h1>
+      <p class="text-gray-500 max-w-lg mx-auto">Complete each step to share access to your marketing platforms. Click each tab, follow the instructions, and mark it done.</p>
+    </div>
+
+    <!-- Tab Navigation -->
+    <div class="flex gap-2 mb-8 overflow-x-auto pb-2">
+      <button onclick="showStep(0)" id="tab-0" class="tab-btn active flex items-center gap-2 px-4 py-2.5 rounded-xl text-sm font-semibold border border-gray-200 bg-white whitespace-nowrap transition-all">
+        <span class="w-6 h-6 rounded-full bg-blue-100 text-blue-700 flex items-center justify-center text-xs font-bold" id="num-0">1</span>
+        Google Ads
+      </button>
+      <button onclick="showStep(1)" id="tab-1" class="tab-btn flex items-center gap-2 px-4 py-2.5 rounded-xl text-sm font-semibold border border-gray-200 bg-white whitespace-nowrap transition-all">
+        <span class="w-6 h-6 rounded-full bg-amber-100 text-amber-700 flex items-center justify-center text-xs font-bold" id="num-1">2</span>
+        Tag Manager
+      </button>
+      <button onclick="showStep(2)" id="tab-2" class="tab-btn flex items-center gap-2 px-4 py-2.5 rounded-xl text-sm font-semibold border border-gray-200 bg-white whitespace-nowrap transition-all">
+        <span class="w-6 h-6 rounded-full bg-green-100 text-green-700 flex items-center justify-center text-xs font-bold" id="num-2">3</span>
+        Analytics
+      </button>
+      <button onclick="showStep(3)" id="tab-3" class="tab-btn flex items-center gap-2 px-4 py-2.5 rounded-xl text-sm font-semibold border border-gray-200 bg-white whitespace-nowrap transition-all">
+        <span class="w-6 h-6 rounded-full bg-purple-100 text-purple-700 flex items-center justify-center text-xs font-bold" id="num-3">4</span>
+        Search Console
+      </button>
+    </div>
+
+    <!-- Progress Bar -->
+    <div class="w-full h-1.5 bg-gray-200 rounded-full mb-8 overflow-hidden">
+      <div id="progress" class="h-full bg-gray-900 rounded-full transition-all duration-500" style="width: 0%"></div>
+    </div>
 
     <!-- Step 1: Google Ads -->
-    <div class="step-card bg-white rounded-2xl border border-gray-200 p-8">
-      <div class="flex items-start gap-4 mb-6">
-        <div class="w-12 h-12 rounded-xl bg-blue-50 flex items-center justify-center flex-shrink-0">
-          <span class="text-2xl font-bold text-blue-600">1</span>
+    <div class="step-panel active" id="panel-0">
+      <div class="bg-white rounded-2xl border border-gray-200 p-8">
+        <div class="flex items-center gap-3 mb-6">
+          <div class="w-10 h-10 rounded-xl bg-blue-50 flex items-center justify-center">
+            <span class="text-lg font-bold text-blue-600">1</span>
+          </div>
+          <div>
+            <h2 class="text-xl font-bold">Google Ads</h2>
+            <p class="text-sm text-gray-400">Share your Ads account for campaign management</p>
+          </div>
         </div>
-        <div>
-          <h2 class="text-xl font-bold text-gray-900 mb-1">Google Ads</h2>
-          <p class="text-sm text-gray-500">Share your Google Ads account so we can manage your campaigns</p>
+        <div class="space-y-4 mb-8">
+          <div class="flex items-start gap-3 p-4 bg-gray-50 rounded-xl">
+            <span class="w-7 h-7 rounded-full bg-blue-100 text-blue-700 flex items-center justify-center text-xs font-bold flex-shrink-0 mt-0.5">a</span>
+            <div>
+              <p class="text-sm font-medium text-gray-900">Visit Google Ads</p>
+              <p class="text-xs text-gray-500 mt-0.5">Go to <a href="https://business.google.com/in/google-ads/" target="_blank" class="text-blue-600 underline">business.google.com/in/google-ads</a> and sign in</p>
+            </div>
+          </div>
+          <div class="flex items-start gap-3 p-4 bg-gray-50 rounded-xl">
+            <span class="w-7 h-7 rounded-full bg-blue-100 text-blue-700 flex items-center justify-center text-xs font-bold flex-shrink-0 mt-0.5">b</span>
+            <div>
+              <p class="text-sm font-medium text-gray-900">Send us your Ads ID</p>
+              <p class="text-xs text-gray-500 mt-0.5">Find the <strong>Google Ads ID Number</strong> in the top left corner and send it to us</p>
+            </div>
+          </div>
+          <div class="flex items-start gap-3 p-4 bg-gray-50 rounded-xl">
+            <span class="w-7 h-7 rounded-full bg-blue-100 text-blue-700 flex items-center justify-center text-xs font-bold flex-shrink-0 mt-0.5">c</span>
+            <div>
+              <p class="text-sm font-medium text-gray-900">Accept our access request</p>
+              <p class="text-xs text-gray-500 mt-0.5">Go to <strong>Admin → Access and Security → Managers tab</strong> and accept the manager link request</p>
+            </div>
+          </div>
+        </div>
+        <div class="flex items-center justify-between">
+          <button onclick="markDone(0)" id="done-0" class="px-6 py-2.5 bg-gray-900 text-white rounded-full text-sm font-semibold hover:bg-gray-700 transition">Mark as Done ✓</button>
+          <button onclick="showStep(1)" class="text-sm text-gray-400 hover:text-gray-900 font-medium transition">Next: Tag Manager →</button>
         </div>
       </div>
-      <ol class="space-y-3 text-sm text-gray-700 ml-16">
-        <li class="flex items-start gap-2">
-          <span class="w-5 h-5 rounded-full bg-blue-100 text-blue-700 flex items-center justify-center flex-shrink-0 text-xs font-bold mt-0.5">a</span>
-          <span>Visit <a href="https://business.google.com/in/google-ads/" target="_blank" class="text-blue-600 underline hover:text-blue-800">Google Ads</a> and sign into your account</span>
-        </li>
-        <li class="flex items-start gap-2">
-          <span class="w-5 h-5 rounded-full bg-blue-100 text-blue-700 flex items-center justify-center flex-shrink-0 text-xs font-bold mt-0.5">b</span>
-          <span>Select your Ads account and send us your <strong>Google Ads ID Number</strong> (top left corner)</span>
-        </li>
-        <li class="flex items-start gap-2">
-          <span class="w-5 h-5 rounded-full bg-blue-100 text-blue-700 flex items-center justify-center flex-shrink-0 text-xs font-bold mt-0.5">c</span>
-          <span>Watch for an account access request email from us</span>
-        </li>
-        <li class="flex items-start gap-2">
-          <span class="w-5 h-5 rounded-full bg-blue-100 text-blue-700 flex items-center justify-center flex-shrink-0 text-xs font-bold mt-0.5">d</span>
-          <span>To manually check: go to <strong>Admin → Access and Security → Managers tab</strong> and accept the manager link request</span>
-        </li>
-      </ol>
     </div>
 
     <!-- Step 2: Google Tag Manager -->
-    <div class="step-card bg-white rounded-2xl border border-gray-200 p-8">
-      <div class="flex items-start gap-4 mb-6">
-        <div class="w-12 h-12 rounded-xl bg-amber-50 flex items-center justify-center flex-shrink-0">
-          <span class="text-2xl font-bold text-amber-600">2</span>
+    <div class="step-panel" id="panel-1">
+      <div class="bg-white rounded-2xl border border-gray-200 p-8">
+        <div class="flex items-center gap-3 mb-6">
+          <div class="w-10 h-10 rounded-xl bg-amber-50 flex items-center justify-center">
+            <span class="text-lg font-bold text-amber-600">2</span>
+          </div>
+          <div>
+            <h2 class="text-xl font-bold">Google Tag Manager</h2>
+            <p class="text-sm text-gray-400">Share container access for tracking management</p>
+          </div>
         </div>
-        <div>
-          <h2 class="text-xl font-bold text-gray-900 mb-1">Google Tag Manager</h2>
-          <p class="text-sm text-gray-500">Share container access so we can manage tracking and tags</p>
+        <div class="space-y-4 mb-8">
+          <div class="flex items-start gap-3 p-4 bg-gray-50 rounded-xl">
+            <span class="w-7 h-7 rounded-full bg-amber-100 text-amber-700 flex items-center justify-center text-xs font-bold flex-shrink-0 mt-0.5">a</span>
+            <div>
+              <p class="text-sm font-medium text-gray-900">Visit Tag Manager</p>
+              <p class="text-xs text-gray-500 mt-0.5">Go to <a href="https://tagmanager.google.com/" target="_blank" class="text-blue-600 underline">tagmanager.google.com</a> and sign in</p>
+            </div>
+          </div>
+          <div class="flex items-start gap-3 p-4 bg-gray-50 rounded-xl">
+            <span class="w-7 h-7 rounded-full bg-amber-100 text-amber-700 flex items-center justify-center text-xs font-bold flex-shrink-0 mt-0.5">b</span>
+            <div>
+              <p class="text-sm font-medium text-gray-900">Open settings & add user</p>
+              <p class="text-xs text-gray-500 mt-0.5">Click the ⚙️ icon on your account, then <strong>"Add users"</strong></p>
+            </div>
+          </div>
+          <div class="flex items-start gap-3 p-4 bg-gray-50 rounded-xl">
+            <span class="w-7 h-7 rounded-full bg-amber-100 text-amber-700 flex items-center justify-center text-xs font-bold flex-shrink-0 mt-0.5">c</span>
+            <div>
+              <p class="text-sm font-medium text-gray-900">Share with Administrator access</p>
+              <p class="text-xs text-gray-500 mt-0.5">Add <strong>seo@brandastic.com</strong> → check <strong>Administrator</strong> → click <strong>Invite</strong></p>
+            </div>
+          </div>
+        </div>
+        <div class="flex items-center justify-between">
+          <button onclick="markDone(1)" id="done-1" class="px-6 py-2.5 bg-gray-900 text-white rounded-full text-sm font-semibold hover:bg-gray-700 transition">Mark as Done ✓</button>
+          <div class="flex gap-3">
+            <button onclick="showStep(0)" class="text-sm text-gray-400 hover:text-gray-900 font-medium transition">← Back</button>
+            <button onclick="showStep(2)" class="text-sm text-gray-400 hover:text-gray-900 font-medium transition">Next: Analytics →</button>
+          </div>
         </div>
       </div>
-      <ol class="space-y-3 text-sm text-gray-700 ml-16">
-        <li class="flex items-start gap-2">
-          <span class="w-5 h-5 rounded-full bg-amber-100 text-amber-700 flex items-center justify-center flex-shrink-0 text-xs font-bold mt-0.5">a</span>
-          <span>Visit <a href="https://tagmanager.google.com/" target="_blank" class="text-blue-600 underline hover:text-blue-800">Google Tag Manager</a> and sign in</span>
-        </li>
-        <li class="flex items-start gap-2">
-          <span class="w-5 h-5 rounded-full bg-amber-100 text-amber-700 flex items-center justify-center flex-shrink-0 text-xs font-bold mt-0.5">b</span>
-          <span>Find your account and click the <strong>⚙️ settings</strong> icon</span>
-        </li>
-        <li class="flex items-start gap-2">
-          <span class="w-5 h-5 rounded-full bg-amber-100 text-amber-700 flex items-center justify-center flex-shrink-0 text-xs font-bold mt-0.5">c</span>
-          <span>Click <strong>"Add users"</strong> and share with <strong>seo@brandastic.com</strong></span>
-        </li>
-        <li class="flex items-start gap-2">
-          <span class="w-5 h-5 rounded-full bg-amber-100 text-amber-700 flex items-center justify-center flex-shrink-0 text-xs font-bold mt-0.5">d</span>
-          <span>Select <strong>Administrator</strong> access under Account permissions and click <strong>Invite</strong></span>
-        </li>
-      </ol>
     </div>
 
     <!-- Step 3: Google Analytics -->
-    <div class="step-card bg-white rounded-2xl border border-gray-200 p-8">
-      <div class="flex items-start gap-4 mb-6">
-        <div class="w-12 h-12 rounded-xl bg-green-50 flex items-center justify-center flex-shrink-0">
-          <span class="text-2xl font-bold text-green-600">3</span>
+    <div class="step-panel" id="panel-2">
+      <div class="bg-white rounded-2xl border border-gray-200 p-8">
+        <div class="flex items-center gap-3 mb-6">
+          <div class="w-10 h-10 rounded-xl bg-green-50 flex items-center justify-center">
+            <span class="text-lg font-bold text-green-600">3</span>
+          </div>
+          <div>
+            <h2 class="text-xl font-bold">Google Analytics</h2>
+            <p class="text-sm text-gray-400">Share analytics for performance tracking</p>
+          </div>
         </div>
-        <div>
-          <h2 class="text-xl font-bold text-gray-900 mb-1">Google Analytics</h2>
-          <p class="text-sm text-gray-500">Share analytics access so we can track and optimize performance</p>
+        <div class="space-y-4 mb-8">
+          <div class="flex items-start gap-3 p-4 bg-gray-50 rounded-xl">
+            <span class="w-7 h-7 rounded-full bg-green-100 text-green-700 flex items-center justify-center text-xs font-bold flex-shrink-0 mt-0.5">a</span>
+            <div>
+              <p class="text-sm font-medium text-gray-900">Visit Google Analytics</p>
+              <p class="text-xs text-gray-500 mt-0.5">Go to <a href="https://analytics.google.com/analytics/web/" target="_blank" class="text-blue-600 underline">analytics.google.com</a> → ⚙️ Admin panel (lower left)</p>
+            </div>
+          </div>
+          <div class="flex items-start gap-3 p-4 bg-gray-50 rounded-xl">
+            <span class="w-7 h-7 rounded-full bg-green-100 text-green-700 flex items-center justify-center text-xs font-bold flex-shrink-0 mt-0.5">b</span>
+            <div>
+              <p class="text-sm font-medium text-gray-900">Go to Account Access Management</p>
+              <p class="text-xs text-gray-500 mt-0.5">Under the <strong>Account</strong> column, select <strong>Account Access Management</strong></p>
+            </div>
+          </div>
+          <div class="flex items-start gap-3 p-4 bg-gray-50 rounded-xl">
+            <span class="w-7 h-7 rounded-full bg-green-100 text-green-700 flex items-center justify-center text-xs font-bold flex-shrink-0 mt-0.5">c</span>
+            <div>
+              <p class="text-sm font-medium text-gray-900">Add us as Administrator</p>
+              <p class="text-xs text-gray-500 mt-0.5">Click <strong>+ Add users</strong> → enter <strong>seo@brandastic.com</strong> → select <strong>Administrator</strong> → click <strong>Add</strong></p>
+            </div>
+          </div>
+        </div>
+        <div class="flex items-center justify-between">
+          <button onclick="markDone(2)" id="done-2" class="px-6 py-2.5 bg-gray-900 text-white rounded-full text-sm font-semibold hover:bg-gray-700 transition">Mark as Done ✓</button>
+          <div class="flex gap-3">
+            <button onclick="showStep(1)" class="text-sm text-gray-400 hover:text-gray-900 font-medium transition">← Back</button>
+            <button onclick="showStep(3)" class="text-sm text-gray-400 hover:text-gray-900 font-medium transition">Next: Search Console →</button>
+          </div>
         </div>
       </div>
-      <ol class="space-y-3 text-sm text-gray-700 ml-16">
-        <li class="flex items-start gap-2">
-          <span class="w-5 h-5 rounded-full bg-green-100 text-green-700 flex items-center justify-center flex-shrink-0 text-xs font-bold mt-0.5">a</span>
-          <span>Visit <a href="https://analytics.google.com/analytics/web/" target="_blank" class="text-blue-600 underline hover:text-blue-800">Google Analytics</a> and go to the <strong>⚙️ Admin panel</strong> (lower left)</span>
-        </li>
-        <li class="flex items-start gap-2">
-          <span class="w-5 h-5 rounded-full bg-green-100 text-green-700 flex items-center justify-center flex-shrink-0 text-xs font-bold mt-0.5">b</span>
-          <span>Select <strong>Account Access Management</strong> under the Account column</span>
-        </li>
-        <li class="flex items-start gap-2">
-          <span class="w-5 h-5 rounded-full bg-green-100 text-green-700 flex items-center justify-center flex-shrink-0 text-xs font-bold mt-0.5">c</span>
-          <span>Click <strong>+ Add users</strong> and enter <strong>seo@brandastic.com</strong></span>
-        </li>
-        <li class="flex items-start gap-2">
-          <span class="w-5 h-5 rounded-full bg-green-100 text-green-700 flex items-center justify-center flex-shrink-0 text-xs font-bold mt-0.5">d</span>
-          <span>Select <strong>Administrator</strong> access and click <strong>Add</strong></span>
-        </li>
-      </ol>
     </div>
 
     <!-- Step 4: Google Search Console -->
-    <div class="step-card bg-white rounded-2xl border border-gray-200 p-8">
-      <div class="flex items-start gap-4 mb-6">
-        <div class="w-12 h-12 rounded-xl bg-purple-50 flex items-center justify-center flex-shrink-0">
-          <span class="text-2xl font-bold text-purple-600">4</span>
+    <div class="step-panel" id="panel-3">
+      <div class="bg-white rounded-2xl border border-gray-200 p-8">
+        <div class="flex items-center gap-3 mb-6">
+          <div class="w-10 h-10 rounded-xl bg-purple-50 flex items-center justify-center">
+            <span class="text-lg font-bold text-purple-600">4</span>
+          </div>
+          <div>
+            <h2 class="text-xl font-bold">Google Search Console</h2>
+            <p class="text-sm text-gray-400">Share search data for SEO optimization</p>
+          </div>
         </div>
-        <div>
-          <h2 class="text-xl font-bold text-gray-900 mb-1">Google Search Console</h2>
-          <p class="text-sm text-gray-500">Share search performance data so we can optimize your SEO</p>
+        <div class="space-y-4 mb-8">
+          <div class="flex items-start gap-3 p-4 bg-gray-50 rounded-xl">
+            <span class="w-7 h-7 rounded-full bg-purple-100 text-purple-700 flex items-center justify-center text-xs font-bold flex-shrink-0 mt-0.5">a</span>
+            <div>
+              <p class="text-sm font-medium text-gray-900">Visit Search Console</p>
+              <p class="text-xs text-gray-500 mt-0.5">Go to <a href="https://search.google.com/search-console/" target="_blank" class="text-blue-600 underline">search.google.com/search-console</a></p>
+            </div>
+          </div>
+          <div class="flex items-start gap-3 p-4 bg-gray-50 rounded-xl">
+            <span class="w-7 h-7 rounded-full bg-purple-100 text-purple-700 flex items-center justify-center text-xs font-bold flex-shrink-0 mt-0.5">b</span>
+            <div>
+              <p class="text-sm font-medium text-gray-900">Open Users and Permissions</p>
+              <p class="text-xs text-gray-500 mt-0.5">Click ⚙️ <strong>Settings</strong> → <strong>Users and permissions</strong> → <strong>Add user</strong></p>
+            </div>
+          </div>
+          <div class="flex items-start gap-3 p-4 bg-gray-50 rounded-xl">
+            <span class="w-7 h-7 rounded-full bg-purple-100 text-purple-700 flex items-center justify-center text-xs font-bold flex-shrink-0 mt-0.5">c</span>
+            <div>
+              <p class="text-sm font-medium text-gray-900">Add with Full permission</p>
+              <p class="text-xs text-gray-500 mt-0.5">Enter <strong>seo@brandastic.com</strong> → select <strong>Full</strong> permission → click <strong>Add</strong></p>
+            </div>
+          </div>
+        </div>
+        <div class="flex items-center justify-between">
+          <button onclick="markDone(3)" id="done-3" class="px-6 py-2.5 bg-gray-900 text-white rounded-full text-sm font-semibold hover:bg-gray-700 transition">Mark as Done ✓</button>
+          <button onclick="showStep(2)" class="text-sm text-gray-400 hover:text-gray-900 font-medium transition">← Back</button>
         </div>
       </div>
-      <ol class="space-y-3 text-sm text-gray-700 ml-16">
-        <li class="flex items-start gap-2">
-          <span class="w-5 h-5 rounded-full bg-purple-100 text-purple-700 flex items-center justify-center flex-shrink-0 text-xs font-bold mt-0.5">a</span>
-          <span>Visit <a href="https://search.google.com/search-console/" target="_blank" class="text-blue-600 underline hover:text-blue-800">Google Search Console</a></span>
-        </li>
-        <li class="flex items-start gap-2">
-          <span class="w-5 h-5 rounded-full bg-purple-100 text-purple-700 flex items-center justify-center flex-shrink-0 text-xs font-bold mt-0.5">b</span>
-          <span>Click the <strong>⚙️ Settings</strong> gear icon in the left menu</span>
-        </li>
-        <li class="flex items-start gap-2">
-          <span class="w-5 h-5 rounded-full bg-purple-100 text-purple-700 flex items-center justify-center flex-shrink-0 text-xs font-bold mt-0.5">c</span>
-          <span>Under <strong>"Users and permissions"</strong>, click <strong>"Add user"</strong></span>
-        </li>
-        <li class="flex items-start gap-2">
-          <span class="w-5 h-5 rounded-full bg-purple-100 text-purple-700 flex items-center justify-center flex-shrink-0 text-xs font-bold mt-0.5">d</span>
-          <span>Enter <strong>seo@brandastic.com</strong> and select <strong>Full</strong> permission level</span>
-        </li>
-        <li class="flex items-start gap-2">
-          <span class="w-5 h-5 rounded-full bg-purple-100 text-purple-700 flex items-center justify-center flex-shrink-0 text-xs font-bold mt-0.5">e</span>
-          <span>Click <strong>Add</strong> and notify us when complete</span>
-        </li>
-      </ol>
     </div>
 
-    <!-- Summary -->
-    <div class="bg-gray-900 rounded-2xl p-8 text-center">
-      <h3 class="text-xl font-bold text-white mb-3">That's it!</h3>
-      <p class="text-gray-400 text-sm max-w-lg mx-auto leading-relaxed mb-4">
-        Once you've shared access to all four platforms, let us know and we'll get started on your campaigns. If you need help with any step, reach out to your account manager.
-      </p>
-      <div class="flex flex-col sm:flex-row items-center justify-center gap-3">
-        <a href="mailto:seo@brandastic.com?subject=Onboarding Complete" class="bg-white text-gray-900 font-semibold px-6 py-3 rounded-full text-sm hover:bg-gray-100 transition-colors">
-          Email Us When Done
-        </a>
-        <a href="/" class="text-gray-400 hover:text-white text-sm font-medium transition-colors">
-          ← Back to Audit Portal
+    <!-- All Done Panel -->
+    <div class="step-panel" id="panel-done">
+      <div class="bg-gray-900 rounded-2xl p-10 text-center">
+        <div class="text-4xl mb-4">✓</div>
+        <h3 class="text-2xl font-bold text-white mb-3">All Done!</h3>
+        <p class="text-gray-400 text-sm max-w-md mx-auto leading-relaxed mb-6">
+          You've shared access to all four platforms. We'll confirm everything on our end and reach out within 24 hours to get started.
+        </p>
+        <a href="mailto:seo@brandastic.com?subject=Onboarding Complete — All Access Shared" class="inline-block bg-white text-gray-900 font-semibold px-8 py-3 rounded-full text-sm hover:bg-gray-100 transition-colors">
+          Let Us Know You're Done
         </a>
       </div>
     </div>
@@ -205,23 +263,60 @@
 
   <!-- Footer -->
   <footer class="border-t border-gray-200 mt-12">
-    <div class="max-w-5xl mx-auto px-6 py-6 text-center text-xs text-gray-400">
-      © 2026 Brandastic. All rights reserved. · <a href="https://brandastic.com" target="_blank" class="hover:text-gray-600">brandastic.com</a>
+    <div class="max-w-4xl mx-auto px-6 py-6 text-center text-xs text-gray-400">
+      © 2026 Brandastic · <a href="https://brandastic.com" target="_blank" class="hover:text-gray-600">brandastic.com</a> · <a href="/" class="hover:text-gray-600">Audit Portal</a>
     </div>
   </footer>
 
   <script>
+    const completed = [false, false, false, false];
+    let currentStep = 0;
+
+    function showStep(index) {
+      currentStep = index;
+      document.querySelectorAll('.step-panel').forEach(p => p.classList.remove('active'));
+      document.querySelectorAll('.tab-btn').forEach(t => t.classList.remove('active'));
+      document.getElementById('panel-' + index).classList.add('active');
+      document.getElementById('tab-' + index).classList.add('active');
+    }
+
+    function markDone(index) {
+      completed[index] = true;
+      const btn = document.getElementById('done-' + index);
+      btn.textContent = 'Done ✓';
+      btn.classList.remove('bg-gray-900', 'hover:bg-gray-700');
+      btn.classList.add('bg-green-600', 'cursor-default');
+      btn.disabled = true;
+
+      // Update tab
+      const tab = document.getElementById('tab-' + index);
+      tab.classList.add('completed');
+      const num = document.getElementById('num-' + index);
+      num.textContent = '✓';
+      num.className = 'w-6 h-6 rounded-full bg-white text-green-600 flex items-center justify-center text-xs font-bold';
+
+      // Update progress
+      const doneCount = completed.filter(Boolean).length;
+      document.getElementById('progress').style.width = (doneCount / 4 * 100) + '%';
+
+      // If all done, show completion
+      if (doneCount === 4) {
+        setTimeout(() => {
+          document.querySelectorAll('.step-panel').forEach(p => p.classList.remove('active'));
+          document.getElementById('panel-done').classList.add('active');
+        }, 500);
+      } else {
+        // Auto-advance to next incomplete step
+        const next = completed.findIndex((c, i) => !c && i > index);
+        if (next !== -1) setTimeout(() => showStep(next), 600);
+      }
+    }
+
     function copyEmail() {
       navigator.clipboard.writeText('seo@brandastic.com').then(() => {
         const btn = document.getElementById('copyBtn');
         btn.textContent = 'Copied!';
-        btn.classList.remove('bg-gray-900');
-        btn.classList.add('bg-green-600');
-        setTimeout(() => {
-          btn.textContent = 'Copy';
-          btn.classList.remove('bg-green-600');
-          btn.classList.add('bg-gray-900');
-        }, 2000);
+        setTimeout(() => { btn.textContent = 'Copy'; }, 2000);
       });
     }
   </script>
