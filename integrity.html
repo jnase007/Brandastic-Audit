@@ -2444,5 +2444,17 @@ function togglePresenterNotes() {
 </div>
 
 
+<!-- Feedback Button -->
+<div id="feedbackWidget" style="position:fixed;bottom:24px;right:24px;z-index:9999">
+  <button onclick="document.getElementById('feedbackForm').style.display=document.getElementById('feedbackForm').style.display==='none'?'block':'none'" style="width:56px;height:56px;border-radius:50%;background:linear-gradient(135deg,#40B4E5,#CC22FF);border:none;cursor:pointer;box-shadow:0 4px 20px rgba(64,180,229,0.4);display:flex;align-items:center;justify-content:center;transition:transform 0.2s" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
+    <svg width="24" height="24" fill="none" stroke="white" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"/></svg>
+  </button>
+  <div id="feedbackForm" style="display:none;position:absolute;bottom:70px;right:0;width:320px;background:var(--bg-card,#fff);border:1px solid var(--glass-border,#e5e7eb);border-radius:16px;box-shadow:0 12px 40px rgba(0,0,0,0.15);padding:20px;font-family:Inter,system-ui,sans-serif">
+    <p style="font-weight:700;font-size:0.95rem;margin:0 0 4px;color:var(--text-primary,#111)">Feedback</p>
+    <p style="font-size:0.75rem;color:var(--text-muted,#888);margin:0 0 12px">Questions or corrections? Let us know.</p>
+    <textarea id="feedbackText" rows="3" placeholder="Your feedback..." style="width:100%;border:1px solid var(--glass-border,#ddd);border-radius:10px;padding:10px;font-size:0.85rem;resize:none;background:var(--bg-primary,#f9f9f9);color:var(--text-primary,#111);font-family:Inter,system-ui,sans-serif"></textarea>
+    <button onclick="var t=document.getElementById('feedbackText').value;if(t){window.open('mailto:seo@brandastic.com?subject=Audit Feedback</body>body='+encodeURIComponent(t),'_blank');document.getElementById('feedbackText').value='';document.getElementById('feedbackForm').style.display='none';alert('Thank you for your feedback!')}" style="margin-top:8px;width:100%;padding:10px;border:none;border-radius:10px;background:linear-gradient(135deg,#40B4E5,#CC22FF);color:#fff;font-weight:600;font-size:0.85rem;cursor:pointer;font-family:Inter,system-ui,sans-serif">Send Feedback</button>
+  </div>
+</div>
 </body>
 </html>
