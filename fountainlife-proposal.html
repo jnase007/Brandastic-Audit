@@ -1,0 +1,927 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta name="robots" content="noindex, nofollow">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fountain Life — Growth Strategy by Brandastic</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{--bg-primary:#191F24;--bg-secondary:#0d1117;--bg-tertiary:#151a20;--bg-card:rgba(100,116,139,0.15);--bg-card-hover:rgba(100,116,139,0.2);--bg-card-border:rgba(100,116,139,0.2);--text-primary:#ffffff;--text-secondary:rgba(255,255,255,0.7);--text-muted:rgba(255,255,255,0.4);--accent-blue:#0644ED;--accent-light:#40B4E5;--accent-purple:#CC22FF;--coastal-fog:#F5F3EF;--glass-bg:rgba(100,116,139,0.15);--glass-border:rgba(255,255,255,0.1);--shadow:0 8px 32px rgba(0,0,0,0.3);--red:#ef4444;--yellow:#f59e0b;--green:#22c55e;--chart-grid:rgba(255,255,255,0.06);--chart-text:rgba(255,255,255,0.5);--transition:0.3s ease}
+[data-theme="light"]{--bg-primary:#F5F3EF;--bg-secondary:#ffffff;--bg-tertiary:#f0ede8;--bg-card:rgba(255,255,255,0.85);--bg-card-hover:rgba(255,255,255,0.95);--bg-card-border:rgba(0,0,0,0.08);--text-primary:#191F24;--text-secondary:rgba(25,31,36,0.7);--text-muted:rgba(25,31,36,0.4);--glass-bg:rgba(255,255,255,0.85);--glass-border:rgba(0,0,0,0.08);--shadow:0 8px 32px rgba(0,0,0,0.06);--chart-grid:rgba(0,0,0,0.06);--chart-text:rgba(0,0,0,0.5)}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth}body{font-family:'Inter',system-ui,-apple-system,sans-serif;background:var(--bg-primary);color:var(--text-primary);line-height:1.6;transition:background-color var(--transition),color var(--transition);overflow-x:hidden}a{color:var(--accent-light);text-decoration:none}
+.nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:0 2rem;height:64px;display:flex;align-items:center;justify-content:space-between;background:var(--glass-bg);backdrop-filter:blur(20px);border-bottom:1px solid var(--glass-border);transition:background var(--transition)}.nav-brand{font-weight:700;font-size:1.15rem;letter-spacing:0.05em;display:flex;align-items:center;gap:10px}.nav-brand .dot{width:10px;height:10px;border-radius:50%;background:linear-gradient(135deg,#40B4E5,#CC22FF)}.nav-actions{display:flex;align-items:center;gap:12px}
+.theme-toggle{padding:8px 18px;border-radius:10px;border:none;cursor:pointer;background:linear-gradient(135deg,#40B4E5,#CC22FF);color:#fff;font-family:inherit;font-size:0.78rem;font-weight:600;letter-spacing:0.03em;transition:transform var(--transition),box-shadow var(--transition)}.theme-toggle:hover{transform:translateY(-1px)}
+.pdf-btn{display:inline-flex;align-items:center;gap:6px;padding:8px 18px;border-radius:10px;border:none;cursor:pointer;background:var(--glass-bg);border:1px solid var(--glass-border);color:var(--text-secondary);font-family:inherit;font-size:0.78rem;font-weight:600;letter-spacing:0.03em;transition:transform var(--transition),box-shadow var(--transition);white-space:nowrap}.pdf-btn:hover{transform:translateY(-1px);color:var(--text-primary)}
+.side-nav{position:fixed;right:1.2rem;top:50%;transform:translateY(-50%);z-index:999;display:flex;flex-direction:column;align-items:center;padding:14px 8px;border-radius:999px;background:var(--glass-bg);backdrop-filter:blur(20px);border:1px solid var(--glass-border);box-shadow:var(--shadow)}.side-nav-line{position:absolute;top:14px;bottom:14px;width:1px;background:var(--glass-border);z-index:0}.side-nav-dot{position:relative;z-index:1;width:8px;height:8px;border-radius:50%;background:var(--text-muted);margin:7px 0;cursor:pointer;transition:all 0.3s ease}.side-nav-dot:hover{background:var(--text-secondary);transform:scale(1.3)}.side-nav-dot.active{width:10px;height:10px;background:linear-gradient(135deg,#40B4E5,#CC22FF);box-shadow:0 0 10px rgba(64,180,229,0.5);margin:6px 0}.side-nav-dot .tooltip{position:absolute;right:calc(100% + 12px);top:50%;transform:translateY(-50%) translateX(6px);background:var(--glass-bg);backdrop-filter:blur(16px);border:1px solid var(--glass-border);color:var(--text-primary);padding:4px 10px;border-radius:8px;font-size:0.7rem;font-weight:600;letter-spacing:0.03em;white-space:nowrap;opacity:0;pointer-events:none;transition:all 0.25s ease}.side-nav-dot:hover .tooltip{opacity:1;transform:translateY(-50%) translateX(0)}@media(max-width:768px){.side-nav{display:none}}
+section{padding:3.5rem 2rem;position:relative}section:nth-child(even){background:var(--bg-secondary)}.container{max-width:1200px;margin:0 auto}
+.section-badge{display:inline-flex;align-items:center;gap:6px;padding:6px 16px;border-radius:50px;background:var(--glass-bg);border:1px solid var(--glass-border);font-size:0.7rem;font-weight:600;letter-spacing:0.15em;text-transform:uppercase;color:var(--text-muted);margin-bottom:1.5rem;backdrop-filter:blur(10px)}
+.section-title{font-size:clamp(1.8rem,4vw,2.8rem);font-weight:800;letter-spacing:-0.03em;margin-bottom:1rem;line-height:1.15}.section-title .gradient{background:linear-gradient(135deg,#40B4E5,#CC22FF);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}.section-sub{color:var(--text-secondary);font-size:1.05rem;max-width:700px;margin-bottom:3rem;line-height:1.7}
+.hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding-top:64px;position:relative;overflow:hidden;background:#0d1117}[data-theme="light"] .hero{background:#f5f3ef}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 30% 50%,rgba(64,180,229,0.08),transparent 60%),radial-gradient(ellipse at 70% 50%,rgba(204,34,255,0.06),transparent 60%);pointer-events:none}
+.hero>*{position:relative;z-index:1}
+.hero-company{font-size:clamp(2.5rem,7vw,5.5rem);font-weight:900;letter-spacing:-0.04em;line-height:1;margin-bottom:0.5rem;background:linear-gradient(135deg,#fff 0%,rgba(255,255,255,0.7) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}[data-theme="light"] .hero-company{background:linear-gradient(135deg,#191F24 0%,rgba(25,31,36,0.7) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hero-meta{display:flex;flex-wrap:wrap;gap:1rem;justify-content:center;margin-top:1.5rem;margin-bottom:3rem}.hero-meta span{padding:8px 20px;border-radius:50px;background:var(--glass-bg);border:1px solid var(--glass-border);backdrop-filter:blur(10px);font-size:0.8rem;font-weight:500;color:var(--text-secondary)}
+.hero-scroll{position:absolute;bottom:1rem;animation:bounce 2s infinite;opacity:0.5}@keyframes bounce{0%,100%{transform:translateY(0)}50%{transform:translateY(8px)}}
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:2rem;align-items:start}.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}.grid-4{display:grid;grid-template-columns:repeat(2,1fr);gap:1.5rem}
+.card{background:var(--bg-card);border:1px solid var(--bg-card-border);border-radius:16px;padding:2rem;backdrop-filter:blur(10px);transition:transform var(--transition),box-shadow var(--transition),background var(--transition)}.card:hover{transform:translateY(-3px);box-shadow:var(--shadow);border-color:rgba(64,180,229,0.2)}
+.metric-card{text-align:center;padding:2rem 1.5rem}.metric-card .value{font-size:2.2rem;font-weight:800;letter-spacing:-0.03em;background:linear-gradient(135deg,#40B4E5,#CC22FF);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}.metric-card .label{font-size:0.75rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--text-muted);margin-top:0.5rem}
+.warning-banner{background:linear-gradient(135deg,rgba(239,68,68,0.1),rgba(239,68,68,0.05));border:1px solid rgba(239,68,68,0.2);border-radius:12px;padding:1.5rem 2rem;display:flex;align-items:start;gap:1rem;margin-bottom:2rem}.warning-banner .icon{font-size:1.5rem;flex-shrink:0}.warning-banner .text{font-weight:600;color:var(--red)}.warning-banner .sub{color:var(--text-secondary);font-size:0.9rem;font-weight:400;margin-top:0.25rem}
+.overall-bar{height:12px;border-radius:6px;background:var(--bg-card-border);overflow:hidden;margin-top:1rem}.overall-bar .fill{height:100%;border-radius:6px;transition:width 1.5s ease;background:linear-gradient(90deg,#40B4E5,#CC22FF)}
+.badge{display:inline-block;padding:3px 10px;border-radius:6px;font-size:0.7rem;font-weight:600;letter-spacing:0.05em}.badge-green{background:rgba(34,197,94,0.15);color:#22c55e}.badge-blue{background:rgba(64,180,229,0.15);color:#40B4E5}.badge-purple{background:rgba(204,34,255,0.15);color:#CC22FF}.badge-red{background:rgba(239,68,68,0.15);color:#ef4444}.badge-yellow{background:rgba(245,158,11,0.15);color:#f59e0b}
+.cta-section{text-align:center;padding:8rem 2rem;position:relative;overflow:hidden;background:var(--bg-secondary)}.cta-section::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 50%,rgba(64,180,229,0.08) 0%,transparent 60%);pointer-events:none}
+.cta-btn{display:inline-flex;align-items:center;gap:8px;padding:16px 40px;border-radius:14px;background:linear-gradient(135deg,#40B4E5,#CC22FF);color:#fff;font-family:inherit;font-size:1.1rem;font-weight:700;border:none;cursor:pointer;transition:transform var(--transition),box-shadow var(--transition);text-decoration:none}.cta-btn:hover{transform:translateY(-2px);box-shadow:0 8px 30px rgba(64,180,229,0.4);color:#fff}
+.cta-btn-ghost{display:inline-flex;align-items:center;gap:8px;padding:16px 40px;border-radius:14px;background:transparent;border:2px solid var(--glass-border);color:var(--text-primary);font-family:inherit;font-size:1.1rem;font-weight:700;cursor:pointer;transition:transform var(--transition),border-color var(--transition);text-decoration:none}.cta-btn-ghost:hover{transform:translateY(-2px);border-color:var(--accent-light);color:var(--accent-light)}
+.watermark{position:fixed;bottom:20px;left:20px;display:flex;align-items:center;gap:6px;padding:8px 16px;border-radius:10px;background:var(--glass-bg);border:1px solid var(--glass-border);backdrop-filter:blur(10px);font-size:0.7rem;font-weight:600;color:var(--text-muted);letter-spacing:0.05em;z-index:999}
+.reading-progress{position:fixed;top:64px;left:0;width:0%;height:3px;background:linear-gradient(90deg,#40B4E5,#CC22FF);z-index:1001;transition:width 0.1s linear;pointer-events:none}
+
+/* ===== REVEAL ===== */
+.reveal{opacity:0;transform:translateY(20px);transition:opacity 0.7s ease,transform 0.7s ease}.reveal.active{opacity:1;transform:none}
+
+/* ===== FLOW / FUNNEL ===== */
+.flow-row{display:flex;align-items:center;gap:0.75rem;flex-wrap:wrap;margin-bottom:1rem}.flow-node{padding:10px 18px;border-radius:10px;background:var(--glass-bg);border:1px solid var(--glass-border);font-size:0.85rem;font-weight:600;white-space:nowrap}.flow-arrow{color:var(--accent-light);font-size:1.2rem;font-weight:700;flex-shrink:0}
+
+/* ===== KEYWORD TABLE ===== */
+.kw-table{width:100%;border-collapse:collapse}.kw-table th{text-align:left;padding:0.75rem 1rem;font-size:0.7rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--text-muted);border-bottom:1px solid var(--bg-card-border)}.kw-table td{padding:0.85rem 1rem;border-bottom:1px solid var(--bg-card-border);color:var(--text-secondary);font-size:0.9rem}.kw-table tr:last-child td{border-bottom:none;font-weight:700;color:var(--text-primary)}.kw-vol{font-weight:700;background:linear-gradient(135deg,#40B4E5,#CC22FF);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+
+/* ===== LEVER CARDS ===== */
+.lever-card{border-radius:16px;padding:2rem;position:relative;overflow:hidden}.lever-card::before{content:'';position:absolute;top:0;left:0;right:0;height:4px}.lever-card.blue::before{background:linear-gradient(90deg,#40B4E5,#0644ED)}.lever-card.purple::before{background:linear-gradient(90deg,#CC22FF,#9333ea)}.lever-card.green::before{background:linear-gradient(90deg,#22c55e,#16a34a)}.lever-num{font-size:3rem;font-weight:900;opacity:0.15;position:absolute;top:1rem;right:1.5rem;line-height:1}.lever-card .projected{margin-top:1rem;padding:0.75rem;border-radius:8px;background:rgba(255,255,255,0.05);font-size:0.85rem;font-weight:600;color:var(--accent-light)}
+
+/* ===== COMPARISON TABLE ===== */
+.comp-table{width:100%;border-collapse:collapse;font-size:0.9rem}.comp-table th{padding:1rem 1.5rem;font-size:0.7rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--text-muted);border-bottom:2px solid var(--bg-card-border);text-align:center}.comp-table th:first-child{text-align:left}.comp-table td{padding:1rem 1.5rem;border-bottom:1px solid var(--bg-card-border);text-align:center}.comp-table td:first-child{text-align:left;font-weight:600;color:var(--text-secondary)}.comp-table .highlight{background:rgba(64,180,229,0.05);color:var(--green);font-weight:700}.comp-table .current{color:var(--text-muted)}.comp-table .projected{background:linear-gradient(135deg,#40B4E5,#CC22FF);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;font-weight:800}
+
+/* ===== STEP FLOW (seeding) ===== */
+.seed-step{position:relative;padding:2rem;border-radius:16px;border:1px solid var(--bg-card-border);background:var(--bg-card)}.seed-step-num{width:48px;height:48px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:1.1rem;color:#fff;margin-bottom:1rem;flex-shrink:0}.seed-step-num.s1{background:linear-gradient(135deg,#40B4E5,#0644ED)}.seed-step-num.s2{background:linear-gradient(135deg,#CC22FF,#9333ea)}.seed-step-num.s3{background:linear-gradient(135deg,#22c55e,#16a34a)}.seed-step .step-label{font-size:0.65rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;margin-bottom:0.5rem}.seed-step .step-label.s1{color:#40B4E5}.seed-step .step-label.s2{color:#CC22FF}.seed-step .step-label.s3{color:#22c55e}.seed-step h3{font-size:1.15rem;font-weight:800;margin-bottom:0.75rem}.seed-step ul{list-style:none;display:flex;flex-direction:column;gap:0.4rem}.seed-step ul li{color:var(--text-secondary);font-size:0.88rem;padding-left:1.2rem;position:relative}.seed-step ul li::before{content:'→';position:absolute;left:0;color:var(--accent-light);font-weight:700}
+.seed-connector{display:flex;align-items:center;justify-content:center;font-size:2rem;color:var(--accent-light);padding:0 0.5rem;flex-shrink:0}
+
+/* ===== QUALITY CALLOUT ===== */
+.quality-banner{padding:2rem 2.5rem;border-radius:16px;background:linear-gradient(135deg,rgba(204,34,255,0.1),rgba(64,180,229,0.1));border:1px solid rgba(204,34,255,0.25);position:relative;overflow:hidden}.quality-banner::before{content:'🎯';position:absolute;right:2rem;top:1rem;font-size:4rem;opacity:0.1}
+.quality-math{display:flex;gap:1rem;align-items:stretch;flex-wrap:wrap;margin:1.5rem 0}.quality-math-card{flex:1;min-width:220px;padding:1.25rem 1.5rem;border-radius:12px;text-align:center}.quality-math-card.before{background:rgba(239,68,68,0.08);border:1px solid rgba(239,68,68,0.2)}.quality-math-card.after{background:rgba(34,197,94,0.08);border:1px solid rgba(34,197,94,0.2)}.quality-math-card .qm-label{font-size:0.65rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;margin-bottom:0.5rem}.quality-math-card.before .qm-label{color:var(--red)}.quality-math-card.after .qm-label{color:var(--green)}.quality-math-card .qm-main{font-size:1.3rem;font-weight:800;margin-bottom:0.25rem}.quality-math-card .qm-sub{font-size:0.78rem;color:var(--text-muted);line-height:1.4}
+.quality-math-arrow{display:flex;align-items:center;justify-content:center;font-size:2rem;color:var(--accent-light);font-weight:700;flex-shrink:0;align-self:center}
+
+/* ===== CHECKLIST CARDS ===== */
+.data-card{padding:1.5rem;border-radius:14px;background:var(--bg-card);border:1px solid var(--bg-card-border);display:flex;gap:1rem;align-items:start;transition:border-color var(--transition),transform var(--transition)}.data-card:hover{border-color:rgba(64,180,229,0.3);transform:translateY(-2px)}.data-card .icon{font-size:1.5rem;flex-shrink:0;line-height:1.2}.data-card .q-num{font-size:0.65rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:var(--text-muted);margin-bottom:0.25rem}.data-card .q-text{font-weight:700;font-size:0.95rem;color:var(--text-primary);margin-bottom:0.2rem}.data-card .q-why{font-size:0.8rem;color:var(--text-secondary);line-height:1.5}
+
+/* ===== NEXT STEPS ===== */
+.step-row{display:flex;gap:1.5rem;align-items:start;padding:1.5rem;border-radius:14px;background:var(--bg-card);border:1px solid var(--bg-card-border);margin-bottom:1rem;transition:border-color var(--transition)}.step-row:hover{border-color:rgba(64,180,229,0.2)}.step-row .step-num{width:48px;height:48px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:1.1rem;color:#fff;flex-shrink:0;background:linear-gradient(135deg,#40B4E5,#CC22FF)}.step-row .step-title{font-weight:700;font-size:1rem;margin-bottom:0.2rem}.step-row .step-desc{color:var(--text-secondary);font-size:0.88rem}
+
+/* ===== SECRET WEAPON SECTION ===== */
+.secret-section{background:linear-gradient(135deg,rgba(6,68,237,0.06),rgba(204,34,255,0.06));border-top:1px solid rgba(64,180,229,0.15);border-bottom:1px solid rgba(64,180,229,0.15)}
+.seed-flow{display:grid;grid-template-columns:1fr auto 1fr auto 1fr;gap:0.75rem;align-items:stretch}
+.callout-box{padding:1.75rem 2rem;border-radius:14px;position:relative}.callout-box.gold{background:linear-gradient(135deg,rgba(245,158,11,0.1),rgba(245,158,11,0.05));border:1px solid rgba(245,158,11,0.3)}.callout-box.blue{background:linear-gradient(135deg,rgba(64,180,229,0.1),rgba(64,180,229,0.05));border:1px solid rgba(64,180,229,0.25)}.callout-box.purple{background:linear-gradient(135deg,rgba(204,34,255,0.12),rgba(204,34,255,0.05));border:1px solid rgba(204,34,255,0.3)}
+.budget-pill{display:inline-flex;align-items:center;gap:8px;padding:12px 24px;border-radius:50px;background:linear-gradient(135deg,rgba(34,197,94,0.12),rgba(64,180,229,0.12));border:1px solid rgba(34,197,94,0.25);font-weight:700;font-size:1rem}
+
+@media(max-width:768px){.grid-2,.grid-3,.grid-4{grid-template-columns:1fr}.seed-flow{grid-template-columns:1fr}.seed-connector{transform:rotate(90deg)}.quality-math{flex-direction:column}.quality-math-arrow{transform:rotate(90deg)}.flow-row{gap:0.5rem}section{padding:4rem 1.5rem}}
+@media print{*{transition:none!important;animation:none!important}body{background:#fff!important;color:#191F24!important}.nav,.watermark,.hero-scroll,.side-nav,.reading-progress{display:none!important}section{padding:2rem 0!important;background:#fff!important}.hero{min-height:auto!important;padding:3rem 0!important}.card{background:#f9f9f9!important;border:1px solid #ddd!important;backdrop-filter:none!important}.section-title .gradient,.gradient{-webkit-text-fill-color:#0644ED!important}.reveal{opacity:1!important;transform:none!important}@page{margin:1.5cm}}
+</style>
+</head>
+<body>
+
+<div class="reading-progress" id="readingProgress"></div>
+
+<nav class="nav">
+  <div class="nav-brand"><div class="dot"></div>BRANDASTIC <span style="opacity:0.4;margin:0 6px">·</span> Fountain Life</div>
+  <div class="nav-actions">
+    <button class="theme-toggle" onclick="toggleTheme()">☀️ Light</button>
+    <button class="pdf-btn" onclick="window.print()">📄 Download PDF</button>
+  </div>
+</nav>
+
+<div class="side-nav">
+  <div class="side-nav-line"></div>
+  <div class="side-nav-dot active" data-section="hero"><span class="tooltip">Overview</span></div>
+  <div class="side-nav-dot" data-section="goal"><span class="tooltip">The Goal</span></div>
+  <div class="side-nav-dot" data-section="quality"><span class="tooltip">Lead Quality</span></div>
+  <div class="side-nav-dot" data-section="funnel"><span class="tooltip">Current Funnel</span></div>
+  <div class="side-nav-dot" data-section="meta"><span class="tooltip">Meta Strategy</span></div>
+  <div class="side-nav-dot" data-section="google"><span class="tooltip">Google Strategy</span></div>
+  <div class="side-nav-dot" data-section="keywords"><span class="tooltip">Keywords</span></div>
+  <div class="side-nav-dot" data-section="seeding"><span class="tooltip">Secret Weapon</span></div>
+  <div class="side-nav-dot" data-section="levers"><span class="tooltip">3 Levers</span></div>
+  <div class="side-nav-dot" data-section="impact"><span class="tooltip">Projected Impact</span></div>
+  <div class="side-nav-dot" data-section="budget"><span class="tooltip">Budget</span></div>
+  <div class="side-nav-dot" data-section="data-needed"><span class="tooltip">What We Need</span></div>
+  <div class="side-nav-dot" data-section="next-steps"><span class="tooltip">Next Steps</span></div>
+  <div class="side-nav-dot" data-section="cta"><span class="tooltip">Let's Talk</span></div>
+</div>
+
+<div class="watermark"><span style="width:6px;height:6px;border-radius:50%;background:linear-gradient(135deg,#40B4E5,#CC22FF);display:inline-block"></span> Prepared by Brandastic</div>
+
+<!-- ===== HERO ===== -->
+<section class="hero" id="hero">
+  <div class="section-badge" style="margin-bottom:1.5rem">Growth Strategy · Confidential</div>
+  <h1 class="hero-company">Fountain Life</h1>
+  <h2 style="font-size:clamp(1.3rem,3vw,2rem);font-weight:700;letter-spacing:-0.02em;margin-top:0.5rem;color:var(--text-secondary)">Hitting 150+ Scheduled Calls Per Week</h2>
+  <p style="color:var(--text-muted);font-size:1rem;max-width:520px;text-align:center;margin-top:1rem;line-height:1.7">A focused paid media plan across Meta & Google to close the gap and scale beyond.</p>
+  <div class="hero-meta">
+    <span>Prepared by Brandastic</span>
+    <span>May 2026</span>
+    <span>Post-Call Follow-Up</span>
+  </div>
+  <div class="hero-scroll">↓</div>
+</section>
+
+<!-- ===== SECTION 1: THE GOAL ===== -->
+<section id="goal">
+  <div class="container reveal">
+    <div class="section-badge">01 — The Goal</div>
+    <h2 class="section-title">The <span class="gradient">Target</span></h2>
+
+    <div class="grid-3" style="margin-bottom:3rem">
+      <div class="card" style="text-align:center;padding:2.5rem;border:1px solid rgba(64,180,229,0.3);background:rgba(64,180,229,0.05)">
+        <div style="font-size:0.7rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:var(--accent-light);margin-bottom:0.75rem">Target</div>
+        <div style="font-size:4rem;font-weight:900;background:linear-gradient(135deg,#40B4E5,#CC22FF);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1" data-count="150">0</div>
+        <div style="font-size:1rem;font-weight:600;margin-top:0.25rem;color:var(--text-secondary)">calls / week</div>
+      </div>
+      <div class="card" style="text-align:center;padding:2.5rem">
+        <div style="font-size:0.7rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:var(--text-muted);margin-bottom:0.75rem">Best Achieved</div>
+        <div style="font-size:4rem;font-weight:900;color:var(--text-primary);line-height:1" data-count="136">0</div>
+        <div style="font-size:1rem;font-weight:600;margin-top:0.25rem;color:var(--text-muted)">calls / week</div>
+      </div>
+      <div class="card" style="text-align:center;padding:2.5rem;border:1px solid rgba(245,158,11,0.2);background:rgba(245,158,11,0.04)">
+        <div style="font-size:0.7rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:var(--yellow);margin-bottom:0.75rem">The Gap</div>
+        <div style="font-size:4rem;font-weight:900;color:var(--yellow);line-height:1">14</div>
+        <div style="font-size:1rem;font-weight:600;margin-top:0.25rem;color:var(--text-muted)">calls/week = 10% lift</div>
+      </div>
+    </div>
+
+    <!-- Progress bar -->
+    <div class="card" style="padding:2rem;margin-bottom:2rem">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:1rem">
+        <span style="font-weight:700;font-size:1rem">Progress to Goal</span>
+        <span style="font-weight:800;color:var(--accent-light)">136 / 150 — 90.6%</span>
+      </div>
+      <div style="height:16px;border-radius:8px;background:var(--bg-card-border);overflow:hidden;position:relative">
+        <div class="fill" style="height:100%;width:0%;border-radius:8px;background:linear-gradient(90deg,#40B4E5,#CC22FF);transition:width 1.5s ease" data-target="90.6"></div>
+        <div style="position:absolute;top:0;left:90.6%;height:100%;width:2px;background:rgba(255,255,255,0.5);border-radius:1px"></div>
+      </div>
+      <div style="display:flex;justify-content:space-between;margin-top:0.5rem;font-size:0.78rem;color:var(--text-muted)">
+        <span>0</span><span style="color:var(--yellow)">← 14 more needed →</span><span>150</span>
+      </div>
+    </div>
+
+    <div class="card" style="padding:2rem;border-left:4px solid var(--accent-light);background:rgba(64,180,229,0.04)">
+      <p style="color:var(--text-secondary);font-size:1rem;line-height:1.7">You don't need a complete overhaul — you need <strong style="color:var(--text-primary)">optimization + strategic expansion</strong>. Here's the plan to close that gap and push past 150 — with the right leads, not just more leads.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SECTION: THE REAL PROBLEM — LEAD QUALITY ===== -->
+<section id="quality" style="background:var(--bg-secondary)">
+  <div class="container reveal">
+    <div class="section-badge">02 — The Real Problem</div>
+    <h2 class="section-title">Lead Quality, <span class="gradient">Not Just Quantity</span></h2>
+
+    <div class="quality-banner" style="margin-bottom:2.5rem">
+      <p style="font-size:1.05rem;line-height:1.7;color:var(--text-secondary);position:relative;z-index:1">Getting to 150 calls/week isn't just about more leads — it's about the <strong style="color:var(--text-primary)">RIGHT leads</strong>. Fountain Life's premium memberships require high-net-worth individuals. When unqualified leads flood the pipeline, the close rate drops, the sales team burns out, and call targets feel impossible.<br><br><strong style="color:var(--text-primary)">The solution isn't more volume — it's precision targeting.</strong></p>
+    </div>
+
+    <div style="display:flex;align-items:center;gap:1rem;flex-wrap:wrap;margin-bottom:2.5rem">
+      <div class="quality-math-card before" style="flex:1;min-width:240px">
+        <div class="qm-label">Current State</div>
+        <div class="qm-main" style="color:var(--red)">136 calls/week</div>
+        <div class="qm-sub">Mixed quality leads → <strong>low close rate</strong><br>Sales team overwhelmed<br>Revenue below potential</div>
+      </div>
+      <div class="quality-math-arrow">→</div>
+      <div class="quality-math-card after" style="flex:1;min-width:240px">
+        <div class="qm-label">With Precision Targeting</div>
+        <div class="qm-main" style="color:var(--green)">150+ calls/week</div>
+        <div class="qm-sub">HNW-qualified leads → <strong>2–3× close rate</strong><br>Sales team energized<br>Revenue compounds</div>
+      </div>
+    </div>
+
+    <div class="card" style="padding:1.75rem 2rem;border:1px solid rgba(34,197,94,0.2);background:rgba(34,197,94,0.04);text-align:center">
+      <div style="font-size:0.75rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:var(--green);margin-bottom:0.5rem">Key Insight</div>
+      <p style="font-size:1.1rem;font-weight:600;color:var(--text-primary);line-height:1.6">Better leads means <strong style="color:var(--green)">fewer calls needed</strong> to hit revenue goals.<br><span style="font-weight:400;color:var(--text-secondary);font-size:0.95rem">Fountain Life memberships start at $10–20K+. Every unqualified call costs the team time that could be closing.</span></p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SECTION 2: CURRENT FUNNEL ===== -->
+<section id="funnel">
+  <div class="container reveal">
+    <div class="section-badge">03 — Current Funnel</div>
+    <h2 class="section-title">How Leads Flow <span class="gradient">Right Now</span></h2>
+
+    <div class="grid-2" style="margin-bottom:2rem">
+      <div class="card" style="padding:2rem">
+        <div style="font-size:0.7rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:#40B4E5;margin-bottom:1rem">Meta Ads Flow</div>
+        <div class="flow-row">
+          <div class="flow-node">Meta Ad</div>
+          <div class="flow-arrow">→</div>
+          <div class="flow-node">In-App Lead Form</div>
+          <div class="flow-arrow">→</div>
+          <div class="flow-node">Lead Captured</div>
+        </div>
+        <div class="flow-row">
+          <div class="flow-arrow">→</div>
+          <div class="flow-node">Sales Team Follow-up</div>
+          <div class="flow-arrow">→</div>
+          <div class="flow-node" style="border-color:rgba(64,180,229,0.4);color:var(--accent-light)">Scheduled Call ✓</div>
+        </div>
+      </div>
+      <div class="card" style="padding:2rem">
+        <div style="font-size:0.7rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:#CC22FF;margin-bottom:1rem">Google Ads Flow</div>
+        <div class="flow-row">
+          <div class="flow-node">Google Ad</div>
+          <div class="flow-arrow">→</div>
+          <div class="flow-node">fountainlife.com</div>
+          <div class="flow-arrow">→</div>
+          <div class="flow-node">"Schedule a Call" Page</div>
+        </div>
+        <div class="flow-row">
+          <div class="flow-arrow">→</div>
+          <div class="flow-node" style="border-color:rgba(204,34,255,0.4);color:#CC22FF">Scheduled Call ✓</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="callout-box gold">
+      <div style="font-size:1.2rem;margin-bottom:0.75rem">⚠️</div>
+      <div style="font-weight:700;color:var(--yellow);margin-bottom:0.4rem">The Core Problem</div>
+      <p style="color:var(--text-secondary);font-size:0.9rem;line-height:1.6">Meta in-app forms drive volume but may have lower intent and <strong style="color:var(--text-primary)">zero income qualification</strong> — meaning leads who simply can't afford Fountain Life flood the pipeline. Google drives higher intent but fewer leads. The strategy: optimize both channels for <strong style="color:var(--text-primary)">LEAD QUALITY</strong>, not just volume.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SECTION 3: META STRATEGY ===== -->
+<section id="meta" style="background:var(--bg-secondary)">
+  <div class="container reveal">
+    <div class="section-badge">04 — Meta Ads Strategy</div>
+    <h2 class="section-title">Meta — Reaching <span class="gradient">High-Net-Worth Prospects</span></h2>
+    <p class="section-sub">Six precision targeting tactics to fill the pipeline with people who can actually afford Fountain Life.</p>
+
+    <div class="grid-3">
+      <div class="card" style="padding:1.75rem">
+        <div style="font-size:1.5rem;margin-bottom:0.75rem">💰</div>
+        <div style="font-weight:700;font-size:1rem;margin-bottom:0.5rem">Income-Based Targeting</div>
+        <ul style="list-style:none;display:flex;flex-direction:column;gap:0.35rem">
+          <li style="color:var(--text-secondary);font-size:0.85rem;padding-left:1rem;position:relative"><span style="position:absolute;left:0;color:var(--accent-light)">•</span>Top 5–10% household income zip codes</li>
+          <li style="color:var(--text-secondary);font-size:0.85rem;padding-left:1rem;position:relative"><span style="position:absolute;left:0;color:var(--accent-light)">•</span>Geo-targeted around Dallas, Orlando, Naples, New York, Houston</li>
+          <li style="color:var(--text-secondary);font-size:0.85rem;padding-left:1rem;position:relative"><span style="position:absolute;left:0;color:var(--accent-light)">•</span>$500K+ household income filters where available</li>
+        </ul>
+      </div>
+
+      <div class="card" style="padding:1.75rem">
+        <div style="font-size:1.5rem;margin-bottom:0.75rem">🧬</div>
+        <div style="font-weight:700;font-size:1rem;margin-bottom:0.5rem">Interest Stacking</div>
+        <ul style="list-style:none;display:flex;flex-direction:column;gap:0.35rem">
+          <li style="color:var(--text-secondary);font-size:0.85rem;padding-left:1rem;position:relative"><span style="position:absolute;left:0;color:var(--accent-light)">•</span>Longevity + Biohacking + Peter Diamandis + Tony Robbins</li>
+          <li style="color:var(--text-secondary);font-size:0.85rem;padding-left:1rem;position:relative"><span style="position:absolute;left:0;color:var(--accent-light)">•</span>Executive health + concierge medicine + anti-aging</li>
+          <li style="color:var(--text-secondary);font-size:0.85rem;padding-left:1rem;position:relative"><span style="position:absolute;left:0;color:var(--accent-light)">•</span>Huberman Lab, Peter Attia, functional medicine</li>
+        </ul>
+      </div>
+
+      <div class="card" style="padding:1.75rem;border:1px solid rgba(34,197,94,0.25);background:rgba(34,197,94,0.04)">
+        <div style="font-size:1.5rem;margin-bottom:0.75rem">🪄</div>
+        <div style="font-weight:700;font-size:1rem;margin-bottom:0.5rem">Lookalike Audiences</div>
+        <ul style="list-style:none;display:flex;flex-direction:column;gap:0.35rem">
+          <li style="color:var(--text-secondary);font-size:0.85rem;padding-left:1rem;position:relative"><span style="position:absolute;left:0;color:var(--green)">•</span>Upload existing patient list → 1% lookalike</li>
+          <li style="color:var(--text-secondary);font-size:0.85rem;padding-left:1rem;position:relative"><span style="position:absolute;left:0;color:var(--green)">•</span>Website visitor lookalikes</li>
+          <li style="color:var(--text-secondary);font-size:0.85rem;padding-left:1rem;position:relative"><span style="position:absolute;left:0;color:var(--green)">•</span><em>"Your best patients find more people like them"</em></li>
+        </ul>
+      </div>
+
+      <div class="card" style="padding:1.75rem">
+        <div style="font-size:1.5rem;margin-bottom:0.75rem">🎯</div>
+        <div style="font-weight:700;font-size:1rem;margin-bottom:0.5rem">Retargeting</div>
+        <ul style="list-style:none;display:flex;flex-direction:column;gap:0.35rem">
+          <li style="color:var(--text-secondary);font-size:0.85rem;padding-left:1rem;position:relative"><span style="position:absolute;left:0;color:var(--accent-light)">•</span>Visitors who hit pricing/membership pages but didn't convert</li>
+          <li style="color:var(--text-secondary);font-size:0.85rem;padding-left:1rem;position:relative"><span style="position:absolute;left:0;color:var(--accent-light)">•</span>Video viewers (50%+ watched) → testimonial ads</li>
+          <li style="color:var(--text-secondary);font-size:0.85rem;padding-left:1rem;position:relative"><span style="position:absolute;left:0;color:var(--accent-light)">•</span>Highest-intent audience you already have</li>
+        </ul>
+      </div>
+
+      <div class="card" style="padding:1.75rem">
+        <div style="font-size:1.5rem;margin-bottom:0.75rem">👔</div>
+        <div style="font-weight:700;font-size:1rem;margin-bottom:0.5rem">Job Title Targeting</div>
+        <ul style="list-style:none;display:flex;flex-direction:column;gap:0.35rem">
+          <li style="color:var(--text-secondary);font-size:0.85rem;padding-left:1rem;position:relative"><span style="position:absolute;left:0;color:var(--accent-light)">•</span>CEO, Founder, Managing Director, Partner, C-Suite</li>
+          <li style="color:var(--text-secondary);font-size:0.85rem;padding-left:1rem;position:relative"><span style="position:absolute;left:0;color:var(--accent-light)">•</span>Business owners with 50+ employees</li>
+          <li style="color:var(--text-secondary);font-size:0.85rem;padding-left:1rem;position:relative"><span style="position:absolute;left:0;color:var(--accent-light)">•</span>Pre-qualifies by income proxy</li>
+        </ul>
+      </div>
+
+      <div class="card" style="padding:1.75rem">
+        <div style="font-size:1.5rem;margin-bottom:0.75rem">🎬</div>
+        <div style="font-weight:700;font-size:1rem;margin-bottom:0.5rem">Creative Strategy</div>
+        <ul style="list-style:none;display:flex;flex-direction:column;gap:0.35rem">
+          <li style="color:var(--text-secondary);font-size:0.85rem;padding-left:1rem;position:relative"><span style="position:absolute;left:0;color:var(--accent-light)">•</span>"Early detection saved my life" testimonial videos</li>
+          <li style="color:var(--text-secondary);font-size:0.85rem;padding-left:1rem;position:relative"><span style="position:absolute;left:0;color:var(--accent-light)">•</span>Before/after health transformation stories</li>
+          <li style="color:var(--text-secondary);font-size:0.85rem;padding-left:1rem;position:relative"><span style="position:absolute;left:0;color:var(--accent-light)">•</span>Diamandis authority clips → credibility ads</li>
+          <li style="color:var(--text-secondary);font-size:0.85rem;padding-left:1rem;position:relative"><span style="position:absolute;left:0;color:var(--accent-light)">•</span>Carousel: "What 150GB of health data reveals"</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Lead Form Qualification Card -->
+    <div style="margin-top:2rem" class="callout-box purple">
+      <div style="display:flex;align-items:start;gap:1rem">
+        <div style="font-size:2rem;flex-shrink:0">📋</div>
+        <div>
+          <div style="font-weight:800;font-size:1.05rem;color:#CC22FF;margin-bottom:0.5rem">Meta Lead Form Pre-Qualification</div>
+          <p style="color:var(--text-secondary);font-size:0.9rem;line-height:1.6;margin-bottom:0.75rem">Add qualifying questions directly inside Meta's in-app lead forms — <em>before</em> leads hit your sales team. This is a simple change that can dramatically raise close rates.</p>
+          <div style="display:flex;flex-wrap:wrap;gap:0.5rem">
+            <span class="badge badge-purple">Q: "What is your approximate household income?"</span>
+            <span class="badge badge-purple">Q: "Are you interested in memberships starting at $10K/yr?"</span>
+            <span class="badge badge-purple">Q: "What best describes your health goal?"</span>
+          </div>
+          <p style="margin-top:0.75rem;font-size:0.85rem;color:var(--text-secondary)"><strong style="color:var(--text-primary)">Result:</strong> Unqualified leads self-select out. Your sales team only speaks to people who said yes to the price point.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SECTION 4: GOOGLE STRATEGY ===== -->
+<section id="google">
+  <div class="container reveal">
+    <div class="section-badge">05 — Google Ads Strategy</div>
+    <h2 class="section-title">Google — Capturing <span class="gradient">High-Intent Searches</span></h2>
+    <p class="section-sub">When someone searches "whole body MRI near me" — they're ready to book. Let's be there.</p>
+
+    <div class="grid-3">
+      <div class="card" style="padding:1.75rem">
+        <div style="font-size:1.5rem;margin-bottom:0.75rem">🔍</div>
+        <div style="font-weight:700;font-size:1rem;margin-bottom:0.5rem">Non-Branded High Intent</div>
+        <ul style="list-style:none;display:flex;flex-direction:column;gap:0.35rem">
+          <li style="color:var(--text-secondary);font-size:0.85rem;padding-left:1rem;position:relative"><span style="position:absolute;left:0;color:var(--accent-light)">•</span>"full body scan near me"</li>
+          <li style="color:var(--text-secondary);font-size:0.85rem;padding-left:1rem;position:relative"><span style="position:absolute;left:0;color:var(--accent-light)">•</span>"executive health screening [city]"</li>
+          <li style="color:var(--text-secondary);font-size:0.85rem;padding-left:1rem;position:relative"><span style="position:absolute;left:0;color:var(--accent-light)">•</span>"longevity clinic near me"</li>
+          <li style="color:var(--text-secondary);font-size:0.85rem;padding-left:1rem;position:relative"><span style="position:absolute;left:0;color:var(--accent-light)">•</span>"preventive health screening"</li>
+          <li style="color:var(--text-secondary);font-size:0.85rem;padding-left:1rem;position:relative"><span style="position:absolute;left:0;color:var(--accent-light)">•</span>"whole body MRI near me"</li>
+        </ul>
+      </div>
+
+      <div class="card" style="padding:1.75rem">
+        <div style="font-size:1.5rem;margin-bottom:0.75rem">📞</div>
+        <div style="font-weight:700;font-size:1rem;margin-bottom:0.5rem">Call-Only Campaigns</div>
+        <ul style="list-style:none;display:flex;flex-direction:column;gap:0.35rem">
+          <li style="color:var(--text-secondary);font-size:0.85rem;padding-left:1rem;position:relative"><span style="position:absolute;left:0;color:var(--accent-light)">•</span>Skip the landing page — phone rings directly</li>
+          <li style="color:var(--text-secondary);font-size:0.85rem;padding-left:1rem;position:relative"><span style="position:absolute;left:0;color:var(--accent-light)">•</span>Best for mobile high-intent searches</li>
+          <li style="color:var(--text-secondary);font-size:0.85rem;padding-left:1rem;position:relative"><span style="position:absolute;left:0;color:var(--accent-light)">•</span>"Schedule your assessment today"</li>
+        </ul>
+      </div>
+
+      <div class="card" style="padding:1.75rem">
+        <div style="font-size:1.5rem;margin-bottom:0.75rem">📍</div>
+        <div style="font-weight:700;font-size:1rem;margin-bottom:0.5rem">Local Campaigns per Location</div>
+        <ul style="list-style:none;display:flex;flex-direction:column;gap:0.35rem">
+          <li style="color:var(--text-secondary);font-size:0.85rem;padding-left:1rem;position:relative"><span style="position:absolute;left:0;color:var(--accent-light)">•</span>Separate campaigns: Dallas, Orlando, Naples, NYC, Houston</li>
+          <li style="color:var(--text-secondary);font-size:0.85rem;padding-left:1rem;position:relative"><span style="position:absolute;left:0;color:var(--accent-light)">•</span>Location-specific ad copy and extensions</li>
+          <li style="color:var(--text-secondary);font-size:0.85rem;padding-left:1rem;position:relative"><span style="position:absolute;left:0;color:var(--accent-light)">•</span>Call extensions on every ad</li>
+        </ul>
+      </div>
+
+      <div class="card" style="padding:1.75rem">
+        <div style="font-size:1.5rem;margin-bottom:0.75rem">⚔️</div>
+        <div style="font-weight:700;font-size:1rem;margin-bottom:0.5rem">Competitor Conquesting</div>
+        <ul style="list-style:none;display:flex;flex-direction:column;gap:0.35rem">
+          <li style="color:var(--text-secondary);font-size:0.85rem;padding-left:1rem;position:relative"><span style="position:absolute;left:0;color:var(--accent-light)">•</span>Target searches for competing longevity clinics</li>
+          <li style="color:var(--text-secondary);font-size:0.85rem;padding-left:1rem;position:relative"><span style="position:absolute;left:0;color:var(--accent-light)">•</span>"Looking for [competitor]? See why Fountain Life is #1 rated"</li>
+        </ul>
+      </div>
+
+      <div class="card" style="padding:1.75rem">
+        <div style="font-size:1.5rem;margin-bottom:0.75rem">⚡</div>
+        <div style="font-weight:700;font-size:1rem;margin-bottom:0.5rem">Performance Max</div>
+        <ul style="list-style:none;display:flex;flex-direction:column;gap:0.35rem">
+          <li style="color:var(--text-secondary);font-size:0.85rem;padding-left:1rem;position:relative"><span style="position:absolute;left:0;color:var(--accent-light)">•</span>Use testimonial videos as creative assets</li>
+          <li style="color:var(--text-secondary);font-size:0.85rem;padding-left:1rem;position:relative"><span style="position:absolute;left:0;color:var(--accent-light)">•</span>Feed Google's AI with conversion data</li>
+          <li style="color:var(--text-secondary);font-size:0.85rem;padding-left:1rem;position:relative"><span style="position:absolute;left:0;color:var(--accent-light)">•</span>Expand across Search, YouTube, Display, Gmail</li>
+        </ul>
+      </div>
+
+      <div class="card" style="padding:1.75rem">
+        <div style="font-size:1.5rem;margin-bottom:0.75rem">🖥️</div>
+        <div style="font-weight:700;font-size:1rem;margin-bottom:0.5rem">Landing Page Optimization</div>
+        <ul style="list-style:none;display:flex;flex-direction:column;gap:0.35rem">
+          <li style="color:var(--text-secondary);font-size:0.85rem;padding-left:1rem;position:relative"><span style="position:absolute;left:0;color:var(--accent-light)">•</span>A/B test "Schedule a Call" page</li>
+          <li style="color:var(--text-secondary);font-size:0.85rem;padding-left:1rem;position:relative"><span style="position:absolute;left:0;color:var(--accent-light)">•</span>Add social proof (member count, testimonials)</li>
+          <li style="color:var(--text-secondary);font-size:0.85rem;padding-left:1rem;position:relative"><span style="position:absolute;left:0;color:var(--accent-light)">•</span>Reduce form fields, add click-to-call for mobile</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SECTION: KEYWORDS ===== -->
+<section id="keywords" style="background:var(--bg-secondary)">
+  <div class="container reveal">
+    <div class="section-badge">06 — Keyword Opportunity</div>
+    <h2 class="section-title">28,000+ Monthly Searches <span class="gradient">You're Missing</span></h2>
+    <p class="section-sub">These are the exact high-intent searches your ideal HNW patients type into Google — and Fountain Life is not showing up. These should be priority Google Ads targets.</p>
+
+    <div class="card" style="padding:0;overflow:hidden;margin-bottom:2rem">
+      <table class="kw-table">
+        <thead>
+          <tr style="background:var(--bg-card-border)">
+            <th>Keyword</th>
+            <th>Monthly Searches</th>
+            <th>Intent</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td style="font-weight:600;color:var(--text-primary)">"full body scan near me"</td>
+            <td><span class="kw-vol">6,600</span></td>
+            <td><span class="badge badge-red">🔥 High</span></td>
+            <td><span class="badge badge-red">Not Targeting</span></td>
+          </tr>
+          <tr>
+            <td style="font-weight:600;color:var(--text-primary)">"preventive health screening"</td>
+            <td><span class="kw-vol">5,400</span></td>
+            <td><span class="badge badge-red">🔥 High</span></td>
+            <td><span class="badge badge-red">Not Targeting</span></td>
+          </tr>
+          <tr>
+            <td style="font-weight:600;color:var(--text-primary)">"anti aging clinic"</td>
+            <td><span class="kw-vol">4,400</span></td>
+            <td><span class="badge badge-red">🔥 High</span></td>
+            <td><span class="badge badge-red">Not Targeting</span></td>
+          </tr>
+          <tr>
+            <td style="font-weight:600;color:var(--text-primary)">"longevity clinic"</td>
+            <td><span class="kw-vol">3,600</span></td>
+            <td><span class="badge badge-red">🔥 High</span></td>
+            <td><span class="badge badge-red">Not Targeting</span></td>
+          </tr>
+          <tr>
+            <td style="font-weight:600;color:var(--text-primary)">"full body health assessment"</td>
+            <td><span class="kw-vol">3,600</span></td>
+            <td><span class="badge badge-red">🔥 High</span></td>
+            <td><span class="badge badge-red">Not Targeting</span></td>
+          </tr>
+          <tr>
+            <td style="font-weight:600;color:var(--text-primary)">"longevity clinic near me"</td>
+            <td><span class="kw-vol">2,900</span></td>
+            <td><span class="badge badge-red">🔥 High</span></td>
+            <td><span class="badge badge-red">Not Targeting</span></td>
+          </tr>
+          <tr>
+            <td style="font-weight:600;color:var(--text-primary)">"VO2 max testing near me"</td>
+            <td><span class="kw-vol">2,900</span></td>
+            <td><span class="badge badge-red">🔥 High</span></td>
+            <td><span class="badge badge-red">Not Targeting</span></td>
+          </tr>
+          <tr>
+            <td style="font-weight:600;color:var(--text-primary)">"executive health screening"</td>
+            <td><span class="kw-vol">2,400</span></td>
+            <td><span class="badge badge-red">🔥 High</span></td>
+            <td><span class="badge badge-red">Not Targeting</span></td>
+          </tr>
+          <tr style="background:rgba(64,180,229,0.05);border-top:2px solid rgba(64,180,229,0.2)">
+            <td style="font-weight:800;color:var(--text-primary)">Total Monthly Opportunity</td>
+            <td><span class="kw-vol" style="font-size:1.3rem">28,200+</span></td>
+            <td></td>
+            <td><span class="badge badge-blue">Untapped</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="callout-box blue">
+      <div style="font-size:1.2rem;margin-bottom:0.5rem">💡</div>
+      <p style="color:var(--text-secondary);font-size:0.95rem;line-height:1.6">These searches represent people actively looking for exactly what Fountain Life offers — right now. Each one is a potential $10–20K member. We can be in front of all of them within 2 weeks of launch.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SECRET WEAPON: AUDIENCE SEEDING ===== -->
+<section id="seeding" class="secret-section">
+  <div class="container reveal">
+    <div class="section-badge" style="background:rgba(204,34,255,0.12);border-color:rgba(204,34,255,0.3);color:#CC22FF">🎯 Secret Weapon</div>
+    <h2 class="section-title">Audience Seeding — <span class="gradient">Spike the Algorithm</span></h2>
+    <p class="section-sub" style="max-width:800px">Most agencies guess at targeting. We feed the algorithm exactly who to find. This is how you solve the lead quality problem at its source.</p>
+
+    <!-- Main callout -->
+    <div class="callout-box gold" style="margin-bottom:3rem;padding:2rem 2.5rem">
+      <div style="display:flex;align-items:start;gap:1.5rem">
+        <div style="font-size:3rem;flex-shrink:0">🎯</div>
+        <div>
+          <div style="font-weight:800;font-size:1.2rem;color:var(--yellow);margin-bottom:0.5rem">This is how you go from 136 to 150+ calls</div>
+          <p style="color:var(--text-secondary);font-size:0.95rem;line-height:1.7">Instead of broad targeting and hoping, you're giving Meta and Google a <strong style="color:var(--text-primary)">cheat sheet of exactly who Fountain Life's ideal member looks like</strong>. Every lead from the seeded list is pre-qualified by income, job title, and location — before they ever see your ad.</p>
+          <div style="margin-top:1rem;padding:0.75rem 1rem;border-radius:8px;background:rgba(245,158,11,0.08);font-size:0.85rem;font-weight:600;color:var(--yellow)">Stop paying for leads who can't afford you.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 3-Step Flow -->
+    <div class="seed-flow" style="margin-bottom:2.5rem">
+      <!-- Step 1 -->
+      <div class="seed-step">
+        <div class="seed-step-num s1">1</div>
+        <div class="step-label s1">Step 1</div>
+        <h3>Build the List</h3>
+        <ul>
+          <li>Export verified HNW contacts from Apollo.io / ZoomInfo</li>
+          <li>Filter: CEO, Founder, C-Suite, Partner, Board Member</li>
+          <li>Income proxy: $500K+ revenue companies, premium industries</li>
+          <li>Location: 25-mile radius of each FL location</li>
+          <li>Industries: Finance, Tech, Real Estate, Legal, Healthcare, PE/VC</li>
+          <li>Age: 40–70</li>
+        </ul>
+        <div style="margin-top:1rem;padding:0.75rem;border-radius:8px;background:rgba(64,180,229,0.08);font-size:0.85rem;font-weight:700;color:var(--accent-light)">📊 Est. list: 50,000–100,000 contacts</div>
+      </div>
+
+      <div class="seed-connector">→</div>
+
+      <!-- Step 2 -->
+      <div class="seed-step">
+        <div class="seed-step-num s2">2</div>
+        <div class="step-label s2">Step 2</div>
+        <h3>Seed the Platforms</h3>
+        <ul>
+          <li>Upload to <strong style="color:var(--text-primary)">Meta</strong> → Custom Audience → 1% Lookalike</li>
+          <li>Upload to <strong style="color:var(--text-primary)">Google</strong> → Customer Match → Similar Audiences</li>
+          <li>Upload to <strong style="color:var(--text-primary)">LinkedIn</strong> (bonus) → Matched Audiences</li>
+        </ul>
+        <div style="margin-top:1rem;padding:0.75rem;border-radius:8px;background:rgba(204,34,255,0.08);font-size:0.85rem;font-weight:600;color:#CC22FF;font-style:italic">"These are our ideal customers. Find more like them."</div>
+      </div>
+
+      <div class="seed-connector">→</div>
+
+      <!-- Step 3 -->
+      <div class="seed-step">
+        <div class="seed-step-num s3">3</div>
+        <div class="step-label s3">Step 3</div>
+        <h3>Compound Effect</h3>
+        <ul>
+          <li>Algorithms learn from engagement on seeded audiences</li>
+          <li>Retarget engagers with testimonial + conversion ads</li>
+          <li>Each week the algorithm gets smarter about who converts</li>
+          <li>Lower CPL, higher quality leads, more scheduled calls</li>
+          <li>Your sales team closes more — they're talking to the right people</li>
+        </ul>
+        <div style="margin-top:1rem;padding:0.75rem;border-radius:8px;background:rgba(34,197,94,0.08);font-size:0.85rem;font-weight:700;color:var(--green)">📈 Higher close rate + more calls = revenue multiplier</div>
+      </div>
+    </div>
+
+    <!-- Differentiator callout -->
+    <div class="callout-box purple">
+      <div style="display:flex;align-items:start;gap:1rem">
+        <div style="font-size:1.75rem;flex-shrink:0">🏆</div>
+        <div>
+          <div style="font-weight:800;font-size:1rem;color:#CC22FF;margin-bottom:0.4rem">What Separates Good Agencies From Great Ones</div>
+          <p style="color:var(--text-secondary);font-size:0.9rem;line-height:1.6">Your current agency is likely using basic interest targeting — age ranges, general health interests, broad income brackets. That's table stakes. Data-seeding is how you get <strong style="color:var(--text-primary)">pre-qualified HNW leads</strong> instead of volume that wastes your sales team's time.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SECTION 5: THREE LEVERS ===== -->
+<section id="levers" style="background:var(--bg-secondary)">
+  <div class="container reveal">
+    <div class="section-badge">07 — The Framework</div>
+    <h2 class="section-title">Three Levers to <span class="gradient">Close the Gap</span></h2>
+    <p class="section-sub">136 → 150+ isn't one big move. It's three levers working together.</p>
+
+    <div class="grid-3">
+      <div class="card lever-card blue" style="background:var(--bg-card)">
+        <div class="lever-num">1</div>
+        <div style="font-size:1.75rem;margin-bottom:0.75rem">📈</div>
+        <div style="font-weight:800;font-size:1.2rem;margin-bottom:0.75rem">More Leads</div>
+        <ul style="list-style:none;display:flex;flex-direction:column;gap:0.5rem">
+          <li style="color:var(--text-secondary);font-size:0.88rem;padding-left:1rem;position:relative"><span style="position:absolute;left:0;color:var(--accent-light)">•</span>Expand targeting on Meta (new audiences)</li>
+          <li style="color:var(--text-secondary);font-size:0.88rem;padding-left:1rem;position:relative"><span style="position:absolute;left:0;color:var(--accent-light)">•</span>Add non-branded Google campaigns</li>
+          <li style="color:var(--text-secondary);font-size:0.88rem;padding-left:1rem;position:relative"><span style="position:absolute;left:0;color:var(--accent-light)">•</span>Audience seeding → lookalike expansion</li>
+        </ul>
+        <div class="projected">Projected: +20–30 leads/week</div>
+      </div>
+
+      <div class="card lever-card purple" style="background:var(--bg-card)">
+        <div class="lever-num">2</div>
+        <div style="font-size:1.75rem;margin-bottom:0.75rem">🎯</div>
+        <div style="font-weight:800;font-size:1.2rem;margin-bottom:0.75rem">Better Leads</div>
+        <ul style="list-style:none;display:flex;flex-direction:column;gap:0.5rem">
+          <li style="color:var(--text-secondary);font-size:0.88rem;padding-left:1rem;position:relative"><span style="position:absolute;left:0;color:#CC22FF">•</span>Tighter HNW audience targeting (income, title)</li>
+          <li style="color:var(--text-secondary);font-size:0.88rem;padding-left:1rem;position:relative"><span style="position:absolute;left:0;color:#CC22FF">•</span>Higher-intent keywords on Google</li>
+          <li style="color:var(--text-secondary);font-size:0.88rem;padding-left:1rem;position:relative"><span style="position:absolute;left:0;color:#CC22FF">•</span>Pre-qualify in Meta lead forms</li>
+        </ul>
+        <div class="projected" style="background:rgba(204,34,255,0.08);color:#CC22FF">Projected: +15% qualification rate</div>
+      </div>
+
+      <div class="card lever-card green" style="background:var(--bg-card)">
+        <div class="lever-num">3</div>
+        <div style="font-size:1.75rem;margin-bottom:0.75rem">⚡</div>
+        <div style="font-weight:800;font-size:1.2rem;margin-bottom:0.75rem">Better Conversion</div>
+        <ul style="list-style:none;display:flex;flex-direction:column;gap:0.5rem">
+          <li style="color:var(--text-secondary);font-size:0.88rem;padding-left:1rem;position:relative"><span style="position:absolute;left:0;color:var(--green)">•</span>Landing page A/B testing</li>
+          <li style="color:var(--text-secondary);font-size:0.88rem;padding-left:1rem;position:relative"><span style="position:absolute;left:0;color:var(--green)">•</span>Faster follow-up (speed to lead)</li>
+          <li style="color:var(--text-secondary);font-size:0.88rem;padding-left:1rem;position:relative"><span style="position:absolute;left:0;color:var(--green)">•</span>Meta form → instant callback workflow</li>
+        </ul>
+        <div class="projected" style="background:rgba(34,197,94,0.08);color:var(--green)">Projected: +10% show rate</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SECTION 6: PROJECTED IMPACT ===== -->
+<section id="impact">
+  <div class="container reveal">
+    <div class="section-badge">08 — Projected Impact</div>
+    <h2 class="section-title">Before & After <span class="gradient">Transformation</span></h2>
+    <p class="section-sub">Conservative projections based on implementing precision targeting, audience seeding, and conversion optimization.</p>
+
+    <div class="card" style="padding:0;overflow:hidden;margin-bottom:2rem">
+      <table class="comp-table">
+        <thead>
+          <tr>
+            <th>Metric</th>
+            <th class="current">Current</th>
+            <th style="color:var(--accent-light)">Projected</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Weekly Calls Scheduled</td>
+            <td class="current">136</td>
+            <td class="projected">175+</td>
+          </tr>
+          <tr>
+            <td>Monthly Calls</td>
+            <td class="current">~544</td>
+            <td class="projected">~700+</td>
+          </tr>
+          <tr>
+            <td>Lead Quality Score</td>
+            <td class="current">Unknown / Mixed</td>
+            <td class="projected">Track & Optimize</td>
+          </tr>
+          <tr>
+            <td>Cost Per Scheduled Call</td>
+            <td class="current">Unknown</td>
+            <td class="projected">Reduce 15–25%</td>
+          </tr>
+          <tr>
+            <td>Close Rate</td>
+            <td class="current">Unknown / Low</td>
+            <td class="projected">+2–3× with HNW targeting</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="card" style="padding:1.5rem 2rem;border:1px solid rgba(245,158,11,0.2);background:rgba(245,158,11,0.04)">
+      <div style="display:flex;align-items:center;gap:0.75rem">
+        <div style="font-size:1.2rem">⚠️</div>
+        <p style="color:var(--text-secondary);font-size:0.88rem">Exact projections depend on current ad spend — we'll refine these once we review your accounts. <strong style="color:var(--text-primary)">That's why we need the data in the next section.</strong></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== BUDGET CONTEXT ===== -->
+<section id="budget" style="background:var(--bg-secondary)">
+  <div class="container reveal">
+    <div class="section-badge">09 — Budget Framework</div>
+    <h2 class="section-title">The <span class="gradient">$40K/Month</span> Plan</h2>
+
+    <div class="grid-2" style="margin-bottom:2.5rem">
+      <div class="card" style="padding:2.5rem;text-align:center;border:1px solid rgba(64,180,229,0.25);background:rgba(64,180,229,0.05)">
+        <div style="font-size:2rem;margin-bottom:0.75rem">🔵</div>
+        <div style="font-size:0.7rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:var(--accent-light);margin-bottom:0.5rem">Google Ads</div>
+        <div style="font-size:3rem;font-weight:900;background:linear-gradient(135deg,#40B4E5,#0644ED);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">$20K</div>
+        <div style="color:var(--text-muted);font-size:0.85rem;margin-top:0.25rem">per month estimated</div>
+        <div style="margin-top:1rem;font-size:0.8rem;color:var(--text-secondary)">Non-branded search · Local campaigns · PMax · Call-only</div>
+      </div>
+      <div class="card" style="padding:2.5rem;text-align:center;border:1px solid rgba(204,34,255,0.25);background:rgba(204,34,255,0.05)">
+        <div style="font-size:2rem;margin-bottom:0.75rem">🟣</div>
+        <div style="font-size:0.7rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:#CC22FF;margin-bottom:0.5rem">Meta Ads</div>
+        <div style="font-size:3rem;font-weight:900;background:linear-gradient(135deg,#CC22FF,#9333ea);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">$20K</div>
+        <div style="color:var(--text-muted);font-size:0.85rem;margin-top:0.25rem">per month estimated</div>
+        <div style="margin-top:1rem;font-size:0.8rem;color:var(--text-secondary)">HNW targeting · Audience seeding · Lookalikes · Retargeting</div>
+      </div>
+    </div>
+
+    <div class="card" style="padding:2.5rem;text-align:center;border:2px solid rgba(34,197,94,0.25);background:rgba(34,197,94,0.04);margin-bottom:2rem">
+      <div style="font-size:0.7rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:var(--green);margin-bottom:0.75rem">Total Monthly Ad Spend</div>
+      <div style="font-size:4rem;font-weight:900;background:linear-gradient(135deg,#22c55e,#16a34a);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1">$40K / mo</div>
+      <div style="color:var(--text-muted);font-size:0.9rem;margin-top:0.5rem">Estimated — we'll refine once we see your current accounts</div>
+    </div>
+
+    <div class="callout-box blue">
+      <div style="font-size:1.5rem;margin-bottom:0.75rem">🧮</div>
+      <div style="font-weight:800;font-size:1.1rem;margin-bottom:0.5rem">The Math</div>
+      <p style="color:var(--text-secondary);font-size:0.95rem;line-height:1.8">With <strong style="color:var(--text-primary)">$40K/mo total ad spend</strong> and a target of <strong style="color:var(--text-primary)">150 calls/week (~600/mo)</strong>, the target cost per scheduled call is approximately <strong style="color:var(--accent-light);font-size:1.1rem">~$67</strong>.<br><br>If your current cost per scheduled call is higher — that's where we optimize. If it's lower — we scale. We need to know where you are today to build the real plan.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== WHAT WE NEED FROM YOU ===== -->
+<section id="data-needed">
+  <div class="container reveal">
+    <div class="section-badge">10 — What We Need From You</div>
+    <h2 class="section-title">The Data That <span class="gradient">Unlocks the Plan</span></h2>
+    <p class="section-sub">We can build a solid strategy with what we know. But to build a <em>precise</em> one — with real budget allocations, channel splits, and forecasted CPL — we need these 8 numbers.</p>
+
+    <div class="grid-2">
+      <div class="data-card">
+        <div class="icon">💵</div>
+        <div>
+          <div class="q-num">Question 01</div>
+          <div class="q-text">Exact monthly Google Ads spend?</div>
+          <div class="q-why">Tells us where the $40K baseline is vs. where you are today, and how much room we have to scale or reallocate.</div>
+        </div>
+      </div>
+
+      <div class="data-card">
+        <div class="icon">📱</div>
+        <div>
+          <div class="q-num">Question 02</div>
+          <div class="q-text">Exact monthly Meta Ads spend?</div>
+          <div class="q-why">Same — helps us understand channel mix and where the biggest optimization opportunity sits.</div>
+        </div>
+      </div>
+
+      <div class="data-card">
+        <div class="icon">📞</div>
+        <div>
+          <div class="q-num">Question 03</div>
+          <div class="q-text">Current cost per scheduled call?</div>
+          <div class="q-why">This is the core KPI. We need to know our baseline to set a realistic improvement target and measure success.</div>
+        </div>
+      </div>
+
+      <div class="data-card">
+        <div class="icon">✅</div>
+        <div>
+          <div class="q-num">Question 04</div>
+          <div class="q-text">What's the show rate?</div>
+          <div class="q-why">The % of scheduled calls that actually happen. If it's low, we focus on intent-based targeting and lead form pre-qualification to fix it upstream.</div>
+        </div>
+      </div>
+
+      <div class="data-card">
+        <div class="icon">🌊</div>
+        <div>
+          <div class="q-num">Question 05</div>
+          <div class="q-text">How many leads/month total across both platforms?</div>
+          <div class="q-why">Reveals the funnel conversion rate. If you have 1,000 leads but only 136 calls, that's a qualification + follow-up problem we can fix.</div>
+        </div>
+      </div>
+
+      <div class="data-card">
+        <div class="icon">🔄</div>
+        <div>
+          <div class="q-num">Question 06</div>
+          <div class="q-text">Current conversion rate on the Schedule a Call page?</div>
+          <div class="q-why">If Google sends 1,000 visitors to the scheduling page and only 5% convert, a landing page optimization alone could close the 150 gap without spending a dollar more.</div>
+        </div>
+      </div>
+
+      <div class="data-card">
+        <div class="icon">💎</div>
+        <div>
+          <div class="q-num">Question 07</div>
+          <div class="q-text">Average lifetime value of a Fountain Life member?</div>
+          <div class="q-why">This is what justifies the ad spend. If a member is worth $30K over 2 years, a $200 CPL is a steal. We need this to frame the ROI case internally and with you.</div>
+        </div>
+      </div>
+
+      <div class="data-card">
+        <div class="icon">📊</div>
+        <div>
+          <div class="q-num">Question 08</div>
+          <div class="q-text">Are you using call tracking (CallRail, etc.)?</div>
+          <div class="q-why">Without call tracking, you can't attribute scheduled calls back to specific campaigns. This is foundational. If not — we set it up on day one.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card" style="padding:2rem;margin-top:2rem;text-align:center;border:1px solid rgba(64,180,229,0.2);background:rgba(64,180,229,0.04)">
+      <div style="font-size:1.5rem;margin-bottom:0.75rem">🔐</div>
+      <div style="font-weight:700;font-size:1rem;margin-bottom:0.4rem">All data stays confidential</div>
+      <p style="color:var(--text-secondary);font-size:0.88rem">Share read-only access to Google Ads and Meta Ads Manager — that's all we need to pull the rest ourselves in a 30-minute deep dive.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== NEXT STEPS ===== -->
+<section id="next-steps" style="background:var(--bg-secondary)">
+  <div class="container reveal">
+    <div class="section-badge">11 — Recommended Next Steps</div>
+    <h2 class="section-title">How We <span class="gradient">Move Forward</span></h2>
+    <p class="section-sub">Five steps from strategy to launched campaigns in under two weeks.</p>
+
+    <div style="max-width:800px">
+      <div class="step-row">
+        <div class="step-num">1</div>
+        <div>
+          <div class="step-title">Share ad account access</div>
+          <div class="step-desc">Google Ads + Meta Ads Manager (read-only). Takes 5 minutes — we'll send the exact instructions.</div>
+        </div>
+      </div>
+      <div class="step-row">
+        <div class="step-num">2</div>
+        <div>
+          <div class="step-title">Share current KPIs</div>
+          <div class="step-desc">CPL, cost per scheduled call, show rate, current budget breakdown. The 8 questions above. The more we have, the sharper the plan.</div>
+        </div>
+      </div>
+      <div class="step-row">
+        <div class="step-num">3</div>
+        <div>
+          <div class="step-title">30-minute deep dive</div>
+          <div class="step-desc">We'll present a detailed channel plan with specific budget allocations, campaign structure, and week-by-week launch timeline.</div>
+        </div>
+      </div>
+      <div class="step-row">
+        <div class="step-num">4</div>
+        <div>
+          <div class="step-title">Patient list upload</div>
+          <div class="step-desc">For lookalike audiences and audience seeding. Encrypted, confidential — hashed before upload. Your data never leaves the platforms.</div>
+        </div>
+      </div>
+      <div class="step-row">
+        <div class="step-num">5</div>
+        <div>
+          <div class="step-title">Launch in 2 weeks</div>
+          <div class="step-desc">Fast onboarding, campaigns live in 14 days. Expect early signal data within 30 days and meaningful optimization within 60.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CTA ===== -->
+<section class="cta-section" id="cta">
+  <div class="container reveal">
+    <div class="section-badge" style="display:inline-flex;margin-bottom:1.5rem">Let's Build This</div>
+    <h2 class="section-title" style="font-size:clamp(2.5rem,6vw,4rem)">Ready to Hit <span class="gradient">150+?</span></h2>
+    <p style="color:var(--text-secondary);font-size:1.1rem;max-width:560px;margin:0 auto 3rem;line-height:1.7">You're 14 calls/week away from your goal. With precision HNW targeting, audience seeding, and the right keywords — that gap closes fast.</p>
+
+    <div style="display:flex;flex-wrap:wrap;gap:1rem;justify-content:center;margin-bottom:4rem">
+      <a href="mailto:justin@brandastic.com?subject=Fountain Life - Growth Strategy Follow-Up" class="cta-btn" style="animation:ctaPulse 2s ease-in-out infinite">📅 Schedule a Strategy Call</a>
+      <a href="./fountainlife.html" class="cta-btn-ghost">📊 View Full Audit →</a>
+    </div>
+
+    <div style="display:flex;align-items:center;justify-content:center;gap:2rem;flex-wrap:wrap;padding:2.5rem;border-radius:20px;background:var(--bg-card);border:1px solid var(--bg-card-border);max-width:640px;margin:0 auto">
+      <img src="https://brandastic.com/wp-content/uploads/2024/10/justin-evil-laugh.png" alt="Justin Nassie" style="width:80px;height:80px;object-fit:cover;object-position:top;border-radius:50%;flex-shrink:0" loading="lazy">
+      <div style="text-align:left">
+        <div style="font-weight:800;font-size:1.1rem">Justin Nassie</div>
+        <div style="color:var(--text-muted);font-size:0.85rem;margin-bottom:0.5rem">President, Brandastic</div>
+        <div style="display:flex;flex-wrap:wrap;gap:1rem;font-size:0.88rem">
+          <a href="tel:9498928944" style="color:var(--accent-light);text-decoration:none">📱 (949) 892-8944</a>
+          <a href="mailto:justin@brandastic.com" style="color:var(--accent-light);text-decoration:none">✉️ justin@brandastic.com</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<div style="text-align:center;padding:2rem;font-size:0.75rem;color:var(--text-muted);border-top:1px solid var(--bg-card-border)">
+  Prepared by Brandastic · Confidential · May 2026 · <a href="https://brandastic.com" style="color:var(--text-muted)">brandastic.com</a>
+</div>
+
+<style>
+@keyframes ctaPulse{0%{box-shadow:0 0 0 0 rgba(64,180,229,0.4)}70%{box-shadow:0 0 0 15px rgba(64,180,229,0)}100%{box-shadow:0 0 0 0 rgba(64,180,229,0)}}
+</style>
+
+<script>
+/* ===== THEME ===== */
+function getPreferredTheme(){const s=localStorage.getItem('brandastic-proposal-theme');return s||'dark'}
+function applyTheme(t){document.documentElement.setAttribute('data-theme',t);localStorage.setItem('brandastic-proposal-theme',t);document.querySelector('.theme-toggle').textContent=t==='dark'?'☀️ Light':'🌙 Dark'}
+function toggleTheme(){applyTheme(document.documentElement.getAttribute('data-theme')==='dark'?'light':'dark')}
+applyTheme(getPreferredTheme());
+
+/* ===== READING PROGRESS ===== */
+window.addEventListener('scroll',()=>{const bar=document.getElementById('readingProgress');const scrollTop=window.scrollY;const docHeight=document.documentElement.scrollHeight-window.innerHeight;bar.style.width=(scrollTop/docHeight*100)+'%'},{passive:true});
+
+/* ===== SCROLL REVEAL ===== */
+const revealObs=new IntersectionObserver((entries)=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('active')}})},{threshold:0.05,rootMargin:'50px'});
+document.querySelectorAll('.reveal').forEach(el=>revealObs.observe(el));
+setTimeout(()=>document.querySelectorAll('.reveal:not(.active)').forEach(el=>el.classList.add('active')),3000);
+
+/* ===== COUNTER ANIMATION ===== */
+function animateCounter(el,target,prefix='',suffix=''){
+  const duration=2000;const start=performance.now();
+  const fmt=n=>n>=1000?Math.round(n).toLocaleString():n.toString();
+  function step(now){const p=Math.min((now-start)/duration,1);const eased=1-Math.pow(1-p,3);el.textContent=prefix+fmt(Math.round(target*eased))+suffix;if(p<1)requestAnimationFrame(step)}
+  requestAnimationFrame(step)
+}
+const counterObs=new IntersectionObserver((entries)=>{entries.forEach(e=>{if(e.isIntersecting){const t=parseInt(e.target.dataset.count);if(!t)return;animateCounter(e.target,t);counterObs.unobserve(e.target)}})},{threshold:0.3});
+document.querySelectorAll('[data-count]').forEach(el=>counterObs.observe(el));
+
+/* ===== PROGRESS BAR FILL ===== */
+const barObs=new IntersectionObserver((entries)=>{entries.forEach(e=>{if(e.isIntersecting){const fill=e.target.querySelector('.fill[data-target]');if(fill)fill.style.width=fill.dataset.target+'%';barObs.unobserve(e.target)}})},{threshold:0.3});
+document.querySelectorAll('.card').forEach(el=>{if(el.querySelector('.fill[data-target]'))barObs.observe(el)});
+
+/* ===== SIDE NAV ===== */
+(function(){
+  const sections=document.querySelectorAll('section[id]');
+  const nav=document.querySelector('.side-nav');
+  if(!nav||!sections.length)return;
+  const dots=nav.querySelectorAll('.side-nav-dot');
+  dots.forEach(dot=>{
+    dot.addEventListener('click',()=>{const target=document.getElementById(dot.dataset.section);if(target)window.scrollTo({top:target.offsetTop-80,behavior:'smooth'})});
+  });
+  const sideObs=new IntersectionObserver((entries)=>{entries.forEach(e=>{if(e.isIntersecting){dots.forEach(d=>d.classList.remove('active'));const active=nav.querySelector('[data-section="'+e.target.id+'"]');if(active)active.classList.add('active')}})},{rootMargin:'-20% 0px -70% 0px'});
+  sections.forEach(s=>sideObs.observe(s));
+})();
+</script>
+</body>
+</html>
