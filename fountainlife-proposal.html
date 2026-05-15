@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="en" data-theme="light">
 <head>
 <meta name="robots" content="noindex, nofollow">
 <meta charset="UTF-8">
@@ -76,16 +76,18 @@ section{padding:3.5rem 2rem;position:relative}section:nth-child(even){background
 @media print{
   @page{margin:1.8cm 1.5cm;size:A4}
   *{transition:none!important;animation:none!important;-webkit-print-color-adjust:exact!important;print-color-adjust:exact!important}
-  /* Force dark background to print */
-  html,body{background:#191F24!important;color:#ffffff!important}
+  /* Force light background to print */
+  html,body{background:#F5F3EF!important;color:#191F24!important}
+  html[data-theme]{--bg-primary:#F5F3EF;--bg-secondary:#ffffff;--bg-tertiary:#f0ede8;--text-primary:#191F24;--text-secondary:rgba(25,31,36,0.7);--text-muted:rgba(25,31,36,0.4)}
   /* Hide interactive chrome */
   .no-print,.nav,.side-nav,.reading-progress,.hero-scroll,.pdf-fab,.watermark,.theme-toggle,.pdf-btn{display:none!important}
   /* Reset section backgrounds */
-  section{padding:2rem 1.5rem!important}
-  section:nth-child(even){background:#0d1117!important}
-  .hero{min-height:auto!important;padding:3.5rem 1.5rem!important;background:#0d1117!important}
+  section{padding:2rem 1.5rem!important;background:#ffffff!important}
+  section:nth-child(even){background:#f5f3ef!important}
+  .hero{min-height:auto!important;padding:3.5rem 1.5rem!important;background:#f5f3ef!important}
+  .hero-company{background:linear-gradient(135deg,#191F24 0%,rgba(25,31,36,0.7) 100%)!important;-webkit-background-clip:text!important;-webkit-text-fill-color:transparent!important;background-clip:text!important}
   /* Cards */
-  .card,.seed-step,.step-row,.data-card,.callout-box,.lever-card{backdrop-filter:none!important;-webkit-backdrop-filter:none!important;background:rgba(100,116,139,0.15)!important;border-color:rgba(100,116,139,0.25)!important}
+  .card,.seed-step,.step-row,.data-card,.callout-box,.lever-card{backdrop-filter:none!important;-webkit-backdrop-filter:none!important;background:rgba(255,255,255,0.85)!important;border-color:rgba(0,0,0,0.08)!important;color:#191F24!important}
   /* Ensure gradients survive */
   .section-title .gradient{background:linear-gradient(135deg,#40B4E5,#CC22FF)!important;-webkit-background-clip:text!important;-webkit-text-fill-color:transparent!important;background-clip:text!important}
   /* Counters should show final values — handled by JS, but fallback */
@@ -924,7 +926,7 @@ section{padding:3.5rem 2rem;position:relative}section:nth-child(even){background
 
 <script>
 /* ===== THEME ===== */
-function getPreferredTheme(){const s=localStorage.getItem('brandastic-proposal-theme');return s||'dark'}
+function getPreferredTheme(){const s=localStorage.getItem('brandastic-proposal-theme');return s||'light'}
 function applyTheme(t){document.documentElement.setAttribute('data-theme',t);localStorage.setItem('brandastic-proposal-theme',t);document.querySelector('.theme-toggle').textContent=t==='dark'?'☀️ Light':'🌙 Dark'}
 function toggleTheme(){applyTheme(document.documentElement.getAttribute('data-theme')==='dark'?'light':'dark')}
 applyTheme(getPreferredTheme());
