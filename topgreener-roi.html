@@ -160,8 +160,31 @@ tr:hover{background:rgba(64,180,229,0.04)}
 </div>
 
 <!-- SCENARIO COMPARISON -->
-<h2>Scenario Comparison</h2>
-<div class="grid" id="scenarios"></div>
+<h2>Google Shopping Forecast Scenarios</h2>
+<p style="color:var(--text2);font-size:0.9rem;line-height:1.7;margin-bottom:0.5rem"><strong>Goal: Scale Toward 5x ROAS Over Time</strong></p>
+<p style="color:var(--text2);font-size:0.9rem;line-height:1.7;margin-bottom:1.5rem">Initial launch performance is expected around ~3x ROAS during the learning and optimization phase. As conversion data accumulates and campaigns are optimized (feed quality, SKU segmentation), campaigns will be scaled toward a long-term target of 5x+ ROAS.</p>
+
+<div class="card" style="overflow-x:auto">
+<table style="width:100%">
+  <thead>
+    <tr><th>Scenario</th><th style="text-align:center">Starter</th><th style="text-align:center">Growth</th><th style="text-align:center">Aggressive Growth</th></tr>
+  </thead>
+  <tbody>
+    <tr><td style="font-weight:600">Monthly Ad Spend</td><td class="mono" style="text-align:center">$2,500</td><td class="mono" style="text-align:center">$5,000</td><td class="mono" style="text-align:center">$7,500</td></tr>
+    <tr><td style="font-weight:600">Estimated CPC</td><td class="mono" style="text-align:center">$1.90</td><td class="mono" style="text-align:center">$1.85</td><td class="mono" style="text-align:center">$1.80</td></tr>
+    <tr><td style="font-weight:600">Estimated Clicks</td><td class="mono" style="text-align:center">~1,315</td><td class="mono" style="text-align:center">~2,700</td><td class="mono" style="text-align:center">~4,165</td></tr>
+    <tr><td style="font-weight:600">Estimated Conversion Rate</td><td class="mono" style="text-align:center">2.7%</td><td class="mono" style="text-align:center">3.0%</td><td class="mono" style="text-align:center">3.2%</td></tr>
+    <tr><td style="font-weight:600">Estimated Conversions</td><td class="mono" style="text-align:center">~36</td><td class="mono" style="text-align:center">~81</td><td class="mono" style="text-align:center">~133</td></tr>
+    <tr><td style="font-weight:600">Estimated Avg Order Value</td><td class="mono" style="text-align:center">$115</td><td class="mono" style="text-align:center">$120</td><td class="mono" style="text-align:center">$125</td></tr>
+    <tr style="border-top:2px solid var(--card-border)"><td style="font-weight:600">Estimated Revenue @ Launch (~3x ROAS)</td><td class="mono pos" style="text-align:center">~$7,500</td><td class="mono pos" style="text-align:center">~$15,000</td><td class="mono pos" style="text-align:center">~$22,500</td></tr>
+    <tr><td style="font-weight:600">Estimated Revenue @ Optimized 5x ROAS Goal</td><td class="mono pos" style="text-align:center">~$12,500</td><td class="mono pos" style="text-align:center">~$25,000</td><td class="mono pos" style="text-align:center">~$37,500</td></tr>
+    <tr style="border-top:2px solid var(--card-border)"><td style="font-weight:600">Projected ROAS (Launch Phase)</td><td class="mono" style="text-align:center">~3x</td><td class="mono" style="text-align:center">~3x</td><td class="mono" style="text-align:center">~3x</td></tr>
+    <tr><td style="font-weight:600">Projected ROAS (Optimized Phase)</td><td class="mono" style="text-align:center">4-5x+</td><td class="mono" style="text-align:center">4-5x+</td><td class="mono" style="text-align:center">4-5x</td></tr>
+    <tr style="border-top:2px solid var(--card-border)"><td style="font-weight:600">Total Monthly Investment</td><td class="mono" style="text-align:center">$2,500/mo</td><td class="mono" style="text-align:center">$5,000/mo</td><td class="mono" style="text-align:center">$7,500/mo</td></tr>
+    <tr><td style="font-weight:600">5x+ ROAS Achievable?</td><td style="text-align:center"><span class="badge badge-green">Yes — highest efficiency potential</span></td><td style="text-align:center"><span class="badge badge-green">Yes — ideal balance of scale + efficiency</span></td><td style="text-align:center"><span class="badge badge-yellow">Possible with optimization, though efficiency may compress at scale</span></td></tr>
+  </tbody>
+</table>
+</div>
 
 <!-- INVESTMENT SUMMARY -->
 <h2>Investment Summary</h2>
@@ -455,36 +478,7 @@ function calc() {
   document.getElementById('kpiTrueROI').style.color = trueROI > 0 ? 'var(--green)' : 'var(--red)';
   document.getElementById('kpiBreakeven').textContent = fmt(breakeven);
 
-  // Scenarios
-  let scenarioHTML = '';
-  [
-    { name: 'Launch (Mo 1-2) — 3-4x ROAS', spend: 2500, label: '$2.5K/mo' },
-    { name: 'Optimize (Mo 3-4) — 4-5x ROAS', spend: 5000, label: '$5K/mo' },
-    { name: 'Scale (Mo 5+) — 5x+ Target', spend: 7500, label: '$7.5K/mo' },
-  ].forEach(s => {
-    // CPC increases ~10% as you scale spend (more competition at higher budgets)
-      const cpcScale = 1 + ((s.spend - 2500) / 50000);
-      const avgCPC = 0.42 * (shopPct * shopCPCMult + searchPct * searchCPCMult) * cpcScale;
-    const avgConv = 0.035 * (shopPct * shopConvMult + searchPct * searchConvMult);
-    const clicks = Math.round(s.spend / avgCPC);
-    const convs = clicks * avgConv;
-    const rev = convs * aovOverride;
-    const roas = rev / s.spend;
-    const total = s.spend + agencyFee;
-    const hitsTarget = (rev / s.spend) >= 5;
-    scenarioHTML += `<div class="card" style="border-left:3px solid ${hitsTarget ? 'var(--green)' : 'var(--yellow)'}">
-      <h3>${s.name} — ${s.label} ad spend</h3>
-      <table style="margin:0.5rem 0">
-        <tr><td style="color:var(--muted)">Clicks</td><td class="mono" style="text-align:right">${fmtN(clicks)}/mo</td></tr>
-        <tr><td style="color:var(--muted)">Conversions</td><td class="mono" style="text-align:right">${Math.round(convs)}/mo</td></tr>
-        <tr><td style="color:var(--muted)">Revenue</td><td class="mono pos" style="text-align:right">${fmt(rev)}/mo</td></tr>
-        <tr><td style="color:var(--muted)">ROAS (ad spend)</td><td class="mono" style="text-align:right"><span class="badge ${roas >= 5 ? 'badge-green' : roas >= 3 ? 'badge-yellow' : 'badge-red'}">${roas.toFixed(1)}x</span></td></tr>
-        <tr><td style="color:var(--muted)">Total investment</td><td class="mono" style="text-align:right">${fmt(total)}/mo</td></tr>
-      </table>
-      <div style="margin-top:0.75rem"><span class="badge ${hitsTarget ? 'badge-green' : 'badge-yellow'}">${hitsTarget ? '5x+ ROAS achieved' : 'Below 5x ROAS — optimization phase'}</span></div>
-    </div>`;
-  });
-  document.getElementById('scenarios').innerHTML = scenarioHTML;
+  // Scenarios removed — using static HTML table
 
   // Keywords table
   let kwRows = '';
