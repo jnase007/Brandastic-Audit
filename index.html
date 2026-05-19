@@ -164,6 +164,8 @@ h1 .gradient-text {
 .audit-card:hover { transform:translateY(-6px); box-shadow:var(--shadow); }
 .audit-card:hover::before { opacity:1; }
 .audit-card:hover { border-color:rgba(64,180,229,0.3); }
+.card-icon img { transition: filter var(--transition); }
+[data-theme="light"] .card-icon img { filter: brightness(0) !important; }
 .card-icon {
   width:56px; height:56px; border-radius:14px;
   background:linear-gradient(135deg,rgba(64,180,229,0.15),rgba(204,34,255,0.15));
@@ -347,7 +349,7 @@ footer a { color:var(--accent-light); text-decoration:none; }
   <div class="lock-brand">BRANDASTIC</div>
 </div>
 
-<button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme"><div class="knob">🌙</div></button>
+<button class="theme-toggle" aria-label="Toggle theme" onclick="toggleTheme()" aria-label="Toggle theme"><div class="knob"><img src="images/icons/night.svg" class="theme-icon-dark" style="width:18px;height:18px;" alt=""><img src="images/icons/day.svg" class="theme-icon-light" style="width:18px;height:18px;display:none;" alt=""></div></button>
 
 <section class="hero">
   <div class="hero-badge"><span class="dot"></span> Brandastic Intelligence</div>
@@ -363,7 +365,7 @@ footer a { color:var(--accent-light); text-decoration:none; }
   </div>
   <div class="cards-grid" id="cardsGrid">
     <a href="onboarding.html" class="audit-card" style="border:2px solid transparent;background-image:linear-gradient(var(--bg-card),var(--bg-card)),linear-gradient(135deg,#10b981,#059669);background-origin:border-box;background-clip:padding-box,border-box;">
-      <div class="card-icon" style="background:linear-gradient(135deg,#10b981,#059669);">🔑</div>
+      <div class="card-icon" style="background:linear-gradient(135deg,#10b981,#059669);"><img src="images/icons/pillar-01.svg" style="width:28px;height:28px;filter:brightness(0) invert(1);" alt=""></div>
       <div class="card-title">Client Onboarding</div>
       <div class="card-desc">Step-by-step guide for new clients to share Google Ads, Tag Manager, Analytics, and Search Console access with Brandastic.</div>
       <div class="card-meta">
@@ -373,7 +375,7 @@ footer a { color:var(--accent-light); text-decoration:none; }
       <div class="card-arrow">→</div>
     </a>
     <a href="calculator.html" class="audit-card" style="border:2px solid transparent;background-image:linear-gradient(var(--bg-card),var(--bg-card)),linear-gradient(135deg,#40B4E5,#CC22FF);background-origin:border-box;background-clip:padding-box,border-box;">
-      <div class="card-icon" style="background:linear-gradient(135deg,#40B4E5,#CC22FF);">📊</div>
+      <div class="card-icon" style="background:linear-gradient(135deg,#40B4E5,#CC22FF);"><img src="images/icons/doc-01.svg" style="width:28px;height:28px;filter:brightness(0) invert(1);" alt=""></div>
       <div class="card-title">PPC ROI Calculator</div>
       <div class="card-desc">Interactive tool to model paid search investment, project revenue, and find your break-even point. Supports E-commerce & Lead Gen with B2B/B2C market toggles.</div>
       <div class="card-meta">
@@ -383,7 +385,7 @@ footer a { color:var(--accent-light); text-decoration:none; }
       <div class="card-arrow">→</div>
     </a>
     <a href="onpoint.html" class="audit-card">
-      <div class="card-icon">🎓</div>
+      <div class="card-icon"><img src="images/icons/person-01.svg" style="width:28px;height:28px;filter:brightness(0) invert(1);" alt=""></div>
       <div class="card-title">On Point for College</div>
       <div class="card-url" onclick="event.preventDefault();event.stopPropagation();window.open('https://onpointforcollege.org','_blank')">onpointforcollege.org ↗</div>
       <div class="card-desc">Nonprofit helping first-generation students get into and through college. Syracuse, NY based with nationwide impact.</div>
@@ -394,7 +396,7 @@ footer a { color:var(--accent-light); text-decoration:none; }
       <div class="card-arrow">→</div>
     </a>
     <a href="integrity.html" class="audit-card">
-      <div class="card-icon">🤝</div>
+      <div class="card-icon"><img src="images/icons/person-02.svg" style="width:28px;height:28px;filter:brightness(0) invert(1);" alt=""></div>
       <div class="card-title">Integrity Solutions</div>
       <div class="card-url" onclick="event.preventDefault();event.stopPropagation();window.open('https://integritysolutions.com','_blank')">integritysolutions.com ↗</div>
       <div class="card-desc">B2B sales training company building ethical, relationship-based sales cultures across healthcare, banking, and pharma.</div>
@@ -405,7 +407,7 @@ footer a { color:var(--accent-light); text-decoration:none; }
       <div class="card-arrow">→</div>
     </a>
     <a href="brandastic.html" class="audit-card">
-      <div class="card-icon">🚀</div>
+      <div class="card-icon"><img src="images/icons/pillar-02.svg" style="width:28px;height:28px;filter:brightness(0) invert(1);" alt=""></div>
       <div class="card-title">Brandastic (Self-Audit)</div>
       <div class="card-url" onclick="event.preventDefault();event.stopPropagation();window.open('https://brandastic.com','_blank')">brandastic.com ↗</div>
       <div class="card-desc">Our own honest self-assessment. Award-winning OC digital marketing agency — 15+ years, 450+ clients. How does our own site stack up?</div>
@@ -416,7 +418,7 @@ footer a { color:var(--accent-light); text-decoration:none; }
       <div class="card-arrow">→</div>
     </a>
     <a href="fountainlife.html" class="audit-card">
-      <div class="card-icon">🧬</div>
+      <div class="card-icon"><img src="images/icons/content-01.svg" style="width:28px;height:28px;filter:brightness(0) invert(1);" alt=""></div>
       <div class="card-title">Fountain Life</div>
       <div class="card-url" onclick="event.preventDefault();event.stopPropagation();window.open('https://fountainlife.com','_blank')">fountainlife.com ↗</div>
       <div class="card-desc">Premium longevity clinic backed by Peter Diamandis. AI-powered diagnostics and concierge health across 5 locations.</div>
@@ -427,7 +429,7 @@ footer a { color:var(--accent-light); text-decoration:none; }
       <div class="card-arrow">→</div>
     </a>
     <a href="abloomery.html" class="audit-card">
-      <div class="card-icon">🌸</div>
+      <div class="card-icon"><img src="images/icons/content-02.svg" style="width:28px;height:28px;filter:brightness(0) invert(1);" alt=""></div>
       <div class="card-title">A Bloomery</div>
       <div class="card-url" onclick="event.preventDefault();event.stopPropagation();window.open('https://abloomery.com','_blank')">abloomery.com ↗</div>
       <div class="card-desc">Luxury permanent faux floral arrangements. Shopify DTC brand pivoting from wedding florals to high-end home décor.</div>
@@ -438,7 +440,7 @@ footer a { color:var(--accent-light); text-decoration:none; }
       <div class="card-arrow">→</div>
     </a>
     <a href="topgreener.html" class="audit-card">
-      <div class="card-icon">⚡</div>
+      <div class="card-icon"><img src="images/icons/doc-02.svg" style="width:28px;height:28px;filter:brightness(0) invert(1);" alt=""></div>
       <div class="card-title">TopGreener</div>
       <div class="card-url" onclick="event.preventDefault();event.stopPropagation();window.open('https://topgreener.com','_blank')">topgreener.com ↗</div>
       <div class="card-desc">California-based manufacturer of electrical wiring devices, USB outlets, smart home products, and lighting controls. Strong Amazon presence.</div>
@@ -465,7 +467,7 @@ function getPreferredTheme(){
 function applyTheme(t){
   document.documentElement.setAttribute('data-theme',t);
   localStorage.setItem('brandastic-theme',t);
-  document.querySelector('.theme-toggle .knob').textContent=t==='dark'?'🌙':'☀️';
+  document.querySelector('.theme-icon-dark').style.display=t==='dark'?'block':'none';document.querySelector('.theme-icon-light').style.display=t==='light'?'block':'none';
 }
 function toggleTheme(){
   const c=document.documentElement.getAttribute('data-theme');
