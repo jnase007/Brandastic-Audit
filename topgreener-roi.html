@@ -70,19 +70,19 @@ tr:hover{background:rgba(64,180,229,0.04)}
   <div class="input-row">
     <div class="input-group">
       <label>Monthly Ad Spend</label>
-      <input type="number" id="adSpend" value="5000" min="1000" max="50000" step="500" onchange="calc()" oninput="calc()">
+      <input type="text" id="adSpend" value="5,000" oninput="fmtInput(this);calc()" onfocus="this.select()">
     </div>
     <div class="input-group">
       <label>Agency Fee / Mo</label>
-      <input type="number" id="agencyFee" value="2650" min="0" step="100" onchange="calc()" oninput="calc()">
+      <input type="text" id="agencyFee" value="2,650" oninput="fmtInput(this);calc()" onfocus="this.select()">
     </div>
     <div class="input-group">
       <label>Avg Order Value</label>
-      <input type="number" id="aov" value="35" min="10" max="100" step="1" onchange="calc()" oninput="calc()">
+      <input type="text" id="aov" value="35" oninput="fmtInput(this);calc()" onfocus="this.select()">
     </div>
     <div class="input-group">
       <label>Profit Margin %</label>
-      <input type="number" id="margin" value="70" min="10" max="95" step="5" onchange="calc()" oninput="calc()">
+      <input type="text" id="margin" value="70" oninput="calc()" onfocus="this.select()">
     </div>
     <div class="input-group">
       <label>Shopping/Search Split</label>
@@ -196,13 +196,20 @@ const KEYWORDS = [
   { kw: "floor box outlet", vol: 480, cpc: 0.65, comp: "Med", group: "Floor Boxes" },
 ];
 
+function fmtInput(el) {
+  let v = el.value.replace(/[^0-9]/g, '');
+  if (v) el.value = parseInt(v).toLocaleString();
+}
+function getVal(id) {
+  return +document.getElementById(id).value.replace(/[^0-9.]/g, '');
+}
 function fmt(n) { return n >= 1000 ? '$' + (n/1000).toFixed(1) + 'K' : '$' + n.toFixed(0); }
 function fmtN(n) { return n >= 1000 ? (n/1000).toFixed(1) + 'K' : n.toLocaleString(); }
 
 function calc() {
-  const adSpend = +document.getElementById('adSpend').value;
-  const agencyFee = +document.getElementById('agencyFee').value;
-  const aovOverride = +document.getElementById('aov').value;
+  const adSpend = getVal('adSpend');
+  const agencyFee = getVal('agencyFee');
+  const aovOverride = getVal('aov');
   const shopPct = +document.getElementById('split').value / 100;
   const searchPct = 1 - shopPct;
 
@@ -269,7 +276,7 @@ function calc() {
   document.getElementById('sumROI').style.color = roi > 0 ? 'var(--green)' : 'var(--red)';
 
   // Profit calculations
-  const margin = +document.getElementById('margin').value / 100;
+  const margin = getVal('margin') / 100;
   const grossProfit = totalRev * margin;
   const netProfit = grossProfit - adSpend - agencyFee;
   const trueROI = (adSpend + agencyFee) > 0 ? (netProfit / (adSpend + agencyFee)) * 100 : 0;
