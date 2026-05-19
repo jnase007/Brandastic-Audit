@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta name="robots" content="noindex, nofollow">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TopGreener — ROI Calculator by Brandastic</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#F5F3EF;--card:#fff;--card-border:rgba(0,0,0,0.08);--text:#191F24;--text2:rgba(25,31,36,0.7);--muted:rgba(25,31,36,0.35);--accent:#40B4E5;--purple:#CC22FF;--green:#22c55e;--red:#ef4444;--yellow:#f59e0b}
+[data-theme="dark"]{--bg:#0d1117;--card:rgba(255,255,255,0.05);--card-border:rgba(255,255,255,0.08);--text:#fff;--text2:rgba(255,255,255,0.7);--muted:rgba(255,255,255,0.35)}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--text);line-height:1.6}
+.container{max-width:1000px;margin:0 auto;padding:2rem 1.5rem}
+h1{font-size:2.2rem;font-weight:900;letter-spacing:-0.03em;margin-bottom:0.25rem}
+h2{font-size:1.3rem;font-weight:700;margin:2.5rem 0 1rem;color:var(--accent)}
+h3{font-size:1rem;font-weight:700;margin:1rem 0 0.5rem}
+.sub{color:var(--text2);margin-bottom:2rem;font-size:0.95rem}
+.card{background:var(--card);border:1px solid var(--card-border);border-radius:16px;padding:1.5rem;margin:1rem 0}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1rem}
+.grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem}
+@media(max-width:768px){.grid-4{grid-template-columns:repeat(2,1fr)}}
+.stat{text-align:center;padding:1.25rem;background:var(--card);border:1px solid var(--card-border);border-radius:14px}
+.stat-num{font-size:1.8rem;font-weight:800;background:linear-gradient(135deg,var(--accent),var(--purple));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.stat-label{font-size:0.7rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--muted);margin-top:0.25rem}
+table{width:100%;border-collapse:collapse;font-size:0.85rem;margin:1rem 0}
+th{text-align:left;padding:0.6rem;font-size:0.7rem;text-transform:uppercase;letter-spacing:0.05em;color:var(--muted);border-bottom:2px solid var(--card-border)}
+td{padding:0.6rem;border-bottom:1px solid var(--card-border)}
+tr:hover{background:rgba(64,180,229,0.04)}
+.mono{font-family:'SF Mono',monospace;font-weight:600}
+.pos{color:var(--green)}.neg{color:var(--red)}.warn{color:var(--yellow)}
+.badge{display:inline-block;padding:4px 10px;border-radius:6px;font-size:0.72rem;font-weight:600}
+.badge-green{background:rgba(34,197,94,0.12);color:var(--green)}
+.badge-yellow{background:rgba(245,158,11,0.12);color:var(--yellow)}
+.badge-red{background:rgba(239,68,68,0.12);color:var(--red)}
+.input-row{display:flex;align-items:center;gap:1rem;flex-wrap:wrap;margin:1rem 0}
+.input-group{display:flex;flex-direction:column;gap:0.25rem}
+.input-group label{font-size:0.75rem;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:0.05em}
+.input-group input,.input-group select{padding:8px 12px;border:1px solid var(--card-border);border-radius:8px;font-family:inherit;font-size:0.9rem;font-weight:600;background:var(--card);color:var(--text);width:140px}
+.input-group input:focus{outline:none;border-color:var(--accent)}
+.highlight{background:linear-gradient(135deg,rgba(64,180,229,0.08),rgba(204,34,255,0.08));border:1px solid rgba(64,180,229,0.2);border-radius:16px;padding:1.5rem;margin:1.5rem 0}
+.nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:0 2rem;height:56px;display:flex;align-items:center;justify-content:space-between;background:rgba(255,255,255,0.9);backdrop-filter:blur(20px);border-bottom:1px solid var(--card-border)}
+.nav-brand{font-weight:700;font-size:1rem;letter-spacing:0.05em;display:flex;align-items:center;gap:8px;color:var(--text);text-decoration:none}
+.nav-brand .dot{width:8px;height:8px;border-radius:50%;background:linear-gradient(135deg,#40B4E5,#CC22FF)}
+.hero{padding:5rem 0 2rem;text-align:center}
+.footer{text-align:center;padding:3rem 0 2rem;font-size:0.75rem;color:var(--muted);border-top:1px solid var(--card-border);margin-top:3rem}
+.btn{display:inline-flex;align-items:center;gap:6px;padding:10px 24px;border-radius:10px;border:none;cursor:pointer;background:linear-gradient(135deg,#40B4E5,#CC22FF);color:#fff;font-family:inherit;font-size:0.85rem;font-weight:600}
+.btn:hover{transform:translateY(-1px);box-shadow:0 4px 20px rgba(64,180,229,0.3)}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <a href="/" class="nav-brand"><span class="dot"></span>BRANDASTIC <span style="opacity:0.4">·</span> TopGreener ROI</a>
+  <button class="btn" onclick="window.print()">📄 Download PDF</button>
+</nav>
+
+<div class="container">
+
+<div class="hero">
+  <div style="font-size:0.75rem;font-weight:600;color:var(--accent);text-transform:uppercase;letter-spacing:0.15em;margin-bottom:1rem">Google Ads ROI Projection</div>
+  <h1>TopGreener</h1>
+  <p class="sub">DTC Revenue Projections — Google Shopping + Search Ads</p>
+  <a href="https://topgreener.com" target="_blank" style="color:var(--muted);font-size:0.85rem;border-bottom:1px solid var(--muted)">topgreener.com ↗</a>
+</div>
+
+<!-- INPUTS -->
+<h2>📊 Adjust Your Spend</h2>
+<div class="card">
+  <div class="input-row">
+    <div class="input-group">
+      <label>Monthly Ad Spend</label>
+      <input type="number" id="adSpend" value="5000" min="1000" max="50000" step="500" onchange="calc()" oninput="calc()">
+    </div>
+    <div class="input-group">
+      <label>Agency Fee / Mo</label>
+      <input type="number" id="agencyFee" value="2650" min="0" step="100" onchange="calc()" oninput="calc()">
+    </div>
+    <div class="input-group">
+      <label>Avg Order Value</label>
+      <input type="number" id="aov" value="28" min="10" max="100" step="1" onchange="calc()" oninput="calc()">
+    </div>
+    <div class="input-group">
+      <label>Shopping/Search Split</label>
+      <select id="split" onchange="calc()">
+        <option value="70">70% Shopping / 30% Search</option>
+        <option value="50">50% Shopping / 50% Search</option>
+        <option value="100">100% Shopping</option>
+        <option value="0">100% Search</option>
+      </select>
+    </div>
+  </div>
+</div>
+
+<!-- KPI CARDS -->
+<div class="grid-4" id="kpiCards">
+  <div class="stat"><div class="stat-num" id="kpiRevenue">—</div><div class="stat-label">Est. Monthly Revenue</div></div>
+  <div class="stat"><div class="stat-num" id="kpiROAS">—</div><div class="stat-label">ROAS (Ad Spend)</div></div>
+  <div class="stat"><div class="stat-num" id="kpiConversions">—</div><div class="stat-label">Est. Conversions / Mo</div></div>
+  <div class="stat"><div class="stat-num" id="kpiCPA">—</div><div class="stat-label">Cost Per Acquisition</div></div>
+</div>
+
+<!-- PRODUCT GROUP TABLE -->
+<h2>📦 Product Group Breakdown</h2>
+<div class="card" style="overflow-x:auto">
+<table>
+  <thead>
+    <tr><th>Product Group</th><th>Monthly Volume</th><th>Avg CPC</th><th>Conv Rate</th><th>AOV</th><th>Est. Clicks</th><th>Est. Revenue</th><th>ROAS</th></tr>
+  </thead>
+  <tbody id="productTable"></tbody>
+  <tfoot id="productTotal"></tfoot>
+</table>
+</div>
+
+<!-- KEYWORD DATA -->
+<h2>🔍 Top Keywords by Product Group</h2>
+<div class="card" style="overflow-x:auto">
+<table>
+  <thead>
+    <tr><th>Keyword</th><th>Volume</th><th>CPC</th><th>Competition</th><th>Product Group</th></tr>
+  </thead>
+  <tbody id="keywordTable"></tbody>
+</table>
+</div>
+
+<!-- SCENARIO COMPARISON -->
+<h2>🎯 Scenario Comparison</h2>
+<div class="grid" id="scenarios"></div>
+
+<!-- INVESTMENT SUMMARY -->
+<h2>💰 Investment Summary</h2>
+<div class="highlight">
+  <div class="grid-4">
+    <div style="text-align:center"><div class="stat-num" id="sumAdSpend">—</div><div class="stat-label">Ad Spend / Mo</div></div>
+    <div style="text-align:center"><div class="stat-num" id="sumAgency">—</div><div class="stat-label">Agency Fee / Mo</div></div>
+    <div style="text-align:center"><div class="stat-num" id="sumTotal">—</div><div class="stat-label">Total Investment / Mo</div></div>
+    <div style="text-align:center"><div class="stat-num" id="sumROI">—</div><div class="stat-label">Projected ROI</div></div>
+  </div>
+</div>
+
+<!-- WHY IT WORKS -->
+<h2>✅ Why 5x+ ROAS is Achievable</h2>
+<div class="grid">
+  <div class="card"><h3>Ultra-Low CPCs</h3><p style="color:var(--text2);font-size:0.9rem">TopGreener keywords avg $0.36–$0.72 CPC vs $2–5+ for most e-commerce. More clicks per dollar = more conversions.</p></div>
+  <div class="card"><h3>High-Intent Searches</h3><p style="color:var(--text2);font-size:0.9rem">"USB outlet", "GFCI receptacle", "NEMA 6-20" — these are buyers searching for exactly what TopGreener sells.</p></div>
+  <div class="card"><h3>Google Shopping Advantage</h3><p style="color:var(--text2);font-size:0.9rem">Physical products with images in the $15–35 range perform extremely well on Shopping ads. Typically 6–10x ROAS.</p></div>
+  <div class="card"><h3>Merchant Center Ready</h3><p style="color:var(--text2);font-size:0.9rem">Shopify product feed → Google Merchant Center is a plug-and-play setup. Product data is already structured.</p></div>
+</div>
+
+<div class="footer">
+  Brandastic — Digital Marketing Agency<br>
+  Prepared for TopGreener · <span id="footerDate"></span><br>
+  Projections based on SEMrush keyword data · Actual results may vary
+</div>
+
+</div>
+
+<script>
+const PRODUCTS = [
+  { name: "USB Outlets & Chargers", volume: 8750, cpc: 0.36, convRate: 3.5, aov: 25 },
+  { name: "Industrial Plugs (NEMA)", volume: 7230, cpc: 0.72, convRate: 4.0, aov: 35 },
+  { name: "GFCI & Safety", volume: 3200, cpc: 0.45, convRate: 3.5, aov: 20 },
+  { name: "Smart Switches & Timers", volume: 2900, cpc: 0.38, convRate: 3.0, aov: 30 },
+  { name: "Sensors & Smart Home", volume: 2400, cpc: 0.55, convRate: 2.5, aov: 35 },
+  { name: "Dimmers & Fan Controls", volume: 1800, cpc: 0.42, convRate: 3.0, aov: 28 },
+  { name: "Wall Plates & Covers", volume: 590, cpc: 0.40, convRate: 4.5, aov: 15 },
+  { name: "Floor Boxes", volume: 480, cpc: 0.65, convRate: 3.5, aov: 45 },
+];
+
+const KEYWORDS = [
+  { kw: "usb outlet", vol: 5400, cpc: 0.37, comp: "High", group: "USB Outlets" },
+  { kw: "usb c wall outlet", vol: 880, cpc: 0.36, comp: "High", group: "USB Outlets" },
+  { kw: "usb power outlet wall", vol: 1000, cpc: 0.36, comp: "High", group: "USB Outlets" },
+  { kw: "programmable light switch", vol: 1300, cpc: 0.43, comp: "High", group: "Smart Switches" },
+  { kw: "outdoor light timer switch", vol: 880, cpc: 0.39, comp: "High", group: "Smart Switches" },
+  { kw: "nema 6-20", vol: 1300, cpc: 0.49, comp: "High", group: "Industrial" },
+  { kw: "l5-30r", vol: 1600, cpc: 0.66, comp: "High", group: "Industrial" },
+  { kw: "l6-30p", vol: 1300, cpc: 1.01, comp: "High", group: "Industrial" },
+  { kw: "nema 6-50r", vol: 880, cpc: 0.54, comp: "High", group: "Industrial" },
+  { kw: "gfci outlet", vol: 1800, cpc: 0.45, comp: "High", group: "GFCI" },
+  { kw: "auto light switch", vol: 720, cpc: 0.33, comp: "High", group: "Smart Switches" },
+  { kw: "occupancy sensor switch", vol: 880, cpc: 0.55, comp: "Med", group: "Sensors" },
+  { kw: "exterior wall sockets", vol: 590, cpc: 0.40, comp: "High", group: "Wall Plates" },
+  { kw: "in wall dimmer", vol: 720, cpc: 0.42, comp: "High", group: "Dimmers" },
+  { kw: "floor box outlet", vol: 480, cpc: 0.65, comp: "Med", group: "Floor Boxes" },
+];
+
+function fmt(n) { return n >= 1000 ? '$' + (n/1000).toFixed(1) + 'K' : '$' + n.toFixed(0); }
+function fmtN(n) { return n >= 1000 ? (n/1000).toFixed(1) + 'K' : n.toLocaleString(); }
+
+function calc() {
+  const adSpend = +document.getElementById('adSpend').value;
+  const agencyFee = +document.getElementById('agencyFee').value;
+  const aovOverride = +document.getElementById('aov').value;
+  const shopPct = +document.getElementById('split').value / 100;
+  const searchPct = 1 - shopPct;
+
+  // Shopping: lower CPC, higher conv rate. Search: higher CPC, lower conv rate
+  const shopCPCMult = 0.85;
+  const shopConvMult = 1.4;
+  const searchCPCMult = 1.15;
+  const searchConvMult = 0.8;
+
+  const shopSpend = adSpend * shopPct;
+  const searchSpend = adSpend * searchPct;
+
+  let totalClicks = 0, totalConvs = 0, totalRev = 0;
+  let rows = '';
+
+  PRODUCTS.forEach(p => {
+    const blendedCPC = p.cpc * (shopPct * shopCPCMult + searchPct * searchCPCMult);
+    const blendedConv = p.convRate * (shopPct * shopConvMult + searchPct * searchConvMult) / 100;
+    const shareOfSpend = p.volume / PRODUCTS.reduce((s, x) => s + x.volume, 0);
+    const groupSpend = adSpend * shareOfSpend;
+    const clicks = Math.round(groupSpend / blendedCPC);
+    const convs = clicks * blendedConv;
+    const useAOV = aovOverride || p.aov;
+    const rev = convs * useAOV;
+    const roas = groupSpend > 0 ? rev / groupSpend : 0;
+
+    totalClicks += clicks;
+    totalConvs += convs;
+    totalRev += rev;
+
+    const roasBadge = roas >= 5 ? 'badge-green' : roas >= 3 ? 'badge-yellow' : 'badge-red';
+    rows += `<tr>
+      <td style="font-weight:600">${p.name}</td>
+      <td class="mono">${fmtN(p.volume)}</td>
+      <td class="mono">$${blendedCPC.toFixed(2)}</td>
+      <td class="mono">${(blendedConv*100).toFixed(1)}%</td>
+      <td class="mono">$${useAOV}</td>
+      <td class="mono">${fmtN(clicks)}</td>
+      <td class="mono pos">${fmt(rev)}</td>
+      <td><span class="badge ${roasBadge}">${roas.toFixed(1)}x</span></td>
+    </tr>`;
+  });
+
+  const totalROAS = adSpend > 0 ? totalRev / adSpend : 0;
+  const totalCPA = totalConvs > 0 ? adSpend / totalConvs : 0;
+
+  rows += `<tr style="font-weight:700;border-top:2px solid var(--card-border)">
+    <td>TOTAL</td><td></td><td></td><td></td><td></td>
+    <td class="mono">${fmtN(totalClicks)}</td>
+    <td class="mono pos">${fmt(totalRev)}</td>
+    <td><span class="badge ${totalROAS >= 5 ? 'badge-green' : totalROAS >= 3 ? 'badge-yellow' : 'badge-red'}">${totalROAS.toFixed(1)}x</span></td>
+  </tr>`;
+
+  document.getElementById('productTable').innerHTML = rows;
+  document.getElementById('kpiRevenue').textContent = fmt(totalRev);
+  document.getElementById('kpiROAS').textContent = totalROAS.toFixed(1) + 'x';
+  document.getElementById('kpiConversions').textContent = Math.round(totalConvs);
+  document.getElementById('kpiCPA').textContent = '$' + totalCPA.toFixed(2);
+  document.getElementById('sumAdSpend').textContent = fmt(adSpend);
+  document.getElementById('sumAgency').textContent = fmt(agencyFee);
+  document.getElementById('sumTotal').textContent = fmt(adSpend + agencyFee);
+  const roi = ((totalRev - adSpend - agencyFee) / (adSpend + agencyFee) * 100);
+  document.getElementById('sumROI').textContent = (roi > 0 ? '+' : '') + roi.toFixed(0) + '%';
+  document.getElementById('sumROI').style.color = roi > 0 ? 'var(--green)' : 'var(--red)';
+
+  // Scenarios
+  let scenarioHTML = '';
+  [
+    { name: 'Conservative', spend: 2500, label: '$2.5K/mo' },
+    { name: 'Recommended', spend: 5000, label: '$5K/mo' },
+    { name: 'Aggressive', spend: 7500, label: '$7.5K/mo' },
+  ].forEach(s => {
+    const avgCPC = 0.38 * (shopPct * shopCPCMult + searchPct * searchCPCMult);
+    const avgConv = 0.035 * (shopPct * shopConvMult + searchPct * searchConvMult);
+    const clicks = Math.round(s.spend / avgCPC);
+    const convs = clicks * avgConv;
+    const rev = convs * aovOverride;
+    const roas = rev / s.spend;
+    const total = s.spend + agencyFee;
+    const hitsTarget = rev >= 10000;
+    scenarioHTML += `<div class="card" style="border-left:3px solid ${hitsTarget ? 'var(--green)' : 'var(--yellow)'}">
+      <h3>${s.name} — ${s.label} ad spend</h3>
+      <table style="margin:0.5rem 0">
+        <tr><td style="color:var(--muted)">Clicks</td><td class="mono" style="text-align:right">${fmtN(clicks)}/mo</td></tr>
+        <tr><td style="color:var(--muted)">Conversions</td><td class="mono" style="text-align:right">${Math.round(convs)}/mo</td></tr>
+        <tr><td style="color:var(--muted)">Revenue</td><td class="mono pos" style="text-align:right">${fmt(rev)}/mo</td></tr>
+        <tr><td style="color:var(--muted)">ROAS (ad spend)</td><td class="mono" style="text-align:right"><span class="badge ${roas >= 5 ? 'badge-green' : roas >= 3 ? 'badge-yellow' : 'badge-red'}">${roas.toFixed(1)}x</span></td></tr>
+        <tr><td style="color:var(--muted)">Total investment</td><td class="mono" style="text-align:right">${fmt(total)}/mo</td></tr>
+      </table>
+      <div style="margin-top:0.75rem"><span class="badge ${hitsTarget ? 'badge-green' : 'badge-yellow'}">${hitsTarget ? '✅ Hits $10K+ target' : '⚠️ Below $10K target'}</span></div>
+    </div>`;
+  });
+  document.getElementById('scenarios').innerHTML = scenarioHTML;
+
+  // Keywords table
+  let kwRows = '';
+  KEYWORDS.forEach(k => {
+    kwRows += `<tr><td class="mono">${k.kw}</td><td class="mono">${fmtN(k.vol)}</td><td class="mono">$${k.cpc.toFixed(2)}</td><td>${k.comp}</td><td style="color:var(--muted)">${k.group}</td></tr>`;
+  });
+  document.getElementById('keywordTable').innerHTML = kwRows;
+}
+
+document.getElementById('footerDate').textContent = new Date().toLocaleDateString('en-US', { month: 'long', year: 'numeric' });
+calc();
+</script>
+</body>
+</html>
