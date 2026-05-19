@@ -79,7 +79,7 @@ tr:hover{background:rgba(64,180,229,0.04)}
     </div>
     <div class="input-group">
       <label>Avg Order Value</label>
-      <input type="text" id="aov" value="30" oninput="fmtInput(this);calc()" onfocus="this.select()">
+      <input type="text" id="aov" value="35" oninput="fmtInput(this);calc()" onfocus="this.select()">
     </div>
     <div class="input-group">
       <label>Profit Margin %</label>
@@ -254,14 +254,14 @@ tr:hover{background:rgba(64,180,229,0.04)}
 
 <script>
 const PRODUCTS = [
-  { name: "USB Outlets & Chargers", volume: 8750, cpc: 0.36, convRate: 3.0, aov: 25 },
-  { name: "Industrial Plugs (NEMA)", volume: 7230, cpc: 0.55, convRate: 3.5, aov: 38 },
-  { name: "GFCI & Safety", volume: 3200, cpc: 0.40, convRate: 3.0, aov: 22 },
-  { name: "Smart Switches & Timers", volume: 2900, cpc: 0.38, convRate: 2.8, aov: 30 },
-  { name: "Sensors & Smart Home", volume: 2400, cpc: 0.45, convRate: 2.5, aov: 35 },
-  { name: "Dimmers & Fan Controls", volume: 1800, cpc: 0.40, convRate: 3.0, aov: 28 },
-  { name: "Wall Plates & Covers", volume: 590, cpc: 0.35, convRate: 3.5, aov: 15 },
-  { name: "Floor Boxes", volume: 480, cpc: 0.55, convRate: 3.0, aov: 48 },
+  { name: "USB Outlets & Chargers", volume: 8750, cpc: 0.28, convRate: 3.5, aov: 32 },
+  { name: "Industrial Plugs (NEMA)", volume: 7230, cpc: 0.45, convRate: 3.8, aov: 42 },
+  { name: "GFCI & Safety", volume: 3200, cpc: 0.30, convRate: 3.5, aov: 28 },
+  { name: "Smart Switches & Timers", volume: 2900, cpc: 0.30, convRate: 3.2, aov: 35 },
+  { name: "Sensors & Smart Home", volume: 2400, cpc: 0.35, convRate: 3.0, aov: 38 },
+  { name: "Dimmers & Fan Controls", volume: 1800, cpc: 0.30, convRate: 3.5, aov: 32 },
+  { name: "Wall Plates & Covers", volume: 590, cpc: 0.25, convRate: 4.0, aov: 18 },
+  { name: "Floor Boxes", volume: 480, cpc: 0.42, convRate: 3.5, aov: 52 },
 ];
 
 const KEYWORDS = [
@@ -378,18 +378,18 @@ function calc() {
   // Scenarios
   let scenarioHTML = '';
   [
-    { name: 'Conservative', spend: 2500, label: '$2.5K/mo' },
-    { name: 'Recommended', spend: 5000, label: '$5K/mo' },
-    { name: 'Aggressive', spend: 7500, label: '$7.5K/mo' },
+    { name: 'Test Phase (Mo 1-2)', spend: 2500, label: '$2.5K/mo' },
+    { name: 'Growth Phase (Mo 3-6)', spend: 5000, label: '$5K/mo' },
+    { name: 'Scale Phase (Mo 6+)', spend: 7500, label: '$7.5K/mo' },
   ].forEach(s => {
-    const avgCPC = 0.38 * (shopPct * shopCPCMult + searchPct * searchCPCMult);
-    const avgConv = 0.030 * (shopPct * shopConvMult + searchPct * searchConvMult);
+    const avgCPC = 0.28 * (shopPct * shopCPCMult + searchPct * searchCPCMult);
+    const avgConv = 0.035 * (shopPct * shopConvMult + searchPct * searchConvMult);
     const clicks = Math.round(s.spend / avgCPC);
     const convs = clicks * avgConv;
     const rev = convs * aovOverride;
     const roas = rev / s.spend;
     const total = s.spend + agencyFee;
-    const hitsTarget = rev >= 10000;
+    const hitsTarget = (rev / s.spend) >= 5;
     scenarioHTML += `<div class="card" style="border-left:3px solid ${hitsTarget ? 'var(--green)' : 'var(--yellow)'}">
       <h3>${s.name} — ${s.label} ad spend</h3>
       <table style="margin:0.5rem 0">
@@ -399,7 +399,7 @@ function calc() {
         <tr><td style="color:var(--muted)">ROAS (ad spend)</td><td class="mono" style="text-align:right"><span class="badge ${roas >= 5 ? 'badge-green' : roas >= 3 ? 'badge-yellow' : 'badge-red'}">${roas.toFixed(1)}x</span></td></tr>
         <tr><td style="color:var(--muted)">Total investment</td><td class="mono" style="text-align:right">${fmt(total)}/mo</td></tr>
       </table>
-      <div style="margin-top:0.75rem"><span class="badge ${hitsTarget ? 'badge-green' : 'badge-yellow'}">${hitsTarget ? '✅ Hits $10K+ target' : '⚠️ Below $10K target'}</span></div>
+      <div style="margin-top:0.75rem"><span class="badge ${hitsTarget ? 'badge-green' : 'badge-yellow'}">${hitsTarget ? '✅ 5x+ ROAS achieved' : '⚠️ Below 5x ROAS — optimization phase'}</span></div>
     </div>`;
   });
   document.getElementById('scenarios').innerHTML = scenarioHTML;
