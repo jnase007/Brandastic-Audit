@@ -107,7 +107,7 @@ tr:hover{background:rgba(64,180,229,0.04)}
     </div>
     <div class="input-group">
       <label>Profit Margin %</label>
-      <input type="text" id="margin" value="70" oninput="calc()" onfocus="this.select()">
+      <input type="text" id="margin" value="50" oninput="calc()" onfocus="this.select()">
     </div>
     <div class="input-group">
       <label>Shopping/Search Split</label>
@@ -268,14 +268,14 @@ tr:hover{background:rgba(64,180,229,0.04)}
 
 <script>
 const PRODUCTS = [
-  { name: "USB Outlets & Chargers", volume: 8750, cpc: 0.28, convRate: 3.5, aov: 36 },
-  { name: "Industrial Plugs (NEMA)", volume: 7230, cpc: 0.32, convRate: 3.8, aov: 42 },
-  { name: "GFCI & Safety", volume: 3200, cpc: 0.28, convRate: 3.5, aov: 38 },
-  { name: "Smart Switches & Timers", volume: 2900, cpc: 0.28, convRate: 3.5, aov: 40 },
-  { name: "Sensors & Smart Home", volume: 2400, cpc: 0.28, convRate: 3.5, aov: 38 },
-  { name: "Dimmers & Fan Controls", volume: 1800, cpc: 0.28, convRate: 3.5, aov: 40 },
+  { name: "USB Outlets & Chargers", volume: 8750, cpc: 0.36, convRate: 3.5, aov: 36 },
+  { name: "Industrial Plugs (NEMA)", volume: 7230, cpc: 0.55, convRate: 3.8, aov: 42 },
+  { name: "GFCI & Safety", volume: 3200, cpc: 0.42, convRate: 3.5, aov: 38 },
+  { name: "Smart Switches & Timers", volume: 2900, cpc: 0.38, convRate: 3.5, aov: 40 },
+  { name: "Sensors & Smart Home", volume: 2400, cpc: 0.50, convRate: 3.5, aov: 38 },
+  { name: "Dimmers & Fan Controls", volume: 1800, cpc: 0.40, convRate: 3.5, aov: 40 },
   { name: "Wall Plates & Covers", volume: 590, cpc: 0.25, convRate: 4.0, aov: 35 },
-  { name: "Floor Boxes", volume: 480, cpc: 0.30, convRate: 3.5, aov: 52 },
+  { name: "Floor Boxes", volume: 480, cpc: 0.55, convRate: 3.5, aov: 52 },
 ];
 
 const KEYWORDS = [
@@ -332,7 +332,7 @@ function calc() {
     const groupSpend = adSpend * shareOfSpend;
     const clicks = Math.round(groupSpend / blendedCPC);
     const convs = clicks * blendedConv;
-    const useAOV = p.aov;
+    const useAOV = aovOverride > 0 ? Math.round(p.aov * (aovOverride / 35)) : p.aov;
     const rev = convs * useAOV;
     const roas = groupSpend > 0 ? rev / groupSpend : 0;
 
@@ -396,7 +396,9 @@ function calc() {
     { name: 'Growth Phase (Mo 3-6)', spend: 5000, label: '$5K/mo' },
     { name: 'Scale Phase (Mo 6+)', spend: 7500, label: '$7.5K/mo' },
   ].forEach(s => {
-    const avgCPC = 0.28 * (shopPct * shopCPCMult + searchPct * searchCPCMult);
+    // CPC increases ~10% as you scale spend (more competition at higher budgets)
+      const cpcScale = 1 + ((s.spend - 2500) / 50000);
+      const avgCPC = 0.42 * (shopPct * shopCPCMult + searchPct * searchCPCMult) * cpcScale;
     const avgConv = 0.035 * (shopPct * shopConvMult + searchPct * searchConvMult);
     const clicks = Math.round(s.spend / avgCPC);
     const convs = clicks * avgConv;
