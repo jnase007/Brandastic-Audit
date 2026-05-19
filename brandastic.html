@@ -1303,15 +1303,6 @@ body.slide-mode .section-pill{display:none !important}
       }
 
       
-      // Fallback data for accounts too small for SocialBlade
-      const fallbackData = {
-        'facebook_brandastic': { followers: '1.2K', status: 'Active' },
-        'instagram_brandastic': { followers: '850', status: 'Active' },
-        'youtube_brandastic': { followers: '120', status: 'Present' },
-        'twitter_brandastic': { followers: '380', status: 'Present' },
-        'tiktok_brandastic': { followers: '—', status: 'Not Active' },
-      };
-
       async function loadSocialStats() {
         const cards = document.querySelectorAll('#socialGrid .card[data-platform]');
         for (const card of cards) {
@@ -1321,13 +1312,11 @@ body.slide-mode .section-pill{display:none !important}
 
           const data = await fetchSocialData(platform, username);
           if (!data) {
-            // Use fallback data
-            const fbKey = platform + '_' + username;
-            const fb = fallbackData[fbKey];
-            if (fb && fb.followers) {
-              const fEl = card.querySelector('.sb-followers');
-              if (fEl) fEl.textContent = fb.followers;
-            }
+            const fEl = card.querySelector('.sb-followers');
+            if (fEl) fEl.textContent = 'Not Tracked';
+            fEl.style.fontSize = '1rem';
+            const gEl = card.querySelector('.sb-growth');
+            if (gEl) gEl.textContent = 'Add to SocialBlade for live data';
             continue;
           }
 
