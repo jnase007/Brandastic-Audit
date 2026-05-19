@@ -79,7 +79,7 @@ tr:hover{background:rgba(64,180,229,0.04)}
     </div>
     <div class="input-group">
       <label>Avg Order Value</label>
-      <input type="text" id="aov" value="35" oninput="fmtInput(this);calc()" onfocus="this.select()">
+      <input type="text" id="aov" value="30" oninput="fmtInput(this);calc()" onfocus="this.select()">
     </div>
     <div class="input-group">
       <label>Profit Margin %</label>
@@ -254,14 +254,14 @@ tr:hover{background:rgba(64,180,229,0.04)}
 
 <script>
 const PRODUCTS = [
-  { name: "USB Outlets & Chargers", volume: 8750, cpc: 0.30, convRate: 4.5, aov: 30 },
-  { name: "Industrial Plugs (NEMA)", volume: 7230, cpc: 0.55, convRate: 4.5, aov: 40 },
-  { name: "GFCI & Safety", volume: 3200, cpc: 0.35, convRate: 4.5, aov: 28 },
-  { name: "Smart Switches & Timers", volume: 2900, cpc: 0.32, convRate: 4.0, aov: 35 },
-  { name: "Sensors & Smart Home", volume: 2400, cpc: 0.42, convRate: 4.0, aov: 38 },
-  { name: "Dimmers & Fan Controls", volume: 1800, cpc: 0.35, convRate: 4.5, aov: 32 },
-  { name: "Wall Plates & Covers", volume: 590, cpc: 0.30, convRate: 5.0, aov: 18 },
-  { name: "Floor Boxes", volume: 480, cpc: 0.50, convRate: 4.0, aov: 55 },
+  { name: "USB Outlets & Chargers", volume: 8750, cpc: 0.36, convRate: 3.0, aov: 25 },
+  { name: "Industrial Plugs (NEMA)", volume: 7230, cpc: 0.55, convRate: 3.5, aov: 38 },
+  { name: "GFCI & Safety", volume: 3200, cpc: 0.40, convRate: 3.0, aov: 22 },
+  { name: "Smart Switches & Timers", volume: 2900, cpc: 0.38, convRate: 2.8, aov: 30 },
+  { name: "Sensors & Smart Home", volume: 2400, cpc: 0.45, convRate: 2.5, aov: 35 },
+  { name: "Dimmers & Fan Controls", volume: 1800, cpc: 0.40, convRate: 3.0, aov: 28 },
+  { name: "Wall Plates & Covers", volume: 590, cpc: 0.35, convRate: 3.5, aov: 15 },
+  { name: "Floor Boxes", volume: 480, cpc: 0.55, convRate: 3.0, aov: 48 },
 ];
 
 const KEYWORDS = [
@@ -383,7 +383,7 @@ function calc() {
     { name: 'Aggressive', spend: 7500, label: '$7.5K/mo' },
   ].forEach(s => {
     const avgCPC = 0.38 * (shopPct * shopCPCMult + searchPct * searchCPCMult);
-    const avgConv = 0.035 * (shopPct * shopConvMult + searchPct * searchConvMult);
+    const avgConv = 0.030 * (shopPct * shopConvMult + searchPct * searchConvMult);
     const clicks = Math.round(s.spend / avgCPC);
     const convs = clicks * avgConv;
     const rev = convs * aovOverride;
