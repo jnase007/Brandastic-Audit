@@ -81,6 +81,10 @@ tr:hover{background:rgba(64,180,229,0.04)}
       <input type="number" id="aov" value="28" min="10" max="100" step="1" onchange="calc()" oninput="calc()">
     </div>
     <div class="input-group">
+      <label>Profit Margin %</label>
+      <input type="number" id="margin" value="70" min="10" max="95" step="5" onchange="calc()" oninput="calc()">
+    </div>
+    <div class="input-group">
       <label>Shopping/Search Split</label>
       <select id="split" onchange="calc()">
         <option value="70">70% Shopping / 30% Search</option>
@@ -98,6 +102,12 @@ tr:hover{background:rgba(64,180,229,0.04)}
   <div class="stat"><div class="stat-num" id="kpiROAS">—</div><div class="stat-label">ROAS (Ad Spend)</div></div>
   <div class="stat"><div class="stat-num" id="kpiConversions">—</div><div class="stat-label">Est. Conversions / Mo</div></div>
   <div class="stat"><div class="stat-num" id="kpiCPA">—</div><div class="stat-label">Cost Per Acquisition</div></div>
+  </div>
+  <div class="grid-4" style="margin-top:1rem">
+    <div class="stat"><div class="stat-num" id="kpiGrossProfit">—</div><div class="stat-label">Gross Profit</div></div>
+    <div class="stat"><div class="stat-num" id="kpiNetProfit">—</div><div class="stat-label">Net Profit (after ad + agency)</div></div>
+    <div class="stat"><div class="stat-num" id="kpiTrueROI">—</div><div class="stat-label">True ROI %</div></div>
+    <div class="stat"><div class="stat-num" id="kpiBreakeven">—</div><div class="stat-label">Breakeven Revenue</div></div>
 </div>
 
 <!-- PRODUCT GROUP TABLE -->
@@ -256,6 +266,20 @@ function calc() {
   const roi = ((totalRev - adSpend - agencyFee) / (adSpend + agencyFee) * 100);
   document.getElementById('sumROI').textContent = (roi > 0 ? '+' : '') + roi.toFixed(0) + '%';
   document.getElementById('sumROI').style.color = roi > 0 ? 'var(--green)' : 'var(--red)';
+
+  // Profit calculations
+  const margin = +document.getElementById('margin').value / 100;
+  const grossProfit = totalRev * margin;
+  const netProfit = grossProfit - adSpend - agencyFee;
+  const trueROI = (adSpend + agencyFee) > 0 ? (netProfit / (adSpend + agencyFee)) * 100 : 0;
+  const breakeven = margin > 0 ? (adSpend + agencyFee) / margin : 0;
+
+  document.getElementById('kpiGrossProfit').textContent = fmt(grossProfit);
+  document.getElementById('kpiNetProfit').textContent = fmt(netProfit);
+  document.getElementById('kpiNetProfit').style.color = netProfit > 0 ? 'var(--green)' : 'var(--red)';
+  document.getElementById('kpiTrueROI').textContent = (trueROI > 0 ? '+' : '') + trueROI.toFixed(0) + '%';
+  document.getElementById('kpiTrueROI').style.color = trueROI > 0 ? 'var(--green)' : 'var(--red)';
+  document.getElementById('kpiBreakeven').textContent = fmt(breakeven);
 
   // Scenarios
   let scenarioHTML = '';
