@@ -47,6 +47,26 @@ tr:hover{background:rgba(64,180,229,0.04)}
 .footer{text-align:center;padding:3rem 0 2rem;font-size:0.75rem;color:var(--muted);border-top:1px solid var(--card-border);margin-top:3rem}
 .btn{display:inline-flex;align-items:center;gap:6px;padding:10px 24px;border-radius:10px;border:none;cursor:pointer;background:linear-gradient(135deg,#40B4E5,#CC22FF);color:#fff;font-family:inherit;font-size:0.85rem;font-weight:600}
 .btn:hover{transform:translateY(-1px);box-shadow:0 4px 20px rgba(64,180,229,0.3)}
+
+@media print {
+  .stat-num { 
+    -webkit-text-fill-color: #191F24 !important;
+    background: none !important;
+    color: #191F24 !important;
+    font-size: 1.6rem !important;
+  }
+  .nav { display: none !important; }
+  .card { break-inside: avoid; }
+  .grid-4 { grid-template-columns: repeat(2, 1fr) !important; }
+  .highlight { break-inside: avoid; }
+  body { background: #fff !important; color: #191F24 !important; }
+  .btn { display: none !important; }
+  h2 { color: #191F24 !important; }
+  .badge { print-color-adjust: exact; -webkit-print-color-adjust: exact; }
+  table { font-size: 0.8rem !important; }
+  .pos { color: #22c55e !important; -webkit-text-fill-color: #22c55e !important; }
+  .mono { -webkit-text-fill-color: #191F24 !important; }
+}
 </style>
 </head>
 <body>
