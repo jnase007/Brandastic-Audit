@@ -10,7 +10,7 @@
 :root{--bg:#F5F3EF;--card:#fff;--card-border:rgba(0,0,0,0.08);--text:#191F24;--text2:rgba(25,31,36,0.7);--muted:rgba(25,31,36,0.35);--accent:#40B4E5;--purple:#CC22FF;--green:#22c55e;--red:#ef4444;--yellow:#f59e0b}
 *{margin:0;padding:0;box-sizing:border-box}
 body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--text);line-height:1.6}
-.container{max-width:100%;margin:0 auto;padding:2rem 4rem}
+.container{max-width:1100px;margin:0 auto;padding:2rem 1.5rem}
 h1{font-size:2.2rem;font-weight:900;letter-spacing:-0.03em;margin-bottom:0.25rem}
 h2{font-size:1.3rem;font-weight:700;margin:2.5rem 0 1rem;color:var(--accent)}
 h3{font-size:1rem;font-weight:700;margin:1rem 0 0.5rem}
@@ -133,17 +133,38 @@ td{padding:0.6rem;border-bottom:1px solid var(--card-border)}
     <div><h3>In-App Lead Forms</h3><p style="color:var(--text2);font-size:0.9rem">Students and parents fill out a form without leaving Facebook/Instagram. Connected to automated email sequence to book appointments.</p></div>
   
   <h3 style="margin-top:1.5rem">Meta Audience Targeting Strategy</h3>
-  <table style="width:100%;table-layout:auto">
-    <thead><tr><th style="width:25%">Audience Segment</th><th style="width:45%">Targeting Method</th><th style="width:30%">Why It Works</th></tr></thead>
-    <tbody>
-      <tr><td style="font-weight:600">Recent HS Graduates</td><td style="color:var(--text2)">Life event: "Recently graduated high school" + age 17-19</td><td style="color:var(--text2)">Highest intent — actively deciding their next step</td></tr>
-      <tr><td style="font-weight:600">Parents of Teens</td><td style="color:var(--text2)">Parents with children ages 14-18 + interest in college prep</td><td style="color:var(--text2)">Decision influencers who book appointments</td></tr>
-      <tr><td style="font-weight:600">First-Gen Families</td><td style="color:var(--text2)">Income targeting + education level + community college interests</td><td style="color:var(--text2)">Core mission audience — most likely to need On Point's help</td></tr>
-      <tr><td style="font-weight:600">Multicultural Communities</td><td style="color:var(--text2)">Language preferences, cultural affinity groups, community orgs</td><td style="color:var(--text2)">Diverse backgrounds — reaching underserved communities</td></tr>
-      <tr><td style="font-weight:600">School Counselors & Educators</td><td style="color:var(--text2)">Job title targeting + education sector interests</td><td style="color:var(--text2)">Referral partners who can send students to On Point</td></tr>
-      <tr><td style="font-weight:600">Lookalike Audiences</td><td style="color:var(--text2)">Upload current student/parent list → Meta builds lookalikes</td><td style="color:var(--text2)">Find more people like your existing success stories</td></tr>
-    </tbody>
-  </table>
+  <div class="grid" style="grid-template-columns:repeat(3,1fr);gap:1rem;margin-top:1rem">
+    <div class="card" style="padding:1.25rem">
+      <h3 style="margin:0 0 0.5rem;font-size:0.95rem">Recent HS Graduates</h3>
+      <p style="color:var(--text2);font-size:0.85rem;line-height:1.6;margin-bottom:0.5rem">Life event: "Recently graduated high school" + age 17-19</p>
+      <span class="badge badge-green">Highest Intent</span>
+    </div>
+    <div class="card" style="padding:1.25rem">
+      <h3 style="margin:0 0 0.5rem;font-size:0.95rem">Parents of Teens</h3>
+      <p style="color:var(--text2);font-size:0.85rem;line-height:1.6;margin-bottom:0.5rem">Parents with children ages 14-18 + interest in college prep</p>
+      <span class="badge badge-green">Decision Makers</span>
+    </div>
+    <div class="card" style="padding:1.25rem">
+      <h3 style="margin:0 0 0.5rem;font-size:0.95rem">First-Gen Families</h3>
+      <p style="color:var(--text2);font-size:0.85rem;line-height:1.6;margin-bottom:0.5rem">Income targeting + education level + community college interests</p>
+      <span class="badge badge-blue">Core Mission</span>
+    </div>
+    <div class="card" style="padding:1.25rem">
+      <h3 style="margin:0 0 0.5rem;font-size:0.95rem">Multicultural Communities</h3>
+      <p style="color:var(--text2);font-size:0.85rem;line-height:1.6;margin-bottom:0.5rem">Language preferences, cultural affinity groups, community organizations</p>
+      <span class="badge badge-blue">Underserved</span>
+    </div>
+    <div class="card" style="padding:1.25rem">
+      <h3 style="margin:0 0 0.5rem;font-size:0.95rem">School Counselors</h3>
+      <p style="color:var(--text2);font-size:0.85rem;line-height:1.6;margin-bottom:0.5rem">Job title targeting + education sector interests</p>
+      <span class="badge badge-yellow">Referral Partners</span>
+    </div>
+    <div class="card" style="padding:1.25rem">
+      <h3 style="margin:0 0 0.5rem;font-size:0.95rem">Lookalike Audiences</h3>
+      <p style="color:var(--text2);font-size:0.85rem;line-height:1.6;margin-bottom:0.5rem">Upload current student/parent list — Meta finds similar people</p>
+      <span class="badge badge-green">Scale Play</span>
+    </div>
+  </div>
 
 </div>
 </div>
