@@ -300,10 +300,10 @@ function calc() {
   const searchPct = 1 - shopPct;
 
   // Shopping: lower CPC, higher conv rate. Search: higher CPC, lower conv rate
-  const shopCPCMult = 0.85;
-  const shopConvMult = 1.4;
-  const searchCPCMult = 1.15;
-  const searchConvMult = 0.8;
+  const shopCPCMult = 0.90;
+  const shopConvMult = 1.15;
+  const searchCPCMult = 1.10;
+  const searchConvMult = 0.85;
 
   const shopSpend = adSpend * shopPct;
   const searchSpend = adSpend * searchPct;
@@ -382,8 +382,8 @@ function calc() {
     { name: 'Recommended', spend: 5000, label: '$5K/mo' },
     { name: 'Aggressive', spend: 7500, label: '$7.5K/mo' },
   ].forEach(s => {
-    const avgCPC = 0.33 * (shopPct * shopCPCMult + searchPct * searchCPCMult);
-    const avgConv = 0.045 * (shopPct * shopConvMult + searchPct * searchConvMult);
+    const avgCPC = 0.38 * (shopPct * shopCPCMult + searchPct * searchCPCMult);
+    const avgConv = 0.035 * (shopPct * shopConvMult + searchPct * searchConvMult);
     const clicks = Math.round(s.spend / avgCPC);
     const convs = clicks * avgConv;
     const rev = convs * aovOverride;
