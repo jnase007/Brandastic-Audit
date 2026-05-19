@@ -184,6 +184,55 @@ tr:hover{background:rgba(64,180,229,0.04)}
 </div>
 
 
+
+<h2>Path to 5x ROAS</h2>
+<div class="card">
+  <p style="color:var(--text2);font-size:0.9rem;line-height:1.7;margin-bottom:1.5rem">Month 1-2 at $5K will likely land 3-4x ROAS as we optimize. By month 3-4 with feed optimization, bundling strategy, and bid data — 5x is the target. We build to it, not promise it day one.</p>
+
+  <table>
+    <thead><tr><th>Phase</th><th>Timeline</th><th>ROAS Target</th><th>Key Actions</th></tr></thead>
+    <tbody>
+      <tr>
+        <td style="font-weight:600">Launch</td>
+        <td>Month 1-2</td>
+        <td><span class="badge badge-yellow">3-4x ROAS</span></td>
+        <td style="color:var(--text2)">Shopping campaign setup, product feed optimization, initial bid strategy, baseline data collection</td>
+      </tr>
+      <tr>
+        <td style="font-weight:600">Optimize</td>
+        <td>Month 3-4</td>
+        <td><span class="badge badge-green">4-5x ROAS</span></td>
+        <td style="color:var(--text2)">Kill underperformers, double down on USB Outlets + Industrial Plugs (top ROAS groups), implement bundle strategy to push AOV from $35 → $45</td>
+      </tr>
+      <tr>
+        <td style="font-weight:600">Scale</td>
+        <td>Month 5+</td>
+        <td><span class="badge badge-green">5x+ ROAS</span></td>
+        <td style="color:var(--text2)">90/10 Shopping/Search split, refined audience targeting, seasonal campaigns, $45+ AOV with bundles established</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h3 style="margin-top:1.5rem">The 3 Levers to 5x</h3>
+  <div class="grid" style="grid-template-columns:repeat(3,1fr);gap:1rem;margin-top:1rem">
+    <div class="card" style="padding:1.25rem;text-align:center">
+      <div style="font-size:1.5rem;font-weight:800;color:var(--accent)">$35 → $45</div>
+      <div style="font-size:0.8rem;color:var(--muted);text-transform:uppercase;letter-spacing:0.05em;margin-top:0.25rem">AOV with Bundles</div>
+      <p style="color:var(--text2);font-size:0.85rem;margin-top:0.5rem">Bundle kits, multi-packs, free shipping at $50+ threshold</p>
+    </div>
+    <div class="card" style="padding:1.25rem;text-align:center">
+      <div style="font-size:1.5rem;font-weight:800;color:var(--accent)">Top 3 Groups</div>
+      <div style="font-size:0.8rem;color:var(--muted);text-transform:uppercase;letter-spacing:0.05em;margin-top:0.25rem">Focus Spend</div>
+      <p style="color:var(--text2);font-size:0.85rem;margin-top:0.5rem">USB Outlets, Industrial Plugs, and Smart Switches deliver the highest ROAS</p>
+    </div>
+    <div class="card" style="padding:1.25rem;text-align:center">
+      <div style="font-size:1.5rem;font-weight:800;color:var(--accent)">90/10</div>
+      <div style="font-size:0.8rem;color:var(--muted);text-transform:uppercase;letter-spacing:0.05em;margin-top:0.25rem">Shopping / Search</div>
+      <p style="color:var(--text2);font-size:0.85rem;margin-top:0.5rem">Shopping ads deliver lower CPCs and higher conversion for physical products</p>
+    </div>
+  </div>
+</div>
+
 <!-- CHALLENGES & KPIs -->
 <h2>Key Challenges</h2>
 <div class="grid">
@@ -392,9 +441,9 @@ function calc() {
   // Scenarios
   let scenarioHTML = '';
   [
-    { name: 'Test Phase (Mo 1-2)', spend: 2500, label: '$2.5K/mo' },
-    { name: 'Growth Phase (Mo 3-6)', spend: 5000, label: '$5K/mo' },
-    { name: 'Scale Phase (Mo 6+)', spend: 7500, label: '$7.5K/mo' },
+    { name: 'Launch (Mo 1-2) — 3-4x ROAS', spend: 2500, label: '$2.5K/mo' },
+    { name: 'Optimize (Mo 3-4) — 4-5x ROAS', spend: 5000, label: '$5K/mo' },
+    { name: 'Scale (Mo 5+) — 5x+ Target', spend: 7500, label: '$7.5K/mo' },
   ].forEach(s => {
     // CPC increases ~10% as you scale spend (more competition at higher budgets)
       const cpcScale = 1 + ((s.spend - 2500) / 50000);
