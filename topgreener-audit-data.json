@@ -1,0 +1,244 @@
+{
+  "client": "TopGreener",
+  "domain": "topgreener.com",
+  "slug": "topgreener",
+  "generated": "2026-05-24T02:33:40Z",
+  "semrush": {
+    "overview": {
+      "Domain": "topgreener.com",
+      "Rank": "235649",
+      "Organic Keywords": "3159",
+      "Organic Traffic": "7283",
+      "Organic Cost": "3432",
+      "Adwords Keywords": "0",
+      "Adwords Traffic": "0",
+      "Adwords Cost\r": "0"
+    },
+    "organic_keywords": [
+      {
+        "keyword": "l5-30r",
+        "position": 1,
+        "volume": 1600,
+        "cpc": 0.66,
+        "competition": 1.0,
+        "traffic_pct": 2.89
+      },
+      {
+        "keyword": "l6-30p",
+        "position": 1,
+        "volume": 1300,
+        "cpc": 1.01,
+        "competition": 1.0,
+        "traffic_pct": 2.34
+      },
+      {
+        "keyword": "topgreener",
+        "position": 1,
+        "volume": 210,
+        "cpc": 0.56,
+        "competition": 0.64,
+        "traffic_pct": 2.3
+      },
+      {
+        "keyword": "l6 20r",
+        "position": 1,
+        "volume": 880,
+        "cpc": 0.67,
+        "competition": 0.91,
+        "traffic_pct": 1.59
+      },
+      {
+        "keyword": "programmable light switch",
+        "position": 2,
+        "volume": 1300,
+        "cpc": 0.43,
+        "competition": 1.0,
+        "traffic_pct": 1.45
+      },
+      {
+        "keyword": "nema 6 20",
+        "position": 2,
+        "volume": 1300,
+        "cpc": 0.49,
+        "competition": 0.81,
+        "traffic_pct": 1.45
+      },
+      {
+        "keyword": "6-20p",
+        "position": 1,
+        "volume": 390,
+        "cpc": 0.84,
+        "competition": 0.62,
+        "traffic_pct": 1.31
+      },
+      {
+        "keyword": "usb power outlet wall",
+        "position": 2,
+        "volume": 1000,
+        "cpc": 0.36,
+        "competition": 1.0,
+        "traffic_pct": 1.12
+      },
+      {
+        "keyword": "exterior wall sockets",
+        "position": 2,
+        "volume": 590,
+        "cpc": 0.4,
+        "competition": 1.0,
+        "traffic_pct": 1.05
+      },
+      {
+        "keyword": "nema 6 50r",
+        "position": 2,
+        "volume": 880,
+        "cpc": 0.54,
+        "competition": 0.94,
+        "traffic_pct": 0.98
+      },
+      {
+        "keyword": "l6-20p",
+        "position": 1,
+        "volume": 880,
+        "cpc": 1.04,
+        "competition": 1.0,
+        "traffic_pct": 0.98
+      },
+      {
+        "keyword": "nema 6 20 plug",
+        "position": 1,
+        "volume": 880,
+        "cpc": 0.48,
+        "competition": 0.7,
+        "traffic_pct": 0.98
+      },
+      {
+        "keyword": "top greener",
+        "position": 1,
+        "volume": 90,
+        "cpc": 1.46,
+        "competition": 0.72,
+        "traffic_pct": 0.98
+      },
+      {
+        "keyword": "nema 6 20p plug",
+        "position": 1,
+        "volume": 880,
+        "cpc": 0.48,
+        "competition": 0.7,
+        "traffic_pct": 0.98
+      },
+      {
+        "keyword": "nema 6-50r",
+        "position": 2,
+        "volume": 880,
+        "cpc": 0.54,
+        "competition": 0.94,
+        "traffic_pct": 0.98
+      },
+      {
+        "keyword": "usb c wall outlet",
+        "position": 2,
+        "volume": 880,
+        "cpc": 0.36,
+        "competition": 1.0,
+        "traffic_pct": 0.98
+      },
+      {
+        "keyword": "l6-30r receptacle",
+        "position": 1,
+        "volume": 260,
+        "cpc": 0.5,
+        "competition": 1.0,
+        "traffic_pct": 0.87
+      },
+      {
+        "keyword": "l5 30r",
+        "position": 1,
+        "volume": 480,
+        "cpc": 0.66,
+        "competition": 1.0,
+        "traffic_pct": 0.86
+      },
+      {
+        "keyword": "l6 30p",
+        "position": 1,
+        "volume": 720,
+        "cpc": 1.01,
+        "competition": 1.0,
+        "traffic_pct": 0.81
+      },
+      {
+        "keyword": "auto light switch",
+        "position": 2,
+        "volume": 720,
+        "cpc": 0.33,
+        "competition": 1.0,
+        "traffic_pct": 0.81
+      }
+    ],
+    "paid_keywords": [],
+    "competitors": [
+      {
+        "domain": "lider-electric.com",
+        "common_keywords": "136",
+        "organic_keywords": "1119",
+        "organic_traffic": "3646"
+      },
+      {
+        "domain": "kyleswitchplates.com",
+        "common_keywords": "418",
+        "organic_keywords": "23454",
+        "organic_traffic": "45377"
+      },
+      {
+        "domain": "wallplate.store",
+        "common_keywords": "103",
+        "organic_keywords": "1395",
+        "organic_traffic": "294"
+      },
+      {
+        "domain": "bn-link.com",
+        "common_keywords": "195",
+        "organic_keywords": "8557",
+        "organic_traffic": "28507"
+      },
+      {
+        "domain": "floorboxoutlet.com",
+        "common_keywords": "70",
+        "organic_keywords": "2379",
+        "organic_traffic": "9568"
+      },
+      {
+        "domain": "kitchenpowerpopups.com",
+        "common_keywords": "178",
+        "organic_keywords": "7638",
+        "organic_traffic": "43146"
+      },
+      {
+        "domain": "elegrp.com",
+        "common_keywords": "68",
+        "organic_keywords": "1521",
+        "organic_traffic": "2234"
+      },
+      {
+        "domain": "stayonline.com",
+        "common_keywords": "90",
+        "organic_keywords": "7458",
+        "organic_traffic": "14103"
+      },
+      {
+        "domain": "electricalmarketplace.com",
+        "common_keywords": "99",
+        "organic_keywords": "7027",
+        "organic_traffic": "4296"
+      },
+      {
+        "domain": "acworks.com",
+        "common_keywords": "139",
+        "organic_keywords": "7668",
+        "organic_traffic": "13764"
+      }
+    ]
+  },
+  "socialblade": {}
+}
