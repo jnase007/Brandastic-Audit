@@ -292,9 +292,9 @@ a{color:var(--accent);text-decoration:none}
 <!-- STATS -->
 <div class="stats-bar">
   <div class="stat"><div class="stat-num" data-count="15">15+</div><div class="stat-label">Years in Business</div></div>
-  <div class="stat"><div class="stat-num">450+</div><div class="stat-label">Clients Served</div></div>
-  <div class="stat"><div class="stat-num">92%</div><div class="stat-label">Client Retention</div></div>
-  <div class="stat"><div class="stat-num">5.0★</div><div class="stat-label">40+ Google Reviews</div></div>
+  <div class="stat"><div class="stat-num count-up" data-target="450" data-suffix="+">0</div><div class="stat-label">Clients Served</div></div>
+  <div class="stat"><div class="stat-num count-up" data-target="92" data-suffix="%">0</div><div class="stat-label">Client Retention</div></div>
+  <div class="stat"><div class="stat-num count-up" data-target="5.0" data-suffix="★" data-decimal="true">0</div><div class="stat-label">40+ Google Reviews</div></div>
 </div>
 
 <!-- CASE STUDIES -->
@@ -573,6 +573,36 @@ var observer = new IntersectionObserver(function(entries) {
   });
 }, { threshold: 0.1 });
 reveals.forEach(function(el) { observer.observe(el); });
+
+// Count-up animation
+var counted = false;
+function countUp() {
+  if (counted) return;
+  var els = document.querySelectorAll(".count-up");
+  var statsBar = document.querySelector(".stats-bar");
+  if (!statsBar) return;
+  var rect = statsBar.getBoundingClientRect();
+  if (rect.top > window.innerHeight) return;
+  counted = true;
+  els.forEach(function(el) {
+    var target = parseFloat(el.getAttribute("data-target"));
+    var suffix = el.getAttribute("data-suffix") || "";
+    var isDecimal = el.getAttribute("data-decimal") === "true";
+    var duration = 2000;
+    var start = 0;
+    var startTime = null;
+    function animate(timestamp) {
+      if (!startTime) startTime = timestamp;
+      var progress = Math.min((timestamp - startTime) / duration, 1);
+      var eased = 1 - Math.pow(1 - progress, 3);
+      var current = start + (target - start) * eased;
+      el.textContent = (isDecimal ? current.toFixed(1) : Math.floor(current)) + suffix;
+      if (progress < 1) requestAnimationFrame(animate);
+    }
+    requestAnimationFrame(animate);
+  });
+}
+window.addEventListener("scroll", countUp);
 
 // Nav scroll effect
 window.addEventListener("scroll", function() {
