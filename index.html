@@ -153,6 +153,11 @@ a{color:var(--accent);text-decoration:none}
 .faq-item .arrow{transition:transform 0.3s}
 .faq-item.open .arrow{transform:rotate(180deg)}
 
+/* ORB ANIMATIONS */
+@keyframes orbFloat1{0%,100%{transform:translate(0,0)}50%{transform:translate(30px,-20px)}}
+@keyframes orbFloat2{0%,100%{transform:translate(0,0)}50%{transform:translate(-25px,15px)}}
+@keyframes orbFloat3{0%,100%{transform:translate(0,0)}50%{transform:translate(20px,-25px)}}
+
 /* TAB CONTENT ANIMATIONS */
 #tabChart{animation:tabFadeIn 0.5s ease}
 #tabDetails{animation:tabSlideUp 0.5s ease}
@@ -499,7 +504,10 @@ a{color:var(--accent);text-decoration:none}
 </div>
 
 <!-- FOOTER -->
-<div class="footer" style="background:linear-gradient(to top,rgba(10,14,26,1),rgba(15,20,35,1))">
+<div class="footer" style="background:linear-gradient(to top,rgba(10,14,26,1),rgba(15,20,35,1));overflow:hidden;position:relative;z-index:3">
+  <div style="position:absolute;top:-50px;left:10%;width:200px;height:200px;border-radius:50%;background:radial-gradient(circle,rgba(64,180,229,0.08),transparent 70%);filter:blur(40px);animation:orbFloat1 8s ease-in-out infinite;pointer-events:none"></div>
+  <div style="position:absolute;top:-30px;right:15%;width:250px;height:250px;border-radius:50%;background:radial-gradient(circle,rgba(204,34,255,0.06),transparent 70%);filter:blur(50px);animation:orbFloat2 10s ease-in-out infinite;pointer-events:none"></div>
+  <div style="position:absolute;bottom:-40px;left:40%;width:180px;height:180px;border-radius:50%;background:radial-gradient(circle,rgba(64,180,229,0.05),transparent 70%);filter:blur(35px);animation:orbFloat3 12s ease-in-out infinite;pointer-events:none"></div>
   <div style="max-width:900px;margin:0 auto">
     <img src="https://brandastic.com/wp-content/uploads/2026/03/BrandasticLogo-White-5.png" alt="Brandastic" style="height:30px;opacity:0.6;margin-bottom:1.5rem">
     <p style="font-size:0.9rem;color:rgba(255,255,255,0.5);max-width:500px;margin:0 auto 1.5rem;line-height:1.7">Data-driven strategies. Impactful creative. Real results. Powering growth for brands across every industry since 2010.</p>
