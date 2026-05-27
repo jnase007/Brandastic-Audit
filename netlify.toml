@@ -58,3 +58,8 @@
   from = "/paragon-implant"
   to = "/paragon-implant.html"
   status = 200
+
+[[redirects]]
+  from = "/portal"
+  to = "/portal.html"
+  status = 200

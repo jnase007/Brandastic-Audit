@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta name="robots" content="noindex, nofollow">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Digital Audit Portal — Brandastic</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg-primary: #191F24;
+  --bg-secondary: #0d1117;
+  --bg-card: rgba(255,255,255,0.05);
+  --bg-card-border: rgba(255,255,255,0.08);
+  --text-primary: #ffffff;
+  --text-secondary: rgba(255,255,255,0.7);
+  --text-muted: rgba(255,255,255,0.4);
+  --accent-blue: #0644ED;
+  --accent-light: #40B4E5;
+  --accent-purple: #CC22FF;
+  --coastal-fog: #F5F3EF;
+  --glass-bg: rgba(255,255,255,0.05);
+  --glass-border: rgba(255,255,255,0.1);
+  --shadow: 0 8px 32px rgba(0,0,0,0.3);
+  --transition: 0.3s ease;
+}
+[data-theme="light"] {
+  --bg-primary: #F5F3EF;
+  --bg-secondary: #ffffff;
+  --bg-card: rgba(255,255,255,0.8);
+  --bg-card-border: rgba(0,0,0,0.08);
+  --text-primary: #191F24;
+  --text-secondary: rgba(25,31,36,0.7);
+  --text-muted: rgba(25,31,36,0.4);
+  --glass-bg: rgba(255,255,255,0.8);
+  --glass-border: rgba(0,0,0,0.08);
+  --shadow: 0 8px 32px rgba(0,0,0,0.08);
+}
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+body {
+  font-family:'Inter',system-ui,-apple-system,sans-serif;
+  background:var(--bg-primary);
+  color:var(--text-primary);
+  min-height:100vh;
+  transition: background-color var(--transition), color var(--transition);
+  overflow-x:hidden;
+}
+.theme-toggle {
+  position:fixed; top:24px; right:24px; z-index:1000;
+  width:56px; height:30px; border-radius:15px; border:none; cursor:pointer;
+  background:linear-gradient(135deg,#40B4E5,#CC22FF);
+  padding:2px; display:flex; align-items:center;
+  transition: var(--transition);
+}
+.theme-toggle .knob {
+  width:26px; height:26px; border-radius:50%;
+  background:var(--bg-primary);
+  display:flex; align-items:center; justify-content:center;
+  font-size:14px;
+  transition: transform var(--transition), background-color var(--transition);
+  transform:translateX(0);
+}
+[data-theme="light"] .theme-toggle .knob { transform:translateX(26px); }
+.hero {
+  min-height:50vh;
+  display:flex; flex-direction:column; align-items:center; justify-content:center;
+  text-align:center;
+  position:relative;
+  padding:2rem 2rem 3rem;
+  background:linear-gradient(rgba(25,31,36,0.82), rgba(25,31,36,0.88)), url('images/office.jpg') center/cover no-repeat;
+}
+[data-theme="light"] .hero {
+  background:linear-gradient(rgba(245,243,239,0.82), rgba(245,243,239,0.88)), url('images/office.jpg') center/cover no-repeat;
+}
+.hero::before {
+  content:'';
+  position:absolute; inset:0;
+  background:radial-gradient(ellipse at 30% 20%, rgba(64,180,229,0.15) 0%, transparent 50%),
+             radial-gradient(ellipse at 70% 80%, rgba(204,34,255,0.1) 0%, transparent 50%);
+  pointer-events:none;
+}
+.hero-badge {
+  display:inline-flex; align-items:center; gap:8px;
+  padding:8px 20px;
+  border-radius:50px;
+  background:var(--glass-bg);
+  border:1px solid var(--glass-border);
+  backdrop-filter:blur(10px);
+  font-size:0.8rem;
+  font-weight:600;
+  letter-spacing:0.15em;
+  text-transform:uppercase;
+  color:var(--text-secondary);
+  margin-bottom:2rem;
+  animation:fadeInDown 0.8s ease;
+}
+.hero-badge .dot {
+  width:8px; height:8px; border-radius:50%;
+  background:linear-gradient(135deg,#40B4E5,#CC22FF);
+  animation:pulse 2s infinite;
+}
+@keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0.5;transform:scale(0.8)} }
+@keyframes fadeInDown { from{opacity:0;transform:translateY(-20px)} to{opacity:1;transform:translateY(0)} }
+@keyframes fadeInUp { from{opacity:0;transform:translateY(30px)} to{opacity:1;transform:translateY(0)} }
+@keyframes gradientShift { 0%{background-position:0% 50%} 50%{background-position:100% 50%} 100%{background-position:0% 50%} }
+h1 {
+  font-size:clamp(2rem,5vw,3.5rem);
+  font-weight:900;
+  letter-spacing:-0.03em;
+  line-height:1.05;
+  margin-bottom:1rem;
+  animation:fadeInUp 0.8s ease 0.2s both;
+}
+h1 .gradient-text {
+  background:linear-gradient(135deg,#40B4E5,#CC22FF,#40B4E5);
+  background-size:200% auto;
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  background-clip:text;
+  animation:gradientShift 4s ease infinite;
+}
+.hero-sub {
+  font-size:clamp(1rem,2vw,1.3rem);
+  color:var(--text-secondary);
+  max-width:500px;
+  animation:fadeInUp 0.8s ease 0.4s both;
+}
+.cards-section {
+  max-width:1200px;
+  margin:-2vh auto 4rem;
+  padding:0 2rem;
+  position:relative;
+  z-index:1;
+}
+.cards-grid {
+  display:grid;
+  grid-template-columns:repeat(auto-fit, minmax(320px, 1fr));
+  gap:2rem;
+}
+.audit-card {
+  background:var(--bg-card);
+  border:1px solid var(--bg-card-border);
+  border-radius:20px;
+  padding:2.5rem;
+  backdrop-filter:blur(10px);
+  transition:transform var(--transition), box-shadow var(--transition), border-color var(--transition);
+  text-decoration:none;
+  color:var(--text-primary);
+  display:flex; flex-direction:column; gap:1rem;
+  position:relative;
+  overflow:hidden;
+  animation:fadeInUp 0.6s ease both;
+}
+.audit-card:nth-child(1){animation-delay:0.3s}
+.audit-card:nth-child(2){animation-delay:0.45s}
+.audit-card:nth-child(3){animation-delay:0.6s}
+.audit-card::before {
+  content:'';
+  position:absolute; top:0; left:0; right:0; height:3px;
+  background:linear-gradient(90deg,#40B4E5,#CC22FF);
+  opacity:0;
+  transition:opacity var(--transition);
+}
+.audit-card:hover { transform:translateY(-6px); box-shadow:var(--shadow); }
+.audit-card:hover::before { opacity:1; }
+.audit-card:hover { border-color:rgba(64,180,229,0.3); }
+.card-icon img { transition: filter var(--transition); }
+[data-theme="light"] .card-icon img { filter: brightness(0) !important; }
+.card-icon {
+  width:56px; height:56px; border-radius:14px;
+  background:linear-gradient(135deg,rgba(64,180,229,0.15),rgba(204,34,255,0.15));
+  display:flex; align-items:center; justify-content:center;
+  font-size:1.5rem;
+}
+.card-title { font-size:1.5rem; font-weight:700; letter-spacing:-0.02em; }
+.card-url { font-size:0.75rem; color:var(--accent,#40B4E5); opacity:0.7; margin-top:2px; cursor:pointer; transition:opacity 0.15s; }
+.card-url:hover { opacity:1; text-decoration:underline; }
+.card-desc { color:var(--text-secondary); font-size:0.95rem; line-height:1.6; }
+.card-meta {
+  display:flex; gap:1rem; flex-wrap:wrap;
+  margin-top:auto; padding-top:1rem;
+  border-top:1px solid var(--bg-card-border);
+}
+.card-meta span {
+  font-size:0.75rem;
+  font-weight:600;
+  letter-spacing:0.1em;
+  text-transform:uppercase;
+  color:var(--text-muted);
+}
+.card-meta .value {
+  color:var(--accent-light);
+  text-transform:none;
+  letter-spacing:0;
+}
+.card-arrow {
+  position:absolute;
+  bottom:2.5rem; right:2.5rem;
+  width:36px; height:36px; border-radius:50%;
+  background:var(--glass-bg);
+  border:1px solid var(--glass-border);
+  display:flex; align-items:center; justify-content:center;
+  font-size:1.1rem;
+  color:var(--text-muted);
+  transition:all var(--transition);
+}
+.audit-card:hover .card-arrow {
+  background:linear-gradient(135deg,#40B4E5,#CC22FF);
+  color:#fff;
+  border-color:transparent;
+}
+footer {
+  text-align:center;
+  padding:3rem 2rem;
+  color:var(--text-muted);
+  font-size:0.85rem;
+}
+footer a { color:var(--accent-light); text-decoration:none; }
+/* Search Bar */
+.search-wrapper {
+  max-width:1200px;
+  margin:0 auto 2rem;
+  padding:0 2rem;
+  position:relative;
+}
+.search-bar {
+  width:100%;
+  padding:1rem 1.5rem 1rem 3.2rem;
+  border-radius:16px;
+  border:1px solid var(--glass-border);
+  background:var(--glass-bg);
+  backdrop-filter:blur(10px);
+  color:var(--text-primary);
+  font-family:'Inter',sans-serif;
+  font-size:1rem;
+  font-weight:500;
+  outline:none;
+  transition:border-color var(--transition), box-shadow var(--transition);
+}
+.search-bar::placeholder { color:var(--text-muted); }
+.search-bar:focus {
+  border-color:var(--accent-light);
+  box-shadow:0 0 0 3px rgba(64,180,229,0.15);
+}
+.search-icon {
+  position:absolute;
+  left:calc(2rem + 14px);
+  top:50%;
+  transform:translateY(-50%);
+  font-size:1.1rem;
+  color:var(--text-muted);
+  pointer-events:none;
+}
+.search-count {
+  text-align:right;
+  margin-top:0.5rem;
+  font-size:0.75rem;
+  font-weight:600;
+  letter-spacing:0.1em;
+  text-transform:uppercase;
+  color:var(--text-muted);
+}
+.audit-card.hidden { display:none; }
+.no-results {
+  grid-column:1/-1;
+  text-align:center;
+  padding:3rem;
+  color:var(--text-muted);
+  font-size:1.1rem;
+  display:none;
+}
+
+@media(max-width:768px) {
+  .cards-section { margin-top:-4vh; }
+  .cards-grid { grid-template-columns:1fr; }
+}
+
+/* Passcode Lock */
+.passcode-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+  background: #0d1117;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+}
+[data-theme="light"] .passcode-overlay { background: #f5f3ef; }
+.passcode-overlay .lock-icon { font-size: 3rem; }
+.passcode-overlay .lock-title {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+.passcode-overlay .lock-sub {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin-top: -0.5rem;
+}
+.passcode-overlay .lock-input {
+  background: var(--glass-bg);
+  border: 2px solid var(--glass-border);
+  border-radius: 12px;
+  padding: 0.85rem 1.2rem;
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: 0.5em;
+  text-align: center;
+  width: 200px;
+  color: var(--text-primary);
+  outline: none;
+  transition: border-color 0.2s;
+  -webkit-text-security: disc;
+}
+.passcode-overlay .lock-input:focus { border-color: var(--accent); }
+.passcode-overlay .lock-input.shake {
+  animation: shake 0.4s ease;
+  border-color: var(--red);
+}
+.passcode-overlay .lock-error {
+  font-size: 0.8rem;
+  color: var(--red);
+  min-height: 1.2em;
+}
+.passcode-overlay .lock-brand {
+  position: absolute;
+  bottom: 2rem;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  letter-spacing: 0.15em;
+}
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-8px); }
+  50% { transform: translateX(8px); }
+  75% { transform: translateX(-4px); }
+}
+</style>
+</head>
+<body>
+<div id="passcodeOverlay" class="passcode-overlay">
+  <div class="lock-icon">🔒</div>
+  <div class="lock-title">Protected Audit</div>
+  <div class="lock-sub">Enter access code to continue</div>
+  <input type="password" class="lock-input" id="passcodeInput" maxlength="4" inputmode="numeric" pattern="[0-9]*" autofocus placeholder="····">
+  <div class="lock-error" id="passcodeError"></div>
+  <div class="lock-brand">BRANDASTIC</div>
+</div>
+
+<button class="theme-toggle" aria-label="Toggle theme" onclick="toggleTheme()" aria-label="Toggle theme"><div class="knob"><img src="images/icons/night.svg" class="theme-icon-dark" style="width:18px;height:18px;" alt=""><img src="images/icons/day.svg" class="theme-icon-light" style="width:18px;height:18px;display:none;" alt=""></div></button>
+
+<section class="hero">
+  <div class="hero-badge"><span class="dot"></span> Brandastic Intelligence</div>
+  <h1>Digital Audit<br><span class="gradient-text">Portal</span></h1>
+  <p class="hero-sub">Premium digital marketing audits. Deep analysis. Actionable strategy. Real results.</p>
+</section>
+
+<section class="cards-section">
+  <div class="search-wrapper">
+    <span class="search-icon">🔍</span>
+    <input type="text" class="search-bar" id="searchBar" placeholder="Search audits by name, industry, or keyword..." autocomplete="off">
+    <div class="search-count" id="searchCount"></div>
+  </div>
+  <div class="cards-grid" id="cardsGrid">
+    <a href="onboarding.html" class="audit-card" style="border:2px solid transparent;background-image:linear-gradient(var(--bg-card),var(--bg-card)),linear-gradient(135deg,#10b981,#059669);background-origin:border-box;background-clip:padding-box,border-box;">
+      <div class="card-icon" style="background:linear-gradient(135deg,#10b981,#059669);"><img src="images/icons/pillar-01.svg" style="width:28px;height:28px;filter:brightness(0) invert(1);" alt=""></div>
+      <div class="card-title">Client Onboarding</div>
+      <div class="card-desc">Step-by-step guide for new clients to share Google Ads, Tag Manager, Analytics, and Search Console access with Brandastic.</div>
+      <div class="card-meta">
+        <span>Type: <span class="value">Onboarding Guide</span></span>
+        <span>Platforms: <span class="value">13 Services</span></span>
+      </div>
+      <div class="card-arrow">→</div>
+    </a>
+    <a href="calculator.html" class="audit-card" style="border:2px solid transparent;background-image:linear-gradient(var(--bg-card),var(--bg-card)),linear-gradient(135deg,#40B4E5,#CC22FF);background-origin:border-box;background-clip:padding-box,border-box;">
+      <div class="card-icon" style="background:linear-gradient(135deg,#40B4E5,#CC22FF);"><img src="images/icons/doc-01.svg" style="width:28px;height:28px;filter:brightness(0) invert(1);" alt=""></div>
+      <div class="card-title">PPC ROI Calculator</div>
+      <div class="card-desc">Interactive tool to model paid search investment, project revenue, and find your break-even point. Supports E-commerce & Lead Gen with B2B/B2C market toggles.</div>
+      <div class="card-meta">
+        <span>Type: <span class="value">Interactive Tool</span></span>
+        <span>Modes: <span class="value">E-com · Lead Gen</span></span>
+      </div>
+      <div class="card-arrow">→</div>
+    </a>
+    <a href="onpoint.html" class="audit-card">
+      <div class="card-icon"><img src="images/icons/person-01.svg" style="width:28px;height:28px;filter:brightness(0) invert(1);" alt=""></div>
+      <div class="card-title">On Point for College</div>
+      <div class="card-url" onclick="event.preventDefault();event.stopPropagation();window.open('https://onpointforcollege.org','_blank')">onpointforcollege.org ↗</div>
+      <div class="card-desc">Nonprofit helping first-generation students get into and through college. Syracuse, NY based with nationwide impact.</div>
+      <div class="card-meta">
+        <span>Traffic: <span class="value">916/mo</span></span>
+        <span>Score: <span class="value">27/100</span></span>
+      </div>
+      <div class="card-arrow">→</div>
+    </a>
+    <a href="integrity.html" class="audit-card">
+      <div class="card-icon"><img src="images/icons/person-02.svg" style="width:28px;height:28px;filter:brightness(0) invert(1);" alt=""></div>
+      <div class="card-title">Integrity Solutions</div>
+      <div class="card-url" onclick="event.preventDefault();event.stopPropagation();window.open('https://integritysolutions.com','_blank')">integritysolutions.com ↗</div>
+      <div class="card-desc">B2B sales training company building ethical, relationship-based sales cultures across healthcare, banking, and pharma.</div>
+      <div class="card-meta">
+        <span>Traffic: <span class="value">2,260/mo</span></span>
+        <span>Score: <span class="value">48/100</span></span>
+      </div>
+      <div class="card-arrow">→</div>
+    </a>
+    <a href="brandastic.html" class="audit-card">
+      <div class="card-icon"><img src="images/icons/pillar-02.svg" style="width:28px;height:28px;filter:brightness(0) invert(1);" alt=""></div>
+      <div class="card-title">Brandastic (Self-Audit)</div>
+      <div class="card-url" onclick="event.preventDefault();event.stopPropagation();window.open('https://brandastic.com','_blank')">brandastic.com ↗</div>
+      <div class="card-desc">Our own honest self-assessment. Award-winning OC digital marketing agency — 15+ years, 450+ clients. How does our own site stack up?</div>
+      <div class="card-meta">
+        <span>Traffic: <span class="value">1,206/mo</span></span>
+        <span>Score: <span class="value">52/100</span></span>
+      </div>
+      <div class="card-arrow">→</div>
+    </a>
+    <a href="fountainlife.html" class="audit-card">
+      <div class="card-icon"><img src="images/icons/content-01.svg" style="width:28px;height:28px;filter:brightness(0) invert(1);" alt=""></div>
+      <div class="card-title">Fountain Life</div>
+      <div class="card-url" onclick="event.preventDefault();event.stopPropagation();window.open('https://fountainlife.com','_blank')">fountainlife.com ↗</div>
+      <div class="card-desc">Premium longevity clinic backed by Peter Diamandis. AI-powered diagnostics and concierge health across 5 locations.</div>
+      <div class="card-meta">
+        <span>Traffic: <span class="value">10,332/mo</span></span>
+        <span>Score: <span class="value">42/100</span></span>
+      </div>
+      <div class="card-arrow">→</div>
+    </a>
+    <a href="abloomery.html" class="audit-card">
+      <div class="card-icon"><img src="images/icons/content-02.svg" style="width:28px;height:28px;filter:brightness(0) invert(1);" alt=""></div>
+      <div class="card-title">A Bloomery</div>
+      <div class="card-url" onclick="event.preventDefault();event.stopPropagation();window.open('https://abloomery.com','_blank')">abloomery.com ↗</div>
+      <div class="card-desc">Luxury permanent faux floral arrangements. Shopify DTC brand pivoting from wedding florals to high-end home décor.</div>
+      <div class="card-meta">
+        <span>Type: <span class="value">E-commerce</span></span>
+        <span>Focus: <span class="value">Paid + Email</span></span>
+      </div>
+      <div class="card-arrow">→</div>
+    </a>
+    <a href="topgreener.html" class="audit-card">
+      <div class="card-icon"><img src="images/icons/doc-02.svg" style="width:28px;height:28px;filter:brightness(0) invert(1);" alt=""></div>
+      <div class="card-title">TopGreener</div>
+      <div class="card-url" onclick="event.preventDefault();event.stopPropagation();window.open('https://topgreener.com','_blank')">topgreener.com ↗</div>
+      <div class="card-desc">California-based manufacturer of electrical wiring devices, USB outlets, smart home products, and lighting controls. Strong Amazon presence.</div>
+      <div class="card-meta">
+        <span>Traffic: <span class="value">9,118/mo</span></span>
+        <span>Score: <span class="value">43/100</span></span>
+      </div>
+      <div class="card-arrow">→</div>
+    </a>
+    <a href="topgreener-roi.html" class="audit-card" style="border:2px solid transparent;background-image:linear-gradient(var(--bg-card),var(--bg-card)),linear-gradient(135deg,#40B4E5,#CC22FF);background-origin:border-box;background-clip:padding-box,border-box;">
+      <div class="card-icon" style="background:linear-gradient(135deg,#40B4E5,#CC22FF);"><img src="images/icons/pillar-01.svg" style="width:28px;height:28px;filter:brightness(0) invert(1);" alt=""></div>
+      <div class="card-title">TopGreener ROI Calculator</div>
+      <div class="card-url" onclick="event.preventDefault();event.stopPropagation();window.open('https://topgreener.com','_blank')">topgreener.com ↗</div>
+      <div class="card-desc">Interactive Google Ads ROI projection with product groups, keyword data, ROAS scenarios, and profitability analysis.</div>
+      <div class="card-meta">
+        <span>Target: <span class="value">5x+ ROAS</span></span>
+        <span>Type: <span class="value">ROI Calculator</span></span>
+      </div>
+      <div class="card-arrow">→</div>
+    </a>
+    <a href="onpoint-roi.html" class="audit-card" style="border:2px solid transparent;background-image:linear-gradient(var(--bg-card),var(--bg-card)),linear-gradient(135deg,#40B4E5,#CC22FF);background-origin:border-box;background-clip:padding-box,border-box;">
+      <div class="card-icon" style="background:linear-gradient(135deg,#40B4E5,#CC22FF);"><img src="images/icons/content-01.svg" style="width:28px;height:28px;filter:brightness(0) invert(1);" alt=""></div>
+      <div class="card-title">On Point Campaign Projections</div>
+      <div class="card-url" onclick="event.preventDefault();event.stopPropagation();window.open('https://onpointforcollege.org','_blank')">onpointforcollege.org</div>
+      <div class="card-desc">Meta brand awareness + Google Grants projections for reaching first-gen college students and families.</div>
+      <div class="card-meta">
+        <span>Meta: <span class="value">Lead Gen</span></span>
+        <span>Google: <span class="value">$10K Grants</span></span>
+      </div>
+      <div class="card-arrow">&rarr;</div>
+    </a>
+    <a href="paragon-implant.html" class="audit-card">
+      <div class="card-icon"><img src="images/icons/pillar-02.svg" style="width:28px;height:28px;filter:brightness(0) invert(1);" alt=""></div>
+      <div class="card-title">Paragon Implant</div>
+      <div class="card-url" onclick="event.preventDefault();event.stopPropagation();window.open('https://paragon-implant.com','_blank')">paragon-implant.com ↗</div>
+      <div class="card-desc">Dental implant manufacturer. 43 years of innovation by Dr. Gerald Niznick. GEN5 System. Factory-direct pricing.</div>
+      <div class="card-meta">
+        <span>Traffic: <span class="value">329/mo</span></span>
+        <span>Goal: <span class="value">$1.25M/mo</span></span>
+      </div>
+      <div class="card-arrow">→</div>
+    </a>
+    <div class="no-results" id="noResults">No audits match your search.</div>
+  </div>
+</section>
+
+<footer>
+  <p>© 2026 <a href="https://brandastic.com" target="_blank">Brandastic</a> · info@brandastic.com · All audits confidential</p>
+</footer>
+
+<script>
+function getPreferredTheme(){
+  const s=localStorage.getItem('brandastic-theme');
+  if(s)return s;
+  return window.matchMedia('(prefers-color-scheme:light)').matches?'light':'dark';
+}
+function applyTheme(t){
+  document.documentElement.setAttribute('data-theme',t);
+  localStorage.setItem('brandastic-theme',t);
+  document.querySelector('.theme-icon-dark').style.display=t==='dark'?'block':'none';document.querySelector('.theme-icon-light').style.display=t==='light'?'block':'none';
+}
+function toggleTheme(){
+  const c=document.documentElement.getAttribute('data-theme');
+  applyTheme(c==='dark'?'light':'dark');
+}
+applyTheme(getPreferredTheme());
+
+// Search
+(function(){
+  const search = document.getElementById('searchBar');
+  const grid = document.getElementById('cardsGrid');
+  const countEl = document.getElementById('searchCount');
+  const noResults = document.getElementById('noResults');
+  
+  function updateCount() {
+    const cards = grid.querySelectorAll('.audit-card');
+    const visible = grid.querySelectorAll('.audit-card:not(.hidden)');
+    if (search.value.trim()) {
+      countEl.textContent = visible.length + ' of ' + cards.length + ' audits';
+      noResults.style.display = visible.length === 0 ? 'block' : 'none';
+    } else {
+      countEl.textContent = cards.length + ' audits';
+      noResults.style.display = 'none';
+    }
+  }
+  
+  search.addEventListener('input', function() {
+    const q = this.value.toLowerCase().trim();
+    const cards = grid.querySelectorAll('.audit-card');
+    cards.forEach(card => {
+      const text = card.textContent.toLowerCase();
+      card.classList.toggle('hidden', q && !text.includes(q));
+    });
+    updateCount();
+  });
+  
+  updateCount();
+})();
+</script>
+
+<script>
+(function(){
+  const CODE = '3121';
+  const STORAGE_KEY = 'brandastic_audit_unlocked';
+  
+  // Check if already unlocked this session
+  if (sessionStorage.getItem(STORAGE_KEY) === 'true') {
+    const ov = document.getElementById('passcodeOverlay');
+    if (ov) ov.remove();
+    return;
+  }
+  
+  // Lock the page
+  document.body.style.overflow = 'hidden';
+  
+  const input = document.getElementById('passcodeInput');
+  const error = document.getElementById('passcodeError');
+  
+  if (input) {
+    input.addEventListener('input', function() {
+      error.textContent = '';
+      input.classList.remove('shake');
+      
+      if (this.value.length === 4) {
+        if (this.value === CODE) {
+          sessionStorage.setItem(STORAGE_KEY, 'true');
+          const ov = document.getElementById('passcodeOverlay');
+          ov.style.transition = 'opacity 0.3s';
+          ov.style.opacity = '0';
+          setTimeout(() => { ov.remove(); document.body.style.overflow = ''; }, 300);
+        } else {
+          input.classList.add('shake');
+          error.textContent = 'Incorrect code';
+          setTimeout(() => { this.value = ''; input.classList.remove('shake'); }, 500);
+        }
+      }
+    });
+    
+    // Focus on click anywhere on overlay
+    document.getElementById('passcodeOverlay').addEventListener('click', () => input.focus());
+  }
+})();
+</script>
+</body>
+</html>
