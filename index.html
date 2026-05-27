@@ -112,6 +112,46 @@ a{color:var(--accent);text-decoration:none}
 .footer{text-align:center;padding:3rem 2rem;font-size:0.75rem;color:var(--muted);border-top:1px solid rgba(255,255,255,0.06);position:relative;z-index:3;background:var(--bg)}
 
 @media(max-width:768px){.hero h1{font-size:2.5rem}.nav-links{display:none}.stats-bar{gap:2rem}.score-tabs{font-size:0.6rem}.cases{grid-template-columns:1fr!important}}
+
+/* SCROLL ANIMATIONS */
+.reveal{opacity:0;transform:translateY(30px);transition:opacity 0.8s ease,transform 0.8s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
+
+/* STAGGER CHILDREN */
+.stagger .feature:nth-child(1),.stagger .model:nth-child(1),.stagger .case:nth-child(1){transition-delay:0s}
+.stagger .feature:nth-child(2),.stagger .model:nth-child(2),.stagger .case:nth-child(2){transition-delay:0.1s}
+.stagger .feature:nth-child(3),.stagger .model:nth-child(3),.stagger .case:nth-child(3){transition-delay:0.2s}
+.stagger .feature:nth-child(4),.stagger .model:nth-child(4),.stagger .case:nth-child(4){transition-delay:0.3s}
+
+/* GRADIENT BORDER ON HOVER FOR CASE CARDS */
+.case{transition:all 0.3s ease;cursor:pointer}
+.case:hover{transform:translateY(-6px);box-shadow:0 20px 50px rgba(0,0,0,0.4);border-color:rgba(64,180,229,0.3)}
+
+/* TYPING EFFECT */
+@keyframes blink{0%,100%{opacity:1}50%{opacity:0}}
+.cursor{animation:blink 1s infinite;color:var(--accent)}
+
+/* FLOATING PARTICLES */
+.particles{position:absolute;top:0;left:0;right:0;bottom:0;overflow:hidden;z-index:0;pointer-events:none}
+.particle{position:absolute;width:3px;height:3px;border-radius:50%;background:rgba(64,180,229,0.3);animation:float linear infinite}
+@keyframes float{0%{transform:translateY(100vh) rotate(0deg);opacity:0}10%{opacity:1}90%{opacity:1}100%{transform:translateY(-100px) rotate(720deg);opacity:0}}
+
+/* NAV SCROLL EFFECT */
+.nav.scrolled{background:rgba(10,14,26,0.92)!important;backdrop-filter:blur(20px)!important;border-bottom:1px solid rgba(255,255,255,0.06)!important}
+
+/* PROCESS STEPS */
+.process{display:flex;align-items:flex-start;gap:0;position:relative}
+.process::before{content:"";position:absolute;top:24px;left:24px;right:24px;height:2px;background:linear-gradient(90deg,#40B4E5,#CC22FF);z-index:0}
+.process-step{flex:1;text-align:center;position:relative;z-index:1}
+.process-dot{width:48px;height:48px;border-radius:50%;background:linear-gradient(135deg,#40B4E5,#CC22FF);display:flex;align-items:center;justify-content:center;margin:0 auto 1rem;font-weight:800;color:#fff;font-size:1.1rem;border:3px solid var(--bg)}
+
+/* FAQ ACCORDION */
+.faq-item{border-bottom:1px solid rgba(255,255,255,0.06);padding:1.25rem 0;cursor:pointer}
+.faq-q{font-weight:700;font-size:0.95rem;display:flex;justify-content:space-between;align-items:center}
+.faq-a{max-height:0;overflow:hidden;transition:max-height 0.3s ease,padding 0.3s ease;color:var(--text2);font-size:0.85rem;line-height:1.7}
+.faq-item.open .faq-a{max-height:200px;padding-top:0.75rem}
+.faq-item .arrow{transition:transform 0.3s}
+.faq-item.open .arrow{transform:rotate(180deg)}
 </style>
 </head>
 <body>
@@ -133,6 +173,7 @@ a{color:var(--accent);text-decoration:none}
     <iframe src="https://www.youtube.com/embed/uqJV1mrHV0c?autoplay=1&mute=1&loop=1&playlist=uqJV1mrHV0c&controls=0&showinfo=0&rel=0&modestbranding=1&playsinline=1&start=2" allow="autoplay; encrypted-media" allowfullscreen style="position:absolute;top:50%;left:50%;width:120vw;height:120vh;transform:translate(-50%,-50%);pointer-events:none;opacity:0.15"></iframe>
   </div>
   <div id="videoFade" style="position:fixed;top:0;left:0;right:0;bottom:0;background:#0a0e1a;opacity:0;z-index:1;pointer-events:none;transition:opacity 0.1s;max-height:100vh"></div>
+  <div class="particles" id="particles"></div>
   <div style="position:relative;z-index:2" class="hero-content">
   <h1>Uncover What's<br><span class="gradient">Costing You Revenue</span></h1>
   <p>Premium digital marketing audits. Deep analysis. Actionable strategy. Real results. Get a personalized audit and see exactly where your growth opportunities are.</p>
@@ -171,12 +212,12 @@ a{color:var(--accent);text-decoration:none}
 </div>
 
 <!-- WHAT'S INCLUDED -->
-<section class="section" id="audit">
+<section class="section" id="audit"><div class="reveal">
   <div class="section-inner">
     <div class="section-badge">What's Included</div>
     <h2>Everything You Need to Grow</h2>
     <p class="sub">In one review, we uncover the gaps, inefficiencies, and opportunities across your entire marketing ecosystem.</p>
-    <div class="features">
+    <div class="features stagger">
       <div class="feature">
         <div class="feature-icon"><img src="images/icons/doc-01.svg" style="width:24px;height:24px;filter:brightness(0) invert(1)" alt=""></div>
         <h3>Website Conversion Insights</h3>
@@ -202,12 +243,12 @@ a{color:var(--accent);text-decoration:none}
 </section>
 
 <!-- HOW WE WORK -->
-<section class="section" id="models" style="background:rgba(255,255,255,0.02)">
+<section class="section" id="models"><div class="reveal" style="background:rgba(255,255,255,0.02)">
   <div class="section-inner">
     <div class="section-badge">Partnership Models</div>
     <h2>How We Work With You</h2>
     <p class="sub">Flexible engagement models designed to fit your team and your goals.</p>
-    <div class="models">
+    <div class="models stagger">
       <div class="model">
         <h3>Embedded Partner</h3>
         <div class="type">Full Service</div>
@@ -241,7 +282,7 @@ a{color:var(--accent);text-decoration:none}
 </div>
 
 <!-- CASE STUDIES -->
-<section class="section" id="results">
+<section class="section" id="results"><div class="reveal">
   <div class="section-inner">
     <div class="section-badge">Proven Results</div>
     <h2>Sparked By Creativity, Fueled By Results</h2>
@@ -297,6 +338,38 @@ a{color:var(--accent);text-decoration:none}
   </div>
 </section>
 
+
+
+<!-- HOW IT WORKS -->
+<section class="section" style="position:relative;z-index:3;background:var(--bg)">
+  <div class="section-inner reveal">
+    <div class="section-badge">How It Works</div>
+    <h2>From Audit to Revenue in 4 Steps</h2>
+    <p class="sub">Simple process. Powerful results.</p>
+    <div class="process">
+      <div class="process-step">
+        <div class="process-dot">1</div>
+        <h3 style="font-size:0.95rem;font-weight:700;margin-bottom:0.25rem">Submit</h3>
+        <p style="font-size:0.8rem;color:var(--text2)">Fill out the form below</p>
+      </div>
+      <div class="process-step">
+        <div class="process-dot">2</div>
+        <h3 style="font-size:0.95rem;font-weight:700;margin-bottom:0.25rem">We Analyze</h3>
+        <p style="font-size:0.8rem;color:var(--text2)">Deep dive in 48 hours</p>
+      </div>
+      <div class="process-step">
+        <div class="process-dot">3</div>
+        <h3 style="font-size:0.95rem;font-weight:700;margin-bottom:0.25rem">Review Together</h3>
+        <p style="font-size:0.8rem;color:var(--text2)">Walk through findings</p>
+      </div>
+      <div class="process-step">
+        <div class="process-dot">4</div>
+        <h3 style="font-size:0.95rem;font-weight:700;margin-bottom:0.25rem">Execute & Grow</h3>
+        <p style="font-size:0.8rem;color:var(--text2)">Launch the strategy</p>
+      </div>
+    </div>
+  </div>
+</section>
 
 <!-- REVIEWS -->
 <div style="text-align:center;padding:2rem 2rem 3rem;position:relative;z-index:3;background:var(--bg)">
@@ -358,6 +431,36 @@ a{color:var(--accent);text-decoration:none}
       <h2 style="font-size:1.5rem;font-weight:800;margin-bottom:0.5rem;color:#fff">Audit Request Received!</h2>
       <p style="color:rgba(255,255,255,0.7);font-size:1rem;line-height:1.7;max-width:400px;margin:0 auto">Thank you! Our team will review your information and follow up within 48 hours to prepare your personalized marketing audit.</p>
       <p style="color:rgba(255,255,255,0.5);font-size:0.85rem;margin-top:1.5rem">A confirmation has been sent to your email.</p>
+    </div>
+  </div>
+</section>
+
+
+<!-- FAQ -->
+<section class="section" style="position:relative;z-index:3;background:var(--bg)">
+  <div class="section-inner reveal" style="max-width:700px">
+    <h2 style="text-align:center">Frequently Asked Questions</h2>
+    <div style="margin-top:2rem">
+      <div class="faq-item" onclick="this.classList.toggle('open')">
+        <div class="faq-q">What's included in the free audit?<span class="arrow">▾</span></div>
+        <div class="faq-a">A custom analysis of your SEO, paid media, website performance, and competitive landscape — plus a prioritized action plan. No templates, no fluff.</div>
+      </div>
+      <div class="faq-item" onclick="this.classList.toggle('open')">
+        <div class="faq-q">How long does the audit take?<span class="arrow">▾</span></div>
+        <div class="faq-a">Most audits are delivered within 48 hours of submission.</div>
+      </div>
+      <div class="faq-item" onclick="this.classList.toggle('open')">
+        <div class="faq-q">Is there any obligation after the audit?<span class="arrow">▾</span></div>
+        <div class="faq-a">None. The audit is yours to keep. If you want help executing the recommendations, we're here. If not, no hard feelings.</div>
+      </div>
+      <div class="faq-item" onclick="this.classList.toggle('open')">
+        <div class="faq-q">What size companies do you work with?<span class="arrow">▾</span></div>
+        <div class="faq-a">From startups to enterprise brands. Our flexible partnership models mean we can scale to fit your needs and budget.</div>
+      </div>
+      <div class="faq-item" onclick="this.classList.toggle('open')">
+        <div class="faq-q">Will you actually integrate with my team?<span class="arrow">▾</span></div>
+        <div class="faq-a">Our team works alongside yours, not in isolation. Most of our team is in-office in Southern California — faster communication, tighter collaboration, fully aligned on your goals.</div>
+      </div>
     </div>
   </div>
 </section>
@@ -445,6 +548,35 @@ function submitAudit(e) {
     document.getElementById("thankYou").style.display = "block";
   });
 }
+
+// Scroll reveal animation
+var reveals = document.querySelectorAll(".reveal,.feature,.model,.case");
+var observer = new IntersectionObserver(function(entries) {
+  entries.forEach(function(entry) {
+    if (entry.isIntersecting) { entry.target.classList.add("visible"); }
+  });
+}, { threshold: 0.1 });
+reveals.forEach(function(el) { observer.observe(el); });
+
+// Nav scroll effect
+window.addEventListener("scroll", function() {
+  document.querySelector(".nav").classList.toggle("scrolled", window.scrollY > 50);
+});
+
+// Particles
+(function() {
+  var container = document.getElementById("particles");
+  if (!container) return;
+  for (var i = 0; i < 20; i++) {
+    var p = document.createElement("div");
+    p.className = "particle";
+    p.style.left = Math.random() * 100 + "%";
+    p.style.animationDuration = (Math.random() * 15 + 10) + "s";
+    p.style.animationDelay = (Math.random() * 10) + "s";
+    p.style.width = p.style.height = (Math.random() * 3 + 1) + "px";
+    container.appendChild(p);
+  }
+})();
 
 // Scroll fade for video
 window.addEventListener('scroll', function() {
