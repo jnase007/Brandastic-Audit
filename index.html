@@ -130,6 +130,7 @@ a{color:var(--accent);text-decoration:none}
 /* TYPING EFFECT */
 @keyframes blink{0%,100%{opacity:1}50%{opacity:0}}
 .cursor{animation:blink 1s infinite;color:var(--accent)}
+#rotatingWord{display:inline-block;transition:opacity 0.3s ease,transform 0.3s ease}
 
 /* FLOATING PARTICLES */
 .particles{position:absolute;top:0;left:0;right:0;bottom:0;overflow:hidden;z-index:0;pointer-events:none}
@@ -191,7 +192,7 @@ a{color:var(--accent);text-decoration:none}
   <div id="videoFade" style="position:fixed;top:0;left:0;right:0;bottom:0;background:#0a0e1a;opacity:0;z-index:1;pointer-events:none;transition:opacity 0.1s;max-height:100vh"></div>
   <div class="particles" id="particles"></div>
   <div style="position:relative;z-index:2" class="hero-content">
-  <h1>Uncover What's<br><span class="gradient">Costing You Revenue</span></h1>
+  <h1>Uncover What's<br><span class="gradient">Costing You <span id="rotatingWord">Revenue</span></span></h1>
   <p>Premium digital marketing audits. Deep analysis. Actionable strategy. Real results. Get a personalized audit and see exactly where your growth opportunities are.</p>
   <a href="#form" class="hero-cta">Get Your Free Audit →</a>
   <p style="margin-top:1.5rem;font-size:0.8rem;color:var(--muted);font-weight:700;text-align:center;width:100%;color:rgba(255,255,255,0.7);font-size:0.9rem;letter-spacing:0.02em">Powering growth for 450+ brands since 2010</p>
@@ -627,6 +628,24 @@ function switchTab(idx) {
   }, 200);
 }
 switchTab(0);
+
+// Rotating headline word
+(function() {
+  var words = ["Revenue", "Profit", "Growth", "Clients", "Results"];
+  var idx = 0;
+  var el = document.getElementById("rotatingWord");
+  if (!el) return;
+  setInterval(function() {
+    el.style.opacity = "0";
+    el.style.transform = "translateY(10px)";
+    setTimeout(function() {
+      idx = (idx + 1) % words.length;
+      el.textContent = words[idx];
+      el.style.opacity = "1";
+      el.style.transform = "translateY(0)";
+    }, 300);
+  }, 3000);
+})();
 
 // Form submission
 function submitAudit(e) {
