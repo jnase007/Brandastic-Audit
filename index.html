@@ -113,7 +113,6 @@ a{color:var(--accent);text-decoration:none}
 
 @media(max-width:768px){.hero h1{font-size:2.5rem}.nav-links{display:none}.stats-bar{gap:2rem}.score-tabs{font-size:0.6rem}.cases{grid-template-columns:1fr!important}}
 </style>
-<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
 </head>
 <body>
 
@@ -150,7 +149,7 @@ a{color:var(--accent);text-decoration:none}
       <div class="score-tab" onclick="switchTab(4)">Action Plan</div>
     </div>
     <div id="tabContent">
-      <canvas id="scoreChart" style="width:100%;max-height:220px;margin:0 auto"></canvas>
+      <div id="tabChart"></div>
       <div id="tabDetails" style="margin-top:1.25rem"></div>
     </div>
   <div style="position:absolute;bottom:2rem;left:50%;transform:translateX(-50%);z-index:2;animation:bounce 2s infinite;color:var(--muted);font-size:1.5rem;cursor:pointer" onclick="document.getElementById('audit').scrollIntoView({behavior:'smooth'})">↓</div>
@@ -388,118 +387,33 @@ window.addEventListener('scroll', function() {
 <script>
 const tabData = [
   {
-    label: 'SEO Health',
-    score: 47,
-    chartType: 'doughnut',
-    chartData: {
-      labels: ['Technical','On-Page','Backlinks','Content','Authority'],
-      data: [65,42,38,55,50],
-      colors: ['#22c55e','#f59e0b','#ef4444','#f59e0b','#f59e0b']
-    },
-    details: '<div style="font-size:3.5rem;font-weight:900;text-align:center;background:linear-gradient(135deg,#40B4E5,#CC22FF);-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:0.25rem">47%</div><div style="text-align:center;font-size:0.7rem;color:rgba(255,255,255,0.5);text-transform:uppercase;letter-spacing:0.15em;font-weight:600;margin-bottom:1rem">Optimization Score</div><div style="display:flex;flex-direction:column;gap:8px;padding-top:1rem;border-top:1px solid rgba(255,255,255,0.06)"><div style="display:flex;align-items:center;gap:8px;font-size:0.85rem;color:rgba(255,255,255,0.8)"><span style="color:#22c55e">✓</span> Meta titles optimized</div><div style="display:flex;align-items:center;gap:8px;font-size:0.85rem;color:rgba(255,255,255,0.8)"><span style="color:#f59e0b">⚠</span> Missing H1 on 3 pages</div><div style="display:flex;align-items:center;gap:8px;font-size:0.85rem;color:rgba(255,255,255,0.8)"><span style="color:#ef4444">✗</span> No schema markup</div><div style="display:flex;align-items:center;gap:8px;font-size:0.85rem;color:rgba(255,255,255,0.8)"><span style="color:#22c55e">✓</span> Core Web Vitals passing</div></div>'
+    chart: '<div style="text-align:center"><div style="font-size:5rem;font-weight:900;background:linear-gradient(135deg,#40B4E5,#CC22FF);-webkit-background-clip:text;-webkit-text-fill-color:transparent;line-height:1">47%</div><div style="font-size:0.7rem;color:rgba(255,255,255,0.5);text-transform:uppercase;letter-spacing:0.15em;font-weight:600;margin:0.5rem 0 1.5rem">Optimization Score</div><div style="display:grid;grid-template-columns:repeat(5,1fr);gap:14px"><div style="text-align:center"><div style="font-size:0.7rem;color:rgba(255,255,255,0.4);margin-bottom:6px">Technical</div><div style="height:5px;border-radius:3px;background:rgba(255,255,255,0.08);overflow:hidden"><div style="width:65%;height:100%;border-radius:3px;background:#22c55e"></div></div></div><div style="text-align:center"><div style="font-size:0.7rem;color:rgba(255,255,255,0.4);margin-bottom:6px">On-Page</div><div style="height:5px;border-radius:3px;background:rgba(255,255,255,0.08);overflow:hidden"><div style="width:42%;height:100%;border-radius:3px;background:#f59e0b"></div></div></div><div style="text-align:center"><div style="font-size:0.7rem;color:rgba(255,255,255,0.4);margin-bottom:6px">Backlinks</div><div style="height:5px;border-radius:3px;background:rgba(255,255,255,0.08);overflow:hidden"><div style="width:38%;height:100%;border-radius:3px;background:#ef4444"></div></div></div><div style="text-align:center"><div style="font-size:0.7rem;color:rgba(255,255,255,0.4);margin-bottom:6px">Content</div><div style="height:5px;border-radius:3px;background:rgba(255,255,255,0.08);overflow:hidden"><div style="width:55%;height:100%;border-radius:3px;background:#f59e0b"></div></div></div><div style="text-align:center"><div style="font-size:0.7rem;color:rgba(255,255,255,0.4);margin-bottom:6px">Authority</div><div style="height:5px;border-radius:3px;background:rgba(255,255,255,0.08);overflow:hidden"><div style="width:50%;height:100%;border-radius:3px;background:#f59e0b"></div></div></div></div></div>',
+    details: '<div style="display:flex;flex-direction:column;gap:10px;padding-top:1.25rem;border-top:1px solid rgba(255,255,255,0.06)"><div style="display:flex;align-items:center;gap:10px;font-size:0.85rem;color:rgba(255,255,255,0.8)"><span style="color:#22c55e">✓</span> Meta titles optimized</div><div style="display:flex;align-items:center;gap:10px;font-size:0.85rem;color:rgba(255,255,255,0.8)"><span style="color:#f59e0b">⚠</span> Missing H1 on 3 pages</div><div style="display:flex;align-items:center;gap:10px;font-size:0.85rem;color:rgba(255,255,255,0.8)"><span style="color:#ef4444">✗</span> No schema markup</div><div style="display:flex;align-items:center;gap:10px;font-size:0.85rem;color:rgba(255,255,255,0.8)"><span style="color:#22c55e">✓</span> Core Web Vitals passing</div></div>'
   },
   {
-    label: 'Paid Media',
-    score: 62,
-    chartType: 'bar',
-    chartData: {
-      labels: ['Google Ads','Meta Ads','LinkedIn','Display','Retargeting'],
-      data: [72,58,35,45,80],
-      colors: ['#40B4E5','#CC22FF','#0077B5','#f59e0b','#22c55e']
-    },
-    details: '<div style="font-size:3.5rem;font-weight:900;text-align:center;background:linear-gradient(135deg,#40B4E5,#CC22FF);-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:0.25rem">62%</div><div style="text-align:center;font-size:0.7rem;color:rgba(255,255,255,0.5);text-transform:uppercase;letter-spacing:0.15em;font-weight:600;margin-bottom:1rem">Paid Media Score</div><div style="display:flex;flex-direction:column;gap:8px;padding-top:1rem;border-top:1px solid rgba(255,255,255,0.06)"><div style="display:flex;align-items:center;gap:8px;font-size:0.85rem;color:rgba(255,255,255,0.8)"><span style="color:#22c55e">✓</span> Conversion tracking active</div><div style="display:flex;align-items:center;gap:8px;font-size:0.85rem;color:rgba(255,255,255,0.8)"><span style="color:#f59e0b">⚠</span> Ad spend efficiency below benchmark</div><div style="display:flex;align-items:center;gap:8px;font-size:0.85rem;color:rgba(255,255,255,0.8)"><span style="color:#ef4444">✗</span> No retargeting campaigns active</div><div style="display:flex;align-items:center;gap:8px;font-size:0.85rem;color:rgba(255,255,255,0.8)"><span style="color:#22c55e">✓</span> Landing pages optimized</div></div>'
+    chart: '<div style="text-align:center"><div style="font-size:5rem;font-weight:900;background:linear-gradient(135deg,#40B4E5,#CC22FF);-webkit-background-clip:text;-webkit-text-fill-color:transparent;line-height:1">62%</div><div style="font-size:0.7rem;color:rgba(255,255,255,0.5);text-transform:uppercase;letter-spacing:0.15em;font-weight:600;margin:0.5rem 0 1.5rem">Paid Media Score</div><div style="display:flex;flex-direction:column;gap:10px"><div style="display:flex;align-items:center;gap:12px"><span style="font-size:0.75rem;color:rgba(255,255,255,0.5);width:80px;text-align:right">Google Ads</span><div style="flex:1;height:24px;border-radius:6px;background:rgba(255,255,255,0.06);overflow:hidden"><div style="width:72%;height:100%;border-radius:6px;background:linear-gradient(90deg,#40B4E5,#40B4E5);display:flex;align-items:center;padding-left:8px;font-size:0.7rem;font-weight:700;color:#fff">72%</div></div></div><div style="display:flex;align-items:center;gap:12px"><span style="font-size:0.75rem;color:rgba(255,255,255,0.5);width:80px;text-align:right">Meta Ads</span><div style="flex:1;height:24px;border-radius:6px;background:rgba(255,255,255,0.06);overflow:hidden"><div style="width:58%;height:100%;border-radius:6px;background:linear-gradient(90deg,#CC22FF,#CC22FF);display:flex;align-items:center;padding-left:8px;font-size:0.7rem;font-weight:700;color:#fff">58%</div></div></div><div style="display:flex;align-items:center;gap:12px"><span style="font-size:0.75rem;color:rgba(255,255,255,0.5);width:80px;text-align:right">LinkedIn</span><div style="flex:1;height:24px;border-radius:6px;background:rgba(255,255,255,0.06);overflow:hidden"><div style="width:35%;height:100%;border-radius:6px;background:#0077B5;display:flex;align-items:center;padding-left:8px;font-size:0.7rem;font-weight:700;color:#fff">35%</div></div></div><div style="display:flex;align-items:center;gap:12px"><span style="font-size:0.75rem;color:rgba(255,255,255,0.5);width:80px;text-align:right">Retargeting</span><div style="flex:1;height:24px;border-radius:6px;background:rgba(255,255,255,0.06);overflow:hidden"><div style="width:80%;height:100%;border-radius:6px;background:#22c55e;display:flex;align-items:center;padding-left:8px;font-size:0.7rem;font-weight:700;color:#fff">80%</div></div></div></div></div>',
+    details: '<div style="display:flex;flex-direction:column;gap:10px;padding-top:1.25rem;border-top:1px solid rgba(255,255,255,0.06)"><div style="display:flex;align-items:center;gap:10px;font-size:0.85rem;color:rgba(255,255,255,0.8)"><span style="color:#22c55e">✓</span> Conversion tracking active</div><div style="display:flex;align-items:center;gap:10px;font-size:0.85rem;color:rgba(255,255,255,0.8)"><span style="color:#f59e0b">⚠</span> Ad spend efficiency below benchmark</div><div style="display:flex;align-items:center;gap:10px;font-size:0.85rem;color:rgba(255,255,255,0.8)"><span style="color:#ef4444">✗</span> No retargeting campaigns active</div></div>'
   },
   {
-    label: 'Competitive',
-    score: 38,
-    chartType: 'radar',
-    chartData: {
-      labels: ['SEO','Paid','Social','Content','Authority','Speed'],
-      data: [45,62,30,55,40,70],
-      colors: ['rgba(64,180,229,0.3)']
-    },
-    details: '<div style="font-size:3.5rem;font-weight:900;text-align:center;background:linear-gradient(135deg,#40B4E5,#CC22FF);-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:0.25rem">38%</div><div style="text-align:center;font-size:0.7rem;color:rgba(255,255,255,0.5);text-transform:uppercase;letter-spacing:0.15em;font-weight:600;margin-bottom:1rem">Competitive Position</div><div style="display:flex;flex-direction:column;gap:8px;padding-top:1rem;border-top:1px solid rgba(255,255,255,0.06)"><div style="display:flex;align-items:center;gap:8px;font-size:0.85rem;color:rgba(255,255,255,0.8)"><span style="color:#ef4444">✗</span> Competitors outranking on 67% of keywords</div><div style="display:flex;align-items:center;gap:8px;font-size:0.85rem;color:rgba(255,255,255,0.8)"><span style="color:#f59e0b">⚠</span> Content gap: 200+ keywords not targeted</div><div style="display:flex;align-items:center;gap:8px;font-size:0.85rem;color:rgba(255,255,255,0.8)"><span style="color:#22c55e">✓</span> Brand search volume growing</div></div>'
+    chart: '<div style="text-align:center"><div style="font-size:5rem;font-weight:900;background:linear-gradient(135deg,#40B4E5,#CC22FF);-webkit-background-clip:text;-webkit-text-fill-color:transparent;line-height:1">38%</div><div style="font-size:0.7rem;color:rgba(255,255,255,0.5);text-transform:uppercase;letter-spacing:0.15em;font-weight:600;margin:0.5rem 0 1.5rem">Competitive Position</div><div style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px"><div style="text-align:center;padding:12px;border-radius:10px;background:rgba(239,68,68,0.1);border:1px solid rgba(239,68,68,0.2)"><div style="font-size:1.5rem;font-weight:800;color:#ef4444">67%</div><div style="font-size:0.65rem;color:rgba(255,255,255,0.4)">Keywords Lost</div></div><div style="text-align:center;padding:12px;border-radius:10px;background:rgba(245,158,11,0.1);border:1px solid rgba(245,158,11,0.2)"><div style="font-size:1.5rem;font-weight:800;color:#f59e0b">200+</div><div style="font-size:0.65rem;color:rgba(255,255,255,0.4)">Content Gaps</div></div><div style="text-align:center;padding:12px;border-radius:10px;background:rgba(34,197,94,0.1);border:1px solid rgba(34,197,94,0.2)"><div style="font-size:1.5rem;font-weight:800;color:#22c55e">↑12%</div><div style="font-size:0.65rem;color:rgba(255,255,255,0.4)">Brand Search</div></div></div></div>',
+    details: '<div style="display:flex;flex-direction:column;gap:10px;padding-top:1.25rem;border-top:1px solid rgba(255,255,255,0.06)"><div style="display:flex;align-items:center;gap:10px;font-size:0.85rem;color:rgba(255,255,255,0.8)"><span style="color:#ef4444">✗</span> Competitors outranking on 67% of keywords</div><div style="display:flex;align-items:center;gap:10px;font-size:0.85rem;color:rgba(255,255,255,0.8)"><span style="color:#f59e0b">⚠</span> 200+ keyword opportunities not targeted</div><div style="display:flex;align-items:center;gap:10px;font-size:0.85rem;color:rgba(255,255,255,0.8)"><span style="color:#22c55e">✓</span> Brand search volume growing</div></div>'
   },
   {
-    label: 'Conversions',
-    score: 55,
-    chartType: 'line',
-    chartData: {
-      labels: ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'],
-      data: [22,28,25,35,42,38,45,52,48,55,60,58],
-      colors: ['#40B4E5']
-    },
-    details: '<div style="font-size:3.5rem;font-weight:900;text-align:center;background:linear-gradient(135deg,#40B4E5,#CC22FF);-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:0.25rem">55%</div><div style="text-align:center;font-size:0.7rem;color:rgba(255,255,255,0.5);text-transform:uppercase;letter-spacing:0.15em;font-weight:600;margin-bottom:1rem">Conversion Score</div><div style="display:flex;flex-direction:column;gap:8px;padding-top:1rem;border-top:1px solid rgba(255,255,255,0.06)"><div style="display:flex;align-items:center;gap:8px;font-size:0.85rem;color:rgba(255,255,255,0.8)"><span style="color:#22c55e">✓</span> Form submissions tracked</div><div style="display:flex;align-items:center;gap:8px;font-size:0.85rem;color:rgba(255,255,255,0.8)"><span style="color:#f59e0b">⚠</span> Cart abandonment rate at 72%</div><div style="display:flex;align-items:center;gap:8px;font-size:0.85rem;color:rgba(255,255,255,0.8)"><span style="color:#ef4444">✗</span> No A/B testing in place</div></div>'
+    chart: '<div style="text-align:center"><div style="font-size:5rem;font-weight:900;background:linear-gradient(135deg,#40B4E5,#CC22FF);-webkit-background-clip:text;-webkit-text-fill-color:transparent;line-height:1">55%</div><div style="font-size:0.7rem;color:rgba(255,255,255,0.5);text-transform:uppercase;letter-spacing:0.15em;font-weight:600;margin:0.5rem 0 1.5rem">Conversion Score</div><div style="display:flex;gap:8px;align-items:flex-end;justify-content:center;height:100px"><div style="width:28px;border-radius:4px 4px 0 0;background:rgba(64,180,229,0.3);height:35%"></div><div style="width:28px;border-radius:4px 4px 0 0;background:rgba(64,180,229,0.4);height:45%"></div><div style="width:28px;border-radius:4px 4px 0 0;background:rgba(64,180,229,0.4);height:40%"></div><div style="width:28px;border-radius:4px 4px 0 0;background:rgba(64,180,229,0.5);height:55%"></div><div style="width:28px;border-radius:4px 4px 0 0;background:rgba(64,180,229,0.6);height:65%"></div><div style="width:28px;border-radius:4px 4px 0 0;background:rgba(64,180,229,0.6);height:60%"></div><div style="width:28px;border-radius:4px 4px 0 0;background:rgba(64,180,229,0.7);height:70%"></div><div style="width:28px;border-radius:4px 4px 0 0;background:rgba(64,180,229,0.8);height:80%"></div><div style="width:28px;border-radius:4px 4px 0 0;background:rgba(64,180,229,0.8);height:75%"></div><div style="width:28px;border-radius:4px 4px 0 0;background:rgba(64,180,229,0.9);height:85%"></div><div style="width:28px;border-radius:4px 4px 0 0;background:linear-gradient(to top,#40B4E5,#CC22FF);height:92%"></div><div style="width:28px;border-radius:4px 4px 0 0;background:linear-gradient(to top,#40B4E5,#CC22FF);height:88%"></div></div><div style="display:flex;justify-content:center;gap:8px;margin-top:4px"><span style="font-size:0.55rem;color:rgba(255,255,255,0.3);width:28px;text-align:center">J</span><span style="font-size:0.55rem;color:rgba(255,255,255,0.3);width:28px;text-align:center">F</span><span style="font-size:0.55rem;color:rgba(255,255,255,0.3);width:28px;text-align:center">M</span><span style="font-size:0.55rem;color:rgba(255,255,255,0.3);width:28px;text-align:center">A</span><span style="font-size:0.55rem;color:rgba(255,255,255,0.3);width:28px;text-align:center">M</span><span style="font-size:0.55rem;color:rgba(255,255,255,0.3);width:28px;text-align:center">J</span><span style="font-size:0.55rem;color:rgba(255,255,255,0.3);width:28px;text-align:center">J</span><span style="font-size:0.55rem;color:rgba(255,255,255,0.3);width:28px;text-align:center">A</span><span style="font-size:0.55rem;color:rgba(255,255,255,0.3);width:28px;text-align:center">S</span><span style="font-size:0.55rem;color:rgba(255,255,255,0.3);width:28px;text-align:center">O</span><span style="font-size:0.55rem;color:rgba(255,255,255,0.3);width:28px;text-align:center">N</span><span style="font-size:0.55rem;color:rgba(255,255,255,0.3);width:28px;text-align:center">D</span></div></div>',
+    details: '<div style="display:flex;flex-direction:column;gap:10px;padding-top:1.25rem;border-top:1px solid rgba(255,255,255,0.06)"><div style="display:flex;align-items:center;gap:10px;font-size:0.85rem;color:rgba(255,255,255,0.8)"><span style="color:#22c55e">✓</span> Form submissions tracked</div><div style="display:flex;align-items:center;gap:10px;font-size:0.85rem;color:rgba(255,255,255,0.8)"><span style="color:#f59e0b">⚠</span> Cart abandonment at 72%</div><div style="display:flex;align-items:center;gap:10px;font-size:0.85rem;color:rgba(255,255,255,0.8)"><span style="color:#ef4444">✗</span> No A/B testing in place</div></div>'
   },
   {
-    label: 'Action Plan',
-    score: null,
-    chartType: 'none',
-    chartData: null,
-    details: '<div style="text-align:center;margin-bottom:1.5rem"><div style="font-size:1.2rem;font-weight:800;color:#fff;margin-bottom:0.5rem">Your Personalized Growth Roadmap</div><div style="font-size:0.85rem;color:rgba(255,255,255,0.6)">Based on audit findings, here's the priority order:</div></div><div style="display:flex;flex-direction:column;gap:12px"><div style="display:flex;gap:12px;align-items:flex-start"><div style="width:28px;height:28px;border-radius:8px;background:linear-gradient(135deg,#ef4444,#dc2626);display:flex;align-items:center;justify-content:center;font-size:0.75rem;font-weight:800;color:#fff;flex-shrink:0">1</div><div><div style="font-weight:700;font-size:0.9rem;color:#fff">Fix Technical SEO</div><div style="font-size:0.8rem;color:rgba(255,255,255,0.5)">Schema markup, H1 tags, crawl errors</div></div></div><div style="display:flex;gap:12px;align-items:flex-start"><div style="width:28px;height:28px;border-radius:8px;background:linear-gradient(135deg,#f59e0b,#d97706);display:flex;align-items:center;justify-content:center;font-size:0.75rem;font-weight:800;color:#fff;flex-shrink:0">2</div><div><div style="font-weight:700;font-size:0.9rem;color:#fff">Launch Paid Campaigns</div><div style="font-size:0.8rem;color:rgba(255,255,255,0.5)">Google Ads + Meta retargeting</div></div></div><div style="display:flex;gap:12px;align-items:flex-start"><div style="width:28px;height:28px;border-radius:8px;background:linear-gradient(135deg,#22c55e,#16a34a);display:flex;align-items:center;justify-content:center;font-size:0.75rem;font-weight:800;color:#fff;flex-shrink:0">3</div><div><div style="font-weight:700;font-size:0.9rem;color:#fff">Content & Authority</div><div style="font-size:0.8rem;color:rgba(255,255,255,0.5)">Target 200+ keyword gaps, build backlinks</div></div></div><div style="display:flex;gap:12px;align-items:flex-start"><div style="width:28px;height:28px;border-radius:8px;background:linear-gradient(135deg,#40B4E5,#CC22FF);display:flex;align-items:center;justify-content:center;font-size:0.75rem;font-weight:800;color:#fff;flex-shrink:0">4</div><div><div style="font-weight:700;font-size:0.9rem;color:#fff">Optimize Conversions</div><div style="font-size:0.8rem;color:rgba(255,255,255,0.5)">A/B testing, cart recovery, CRO</div></div></div></div>'
+    chart: '<div style="text-align:center;margin-bottom:1rem"><div style="font-size:1.2rem;font-weight:800;color:#fff;margin-bottom:0.5rem">Your Growth Roadmap</div></div><div style="display:flex;flex-direction:column;gap:12px"><div style="display:flex;gap:12px;align-items:flex-start"><div style="width:28px;height:28px;border-radius:8px;background:linear-gradient(135deg,#ef4444,#dc2626);display:flex;align-items:center;justify-content:center;font-size:0.75rem;font-weight:800;color:#fff;flex-shrink:0">1</div><div><div style="font-weight:700;font-size:0.9rem;color:#fff">Fix Technical SEO</div><div style="font-size:0.8rem;color:rgba(255,255,255,0.5)">Schema, H1 tags, crawl errors</div></div></div><div style="display:flex;gap:12px;align-items:flex-start"><div style="width:28px;height:28px;border-radius:8px;background:linear-gradient(135deg,#f59e0b,#d97706);display:flex;align-items:center;justify-content:center;font-size:0.75rem;font-weight:800;color:#fff;flex-shrink:0">2</div><div><div style="font-weight:700;font-size:0.9rem;color:#fff">Launch Paid Campaigns</div><div style="font-size:0.8rem;color:rgba(255,255,255,0.5)">Google Ads + Meta retargeting</div></div></div><div style="display:flex;gap:12px;align-items:flex-start"><div style="width:28px;height:28px;border-radius:8px;background:linear-gradient(135deg,#22c55e,#16a34a);display:flex;align-items:center;justify-content:center;font-size:0.75rem;font-weight:800;color:#fff;flex-shrink:0">3</div><div><div style="font-weight:700;font-size:0.9rem;color:#fff">Content & Authority</div><div style="font-size:0.8rem;color:rgba(255,255,255,0.5)">Target 200+ keyword gaps</div></div></div><div style="display:flex;gap:12px;align-items:flex-start"><div style="width:28px;height:28px;border-radius:8px;background:linear-gradient(135deg,#40B4E5,#CC22FF);display:flex;align-items:center;justify-content:center;font-size:0.75rem;font-weight:800;color:#fff;flex-shrink:0">4</div><div><div style="font-weight:700;font-size:0.9rem;color:#fff">Optimize Conversions</div><div style="font-size:0.8rem;color:rgba(255,255,255,0.5)">A/B testing, cart recovery, CRO</div></div></div></div>',
+    details: ''
   }
 ];
 
-let currentChart = null;
-
 function switchTab(idx) {
-  // Update active tab
-  document.querySelectorAll('.score-tab').forEach((t,i) => {
-    t.classList.toggle('active', i === idx);
-  });
-
-  const tab = tabData[idx];
-  const canvas = document.getElementById('scoreChart');
-  const details = document.getElementById('tabDetails');
-
-  // Destroy old chart
-  if (currentChart) { currentChart.destroy(); currentChart = null; }
-
-  if (tab.chartType === 'none') {
-    canvas.style.display = 'none';
-  } else {
-    canvas.style.display = 'block';
-    const ctx = canvas.getContext('2d');
-    const chartConfig = { options: { responsive: true, plugins: { legend: { display: false } }, scales: {} } };
-
-    if (tab.chartType === 'doughnut') {
-      chartConfig.type = 'doughnut';
-      chartConfig.data = {
-        labels: tab.chartData.labels,
-        datasets: [{ data: tab.chartData.data, backgroundColor: tab.chartData.colors, borderWidth: 0 }]
-      };
-      chartConfig.options.cutout = '65%';
-    } else if (tab.chartType === 'bar') {
-      chartConfig.type = 'bar';
-      chartConfig.data = {
-        labels: tab.chartData.labels,
-        datasets: [{ data: tab.chartData.data, backgroundColor: tab.chartData.colors, borderRadius: 6, borderSkipped: false }]
-      };
-      chartConfig.options.scales = { y: { display: false }, x: { ticks: { color: 'rgba(255,255,255,0.4)', font: { size: 10 } }, grid: { display: false } } };
-    } else if (tab.chartType === 'radar') {
-      chartConfig.type = 'radar';
-      chartConfig.data = {
-        labels: tab.chartData.labels,
-        datasets: [{ data: tab.chartData.data, backgroundColor: 'rgba(64,180,229,0.15)', borderColor: '#40B4E5', borderWidth: 2, pointBackgroundColor: '#40B4E5', pointRadius: 4 }]
-      };
-      chartConfig.options.scales = { r: { ticks: { display: false }, grid: { color: 'rgba(255,255,255,0.06)' }, angleLines: { color: 'rgba(255,255,255,0.06)' }, pointLabels: { color: 'rgba(255,255,255,0.5)', font: { size: 10 } } } };
-    } else if (tab.chartType === 'line') {
-      chartConfig.type = 'line';
-      chartConfig.data = {
-        labels: tab.chartData.labels,
-        datasets: [{ data: tab.chartData.data, borderColor: '#40B4E5', backgroundColor: 'rgba(64,180,229,0.1)', fill: true, tension: 0.4, pointRadius: 3, pointBackgroundColor: '#40B4E5' }]
-      };
-      chartConfig.options.scales = { y: { ticks: { color: 'rgba(255,255,255,0.3)', font: { size: 10 } }, grid: { color: 'rgba(255,255,255,0.04)' } }, x: { ticks: { color: 'rgba(255,255,255,0.4)', font: { size: 10 } }, grid: { display: false } } };
-    }
-
-    currentChart = new Chart(ctx, chartConfig);
-  }
-
-  details.innerHTML = tab.details;
+  document.querySelectorAll(".score-tab").forEach(function(t,i) { t.classList.toggle("active", i === idx); });
+  document.getElementById("tabChart").innerHTML = tabData[idx].chart;
+  document.getElementById("tabDetails").innerHTML = tabData[idx].details;
 }
-
-// Init first tab after Chart.js loads
-window.addEventListener("load", function() { switchTab(0); });
+switchTab(0);
 
 // Form submission
 function submitAudit(e) {
