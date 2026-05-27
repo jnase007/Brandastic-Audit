@@ -113,6 +113,7 @@ a{color:var(--accent);text-decoration:none}
 
 @media(max-width:768px){.hero h1{font-size:2.5rem}.nav-links{display:none}.stats-bar{gap:2rem}.score-tabs{font-size:0.6rem}.cases{grid-template-columns:1fr!important}}
 </style>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
 </head>
 <body>
 
@@ -141,26 +142,15 @@ a{color:var(--accent);text-decoration:none}
   <!-- ANIMATED SCORE CARD -->
   <div class="score-card">
     <div class="score-tabs">
-      <div class="score-tab active">SEO Health</div>
-      <div class="score-tab">Paid Media</div>
-      <div class="score-tab">Competitive</div>
-      <div class="score-tab">Conversions</div>
-      <div class="score-tab">Action Plan</div>
+      <div class="score-tab active" onclick="switchTab(0)">SEO Health</div>
+      <div class="score-tab" onclick="switchTab(1)">Paid Media</div>
+      <div class="score-tab" onclick="switchTab(2)">Competitive</div>
+      <div class="score-tab" onclick="switchTab(3)">Conversions</div>
+      <div class="score-tab" onclick="switchTab(4)">Action Plan</div>
     </div>
-    <div class="score-number">47%</div>
-    <div class="score-label">Optimization Score</div>
-    <div class="score-bars">
-      <div class="score-bar"><div class="score-bar-label">Technical</div><div class="score-bar-track"><div class="score-bar-fill" style="--fill:65%;background:var(--green)"></div></div></div>
-      <div class="score-bar"><div class="score-bar-label">On-Page</div><div class="score-bar-track"><div class="score-bar-fill" style="--fill:42%;background:#f59e0b"></div></div></div>
-      <div class="score-bar"><div class="score-bar-label">Backlinks</div><div class="score-bar-track"><div class="score-bar-fill" style="--fill:38%;background:#ef4444"></div></div></div>
-      <div class="score-bar"><div class="score-bar-label">Content</div><div class="score-bar-track"><div class="score-bar-fill" style="--fill:55%;background:#f59e0b"></div></div></div>
-      <div class="score-bar"><div class="score-bar-label">Authority</div><div class="score-bar-track"><div class="score-bar-fill" style="--fill:50%;background:#f59e0b"></div></div></div>
-    </div>
-    <div class="score-items">
-      <div class="score-item"><span class="check">✓</span> Meta titles optimized</div>
-      <div class="score-item"><span class="warn">⚠</span> Missing H1 on 3 pages</div>
-      <div class="score-item"><span class="fail">✗</span> No schema markup</div>
-      <div class="score-item"><span class="check">✓</span> Core Web Vitals passing</div>
+    <div id="tabContent">
+      <canvas id="scoreChart" height="200"></canvas>
+      <div id="tabDetails" style="margin-top:1.25rem"></div>
     </div>
   </div>
 </div>
@@ -356,6 +346,131 @@ window.addEventListener('scroll', function() {
   var scrollY = window.scrollY;
   var windowH = window.innerHeight;
   // Start fading at 30% scroll, fully dark by 80% of first viewport
+  var opacity = Math.min(1, Math.max(0, (scrollY - windowH * 0.3) / (windowH * 0.5)));
+  fade.style.opacity = opacity;
+});
+</script>
+<script>
+const tabData = [
+  {
+    label: 'SEO Health',
+    score: 47,
+    chartType: 'doughnut',
+    chartData: {
+      labels: ['Technical','On-Page','Backlinks','Content','Authority'],
+      data: [65,42,38,55,50],
+      colors: ['#22c55e','#f59e0b','#ef4444','#f59e0b','#f59e0b']
+    },
+    details: '<div style="font-size:3.5rem;font-weight:900;text-align:center;background:linear-gradient(135deg,#40B4E5,#CC22FF);-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:0.25rem">47%</div><div style="text-align:center;font-size:0.7rem;color:rgba(255,255,255,0.5);text-transform:uppercase;letter-spacing:0.15em;font-weight:600;margin-bottom:1rem">Optimization Score</div><div style="display:flex;flex-direction:column;gap:8px;padding-top:1rem;border-top:1px solid rgba(255,255,255,0.06)"><div style="display:flex;align-items:center;gap:8px;font-size:0.85rem;color:rgba(255,255,255,0.8)"><span style="color:#22c55e">✓</span> Meta titles optimized</div><div style="display:flex;align-items:center;gap:8px;font-size:0.85rem;color:rgba(255,255,255,0.8)"><span style="color:#f59e0b">⚠</span> Missing H1 on 3 pages</div><div style="display:flex;align-items:center;gap:8px;font-size:0.85rem;color:rgba(255,255,255,0.8)"><span style="color:#ef4444">✗</span> No schema markup</div><div style="display:flex;align-items:center;gap:8px;font-size:0.85rem;color:rgba(255,255,255,0.8)"><span style="color:#22c55e">✓</span> Core Web Vitals passing</div></div>'
+  },
+  {
+    label: 'Paid Media',
+    score: 62,
+    chartType: 'bar',
+    chartData: {
+      labels: ['Google Ads','Meta Ads','LinkedIn','Display','Retargeting'],
+      data: [72,58,35,45,80],
+      colors: ['#40B4E5','#CC22FF','#0077B5','#f59e0b','#22c55e']
+    },
+    details: '<div style="font-size:3.5rem;font-weight:900;text-align:center;background:linear-gradient(135deg,#40B4E5,#CC22FF);-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:0.25rem">62%</div><div style="text-align:center;font-size:0.7rem;color:rgba(255,255,255,0.5);text-transform:uppercase;letter-spacing:0.15em;font-weight:600;margin-bottom:1rem">Paid Media Score</div><div style="display:flex;flex-direction:column;gap:8px;padding-top:1rem;border-top:1px solid rgba(255,255,255,0.06)"><div style="display:flex;align-items:center;gap:8px;font-size:0.85rem;color:rgba(255,255,255,0.8)"><span style="color:#22c55e">✓</span> Conversion tracking active</div><div style="display:flex;align-items:center;gap:8px;font-size:0.85rem;color:rgba(255,255,255,0.8)"><span style="color:#f59e0b">⚠</span> Ad spend efficiency below benchmark</div><div style="display:flex;align-items:center;gap:8px;font-size:0.85rem;color:rgba(255,255,255,0.8)"><span style="color:#ef4444">✗</span> No retargeting campaigns active</div><div style="display:flex;align-items:center;gap:8px;font-size:0.85rem;color:rgba(255,255,255,0.8)"><span style="color:#22c55e">✓</span> Landing pages optimized</div></div>'
+  },
+  {
+    label: 'Competitive',
+    score: 38,
+    chartType: 'radar',
+    chartData: {
+      labels: ['SEO','Paid','Social','Content','Authority','Speed'],
+      data: [45,62,30,55,40,70],
+      colors: ['rgba(64,180,229,0.3)']
+    },
+    details: '<div style="font-size:3.5rem;font-weight:900;text-align:center;background:linear-gradient(135deg,#40B4E5,#CC22FF);-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:0.25rem">38%</div><div style="text-align:center;font-size:0.7rem;color:rgba(255,255,255,0.5);text-transform:uppercase;letter-spacing:0.15em;font-weight:600;margin-bottom:1rem">Competitive Position</div><div style="display:flex;flex-direction:column;gap:8px;padding-top:1rem;border-top:1px solid rgba(255,255,255,0.06)"><div style="display:flex;align-items:center;gap:8px;font-size:0.85rem;color:rgba(255,255,255,0.8)"><span style="color:#ef4444">✗</span> Competitors outranking on 67% of keywords</div><div style="display:flex;align-items:center;gap:8px;font-size:0.85rem;color:rgba(255,255,255,0.8)"><span style="color:#f59e0b">⚠</span> Content gap: 200+ keywords not targeted</div><div style="display:flex;align-items:center;gap:8px;font-size:0.85rem;color:rgba(255,255,255,0.8)"><span style="color:#22c55e">✓</span> Brand search volume growing</div></div>'
+  },
+  {
+    label: 'Conversions',
+    score: 55,
+    chartType: 'line',
+    chartData: {
+      labels: ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'],
+      data: [22,28,25,35,42,38,45,52,48,55,60,58],
+      colors: ['#40B4E5']
+    },
+    details: '<div style="font-size:3.5rem;font-weight:900;text-align:center;background:linear-gradient(135deg,#40B4E5,#CC22FF);-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:0.25rem">55%</div><div style="text-align:center;font-size:0.7rem;color:rgba(255,255,255,0.5);text-transform:uppercase;letter-spacing:0.15em;font-weight:600;margin-bottom:1rem">Conversion Score</div><div style="display:flex;flex-direction:column;gap:8px;padding-top:1rem;border-top:1px solid rgba(255,255,255,0.06)"><div style="display:flex;align-items:center;gap:8px;font-size:0.85rem;color:rgba(255,255,255,0.8)"><span style="color:#22c55e">✓</span> Form submissions tracked</div><div style="display:flex;align-items:center;gap:8px;font-size:0.85rem;color:rgba(255,255,255,0.8)"><span style="color:#f59e0b">⚠</span> Cart abandonment rate at 72%</div><div style="display:flex;align-items:center;gap:8px;font-size:0.85rem;color:rgba(255,255,255,0.8)"><span style="color:#ef4444">✗</span> No A/B testing in place</div></div>'
+  },
+  {
+    label: 'Action Plan',
+    score: null,
+    chartType: 'none',
+    chartData: null,
+    details: '<div style="text-align:center;margin-bottom:1.5rem"><div style="font-size:1.2rem;font-weight:800;color:#fff;margin-bottom:0.5rem">Your Personalized Growth Roadmap</div><div style="font-size:0.85rem;color:rgba(255,255,255,0.6)">Based on audit findings, here's the priority order:</div></div><div style="display:flex;flex-direction:column;gap:12px"><div style="display:flex;gap:12px;align-items:flex-start"><div style="width:28px;height:28px;border-radius:8px;background:linear-gradient(135deg,#ef4444,#dc2626);display:flex;align-items:center;justify-content:center;font-size:0.75rem;font-weight:800;color:#fff;flex-shrink:0">1</div><div><div style="font-weight:700;font-size:0.9rem;color:#fff">Fix Technical SEO</div><div style="font-size:0.8rem;color:rgba(255,255,255,0.5)">Schema markup, H1 tags, crawl errors</div></div></div><div style="display:flex;gap:12px;align-items:flex-start"><div style="width:28px;height:28px;border-radius:8px;background:linear-gradient(135deg,#f59e0b,#d97706);display:flex;align-items:center;justify-content:center;font-size:0.75rem;font-weight:800;color:#fff;flex-shrink:0">2</div><div><div style="font-weight:700;font-size:0.9rem;color:#fff">Launch Paid Campaigns</div><div style="font-size:0.8rem;color:rgba(255,255,255,0.5)">Google Ads + Meta retargeting</div></div></div><div style="display:flex;gap:12px;align-items:flex-start"><div style="width:28px;height:28px;border-radius:8px;background:linear-gradient(135deg,#22c55e,#16a34a);display:flex;align-items:center;justify-content:center;font-size:0.75rem;font-weight:800;color:#fff;flex-shrink:0">3</div><div><div style="font-weight:700;font-size:0.9rem;color:#fff">Content & Authority</div><div style="font-size:0.8rem;color:rgba(255,255,255,0.5)">Target 200+ keyword gaps, build backlinks</div></div></div><div style="display:flex;gap:12px;align-items:flex-start"><div style="width:28px;height:28px;border-radius:8px;background:linear-gradient(135deg,#40B4E5,#CC22FF);display:flex;align-items:center;justify-content:center;font-size:0.75rem;font-weight:800;color:#fff;flex-shrink:0">4</div><div><div style="font-weight:700;font-size:0.9rem;color:#fff">Optimize Conversions</div><div style="font-size:0.8rem;color:rgba(255,255,255,0.5)">A/B testing, cart recovery, CRO</div></div></div></div>'
+  }
+];
+
+let currentChart = null;
+
+function switchTab(idx) {
+  // Update active tab
+  document.querySelectorAll('.score-tab').forEach((t,i) => {
+    t.classList.toggle('active', i === idx);
+  });
+
+  const tab = tabData[idx];
+  const canvas = document.getElementById('scoreChart');
+  const details = document.getElementById('tabDetails');
+
+  // Destroy old chart
+  if (currentChart) { currentChart.destroy(); currentChart = null; }
+
+  if (tab.chartType === 'none') {
+    canvas.style.display = 'none';
+  } else {
+    canvas.style.display = 'block';
+    const ctx = canvas.getContext('2d');
+    const chartConfig = { options: { responsive: true, plugins: { legend: { display: false } }, scales: {} } };
+
+    if (tab.chartType === 'doughnut') {
+      chartConfig.type = 'doughnut';
+      chartConfig.data = {
+        labels: tab.chartData.labels,
+        datasets: [{ data: tab.chartData.data, backgroundColor: tab.chartData.colors, borderWidth: 0 }]
+      };
+      chartConfig.options.cutout = '65%';
+    } else if (tab.chartType === 'bar') {
+      chartConfig.type = 'bar';
+      chartConfig.data = {
+        labels: tab.chartData.labels,
+        datasets: [{ data: tab.chartData.data, backgroundColor: tab.chartData.colors, borderRadius: 6, borderSkipped: false }]
+      };
+      chartConfig.options.scales = { y: { display: false }, x: { ticks: { color: 'rgba(255,255,255,0.4)', font: { size: 10 } }, grid: { display: false } } };
+    } else if (tab.chartType === 'radar') {
+      chartConfig.type = 'radar';
+      chartConfig.data = {
+        labels: tab.chartData.labels,
+        datasets: [{ data: tab.chartData.data, backgroundColor: 'rgba(64,180,229,0.15)', borderColor: '#40B4E5', borderWidth: 2, pointBackgroundColor: '#40B4E5', pointRadius: 4 }]
+      };
+      chartConfig.options.scales = { r: { ticks: { display: false }, grid: { color: 'rgba(255,255,255,0.06)' }, angleLines: { color: 'rgba(255,255,255,0.06)' }, pointLabels: { color: 'rgba(255,255,255,0.5)', font: { size: 10 } } } };
+    } else if (tab.chartType === 'line') {
+      chartConfig.type = 'line';
+      chartConfig.data = {
+        labels: tab.chartData.labels,
+        datasets: [{ data: tab.chartData.data, borderColor: '#40B4E5', backgroundColor: 'rgba(64,180,229,0.1)', fill: true, tension: 0.4, pointRadius: 3, pointBackgroundColor: '#40B4E5' }]
+      };
+      chartConfig.options.scales = { y: { ticks: { color: 'rgba(255,255,255,0.3)', font: { size: 10 } }, grid: { color: 'rgba(255,255,255,0.04)' } }, x: { ticks: { color: 'rgba(255,255,255,0.4)', font: { size: 10 } }, grid: { display: false } } };
+    }
+
+    currentChart = new Chart(ctx, chartConfig);
+  }
+
+  details.innerHTML = tab.details;
+}
+
+// Init first tab
+switchTab(0);
+
+// Scroll fade for video
+window.addEventListener('scroll', function() {
+  var fade = document.getElementById('videoFade');
+  var scrollY = window.scrollY;
+  var windowH = window.innerHeight;
   var opacity = Math.min(1, Math.max(0, (scrollY - windowH * 0.3) / (windowH * 0.5)));
   fade.style.opacity = opacity;
 });
