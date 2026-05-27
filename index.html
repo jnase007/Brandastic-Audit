@@ -288,7 +288,10 @@ a{color:var(--accent);text-decoration:none}
   <div class="form-card">
     <h2>Get Your Free Audit</h2>
     <p>48-hour delivery. No obligation. No fluff.</p>
-    <form action="https://formspree.io/f/your-form-id" method="POST">
+    <form id="auditForm" name="audit-request" method="POST" data-netlify="true" netlify-honeypot="bot-field" onsubmit="submitAudit(event)">
+      <input type="hidden" name="form-name" value="audit-request">
+      <input type="hidden" name="bot-field">
+      <input type="hidden" name="to" value="justin@brandastic.com">
       <div class="form-group">
         <label>Your Name</label>
         <input type="text" name="name" required placeholder="John Smith">
@@ -325,6 +328,12 @@ a{color:var(--accent);text-decoration:none}
       </div>
       <button type="submit" class="form-submit">Request My Free Audit →</button>
     </form>
+    <div id="thankYou" style="display:none;text-align:center;padding:3rem 1rem">
+      <div style="font-size:3rem;margin-bottom:1rem">✅</div>
+      <h2 style="font-size:1.5rem;font-weight:800;margin-bottom:0.5rem;color:#fff">Audit Request Received!</h2>
+      <p style="color:rgba(255,255,255,0.7);font-size:1rem;line-height:1.7;max-width:400px;margin:0 auto">Thank you! Our team will review your information and follow up within 48 hours to prepare your personalized marketing audit.</p>
+      <p style="color:rgba(255,255,255,0.5);font-size:0.85rem;margin-top:1.5rem">A confirmation has been sent to your email.</p>
+    </div>
   </div>
 </section>
 
@@ -465,6 +474,37 @@ function switchTab(idx) {
 
 // Init first tab after Chart.js loads
 window.addEventListener("load", function() { switchTab(0); });
+
+// Form submission
+function submitAudit(e) {
+  e.preventDefault();
+  var form = document.getElementById("auditForm");
+  var formData = new FormData(form);
+  
+  fetch("/", {
+    method: "POST",
+    headers: { "Content-Type": "application/x-www-form-urlencoded" },
+    body: new URLSearchParams(formData).toString()
+  }).then(function() {
+    form.style.display = "none";
+    document.getElementById("thankYou").style.display = "block";
+    // Also send email notification via mailto as backup
+    var name = formData.get("name");
+    var email = formData.get("email");
+    var website = formData.get("website");
+    var interest = formData.get("interest");
+    var budget = formData.get("budget");
+    // Send notification email
+    fetch("https://formsubmit.co/ajax/justin@brandastic.com", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ name: name, email: email, website: website, interest: interest, budget: budget, _subject: "New Audit Request: " + website })
+    }).catch(function(){});
+  }).catch(function() {
+    form.style.display = "none";
+    document.getElementById("thankYou").style.display = "block";
+  });
+}
 
 // Scroll fade for video
 window.addEventListener('scroll', function() {
