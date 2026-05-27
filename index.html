@@ -12,7 +12,7 @@ body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--t
 a{color:var(--accent);text-decoration:none}
 
 /* NAV */
-.nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:0 2rem;height:64px;display:flex;align-items:center;justify-content:space-between;background:rgba(10,14,26,0.85);backdrop-filter:blur(20px);border-bottom:1px solid rgba(255,255,255,0.06)}
+.nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:0 2rem;height:64px;display:flex;align-items:center;justify-content:space-between;background:rgba(10,14,26,0.4);backdrop-filter:blur(10px);border-bottom:1px solid rgba(255,255,255,0.04)}
 .nav-brand{font-weight:800;font-size:1.1rem;letter-spacing:0.08em;color:#fff}
 .nav-links{display:flex;gap:2rem;align-items:center}
 .nav-links a{color:var(--text2);font-size:0.85rem;font-weight:500;transition:color 0.2s}
@@ -21,7 +21,7 @@ a{color:var(--accent);text-decoration:none}
 .nav-cta:hover{transform:translateY(-1px)}
 
 /* HERO */
-.hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:6rem 2rem 4rem;position:relative;overflow:hidden}
+.hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:4rem 2rem 4rem;position:relative;overflow:hidden}
 .hero::before{content:'';position:absolute;top:-50%;left:-50%;width:200%;height:200%;background:radial-gradient(circle at 30% 40%,rgba(64,180,229,0.08) 0%,transparent 50%),radial-gradient(circle at 70% 60%,rgba(204,34,255,0.06) 0%,transparent 50%);animation:drift 20s ease-in-out infinite}
 @keyframes drift{0%,100%{transform:translate(0,0)}50%{transform:translate(-3%,2%)}}
 .hero-badge{display:inline-flex;align-items:center;gap:8px;padding:8px 20px;border-radius:50px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);font-size:0.75rem;font-weight:600;letter-spacing:0.15em;text-transform:uppercase;color:var(--text2);margin-bottom:2rem}
@@ -129,7 +129,7 @@ a{color:var(--accent);text-decoration:none}
 
 <!-- HERO -->
 <section class="hero">
-  <div style="position:absolute;top:0;left:0;right:0;bottom:0;overflow:hidden;z-index:0;pointer-events:none">
+  <div style="position:absolute;top:-64px;left:0;right:0;bottom:0;overflow:hidden;z-index:0;pointer-events:none">
     <iframe src="https://www.youtube.com/embed/uqJV1mrHV0c?autoplay=1&mute=1&loop=1&playlist=uqJV1mrHV0c&controls=0&showinfo=0&rel=0&modestbranding=1&playsinline=1&start=2" allow="autoplay; encrypted-media" allowfullscreen style="position:absolute;top:50%;left:50%;width:120vw;height:120vh;transform:translate(-50%,-50%);pointer-events:none;opacity:0.15"></iframe>
   </div>
   <div style="position:relative;z-index:2" class="hero-content"><div class="hero-badge"><span class="dot"></span> BRANDASTIC INTELLIGENCE</div>
