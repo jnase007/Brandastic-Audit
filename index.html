@@ -8,7 +8,7 @@
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 :root{--bg:#0a0e1a;--card:rgba(255,255,255,0.05);--card-border:rgba(255,255,255,0.08);--text:#fff;--text2:rgba(255,255,255,0.7);--muted:rgba(255,255,255,0.4);--accent:#40B4E5;--purple:#CC22FF;--green:#22c55e}
-body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--text);line-height:1.6;overflow-x:hidden}
+html{scroll-behavior:smooth}body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--text);line-height:1.6;overflow-x:hidden}
 a{color:var(--accent);text-decoration:none}
 
 /* NAV */
@@ -31,7 +31,7 @@ a{color:var(--accent);text-decoration:none}
 .hero h1 .gradient{background:linear-gradient(135deg,#40B4E5,#CC22FF);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
 .hero p{font-size:1.15rem;color:var(--text2);max-width:600px;margin-bottom:3rem;line-height:1.7}
 .hero-cta{display:inline-flex;align-items:center;gap:8px;background:linear-gradient(135deg,#40B4E5,#CC22FF);color:#fff;padding:14px 32px;border-radius:12px;font-weight:700;font-size:1rem;border:none;cursor:pointer;transition:transform 0.2s,box-shadow 0.2s}
-.hero-cta:hover{transform:translateY(-2px);box-shadow:0 8px 30px rgba(64,180,229,0.3)}
+.hero-cta:hover{transform:translateY(-2px);box-shadow:0 8px 30px rgba(64,180,229,0.4)}.hero-cta{animation:ctaGlow 3s ease-in-out infinite}@keyframes ctaGlow{0%,100%{box-shadow:0 4px 15px rgba(64,180,229,0.2)}50%{box-shadow:0 4px 25px rgba(204,34,255,0.3)}}
 
 /* ANIMATED SCORE */
 .score-card{margin:4rem auto 2rem;max-width:620px;background:rgba(10,14,26,0.92);border:1px solid rgba(255,255,255,0.12);border-radius:20px;padding:3rem;position:relative;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,0.5)}
@@ -64,14 +64,14 @@ a{color:var(--accent);text-decoration:none}
 /* FEATURES */
 .features{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1.5rem}
 .feature{background:var(--card);border:1px solid var(--card-border);border-radius:16px;padding:1.5rem;transition:border-color 0.2s}
-.feature:hover{border-color:rgba(64,180,229,0.3)}
+.feature:hover{border-color:rgba(64,180,229,0.3);transform:translateY(-4px);box-shadow:0 12px 40px rgba(0,0,0,0.2)}.feature{transition:all 0.3s ease}
 .feature-icon{width:48px;height:48px;border-radius:12px;background:linear-gradient(135deg,rgba(64,180,229,0.15),rgba(204,34,255,0.15));display:flex;align-items:center;justify-content:center;margin-bottom:1rem}
 .feature h3{font-size:1.05rem;font-weight:700;margin-bottom:0.5rem}
 .feature p{font-size:0.85rem;color:var(--text2);line-height:1.6}
 
 /* MODELS */
 .models{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1.5rem}
-.model{background:var(--card);border:1px solid var(--card-border);border-radius:16px;padding:2rem;text-align:center}
+.model{background:var(--card);border:1px solid var(--card-border);border-radius:16px;padding:2rem;text-align:center;transition:all 0.3s ease}.model:hover{border-color:rgba(64,180,229,0.3);transform:translateY(-4px);box-shadow:0 12px 40px rgba(0,0,0,0.2)}
 .model h3{font-size:1.1rem;font-weight:700;margin-bottom:0.5rem}
 .model .type{font-size:0.8rem;color:var(--accent);font-weight:600;margin-bottom:1rem}
 .model p{font-size:0.85rem;color:var(--text2);line-height:1.6}
@@ -138,6 +138,7 @@ a{color:var(--accent);text-decoration:none}
   <h1>Uncover What's<br><span class="gradient">Costing You Revenue</span></h1>
   <p>Premium digital marketing audits. Deep analysis. Actionable strategy. Real results. Get a personalized audit and see exactly where your growth opportunities are.</p>
   <a href="#form" class="hero-cta">Get Your Free Audit →</a>
+  <p style="margin-top:1.5rem;font-size:0.8rem;color:var(--muted);font-weight:500">Powering growth for 450+ brands since 2010</p>
 
   <!-- ANIMATED SCORE CARD -->
   <div class="score-card">
@@ -152,9 +153,23 @@ a{color:var(--accent);text-decoration:none}
       <canvas id="scoreChart" style="width:100%;max-height:220px;margin:0 auto"></canvas>
       <div id="tabDetails" style="margin-top:1.25rem"></div>
     </div>
-  </div>
+  <div style="position:absolute;bottom:2rem;left:50%;transform:translateX(-50%);z-index:2;animation:bounce 2s infinite;color:var(--muted);font-size:1.5rem;cursor:pointer" onclick="document.getElementById('audit').scrollIntoView({behavior:'smooth'})">↓</div>
 </div>
 </section>
+
+
+<!-- TRUSTED BY -->
+<div style="text-align:center;padding:3rem 2rem 1rem;position:relative;z-index:3;background:var(--bg)">
+  <p style="font-size:0.7rem;font-weight:600;text-transform:uppercase;letter-spacing:0.15em;color:var(--muted);margin-bottom:1.5rem">Brands who trust us with their story</p>
+  <div style="display:flex;justify-content:center;align-items:center;gap:3rem;flex-wrap:wrap;opacity:0.5;filter:brightness(0) invert(1)">
+    <img src="https://brandastic.com/wp-content/uploads/2021/11/Group-26706@2x.png" alt="" style="height:30px">
+    <img src="https://brandastic.com/wp-content/uploads/2021/11/Group-26707@2x.png" alt="" style="height:30px">
+    <img src="https://brandastic.com/wp-content/uploads/2021/11/Group-26708@2x.png" alt="" style="height:30px">
+    <img src="https://brandastic.com/wp-content/uploads/2024/10/Group-26762@2x.png" alt="" style="height:30px">
+    <img src="https://brandastic.com/wp-content/uploads/2024/10/Group-26763@2x.png" alt="" style="height:30px">
+    <img src="https://brandastic.com/wp-content/uploads/2024/10/Group-26764@2x.png" alt="" style="height:30px">
+  </div>
+</div>
 
 <!-- WHAT'S INCLUDED -->
 <section class="section" id="audit">
@@ -220,7 +235,7 @@ a{color:var(--accent);text-decoration:none}
 
 <!-- STATS -->
 <div class="stats-bar">
-  <div class="stat"><div class="stat-num">15+</div><div class="stat-label">Years in Business</div></div>
+  <div class="stat"><div class="stat-num" data-count="15">15+</div><div class="stat-label">Years in Business</div></div>
   <div class="stat"><div class="stat-num">450+</div><div class="stat-label">Clients Served</div></div>
   <div class="stat"><div class="stat-num">92%</div><div class="stat-label">Client Retention</div></div>
   <div class="stat"><div class="stat-num">5.0★</div><div class="stat-label">40+ Google Reviews</div></div>
@@ -282,6 +297,17 @@ a{color:var(--accent);text-decoration:none}
     </div>
   </div>
 </section>
+
+
+<!-- REVIEWS -->
+<div style="text-align:center;padding:2rem 2rem 3rem;position:relative;z-index:3;background:var(--bg)">
+  <div style="display:flex;align-items:center;justify-content:center;gap:8px;margin-bottom:1rem">
+    <span style="font-size:1.5rem;font-weight:900;color:#fff">5.0</span>
+    <span style="color:#fbbf24;font-size:1.3rem">★★★★★</span>
+  </div>
+  <p style="font-size:1rem;font-style:italic;color:var(--text2);max-width:600px;margin:0 auto 1rem;line-height:1.7">"Brandastic has been a fantastic agency to work with. They've made significant improvements in our company's digital presence and overall performance."</p>
+  <a href="https://shorturl.at/wViCP" target="_blank" style="font-size:0.8rem;color:var(--accent);font-weight:600">40+ Five-Star Reviews on Google →</a>
+</div>
 
 <!-- FORM -->
 <section class="form-section" id="form">
