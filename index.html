@@ -149,7 +149,7 @@ a{color:var(--accent);text-decoration:none}
       <div class="score-tab" onclick="switchTab(4)">Action Plan</div>
     </div>
     <div id="tabContent">
-      <canvas id="scoreChart" height="200"></canvas>
+      <canvas id="scoreChart" style="width:100%;max-height:220px;margin:0 auto"></canvas>
       <div id="tabDetails" style="margin-top:1.25rem"></div>
     </div>
   </div>
@@ -463,8 +463,8 @@ function switchTab(idx) {
   details.innerHTML = tab.details;
 }
 
-// Init first tab
-switchTab(0);
+// Init first tab after Chart.js loads
+window.addEventListener("load", function() { switchTab(0); });
 
 // Scroll fade for video
 window.addEventListener('scroll', function() {
