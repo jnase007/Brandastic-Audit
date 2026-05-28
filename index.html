@@ -148,6 +148,14 @@ a{color:var(--accent);text-decoration:none}
   .footer div[style*="display:flex;justify-content:center;gap:2rem"]{gap:1rem!important;flex-wrap:wrap!important}
 }
 
+/* LOGO SCROLL */
+.logo-scroll{overflow:hidden;width:100%;position:relative}
+.logo-scroll::before,.logo-scroll::after{content:"";position:absolute;top:0;bottom:0;width:80px;z-index:2}
+.logo-scroll::before{left:0;background:linear-gradient(to right,var(--bg),transparent)}
+.logo-scroll::after{right:0;background:linear-gradient(to left,var(--bg),transparent)}
+.logo-track{display:flex;align-items:center;gap:3rem;animation:scrollLogos 25s linear infinite;width:max-content}
+@keyframes scrollLogos{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+
 /* SCROLL ANIMATIONS */
 .reveal{opacity:0;transform:translateY(30px);transition:opacity 0.8s ease,transform 0.8s ease}
 .reveal.visible{opacity:1;transform:translateY(0)}
@@ -253,15 +261,25 @@ a{color:var(--accent);text-decoration:none}
 <!-- TRUSTED BY -->
 <div style="text-align:center;padding:3rem 2rem 1rem;position:relative;z-index:3;background:var(--bg)">
   <p style="font-size:0.7rem;font-weight:600;text-transform:uppercase;letter-spacing:0.15em;color:var(--muted);margin-bottom:1.5rem">Brands who trust us with their story</p>
-  <div style="display:flex;justify-content:center;align-items:center;gap:3rem;flex-wrap:wrap;opacity:0.5;filter:brightness(0) invert(1)">
-    <img src="https://brandastic.com/wp-content/uploads/2026/05/ricoh-logo.svg" alt="RICOH" style="height:40px;max-width:160px">
-    <img src="https://brandastic.com/wp-content/uploads/2026/05/usc-logo.svg" alt="USC" style="height:45px;max-width:90px">
-    <img src="https://brandastic.com/wp-content/uploads/2026/05/ufc-gym-logo.svg" alt="UFC Gym" style="height:38px;max-width:160px">
-    <img src="https://brandastic.com/wp-content/uploads/2026/05/Orangetheory-Fitness-Logo.svg" alt="Orangetheory" style="height:42px;max-width:180px">
-    <img src="https://brandastic.com/wp-content/uploads/2026/05/hyperx-logo.svg" alt="HyperX" style="height:40px;max-width:150px">
-    <img src="https://brandastic.com/wp-content/uploads/2026/05/fujifilm-seeklogo.svg" alt="Fujifilm" style="height:40px;max-width:150px">
-    <img src="https://brandastic.com/wp-content/uploads/2026/05/Pocky-Logo.svg" alt="Pocky" style="height:42px;max-width:120px">
-    <img src="https://brandastic.com/wp-content/uploads/2024/10/Group-26763@2x.png" alt="KIA" style="height:38px;max-width:100px">
+  <div class="logo-scroll">
+    <div class="logo-track" style="opacity:0.5;filter:brightness(0) invert(1)">
+      <img src="https://brandastic.com/wp-content/uploads/2026/05/ricoh-logo.svg" alt="RICOH" style="height:40px;max-width:160px;flex-shrink:0">
+      <img src="https://brandastic.com/wp-content/uploads/2026/05/usc-logo.svg" alt="USC" style="height:45px;max-width:90px;flex-shrink:0">
+      <img src="https://brandastic.com/wp-content/uploads/2026/05/ufc-gym-logo.svg" alt="UFC Gym" style="height:38px;max-width:160px;flex-shrink:0">
+      <img src="https://brandastic.com/wp-content/uploads/2026/05/Orangetheory-Fitness-Logo.svg" alt="Orangetheory" style="height:42px;max-width:180px;flex-shrink:0">
+      <img src="https://brandastic.com/wp-content/uploads/2026/05/hyperx-logo.svg" alt="HyperX" style="height:40px;max-width:150px;flex-shrink:0">
+      <img src="https://brandastic.com/wp-content/uploads/2026/05/fujifilm-seeklogo.svg" alt="Fujifilm" style="height:40px;max-width:150px;flex-shrink:0">
+      <img src="https://brandastic.com/wp-content/uploads/2026/05/Pocky-Logo.svg" alt="Pocky" style="height:42px;max-width:120px;flex-shrink:0">
+      <img src="https://brandastic.com/wp-content/uploads/2024/10/Group-26763@2x.png" alt="KIA" style="height:38px;max-width:100px;flex-shrink:0">
+      <img src="https://brandastic.com/wp-content/uploads/2026/05/ricoh-logo.svg" alt="RICOH" style="height:40px;max-width:160px;flex-shrink:0">
+      <img src="https://brandastic.com/wp-content/uploads/2026/05/usc-logo.svg" alt="USC" style="height:45px;max-width:90px;flex-shrink:0">
+      <img src="https://brandastic.com/wp-content/uploads/2026/05/ufc-gym-logo.svg" alt="UFC Gym" style="height:38px;max-width:160px;flex-shrink:0">
+      <img src="https://brandastic.com/wp-content/uploads/2026/05/Orangetheory-Fitness-Logo.svg" alt="Orangetheory" style="height:42px;max-width:180px;flex-shrink:0">
+      <img src="https://brandastic.com/wp-content/uploads/2026/05/hyperx-logo.svg" alt="HyperX" style="height:40px;max-width:150px;flex-shrink:0">
+      <img src="https://brandastic.com/wp-content/uploads/2026/05/fujifilm-seeklogo.svg" alt="Fujifilm" style="height:40px;max-width:150px;flex-shrink:0">
+      <img src="https://brandastic.com/wp-content/uploads/2026/05/Pocky-Logo.svg" alt="Pocky" style="height:42px;max-width:120px;flex-shrink:0">
+      <img src="https://brandastic.com/wp-content/uploads/2024/10/Group-26763@2x.png" alt="KIA" style="height:38px;max-width:100px;flex-shrink:0">
+    </div>
   </div>
 </div>
 
