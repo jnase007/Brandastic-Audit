@@ -445,7 +445,11 @@ a{color:var(--accent);text-decoration:none}
     <span style="font-size:1.5rem;font-weight:900;color:#fff">5.0</span>
     <span style="color:#fbbf24;font-size:1.3rem">★★★★★</span>
   </div>
-  <p style="font-size:1rem;font-style:italic;color:var(--text2);max-width:600px;margin:0 auto 1rem;line-height:1.7">"Brandastic has been a fantastic agency to work with. They've made significant improvements in our company's digital presence and overall performance."</p>
+  <div style="max-width:600px;margin:0 auto 1rem;height:80px;overflow:hidden;position:relative">
+    <div id="reviewRotator" style="transition:transform 0.6s ease,opacity 0.6s ease">
+      <p class="review-text" style="font-size:1rem;font-style:italic;color:var(--text2);line-height:1.7;text-align:center">"Brandastic has been a fantastic agency to work with. They've made significant improvements in our company's digital presence and overall performance."</p>
+    </div>
+  </div>
   <a href="https://shorturl.at/wViCP" target="_blank" style="font-size:0.8rem;color:var(--accent);font-weight:600">40+ Five-Star Reviews on Google →</a>
 </div>
 
@@ -772,6 +776,33 @@ window.addEventListener("scroll", function() {
     if (size > 3) p.style.boxShadow = "0 0 " + (size * 2) + "px " + colors[Math.floor(Math.random() * colors.length)];
     container.appendChild(p);
   }
+})();
+
+// Rotating reviews
+(function() {
+  var reviews = [
+    {text: "Brandastic has been a fantastic agency to work with. They've made significant improvements in our company's digital presence and overall performance.", author: "Cinthya Baez"},
+    {text: "I had the pleasure of working with Ben at Brandastic, and I can't say enough good things about the experience. From start to finish, Ben was incredibly helpful, professional, and attentive.", author: "Pedro Matabuena"},
+    {text: "I have worked with Lachelle and Justin now for over 5 years, and I have to say they are hands down the best marketing company we have used.", author: "Corey S"},
+    {text: "We have been working with Brandastic for over 3 years now, and we couldn't be happier with the results they have helped us achieve.", author: "Alan Par"},
+    {text: "Brandastic has been a great company to work with! Ben has been so helpful throughout the whole process. They have made a significant improvement in our marketing.", author: "Saul Bautista"}
+  ];
+  var idx = 0;
+  var el = document.getElementById("reviewRotator");
+  if (!el) return;
+  setInterval(function() {
+    el.style.opacity = "0";
+    el.style.transform = "translateY(10px)";
+    setTimeout(function() {
+      idx = (idx + 1) % reviews.length;
+      el.innerHTML = '<p style="font-size:1rem;font-style:italic;color:rgba(255,255,255,0.7);line-height:1.7;text-align:center;margin:0">\"' + reviews[idx].text + '\"</p><p style="font-size:0.8rem;color:rgba(64,180,229,0.8);margin-top:0.5rem;text-align:center">— ' + reviews[idx].author + '</p>';
+      el.style.transform = "translateY(-10px)";
+      setTimeout(function() {
+        el.style.opacity = "1";
+        el.style.transform = "translateY(0)";
+      }, 50);
+    }, 400);
+  }, 5000);
 })();
 
 // Mouse sparkle trail
