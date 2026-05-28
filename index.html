@@ -27,7 +27,7 @@ a{color:var(--accent);text-decoration:none}
 .hero-badge{display:inline-flex;align-items:center;gap:8px;padding:8px 20px;border-radius:50px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);font-size:0.75rem;font-weight:600;letter-spacing:0.15em;text-transform:uppercase;color:var(--text2);margin-bottom:2rem}
 .hero-badge .dot{width:8px;height:8px;border-radius:50%;background:linear-gradient(135deg,#40B4E5,#CC22FF);animation:pulse 2s infinite}
 @keyframes pulse{0%,100%{opacity:1}50%{opacity:0.5}}
-.hero h1{font-size:clamp(2.5rem,7vw,5rem);font-weight:900;letter-spacing:-0.04em;line-height:1.05;margin-bottom:1.5rem;max-width:800px}
+.hero h1{font-size:clamp(2.5rem,7vw,5rem);font-weight:900;letter-spacing:-0.04em;line-height:1.05;margin-bottom:1.5rem;max-width:800px;text-align:center;margin-left:auto;margin-right:auto}
 .hero h1 .gradient{background:linear-gradient(135deg,#40B4E5,#CC22FF);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
 .hero p{font-size:1.15rem;color:var(--text2);max-width:600px;margin-bottom:3rem;line-height:1.7}
 .hero-cta{display:inline-flex;align-items:center;gap:8px;background:linear-gradient(135deg,#40B4E5,#CC22FF);color:#fff;padding:14px 32px;border-radius:12px;font-weight:700;font-size:1rem;border:none;cursor:pointer;transition:transform 0.2s,box-shadow 0.2s}
@@ -220,7 +220,7 @@ a{color:var(--accent);text-decoration:none}
   <div id="videoFade" style="position:fixed;top:0;left:0;right:0;bottom:0;background:#0a0e1a;opacity:0;z-index:1;pointer-events:none;transition:opacity 0.1s;max-height:100vh"></div>
   <div class="particles" id="particles"></div>
   <div style="position:relative;z-index:2" class="hero-content">
-  <h1>Uncover What's<br><span class="gradient">Costing You <span id="rotatingWord" style="background:linear-gradient(135deg,#40B4E5,#CC22FF);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">Revenue</span></span></h1>
+  <h1>Uncover What's<br><span class="gradient">Costing You <span id="rotatingWord" style="background:linear-gradient(135deg,#40B4E5,#CC22FF);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;border-bottom:4px solid #CC22FF;padding-bottom:4px">Revenue</span></span></h1>
   <p>Premium digital marketing audits. Deep analysis. Actionable strategy. Real results. Get a personalized audit and see exactly where your growth opportunities are.</p>
   <a href="#form" class="hero-cta">Get Your Free Audit →</a>
   <p style="margin-top:1.5rem;font-size:0.9rem;color:rgba(255,255,255,0.7);font-weight:700;text-align:center;display:block;letter-spacing:0.02em">Powering growth for 450+ brands since 2010</p>
@@ -668,7 +668,7 @@ switchTab(0);
     el.style.transform = "translateY(10px)";
     setTimeout(function() {
       idx = (idx + 1) % words.length;
-      el.textContent = words[idx]; el.style.background = "linear-gradient(135deg,#40B4E5,#CC22FF)"; el.style.webkitBackgroundClip = "text"; el.style.webkitTextFillColor = "transparent"; el.style.backgroundClip = "text";
+      el.textContent = words[idx]; el.style.background = "linear-gradient(135deg,#40B4E5,#CC22FF)"; el.style.webkitBackgroundClip = "text"; el.style.webkitTextFillColor = "transparent"; el.style.backgroundClip = "text"; el.style.borderBottom = "4px solid #CC22FF"; el.style.paddingBottom = "4px";
       el.style.opacity = "1";
       el.style.transform = "translateY(0)";
     }, 300);
