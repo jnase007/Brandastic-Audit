@@ -752,13 +752,17 @@ window.addEventListener("scroll", function() {
 (function() {
   var container = document.getElementById("particles");
   if (!container) return;
-  for (var i = 0; i < 20; i++) {
+  var colors = ["rgba(64,180,229,0.4)","rgba(204,34,255,0.3)","rgba(64,180,229,0.25)","rgba(255,255,255,0.15)","rgba(204,34,255,0.2)"];
+  for (var i = 0; i < 50; i++) {
     var p = document.createElement("div");
     p.className = "particle";
     p.style.left = Math.random() * 100 + "%";
-    p.style.animationDuration = (Math.random() * 15 + 10) + "s";
-    p.style.animationDelay = (Math.random() * 10) + "s";
-    p.style.width = p.style.height = (Math.random() * 3 + 1) + "px";
+    p.style.animationDuration = (Math.random() * 20 + 8) + "s";
+    p.style.animationDelay = (Math.random() * 15) + "s";
+    var size = Math.random() * 5 + 1;
+    p.style.width = p.style.height = size + "px";
+    p.style.background = colors[Math.floor(Math.random() * colors.length)];
+    if (size > 3) p.style.boxShadow = "0 0 " + (size * 2) + "px " + colors[Math.floor(Math.random() * colors.length)];
     container.appendChild(p);
   }
 })();
