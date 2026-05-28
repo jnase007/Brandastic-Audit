@@ -767,6 +767,31 @@ window.addEventListener("scroll", function() {
   }
 })();
 
+// Mouse sparkle trail
+(function() {
+  var sparkles = [];
+  var colors = ["#40B4E5","#CC22FF","#fff","#40B4E5","#CC22FF"];
+  document.addEventListener("mousemove", function(e) {
+    if (Math.random() > 0.6) return; // throttle - only 40% of moves
+    var s = document.createElement("div");
+    s.style.cssText = "position:fixed;pointer-events:none;z-index:9999;border-radius:50%;";
+    var size = Math.random() * 6 + 2;
+    s.style.width = s.style.height = size + "px";
+    var color = colors[Math.floor(Math.random() * colors.length)];
+    s.style.background = color;
+    s.style.boxShadow = "0 0 " + (size * 2) + "px " + color;
+    s.style.left = (e.clientX - size/2 + (Math.random() * 10 - 5)) + "px";
+    s.style.top = (e.clientY - size/2 + (Math.random() * 10 - 5)) + "px";
+    s.style.transition = "all 0.8s ease-out";
+    document.body.appendChild(s);
+    setTimeout(function() {
+      s.style.opacity = "0";
+      s.style.transform = "translateY(-" + (Math.random() * 30 + 15) + "px) scale(0)";
+    }, 10);
+    setTimeout(function() { s.remove(); }, 900);
+  });
+})();
+
 // Scroll fade for video
 window.addEventListener('scroll', function() {
   var fade = document.getElementById('videoFade');
