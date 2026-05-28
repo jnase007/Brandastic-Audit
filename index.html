@@ -130,8 +130,12 @@ a{color:var(--accent);text-decoration:none}
   .cases{grid-template-columns:1fr!important}
   .stats-bar{gap:1.5rem;padding:2rem 1rem}
   .stats-bar .stat-num{font-size:2rem}
-  .process{flex-direction:column;gap:1.5rem;align-items:center}
-  .process::before{display:none}
+  .process{flex-direction:column;gap:0;align-items:stretch;padding-left:2rem}
+  .process::before{display:block;left:22px!important;top:0!important;bottom:0!important;right:auto!important;width:2px!important;height:auto!important}
+  .process-step{text-align:left!important;display:flex;align-items:flex-start;gap:1rem;padding:1.25rem 0;position:relative}
+  .process-step::after{content:"↓";position:absolute;left:-30px;bottom:-8px;color:rgba(64,180,229,0.4);font-size:1rem}
+  .process-step:last-child::after{content:"✓";color:#22c55e}
+  .process-dot{margin:0!important;flex-shrink:0;width:44px!important;height:44px!important;font-size:1rem!important}
   .form-section{padding:3rem 1rem}
   .form-card{padding:1.5rem!important}
   .form-section>div{flex-direction:column!important;gap:2rem!important}
