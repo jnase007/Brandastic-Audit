@@ -120,10 +120,10 @@ td{padding:0.6rem;border-bottom:1px solid var(--card-border)}
       <span style="font-size:0.7rem;color:var(--muted);text-align:center;flex:1">M3</span>
       <span style="font-size:0.7rem;color:var(--muted);text-align:center;flex:1">M4</span>
       <span style="font-size:0.7rem;color:var(--muted);text-align:center;flex:1">M5</span>
-      <span style="font-size:0.7rem;color:var(--muted);text-align:center;flex:1">M6</span>
-      <span style="font-size:0.7rem;color:var(--muted);text-align:center;flex:1">M7</span>
-      <span style="font-size:0.7rem;color:var(--muted);text-align:center;flex:1">M8</span>
-      <span style="font-size:0.7rem;color:var(--green);font-weight:700;text-align:center;flex:1">M9 🎯</span>
+      <span style="font-size:0.7rem;color:var(--green);font-weight:700;text-align:center;flex:1">M6 🎯</span>
+      <span style="font-size:0.7rem;color:var(--green);text-align:center;flex:1">M7</span>
+      <span style="font-size:0.7rem;color:var(--green);text-align:center;flex:1">M8</span>
+      <span style="font-size:0.7rem;color:var(--green);text-align:center;flex:1">M9</span>
       <span style="font-size:0.7rem;color:var(--green);text-align:center;flex:1">M10</span>
       <span style="font-size:0.7rem;color:var(--green);text-align:center;flex:1">M11</span>
       <span style="font-size:0.7rem;color:var(--green);text-align:center;flex:1">M12</span>
@@ -141,18 +141,18 @@ td{padding:0.6rem;border-bottom:1px solid var(--card-border)}
 (function(){
   const data = [
     {month:'Now',     rev:100,  clients:75,  trials:0,   newClients:0,  phase:'Current State',       phaseColor:'#ef4444'},
-    {month:'Month 1', rev:225,  clients:90,  trials:30,  newClients:15, phase:'Setup',               phaseColor:'#ef4444'},
-    {month:'Month 2', rev:288,  clients:115, trials:50,  newClients:25, phase:'Ramp',                phaseColor:'#f59e0b'},
-    {month:'Month 3', rev:388,  clients:155, trials:80,  newClients:40, phase:'Ramp',                phaseColor:'#f59e0b'},
-    {month:'Month 4', rev:513,  clients:205, trials:100, newClients:50, phase:'Ramp',                phaseColor:'#f59e0b'},
-    {month:'Month 5', rev:663,  clients:265, trials:120, newClients:60, phase:'Ramp',                phaseColor:'#f59e0b'},
-    {month:'Month 6', rev:840,  clients:336, trials:142, newClients:71, phase:'Scale & Optimize',    phaseColor:'#22c55e'},
-    {month:'Month 7', rev:1018, clients:407, trials:142, newClients:71, phase:'Scale & Optimize',    phaseColor:'#22c55e'},
-    {month:'Month 8', rev:1195, clients:478, trials:142, newClients:71, phase:'Scale & Optimize',    phaseColor:'#22c55e'},
-    {month:'Month 9', rev:1250, clients:500, trials:142, newClients:71, phase:'🎯 Target Hit!',      phaseColor:'#22c55e'},
-    {month:'Month 10',rev:1350, clients:540, trials:142, newClients:71, phase:'Scale & Optimize',    phaseColor:'#22c55e'},
-    {month:'Month 11',rev:1420, clients:570, trials:142, newClients:71, phase:'Scale & Optimize',    phaseColor:'#22c55e'},
-    {month:'Month 12',rev:1500, clients:600, trials:142, newClients:71, phase:'Scale & Optimize',    phaseColor:'#22c55e'}
+    {month:'Month 1', rev:250,  clients:100, trials:50,  newClients:25, phase:'Setup & Launch',      phaseColor:'#ef4444'},
+    {month:'Month 2', rev:425,  clients:170, trials:140, newClients:70, phase:'Ramp',                phaseColor:'#f59e0b'},
+    {month:'Month 3', rev:625,  clients:250, trials:160, newClients:80, phase:'Ramp',                phaseColor:'#f59e0b'},
+    {month:'Month 4', rev:850,  clients:340, trials:180, newClients:90, phase:'Ramp',                phaseColor:'#f59e0b'},
+    {month:'Month 5', rev:1050, clients:420, trials:160, newClients:80, phase:'Ramp',                phaseColor:'#f59e0b'},
+    {month:'Month 6', rev:1250, clients:500, trials:160, newClients:80, phase:'🎯 Target Hit!',      phaseColor:'#22c55e'},
+    {month:'Month 7', rev:1350, clients:540, trials:142, newClients:71, phase:'Scale & Optimize',    phaseColor:'#22c55e'},
+    {month:'Month 8', rev:1420, clients:570, trials:142, newClients:71, phase:'Scale & Optimize',    phaseColor:'#22c55e'},
+    {month:'Month 9', rev:1500, clients:600, trials:142, newClients:71, phase:'Scale & Optimize',    phaseColor:'#22c55e'},
+    {month:'Month 10',rev:1550, clients:620, trials:142, newClients:71, phase:'Scale & Optimize',    phaseColor:'#22c55e'},
+    {month:'Month 11',rev:1600, clients:640, trials:142, newClients:71, phase:'Scale & Optimize',    phaseColor:'#22c55e'},
+    {month:'Month 12',rev:1650, clients:660, trials:142, newClients:71, phase:'Scale & Optimize',    phaseColor:'#22c55e'}
   ];
   const maxY=1700, padX=30;
   const canvas=document.getElementById('revChart');
@@ -186,6 +186,7 @@ td{padding:0.6rem;border-bottom:1px solid var(--card-border)}
     // Phase backgrounds
     const phaseBreaks=[0,1,5,12];
     const phaseColors=['rgba(239,68,68,0.04)','rgba(245,158,11,0.04)','rgba(34,197,94,0.04)'];
+    // Setup=M0-M1, Ramp=M2-M5, Scale=M6-M12
     for(let p=0;p<3;p++){
       const x1=pts[phaseBreaks[p]].x-padX;
       const x2=pts[phaseBreaks[p+1]].x+padX;
