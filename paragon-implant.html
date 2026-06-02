@@ -112,11 +112,11 @@ td{padding:0.6rem;border-bottom:1px solid var(--card-border)}
         <line x1="0" y1="216" x2="1000" y2="216" stroke="var(--card-border)" stroke-width="1" stroke-dasharray="4"/>
         <line x1="0" y1="288" x2="1000" y2="288" stroke="var(--card-border)" stroke-width="1" stroke-dasharray="4"/>
         <!-- Target line at $1.25M: y = 360 - (1250/1500)*360 = 60 -->
-        <line x1="0" y1="60" x2="1000" y2="60" stroke="#ef4444" stroke-width="2" stroke-dasharray="8,4" opacity="0.6"/>
+        <line x1="0" y1="60" x2="950" y2="60" stroke="#ef4444" stroke-width="2" stroke-dasharray="8,4" opacity="0.6"/>
         <!-- Phase backgrounds -->
-        <rect x="0" y="0" width="154" height="360" fill="#ef4444" opacity="0.04"/>
-        <rect x="154" y="0" width="308" height="360" fill="#f59e0b" opacity="0.04"/>
-        <rect x="462" y="0" width="538" height="360" fill="#22c55e" opacity="0.04"/>
+        <rect x="0" y="0" width="130" height="360" fill="#ef4444" opacity="0.04"/>
+        <rect x="130" y="0" width="260" height="360" fill="#f59e0b" opacity="0.04"/>
+        <rect x="390" y="0" width="560" height="360" fill="#22c55e" opacity="0.04"/>
         <!-- Gradient fill under line -->
         <defs>
           <linearGradient id="fillGrad" x1="0" y1="0" x2="0" y2="1">
@@ -124,41 +124,41 @@ td{padding:0.6rem;border-bottom:1px solid var(--card-border)}
             <stop offset="100%" stop-color="#40B4E5" stop-opacity="0.02"/>
           </linearGradient>
         </defs>
-        <!-- Scale: y = 360 - (val/1500)*360 -->
-        <!-- Now=100K(336) M1=225(306) M2=288(291) M3=388(267) M4=513(237) M5=663(201) M6=840(158) M7=1018(116) M8=1195(73) M9=1250(60) M10=1350(36) M11=1420(19) M12=1500(0) -->
-        <polygon points="0,336 77,306 154,291 231,267 308,237 385,201 462,158 538,116 615,73 692,60 769,36 846,19 923,0 923,360 0,360" fill="url(#fillGrad)"/>
+        <!-- Scale: y = 360 - (val/1500)*360. X spacing: 75 per month, 0 to 900 -->
+        <!-- Now=100(336) M1=225(306) M2=288(291) M3=388(267) M4=513(237) M5=663(201) M6=840(158) M7=1018(116) M8=1195(73) M9=1250(60) M10=1350(36) M11=1420(19) M12=1500(0) -->
+        <polygon points="25,336 100,306 175,291 250,267 325,237 400,201 475,158 550,116 625,73 700,60 775,36 850,19 925,0 925,360 25,360" fill="url(#fillGrad)"/>
         <!-- Main line -->
-        <polyline points="0,336 77,306 154,291 231,267 308,237 385,201 462,158 538,116 615,73 692,60 769,36 846,19 923,0" fill="none" stroke="#40B4E5" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+        <polyline points="25,336 100,306 175,291 250,267 325,237 400,201 475,158 550,116 625,73 700,60 775,36 850,19 925,0" fill="none" stroke="#40B4E5" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
         <!-- Data points -->
-        <circle cx="0" cy="336" r="7" fill="#ef4444" stroke="#fff" stroke-width="3"/>
-        <circle cx="77" cy="306" r="6" fill="#40B4E5" stroke="#fff" stroke-width="3"/>
-        <circle cx="154" cy="291" r="6" fill="#40B4E5" stroke="#fff" stroke-width="3"/>
-        <circle cx="231" cy="267" r="6" fill="#40B4E5" stroke="#fff" stroke-width="3"/>
-        <circle cx="308" cy="237" r="6" fill="#40B4E5" stroke="#fff" stroke-width="3"/>
-        <circle cx="385" cy="201" r="6" fill="#40B4E5" stroke="#fff" stroke-width="3"/>
-        <circle cx="462" cy="158" r="6" fill="#40B4E5" stroke="#fff" stroke-width="3"/>
-        <circle cx="538" cy="116" r="6" fill="#40B4E5" stroke="#fff" stroke-width="3"/>
-        <circle cx="615" cy="73" r="6" fill="#40B4E5" stroke="#fff" stroke-width="3"/>
-        <circle cx="692" cy="60" r="8" fill="#22c55e" stroke="#fff" stroke-width="3"/>
-        <circle cx="769" cy="36" r="6" fill="#22c55e" stroke="#fff" stroke-width="3"/>
-        <circle cx="846" cy="19" r="6" fill="#22c55e" stroke="#fff" stroke-width="3"/>
-        <circle cx="923" cy="0" r="6" fill="#22c55e" stroke="#fff" stroke-width="3"/>
+        <circle cx="25" cy="336" r="7" fill="#ef4444" stroke="#fff" stroke-width="3"/>
+        <circle cx="100" cy="306" r="6" fill="#40B4E5" stroke="#fff" stroke-width="3"/>
+        <circle cx="175" cy="291" r="6" fill="#40B4E5" stroke="#fff" stroke-width="3"/>
+        <circle cx="250" cy="267" r="6" fill="#40B4E5" stroke="#fff" stroke-width="3"/>
+        <circle cx="325" cy="237" r="6" fill="#40B4E5" stroke="#fff" stroke-width="3"/>
+        <circle cx="400" cy="201" r="6" fill="#40B4E5" stroke="#fff" stroke-width="3"/>
+        <circle cx="475" cy="158" r="6" fill="#40B4E5" stroke="#fff" stroke-width="3"/>
+        <circle cx="550" cy="116" r="6" fill="#40B4E5" stroke="#fff" stroke-width="3"/>
+        <circle cx="625" cy="73" r="6" fill="#40B4E5" stroke="#fff" stroke-width="3"/>
+        <circle cx="700" cy="60" r="8" fill="#22c55e" stroke="#fff" stroke-width="3"/>
+        <circle cx="775" cy="36" r="6" fill="#22c55e" stroke="#fff" stroke-width="3"/>
+        <circle cx="850" cy="19" r="6" fill="#22c55e" stroke="#fff" stroke-width="3"/>
+        <circle cx="925" cy="0" r="6" fill="#22c55e" stroke="#fff" stroke-width="3"/>
         <!-- Data labels -->
-        <text x="0" y="325" text-anchor="middle" fill="var(--text)" font-size="18" font-weight="700" font-family="Inter,sans-serif">$100K</text>
-        <text x="77" y="295" text-anchor="middle" fill="var(--text2)" font-size="16" font-weight="600" font-family="Inter,sans-serif">$225K</text>
-        <text x="154" y="280" text-anchor="middle" fill="var(--text2)" font-size="16" font-weight="600" font-family="Inter,sans-serif">$288K</text>
-        <text x="231" y="256" text-anchor="middle" fill="var(--text2)" font-size="16" font-weight="600" font-family="Inter,sans-serif">$388K</text>
-        <text x="308" y="226" text-anchor="middle" fill="var(--text2)" font-size="16" font-weight="600" font-family="Inter,sans-serif">$513K</text>
-        <text x="385" y="190" text-anchor="middle" fill="var(--text2)" font-size="16" font-weight="600" font-family="Inter,sans-serif">$663K</text>
-        <text x="462" y="147" text-anchor="middle" fill="var(--text2)" font-size="16" font-weight="600" font-family="Inter,sans-serif">$840K</text>
-        <text x="538" y="105" text-anchor="middle" fill="var(--text2)" font-size="16" font-weight="600" font-family="Inter,sans-serif">$1.02M</text>
-        <text x="615" y="62" text-anchor="middle" fill="var(--text2)" font-size="16" font-weight="600" font-family="Inter,sans-serif">$1.20M</text>
-        <text x="692" y="49" text-anchor="middle" fill="#22c55e" font-size="18" font-weight="800" font-family="Inter,sans-serif">$1.25M ✓</text>
-        <text x="769" y="25" text-anchor="middle" fill="#22c55e" font-size="16" font-weight="600" font-family="Inter,sans-serif">$1.35M</text>
-        <text x="846" y="8" text-anchor="middle" fill="#22c55e" font-size="16" font-weight="600" font-family="Inter,sans-serif">$1.42M</text>
-        <text x="923" y="22" text-anchor="middle" fill="#22c55e" font-size="18" font-weight="800" font-family="Inter,sans-serif">$1.50M</text>
+        <text x="25" y="325" text-anchor="middle" fill="var(--text)" font-size="16" font-weight="700" font-family="Inter,sans-serif">$100K</text>
+        <text x="100" y="295" text-anchor="middle" fill="var(--text2)" font-size="14" font-weight="600" font-family="Inter,sans-serif">$225K</text>
+        <text x="175" y="280" text-anchor="middle" fill="var(--text2)" font-size="14" font-weight="600" font-family="Inter,sans-serif">$288K</text>
+        <text x="250" y="256" text-anchor="middle" fill="var(--text2)" font-size="14" font-weight="600" font-family="Inter,sans-serif">$388K</text>
+        <text x="325" y="226" text-anchor="middle" fill="var(--text2)" font-size="14" font-weight="600" font-family="Inter,sans-serif">$513K</text>
+        <text x="400" y="190" text-anchor="middle" fill="var(--text2)" font-size="14" font-weight="600" font-family="Inter,sans-serif">$663K</text>
+        <text x="475" y="147" text-anchor="middle" fill="var(--text2)" font-size="14" font-weight="600" font-family="Inter,sans-serif">$840K</text>
+        <text x="550" y="105" text-anchor="middle" fill="var(--text2)" font-size="14" font-weight="600" font-family="Inter,sans-serif">$1.02M</text>
+        <text x="625" y="62" text-anchor="middle" fill="var(--text2)" font-size="14" font-weight="600" font-family="Inter,sans-serif">$1.20M</text>
+        <text x="700" y="49" text-anchor="middle" fill="#22c55e" font-size="16" font-weight="800" font-family="Inter,sans-serif">$1.25M ✓</text>
+        <text x="775" y="25" text-anchor="middle" fill="#22c55e" font-size="14" font-weight="600" font-family="Inter,sans-serif">$1.35M</text>
+        <text x="850" y="8" text-anchor="middle" fill="#22c55e" font-size="14" font-weight="600" font-family="Inter,sans-serif">$1.42M</text>
+        <text x="925" y="22" text-anchor="middle" fill="#22c55e" font-size="16" font-weight="800" font-family="Inter,sans-serif">$1.50M</text>
         <!-- Target label -->
-        <text x="990" y="52" text-anchor="end" fill="#ef4444" font-size="16" font-weight="700" font-family="Inter,sans-serif">$1.25M/mo TARGET</text>
+        <text x="940" y="78" text-anchor="end" fill="#ef4444" font-size="13" font-weight="700" font-family="Inter,sans-serif">TARGET</text>
       </svg>
     </div>
     <!-- X-axis labels -->
