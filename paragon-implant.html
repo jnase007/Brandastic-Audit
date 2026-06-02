@@ -88,12 +88,20 @@ td{padding:0.6rem;border-bottom:1px solid var(--card-border)}
   <p style="text-align:center;color:var(--text2);font-size:0.9rem;margin-top:1.5rem">150 dentists trialed → 75 converted (50% conversion rate). The product sells itself — the bottleneck is getting more dentists into the trial pipeline.</p>
 </div>
 
-<!-- GROWTH PROJECTION CHART -->
+<!-- GROWTH PROJECTION CHART - INTERACTIVE -->
 <h2>12-Month Revenue Trajectory</h2>
-<div class="card" style="padding:2rem">
-  <div style="position:relative;width:100%;height:400px;margin-bottom:1rem">
-    <!-- Y-axis labels -->
-    <div style="position:absolute;left:0;top:0;bottom:40px;width:60px;display:flex;flex-direction:column;justify-content:space-between;align-items:flex-end;padding-right:10px">
+<div class="card" style="padding:2rem;position:relative">
+  <div id="chart-container" style="position:relative;width:100%;height:420px;margin-bottom:1rem">
+    <!-- Tooltip -->
+    <div id="chart-tooltip" style="display:none;position:absolute;z-index:100;background:var(--card);border:1px solid var(--accent);border-radius:12px;padding:12px 16px;box-shadow:0 8px 32px rgba(0,0,0,0.2);pointer-events:none;min-width:180px">
+      <div id="tt-month" style="font-size:0.7rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--muted);margin-bottom:4px"></div>
+      <div id="tt-revenue" style="font-size:1.3rem;font-weight:800;background:linear-gradient(135deg,var(--accent),var(--purple));-webkit-background-clip:text;-webkit-text-fill-color:transparent"></div>
+      <div id="tt-clients" style="font-size:0.8rem;color:var(--text2);margin-top:4px"></div>
+      <div id="tt-trials" style="font-size:0.8rem;color:var(--text2)"></div>
+      <div id="tt-phase" style="margin-top:6px"></div>
+    </div>
+    <!-- Y-axis -->
+    <div style="position:absolute;left:0;top:0;bottom:40px;width:55px;display:flex;flex-direction:column;justify-content:space-between;align-items:flex-end;padding-right:8px">
       <span style="font-size:0.7rem;color:var(--muted);font-family:'SF Mono',monospace">$1.50M</span>
       <span style="font-size:0.7rem;color:var(--muted);font-family:'SF Mono',monospace">$1.25M</span>
       <span style="font-size:0.7rem;color:var(--muted);font-family:'SF Mono',monospace">$1.00M</span>
@@ -102,67 +110,10 @@ td{padding:0.6rem;border-bottom:1px solid var(--card-border)}
       <span style="font-size:0.7rem;color:var(--muted);font-family:'SF Mono',monospace">$250K</span>
       <span style="font-size:0.7rem;color:var(--muted);font-family:'SF Mono',monospace">$0</span>
     </div>
-    <!-- Chart area -->
-    <div style="position:absolute;left:65px;right:0;top:0;bottom:40px">
-      <svg viewBox="0 0 1000 360" preserveAspectRatio="none" style="width:100%;height:100%">
-        <!-- Grid lines -->
-        <line x1="0" y1="0" x2="1000" y2="0" stroke="var(--card-border)" stroke-width="1" stroke-dasharray="4"/>
-        <line x1="0" y1="72" x2="1000" y2="72" stroke="var(--card-border)" stroke-width="1" stroke-dasharray="4"/>
-        <line x1="0" y1="144" x2="1000" y2="144" stroke="var(--card-border)" stroke-width="1" stroke-dasharray="4"/>
-        <line x1="0" y1="216" x2="1000" y2="216" stroke="var(--card-border)" stroke-width="1" stroke-dasharray="4"/>
-        <line x1="0" y1="288" x2="1000" y2="288" stroke="var(--card-border)" stroke-width="1" stroke-dasharray="4"/>
-        <!-- Target line at $1.25M: y = 360 - (1250/1500)*360 = 60 -->
-        <line x1="0" y1="60" x2="950" y2="60" stroke="#ef4444" stroke-width="2" stroke-dasharray="8,4" opacity="0.6"/>
-        <!-- Phase backgrounds -->
-        <rect x="0" y="0" width="130" height="360" fill="#ef4444" opacity="0.04"/>
-        <rect x="130" y="0" width="260" height="360" fill="#f59e0b" opacity="0.04"/>
-        <rect x="390" y="0" width="560" height="360" fill="#22c55e" opacity="0.04"/>
-        <!-- Gradient fill under line -->
-        <defs>
-          <linearGradient id="fillGrad" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0%" stop-color="#40B4E5" stop-opacity="0.3"/>
-            <stop offset="100%" stop-color="#40B4E5" stop-opacity="0.02"/>
-          </linearGradient>
-        </defs>
-        <!-- Scale: y = 360 - (val/1500)*360. X spacing: 75 per month, 0 to 900 -->
-        <!-- Now=100(336) M1=225(306) M2=288(291) M3=388(267) M4=513(237) M5=663(201) M6=840(158) M7=1018(116) M8=1195(73) M9=1250(60) M10=1350(36) M11=1420(19) M12=1500(0) -->
-        <polygon points="25,336 100,306 175,291 250,267 325,237 400,201 475,158 550,116 625,73 700,60 775,36 850,19 925,0 925,360 25,360" fill="url(#fillGrad)"/>
-        <!-- Main line -->
-        <polyline points="25,336 100,306 175,291 250,267 325,237 400,201 475,158 550,116 625,73 700,60 775,36 850,19 925,0" fill="none" stroke="#40B4E5" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
-        <!-- Data points -->
-        <circle cx="25" cy="336" r="7" fill="#ef4444" stroke="#fff" stroke-width="3"/>
-        <circle cx="100" cy="306" r="6" fill="#40B4E5" stroke="#fff" stroke-width="3"/>
-        <circle cx="175" cy="291" r="6" fill="#40B4E5" stroke="#fff" stroke-width="3"/>
-        <circle cx="250" cy="267" r="6" fill="#40B4E5" stroke="#fff" stroke-width="3"/>
-        <circle cx="325" cy="237" r="6" fill="#40B4E5" stroke="#fff" stroke-width="3"/>
-        <circle cx="400" cy="201" r="6" fill="#40B4E5" stroke="#fff" stroke-width="3"/>
-        <circle cx="475" cy="158" r="6" fill="#40B4E5" stroke="#fff" stroke-width="3"/>
-        <circle cx="550" cy="116" r="6" fill="#40B4E5" stroke="#fff" stroke-width="3"/>
-        <circle cx="625" cy="73" r="6" fill="#40B4E5" stroke="#fff" stroke-width="3"/>
-        <circle cx="700" cy="60" r="8" fill="#22c55e" stroke="#fff" stroke-width="3"/>
-        <circle cx="775" cy="36" r="6" fill="#22c55e" stroke="#fff" stroke-width="3"/>
-        <circle cx="850" cy="19" r="6" fill="#22c55e" stroke="#fff" stroke-width="3"/>
-        <circle cx="925" cy="0" r="6" fill="#22c55e" stroke="#fff" stroke-width="3"/>
-        <!-- Data labels -->
-        <text x="25" y="325" text-anchor="middle" fill="var(--text)" font-size="16" font-weight="700" font-family="Inter,sans-serif">$100K</text>
-        <text x="100" y="295" text-anchor="middle" fill="var(--text2)" font-size="14" font-weight="600" font-family="Inter,sans-serif">$225K</text>
-        <text x="175" y="280" text-anchor="middle" fill="var(--text2)" font-size="14" font-weight="600" font-family="Inter,sans-serif">$288K</text>
-        <text x="250" y="256" text-anchor="middle" fill="var(--text2)" font-size="14" font-weight="600" font-family="Inter,sans-serif">$388K</text>
-        <text x="325" y="226" text-anchor="middle" fill="var(--text2)" font-size="14" font-weight="600" font-family="Inter,sans-serif">$513K</text>
-        <text x="400" y="190" text-anchor="middle" fill="var(--text2)" font-size="14" font-weight="600" font-family="Inter,sans-serif">$663K</text>
-        <text x="475" y="147" text-anchor="middle" fill="var(--text2)" font-size="14" font-weight="600" font-family="Inter,sans-serif">$840K</text>
-        <text x="550" y="105" text-anchor="middle" fill="var(--text2)" font-size="14" font-weight="600" font-family="Inter,sans-serif">$1.02M</text>
-        <text x="625" y="62" text-anchor="middle" fill="var(--text2)" font-size="14" font-weight="600" font-family="Inter,sans-serif">$1.20M</text>
-        <text x="700" y="49" text-anchor="middle" fill="#22c55e" font-size="16" font-weight="800" font-family="Inter,sans-serif">$1.25M ✓</text>
-        <text x="775" y="25" text-anchor="middle" fill="#22c55e" font-size="14" font-weight="600" font-family="Inter,sans-serif">$1.35M</text>
-        <text x="850" y="8" text-anchor="middle" fill="#22c55e" font-size="14" font-weight="600" font-family="Inter,sans-serif">$1.42M</text>
-        <text x="925" y="22" text-anchor="middle" fill="#22c55e" font-size="16" font-weight="800" font-family="Inter,sans-serif">$1.50M</text>
-        <!-- Target label -->
-        <text x="940" y="78" text-anchor="end" fill="#ef4444" font-size="13" font-weight="700" font-family="Inter,sans-serif">TARGET</text>
-      </svg>
-    </div>
-    <!-- X-axis labels -->
-    <div style="position:absolute;left:65px;right:0;bottom:0;height:35px;display:flex;justify-content:space-between;align-items:flex-start;padding-top:8px">
+    <!-- Canvas chart -->
+    <canvas id="revChart" style="position:absolute;left:60px;right:5px;top:0;bottom:40px;cursor:crosshair"></canvas>
+    <!-- X-axis -->
+    <div style="position:absolute;left:60px;right:5px;bottom:0;height:35px;display:flex;justify-content:space-between;align-items:flex-start;padding-top:8px" id="x-labels">
       <span style="font-size:0.7rem;color:var(--red);font-weight:700;text-align:center;flex:1">NOW</span>
       <span style="font-size:0.7rem;color:var(--muted);text-align:center;flex:1">M1</span>
       <span style="font-size:0.7rem;color:var(--muted);text-align:center;flex:1">M2</span>
@@ -178,14 +129,220 @@ td{padding:0.6rem;border-bottom:1px solid var(--card-border)}
       <span style="font-size:0.7rem;color:var(--green);text-align:center;flex:1">M12</span>
     </div>
   </div>
-  <!-- Phase legend -->
-  <div style="display:flex;gap:2rem;justify-content:center;margin-top:1rem;flex-wrap:wrap">
+  <!-- Legend -->
+  <div style="display:flex;gap:2rem;justify-content:center;margin-top:0.5rem;flex-wrap:wrap">
     <div style="display:flex;align-items:center;gap:6px"><div style="width:12px;height:12px;border-radius:3px;background:rgba(239,68,68,0.15);border:1px solid var(--red)"></div><span style="font-size:0.75rem;color:var(--red);font-weight:600">SETUP</span></div>
     <div style="display:flex;align-items:center;gap:6px"><div style="width:12px;height:12px;border-radius:3px;background:rgba(245,158,11,0.15);border:1px solid var(--yellow)"></div><span style="font-size:0.75rem;color:var(--yellow);font-weight:600">RAMP</span></div>
     <div style="display:flex;align-items:center;gap:6px"><div style="width:12px;height:12px;border-radius:3px;background:rgba(34,197,94,0.15);border:1px solid var(--green)"></div><span style="font-size:0.75rem;color:var(--green);font-weight:600">SCALE & OPTIMIZE</span></div>
   </div>
-  <p style="text-align:center;color:var(--muted);font-size:0.75rem;margin-top:1rem">50% trial-to-client conversion · 142 trials/month at full run-rate · $1.25M target hit by Month 9 · Continued growth to $1.5M+ as pipeline compounds</p>
+  <p style="text-align:center;color:var(--muted);font-size:0.75rem;margin-top:0.75rem">Hover over data points for details · 50% trial-to-client conversion · 142 trials/month at full run-rate</p>
 </div>
+<script>
+(function(){
+  const data = [
+    {month:'Now',     rev:100,  clients:75,  trials:0,   newClients:0,  phase:'Current State',       phaseColor:'#ef4444'},
+    {month:'Month 1', rev:225,  clients:90,  trials:30,  newClients:15, phase:'Setup',               phaseColor:'#ef4444'},
+    {month:'Month 2', rev:288,  clients:115, trials:50,  newClients:25, phase:'Ramp',                phaseColor:'#f59e0b'},
+    {month:'Month 3', rev:388,  clients:155, trials:80,  newClients:40, phase:'Ramp',                phaseColor:'#f59e0b'},
+    {month:'Month 4', rev:513,  clients:205, trials:100, newClients:50, phase:'Ramp',                phaseColor:'#f59e0b'},
+    {month:'Month 5', rev:663,  clients:265, trials:120, newClients:60, phase:'Ramp',                phaseColor:'#f59e0b'},
+    {month:'Month 6', rev:840,  clients:336, trials:142, newClients:71, phase:'Scale & Optimize',    phaseColor:'#22c55e'},
+    {month:'Month 7', rev:1018, clients:407, trials:142, newClients:71, phase:'Scale & Optimize',    phaseColor:'#22c55e'},
+    {month:'Month 8', rev:1195, clients:478, trials:142, newClients:71, phase:'Scale & Optimize',    phaseColor:'#22c55e'},
+    {month:'Month 9', rev:1250, clients:500, trials:142, newClients:71, phase:'🎯 Target Hit!',      phaseColor:'#22c55e'},
+    {month:'Month 10',rev:1350, clients:540, trials:142, newClients:71, phase:'Scale & Optimize',    phaseColor:'#22c55e'},
+    {month:'Month 11',rev:1420, clients:570, trials:142, newClients:71, phase:'Scale & Optimize',    phaseColor:'#22c55e'},
+    {month:'Month 12',rev:1500, clients:600, trials:142, newClients:71, phase:'Scale & Optimize',    phaseColor:'#22c55e'}
+  ];
+  const maxY=1500, padX=30;
+  const canvas=document.getElementById('revChart');
+  const tooltip=document.getElementById('chart-tooltip');
+  let animProgress=0, animDone=false, hoverIdx=-1, pts=[];
+
+  function resize(){
+    const r=canvas.parentElement.getBoundingClientRect();
+    const w=canvas.offsetWidth, h=canvas.offsetHeight;
+    canvas.width=w*2; canvas.height=h*2;
+    canvas.style.width=w+'px'; canvas.style.height=h+'px';
+    pts=data.map((d,i)=>{
+      const x=padX+i*((w*2-padX*2)/(data.length-1));
+      const y=(1-d.rev/maxY)*(h*2-20)+10;
+      return {x,y,...d};
+    });
+  }
+
+  function draw(){
+    const ctx=canvas.getContext('2d');
+    const W=canvas.width, H=canvas.height;
+    ctx.clearRect(0,0,W,H);
+
+    // Grid
+    ctx.strokeStyle='rgba(128,128,128,0.12)';
+    ctx.lineWidth=1;
+    ctx.setLineDash([6,4]);
+    for(let i=0;i<=6;i++){const y=(i/6)*H;ctx.beginPath();ctx.moveTo(0,y);ctx.lineTo(W,y);ctx.stroke();}
+    ctx.setLineDash([]);
+
+    // Phase backgrounds
+    const phaseBreaks=[0,1,5,12];
+    const phaseColors=['rgba(239,68,68,0.04)','rgba(245,158,11,0.04)','rgba(34,197,94,0.04)'];
+    for(let p=0;p<3;p++){
+      const x1=pts[phaseBreaks[p]].x-padX;
+      const x2=pts[phaseBreaks[p+1]].x+padX;
+      ctx.fillStyle=phaseColors[p];
+      ctx.fillRect(x1,0,x2-x1,H);
+    }
+
+    // Target line at $1.25M
+    const targetY=(1-1250/maxY)*(H-20)+10;
+    ctx.strokeStyle='#ef4444';
+    ctx.lineWidth=2;
+    ctx.setLineDash([10,6]);
+    ctx.globalAlpha=0.6;
+    ctx.beginPath();ctx.moveTo(0,targetY);ctx.lineTo(W,targetY);ctx.stroke();
+    ctx.globalAlpha=1;
+    ctx.setLineDash([]);
+    ctx.fillStyle='#ef4444';
+    ctx.font='bold 22px Inter,sans-serif';
+    ctx.textAlign='right';
+    ctx.fillText('$1.25M TARGET',W-10,targetY-8);
+
+    // How many points to draw (animation)
+    const visCount=Math.min(Math.floor(animProgress*data.length)+1,data.length);
+
+    // Fill gradient
+    if(visCount>1){
+      const grad=ctx.createLinearGradient(0,0,0,H);
+      grad.addColorStop(0,'rgba(64,180,229,0.25)');
+      grad.addColorStop(1,'rgba(64,180,229,0.01)');
+      ctx.fillStyle=grad;
+      ctx.beginPath();
+      ctx.moveTo(pts[0].x,H);
+      for(let i=0;i<visCount;i++) ctx.lineTo(pts[i].x,pts[i].y);
+      ctx.lineTo(pts[visCount-1].x,H);
+      ctx.closePath();
+      ctx.fill();
+    }
+
+    // Line
+    if(visCount>1){
+      ctx.strokeStyle='#40B4E5';
+      ctx.lineWidth=5;
+      ctx.lineCap='round';
+      ctx.lineJoin='round';
+      ctx.beginPath();
+      ctx.moveTo(pts[0].x,pts[0].y);
+      for(let i=1;i<visCount;i++) ctx.lineTo(pts[i].x,pts[i].y);
+      ctx.stroke();
+    }
+
+    // Dots + labels
+    for(let i=0;i<visCount;i++){
+      const p=pts[i];
+      const isTarget=i===9;
+      const isPastTarget=i>=9;
+      const isHover=i===hoverIdx;
+      const baseR=isTarget?12:10;
+      const r=isHover?baseR+4:baseR;
+
+      // Glow on hover
+      if(isHover){
+        ctx.beginPath();
+        ctx.arc(p.x,p.y,r+10,0,Math.PI*2);
+        ctx.fillStyle=isPastTarget?'rgba(34,197,94,0.2)':i===0?'rgba(239,68,68,0.2)':'rgba(64,180,229,0.2)';
+        ctx.fill();
+      }
+
+      // Dot
+      ctx.beginPath();
+      ctx.arc(p.x,p.y,r,0,Math.PI*2);
+      ctx.fillStyle=isPastTarget?'#22c55e':i===0?'#ef4444':'#40B4E5';
+      ctx.fill();
+      ctx.strokeStyle='#fff';
+      ctx.lineWidth=4;
+      ctx.stroke();
+
+      // Label
+      const label=p.rev<1000?'$'+p.rev+'K':'$'+(p.rev/1000).toFixed(2)+'M';
+      ctx.font=(isTarget||i===0||i===12)?'bold 24px Inter,sans-serif':'600 20px Inter,sans-serif';
+      ctx.textAlign='center';
+      ctx.fillStyle=isPastTarget?'#22c55e':i===0?'var(--text,#191F24)':'var(--text2,rgba(25,31,36,0.7))';
+      ctx.fillText(label+(isTarget?' ✓':''),p.x,p.y-20);
+    }
+
+    // Vertical hover line
+    if(hoverIdx>=0&&hoverIdx<visCount){
+      ctx.strokeStyle='rgba(64,180,229,0.3)';
+      ctx.lineWidth=2;
+      ctx.setLineDash([4,4]);
+      ctx.beginPath();
+      ctx.moveTo(pts[hoverIdx].x,0);
+      ctx.lineTo(pts[hoverIdx].x,H);
+      ctx.stroke();
+      ctx.setLineDash([]);
+    }
+  }
+
+  function animate(){
+    if(!animDone){
+      animProgress=Math.min(animProgress+0.015,1);
+      if(animProgress>=1) animDone=true;
+    }
+    draw();
+    requestAnimationFrame(animate);
+  }
+
+  function getHoverIndex(e){
+    const rect=canvas.getBoundingClientRect();
+    const mx=(e.clientX-rect.left)*(canvas.width/rect.width);
+    let closest=-1, minDist=Infinity;
+    pts.forEach((p,i)=>{
+      const d=Math.abs(p.x-mx);
+      if(d<minDist){minDist=d;closest=i;}
+    });
+    return minDist<60?closest:-1;
+  }
+
+  canvas.addEventListener('mousemove',function(e){
+    const idx=getHoverIndex(e);
+    hoverIdx=idx;
+    if(idx>=0){
+      const d=data[idx];
+      document.getElementById('tt-month').textContent=d.month;
+      document.getElementById('tt-revenue').textContent=d.rev<1000?'$'+d.rev+'K/mo':'$'+(d.rev/1000).toFixed(2)+'M/mo';
+      document.getElementById('tt-clients').textContent='👥 '+d.clients+' active dentist clients';
+      document.getElementById('tt-trials').textContent=d.trials>0?'🧪 '+d.trials+' trials/mo → '+d.newClients+' new clients':'Current baseline';
+      document.getElementById('tt-phase').innerHTML='<span style="display:inline-block;padding:2px 8px;border-radius:4px;font-size:0.7rem;font-weight:600;background:'+d.phaseColor+'22;color:'+d.phaseColor+'">'+d.phase+'</span>';
+      const rect=canvas.getBoundingClientRect();
+      const container=document.getElementById('chart-container').getBoundingClientRect();
+      let tx=e.clientX-container.left+15;
+      let ty=e.clientY-container.top-80;
+      if(tx+200>container.width) tx=tx-220;
+      if(ty<0) ty=e.clientY-container.top+20;
+      tooltip.style.left=tx+'px';
+      tooltip.style.top=ty+'px';
+      tooltip.style.display='block';
+    }else{
+      tooltip.style.display='none';
+    }
+  });
+
+  canvas.addEventListener('mouseleave',function(){
+    hoverIdx=-1;
+    tooltip.style.display='none';
+  });
+
+  // Intersection observer — animate when in view
+  const obs=new IntersectionObserver(function(entries){
+    if(entries[0].isIntersecting){animProgress=0;animDone=false;obs.disconnect();}
+  },{threshold:0.3});
+  obs.observe(canvas);
+
+  window.addEventListener('resize',function(){resize();draw();});
+  resize();
+  animate();
+})();
+</script>
 
 <!-- SEO SCORECARD -->
 
