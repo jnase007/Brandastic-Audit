@@ -20,6 +20,52 @@
     .tab-btn.active { background: #111; color: #fff; }
     .tab-btn.completed { background: #10b981; color: #fff; }
   </style>
+
+  <script>
+    // Channel URL routing
+    const channelMap = {
+      'google-ads': 0,
+      'google-tag-manager': 1,
+      'gtm': 1,
+      'google-analytics': 2,
+      'ga': 2,
+      'analytics': 2,
+      'google-search-console': 3,
+      'gsc': 3,
+      'search-console': 3,
+      'meta': 4,
+      'facebook': 4,
+      'facebook-ads': 4,
+      'meta-ads': 4,
+      'instagram': 5,
+      'tiktok': 6,
+      'linkedin': 7,
+      'yelp': 8,
+      'google-business': 8,
+      'gbp': 8,
+      'website': 9,
+      'doordash': 10,
+    };
+
+    // Check URL on load
+    window.addEventListener('DOMContentLoaded', function() {
+      // Support both /onboarding/meta and /onboarding#meta and ?channel=meta
+      var path = window.location.pathname.replace('/onboarding/', '').replace('/onboarding', '').replace(/^\/|\/$/g, '');
+      var hash = window.location.hash.replace('#', '');
+      var params = new URLSearchParams(window.location.search);
+      var channel = path || hash || params.get('channel') || '';
+      
+      channel = channel.toLowerCase();
+      
+      if (channel && channelMap.hasOwnProperty(channel)) {
+        showStep(channelMap[channel]);
+      }
+    });
+
+    // Update URL when tab is clicked
+    var origShowStep = window.showStep;
+    var slugs = ['google-ads','google-tag-manager','google-analytics','google-search-console','meta','instagram','tiktok','linkedin','yelp','website','doordash'];
+  </script>
 </head>
 <body class="bg-gray-50 text-gray-900 min-h-screen">
 

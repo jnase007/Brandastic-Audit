@@ -63,3 +63,8 @@
   from = "/portal"
   to = "/portal.html"
   status = 200
+
+[[redirects]]
+  from = "/onboarding/*"
+  to = "/onboarding.html?channel=:splat"
+  status = 200
