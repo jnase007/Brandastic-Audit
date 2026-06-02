@@ -696,7 +696,7 @@ switchTab(0);
     el.style.transform = "translateY(10px)";
     setTimeout(function() {
       idx = (idx + 1) % words.length;
-      el.textContent = words[idx]; el.style.color = "#b8a0d4"; el.style.borderBottom = "3px solid rgba(184,160,212,0.4)"; el.style.paddingBottom = "4px";
+      el.textContent = words[idx]; el.style.background = "linear-gradient(135deg,#4fa3e0,#b8a0d4)"; el.style.webkitBackgroundClip = "text"; el.style.webkitTextFillColor = "transparent"; el.style.borderBottom = "3px solid rgba(79,163,224,0.3)"; el.style.paddingBottom = "4px";
       el.style.opacity = "1";
       el.style.transform = "translateY(0)";
     }, 300);
