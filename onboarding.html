@@ -840,6 +840,9 @@
       document.querySelectorAll('.tab-btn').forEach(t => t.classList.remove('active'));
       document.getElementById('panel-' + index).classList.add('active');
       document.getElementById('tab-' + index).classList.add('active');
+      // Update URL with channel slug
+      var slugs = ['google-ads','tag-manager','analytics','search-console','meta','instagram','tiktok','linkedin','yelp','website','doordash','email','crm','reporting'];
+      if (slugs[index]) history.replaceState(null, '', '/onboarding#' + slugs[index]);
     }
 
     function markDone(index) {
