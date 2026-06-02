@@ -103,11 +103,11 @@ td{padding:0.6rem;border-bottom:1px solid var(--card-border)}
     <!-- Y-axis -->
     <div style="position:absolute;left:0;top:0;bottom:40px;width:55px;display:flex;flex-direction:column;justify-content:space-between;align-items:flex-end;padding-right:8px">
       <span style="font-size:0.7rem;color:var(--muted);font-family:'SF Mono',monospace">$1.70M</span>
-      <span style="font-size:0.7rem;color:var(--muted);font-family:'SF Mono',monospace">$1.40M</span>
-      <span style="font-size:0.7rem;color:var(--muted);font-family:'SF Mono',monospace">$1.10M</span>
+      <span style="font-size:0.7rem;color:var(--muted);font-family:'SF Mono',monospace">$1.42M</span>
+      <span style="font-size:0.7rem;color:var(--muted);font-family:'SF Mono',monospace">$1.13M</span>
       <span style="font-size:0.7rem;color:var(--muted);font-family:'SF Mono',monospace">$850K</span>
-      <span style="font-size:0.7rem;color:var(--muted);font-family:'SF Mono',monospace">$560K</span>
-      <span style="font-size:0.7rem;color:var(--muted);font-family:'SF Mono',monospace">$280K</span>
+      <span style="font-size:0.7rem;color:var(--muted);font-family:'SF Mono',monospace">$567K</span>
+      <span style="font-size:0.7rem;color:var(--muted);font-family:'SF Mono',monospace">$283K</span>
       <span style="font-size:0.7rem;color:var(--muted);font-family:'SF Mono',monospace">$0</span>
     </div>
     <!-- Canvas chart -->
@@ -160,13 +160,15 @@ td{padding:0.6rem;border-bottom:1px solid var(--card-border)}
   let animProgress=0, animDone=false, hoverIdx=-1, pts=[];
 
   function resize(){
-    const r=canvas.parentElement.getBoundingClientRect();
-    const w=canvas.offsetWidth, h=canvas.offsetHeight;
-    canvas.width=w*2; canvas.height=h*2;
+    const rect=canvas.getBoundingClientRect();
+    const w=Math.round(rect.width), h=Math.round(rect.height);
+    const dpr=window.devicePixelRatio||1;
+    canvas.width=w*dpr; canvas.height=h*dpr;
     canvas.style.width=w+'px'; canvas.style.height=h+'px';
+    const cw=canvas.width, ch=canvas.height;
     pts=data.map((d,i)=>{
-      const x=padX+i*((w*2-padX*2)/(data.length-1));
-      const y=(1-d.rev/maxY)*(h*2-20)+10;
+      const x=padX+i*((cw-padX*2)/(data.length-1));
+      const y=(1-d.rev/maxY)*(ch-40)+20;
       return {x,y,...d};
     });
   }
@@ -295,13 +297,14 @@ td{padding:0.6rem;border-bottom:1px solid var(--card-border)}
 
   function getHoverIndex(e){
     const rect=canvas.getBoundingClientRect();
-    const mx=(e.clientX-rect.left)*(canvas.width/rect.width);
+    const dpr=window.devicePixelRatio||1;
+    const mx=(e.clientX-rect.left)*dpr;
     let closest=-1, minDist=Infinity;
     pts.forEach((p,i)=>{
       const d=Math.abs(p.x-mx);
       if(d<minDist){minDist=d;closest=i;}
     });
-    return minDist<60?closest:-1;
+    return minDist<80*dpr?closest:-1;
   }
 
   canvas.addEventListener('mousemove',function(e){
