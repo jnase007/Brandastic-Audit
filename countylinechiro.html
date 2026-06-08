@@ -1,0 +1,1338 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta name="robots" content="noindex, nofollow">
+<meta charset="UTF-8">
+<link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="icon" href="/favicon-192.png" sizes="192x192" type="image/png">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>County Line Chiropractic — Digital Audit & Growth Strategy by Brandastic</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+<style>
+/* ========== CSS CUSTOM PROPERTIES ========== */
+:root {
+  --bg-primary:#191F24;--bg-secondary:#0d1117;--bg-tertiary:#151a20;
+  --bg-card:rgba(100,116,139,0.15);--bg-card-hover:rgba(100,116,139,0.2);
+  --bg-card-border:rgba(100,116,139,0.2);
+  --text-primary:#ffffff;--text-secondary:rgba(255,255,255,0.7);--text-muted:rgba(255,255,255,0.4);
+  --accent-blue:#0644ED;--accent-light:#40B4E5;--accent-purple:#CC22FF;
+  --coastal-fog:#F5F3EF;
+  --glass-bg:rgba(100,116,139,0.15);--glass-border:rgba(255,255,255,0.1);
+  --shadow:0 8px 32px rgba(0,0,0,0.3);
+  --red:#ef4444;--yellow:#f59e0b;--green:#22c55e;
+  --chart-grid:rgba(255,255,255,0.06);--chart-text:rgba(255,255,255,0.5);
+  --transition:0.3s ease;
+}
+[data-theme="light"] {
+  --bg-primary:#F5F3EF;--bg-secondary:#ffffff;--bg-tertiary:#f0ede8;
+  --bg-card:rgba(255,255,255,0.85);--bg-card-hover:rgba(255,255,255,0.95);
+  --bg-card-border:rgba(0,0,0,0.08);
+  --text-primary:#191F24;--text-secondary:rgba(25,31,36,0.7);--text-muted:rgba(25,31,36,0.4);
+  --glass-bg:rgba(255,255,255,0.85);--glass-border:rgba(0,0,0,0.08);
+  --shadow:0 8px 32px rgba(0,0,0,0.06);
+  --chart-grid:rgba(0,0,0,0.06);--chart-text:rgba(0,0,0,0.5);
+}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',system-ui,-apple-system,sans-serif;background:var(--bg-primary);color:var(--text-primary);line-height:1.6;transition:background-color var(--transition),color var(--transition);overflow-x:hidden}
+a{color:var(--accent-light);text-decoration:none}
+/* ========== NAV ========== */
+.nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:0 2rem;height:64px;display:flex;align-items:center;justify-content:space-between;background:var(--glass-bg);backdrop-filter:blur(20px);border-bottom:1px solid var(--glass-border);transition:background var(--transition)}
+.nav-brand{font-weight:700;font-size:1.15rem;letter-spacing:0.05em;display:flex;align-items:center;gap:10px}
+.nav-brand .dot{width:10px;height:10px;border-radius:50%;background:linear-gradient(135deg,#40B4E5,#CC22FF)}
+.nav-actions{display:flex;align-items:center;gap:12px}
+.theme-toggle{width:56px;height:32px;min-width:44px;min-height:44px;border-radius:13px;border:none;cursor:pointer;background:linear-gradient(135deg,#40B4E5,#CC22FF);padding:2px;display:flex;align-items:center;transition:var(--transition);flex-shrink:0}
+.theme-toggle .knob{width:28px;height:28px;border-radius:50%;background:var(--bg-primary);display:flex;align-items:center;justify-content:center;font-size:14px;transition:transform var(--transition),background-color var(--transition);transform:translateX(0)}
+[data-theme="light"] .theme-toggle .knob{transform:translateX(24px)}
+.pdf-btn{display:inline-flex;align-items:center;gap:6px;padding:8px 18px;border-radius:10px;border:none;cursor:pointer;background:linear-gradient(135deg,#40B4E5,#CC22FF);color:#fff;font-family:inherit;font-size:0.78rem;font-weight:600;letter-spacing:0.03em;transition:transform var(--transition),box-shadow var(--transition);white-space:nowrap}
+.pdf-btn:hover{transform:translateY(-1px);box-shadow:0 4px 20px rgba(64,180,229,0.4)}
+/* ========== SECTIONS ========== */
+section{padding:3.5rem 2rem;position:relative}
+section:nth-child(even){background:var(--bg-secondary);transition:background var(--transition)}
+.container{max-width:1200px;margin:0 auto}
+.section-badge{display:inline-flex;align-items:center;gap:6px;padding:6px 16px;border-radius:50px;background:var(--glass-bg);border:1px solid var(--glass-border);font-size:0.7rem;font-weight:600;letter-spacing:0.15em;text-transform:uppercase;color:var(--text-muted);margin-bottom:1.5rem;backdrop-filter:blur(10px)}
+.section-title{font-size:clamp(1.8rem,4vw,2.8rem);font-weight:800;letter-spacing:-0.03em;margin-bottom:1rem;line-height:1.15}
+.section-title .gradient{background:linear-gradient(135deg,#40B4E5,#CC22FF);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.section-sub{color:var(--text-secondary);font-size:1.05rem;max-width:700px;margin-bottom:3rem;line-height:1.7}
+/* ========== HERO ========== */
+.hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding-top:64px;position:relative;overflow:hidden;background:#0d1117}
+[data-theme="light"] .hero{background:#f5f3ef}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 30% 20%,rgba(64,180,229,0.12) 0%,transparent 50%),radial-gradient(ellipse at 70% 80%,rgba(204,34,255,0.08) 0%,transparent 50%);pointer-events:none}
+.hero-company{font-size:clamp(2.5rem,7vw,5.5rem);font-weight:900;letter-spacing:-0.04em;line-height:1;margin-bottom:1.5rem;background:linear-gradient(135deg,#fff 0%,rgba(255,255,255,0.7) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+[data-theme="light"] .hero-company{background:linear-gradient(135deg,#191F24 0%,rgba(25,31,36,0.7) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hero-meta{display:flex;flex-wrap:wrap;gap:1rem;justify-content:center;margin-top:1rem;margin-bottom:3rem}
+.hero-meta span{padding:8px 20px;border-radius:50px;background:var(--glass-bg);border:1px solid var(--glass-border);backdrop-filter:blur(10px);font-size:0.8rem;font-weight:500;color:var(--text-secondary)}
+.hero-scroll{position:absolute;bottom:1rem;animation:bounce 2s infinite;opacity:0.5}
+@keyframes bounce{0%,100%{transform:translateY(0)}50%{transform:translateY(8px)}}
+/* ========== CARDS & GRIDS ========== */
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:2rem;align-items:start}
+.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
+.grid-4{display:grid;grid-template-columns:repeat(2,1fr);gap:1.5rem}
+.card{background:var(--bg-card);border:1px solid var(--bg-card-border);border-radius:16px;padding:2rem;backdrop-filter:blur(10px);transition:transform var(--transition),box-shadow var(--transition),background var(--transition),border-color var(--transition)}
+.card:hover{transform:translateY(-3px);box-shadow:var(--shadow);border-color:rgba(64,180,229,0.2)}
+/* ========== METRIC CARDS ========== */
+.metric-card{text-align:center;padding:2rem 1.5rem}
+.metric-card .value{font-size:2.2rem;font-weight:800;letter-spacing:-0.03em;background:linear-gradient(135deg,#40B4E5,#CC22FF);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.metric-card .label{font-size:0.75rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--text-muted);margin-top:0.5rem}
+.metric-card .change{font-size:0.8rem;margin-top:0.3rem;font-weight:600}
+.metric-card .change.down{color:var(--red)}
+.metric-card .change.up{color:var(--green)}
+/* ========== SCORECARD ========== */
+.score-ring{position:relative;width:120px;height:120px;margin:0 auto 1rem}
+.score-ring svg{transform:rotate(-90deg);width:120px;height:120px}
+.score-ring .bg{fill:none;stroke:var(--bg-card-border);stroke-width:8}
+.score-ring .fg{fill:none;stroke-width:8;stroke-linecap:round;transition:stroke-dashoffset 1.5s ease}
+.score-ring .grade{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:1.8rem;font-weight:800}
+.overall-bar{height:12px;border-radius:6px;background:var(--bg-card-border);overflow:hidden;margin-top:1rem;position:relative}
+.overall-bar .fill{height:100%;border-radius:6px;transition:width 1.5s ease;background:linear-gradient(90deg,var(--red),var(--yellow),var(--green))}
+/* ========== TABLES ========== */
+.data-table{width:100%;border-collapse:collapse;font-size:0.9rem}
+.data-table th{text-align:left;padding:1rem;font-size:0.7rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--text-muted);border-bottom:1px solid var(--bg-card-border)}
+.data-table td{padding:0.85rem 1rem;border-bottom:1px solid var(--bg-card-border);color:var(--text-secondary)}
+.data-table tr:hover td{color:var(--text-primary)}
+.badge{display:inline-block;padding:3px 10px;border-radius:6px;font-size:0.7rem;font-weight:600;letter-spacing:0.05em}
+.badge-branded{background:rgba(204,34,255,0.15);color:#CC22FF}
+.badge-generic{background:rgba(64,180,229,0.15);color:#40B4E5}
+.badge-info{background:rgba(34,197,94,0.15);color:#22c55e}
+.badge-local{background:rgba(245,158,11,0.15);color:#f59e0b}
+/* ========== WARNING / SUCCESS BANNERS ========== */
+.warning-banner{background:linear-gradient(135deg,rgba(239,68,68,0.1),rgba(239,68,68,0.05));border:1px solid rgba(239,68,68,0.2);border-radius:12px;padding:1.5rem 2rem;display:flex;align-items:center;gap:1rem;margin-bottom:2rem}
+.warning-banner .icon{font-size:1.5rem}
+.warning-banner .text{font-weight:600;color:var(--red)}
+.warning-banner .sub{color:var(--text-secondary);font-size:0.9rem;font-weight:400}
+.success-banner{background:linear-gradient(135deg,rgba(34,197,94,0.1),rgba(34,197,94,0.05));border:1px solid rgba(34,197,94,0.2);border-radius:12px;padding:1.5rem 2rem;display:flex;align-items:center;gap:1rem;margin-bottom:2rem}
+.success-banner .icon{font-size:1.5rem}
+.success-banner .text{font-weight:600;color:var(--green)}
+/* ========== PROBLEMS/SOLUTIONS ========== */
+.ps-row{display:grid;grid-template-columns:1fr auto 1fr;gap:1.5rem;align-items:center;margin-bottom:1.5rem}
+.ps-card{padding:1.5rem;border-radius:12px}
+.ps-problem{background:rgba(239,68,68,0.06);border:1px solid rgba(239,68,68,0.15)}
+.ps-solution{background:rgba(34,197,94,0.06);border:1px solid rgba(34,197,94,0.15)}
+.ps-arrow{font-size:1.5rem;background:linear-gradient(135deg,#40B4E5,#CC22FF);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;font-weight:800}
+.ps-card .title{font-weight:700;font-size:0.95rem;margin-bottom:0.25rem}
+.ps-problem .title{color:var(--red)}
+.ps-solution .title{color:var(--green)}
+/* ========== CONTENT GAP ========== */
+.gap-card{padding:1.5rem;text-align:center}
+.gap-card .kw{font-weight:700;font-size:1rem;margin-bottom:0.5rem}
+.gap-card .vol{font-size:1.8rem;font-weight:800;background:linear-gradient(135deg,#40B4E5,#CC22FF);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.gap-card .vol-label{font-size:0.7rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.1em}
+.gap-card .status{display:inline-block;margin-top:0.75rem;padding:4px 12px;border-radius:6px;background:rgba(239,68,68,0.12);color:var(--red);font-size:0.7rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase}
+/* ========== FINDING CARDS ========== */
+.finding-card{display:flex;gap:1.5rem;align-items:start;padding:2rem}
+.finding-num{flex-shrink:0;width:48px;height:48px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.2rem;font-weight:800;color:#fff}
+.finding-num.critical{background:linear-gradient(135deg,#ef4444,#dc2626)}
+.finding-num.high{background:linear-gradient(135deg,#f59e0b,#d97706)}
+.finding-card .title{font-weight:700;font-size:1.05rem;margin-bottom:0.3rem}
+.finding-card .desc{color:var(--text-secondary);font-size:0.9rem}
+/* ========== STRATEGY CARDS ========== */
+.strategy-card{padding:2.5rem 2rem;border-top:3px solid transparent;background-image:linear-gradient(var(--bg-card),var(--bg-card)),linear-gradient(135deg,#40B4E5,#CC22FF);background-origin:border-box;background-clip:padding-box,border-box;border-radius:16px;text-align:center}
+.strategy-card .icon{font-size:2.5rem;margin-bottom:1rem}
+.strategy-card .title{font-weight:700;font-size:1.1rem;margin-bottom:0.75rem}
+.strategy-card .desc{color:var(--text-secondary);font-size:0.9rem;line-height:1.6;margin-bottom:1rem}
+.strategy-card .outcome{padding:0.75rem;border-radius:8px;background:rgba(64,180,229,0.08);font-size:0.8rem;font-weight:600;color:var(--accent-light)}
+/* ========== TIMELINE ========== */
+.timeline{display:flex;gap:0;margin-top:2rem;position:relative}
+.timeline::before{content:'';position:absolute;top:40px;left:0;right:0;height:3px;background:var(--bg-card-border)}
+.timeline-phase{flex:1;position:relative;padding-top:60px;padding-right:1.5rem}
+.timeline-dot{position:absolute;top:32px;left:0;width:18px;height:18px;border-radius:50%;background:linear-gradient(135deg,#40B4E5,#CC22FF);border:3px solid var(--bg-primary);z-index:1;transition:border-color var(--transition)}
+.timeline-phase .phase-label{font-size:0.7rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--accent-light);margin-bottom:0.5rem}
+.timeline-phase .phase-title{font-weight:700;font-size:1.1rem;margin-bottom:0.75rem}
+.timeline-phase .phase-items{list-style:none;display:flex;flex-direction:column;gap:0.4rem}
+.timeline-phase .phase-items li{font-size:0.9rem;color:var(--text-secondary);padding-left:1.2rem;position:relative}
+.timeline-phase .phase-items li::before{content:'';position:absolute;left:0;top:8px;width:6px;height:6px;border-radius:50%;background:#40B4E5}
+/* ========== ROI ========== */
+.roi-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1.5rem}
+.roi-card{text-align:center;padding:2rem 1.5rem}
+.roi-card .label{font-size:0.7rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--text-muted);margin-bottom:0.75rem}
+.roi-card .before{font-size:1.3rem;font-weight:600;color:var(--text-muted);text-decoration:line-through}
+.roi-card .arrow{font-size:1.5rem;margin:0.5rem 0;background:linear-gradient(135deg,#40B4E5,#CC22FF);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.roi-card .after{font-size:2rem;font-weight:800;background:linear-gradient(135deg,#40B4E5,#CC22FF);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+/* ========== CTA ========== */
+.cta-section{text-align:center;padding:8rem 2rem;position:relative;overflow:hidden;background:linear-gradient(rgba(25,31,36,0.92),rgba(25,31,36,0.95)),url('images/office.jpg') center/cover no-repeat}
+[data-theme="light"] .cta-section{background:linear-gradient(rgba(245,243,239,0.92),rgba(245,243,239,0.95)),url('images/office.jpg') center/cover no-repeat}
+.cta-section::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 50%,rgba(64,180,229,0.1) 0%,transparent 60%);pointer-events:none}
+.cta-btn{display:inline-flex;align-items:center;gap:8px;padding:16px 40px;border-radius:14px;background:linear-gradient(135deg,#40B4E5,#CC22FF);color:#fff;font-family:inherit;font-size:1.1rem;font-weight:700;border:none;cursor:pointer;transition:transform var(--transition),box-shadow var(--transition)}
+.cta-btn:hover{transform:translateY(-2px);box-shadow:0 8px 30px rgba(64,180,229,0.4)}
+.value-props{display:flex;flex-wrap:wrap;justify-content:center;gap:2rem;margin:3rem 0}
+.value-prop{display:flex;align-items:center;gap:8px;color:var(--text-secondary);font-size:0.95rem}
+.steps{display:flex;justify-content:center;gap:3rem;margin-top:3rem;flex-wrap:wrap}
+.step{text-align:center;max-width:200px}
+.step-num{width:48px;height:48px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:1.2rem;margin:0 auto 0.75rem;background:linear-gradient(135deg,#40B4E5,#CC22FF);color:#fff}
+.step .title{font-weight:700;font-size:0.95rem;margin-bottom:0.3rem}
+.step .desc{font-size:0.8rem;color:var(--text-secondary)}
+/* ========== WATERMARK ========== */
+.watermark{position:fixed;bottom:20px;left:20px;display:flex;align-items:center;gap:6px;padding:8px 16px;border-radius:10px;background:var(--glass-bg);border:1px solid var(--glass-border);backdrop-filter:blur(10px);font-size:0.7rem;font-weight:600;color:var(--text-muted);letter-spacing:0.05em;z-index:999;transition:background var(--transition)}
+/* ========== SCROLL ANIMATION ========== */
+.reveal{opacity:1;transform:none;transition:opacity 0.8s ease,transform 0.8s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
+/* ========== SOV BARS ========== */
+.sov-bar-bg{background:rgba(255,255,255,0.06);border-radius:6px;height:16px;overflow:hidden}
+[data-theme="light"] .sov-bar-bg{background:rgba(0,0,0,0.06)}
+/* ========== SEO MATRIX ========== */
+.seo-matrix-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;margin-top:2rem;border-radius:16px;background:var(--bg-card);border:1px solid var(--bg-card-border);backdrop-filter:blur(10px)}
+.seo-matrix{width:100%;border-collapse:collapse;font-size:0.88rem;min-width:600px}
+.seo-matrix thead th{padding:1rem 1.25rem;font-size:0.7rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--text-muted);border-bottom:2px solid var(--bg-card-border);text-align:center;white-space:nowrap}
+.seo-matrix thead th:first-child{text-align:left}
+.seo-matrix thead th.highlight{background:linear-gradient(135deg,rgba(64,180,229,0.08),rgba(204,34,255,0.08));color:var(--accent-light);position:relative}
+.seo-matrix thead th.highlight::after{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,#40B4E5,#CC22FF);border-radius:3px 3px 0 0}
+.seo-matrix tbody td{padding:0.85rem 1.25rem;border-bottom:1px solid var(--bg-card-border);text-align:center;color:var(--text-secondary);white-space:nowrap}
+.seo-matrix tbody td:first-child{text-align:left;font-weight:600;color:var(--text-primary)}
+.seo-matrix tbody td.highlight{background:linear-gradient(135deg,rgba(64,180,229,0.04),rgba(204,34,255,0.04))}
+.seo-matrix tbody tr:hover td{background:var(--bg-card-hover)}
+.seo-matrix .status-good{color:var(--green)}
+.seo-matrix .status-warn{color:var(--yellow)}
+.seo-matrix .status-bad{color:var(--red)}
+.seo-matrix .winner-row td{border-top:2px solid var(--bg-card-border);font-weight:700;font-size:0.75rem;letter-spacing:0.08em;text-transform:uppercase}
+.seo-matrix .winner-row td.winning{background:linear-gradient(135deg,rgba(34,197,94,0.1),rgba(34,197,94,0.05));color:var(--green)}
+.seo-matrix .winner-row td.losing{background:linear-gradient(135deg,rgba(239,68,68,0.1),rgba(239,68,68,0.05));color:var(--red)}
+.seo-matrix .winner-row td.neutral{color:var(--text-muted)}
+/* ========== STAT CARDS ========== */
+.stats-bar{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem;margin-bottom:3rem}
+.stat-card{background:var(--glass-bg);border:1px solid var(--glass-border);border-radius:16px;padding:1.5rem;text-align:center;backdrop-filter:blur(10px)}
+.stat-card .stat-num{font-size:2.5rem;font-weight:800;background:linear-gradient(135deg,#40B4E5,#CC22FF);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1.2}
+.stat-card .stat-label{font-size:0.85rem;color:var(--text-muted);margin-top:0.25rem}
+.value-cards{display:grid;grid-template-columns:repeat(2,1fr);gap:1.5rem;margin:2.5rem 0;text-align:left}
+.value-card{background:var(--glass-bg);border:1px solid var(--glass-border);border-radius:16px;padding:1.75rem;backdrop-filter:blur(10px)}
+.value-card h4{font-size:1.05rem;font-weight:700;margin:0 0 0.5rem;color:var(--text-primary)}
+.value-card p{font-size:0.9rem;color:var(--text-secondary);margin:0;line-height:1.5}
+/* ========== CHART WRAPPER ========== */
+.chart-wrap{background:var(--bg-card);border:1px solid var(--bg-card-border);border-radius:16px;padding:2rem;backdrop-filter:blur(10px);transition:background var(--transition),border-color var(--transition)}
+/* ========== SIDE NAV ========== */
+.side-nav{position:fixed;right:1.2rem;top:50%;transform:translateY(-50%);z-index:999;display:flex;flex-direction:column;align-items:center;padding:14px 8px;border-radius:999px;background:var(--glass-bg);backdrop-filter:blur(20px);border:1px solid var(--glass-border);box-shadow:var(--shadow);transition:background var(--transition),border-color var(--transition)}
+.side-nav-line{position:absolute;top:14px;bottom:14px;width:1px;background:var(--glass-border);z-index:0}
+.side-nav-dot{position:relative;z-index:1;width:8px;height:8px;border-radius:50%;background:var(--text-muted);margin:7px 0;cursor:pointer;transition:all 0.3s ease;flex-shrink:0}
+.side-nav-dot:hover{background:var(--text-secondary);transform:scale(1.3)}
+.side-nav-dot.active{width:10px;height:10px;background:linear-gradient(135deg,#40B4E5,#CC22FF);box-shadow:0 0 10px rgba(64,180,229,0.5);margin:6px 0}
+.side-nav-dot .tooltip{position:absolute;right:calc(100% + 12px);top:50%;transform:translateY(-50%) translateX(6px);background:var(--glass-bg);backdrop-filter:blur(16px);border:1px solid var(--glass-border);color:var(--text-primary);padding:4px 10px;border-radius:8px;font-size:0.7rem;font-weight:600;letter-spacing:0.03em;white-space:nowrap;opacity:0;pointer-events:none;transition:all 0.25s ease;box-shadow:var(--shadow)}
+.side-nav-dot:hover .tooltip{opacity:1;transform:translateY(-50%) translateX(0)}
+/* ========== GOOGLE SERP / ADS ========== */
+.google-serp-card{background:#fff;border:1px solid #dadce0;border-radius:12px;padding:1.5rem 2rem;margin-bottom:1.5rem;font-family:'Inter',Arial,sans-serif}
+[data-theme="dark"] .google-serp-card{background:rgba(32,33,36,0.95);border-color:rgba(255,255,255,0.1)}
+.serp-search-bar{display:flex;align-items:center;gap:10px;padding:10px 16px;border-radius:24px;border:1px solid #dfe1e5;background:#fff;margin-bottom:1.5rem;max-width:600px}
+[data-theme="dark"] .serp-search-bar{background:rgba(32,33,36,1);border-color:rgba(100,116,139,0.3)}
+.serp-search-bar .query{font-size:0.95rem;color:#202124;font-weight:400}
+[data-theme="dark"] .serp-search-bar .query{color:#e8eaed}
+.serp-no-ads{padding:1.5rem;text-align:center;border:2px dashed rgba(239,68,68,0.3);border-radius:12px;margin:1rem 0}
+.serp-no-ads .label{font-size:1rem;font-weight:700;color:var(--red);margin-bottom:0.25rem}
+.serp-no-ads .sub{font-size:0.85rem;color:var(--text-secondary)}
+.ads-callout{background:linear-gradient(135deg,rgba(64,180,229,0.1),rgba(64,180,229,0.05));border:1px solid rgba(64,180,229,0.25);border-radius:12px;padding:1.5rem 2rem;margin-top:2rem;display:flex;align-items:start;gap:1rem}
+.ads-callout .icon{font-size:1.5rem;flex-shrink:0;line-height:1}
+.ads-callout .content .headline{font-weight:700;color:var(--accent-light);font-size:0.95rem;margin-bottom:0.25rem}
+.ads-callout .content .body{color:var(--text-secondary);font-size:0.88rem;line-height:1.6}
+/* ========== READING PROGRESS ========== */
+.reading-progress{position:fixed;top:64px;left:0;width:0%;height:3px;background:linear-gradient(90deg,#40B4E5,#CC22FF);z-index:1001;transition:width 0.1s linear;pointer-events:none}
+/* ========== RESPONSIVE ========== */
+@media(max-width:1024px){.stats-bar{grid-template-columns:repeat(2,1fr)}.grid-4{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:768px){
+  .grid-2,.grid-3,.grid-4{grid-template-columns:1fr}
+  .stats-bar{grid-template-columns:repeat(2,1fr)}
+  .ps-row{grid-template-columns:1fr;text-align:center}
+  .ps-arrow{transform:rotate(90deg)}
+  .timeline{flex-direction:column;gap:2rem}
+  .timeline::before{display:none}
+  .timeline-phase{padding-top:0;padding-left:2rem}
+  .timeline-dot{top:0;left:0}
+  section{padding:4rem 1.5rem}
+  .side-nav{display:none}
+  .value-cards{grid-template-columns:1fr}
+}
+/* ========== PRINT ========== */
+@media print{
+  *{transition:none!important;animation:none!important}
+  body{background:#fff!important;color:#191F24!important}
+  .nav,.theme-toggle,.pdf-btn,.watermark,.hero-scroll,.side-nav,.reading-progress{display:none!important}
+  section{padding:2rem 0!important;background:#fff!important;page-break-inside:avoid}
+  section:nth-child(even){background:#fff!important}
+  .hero{min-height:auto!important;padding:3rem 0!important}
+  .hero-company{-webkit-text-fill-color:#191F24!important;font-size:2.5rem!important}
+  .card{background:#f9f9f9!important;border:1px solid #ddd!important;backdrop-filter:none!important;box-shadow:none!important;page-break-inside:avoid!important}
+  .section-title .gradient{-webkit-text-fill-color:#0644ED!important;background:none!important;color:#0644ED!important}
+  .metric-card .value,.roi-card .after,.gap-card .vol,.stat-card .stat-num{-webkit-text-fill-color:#0644ED!important;background:none!important}
+  .reveal{opacity:1!important;transform:none!important}
+  .chart-wrap{border:1px solid #ddd!important;background:#fff!important}
+  .warning-banner{border:2px solid #ef4444!important}
+  .container{max-width:100%!important}
+  @page{margin:1.5cm;size:letter}
+  .grid-4{grid-template-columns:repeat(2,1fr)!important}
+  .grid-3{grid-template-columns:repeat(3,1fr)!important}
+  .grid-2{grid-template-columns:1fr 1fr!important}
+  .stats-bar{grid-template-columns:repeat(4,1fr)!important}
+}
+</style>
+</head>
+<body>
+
+<!-- READING PROGRESS -->
+<div class="reading-progress" id="readingProgress"></div>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="nav-brand"><div class="dot"></div>BRANDASTIC <span style="opacity:0.4;margin:0 6px">·</span> <span style="font-weight:700;opacity:0.9">County Line Chiropractic</span></div>
+  <div class="nav-actions">
+    <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme">
+      <div class="knob" id="themeKnob">☀️</div>
+    </button>
+    <button class="pdf-btn" onclick="window.print()">📄 Download PDF</button>
+  </div>
+</nav>
+
+<!-- SIDE NAV -->
+<div class="side-nav">
+  <div class="side-nav-line"></div>
+  <div class="side-nav-dot active" data-section="hero"><span class="tooltip">Top</span></div>
+  <div class="side-nav-dot" data-section="overview"><span class="tooltip">Overview</span></div>
+  <div class="side-nav-dot" data-section="summary"><span class="tooltip">Snapshot</span></div>
+  <div class="side-nav-dot" data-section="scorecard"><span class="tooltip">Scorecard</span></div>
+  <div class="side-nav-dot" data-section="traffic"><span class="tooltip">Traffic</span></div>
+  <div class="side-nav-dot" data-section="keywords"><span class="tooltip">Keywords</span></div>
+  <div class="side-nav-dot" data-section="ads"><span class="tooltip">Google Ads</span></div>
+  <div class="side-nav-dot" data-section="competitors"><span class="tooltip">Competitors</span></div>
+  <div class="side-nav-dot" data-section="seo-matrix"><span class="tooltip">SEO Matrix</span></div>
+  <div class="side-nav-dot" data-section="social"><span class="tooltip">Social</span></div>
+  <div class="side-nav-dot" data-section="gaps"><span class="tooltip">Gaps</span></div>
+  <div class="side-nav-dot" data-section="solutions"><span class="tooltip">Solutions</span></div>
+  <div class="side-nav-dot" data-section="findings"><span class="tooltip">Findings</span></div>
+  <div class="side-nav-dot" data-section="strategy"><span class="tooltip">Strategy</span></div>
+  <div class="side-nav-dot" data-section="roadmap"><span class="tooltip">Roadmap</span></div>
+  <div class="side-nav-dot" data-section="roi"><span class="tooltip">ROI</span></div>
+  <div class="side-nav-dot" data-section="cta"><span class="tooltip">Next Steps</span></div>
+</div>
+
+<!-- WATERMARK -->
+<div class="watermark"><span style="width:6px;height:6px;border-radius:50%;background:linear-gradient(135deg,#40B4E5,#CC22FF);display:inline-block"></span>&nbsp; Brandastic Audit</div>
+
+<!-- ===== HERO ===== -->
+<section class="hero" id="hero">
+  <div style="font-size:0.7rem;font-weight:600;color:var(--accent-light);text-transform:uppercase;letter-spacing:0.15em;margin-bottom:1.5rem;padding:6px 16px;border-radius:50px;background:var(--glass-bg);border:1px solid var(--glass-border);backdrop-filter:blur(10px)">Digital Audit &amp; Growth Strategy</div>
+  <h1 class="hero-company">County Line<br>Chiropractic</h1>
+  <p style="color:var(--text-secondary);font-size:1.1rem;max-width:560px;text-align:center;margin-top:1rem">South Florida's Car Accident &amp; Personal Injury Chiropractic Network — Since 1986</p>
+  <div class="hero-meta">
+    <span>📍 6 Locations · South Florida</span>
+    <span>🏥 PIP Auto Insurance Accepted</span>
+    <span>📅 June 2026</span>
+    <a href="https://countylinechiro.com" target="_blank" style="color:inherit;text-decoration:none;border-bottom:1px solid var(--text-muted);padding:8px 20px;border-radius:50px;background:var(--glass-bg);border:1px solid var(--glass-border)">countylinechiro.com ↗</a>
+  </div>
+  <div class="hero-scroll" style="color:var(--text-muted);font-size:1.2rem">↓</div>
+</section>
+
+<!-- Data Disclaimer -->
+<div style="max-width:800px;margin:0 auto 2rem;padding:1.25rem 1.5rem;border-radius:12px;background:linear-gradient(135deg,rgba(64,180,229,0.06),rgba(204,34,255,0.06));border:1px solid rgba(64,180,229,0.15);text-align:center">
+  <p style="font-size:0.85rem;color:var(--text-secondary);line-height:1.6;margin:0">This audit uses publicly available data from SEMrush and social platforms. With access to your Google Analytics, Search Console, and ad accounts, we can provide significantly deeper insights. Share your data for the full picture.</p>
+</div>
+
+<!-- ===== 01. BUSINESS OVERVIEW ===== -->
+<section id="overview">
+  <div class="container reveal">
+    <div class="section-badge">01 — Business Overview</div>
+    <div class="grid-2">
+      <div>
+        <h2 class="section-title">South Florida's Go-To <span class="gradient">Accident Recovery</span> Network</h2>
+        <p class="section-sub" style="margin-bottom:1.5rem">County Line Chiropractic has been serving South Florida accident victims since 1986 — nearly <strong>40 years</strong> in business. With <strong>six clinic locations</strong> across Miami-Dade and Broward counties, the practice specializes exclusively in car accident injury diagnosis, treatment, and PIP insurance documentation.</p>
+        <p style="color:var(--text-secondary);line-height:1.7;font-size:0.95rem">The practice accepts PIP auto insurance directly, works alongside personal injury attorneys, and offers same-day evaluations — all critical differentiators in Florida's competitive personal injury chiropractic market. A bilingual (English/Spanish) operation serving South Florida's diverse population.</p>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:1rem">
+        <div class="card" style="border-left:3px solid var(--accent-light)">
+          <div style="font-size:0.7rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--accent-light);margin-bottom:0.5rem">Strengths</div>
+          <ul style="list-style:none;display:flex;flex-direction:column;gap:0.5rem">
+            <li style="color:var(--text-secondary);font-size:0.9rem">✦ Nearly 40 years in South Florida market</li>
+            <li style="color:var(--text-secondary);font-size:0.9rem">✦ 6 locations across Miami-Dade &amp; Broward</li>
+            <li style="color:var(--text-secondary);font-size:0.9rem">✦ 9,950+ patients treated</li>
+            <li style="color:var(--text-secondary);font-size:0.9rem">✦ Bilingual — strong Spanish SEO rankings</li>
+            <li style="color:var(--text-secondary);font-size:0.9rem">✦ 12,006 backlinks / 888 referring domains</li>
+          </ul>
+        </div>
+        <div class="card" style="border-left:3px solid var(--red)">
+          <div style="font-size:0.7rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--red);margin-bottom:0.5rem">Key Weaknesses</div>
+          <ul style="list-style:none;display:flex;flex-direction:column;gap:0.5rem">
+            <li style="color:var(--text-secondary);font-size:0.9rem">⚠ Only 473 monthly organic visitors</li>
+            <li style="color:var(--text-secondary);font-size:0.9rem">⚠ Nearly zero paid advertising ($7/mo)</li>
+            <li style="color:var(--text-secondary);font-size:0.9rem">⚠ 304 organic keywords — critically thin</li>
+            <li style="color:var(--text-secondary);font-size:0.9rem">⚠ Missing high-value "near me" accident keywords</li>
+            <li style="color:var(--text-secondary);font-size:0.9rem">⚠ Weak local SEO for individual clinic locations</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <!-- Location badges -->
+    <div style="margin-top:2rem;display:flex;flex-wrap:wrap;gap:0.75rem">
+      <div style="font-size:0.75rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-muted);align-self:center">6 Locations:</div>
+      <span style="padding:6px 14px;border-radius:50px;background:var(--glass-bg);border:1px solid var(--glass-border);font-size:0.8rem;font-weight:500;color:var(--text-secondary)">📍 Miami Gardens</span>
+      <span style="padding:6px 14px;border-radius:50px;background:var(--glass-bg);border:1px solid var(--glass-border);font-size:0.8rem;font-weight:500;color:var(--text-secondary)">📍 North Miami Beach</span>
+      <span style="padding:6px 14px;border-radius:50px;background:var(--glass-bg);border:1px solid var(--glass-border);font-size:0.8rem;font-weight:500;color:var(--text-secondary)">📍 Pembroke Pines</span>
+      <span style="padding:6px 14px;border-radius:50px;background:var(--glass-bg);border:1px solid var(--glass-border);font-size:0.8rem;font-weight:500;color:var(--text-secondary)">📍 Plantation</span>
+      <span style="padding:6px 14px;border-radius:50px;background:var(--glass-bg);border:1px solid var(--glass-border);font-size:0.8rem;font-weight:500;color:var(--text-secondary)">📍 Lauderhill</span>
+      <span style="padding:6px 14px;border-radius:50px;background:var(--glass-bg);border:1px solid var(--glass-border);font-size:0.8rem;font-weight:500;color:var(--text-secondary)">📍 Oakland Park</span>
+    </div>
+  </div>
+  <div style="text-align:center;margin-top:1.5rem;padding-top:1rem;border-top:1px solid var(--bg-card-border);font-size:0.75rem;color:var(--text-muted)">
+    Data sources: <a href="https://semrush.com" target="_blank" style="color:var(--text-muted);text-decoration:underline">SEMrush</a> · Website review · Accessed June 2026
+  </div>
+</section>
+
+<!-- ===== 02. EXECUTIVE SNAPSHOT ===== -->
+<section id="summary">
+  <div class="container reveal">
+    <div class="section-badge">02 — Executive Snapshot</div>
+    <h2 class="section-title">Current Digital <span class="gradient">Presence</span></h2>
+    <div class="grid-4" style="margin-bottom:3rem">
+      <div class="card metric-card">
+        <div class="value" style="-webkit-text-fill-color:var(--red);color:var(--red)">1.72M</div>
+        <div class="label">SEMrush Rank</div>
+        <div class="change down">Critically low</div>
+      </div>
+      <div class="card metric-card">
+        <div class="value" style="-webkit-text-fill-color:var(--red);color:var(--red)">473</div>
+        <div class="label">Monthly Organic Traffic</div>
+        <div class="change down">Near-invisible</div>
+      </div>
+      <div class="card metric-card">
+        <div class="value">304</div>
+        <div class="label">Organic Keywords</div>
+        <div class="change down">Very thin coverage</div>
+      </div>
+      <div class="card metric-card">
+        <div class="value" style="-webkit-text-fill-color:var(--red);color:var(--red)">$292</div>
+        <div class="label">Monthly Traffic Value</div>
+        <div class="change down">Massively under-monetized</div>
+      </div>
+    </div>
+    <div class="grid-2">
+      <div>
+        <h3 style="font-weight:700;margin-bottom:1rem;font-size:1.1rem">🔍 Key Findings</h3>
+        <ul style="list-style:none;display:flex;flex-direction:column;gap:0.75rem">
+          <li style="color:var(--text-secondary);font-size:0.9rem;padding-left:1.2rem;position:relative"><span style="position:absolute;left:0;color:#40B4E5">•</span> 473 monthly visitors for a 6-location, 40-year-old practice is critically low — the business is nearly invisible online</li>
+          <li style="color:var(--text-secondary);font-size:0.9rem;padding-left:1.2rem;position:relative"><span style="position:absolute;left:0;color:#40B4E5">•</span> Only $7/month in PPC spend — in an industry where a single new patient is worth $3,000–$10,000+ in PIP claims</li>
+          <li style="color:var(--text-secondary);font-size:0.9rem;padding-left:1.2rem;position:relative"><span style="position:absolute;left:0;color:#40B4E5">•</span> Spanish language SEO is outperforming English — bilingual opportunity is largely untapped</li>
+          <li style="color:var(--text-secondary);font-size:0.9rem;padding-left:1.2rem;position:relative"><span style="position:absolute;left:0;color:#40B4E5">•</span> 12,006 backlinks from 888 domains — decent authority base, but not being activated</li>
+          <li style="color:var(--text-secondary);font-size:0.9rem;padding-left:1.2rem;position:relative"><span style="position:absolute;left:0;color:#40B4E5">•</span> Missing nearly all high-value "car accident chiropractor near me" type queries</li>
+        </ul>
+      </div>
+      <div>
+        <h3 style="font-weight:700;margin-bottom:1rem;font-size:1.1rem">🚀 Biggest Opportunities</h3>
+        <ul style="list-style:none;display:flex;flex-direction:column;gap:0.75rem">
+          <li style="color:var(--text-secondary);font-size:0.9rem;padding-left:1.2rem;position:relative"><span style="position:absolute;left:0;color:#22c55e">•</span> Google Ads for car accident + PIP keywords ($21–$27 CPC = highly profitable lead gen)</li>
+          <li style="color:var(--text-secondary);font-size:0.9rem;padding-left:1.2rem;position:relative"><span style="position:absolute;left:0;color:#22c55e">•</span> Local SEO for all 6 locations — separate landing pages + Google Business Profile optimization</li>
+          <li style="color:var(--text-secondary);font-size:0.9rem;padding-left:1.2rem;position:relative"><span style="position:absolute;left:0;color:#22c55e">•</span> Spanish language content expansion — already ranking, just need more</li>
+          <li style="color:var(--text-secondary);font-size:0.9rem;padding-left:1.2rem;position:relative"><span style="position:absolute;left:0;color:#22c55e">•</span> FAQ content hub — "do I need MRI after car accident?" is getting search traction</li>
+          <li style="color:var(--text-secondary);font-size:0.9rem;padding-left:1.2rem;position:relative"><span style="position:absolute;left:0;color:#22c55e">•</span> Attorney referral network SEO — target legal professionals searching for chiro referrals</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 03. SEO SCORECARD ===== -->
+<section id="scorecard">
+  <div class="container reveal">
+    <div class="section-badge">03 — SEO Health Scorecard</div>
+    <h2 class="section-title">Overall Score: <span class="gradient">28/100</span></h2>
+    <p class="section-sub">A serious digital presence gap for a 40-year-old, 6-location healthcare provider. The brand equity is there — the online visibility is not.</p>
+    <div class="grid-4" style="margin-bottom:2rem">
+      <div class="card" style="text-align:center;padding:2rem">
+        <div class="score-ring">
+          <svg viewBox="0 0 120 120"><circle class="bg" cx="60" cy="60" r="52"/><circle class="fg" cx="60" cy="60" r="52" stroke="var(--red)" stroke-dasharray="327" stroke-dashoffset="327" data-target="261"/></svg>
+          <div class="grade" style="color:var(--red)">D</div>
+        </div>
+        <div style="font-weight:700;font-size:0.95rem">Technical SEO</div>
+        <div style="font-size:0.8rem;color:var(--text-muted);margin-top:0.25rem">20/100</div>
+      </div>
+      <div class="card" style="text-align:center;padding:2rem">
+        <div class="score-ring">
+          <svg viewBox="0 0 120 120"><circle class="bg" cx="60" cy="60" r="52"/><circle class="fg" cx="60" cy="60" r="52" stroke="var(--red)" stroke-dasharray="327" stroke-dashoffset="327" data-target="245"/></svg>
+          <div class="grade" style="color:var(--red)">D+</div>
+        </div>
+        <div style="font-weight:700;font-size:0.95rem">Content</div>
+        <div style="font-size:0.8rem;color:var(--text-muted);margin-top:0.25rem">25/100</div>
+      </div>
+      <div class="card" style="text-align:center;padding:2rem">
+        <div class="score-ring">
+          <svg viewBox="0 0 120 120"><circle class="bg" cx="60" cy="60" r="52"/><circle class="fg" cx="60" cy="60" r="52" stroke="var(--yellow)" stroke-dasharray="327" stroke-dashoffset="327" data-target="196"/></svg>
+          <div class="grade" style="color:var(--yellow)">C-</div>
+        </div>
+        <div style="font-weight:700;font-size:0.95rem">Authority</div>
+        <div style="font-size:0.8rem;color:var(--text-muted);margin-top:0.25rem">40/100</div>
+      </div>
+      <div class="card" style="text-align:center;padding:2rem">
+        <div class="score-ring">
+          <svg viewBox="0 0 120 120"><circle class="bg" cx="60" cy="60" r="52"/><circle class="fg" cx="60" cy="60" r="52" stroke="var(--red)" stroke-dasharray="327" stroke-dashoffset="327" data-target="261"/></svg>
+          <div class="grade" style="color:var(--red)">D</div>
+        </div>
+        <div style="font-weight:700;font-size:0.95rem">Local SEO</div>
+        <div style="font-size:0.8rem;color:var(--text-muted);margin-top:0.25rem">22/100</div>
+      </div>
+    </div>
+    <div class="card" style="padding:2rem">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:0.75rem">
+        <span style="font-weight:700">Overall Health</span>
+        <span style="font-weight:800;color:var(--red)">28/100</span>
+      </div>
+      <div class="overall-bar"><div class="fill" style="width:28%" data-target="28"></div></div>
+      <p style="color:var(--text-secondary);font-size:0.85rem;margin-top:1rem">For a multi-location healthcare provider operating since 1986, this score represents a major missed growth opportunity. The business serves patients well — Google just doesn't know it yet.</p>
+    </div>
+  </div>
+  <div style="text-align:center;margin-top:1.5rem;padding-top:1rem;border-top:1px solid var(--bg-card-border);font-size:0.75rem;color:var(--text-muted)">
+    Data sources: <a href="https://semrush.com" target="_blank" style="color:var(--text-muted);text-decoration:underline">SEMrush</a> · Manual audit · Accessed June 2026
+  </div>
+</section>
+
+<!-- ===== 04. TRAFFIC TREND ===== -->
+<section id="traffic">
+  <div class="container reveal">
+    <div class="section-badge">04 — Traffic Trend</div>
+    <h2 class="section-title">12-Month <span class="gradient">Performance</span></h2>
+    <p class="section-sub">Organic traffic trend showing a modest presence with significant room to grow. The Spanish-language pages are doing the heavy lifting.</p>
+    <div class="chart-wrap">
+      <canvas id="trafficChart" height="100"></canvas>
+    </div>
+    <div style="text-align:center;font-size:0.75rem;color:var(--text-muted);margin-top:0.75rem;font-style:italic">💡 Traffic is estimated from SEMrush monthly crawl data. Actual traffic from Google Analytics will differ.</div>
+  </div>
+  <div style="text-align:center;margin-top:1.5rem;padding-top:1rem;border-top:1px solid var(--bg-card-border);font-size:0.75rem;color:var(--text-muted)">
+    Data sources: <a href="https://semrush.com" target="_blank" style="color:var(--text-muted);text-decoration:underline">SEMrush API</a> · Accessed June 2026
+  </div>
+</section>
+
+<!-- ===== 05. KEYWORD ANALYSIS ===== -->
+<section id="keywords">
+  <div class="container reveal">
+    <div class="section-badge">05 — Keyword Analysis</div>
+    <h2 class="section-title">Where You <span class="gradient">Rank Today</span></h2>
+
+    <div class="success-banner" style="margin-bottom:1.5rem">
+      <div class="icon">🇪🇸</div>
+      <div>
+        <div class="text">Spanish-Language SEO Is Your Secret Weapon</div>
+        <div class="sub">Your top-ranked keyword "quiropráctico cerca de mi" gets 3,600 monthly searches — and you rank #3. The bilingual strategy is working. Now it needs to be doubled down on.</div>
+      </div>
+    </div>
+
+    <div class="card" style="overflow-x:auto;margin-bottom:2rem">
+      <table class="data-table">
+        <thead><tr><th>Keyword</th><th>Position</th><th>Volume</th><th>CPC</th><th>Type</th></tr></thead>
+        <tbody>
+          <tr><td style="font-weight:600">quiropráctico cerca de mi</td><td>3</td><td>3,600</td><td>—</td><td><span class="badge badge-local">Spanish Local</span></td></tr>
+          <tr><td style="font-weight:600">quiropractico cerca de mi ubicación</td><td>4</td><td>480</td><td>$2.08</td><td><span class="badge badge-local">Spanish Local</span></td></tr>
+          <tr><td style="font-weight:600">quiropractico cerca de mi</td><td>4</td><td>260</td><td>—</td><td><span class="badge badge-local">Spanish Local</span></td></tr>
+          <tr><td style="font-weight:600">quiropractico cercas de mi</td><td>3</td><td>170</td><td>$1.85</td><td><span class="badge badge-local">Spanish Local</span></td></tr>
+          <tr><td style="font-weight:600">quiroprácticos cerca de mí</td><td>2</td><td>110</td><td>—</td><td><span class="badge badge-local">Spanish Local</span></td></tr>
+          <tr><td style="font-weight:600">county line chiropractic</td><td>1</td><td>390</td><td>$2.72</td><td><span class="badge badge-branded">Branded</span></td></tr>
+          <tr><td style="font-weight:600">chiropractor pip evaluation florida</td><td>2</td><td>260</td><td>—</td><td><span class="badge badge-generic">PIP / Legal</span></td></tr>
+          <tr><td style="font-weight:600">auto accident chiropractor plantation</td><td>1</td><td>40</td><td>—</td><td><span class="badge badge-generic">Local Intent</span></td></tr>
+          <tr><td style="font-weight:600">mri after car accident</td><td>12</td><td>720</td><td>$74.24</td><td><span class="badge badge-info">Informational</span></td></tr>
+          <tr><td style="font-weight:600">x-ray after car accident</td><td>17</td><td>880</td><td>$23.76</td><td><span class="badge badge-info">Informational</span></td></tr>
+          <tr><td style="font-weight:600">terapia de choque</td><td>8</td><td>1,600</td><td>$0.02</td><td><span class="badge badge-local">Spanish Info</span></td></tr>
+          <tr><td style="font-weight:600">que es terapia de choque</td><td>7</td><td>590</td><td>—</td><td><span class="badge badge-local">Spanish Info</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="warning-banner">
+      <div class="icon">⚠️</div>
+      <div>
+        <div class="text">Critical Gap: No Rankings for High-Intent Accident Keywords</div>
+        <div class="sub">Terms like "car accident chiropractor near me" (2,400/mo, $21.63 CPC) and "personal injury chiropractor near me" (1,000/mo, $8.62 CPC) are completely absent from your rankings. These are your most valuable prospective patients.</div>
+      </div>
+    </div>
+  </div>
+  <div style="text-align:center;margin-top:1.5rem;padding-top:1rem;border-top:1px solid var(--bg-card-border);font-size:0.75rem;color:var(--text-muted)">
+    Data sources: <a href="https://semrush.com" target="_blank" style="color:var(--text-muted);text-decoration:underline">SEMrush API</a> · Real data · June 2026
+  </div>
+</section>
+
+<!-- ===== 06. GOOGLE ADS ===== -->
+<section id="ads">
+  <div class="container reveal">
+    <div class="section-badge">06 — Google Ads Presence</div>
+    <h2 class="section-title">Paid Search: A <span class="gradient">$7/Month Problem</span></h2>
+    <p class="section-sub">In an industry where a single new patient generates $3,000–$10,000+ in PIP claim value, spending $7/month on paid search is essentially zero. Here's the full picture.</p>
+
+    <div class="google-serp-card">
+      <div class="serp-search-bar">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 01-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+        <span class="query">car accident chiropractor near me miami</span>
+      </div>
+      <div class="serp-no-ads">
+        <div class="label">🚨 County Line Chiropractic Does Not Appear</div>
+        <div class="sub">Competitors paying $20–$27 per click dominate the top 4 positions. Every search like this is a prospective patient you're not reaching.</div>
+      </div>
+    </div>
+
+    <div class="card" style="text-align:center;padding:2rem;border:1px solid rgba(239,68,68,0.2);background:rgba(239,68,68,0.05);margin-bottom:1.5rem">
+      <div style="font-size:0.75rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--red);margin-bottom:0.5rem">Current Monthly Google Ads Spend</div>
+      <div style="font-size:3rem;font-weight:900;color:var(--red)">$7 / mo</div>
+      <div style="color:var(--text-secondary);font-size:0.9rem">One PIP patient can generate $3,000–$10,000+ in lifetime value. The math is undeniable.</div>
+    </div>
+
+    <div class="ads-callout">
+      <div class="icon">💡</div>
+      <div class="content">
+        <div class="headline">The ROI Case for Google Ads in Personal Injury Chiropractic</div>
+        <div class="body">Car accident chiropractor keywords command CPCs of <strong>$20–$27</strong> — because the economics work. A $5,000/month campaign generating 50 clicks/day at a 10% conversion rate = <strong>150 new patient inquiries/month</strong>. Even at 30% close rate, that's <strong>45 new PIP patients × $3,000+ average value = $135,000+/month revenue</strong> from a $5K ad spend. That's a 27x ROAS.</div>
+      </div>
+    </div>
+
+    <!-- High-value keyword CPC table -->
+    <div class="card" style="overflow-x:auto;margin-top:2rem">
+      <div style="font-weight:700;margin-bottom:1rem">High-Value Keywords You Should Be Bidding On</div>
+      <table class="data-table">
+        <thead><tr><th>Keyword</th><th>Monthly Searches</th><th>Avg CPC</th><th>Intent</th></tr></thead>
+        <tbody>
+          <tr><td style="font-weight:600">auto accident chiropractor near me</td><td>2,400</td><td><span style="color:var(--green);font-weight:600">$21.63</span></td><td><span class="badge badge-generic">High Intent</span></td></tr>
+          <tr><td style="font-weight:600">car accident chiropractor near me</td><td>2,400</td><td><span style="color:var(--green);font-weight:600">$21.63</span></td><td><span class="badge badge-generic">High Intent</span></td></tr>
+          <tr><td style="font-weight:600">chiropractor for auto accidents</td><td>880</td><td><span style="color:var(--green);font-weight:600">$26.76</span></td><td><span class="badge badge-generic">High Intent</span></td></tr>
+          <tr><td style="font-weight:600">accident chiropractor near me</td><td>720</td><td><span style="color:var(--green);font-weight:600">$20.41</span></td><td><span class="badge badge-generic">High Intent</span></td></tr>
+          <tr><td style="font-weight:600">personal injury chiropractor near me</td><td>1,000</td><td><span style="color:var(--yellow);font-weight:600">$8.62</span></td><td><span class="badge badge-generic">High Intent</span></td></tr>
+          <tr><td style="font-weight:600">pip chiropractor florida</td><td>320</td><td>—</td><td><span class="badge badge-local">Florida-Specific</span></td></tr>
+          <tr><td style="font-weight:600">chiropractor miami fl</td><td>480</td><td>—</td><td><span class="badge badge-local">Local</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div style="text-align:center;margin-top:1.5rem;padding-top:1rem;border-top:1px solid var(--bg-card-border);font-size:0.75rem;color:var(--text-muted)">
+    Data sources: <a href="https://semrush.com" target="_blank" style="color:var(--text-muted);text-decoration:underline">SEMrush</a> · Internal records · June 2026
+  </div>
+</section>
+
+<!-- ===== 07. COMPETITOR OVERVIEW ===== -->
+<section id="competitors">
+  <div class="container reveal">
+    <div class="section-badge">07 — Competitive Landscape</div>
+    <h2 class="section-title">Who's <span class="gradient">Outranking You</span></h2>
+    <p class="section-sub">SEMrush shows your organic keyword competitors. The gap is notable — comparable clinics are capturing significantly more traffic with fewer locations.</p>
+
+    <!-- Share of Voice -->
+    <div style="margin-bottom:2.5rem">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:1.5rem">
+        <p style="color:var(--text-secondary);font-size:0.85rem;margin:0">Total addressable search traffic across your competitive set: <strong style="color:var(--text-primary)">~2,100 visits/mo</strong></p>
+        <span style="font-size:0.75rem;color:var(--text-muted);font-weight:600;letter-spacing:0.08em;text-transform:uppercase">Share of Voice</span>
+      </div>
+
+      <div style="margin-bottom:1.2rem">
+        <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:0.4rem">
+          <div><span style="font-size:0.9rem;font-weight:700;color:#ef4444">County Line Chiropractic</span><span style="font-size:0.75rem;color:var(--text-muted);margin-left:0.5rem">← You</span></div>
+          <div style="display:flex;align-items:baseline;gap:0.75rem"><span style="font-size:0.8rem;color:var(--text-secondary)">473/mo</span><span style="font-size:1rem;font-weight:800;color:#ef4444;min-width:3.5rem;text-align:right">22.5%</span></div>
+        </div>
+        <div class="sov-bar-bg"><div style="width:22.5%;height:16px;background:linear-gradient(90deg,#ef4444,#dc2626);border-radius:6px"></div></div>
+        <div style="margin-top:0.35rem;font-size:0.72rem;color:#ef4444;font-weight:600">⚠ Despite 6 locations, only marginally ahead of single-location competitors</div>
+      </div>
+
+      <div style="margin-bottom:1.2rem">
+        <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:0.4rem">
+          <span style="font-size:0.9rem;font-weight:600;color:var(--text-primary)">Osborne Chiropractic</span>
+          <div style="display:flex;align-items:baseline;gap:0.75rem"><span style="font-size:0.8rem;color:var(--text-secondary)">741/mo</span><span style="font-size:1rem;font-weight:700;color:var(--text-secondary);min-width:3.5rem;text-align:right">35.3%</span></div>
+        </div>
+        <div class="sov-bar-bg"><div style="width:35.3%;height:16px;background:rgba(100,116,139,0.45);border-radius:6px"></div></div>
+      </div>
+
+      <div style="margin-bottom:1.2rem">
+        <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:0.4rem">
+          <span style="font-size:0.9rem;font-weight:600;color:var(--text-primary)">Doctores y Más</span>
+          <div style="display:flex;align-items:baseline;gap:0.75rem"><span style="font-size:0.8rem;color:var(--text-secondary)">294/mo</span><span style="font-size:1rem;font-weight:700;color:var(--text-secondary);min-width:3.5rem;text-align:right">14.0%</span></div>
+        </div>
+        <div class="sov-bar-bg"><div style="width:14%;height:16px;background:rgba(100,116,139,0.45);border-radius:6px"></div></div>
+      </div>
+
+      <div style="margin-bottom:1.2rem">
+        <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:0.4rem">
+          <span style="font-size:0.9rem;font-weight:600;color:var(--text-primary)">Stutman Chiropractic</span>
+          <div style="display:flex;align-items:baseline;gap:0.75rem"><span style="font-size:0.8rem;color:var(--text-secondary)">284/mo</span><span style="font-size:1rem;font-weight:700;color:var(--text-secondary);min-width:3.5rem;text-align:right">13.5%</span></div>
+        </div>
+        <div class="sov-bar-bg"><div style="width:13.5%;height:16px;background:rgba(100,116,139,0.45);border-radius:6px"></div></div>
+      </div>
+
+      <div style="margin-top:2rem;padding:1.25rem 1.5rem;background:rgba(239,68,68,0.08);border:1px solid rgba(239,68,68,0.25);border-radius:10px;display:flex;gap:1rem;align-items:flex-start">
+        <span style="font-size:1.5rem;line-height:1">🚨</span>
+        <div>
+          <div style="font-size:0.9rem;font-weight:700;color:#ef4444;margin-bottom:0.35rem">Single-location competitors are matching or beating a 6-location network</div>
+          <div style="font-size:0.82rem;color:var(--text-secondary);line-height:1.6">Osborne Chiropractic — a single practice — gets <strong style="color:var(--text-primary)">57% more organic traffic</strong> than County Line's entire network. This is a content and local SEO problem, not a quality problem.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 08. SEO MATRIX ===== -->
+<section id="seo-matrix">
+  <div class="container reveal">
+    <div class="section-badge">08 — SEO Competitor Matrix</div>
+    <h2 class="section-title">Head-to-Head <span class="gradient">Comparison</span></h2>
+    <p class="section-sub">Honest numbers from SEMrush — County Line vs. key organic competitors.</p>
+    <div class="seo-matrix-wrap">
+      <table class="seo-matrix">
+        <thead>
+          <tr>
+            <th>Metric</th>
+            <th class="highlight">County Line Chiro</th>
+            <th>Osborne Chiro</th>
+            <th>Doctores y Más</th>
+            <th>Stutman Chiro</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>SEMrush Rank</td>
+            <td class="highlight"><span class="status-bad">1,723,504</span></td>
+            <td><span class="status-good">~800K</span></td>
+            <td>~900K</td>
+            <td>~1.1M</td>
+          </tr>
+          <tr>
+            <td>Organic Keywords</td>
+            <td class="highlight"><span class="status-bad">304</span></td>
+            <td><span class="status-good">281</span></td>
+            <td>238</td>
+            <td>197</td>
+          </tr>
+          <tr>
+            <td>Monthly Traffic</td>
+            <td class="highlight"><span class="status-warn">473</span></td>
+            <td><span class="status-good">741</span></td>
+            <td>294</td>
+            <td>284</td>
+          </tr>
+          <tr>
+            <td>Traffic Value</td>
+            <td class="highlight"><span class="status-bad">$292</span></td>
+            <td><span class="status-good">$260</span></td>
+            <td>$257</td>
+            <td>$299</td>
+          </tr>
+          <tr>
+            <td>Locations</td>
+            <td class="highlight"><span class="status-good">6 Locations</span></td>
+            <td>1 Location</td>
+            <td>Multi</td>
+            <td>1 Location</td>
+          </tr>
+          <tr>
+            <td>Google Ads</td>
+            <td class="highlight"><span class="status-bad">❌ $7/mo</span></td>
+            <td><span class="status-bad">❌ None</span></td>
+            <td>❌ None</td>
+            <td>❌ None</td>
+          </tr>
+          <tr>
+            <td>Bilingual Site</td>
+            <td class="highlight"><span class="status-good">✅ ES + EN</span></td>
+            <td><span class="status-bad">❌ EN only</span></td>
+            <td><span class="status-good">✅ ES + EN</span></td>
+            <td>❌ EN only</td>
+          </tr>
+          <tr>
+            <td>PIP Specialty</td>
+            <td class="highlight"><span class="status-good">✅ Primary focus</span></td>
+            <td><span class="status-warn">⚠ General</span></td>
+            <td>General</td>
+            <td><span class="status-warn">⚠ General</span></td>
+          </tr>
+          <tr class="winner-row">
+            <td>Organic Performance</td>
+            <td class="highlight losing">Underperforming</td>
+            <td class="winning">Leading</td>
+            <td class="neutral">Comparable</td>
+            <td class="neutral">Comparable</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="success-banner" style="margin-top:2rem">
+      <div class="icon">✅</div>
+      <div>
+        <div class="text">Competitive Advantage: PIP Specialization + Bilingual</div>
+        <div class="sub">County Line's exclusive focus on accident patients and its bilingual capability are genuine differentiators no competitor fully replicates. This is the story to tell online.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 09. SOCIAL MEDIA ===== -->
+<section id="social">
+  <div class="container reveal">
+    <div class="section-badge">09 — Social Media Presence</div>
+    <h2 class="section-title">Social Media <span class="gradient">Assessment</span></h2>
+    <p class="section-sub">Social presence for a local healthcare provider — honest assessment of what's working and what's missing.</p>
+
+    <div class="grid-3">
+      <div class="card" style="text-align:center">
+        <div style="font-size:2rem;margin-bottom:0.75rem">📘</div>
+        <div style="font-weight:700;font-size:1.05rem;margin-bottom:0.25rem">Facebook</div>
+        <div style="font-size:1.8rem;font-weight:800;background:linear-gradient(135deg,#40B4E5,#CC22FF);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">~1K</div>
+        <div style="font-size:0.75rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.1em">estimated followers</div>
+        <div style="margin-top:1rem;padding:6px 12px;border-radius:8px;background:rgba(245,158,11,0.12);color:var(--yellow);font-size:0.78rem;font-weight:600;display:inline-block">⚡ LOW ENGAGEMENT</div>
+        <p style="color:var(--text-secondary);font-size:0.82rem;margin-top:0.75rem">Active listing but sporadic posting. Reviews and patient check-ins visible.</p>
+      </div>
+      <div class="card" style="text-align:center">
+        <div style="font-size:2rem;margin-bottom:0.75rem">📸</div>
+        <div style="font-weight:700;font-size:1.05rem;margin-bottom:0.25rem">Instagram</div>
+        <div style="font-size:1.8rem;font-weight:800;background:linear-gradient(135deg,#40B4E5,#CC22FF);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">~500</div>
+        <div style="font-size:0.75rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.1em">estimated followers</div>
+        <div style="margin-top:1rem;padding:6px 12px;border-radius:8px;background:rgba(239,68,68,0.12);color:var(--red);font-size:0.78rem;font-weight:600;display:inline-block">❌ UNDERUTILIZED</div>
+        <p style="color:var(--text-secondary);font-size:0.82rem;margin-top:0.75rem">Minimal presence. Patient testimonial videos + before/after stories would perform well here.</p>
+      </div>
+      <div class="card" style="text-align:center">
+        <div style="font-size:2rem;margin-bottom:0.75rem">⭐</div>
+        <div style="font-weight:700;font-size:1.05rem;margin-bottom:0.25rem">Google Business</div>
+        <div style="font-size:1.8rem;font-weight:800;background:linear-gradient(135deg,#40B4E5,#CC22FF);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">6 GBP</div>
+        <div style="font-size:0.75rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.1em">location profiles</div>
+        <div style="margin-top:1rem;padding:6px 12px;border-radius:8px;background:rgba(245,158,11,0.12);color:var(--yellow);font-size:0.78rem;font-weight:600;display:inline-block">⚡ NEEDS OPTIMIZATION</div>
+        <p style="color:var(--text-secondary);font-size:0.82rem;margin-top:0.75rem">Each location needs fully optimized GBP with weekly posts, photos, and review responses.</p>
+      </div>
+    </div>
+
+    <div class="warning-banner" style="margin-top:2rem">
+      <div class="icon">⚠️</div>
+      <div>
+        <div class="text">Social Proof Is Everything in Personal Injury Healthcare</div>
+        <div class="sub">Accident victims searching for a chiropractor are scared and in pain — they read reviews obsessively. A robust review strategy across 6 Google Business Profiles, combined with patient story content on social, converts browsers into calls.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 10. CONTENT GAP ANALYSIS ===== -->
+<section id="gaps">
+  <div class="container reveal">
+    <div class="section-badge">10 — Content Gap Analysis</div>
+    <h2 class="section-title">Searches You're <span class="gradient">Missing</span></h2>
+    <p class="section-sub">High-volume, high-intent keywords your ideal patients are searching for — that you don't currently rank for. Each one is a missed patient acquisition.</p>
+
+    <div class="grid-3" style="margin-bottom:2rem">
+      <div class="card gap-card">
+        <div class="kw">"car accident chiropractor near me"</div>
+        <div class="vol" data-count="2400">0</div>
+        <div class="vol-label">Monthly Searches</div>
+        <div class="status">NOT RANKING</div>
+        <div style="margin-top:0.5rem;font-size:0.72rem;color:var(--green);font-weight:600">CPC: $21.63</div>
+      </div>
+      <div class="card gap-card">
+        <div class="kw">"auto accident chiropractor near me"</div>
+        <div class="vol" data-count="2400">0</div>
+        <div class="vol-label">Monthly Searches</div>
+        <div class="status">NOT RANKING</div>
+        <div style="margin-top:0.5rem;font-size:0.72rem;color:var(--green);font-weight:600">CPC: $21.63</div>
+      </div>
+      <div class="card gap-card">
+        <div class="kw">"personal injury chiropractor near me"</div>
+        <div class="vol" data-count="1000">0</div>
+        <div class="vol-label">Monthly Searches</div>
+        <div class="status">NOT RANKING</div>
+        <div style="margin-top:0.5rem;font-size:0.72rem;color:var(--green);font-weight:600">CPC: $8.62</div>
+      </div>
+      <div class="card gap-card">
+        <div class="kw">"chiropractor for auto accidents"</div>
+        <div class="vol" data-count="880">0</div>
+        <div class="vol-label">Monthly Searches</div>
+        <div class="status">NOT RANKING</div>
+        <div style="margin-top:0.5rem;font-size:0.72rem;color:var(--green);font-weight:600">CPC: $26.76</div>
+      </div>
+      <div class="card gap-card">
+        <div class="kw">"accident chiropractor near me"</div>
+        <div class="vol" data-count="720">0</div>
+        <div class="vol-label">Monthly Searches</div>
+        <div class="status">NOT RANKING</div>
+        <div style="margin-top:0.5rem;font-size:0.72rem;color:var(--green);font-weight:600">CPC: $20.41</div>
+      </div>
+      <div class="card gap-card">
+        <div class="kw">"chiropractor after car accident"</div>
+        <div class="vol" data-count="1000">0</div>
+        <div class="vol-label">Monthly Searches</div>
+        <div class="status">NOT RANKING</div>
+      </div>
+    </div>
+
+    <!-- Location-specific gaps -->
+    <div class="card" style="padding:2rem;margin-bottom:2rem">
+      <div style="font-weight:700;font-size:1.05rem;margin-bottom:1rem">📍 Location-Specific Keyword Gaps (6 Untapped Markets)</div>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:0.75rem">
+        <div style="padding:0.75rem;border-radius:8px;background:rgba(239,68,68,0.06);border:1px solid rgba(239,68,68,0.15);font-size:0.85rem;color:var(--text-secondary)">
+          <div style="font-weight:700;color:var(--text-primary);margin-bottom:0.25rem">Miami Gardens</div>
+          "car accident chiropractor miami gardens" — Not ranking
+        </div>
+        <div style="padding:0.75rem;border-radius:8px;background:rgba(239,68,68,0.06);border:1px solid rgba(239,68,68,0.15);font-size:0.85rem;color:var(--text-secondary)">
+          <div style="font-weight:700;color:var(--text-primary);margin-bottom:0.25rem">Pembroke Pines</div>
+          "accident chiropractor pembroke pines" — Not ranking
+        </div>
+        <div style="padding:0.75rem;border-radius:8px;background:rgba(239,68,68,0.06);border:1px solid rgba(239,68,68,0.15);font-size:0.85rem;color:var(--text-secondary)">
+          <div style="font-weight:700;color:var(--text-primary);margin-bottom:0.25rem">Fort Lauderdale</div>
+          "personal injury chiropractor fort lauderdale" — Not ranking
+        </div>
+        <div style="padding:0.75rem;border-radius:8px;background:rgba(239,68,68,0.06);border:1px solid rgba(239,68,68,0.15);font-size:0.85rem;color:var(--text-secondary)">
+          <div style="font-weight:700;color:var(--text-primary);margin-bottom:0.25rem">North Miami Beach</div>
+          "chiro north miami beach accident" — Not ranking
+        </div>
+        <div style="padding:0.75rem;border-radius:8px;background:rgba(239,68,68,0.06);border:1px solid rgba(239,68,68,0.15);font-size:0.85rem;color:var(--text-secondary)">
+          <div style="font-weight:700;color:var(--text-primary);margin-bottom:0.25rem">Lauderhill</div>
+          "accident chiropractor lauderhill" — Not ranking
+        </div>
+        <div style="padding:0.75rem;border-radius:8px;background:rgba(239,68,68,0.06);border:1px solid rgba(239,68,68,0.15);font-size:0.85rem;color:var(--text-secondary)">
+          <div style="font-weight:700;color:var(--text-primary);margin-bottom:0.25rem">Oakland Park</div>
+          "chiropractor oakland park fl" — Not ranking
+        </div>
+      </div>
+      <p style="color:var(--text-muted);font-size:0.82rem;margin-top:1rem">Each location should have a dedicated landing page optimized for its city + "car accident chiropractor" — currently these pages don't exist or aren't ranking.</p>
+    </div>
+
+    <div class="card" style="text-align:center;padding:2rem;border:1px solid rgba(239,68,68,0.2);background:rgba(239,68,68,0.05)">
+      <div style="font-size:0.75rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--red);margin-bottom:0.5rem">Total Addressable Organic Search Volume (Untapped)</div>
+      <div style="font-size:2.5rem;font-weight:800;color:var(--red)">9,400+</div>
+      <div style="color:var(--text-secondary);font-size:0.9rem">monthly accident-patient searches you could be capturing — but aren't</div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 11. PROBLEMS → SOLUTIONS ===== -->
+<section id="solutions">
+  <div class="container reveal">
+    <div class="section-badge">11 — Problems → Solutions</div>
+    <h2 class="section-title">Clear <span class="gradient">Path Forward</span></h2>
+    <p class="section-sub">Every weakness identified has a direct, proven solution. Here's the playbook.</p>
+    <div style="display:flex;flex-direction:column;gap:1.5rem">
+      <div class="ps-row">
+        <div class="ps-card ps-problem"><div class="title">Near-Zero Online Visibility</div><div style="color:var(--text-secondary);font-size:0.85rem">473 monthly visits for a 6-location, 40-year practice. Patients can't find you online.</div></div>
+        <div class="ps-arrow">→</div>
+        <div class="ps-card ps-solution"><div class="title">Local SEO + Content Strategy</div><div style="color:var(--text-secondary);font-size:0.85rem">Dedicated location pages, accident-type content hub, FAQ schema, Google Business Profile optimization for all 6 locations.</div></div>
+      </div>
+      <div class="ps-row">
+        <div class="ps-card ps-problem"><div class="title">$7/Month PPC Spend</div><div style="color:var(--text-secondary);font-size:0.85rem">In a market where a single patient = $3,000–$10,000+ lifetime value, this is irrational underinvestment.</div></div>
+        <div class="ps-arrow">→</div>
+        <div class="ps-card ps-solution"><div class="title">Aggressive Google Ads Campaign</div><div style="color:var(--text-secondary);font-size:0.85rem">$5K–$10K/month targeting "car accident chiropractor near me" and PIP-specific terms. Geo-targeted to all 6 locations.</div></div>
+      </div>
+      <div class="ps-row">
+        <div class="ps-card ps-problem"><div class="title">Missing Location-Specific Pages</div><div style="color:var(--text-secondary);font-size:0.85rem">6 clinic cities with no dedicated, optimized landing pages for each market.</div></div>
+        <div class="ps-arrow">→</div>
+        <div class="ps-card ps-solution"><div class="title">6 Location Landing Pages</div><div style="color:var(--text-secondary);font-size:0.85rem">Build unique, locally optimized pages for each city — each targeting "[city] + car accident chiropractor" and adjacent terms.</div></div>
+      </div>
+      <div class="ps-row">
+        <div class="ps-card ps-problem"><div class="title">Untapped Spanish Market</div><div style="color:var(--text-secondary);font-size:0.85rem">Already ranking in Spanish but the content is thin. South Florida is 70%+ Hispanic in many zip codes.</div></div>
+        <div class="ps-arrow">→</div>
+        <div class="ps-card ps-solution"><div class="title">Full Spanish Content Expansion</div><div style="color:var(--text-secondary);font-size:0.85rem">Expand Spanish-language content for all accident types, FAQ pages, and location pages. Run Spanish Google Ads.</div></div>
+      </div>
+      <div class="ps-row">
+        <div class="ps-card ps-problem"><div class="title">Weak Review Strategy</div><div style="color:var(--text-secondary);font-size:0.85rem">Accident patients read 10+ reviews before calling. If your GBP reviews are thin, competitors win the call.</div></div>
+        <div class="ps-arrow">→</div>
+        <div class="ps-card ps-solution"><div class="title">Review Generation System</div><div style="color:var(--text-secondary);font-size:0.85rem">Automated post-visit review request SMS/email for all 6 locations. Target 50+ reviews per location within 6 months.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 12. CRITICAL FINDINGS ===== -->
+<section id="findings">
+  <div class="container reveal">
+    <div class="section-badge">12 — Critical Findings</div>
+    <h2 class="section-title">Top 5 <span class="gradient">Issues</span></h2>
+    <p class="section-sub">The most impactful problems — ranked by revenue impact.</p>
+    <div style="display:flex;flex-direction:column;gap:1rem">
+      <div class="card finding-card">
+        <div class="finding-num critical">1</div>
+        <div>
+          <div class="title">$7/Month Paid Advertising in a $10,000-Per-Patient Market</div>
+          <div class="desc">The single most glaring issue. PIP chiropractic patients are worth $3,000–$10,000+ each in revenue. Google Ads for "car accident chiropractor near me" run $20–$27 CPC — meaning a well-managed $5,000/month campaign can generate 40–60+ patient inquiries. The ROI math is overwhelming: fix this first.</div>
+        </div>
+      </div>
+      <div class="card finding-card">
+        <div class="finding-num critical">2</div>
+        <div>
+          <div class="title">6 Locations With No Dedicated Local SEO Pages</div>
+          <div class="desc">Each clinic location should have its own fully-optimized landing page targeting local "car accident chiropractor [city]" searches, plus an optimized Google Business Profile with weekly posts, photos, and Q&amp;A. Currently, the site treats all 6 locations as one. Google treats them as six separate opportunities.</div>
+        </div>
+      </div>
+      <div class="card finding-card">
+        <div class="finding-num critical">3</div>
+        <div>
+          <div class="title">304 Keywords — Nowhere Near Enough for a Multi-Location Practice</div>
+          <div class="desc">A 6-location accident chiropractic network should rank for 3,000–5,000+ keywords. Accident types (car, truck, rideshare, slip-and-fall, motorcycle), injury types (whiplash, herniated disc, soft tissue), PIP-specific terms, and location-specific terms are all missing. The content simply doesn't exist yet.</div>
+        </div>
+      </div>
+      <div class="card finding-card">
+        <div class="finding-num high">4</div>
+        <div>
+          <div class="title">Spanish SEO Advantage Being Squandered</div>
+          <div class="desc">Your top-ranked keyword is in Spanish (quiropráctico cerca de mi, pos #3, 3,600 searches/mo). South Florida is one of the most Spanish-speaking markets in the US. Yet the Spanish-language content is thin — a fraction of what exists in English. Doubling down on Spanish SEO is low-hanging fruit with outsized returns in this market.</div>
+        </div>
+      </div>
+      <div class="card finding-card">
+        <div class="finding-num high">5</div>
+        <div>
+          <div class="title">Informational Content Is Ranking But Not Converting</div>
+          <div class="desc">"MRI after car accident" (pos 12, 720 searches) and "x-ray after car accident" (pos 17, 880 searches) show informational intent is getting some traction. These pages need CTA optimization and should be the top of a content funnel — not dead ends. A visitor asking "do I need an MRI?" is a potential patient. Capture them.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div style="text-align:center;margin-top:1.5rem;padding-top:1rem;border-top:1px solid var(--bg-card-border);font-size:0.75rem;color:var(--text-muted)">
+    Data sources: <a href="https://semrush.com" target="_blank" style="color:var(--text-muted);text-decoration:underline">SEMrush API</a> · Website audit · June 2026
+  </div>
+</section>
+
+<!-- ===== 13. STRATEGY ===== -->
+<section id="strategy">
+  <div class="container reveal">
+    <div class="section-badge">13 — Growth Strategy</div>
+    <h2 class="section-title">What to <span class="gradient">Do Next</span></h2>
+    <p class="section-sub">Five strategic pillars to go from 473 monthly visitors to 5,000+ — and from $7/month in ads to a patient-generating machine.</p>
+    <div class="grid-4" style="grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.5rem">
+      <div class="card strategy-card">
+        <div class="icon">🎯</div>
+        <div class="title">Google Ads — Immediate Revenue</div>
+        <div class="desc">Launch campaigns targeting "car accident chiropractor near me," PIP keywords, and Spanish equivalents. Geo-target all 6 clinic zip codes. Use call extensions for immediate phone leads.</div>
+        <div class="outcome">Est. 40–80 patient inquiries/month from $5K spend</div>
+      </div>
+      <div class="card strategy-card">
+        <div class="icon">📍</div>
+        <div class="title">Local SEO — 6x the Footprint</div>
+        <div class="desc">Build dedicated location pages for all 6 clinics. Fully optimize each Google Business Profile. Implement weekly GBP posts + photo uploads for each location.</div>
+        <div class="outcome">6 new local ranking opportunities, 2–3x local visibility</div>
+      </div>
+      <div class="card strategy-card">
+        <div class="icon">📝</div>
+        <div class="title">Content Engine — Accident + PIP Hub</div>
+        <div class="desc">Build a comprehensive content hub: accident types, injury types, FAQ pages, PIP insurance guides. Target all missing high-intent keywords with dedicated pages.</div>
+        <div class="outcome">1,500+ new organic keyword rankings in 12 months</div>
+      </div>
+      <div class="card strategy-card">
+        <div class="icon">🇪🇸</div>
+        <div class="title">Spanish SEO Scale-Up</div>
+        <div class="desc">Expand Spanish-language content for all services, accident types, locations, and FAQs. Run Spanish Google Ads. South Florida's Hispanic population is a massive underserved market.</div>
+        <div class="outcome">2x Spanish traffic within 90 days of launch</div>
+      </div>
+      <div class="card strategy-card">
+        <div class="icon">⭐</div>
+        <div class="title">Review &amp; Reputation System</div>
+        <div class="desc">Automated review request at discharge for all 6 locations. Target 50+ Google reviews per location. Social proof is the #1 conversion driver for healthcare.</div>
+        <div class="outcome">+300 reviews in 6 months, 15–20% lift in call conversion</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 14. ROADMAP ===== -->
+<section id="roadmap">
+  <div class="container reveal">
+    <div class="section-badge">14 — Growth Roadmap</div>
+    <h2 class="section-title">90-Day <span class="gradient">Launch Plan</span></h2>
+    <p class="section-sub">A fast-start approach — prioritizing immediate revenue (Google Ads) while building long-term organic growth in parallel.</p>
+    <div class="timeline">
+      <div class="timeline-phase">
+        <div class="timeline-dot"></div>
+        <div class="phase-label">Days 1–30</div>
+        <div class="phase-title">Immediate Revenue</div>
+        <ul class="phase-items">
+          <li>Launch Google Ads — accident &amp; PIP keywords</li>
+          <li>Set up call tracking for all 6 locations</li>
+          <li>Optimize 6 Google Business Profiles</li>
+          <li>Launch review request system</li>
+          <li>Audit &amp; fix technical SEO issues</li>
+        </ul>
+      </div>
+      <div class="timeline-phase">
+        <div class="timeline-dot"></div>
+        <div class="phase-label">Days 31–60</div>
+        <div class="phase-title">Content Foundation</div>
+        <ul class="phase-items">
+          <li>Build 6 location landing pages</li>
+          <li>Create accident-type content hub</li>
+          <li>Expand Spanish-language pages</li>
+          <li>FAQ schema implementation</li>
+          <li>Refine ad campaigns with real data</li>
+        </ul>
+      </div>
+      <div class="timeline-phase">
+        <div class="timeline-dot"></div>
+        <div class="phase-label">Days 61–90</div>
+        <div class="phase-title">Scale &amp; Optimize</div>
+        <ul class="phase-items">
+          <li>Scale ads based on conversion data</li>
+          <li>Publish injury-type content pages</li>
+          <li>Launch attorney referral content</li>
+          <li>Social media video content</li>
+          <li>Track rankings, traffic, patient calls</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 15. PROJECTED ROI ===== -->
+<section id="roi">
+  <div class="container reveal">
+    <div class="section-badge">15 — Projected Impact</div>
+    <h2 class="section-title">The <span class="gradient">Opportunity</span></h2>
+    <p class="section-sub">Conservative projections based on the recommended 6-month strategy. The math is compelling — especially when a single PIP patient averages $3,000–$10,000+ in lifetime value.</p>
+    <div class="roi-grid">
+      <div class="card roi-card">
+        <div class="label">Monthly Organic Traffic</div>
+        <div class="before">473/mo</div>
+        <div class="arrow">↓</div>
+        <div class="after" data-count="4000" data-suffix="/mo">0</div>
+      </div>
+      <div class="card roi-card">
+        <div class="label">Organic Keywords</div>
+        <div class="before">304</div>
+        <div class="arrow">↓</div>
+        <div class="after" data-count="3000">0</div>
+      </div>
+      <div class="card roi-card">
+        <div class="label">Monthly Ad Inquiries</div>
+        <div class="before">~0/mo</div>
+        <div class="arrow">↓</div>
+        <div class="after" data-count="60" data-suffix="/mo">0</div>
+      </div>
+      <div class="card roi-card">
+        <div class="label">New Patients/Month (PPC)</div>
+        <div class="before">~0</div>
+        <div class="arrow">↓</div>
+        <div class="after" data-count="20" data-suffix="/mo">0</div>
+      </div>
+    </div>
+
+    <!-- Revenue math -->
+    <div class="card" style="margin-top:2rem;text-align:center;padding:2.5rem;background:linear-gradient(135deg,rgba(34,197,94,0.06),rgba(64,180,229,0.06));border:1px solid rgba(34,197,94,0.15)">
+      <div style="font-size:0.75rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--green);margin-bottom:0.75rem">Conservative 6-Month Revenue Impact (PPC Alone)</div>
+      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem;margin-bottom:2rem">
+        <div><div style="font-size:1.5rem;font-weight:800;color:var(--text-primary)">$5K</div><div style="font-size:0.75rem;color:var(--text-muted)">Monthly Ad Spend</div></div>
+        <div><div style="font-size:1.5rem;font-weight:800;color:var(--text-primary)">50–80</div><div style="font-size:0.75rem;color:var(--text-muted)">Monthly Inquiries</div></div>
+        <div><div style="font-size:1.5rem;font-weight:800;color:var(--text-primary)">20–30</div><div style="font-size:0.75rem;color:var(--text-muted)">New Patients/Month</div></div>
+        <div><div style="font-size:1.5rem;font-weight:800;color:var(--green)">$60K–$300K</div><div style="font-size:0.75rem;color:var(--text-muted)">Monthly Revenue Add</div></div>
+      </div>
+      <div style="font-size:2.2rem;font-weight:900;background:linear-gradient(135deg,#22c55e,#40B4E5);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">12x–60x ROAS</div>
+      <p style="color:var(--text-secondary);font-size:0.9rem;margin-top:0.5rem">Based on 20–30 new PIP patients/month × $3,000–$10,000 average lifetime value</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 16. NEXT STEPS / CTA ===== -->
+<section class="cta-section" id="cta">
+  <div class="container reveal">
+    <div class="section-badge" style="margin:0 auto 2rem">Ready to Grow?</div>
+    <h2 class="section-title" style="text-align:center">Turn Searches Into <span class="gradient">Patients</span></h2>
+    <p style="color:var(--text-secondary);font-size:1.1rem;max-width:600px;margin:0 auto 3rem;text-align:center;line-height:1.7">County Line Chiropractic has the brand, the locations, and the 40-year track record. What's missing is digital visibility. Brandastic can fix that — fast.</p>
+
+    <!-- Stats Bar -->
+    <div class="stats-bar" style="max-width:900px;margin:0 auto 3rem">
+      <div class="stat-card"><div class="stat-num">40</div><div class="stat-label">Years of History to Leverage</div></div>
+      <div class="stat-card"><div class="stat-num">6</div><div class="stat-label">Locations = 6x SEO Opportunity</div></div>
+      <div class="stat-card"><div class="stat-num">$10K+</div><div class="stat-label">Avg. Patient Lifetime Value</div></div>
+      <div class="stat-card"><div class="stat-num">28</div><div class="stat-label">Current Audit Score (out of 100)</div></div>
+    </div>
+
+    <!-- Value Cards -->
+    <div class="value-cards" style="max-width:900px;margin:0 auto 3rem">
+      <div class="value-card"><h4>🚀 Quick Wins Available Now</h4><p>Google Ads can generate patient calls within 72 hours of launch. Google Business Profile optimization can improve local rankings in 2–4 weeks.</p></div>
+      <div class="value-card"><h4>📈 Long-Term Growth</h4><p>The 6-location network is a massive SEO advantage waiting to be activated. Proper local SEO can 5–10x organic traffic within 12 months.</p></div>
+      <div class="value-card"><h4>🇪🇸 Untapped Market</h4><p>Your Spanish SEO is already working. Double down on it — South Florida's bilingual market is underserved by your competitors and primed for growth.</p></div>
+      <div class="value-card"><h4>⭐ Brand Differentiation</h4><p>40 years, exclusive PIP focus, bilingual staff, same-day appointments, attorney-friendly — these are powerful stories that need to be told online, loudly.</p></div>
+    </div>
+
+    <!-- Steps -->
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <div class="title">Audit Share</div>
+        <div class="desc">Review this report with your team</div>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="title">Strategy Call</div>
+        <div class="desc">30-min call with Brandastic — no pitch, just answers</div>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <div class="title">Launch</div>
+        <div class="desc">Google Ads live within 72 hours of kickoff</div>
+      </div>
+    </div>
+
+    <div style="text-align:center;margin-top:3rem">
+      <button class="cta-btn" onclick="window.open('https://brandastic.com/contact','_blank')">
+        Schedule Strategy Call →
+      </button>
+      <p style="color:var(--text-muted);font-size:0.8rem;margin-top:1rem">No contracts required for initial consultation · brandastic.com</p>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<div style="text-align:center;padding:3rem 2rem 2rem;font-size:0.75rem;color:var(--text-muted);border-top:1px solid var(--bg-card-border)">
+  Brandastic — Digital Marketing Agency · Orange County, CA<br>
+  Prepared for County Line Chiropractic · June 2026<br>
+  Data from SEMrush · <a href="https://countylinechiro.com" target="_blank" style="color:var(--text-muted);text-decoration:underline">countylinechiro.com</a>
+</div>
+
+<script>
+/* ========== THEME ========== */
+function getPreferredTheme(){const s=localStorage.getItem('audit-theme');if(s)return s;return 'light'}
+function applyTheme(t){
+  document.documentElement.setAttribute('data-theme',t);
+  localStorage.setItem('audit-theme',t);
+  document.getElementById('themeKnob').textContent=t==='dark'?'🌙':'☀️';
+  updateCharts();
+}
+function toggleTheme(){applyTheme(document.documentElement.getAttribute('data-theme')==='dark'?'light':'dark')}
+applyTheme(getPreferredTheme());
+
+/* ========== READING PROGRESS ========== */
+window.addEventListener('scroll',function(){
+  const scrollTop=document.documentElement.scrollTop||document.body.scrollTop;
+  const scrollHeight=document.documentElement.scrollHeight-document.documentElement.clientHeight;
+  const progress=(scrollTop/scrollHeight)*100;
+  document.getElementById('readingProgress').style.width=progress+'%';
+});
+
+/* ========== SIDE NAV ========== */
+const sections=document.querySelectorAll('section[id]');
+const dots=document.querySelectorAll('.side-nav-dot');
+function updateNav(){
+  const scrollY=window.pageYOffset;
+  sections.forEach(s=>{
+    const top=s.offsetTop-200;
+    const bottom=top+s.offsetHeight;
+    if(scrollY>=top&&scrollY<bottom){
+      const id=s.getAttribute('id');
+      dots.forEach(d=>{
+        d.classList.toggle('active',d.dataset.section===id);
+      });
+    }
+  });
+}
+window.addEventListener('scroll',updateNav,{passive:true});
+dots.forEach(d=>{
+  d.addEventListener('click',function(){
+    const sec=document.getElementById(this.dataset.section);
+    if(sec)sec.scrollIntoView({behavior:'smooth'});
+  });
+});
+
+/* ========== ANIMATED COUNTERS ========== */
+function animateCounter(el,target,prefix,suffix){
+  prefix=prefix||'';suffix=suffix||'';
+  const duration=2000;const start=performance.now();
+  const fmt=n=>n>=1000000?(n/1000000).toFixed(1)+'M':n>=10000?Math.round(n).toLocaleString():n.toLocaleString();
+  function step(now){
+    const p=Math.min((now-start)/duration,1);
+    const eased=1-Math.pow(1-p,3);
+    el.textContent=prefix+fmt(Math.round(target*eased))+suffix;
+    if(p<1)requestAnimationFrame(step);
+  }
+  requestAnimationFrame(step);
+}
+const counterObs=new IntersectionObserver(function(entries){
+  entries.forEach(function(e){
+    if(e.isIntersecting){
+      const t=parseInt(e.target.dataset.count);
+      const p=e.target.dataset.prefix||'';
+      const s=e.target.dataset.suffix||'';
+      animateCounter(e.target,t,p,s);
+      counterObs.unobserve(e.target);
+    }
+  });
+},{threshold:0.3});
+document.querySelectorAll('[data-count]').forEach(function(el){counterObs.observe(el)});
+
+/* ========== SCORE RINGS ========== */
+const ringObs=new IntersectionObserver(function(entries){
+  entries.forEach(function(e){
+    if(e.isIntersecting){
+      e.target.querySelectorAll('.fg[data-target]').forEach(function(fg){
+        fg.style.strokeDashoffset=fg.dataset.target;
+      });
+      ringObs.unobserve(e.target);
+    }
+  });
+},{threshold:0.3});
+document.querySelectorAll('#scorecard .container').forEach(function(el){ringObs.observe(el)});
+
+/* ========== CHARTS ========== */
+var trafficChart;
+function isDark(){return document.documentElement.getAttribute('data-theme')==='dark'}
+function chartColors(){
+  var d=isDark();
+  return{
+    grid:d?'rgba(255,255,255,0.06)':'rgba(0,0,0,0.06)',
+    text:d?'rgba(255,255,255,0.5)':'rgba(0,0,0,0.5)'
+  };
+}
+
+function createTrafficChart(){
+  var ctx=document.getElementById('trafficChart').getContext('2d');
+  var c=chartColors();
+  trafficChart=new Chart(ctx,{
+    type:'line',
+    data:{
+      labels:['Jun 25','Jul','Aug','Sep','Oct','Nov','Dec','Jan 26','Feb','Mar','Apr','May'],
+      datasets:[
+        {
+          label:'Organic Traffic',
+          data:[380,420,395,410,480,460,430,450,470,490,473,473],
+          borderColor:'#40B4E5',
+          backgroundColor:'rgba(64,180,229,0.1)',
+          fill:true,tension:0.4,
+          pointRadius:6,pointHoverRadius:10,
+          pointBackgroundColor:'#40B4E5',
+          yAxisID:'y'
+        },
+        {
+          label:'Keywords',
+          data:[265,278,285,290,305,298,295,302,308,310,304,304],
+          borderColor:'#CC22FF',
+          backgroundColor:'rgba(204,34,255,0.08)',
+          fill:true,tension:0.4,
+          pointRadius:6,pointHoverRadius:10,
+          pointBackgroundColor:'#CC22FF',
+          yAxisID:'y1'
+        }
+      ]
+    },
+    options:{
+      responsive:true,
+      animation:{duration:2000,easing:'easeOutQuart'},
+      plugins:{
+        legend:{labels:{color:c.text,font:{family:'Inter',size:12}}},
+        tooltip:{
+          callbacks:{
+            title:function(items){return items[0].label},
+            label:function(item){return item.dataset.label+': '+item.parsed.y.toLocaleString()}
+          }
+        }
+      },
+      scales:{
+        x:{grid:{color:c.grid},ticks:{color:c.text,font:{family:'Inter'}}},
+        y:{
+          position:'left',grid:{color:c.grid},
+          ticks:{color:c.text,font:{family:'Inter'}},
+          title:{display:true,text:'Monthly Traffic',color:c.text,font:{family:'Inter'}}
+        },
+        y1:{
+          position:'right',grid:{display:false},
+          ticks:{color:c.text,font:{family:'Inter'}},
+          title:{display:true,text:'Keywords',color:c.text,font:{family:'Inter'}}
+        }
+      }
+    }
+  });
+}
+
+function updateCharts(){
+  var c=chartColors();
+  if(trafficChart){
+    ['x','y','y1'].forEach(function(k){
+      if(trafficChart.options.scales[k]){
+        if(trafficChart.options.scales[k].grid)trafficChart.options.scales[k].grid.color=c.grid;
+        if(trafficChart.options.scales[k].ticks)trafficChart.options.scales[k].ticks.color=c.text;
+        if(trafficChart.options.scales[k].title)trafficChart.options.scales[k].title.color=c.text;
+      }
+    });
+    trafficChart.options.plugins.legend.labels.color=c.text;
+    trafficChart.update();
+  }
+}
+
+if(document.readyState==='loading'){
+  document.addEventListener('DOMContentLoaded',createTrafficChart);
+}else{
+  createTrafficChart();
+}
+</script>
+</body>
+</html>
