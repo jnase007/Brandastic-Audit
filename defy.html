@@ -1,0 +1,1503 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta name="robots" content="noindex, nofollow">
+<meta charset="UTF-8">
+<link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DEFY Eyewear — Digital Audit by Brandastic</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+<style>
+/* ========== CSS CUSTOM PROPERTIES ========== */
+:root {
+  --bg-primary:#191F24;--bg-secondary:#0d1117;--bg-tertiary:#151a20;
+  --bg-card:rgba(100,116,139,0.15);--bg-card-hover:rgba(100,116,139,0.2);
+  --bg-card-border:rgba(100,116,139,0.2);
+  --text-primary:#ffffff;--text-secondary:rgba(255,255,255,0.7);--text-muted:rgba(255,255,255,0.4);
+  --accent-blue:#0644ED;--accent-light:#40B4E5;--accent-purple:#CC22FF;
+  --accent-orange:#FF6B35;--accent-amber:#F59E0B;
+  --glass-bg:rgba(100,116,139,0.15);--glass-border:rgba(255,255,255,0.1);
+  --shadow:0 8px 32px rgba(0,0,0,0.3);
+  --red:#ef4444;--yellow:#f59e0b;--green:#22c55e;
+  --chart-grid:rgba(255,255,255,0.06);--chart-text:rgba(255,255,255,0.5);
+  --transition:0.3s ease;
+}
+[data-theme="light"] {
+  --bg-primary:#F5F3EF;--bg-secondary:#ffffff;--bg-tertiary:#f0ede8;
+  --bg-card:rgba(255,255,255,0.85);--bg-card-hover:rgba(255,255,255,0.95);
+  --bg-card-border:rgba(0,0,0,0.08);
+  --text-primary:#191F24;--text-secondary:rgba(25,31,36,0.7);--text-muted:rgba(25,31,36,0.4);
+  --glass-bg:rgba(255,255,255,0.85);--glass-border:rgba(0,0,0,0.08);
+  --shadow:0 8px 32px rgba(0,0,0,0.06);
+  --chart-grid:rgba(0,0,0,0.06);--chart-text:rgba(0,0,0,0.5);
+}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',system-ui,-apple-system,sans-serif;background:var(--bg-primary);color:var(--text-primary);line-height:1.6;transition:background-color var(--transition),color var(--transition);overflow-x:hidden}
+a{color:var(--accent-light);text-decoration:none}
+
+/* ===== NAV ===== */
+.nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:0 2rem;height:64px;display:flex;align-items:center;justify-content:space-between;background:var(--glass-bg);backdrop-filter:blur(20px);border-bottom:1px solid var(--glass-border);transition:background var(--transition)}
+.nav-brand{font-weight:700;font-size:1.15rem;letter-spacing:0.05em;display:flex;align-items:center;gap:10px}
+.nav-brand .dot{width:10px;height:10px;border-radius:50%;background:linear-gradient(135deg,#FF6B35,#F59E0B)}
+.nav-actions{display:flex;align-items:center;gap:12px}
+.theme-toggle{width:56px;height:32px;min-width:44px;min-height:44px;border-radius:13px;border:none;cursor:pointer;background:linear-gradient(135deg,#FF6B35,#F59E0B);padding:2px;display:flex;align-items:center;transition:var(--transition);flex-shrink:0}
+.theme-toggle .knob{width:28px;height:28px;border-radius:50%;background:var(--bg-primary);display:flex;align-items:center;justify-content:center;font-size:11px;transition:transform var(--transition),background-color var(--transition);transform:translateX(0)}
+[data-theme="light"] .theme-toggle .knob{transform:translateX(24px)}
+.pdf-btn{display:inline-flex;align-items:center;gap:6px;padding:8px 18px;border-radius:10px;border:none;cursor:pointer;background:linear-gradient(135deg,#FF6B35,#F59E0B);color:#fff;font-family:inherit;font-size:0.78rem;font-weight:600;letter-spacing:0.03em;transition:transform var(--transition),box-shadow var(--transition);white-space:nowrap}
+.pdf-btn:hover{transform:translateY(-1px);box-shadow:0 4px 20px rgba(255,107,53,0.4)}
+
+/* ===== SECTIONS ===== */
+section{padding:5rem 2rem;position:relative}
+section:nth-child(even){background:var(--bg-secondary);transition:background var(--transition)}
+.container{max-width:1200px;margin:0 auto}
+.section-badge{display:inline-flex;align-items:center;gap:6px;padding:6px 16px;border-radius:50px;background:var(--glass-bg);border:1px solid var(--glass-border);font-size:0.7rem;font-weight:600;letter-spacing:0.15em;text-transform:uppercase;color:var(--text-muted);margin-bottom:1.5rem;backdrop-filter:blur(10px)}
+.section-title{font-size:clamp(1.8rem,4vw,2.8rem);font-weight:800;letter-spacing:-0.03em;margin-bottom:1rem;line-height:1.15}
+.section-title .gradient{background:linear-gradient(135deg,#FF6B35,#F59E0B);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.section-sub{color:var(--text-secondary);font-size:1.05rem;max-width:700px;margin-bottom:3rem;line-height:1.7}
+
+/* ===== HERO ===== */
+.hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding-top:64px;position:relative;overflow:hidden;background:#0a0a0a}
+[data-theme="light"] .hero{background:#1a1a2e}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 30% 20%,rgba(255,107,53,0.18) 0%,transparent 50%),radial-gradient(ellipse at 70% 80%,rgba(245,158,11,0.12) 0%,transparent 50%);pointer-events:none}
+.hero-eyebrow{display:inline-flex;align-items:center;gap:8px;padding:8px 20px;border-radius:50px;background:rgba(255,107,53,0.15);border:1px solid rgba(255,107,53,0.3);font-size:0.75rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:#FF6B35;margin-bottom:2rem}
+.hero-company{font-size:clamp(4rem,12vw,9rem);font-weight:900;letter-spacing:-0.05em;line-height:0.9;margin-bottom:0.5rem;background:linear-gradient(135deg,#fff 0%,rgba(255,255,255,0.6) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hero-tagline{font-size:clamp(0.85rem,1.5vw,1.1rem);font-weight:500;letter-spacing:0.15em;text-transform:uppercase;color:rgba(255,255,255,0.5);margin-bottom:2rem}
+.hero-meta{display:flex;flex-wrap:wrap;gap:1rem;justify-content:center;margin-top:1rem;margin-bottom:3rem}
+.hero-meta span{padding:8px 20px;border-radius:50px;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.12);backdrop-filter:blur(10px);font-size:0.8rem;font-weight:500;color:rgba(255,255,255,0.7)}
+.hero-scroll{position:absolute;bottom:2rem;animation:bounce 2s infinite;opacity:0.5;color:#fff;font-size:1.2rem}
+@keyframes bounce{0%,100%{transform:translateY(0)}50%{transform:translateY(8px)}}
+
+/* ===== CARDS & GRIDS ===== */
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:2rem;align-items:start}
+.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
+.grid-4{display:grid;grid-template-columns:repeat(2,1fr);gap:1.5rem}
+.card{background:var(--bg-card);border:1px solid var(--bg-card-border);border-radius:16px;padding:2rem;backdrop-filter:blur(10px);transition:transform var(--transition),box-shadow var(--transition),background var(--transition),border-color var(--transition)}
+.card:hover{transform:translateY(-3px);box-shadow:var(--shadow);border-color:rgba(255,107,53,0.2)}
+
+/* ===== METRIC CARDS ===== */
+.metric-card{text-align:center;padding:2rem 1.5rem}
+.metric-card .value{font-size:2.2rem;font-weight:800;letter-spacing:-0.03em;background:linear-gradient(135deg,#FF6B35,#F59E0B);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.metric-card .label{font-size:0.75rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--text-muted);margin-top:0.5rem}
+.metric-card .change{font-size:0.8rem;margin-top:0.3rem;font-weight:600}
+.metric-card .change.down{color:var(--red)}
+.metric-card .change.up{color:var(--green)}
+.metric-card .change.neutral{color:var(--yellow)}
+
+/* ===== SCORECARD ===== */
+.score-ring{position:relative;width:120px;height:120px;margin:0 auto 1rem}
+.score-ring svg{transform:rotate(-90deg);width:120px;height:120px}
+.score-ring .bg{fill:none;stroke:var(--bg-card-border);stroke-width:8}
+.score-ring .fg{fill:none;stroke-width:8;stroke-linecap:round;transition:stroke-dashoffset 1.5s ease}
+.score-ring .grade{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:1.8rem;font-weight:800}
+
+/* ===== TABLES ===== */
+.data-table{width:100%;border-collapse:collapse;font-size:0.9rem}
+.data-table th{text-align:left;padding:1rem;font-size:0.7rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--text-muted);border-bottom:1px solid var(--bg-card-border)}
+.data-table td{padding:0.85rem 1rem;border-bottom:1px solid var(--bg-card-border);color:var(--text-secondary)}
+.data-table tr:hover td{color:var(--text-primary)}
+.badge{display:inline-block;padding:3px 10px;border-radius:6px;font-size:0.7rem;font-weight:600;letter-spacing:0.05em}
+.badge-branded{background:rgba(245,158,11,0.15);color:#F59E0B}
+.badge-generic{background:rgba(255,107,53,0.15);color:#FF6B35}
+.badge-info{background:rgba(34,197,94,0.15);color:#22c55e}
+.badge-warn{background:rgba(239,68,68,0.15);color:#ef4444}
+
+/* ===== WARNING / SUCCESS BANNERS ===== */
+.warning-banner{background:linear-gradient(135deg,rgba(239,68,68,0.1),rgba(239,68,68,0.05));border:1px solid rgba(239,68,68,0.2);border-radius:12px;padding:1.5rem 2rem;display:flex;align-items:center;gap:1rem;margin-bottom:2rem}
+.warning-banner .icon{font-size:1.5rem}
+.warning-banner .text{font-weight:600;color:var(--red)}
+.success-banner{background:linear-gradient(135deg,rgba(34,197,94,0.1),rgba(34,197,94,0.05));border:1px solid rgba(34,197,94,0.2);border-radius:12px;padding:1.5rem 2rem;display:flex;align-items:center;gap:1rem;margin-bottom:2rem}
+.success-banner .text{font-weight:600;color:var(--green)}
+.opportunity-banner{background:linear-gradient(135deg,rgba(255,107,53,0.1),rgba(245,158,11,0.05));border:1px solid rgba(255,107,53,0.2);border-radius:12px;padding:1.5rem 2rem;display:flex;align-items:center;gap:1rem;margin-bottom:2rem}
+.opportunity-banner .text{font-weight:600;color:#FF6B35}
+
+/* ===== TIMELINE ===== */
+.timeline{display:flex;gap:0;margin-top:2rem;position:relative}
+.timeline::before{content:'';position:absolute;top:40px;left:0;right:0;height:3px;background:var(--bg-card-border)}
+.timeline-phase{flex:1;position:relative;padding-top:60px;padding-right:1.5rem}
+.timeline-dot{position:absolute;top:32px;left:0;width:18px;height:18px;border-radius:50%;background:linear-gradient(135deg,#FF6B35,#F59E0B);border:3px solid var(--bg-primary);z-index:1;transition:border-color var(--transition)}
+.timeline-phase .phase-label{font-size:0.7rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#FF6B35;margin-bottom:0.5rem}
+.timeline-phase .phase-title{font-weight:700;font-size:1.1rem;margin-bottom:0.75rem}
+.timeline-phase .phase-items{list-style:none;display:flex;flex-direction:column;gap:0.4rem}
+.timeline-phase .phase-items li{font-size:0.9rem;color:var(--text-secondary);padding-left:1.2rem;position:relative}
+.timeline-phase .phase-items li::before{content:'';position:absolute;left:0;top:8px;width:6px;height:6px;border-radius:50%;background:#FF6B35}
+
+/* ===== STRATEGY CARDS ===== */
+.strategy-card{padding:2.5rem 2rem;border-top:3px solid transparent;background-image:linear-gradient(var(--bg-card),var(--bg-card)),linear-gradient(135deg,#FF6B35,#F59E0B);background-origin:border-box;background-clip:padding-box,border-box;border-radius:16px;text-align:center}
+.strategy-card .icon{font-size:2.5rem;margin-bottom:1rem}
+.strategy-card .title{font-weight:700;font-size:1.1rem;margin-bottom:0.75rem}
+.strategy-card .desc{color:var(--text-secondary);font-size:0.9rem;line-height:1.6;margin-bottom:1rem}
+.strategy-card .outcome{padding:0.75rem;border-radius:8px;background:rgba(255,107,53,0.08);font-size:0.8rem;font-weight:600;color:#FF6B35}
+
+/* ===== ROI ===== */
+.roi-card{text-align:center;padding:2rem 1.5rem}
+.roi-card .label{font-size:0.7rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--text-muted);margin-bottom:0.75rem}
+.roi-card .before{font-size:1.3rem;font-weight:600;color:var(--text-muted);text-decoration:line-through}
+.roi-card .arrow{font-size:1.5rem;margin:0.5rem 0;background:linear-gradient(135deg,#FF6B35,#F59E0B);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.roi-card .after{font-size:2rem;font-weight:800;background:linear-gradient(135deg,#FF6B35,#F59E0B);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+
+/* ===== CTA ===== */
+.cta-section{text-align:center;padding:8rem 2rem;position:relative;overflow:hidden;background:linear-gradient(135deg,#0a0a0a 0%,#1a0a00 50%,#0a0a0a 100%)}
+.cta-section::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 50%,rgba(255,107,53,0.15) 0%,transparent 60%);pointer-events:none}
+.cta-btn{display:inline-flex;align-items:center;gap:8px;padding:16px 40px;border-radius:14px;background:linear-gradient(135deg,#FF6B35,#F59E0B);color:#fff;font-family:inherit;font-size:1.1rem;font-weight:700;border:none;cursor:pointer;transition:transform var(--transition),box-shadow var(--transition)}
+.cta-btn:hover{transform:translateY(-2px);box-shadow:0 8px 30px rgba(255,107,53,0.5)}
+@keyframes ctaPulse{0%{box-shadow:0 0 0 0 rgba(255,107,53,0.4)}70%{box-shadow:0 0 0 15px rgba(255,107,53,0)}100%{box-shadow:0 0 0 0 rgba(255,107,53,0)}}
+.cta-btn.pulse{animation:ctaPulse 2s ease-in-out infinite}
+
+/* ===== CHART WRAP ===== */
+.chart-wrap{background:var(--bg-card);border:1px solid var(--bg-card-border);border-radius:16px;padding:2rem;backdrop-filter:blur(10px);transition:background var(--transition),border-color var(--transition)}
+
+/* ===== CONTENT GAP ===== */
+.gap-card{padding:1.5rem;text-align:center}
+.gap-card .kw{font-weight:700;font-size:1rem;margin-bottom:0.5rem}
+.gap-card .vol{font-size:1.8rem;font-weight:800;background:linear-gradient(135deg,#FF6B35,#F59E0B);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.gap-card .vol-label{font-size:0.7rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.1em}
+.gap-card .status{display:inline-block;margin-top:0.75rem;padding:4px 12px;border-radius:6px;background:rgba(239,68,68,0.12);color:var(--red);font-size:0.7rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase}
+.gap-card .status-good{background:rgba(34,197,94,0.12);color:var(--green)}
+
+/* ===== SEO MATRIX ===== */
+.seo-matrix-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;margin-top:2rem;border-radius:16px;background:var(--bg-card);border:1px solid var(--bg-card-border);backdrop-filter:blur(10px)}
+.seo-matrix{width:100%;border-collapse:collapse;font-size:0.88rem;min-width:600px}
+.seo-matrix thead th{padding:1rem 1.25rem;font-size:0.7rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--text-muted);border-bottom:2px solid var(--bg-card-border);text-align:center;white-space:nowrap}
+.seo-matrix thead th:first-child{text-align:left}
+.seo-matrix thead th.highlight{background:linear-gradient(135deg,rgba(255,107,53,0.08),rgba(245,158,11,0.08));color:#FF6B35;position:relative}
+.seo-matrix thead th.highlight::after{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,#FF6B35,#F59E0B);border-radius:3px 3px 0 0}
+.seo-matrix tbody td{padding:0.85rem 1.25rem;border-bottom:1px solid var(--bg-card-border);text-align:center;color:var(--text-secondary);white-space:nowrap}
+.seo-matrix tbody td:first-child{text-align:left;font-weight:600;color:var(--text-primary)}
+.seo-matrix tbody td.highlight{background:linear-gradient(135deg,rgba(255,107,53,0.04),rgba(245,158,11,0.04))}
+.seo-matrix tbody tr:hover td{background:var(--bg-card-hover)}
+.seo-matrix .status-good{color:var(--green)}
+.seo-matrix .status-warn{color:var(--yellow)}
+.seo-matrix .status-bad{color:var(--red)}
+.seo-matrix .winner-row td{border-top:2px solid var(--bg-card-border);font-weight:700;font-size:0.75rem;letter-spacing:0.08em;text-transform:uppercase}
+.seo-matrix .winner-row td.winning{background:linear-gradient(135deg,rgba(34,197,94,0.1),rgba(34,197,94,0.05));color:var(--green)}
+.seo-matrix .winner-row td.losing{background:linear-gradient(135deg,rgba(239,68,68,0.1),rgba(239,68,68,0.05));color:var(--red)}
+
+/* ===== PROGRESS BARS ===== */
+.progress-bar-wrap{margin-top:0.5rem}
+.progress-bar{height:8px;border-radius:4px;background:var(--bg-card-border);overflow:hidden}
+.progress-bar .fill{height:100%;border-radius:4px;background:linear-gradient(90deg,#FF6B35,#F59E0B);transition:width 1.5s ease}
+
+/* ===== SIDE NAV ===== */
+.side-nav{position:fixed;right:1.2rem;top:50%;transform:translateY(-50%);z-index:999;display:flex;flex-direction:column;align-items:center;padding:14px 8px;border-radius:999px;background:var(--glass-bg);backdrop-filter:blur(20px);border:1px solid var(--glass-border);box-shadow:var(--shadow);transition:background var(--transition),border-color var(--transition)}
+.side-nav-line{position:absolute;top:14px;bottom:14px;width:1px;background:var(--glass-border);z-index:0}
+.side-nav-dot{position:relative;z-index:1;width:8px;height:8px;border-radius:50%;background:var(--text-muted);margin:7px 0;cursor:pointer;transition:all 0.3s ease;flex-shrink:0}
+.side-nav-dot:hover{background:var(--text-secondary);transform:scale(1.3)}
+.side-nav-dot.active{width:10px;height:10px;background:linear-gradient(135deg,#FF6B35,#F59E0B);box-shadow:0 0 10px rgba(255,107,53,0.5);margin:6px 0}
+.side-nav-dot .tooltip{position:absolute;right:calc(100% + 12px);top:50%;transform:translateY(-50%) translateX(6px);background:var(--glass-bg);backdrop-filter:blur(16px);border:1px solid var(--glass-border);color:var(--text-primary);padding:4px 10px;border-radius:8px;font-size:0.7rem;font-weight:600;letter-spacing:0.03em;white-space:nowrap;opacity:0;pointer-events:none;transition:all 0.25s ease;box-shadow:var(--shadow)}
+.side-nav-dot:hover .tooltip{opacity:1;transform:translateY(-50%) translateX(0)}
+@media(max-width:768px){.side-nav{display:none}}
+
+/* ===== READING PROGRESS ===== */
+.reading-progress{position:fixed;top:64px;left:0;width:0%;height:3px;background:linear-gradient(90deg,#FF6B35,#F59E0B);z-index:1001;transition:width 0.1s linear;pointer-events:none}
+
+/* ===== WATERMARK ===== */
+.watermark{position:fixed;bottom:20px;left:20px;display:flex;align-items:center;gap:6px;padding:8px 16px;border-radius:10px;background:var(--glass-bg);border:1px solid var(--glass-border);backdrop-filter:blur(10px);font-size:0.7rem;font-weight:600;color:var(--text-muted);letter-spacing:0.05em;z-index:999;transition:background var(--transition)}
+
+/* ===== FINDING CARDS ===== */
+.finding-card{display:flex;gap:1.5rem;align-items:start;padding:2rem}
+.finding-num{flex-shrink:0;width:48px;height:48px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.2rem;font-weight:800;color:#fff}
+.finding-num.critical{background:linear-gradient(135deg,#ef4444,#dc2626)}
+.finding-num.high{background:linear-gradient(135deg,#f59e0b,#d97706)}
+.finding-num.opportunity{background:linear-gradient(135deg,#FF6B35,#F59E0B)}
+.finding-card .title{font-weight:700;font-size:1.05rem;margin-bottom:0.3rem}
+.finding-card .desc{color:var(--text-secondary);font-size:0.9rem}
+
+/* ===== REVEAL ANIMATION ===== */
+.reveal{opacity:0;transform:translateY(24px);transition:opacity 0.8s ease,transform 0.8s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
+
+/* ===== STAT BARS ===== */
+.stat-highlight{display:flex;align-items:center;gap:1rem;padding:1rem 1.25rem;background:var(--bg-card);border:1px solid var(--bg-card-border);border-radius:12px;margin-bottom:0.75rem}
+.stat-highlight .stat-icon{font-size:1.5rem;flex-shrink:0}
+.stat-highlight .stat-label{font-size:0.8rem;color:var(--text-muted);font-weight:600;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:2px}
+.stat-highlight .stat-value{font-size:1.1rem;font-weight:700}
+
+/* ===== PERSONA ===== */
+.persona-card{padding:2rem;text-align:center}
+.persona-avatar{width:72px;height:72px;border-radius:50%;margin:0 auto 1rem;display:flex;align-items:center;justify-content:center;font-size:2rem;background:linear-gradient(135deg,rgba(255,107,53,0.15),rgba(245,158,11,0.15))}
+.persona-name{font-weight:700;font-size:1.1rem;margin-bottom:0.25rem}
+.persona-demo{font-size:0.85rem;color:var(--text-muted);margin-bottom:1rem}
+.persona-channels{display:flex;flex-wrap:wrap;gap:6px;justify-content:center;margin-bottom:1rem}
+.persona-channels .ch{padding:4px 10px;border-radius:6px;background:var(--glass-bg);border:1px solid var(--glass-border);font-size:0.7rem;font-weight:600;color:var(--text-secondary)}
+.persona-discover{font-size:0.85rem;color:var(--text-secondary);line-height:1.6}
+
+/* ===== NO ADS CALLOUT ===== */
+.ads-callout{background:linear-gradient(135deg,rgba(255,107,53,0.1),rgba(255,107,53,0.05));border:1px solid rgba(255,107,53,0.25);border-radius:12px;padding:1.5rem 2rem;margin-top:2rem;display:flex;align-items:start;gap:1rem}
+.ads-callout .icon{font-size:1.5rem;flex-shrink:0;line-height:1}
+.ads-callout .content .headline{font-weight:700;color:#FF6B35;font-size:0.95rem;margin-bottom:0.25rem}
+.ads-callout .content .body{color:var(--text-secondary);font-size:0.88rem;line-height:1.6}
+
+/* ===== RESPONSIVE ===== */
+@media(max-width:1024px){.grid-4{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:768px){
+  .grid-2,.grid-3,.grid-4{grid-template-columns:1fr}
+  .timeline{flex-direction:column;gap:2rem}
+  .timeline::before{display:none}
+  .timeline-phase{padding-top:0;padding-left:2rem}
+  .timeline-dot{top:0;left:0}
+  section{padding:4rem 1.5rem}
+}
+@media print{
+  *{transition:none!important;animation:none!important}
+  body{background:#fff!important;color:#191F24!important;font-size:10pt}
+  .nav,.theme-toggle,.pdf-btn,.watermark,.hero-scroll,.side-nav,.reading-progress{display:none!important}
+  section{padding:2rem 0!important;background:#fff!important;page-break-inside:avoid}
+  .hero{min-height:auto!important;padding:3rem 0!important;background:#fff!important}
+  .hero-company{-webkit-text-fill-color:#191F24!important;font-size:2.5rem!important}
+  .card{background:#f9f9f9!important;border:1px solid #ddd!important;box-shadow:none!important}
+  .reveal{opacity:1!important;transform:none!important}
+  .section-title .gradient{-webkit-text-fill-color:#FF6B35!important}
+  .metric-card .value,.roi-card .after,.gap-card .vol{-webkit-text-fill-color:#FF6B35!important}
+  @page{margin:1.5cm;size:letter}
+}
+</style>
+</head>
+<body>
+
+<!-- READING PROGRESS -->
+<div class="reading-progress" id="readingProgress"></div>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="nav-brand">
+    <div class="dot"></div>
+    DEFY Eyewear Audit
+  </div>
+  <div class="nav-actions">
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+      <div class="knob" id="themeKnob">☀️</div>
+    </button>
+    <button class="pdf-btn" onclick="window.print()">⬇ Export PDF</button>
+  </div>
+</nav>
+
+<!-- SIDE NAV -->
+<div class="side-nav" id="sideNav">
+  <div class="side-nav-line"></div>
+  <div class="side-nav-dot active" data-section="hero"><span class="tooltip">Top</span></div>
+  <div class="side-nav-dot" data-section="overview"><span class="tooltip">Overview</span></div>
+  <div class="side-nav-dot" data-section="summary"><span class="tooltip">Snapshot</span></div>
+  <div class="side-nav-dot" data-section="personas"><span class="tooltip">Personas</span></div>
+  <div class="side-nav-dot" data-section="scorecard"><span class="tooltip">SEO Score</span></div>
+  <div class="side-nav-dot" data-section="traffic"><span class="tooltip">Traffic</span></div>
+  <div class="side-nav-dot" data-section="keywords"><span class="tooltip">Keywords</span></div>
+  <div class="side-nav-dot" data-section="ads"><span class="tooltip">Paid Search</span></div>
+  <div class="side-nav-dot" data-section="competitors"><span class="tooltip">Competitors</span></div>
+  <div class="side-nav-dot" data-section="social"><span class="tooltip">Social</span></div>
+  <div class="side-nav-dot" data-section="content"><span class="tooltip">Content Gaps</span></div>
+  <div class="side-nav-dot" data-section="strategy"><span class="tooltip">Strategy</span></div>
+  <div class="side-nav-dot" data-section="roadmap"><span class="tooltip">Roadmap</span></div>
+  <div class="side-nav-dot" data-section="roi"><span class="tooltip">ROI</span></div>
+  <div class="side-nav-dot" data-section="cta"><span class="tooltip">Get Started</span></div>
+</div>
+
+<!-- WATERMARK -->
+<div class="watermark"><span style="width:6px;height:6px;border-radius:50%;background:linear-gradient(135deg,#FF6B35,#F59E0B);display:inline-block"></span>&nbsp;Brandastic Digital Audit</div>
+
+<!-- ===== HERO ===== -->
+<section class="hero" id="hero">
+  <div class="hero-eyebrow">🕶️ Digital Marketing Audit · June 2026</div>
+  <h1 class="hero-company">DEFY</h1>
+  <p class="hero-tagline">The Ultimate Outdoor Adventure Eyewear Brand</p>
+  <div class="hero-meta">
+    <span>🏔️ Outdoor Adventure Eyewear</span>
+    <span>💰 $69.99 AOV</span>
+    <span>🛍️ Shopify DTC</span>
+    <span>📍 Denver, CO</span>
+    <a href="https://weardefy.com" target="_blank" style="padding:8px 20px;border-radius:50px;background:rgba(255,107,53,0.2);border:1px solid rgba(255,107,53,0.4);font-size:0.8rem;font-weight:600;color:#FF6B35">weardefy.com ↗</a>
+  </div>
+  <p style="color:rgba(255,255,255,0.45);font-size:0.8rem;letter-spacing:0.05em">Prepared by Brandastic · Confidential</p>
+  <div class="hero-scroll">↓</div>
+</section>
+
+<!-- DATA DISCLAIMER -->
+<div style="background:var(--bg-secondary);padding:1.5rem 2rem;transition:background var(--transition)">
+  <div style="max-width:800px;margin:0 auto;padding:1.25rem 1.5rem;border-radius:12px;background:linear-gradient(135deg,rgba(255,107,53,0.06),rgba(245,158,11,0.06));border:1px solid rgba(255,107,53,0.15);text-align:center">
+    <p style="font-size:0.85rem;color:var(--text-secondary);line-height:1.6;margin:0">This audit uses publicly available data from SEMrush and web research. DEFY launched recently and is in early-stage growth — data reflects current baseline. With access to Google Analytics, Search Console & Shopify dashboards, Brandastic can provide significantly deeper insights. <strong style="color:#FF6B35">This is your opportunity benchmark.</strong></p>
+  </div>
+</div>
+
+<!-- ===== 1. BUSINESS OVERVIEW ===== -->
+<section id="overview">
+  <div class="container reveal">
+    <div class="section-badge">01 — Business Overview</div>
+    <div class="grid-2">
+      <div>
+        <h2 class="section-title">Premium Outdoor Eyewear<br>That <span class="gradient">Dares to Defy</span></h2>
+        <p class="section-sub">DEFY is a Denver-based DTC eyewear brand engineered for outdoor adventurers — hikers, trail runners, cyclists, and thrill-seekers who demand performance without sacrificing style or sustainability.</p>
+        <p style="color:var(--text-secondary);line-height:1.7;margin-bottom:1.5rem">Built on EMS Grivory Greenline technology (58% bio-based materials), DEFY frames are lightweight, hypoallergenic, and corrosion-resistant. HD polarized lenses deliver vibrant clarity with scratch and shatter resistance. Every pair includes a lifetime warranty and 30-day risk-free trial — a confidence play that signals product quality and commitment to customer experience.</p>
+        <p style="color:var(--text-secondary);line-height:1.7">Currently operating at $0 paid ad spend, DEFY is in the critical early-growth phase — brand identity is strong, the product story is compelling, and the digital foundation needs focused investment to compete with established DTC eyewear brands.</p>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:1rem">
+        <div class="card" style="border-left:3px solid #22c55e">
+          <div style="font-size:0.7rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:#22c55e;margin-bottom:0.75rem">✦ Brand Strengths</div>
+          <ul style="list-style:none;display:flex;flex-direction:column;gap:0.6rem">
+            <li style="color:var(--text-secondary);font-size:0.9rem">♻️ Genuine sustainability story (58% bio-based materials)</li>
+            <li style="color:var(--text-secondary);font-size:0.9rem">🔒 Lifetime warranty + 30-day trial — strong trust signals</li>
+            <li style="color:var(--text-secondary);font-size:0.9rem">💎 Premium positioning at accessible price ($69.99)</li>
+            <li style="color:var(--text-secondary);font-size:0.9rem">🏔️ Clear niche: outdoor adventure community</li>
+            <li style="color:var(--text-secondary);font-size:0.9rem">🛍️ Shopify DTC — full margin control, owned channel</li>
+          </ul>
+        </div>
+        <div class="card" style="border-left:3px solid var(--red)">
+          <div style="font-size:0.7rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--red);margin-bottom:0.75rem">⚠ Critical Gaps</div>
+          <ul style="list-style:none;display:flex;flex-direction:column;gap:0.6rem">
+            <li style="color:var(--text-secondary);font-size:0.9rem">📉 Virtually zero organic traffic (just launched)</li>
+            <li style="color:var(--text-secondary);font-size:0.9rem">💸 $0 paid media investment — no customer acquisition engine</li>
+            <li style="color:var(--text-secondary);font-size:0.9rem">🔗 No backlink profile — zero domain authority built</li>
+            <li style="color:var(--text-secondary);font-size:0.9rem">📱 No established social following yet</li>
+            <li style="color:var(--text-secondary);font-size:0.9rem">📧 Email/SMS list likely near zero — no retention engine</li>
+          </ul>
+        </div>
+        <div class="card" style="border-left:3px solid #FF6B35">
+          <div style="font-size:0.7rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:#FF6B35;margin-bottom:0.75rem">📦 Product Line</div>
+          <ul style="list-style:none;display:flex;flex-direction:column;gap:0.5rem">
+            <li style="color:var(--text-secondary);font-size:0.9rem">🕶️ <strong>ASPEN (DE104)</strong> — $69.99 — Flagship outdoor style</li>
+            <li style="color:var(--text-secondary);font-size:0.9rem">🏔️ Canyon Collection — Adventure-focused line</li>
+            <li style="color:var(--text-secondary);font-size:0.9rem">🌱 All frames: EMS Grivory Greenline, stainless steel + cellulose propionate</li>
+            <li style="color:var(--text-secondary);font-size:0.9rem">🚚 Free shipping $55+ · Ships in 2 business days</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 2. EXECUTIVE SNAPSHOT ===== -->
+<section id="summary">
+  <div class="container reveal">
+    <div class="section-badge">02 — Executive Snapshot</div>
+    <h2 class="section-title">Current Digital <span class="gradient">Baseline</span></h2>
+    <p class="section-sub">DEFY is starting from a clean slate — which is actually a powerful position. The brand story is strong; the digital infrastructure just needs to be built.</p>
+
+    <div class="grid-4" style="margin-bottom:3rem">
+      <div class="card metric-card">
+        <div class="value">~0</div>
+        <div class="label">Monthly Organic Visits</div>
+        <div class="change down">Just launched — day 1 baseline</div>
+      </div>
+      <div class="card metric-card">
+        <div class="value">5</div>
+        <div class="label">Ranking Keywords</div>
+        <div class="change neutral">All low-volume, early signal</div>
+      </div>
+      <div class="card metric-card">
+        <div class="value">$0</div>
+        <div class="label">Monthly Ad Spend</div>
+        <div class="change down">No paid acquisition active</div>
+      </div>
+      <div class="card metric-card">
+        <div class="value">$69.99</div>
+        <div class="label">Average Order Value</div>
+        <div class="change up">Solid AOV for DTC eyewear</div>
+      </div>
+    </div>
+
+    <div class="grid-2">
+      <div>
+        <h3 style="font-weight:700;margin-bottom:1.25rem;font-size:1.1rem">🔍 Key Findings</h3>
+        <ul style="list-style:none;display:flex;flex-direction:column;gap:0.85rem">
+          <li style="color:var(--text-secondary);font-size:0.9rem;padding-left:1.2rem;position:relative"><span style="position:absolute;left:0;color:#FF6B35">•</span> SEMrush rank of 20,000,000+ reflects zero established SEO footprint — entirely expected for a new site</li>
+          <li style="color:var(--text-secondary);font-size:0.9rem;padding-left:1.2rem;position:relative"><span style="position:absolute;left:0;color:#FF6B35">•</span> Only 5 keywords ranking — all branded or semi-branded, no commercial traffic yet</li>
+          <li style="color:var(--text-secondary);font-size:0.9rem;padding-left:1.2rem;position:relative"><span style="position:absolute;left:0;color:#FF6B35">•</span> Competitors like Goodr drive 186K+ monthly visits — the gap is large but closable with focused effort</li>
+          <li style="color:var(--text-secondary);font-size:0.9rem;padding-left:1.2rem;position:relative"><span style="position:absolute;left:0;color:#FF6B35">•</span> Zero backlinks means Domain Authority is near 0 — link building must start immediately</li>
+          <li style="color:var(--text-secondary);font-size:0.9rem;padding-left:1.2rem;position:relative"><span style="position:absolute;left:0;color:#FF6B35">•</span> No Google Ads running — no immediate revenue generation pathway active</li>
+        </ul>
+      </div>
+      <div>
+        <h3 style="font-weight:700;margin-bottom:1.25rem;font-size:1.1rem">🚀 Biggest Opportunities</h3>
+        <ul style="list-style:none;display:flex;flex-direction:column;gap:0.85rem">
+          <li style="color:var(--text-secondary);font-size:0.9rem;padding-left:1.2rem;position:relative"><span style="position:absolute;left:0;color:#22c55e">•</span> Outdoor adventure niche has passionate, loyal communities — ideal for organic growth via influencers</li>
+          <li style="color:var(--text-secondary);font-size:0.9rem;padding-left:1.2rem;position:relative"><span style="position:absolute;left:0;color:#22c55e">•</span> Sustainability angle is differentiated — search volume for eco-friendly eyewear growing YoY</li>
+          <li style="color:var(--text-secondary);font-size:0.9rem;padding-left:1.2rem;position:relative"><span style="position:absolute;left:0;color:#22c55e">•</span> Meta/TikTok ads with UGC content can drive immediate DTC revenue at low CPMs</li>
+          <li style="color:var(--text-secondary);font-size:0.9rem;padding-left:1.2rem;position:relative"><span style="position:absolute;left:0;color:#22c55e">•</span> Email/SMS from day 1 — build owned list for zero-cost repeat purchases</li>
+          <li style="color:var(--text-secondary);font-size:0.9rem;padding-left:1.2rem;position:relative"><span style="position:absolute;left:0;color:#22c55e">•</span> Lifetime warranty story is a compelling performance marketing hook — low CAC potential</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 3. TARGET PERSONAS ===== -->
+<section id="personas">
+  <div class="container reveal">
+    <div class="section-badge">03 — Target Personas</div>
+    <h2 class="section-title">Who <span class="gradient">DEFY</span> Is For</h2>
+    <p class="section-sub">Three high-value customer segments with distinct discovery paths and purchasing motivations.</p>
+    <div class="grid-3">
+      <div class="card persona-card">
+        <div class="persona-avatar">🏃</div>
+        <div class="persona-name">The Trail Athlete</div>
+        <div class="persona-demo">Ages 25–40 · Runs/hikes 3×/week · Values performance</div>
+        <div class="persona-channels">
+          <span class="ch">Instagram</span><span class="ch">YouTube</span><span class="ch">REI Community</span>
+        </div>
+        <div class="persona-discover">Discovers via outdoor influencers, Reddit r/running & r/hiking, and "best hiking sunglasses" search queries. Price-conscious but quality-driven — lifetime warranty seals the deal.</div>
+      </div>
+      <div class="card persona-card">
+        <div class="persona-avatar">🌿</div>
+        <div class="persona-name">The Conscious Consumer</div>
+        <div class="persona-demo">Ages 22–38 · Sustainability-first mindset</div>
+        <div class="persona-channels">
+          <span class="ch">TikTok</span><span class="ch">Pinterest</span><span class="ch">Eco Blogs</span>
+        </div>
+        <div class="persona-discover">Searches "sustainable sunglasses" and "eco-friendly eyewear." Responds to brand mission, bio-based materials story, and social proof. Influenced by sustainability-focused content creators.</div>
+      </div>
+      <div class="card persona-card">
+        <div class="persona-avatar">🧭</div>
+        <div class="persona-name">The Weekend Adventurer</div>
+        <div class="persona-demo">Ages 30–50 · Active lifestyle · Style-aware</div>
+        <div class="persona-channels">
+          <span class="ch">Facebook</span><span class="ch">Google Search</span><span class="ch">Word of Mouth</span>
+        </div>
+        <div class="persona-discover">Searches "polarized sport sunglasses" or "affordable outdoor sunglasses." Values the premium features at accessible price. Facebook Ads with lifestyle imagery convert well for this demo.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 4. SEO SCORECARD ===== -->
+<section id="scorecard">
+  <div class="container reveal">
+    <div class="section-badge">04 — SEO Health Scorecard</div>
+    <h2 class="section-title">Overall Score: <span class="gradient">18/100</span></h2>
+    <p class="section-sub">DEFY is a brand-new site. A low score here is completely expected — and represents pure upside. Every point gained is a new customer acquisition channel opening up.</p>
+
+    <div class="warning-banner" style="margin-bottom:2rem">
+      <div class="icon">📊</div>
+      <div>
+        <div class="text">Early-Stage Baseline — All Upside From Here</div>
+        <div style="color:var(--text-secondary);font-size:0.9rem;margin-top:0.25rem">These scores reflect a just-launched Shopify site with no SEO investment yet. The average competitor in this space scores 55–70+. The gap is the opportunity.</div>
+      </div>
+    </div>
+
+    <div class="grid-4" style="margin-bottom:2rem">
+      <div class="card" style="text-align:center;padding:2rem">
+        <div class="score-ring">
+          <svg viewBox="0 0 120 120"><circle class="bg" cx="60" cy="60" r="52"/><circle class="fg" cx="60" cy="60" r="52" stroke="var(--red)" stroke-dasharray="327" stroke-dashoffset="327" data-target="294"/></svg>
+          <div class="grade" style="color:var(--red)">F</div>
+        </div>
+        <div style="font-weight:700;font-size:0.95rem">Technical SEO</div>
+        <div style="font-size:0.8rem;color:var(--text-muted);margin-top:0.25rem">10/100</div>
+        <div style="font-size:0.78rem;color:var(--text-secondary);margin-top:0.5rem;line-height:1.5">No sitemap index, no schema markup, basic Shopify defaults</div>
+      </div>
+      <div class="card" style="text-align:center;padding:2rem">
+        <div class="score-ring">
+          <svg viewBox="0 0 120 120"><circle class="bg" cx="60" cy="60" r="52"/><circle class="fg" cx="60" cy="60" r="52" stroke="var(--red)" stroke-dasharray="327" stroke-dashoffset="327" data-target="294"/></svg>
+          <div class="grade" style="color:var(--red)">F</div>
+        </div>
+        <div style="font-weight:700;font-size:0.95rem">Content &amp; Keywords</div>
+        <div style="font-size:0.8rem;color:var(--text-muted);margin-top:0.25rem">15/100</div>
+        <div style="font-size:0.78rem;color:var(--text-secondary);margin-top:0.5rem;line-height:1.5">Minimal content, 5 keywords ranking, no blog content yet</div>
+      </div>
+      <div class="card" style="text-align:center;padding:2rem">
+        <div class="score-ring">
+          <svg viewBox="0 0 120 120"><circle class="bg" cx="60" cy="60" r="52"/><circle class="fg" cx="60" cy="60" r="52" stroke="var(--red)" stroke-dasharray="327" stroke-dashoffset="327" data-target="294"/></svg>
+          <div class="grade" style="color:var(--red)">F</div>
+        </div>
+        <div style="font-weight:700;font-size:0.95rem">Domain Authority</div>
+        <div style="font-size:0.8rem;color:var(--text-muted);margin-top:0.25rem">5/100</div>
+        <div style="font-size:0.78rem;color:var(--text-secondary);margin-top:0.5rem;line-height:1.5">New domain, no backlinks established, zero DA</div>
+      </div>
+      <div class="card" style="text-align:center;padding:2rem">
+        <div class="score-ring">
+          <svg viewBox="0 0 120 120"><circle class="bg" cx="60" cy="60" r="52"/><circle class="fg" cx="60" cy="60" r="52" stroke="var(--yellow)" stroke-dasharray="327" stroke-dashoffset="327" data-target="196"/></svg>
+          <div class="grade" style="color:var(--yellow)">D+</div>
+        </div>
+        <div style="font-weight:700;font-size:0.95rem">On-Page Optimization</div>
+        <div style="font-size:0.8rem;color:var(--text-muted);margin-top:0.25rem">40/100</div>
+        <div style="font-size:0.78rem;color:var(--text-secondary);margin-top:0.5rem;line-height:1.5">Shopify structure is solid; meta titles/descriptions need work</div>
+      </div>
+    </div>
+
+    <div class="card" style="padding:2rem">
+      <h3 style="font-weight:700;margin-bottom:1.5rem">🎯 SEO Priority Fixes</h3>
+      <div style="display:flex;flex-direction:column;gap:1rem">
+        <div style="display:flex;align-items:center;gap:1rem">
+          <span style="background:rgba(239,68,68,0.15);color:var(--red);padding:4px 10px;border-radius:6px;font-size:0.7rem;font-weight:700;white-space:nowrap">CRITICAL</span>
+          <span style="color:var(--text-secondary);font-size:0.9rem">Submit XML sitemap to Google Search Console &amp; Bing Webmaster Tools immediately</span>
+        </div>
+        <div style="display:flex;align-items:center;gap:1rem">
+          <span style="background:rgba(239,68,68,0.15);color:var(--red);padding:4px 10px;border-radius:6px;font-size:0.7rem;font-weight:700;white-space:nowrap">CRITICAL</span>
+          <span style="color:var(--text-secondary);font-size:0.9rem">Add structured data (Product schema, BreadcrumbList, Organization) to all Shopify pages</span>
+        </div>
+        <div style="display:flex;align-items:center;gap:1rem">
+          <span style="background:rgba(245,158,11,0.15);color:var(--yellow);padding:4px 10px;border-radius:6px;font-size:0.7rem;font-weight:700;white-space:nowrap">HIGH</span>
+          <span style="color:var(--text-secondary);font-size:0.9rem">Rewrite all product meta titles/descriptions with target keywords (e.g., "polarized outdoor sunglasses")</span>
+        </div>
+        <div style="display:flex;align-items:center;gap:1rem">
+          <span style="background:rgba(245,158,11,0.15);color:var(--yellow);padding:4px 10px;border-radius:6px;font-size:0.7rem;font-weight:700;white-space:nowrap">HIGH</span>
+          <span style="color:var(--text-secondary);font-size:0.9rem">Launch content blog targeting outdoor eyewear keywords (hiking, running, cycling sunglasses)</span>
+        </div>
+        <div style="display:flex;align-items:center;gap:1rem">
+          <span style="background:rgba(34,197,94,0.15);color:var(--green);padding:4px 10px;border-radius:6px;font-size:0.7rem;font-weight:700;white-space:nowrap">MEDIUM</span>
+          <span style="color:var(--text-secondary);font-size:0.9rem">Build initial backlink profile via outdoor media outreach, PR, and affiliate partnerships</span>
+        </div>
+        <div style="display:flex;align-items:center;gap:1rem">
+          <span style="background:rgba(34,197,94,0.15);color:var(--green);padding:4px 10px;border-radius:6px;font-size:0.7rem;font-weight:700;white-space:nowrap">MEDIUM</span>
+          <span style="color:var(--text-secondary);font-size:0.9rem">Optimize Core Web Vitals on Shopify — image compression, lazy loading, theme performance</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 5. TRAFFIC TRENDS ===== -->
+<section id="traffic">
+  <div class="container reveal">
+    <div class="section-badge">05 — Traffic Analysis</div>
+    <h2 class="section-title">Traffic Baseline &amp; <span class="gradient">Growth Projection</span></h2>
+    <p class="section-sub">DEFY currently has near-zero organic traffic — a blank canvas. Below is what's possible with focused SEO + paid media investment over 12 months.</p>
+
+    <div class="grid-2" style="margin-bottom:2rem">
+      <div class="chart-wrap">
+        <h3 style="font-weight:700;margin-bottom:1.5rem;font-size:1rem">📈 Projected Monthly Traffic Growth</h3>
+        <canvas id="trafficChart" height="250"></canvas>
+        <p style="font-size:0.75rem;color:var(--text-muted);margin-top:0.75rem;font-style:italic">💡 Projections based on comparable DTC eyewear brand launch trajectories with active SEO + paid strategy</p>
+      </div>
+      <div class="chart-wrap">
+        <h3 style="font-weight:700;margin-bottom:1.5rem;font-size:1rem">🏆 Competitor Traffic Comparison (Monthly)</h3>
+        <canvas id="competitorTrafficChart" height="250"></canvas>
+        <p style="font-size:0.75rem;color:var(--text-muted);margin-top:0.75rem;font-style:italic">💡 SEMrush data — DEFY at near-zero vs established competitors</p>
+      </div>
+    </div>
+
+    <div class="grid-4">
+      <div class="card metric-card">
+        <div class="value">186K</div>
+        <div class="label">Goodr Monthly Traffic</div>
+        <div class="change neutral">The #1 benchmark to beat</div>
+      </div>
+      <div class="card metric-card">
+        <div class="value">161K</div>
+        <div class="label">Pit Viper Monthly</div>
+        <div class="change neutral">Strong cult following</div>
+      </div>
+      <div class="card metric-card">
+        <div class="value">167K</div>
+        <div class="label">Blenders Monthly</div>
+        <div class="change neutral">Aggressive paid + SEO</div>
+      </div>
+      <div class="card metric-card">
+        <div class="value">85K</div>
+        <div class="label">Knockaround Monthly</div>
+        <div class="change neutral">More achievable Y2 target</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 6. KEYWORDS ===== -->
+<section id="keywords">
+  <div class="container reveal">
+    <div class="section-badge">06 — Keyword Strategy</div>
+    <h2 class="section-title">Keyword <span class="gradient">Opportunities</span></h2>
+    <p class="section-sub">DEFY has 5 ranking keywords — all weak positions. The outdoor eyewear space is rich with high-intent search volume. Here's the roadmap to own it.</p>
+
+    <div class="grid-2" style="margin-bottom:2rem">
+      <div>
+        <h3 style="font-weight:700;margin-bottom:1rem;font-size:1rem">Current Rankings (5 Keywords)</h3>
+        <div style="background:var(--bg-card);border:1px solid var(--bg-card-border);border-radius:12px;overflow:hidden">
+          <table class="data-table" style="margin:0">
+            <thead>
+              <tr>
+                <th>Keyword</th>
+                <th>Position</th>
+                <th>Volume</th>
+                <th>Type</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>defy apparel</td><td style="color:var(--red)">#29</td><td>90/mo</td><td><span class="badge badge-branded">Branded</span></td></tr>
+              <tr><td>velvet canyon</td><td style="color:var(--red)">#29</td><td>170/mo</td><td><span class="badge badge-generic">Collection</span></td></tr>
+              <tr><td>canyon sunglasses</td><td style="color:var(--red)">#60</td><td>30/mo</td><td><span class="badge badge-generic">Product</span></td></tr>
+              <tr><td>how do you defy expectations</td><td style="color:var(--red)">#52</td><td>40/mo</td><td><span class="badge badge-branded">Brand</span></td></tr>
+              <tr><td>how do you defy expectations</td><td style="color:var(--red)">#64</td><td>40/mo</td><td><span class="badge badge-branded">Dupe</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="warning-banner" style="margin-top:1rem">
+          <div class="icon">⚠️</div>
+          <div>
+            <div class="text">0 commercial keywords ranking</div>
+            <div style="color:var(--text-secondary);font-size:0.85rem">No rankings for terms that drive purchase intent — "polarized sunglasses," "outdoor sunglasses," "hiking eyewear," etc.</div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <h3 style="font-weight:700;margin-bottom:1rem;font-size:1rem">🎯 High-Priority Target Keywords</h3>
+        <div style="background:var(--bg-card);border:1px solid var(--bg-card-border);border-radius:12px;overflow:hidden">
+          <table class="data-table" style="margin:0">
+            <thead>
+              <tr>
+                <th>Keyword</th>
+                <th>Volume</th>
+                <th>CPC</th>
+                <th>Difficulty</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>polarized sunglasses</td><td>49,500/mo</td><td>$0.99</td><td><span class="badge badge-warn">High</span></td></tr>
+              <tr><td>running sunglasses</td><td>12,100/mo</td><td>$0.99</td><td><span class="badge badge-warn">High</span></td></tr>
+              <tr><td>UV protection sunglasses</td><td>8,100/mo</td><td>$0.91</td><td><span class="badge badge-generic">Medium</span></td></tr>
+              <tr><td>cycling sunglasses</td><td>3,600/mo</td><td>$1.01</td><td><span class="badge badge-warn">High</span></td></tr>
+              <tr><td>affordable polarized sunglasses</td><td>720/mo</td><td>$1.26</td><td><span class="badge badge-info">Low-Med</span></td></tr>
+              <tr><td>hiking sunglasses</td><td>1,600/mo</td><td>$0.92</td><td><span class="badge badge-generic">Medium</span></td></tr>
+              <tr><td>sustainable sunglasses</td><td>1,300/mo</td><td>$1.46</td><td><span class="badge badge-info">Low</span></td></tr>
+              <tr><td>lifetime warranty sunglasses</td><td>260/mo</td><td>$1.43</td><td><span class="badge badge-info">Low</span></td></tr>
+              <tr><td>outdoor sunglasses</td><td>390/mo</td><td>$1.42</td><td><span class="badge badge-generic">Medium</span></td></tr>
+              <tr><td>eco friendly sunglasses</td><td>320/mo</td><td>$1.45</td><td><span class="badge badge-info">Low</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <div class="opportunity-banner">
+      <div class="icon" style="font-size:1.5rem;flex-shrink:0">🎯</div>
+      <div>
+        <div class="text">Quick Wins: Low-Competition, High-Intent Keywords</div>
+        <div style="color:var(--text-secondary);font-size:0.9rem;margin-top:0.25rem">"Sustainable sunglasses" (1,300/mo), "lifetime warranty sunglasses" (260/mo), "eco friendly sunglasses" (320/mo), and "affordable polarized sunglasses" (720/mo) are all low-competition terms DEFY can rank for within 60–90 days with targeted content. These are conversion-focused, not just traffic.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 7. PAID SEARCH ===== -->
+<section id="ads">
+  <div class="container reveal">
+    <div class="section-badge">07 — Paid Search &amp; Google Ads</div>
+    <h2 class="section-title">Paid Media: <span class="gradient">$0 Spent</span></h2>
+    <p class="section-sub">DEFY is running zero paid search campaigns. Meanwhile, Goodr spends ~$29K/month on Google Ads alone. This is the largest single lever for immediate revenue growth.</p>
+
+    <div style="padding:2rem;border-radius:16px;background:rgba(255,107,53,0.06);border:2px dashed rgba(255,107,53,0.3);text-align:center;margin-bottom:2rem">
+      <div style="font-size:3rem;margin-bottom:0.5rem">🚫</div>
+      <div style="font-size:1.3rem;font-weight:800;color:#FF6B35;margin-bottom:0.5rem">No Active Google Ads Campaigns</div>
+      <div style="color:var(--text-secondary);font-size:0.95rem">No Search, Shopping, Display, or Performance Max campaigns detected</div>
+    </div>
+
+    <div class="grid-2" style="margin-bottom:2rem">
+      <div class="card">
+        <h3 style="font-weight:700;margin-bottom:1.25rem;font-size:1rem">⚡ Immediate Paid Media Priority</h3>
+        <ul style="list-style:none;display:flex;flex-direction:column;gap:1rem">
+          <li style="color:var(--text-secondary);font-size:0.9rem;padding-left:1.2rem;position:relative">
+            <span style="position:absolute;left:0;color:#FF6B35;font-weight:700">1.</span>
+            <strong style="color:var(--text-primary)">Meta/Instagram Ads</strong> — Lifestyle video + UGC targeting outdoor enthusiasts aged 25–45. CPMs are lower than Google; ideal for brand awareness &amp; first purchase.
+          </li>
+          <li style="color:var(--text-secondary);font-size:0.9rem;padding-left:1.2rem;position:relative">
+            <span style="position:absolute;left:0;color:#FF6B35;font-weight:700">2.</span>
+            <strong style="color:var(--text-primary)">Google Shopping Ads</strong> — Product listing ads appear in search results with photo &amp; price. High purchase intent, $1–2 CPC range for eyewear.
+          </li>
+          <li style="color:var(--text-secondary);font-size:0.9rem;padding-left:1.2rem;position:relative">
+            <span style="position:absolute;left:0;color:#FF6B35;font-weight:700">3.</span>
+            <strong style="color:var(--text-primary)">Google Brand Protection</strong> — Bid on "DEFY eyewear" &amp; "weardefy" before competitors can. Costs pennies; protects your brand identity in search.
+          </li>
+          <li style="color:var(--text-secondary);font-size:0.9rem;padding-left:1.2rem;position:relative">
+            <span style="position:absolute;left:0;color:#FF6B35;font-weight:700">4.</span>
+            <strong style="color:var(--text-primary)">TikTok Spark Ads</strong> — Boost organic creator content. Huge reach for outdoor adventure content among 18–35 demographic.
+          </li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3 style="font-weight:700;margin-bottom:1.25rem;font-size:1rem">💰 Competitor Ad Spend (Google)</h3>
+        <div style="display:flex;flex-direction:column;gap:1rem">
+          <div>
+            <div style="display:flex;justify-content:space-between;margin-bottom:0.4rem">
+              <span style="font-size:0.9rem;font-weight:600">Goodr</span>
+              <span style="font-size:0.9rem;color:#FF6B35;font-weight:700">~$29K/mo</span>
+            </div>
+            <div class="progress-bar"><div class="fill" style="width:100%"></div></div>
+          </div>
+          <div>
+            <div style="display:flex;justify-content:space-between;margin-bottom:0.4rem">
+              <span style="font-size:0.9rem;font-weight:600">Blenders Eyewear</span>
+              <span style="font-size:0.9rem;color:#F59E0B;font-weight:700">~$14K/mo</span>
+            </div>
+            <div class="progress-bar"><div class="fill" style="width:48%"></div></div>
+          </div>
+          <div>
+            <div style="display:flex;justify-content:space-between;margin-bottom:0.4rem">
+              <span style="font-size:0.9rem;font-weight:600">Knockaround</span>
+              <span style="font-size:0.9rem;color:var(--text-muted);font-weight:700">~$1.5K/mo</span>
+            </div>
+            <div class="progress-bar"><div class="fill" style="width:5%"></div></div>
+          </div>
+          <div>
+            <div style="display:flex;justify-content:space-between;margin-bottom:0.4rem">
+              <span style="font-size:0.9rem;font-weight:600">Sunski</span>
+              <span style="font-size:0.9rem;color:var(--text-muted);font-weight:700">~$1.1K/mo</span>
+            </div>
+            <div class="progress-bar"><div class="fill" style="width:4%"></div></div>
+          </div>
+          <div>
+            <div style="display:flex;justify-content:space-between;margin-bottom:0.4rem">
+              <span style="font-size:0.9rem;font-weight:600">Pit Viper</span>
+              <span style="font-size:0.9rem;color:var(--text-muted);font-weight:700">~$523/mo</span>
+            </div>
+            <div class="progress-bar"><div class="fill" style="width:2%"></div></div>
+          </div>
+          <div>
+            <div style="display:flex;justify-content:space-between;margin-bottom:0.4rem">
+              <span style="font-size:0.9rem;font-weight:600">DEFY</span>
+              <span style="font-size:0.9rem;color:var(--red);font-weight:700">$0/mo</span>
+            </div>
+            <div class="progress-bar"><div class="fill" style="width:0%"></div></div>
+          </div>
+        </div>
+        <div class="ads-callout" style="margin-top:1.5rem;margin-bottom:0">
+          <div class="icon">💡</div>
+          <div class="content">
+            <div class="headline">Recommended Starting Budget: $2,000–$3,000/mo</div>
+            <div class="body">Split across Google Shopping (50%), Meta Ads (35%), and TikTok (15%). With strong creative and $70 AOV, target CAC under $25 for a 2.8× ROAS in Month 1.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 8. COMPETITIVE LANDSCAPE ===== -->
+<section id="competitors">
+  <div class="container reveal">
+    <div class="section-badge">08 — Competitive Landscape</div>
+    <h2 class="section-title">DEFY vs. The <span class="gradient">Competition</span></h2>
+    <p class="section-sub">How DEFY stacks up against five established DTC eyewear brands — and where the whitespace lies.</p>
+
+    <div class="seo-matrix-wrap">
+      <table class="seo-matrix">
+        <thead>
+          <tr>
+            <th>Brand</th>
+            <th class="highlight">DEFY 🕶️</th>
+            <th>Goodr</th>
+            <th>Pit Viper</th>
+            <th>Blenders</th>
+            <th>Knockaround</th>
+            <th>Sunski</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Monthly Organic Traffic</td>
+            <td class="highlight status-bad">~0</td>
+            <td class="status-good">186,394</td>
+            <td class="status-good">160,672</td>
+            <td class="status-good">166,572</td>
+            <td class="status-warn">84,812</td>
+            <td class="status-warn">42,518</td>
+          </tr>
+          <tr>
+            <td>Organic Keywords</td>
+            <td class="highlight status-bad">5</td>
+            <td class="status-good">34,530</td>
+            <td class="status-good">23,949</td>
+            <td class="status-good">26,384</td>
+            <td class="status-warn">19,538</td>
+            <td class="status-warn">11,014</td>
+          </tr>
+          <tr>
+            <td>Traffic Value (SEMrush)</td>
+            <td class="highlight status-bad">$0</td>
+            <td class="status-good">$157K/mo</td>
+            <td class="status-good">$74K/mo</td>
+            <td class="status-good">$186K/mo</td>
+            <td class="status-warn">$63K/mo</td>
+            <td class="status-warn">$40K/mo</td>
+          </tr>
+          <tr>
+            <td>Monthly Google Ad Spend</td>
+            <td class="highlight status-bad">$0</td>
+            <td class="status-warn">~$29K</td>
+            <td>~$523</td>
+            <td class="status-warn">~$14K</td>
+            <td>~$1.5K</td>
+            <td>~$1.1K</td>
+          </tr>
+          <tr>
+            <td>Price Point</td>
+            <td class="highlight status-good">$69.99</td>
+            <td class="status-good">$25–$35</td>
+            <td class="status-warn">$30–$45</td>
+            <td class="status-warn">$45–$75</td>
+            <td class="status-good">$20–$40</td>
+            <td class="status-warn">$58–$98</td>
+          </tr>
+          <tr>
+            <td>Sustainability Focus</td>
+            <td class="highlight status-good">✅ Strong</td>
+            <td>❌ No</td>
+            <td>❌ No</td>
+            <td>⚠️ Partial</td>
+            <td>❌ No</td>
+            <td class="status-good">✅ Yes</td>
+          </tr>
+          <tr>
+            <td>Lifetime Warranty</td>
+            <td class="highlight status-good">✅ Yes</td>
+            <td class="status-good">✅ Yes</td>
+            <td>❌ No</td>
+            <td>⚠️ 1yr</td>
+            <td>❌ No</td>
+            <td class="status-warn">⚠️ 1yr</td>
+          </tr>
+          <tr>
+            <td>SEMrush Domain Rank</td>
+            <td class="highlight status-bad">20M+</td>
+            <td class="status-good">11,811</td>
+            <td class="status-good">13,732</td>
+            <td class="status-good">13,243</td>
+            <td class="status-warn">25,157</td>
+            <td class="status-warn">47,645</td>
+          </tr>
+          <tr>
+            <td>Positioning</td>
+            <td class="highlight">Adventure + Eco</td>
+            <td>Fun / Running</td>
+            <td>Bold / Extreme</td>
+            <td>Lifestyle / Sport</td>
+            <td>Value / Style</td>
+            <td>Outdoor + Eco</td>
+          </tr>
+        </tbody>
+        <tfoot>
+          <tr class="winner-row">
+            <td>DEFY Advantage</td>
+            <td class="highlight neutral">Baseline</td>
+            <td class="neutral">Traffic Leader</td>
+            <td class="neutral">Cult Brand</td>
+            <td class="neutral">Paid Leader</td>
+            <td class="neutral">Value Play</td>
+            <td class="neutral">Eco Peer</td>
+          </tr>
+        </tfoot>
+      </table>
+    </div>
+
+    <div class="grid-2" style="margin-top:2rem">
+      <div class="card" style="border-left:3px solid #22c55e">
+        <h3 style="font-weight:700;margin-bottom:1rem;font-size:1rem;color:#22c55e">🟢 DEFY Whitespace Advantages</h3>
+        <ul style="list-style:none;display:flex;flex-direction:column;gap:0.75rem">
+          <li style="color:var(--text-secondary);font-size:0.9rem;padding-left:1.2rem;position:relative"><span style="position:absolute;left:0;color:#22c55e">✦</span> <strong>Sustainability leader</strong> — Only 1 of 5 competitors (Sunski) has a comparable eco story. With climate anxiety rising, this is a major acquisition driver.</li>
+          <li style="color:var(--text-secondary);font-size:0.9rem;padding-left:1.2rem;position:relative"><span style="position:absolute;left:0;color:#22c55e">✦</span> <strong>Lifetime warranty</strong> — Goodr does this too, but most mid-tier brands don't. Reduces purchase hesitation significantly.</li>
+          <li style="color:var(--text-secondary);font-size:0.9rem;padding-left:1.2rem;position:relative"><span style="position:absolute;left:0;color:#22c55e">✦</span> <strong>Adventure + Performance</strong> — Goodr targets runners, Pit Viper targets extreme sports, Knockaround targets lifestyle. DEFY can own the outdoor adventurer.</li>
+          <li style="color:var(--text-secondary);font-size:0.9rem;padding-left:1.2rem;position:relative"><span style="position:absolute;left:0;color:#22c55e">✦</span> <strong>Premium materials at mass price</strong> — Bio-based Grivory frames are a genuinely differentiated product feature none of the direct competitors can claim.</li>
+        </ul>
+      </div>
+      <div class="card" style="border-left:3px solid var(--red)">
+        <h3 style="font-weight:700;margin-bottom:1rem;font-size:1rem;color:var(--red)">🔴 Competitive Threats</h3>
+        <ul style="list-style:none;display:flex;flex-direction:column;gap:0.75rem">
+          <li style="color:var(--text-secondary);font-size:0.9rem;padding-left:1.2rem;position:relative"><span style="position:absolute;left:0;color:var(--red)">▲</span> Goodr has massive brand awareness with a loyal runner community — 186K monthly visits without heavy ad spend</li>
+          <li style="color:var(--text-secondary);font-size:0.9rem;padding-left:1.2rem;position:relative"><span style="position:absolute;left:0;color:var(--red)">▲</span> Pit Viper has achieved cult status — nearly impossible to replicate without years of organic brand building</li>
+          <li style="color:var(--text-secondary);font-size:0.9rem;padding-left:1.2rem;position:relative"><span style="position:absolute;left:0;color:var(--red)">▲</span> Blenders spends $14K+/mo on Google Ads — aggressive customer acquisition that DEFY can't match initially</li>
+          <li style="color:var(--text-secondary);font-size:0.9rem;padding-left:1.2rem;position:relative"><span style="position:absolute;left:0;color:var(--red)">▲</span> Sunski already occupies the "sustainable outdoor eyewear" positioning — DEFY needs to differentiate clearly on performance and adventure angle</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 9. SOCIAL MEDIA ===== -->
+<section id="social">
+  <div class="container reveal">
+    <div class="section-badge">09 — Social Media Assessment</div>
+    <h2 class="section-title">Social Media: <span class="gradient">Build From Zero</span></h2>
+    <p class="section-sub">Social is where DTC eyewear brands live or die. DEFY has a clean slate — and the perfect brand for visual storytelling in the outdoor space.</p>
+
+    <div class="grid-3" style="margin-bottom:2rem">
+      <div class="card" style="text-align:center;padding:2rem">
+        <div style="font-size:2.5rem;margin-bottom:1rem">📸</div>
+        <div style="font-weight:700;font-size:1.1rem;margin-bottom:0.5rem">Instagram</div>
+        <div style="font-size:0.85rem;color:var(--text-muted);margin-bottom:1rem">@weardefy (estimated)</div>
+        <div style="font-size:1.8rem;font-weight:800;background:linear-gradient(135deg,#FF6B35,#F59E0B);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">Early Stage</div>
+        <div style="font-size:0.8rem;color:var(--text-secondary);margin-top:0.5rem">Priority #1 platform — visual lifestyle content for outdoor adventurers</div>
+        <div style="margin-top:1rem;padding:0.75rem;border-radius:8px;background:rgba(255,107,53,0.08);font-size:0.8rem;font-weight:600;color:#FF6B35">Target: 10K followers in 90 days</div>
+      </div>
+      <div class="card" style="text-align:center;padding:2rem">
+        <div style="font-size:2.5rem;margin-bottom:1rem">🎵</div>
+        <div style="font-weight:700;font-size:1.1rem;margin-bottom:0.5rem">TikTok</div>
+        <div style="font-size:0.85rem;color:var(--text-muted);margin-bottom:1rem">Outdoor adventure content</div>
+        <div style="font-size:1.8rem;font-weight:800;background:linear-gradient(135deg,#FF6B35,#F59E0B);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">Untapped</div>
+        <div style="font-size:0.8rem;color:var(--text-secondary);margin-top:0.5rem">Massive organic reach potential — outdoor + gear content performs extremely well</div>
+        <div style="margin-top:1rem;padding:0.75rem;border-radius:8px;background:rgba(255,107,53,0.08);font-size:0.8rem;font-weight:600;color:#FF6B35">1 viral video = 100K+ awareness</div>
+      </div>
+      <div class="card" style="text-align:center;padding:2rem">
+        <div style="font-size:2.5rem;margin-bottom:1rem">📌</div>
+        <div style="font-weight:700;font-size:1.1rem;margin-bottom:0.5rem">Pinterest</div>
+        <div style="font-size:0.85rem;color:var(--text-muted);margin-bottom:1rem">Sustainable lifestyle content</div>
+        <div style="font-size:1.8rem;font-weight:800;background:linear-gradient(135deg,#FF6B35,#F59E0B);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">Opportunity</div>
+        <div style="font-size:0.8rem;color:var(--text-secondary);margin-top:0.5rem">High purchase intent platform — outdoor gear, sustainable products perform well</div>
+        <div style="margin-top:1rem;padding:0.75rem;border-radius:8px;background:rgba(34,197,94,0.08);font-size:0.8rem;font-weight:600;color:#22c55e">Low effort, passive traffic driver</div>
+      </div>
+    </div>
+
+    <div class="card" style="padding:2rem;margin-bottom:2rem">
+      <h3 style="font-weight:700;margin-bottom:1.5rem;font-size:1rem">📊 Competitor Social Presence (Estimated)</h3>
+      <div class="chart-wrap" style="background:transparent;border:none;padding:0">
+        <canvas id="socialChart" height="120"></canvas>
+      </div>
+    </div>
+
+    <div class="grid-2">
+      <div class="card">
+        <h3 style="font-weight:700;margin-bottom:1.25rem;font-size:1rem">🎬 Content Strategy for DEFY</h3>
+        <ul style="list-style:none;display:flex;flex-direction:column;gap:0.85rem">
+          <li style="color:var(--text-secondary);font-size:0.9rem;padding-left:1.5rem;position:relative">
+            <span style="position:absolute;left:0;color:#FF6B35;font-size:1rem">🏔️</span>
+            <strong style="color:var(--text-primary)">Adventure POV videos</strong> — First-person hiking, trail running, mountain biking footage wearing DEFY shades. Authentic, aspirational, shareable.
+          </li>
+          <li style="color:var(--text-secondary);font-size:0.9rem;padding-left:1.5rem;position:relative">
+            <span style="position:absolute;left:0;color:#FF6B35;font-size:1rem">♻️</span>
+            <strong style="color:var(--text-primary)">Sustainability behind-the-scenes</strong> — "How your sunglasses are made from plants" — educational content that earns shares and press.
+          </li>
+          <li style="color:var(--text-secondary);font-size:0.9rem;padding-left:1.5rem;position:relative">
+            <span style="position:absolute;left:0;color:#FF6B35;font-size:1rem">👥</span>
+            <strong style="color:var(--text-primary)">Micro-influencer seeding</strong> — 50–100 outdoor micro-influencers (10K–50K followers) in hiking, trail running, overlanding communities. $0 budget, product gifting.
+          </li>
+          <li style="color:var(--text-secondary);font-size:0.9rem;padding-left:1.5rem;position:relative">
+            <span style="position:absolute;left:0;color:#FF6B35;font-size:1rem">⭐</span>
+            <strong style="color:var(--text-primary)">UGC collection program</strong> — Incentivize customers to share adventure photos with DEFY shades. Discount on next purchase = free content library.
+          </li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3 style="font-weight:700;margin-bottom:1.25rem;font-size:1rem">🤝 Influencer Partnership Strategy</h3>
+        <div style="display:flex;flex-direction:column;gap:1rem">
+          <div style="padding:1rem;border-radius:10px;background:rgba(255,107,53,0.06);border:1px solid rgba(255,107,53,0.15)">
+            <div style="font-weight:700;font-size:0.9rem;color:#FF6B35;margin-bottom:0.4rem">Tier 1: Nano-Influencers (1K–10K)</div>
+            <div style="font-size:0.85rem;color:var(--text-secondary)">100+ outdoor/hiking creators · Product gifting only · Authentic content with high engagement rates</div>
+          </div>
+          <div style="padding:1rem;border-radius:10px;background:rgba(245,158,11,0.06);border:1px solid rgba(245,158,11,0.15)">
+            <div style="font-weight:700;font-size:0.9rem;color:#F59E0B;margin-bottom:0.4rem">Tier 2: Micro-Influencers (10K–100K)</div>
+            <div style="font-size:0.85rem;color:var(--text-secondary)">20–30 creators · $200–500 + product · Dedicated posts, Stories, Reels with affiliate links</div>
+          </div>
+          <div style="padding:1rem;border-radius:10px;background:rgba(34,197,94,0.06);border:1px solid rgba(34,197,94,0.15)">
+            <div style="font-weight:700;font-size:0.9rem;color:#22c55e;margin-bottom:0.4rem">Tier 3: Mid-Tier (100K–500K)</div>
+            <div style="font-size:0.85rem;color:var(--text-secondary)">3–5 marquee outdoor/adventure creators · $1,000–3,000 deal · Brand ambassador opportunities</div>
+          </div>
+          <div style="padding:1rem;border-radius:10px;background:rgba(34,197,94,0.06);border:1px solid rgba(34,197,94,0.15)">
+            <div style="font-weight:700;font-size:0.9rem;color:#22c55e;margin-bottom:0.4rem">Target Communities</div>
+            <div style="font-size:0.85rem;color:var(--text-secondary)">Trail running, mountain biking, rock climbing, overlanding, outdoor yoga/wellness, eco lifestyle</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 10. CONTENT GAP ANALYSIS ===== -->
+<section id="content">
+  <div class="container reveal">
+    <div class="section-badge">10 — Content Gap Analysis</div>
+    <h2 class="section-title">Content <span class="gradient">Gaps to Own</span></h2>
+    <p class="section-sub">DEFY has a blog (weardefy.com/blogs/news) but minimal content. Here are the high-value keyword clusters competitors haven't fully captured.</p>
+
+    <div class="grid-4" style="margin-bottom:2rem">
+      <div class="card gap-card">
+        <div class="kw">hiking sunglasses</div>
+        <div class="vol">1,600</div>
+        <div class="vol-label">monthly searches</div>
+        <div class="status">Not Ranking</div>
+      </div>
+      <div class="card gap-card">
+        <div class="kw">sustainable sunglasses</div>
+        <div class="vol">1,300</div>
+        <div class="vol-label">monthly searches</div>
+        <div class="status">Not Ranking</div>
+      </div>
+      <div class="card gap-card">
+        <div class="kw">polarized sport sunglasses</div>
+        <div class="vol">480</div>
+        <div class="vol-label">monthly searches</div>
+        <div class="status">Not Ranking</div>
+      </div>
+      <div class="card gap-card">
+        <div class="kw">eco friendly sunglasses</div>
+        <div class="vol">320</div>
+        <div class="vol-label">monthly searches</div>
+        <div class="status">Not Ranking</div>
+      </div>
+      <div class="card gap-card">
+        <div class="kw">affordable polarized sunglasses</div>
+        <div class="vol">720</div>
+        <div class="vol-label">monthly searches</div>
+        <div class="status">Not Ranking</div>
+      </div>
+      <div class="card gap-card">
+        <div class="kw">lifetime warranty sunglasses</div>
+        <div class="vol">260</div>
+        <div class="vol-label">monthly searches</div>
+        <div class="status">Not Ranking</div>
+      </div>
+      <div class="card gap-card">
+        <div class="kw">UV protection sunglasses</div>
+        <div class="vol">8,100</div>
+        <div class="vol-label">monthly searches</div>
+        <div class="status">Not Ranking</div>
+      </div>
+      <div class="card gap-card">
+        <div class="kw">cycling sunglasses</div>
+        <div class="vol">3,600</div>
+        <div class="vol-label">monthly searches</div>
+        <div class="status">Not Ranking</div>
+      </div>
+    </div>
+
+    <div class="card" style="padding:2rem">
+      <h3 style="font-weight:700;margin-bottom:1.5rem;font-size:1rem">📝 Priority Content Roadmap</h3>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.5rem">
+        <div>
+          <div style="font-size:0.7rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#FF6B35;margin-bottom:1rem">Pillar Pages (Collection Pages)</div>
+          <ul style="list-style:none;display:flex;flex-direction:column;gap:0.75rem">
+            <li style="color:var(--text-secondary);font-size:0.88rem;padding-left:1rem;position:relative"><span style="position:absolute;left:0;color:#FF6B35">→</span> /collections/hiking-sunglasses — "Best Hiking Sunglasses"</li>
+            <li style="color:var(--text-secondary);font-size:0.88rem;padding-left:1rem;position:relative"><span style="position:absolute;left:0;color:#FF6B35">→</span> /collections/running-sunglasses — "Running Sunglasses"</li>
+            <li style="color:var(--text-secondary);font-size:0.88rem;padding-left:1rem;position:relative"><span style="position:absolute;left:0;color:#FF6B35">→</span> /collections/sustainable-eyewear — "Eco Sunglasses"</li>
+            <li style="color:var(--text-secondary);font-size:0.88rem;padding-left:1rem;position:relative"><span style="position:absolute;left:0;color:#FF6B35">→</span> /collections/polarized — "Polarized Sunglasses"</li>
+          </ul>
+        </div>
+        <div>
+          <div style="font-size:0.7rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#F59E0B;margin-bottom:1rem">Blog Posts (Traffic Magnets)</div>
+          <ul style="list-style:none;display:flex;flex-direction:column;gap:0.75rem">
+            <li style="color:var(--text-secondary);font-size:0.88rem;padding-left:1rem;position:relative"><span style="position:absolute;left:0;color:#F59E0B">→</span> "Best Sunglasses for Hiking in 2026"</li>
+            <li style="color:var(--text-secondary);font-size:0.88rem;padding-left:1rem;position:relative"><span style="position:absolute;left:0;color:#F59E0B">→</span> "Why Polarized Lenses Matter on Trail"</li>
+            <li style="color:var(--text-secondary);font-size:0.88rem;padding-left:1rem;position:relative"><span style="position:absolute;left:0;color:#F59E0B">→</span> "Are Bio-Based Sunglasses Worth It?"</li>
+            <li style="color:var(--text-secondary);font-size:0.88rem;padding-left:1rem;position:relative"><span style="position:absolute;left:0;color:#F59E0B">→</span> "Goodr vs DEFY: What You Don't Know"</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 11. GROWTH STRATEGY ===== -->
+<section id="strategy">
+  <div class="container reveal">
+    <div class="section-badge">11 — Growth Strategy</div>
+    <h2 class="section-title">The DEFY <span class="gradient">Growth Engine</span></h2>
+    <p class="section-sub">A coordinated 4-pillar strategy to take DEFY from $0 ad spend to a recognizable national outdoor eyewear brand.</p>
+
+    <div class="grid-4" style="gap:1.5rem;margin-bottom:2rem">
+      <div class="strategy-card">
+        <div class="icon">🎯</div>
+        <div class="title">Paid Media Launch</div>
+        <div class="desc">Start with Meta (Instagram/Facebook) Shopping ads targeting outdoor enthusiasts. Test creative with lifestyle imagery vs. product close-ups vs. UGC. Layer in Google Shopping &amp; Brand terms. Scale winners to TikTok.</div>
+        <div class="outcome">Goal: $2–3K/mo → 100+ orders/mo at &lt;$25 CAC</div>
+      </div>
+      <div class="strategy-card">
+        <div class="icon">🤝</div>
+        <div class="title">Influencer Program</div>
+        <div class="desc">Launch a structured ambassador program. Seed product to 100+ nano &amp; micro outdoor influencers. Create referral links for every creator. Build a community of authentic DEFY advocates who generate perpetual UGC.</div>
+        <div class="outcome">Goal: 50+ pieces of UGC in 90 days</div>
+      </div>
+      <div class="strategy-card">
+        <div class="icon">📧</div>
+        <div class="title">Email &amp; SMS</div>
+        <div class="desc">Build an owned audience from day 1. Launch Klaviyo flows: welcome series, abandoned cart, post-purchase sustainability story, review request at day 30. Add SMS for flash sales and new drops. Email list = zero-cost future revenue.</div>
+        <div class="outcome">Goal: 1,000 subscribers in 60 days → 15% list revenue</div>
+      </div>
+      <div class="strategy-card">
+        <div class="icon">⚡</div>
+        <div class="title">CRO &amp; Shopify</div>
+        <div class="desc">Every dollar spent on ads is amplified by higher conversion rate. Test landing pages for each ad campaign, optimize the product page (more reviews, better photos, trust signals front &amp; center), add upsell for lens accessories.</div>
+        <div class="outcome">Goal: 2.5%+ conversion rate (vs. 1.2% DTC average)</div>
+      </div>
+    </div>
+
+    <div class="grid-2">
+      <div class="card">
+        <h3 style="font-weight:700;margin-bottom:1.25rem;font-size:1rem">🌐 SEO Long-Term Engine</h3>
+        <ul style="list-style:none;display:flex;flex-direction:column;gap:0.85rem">
+          <li style="color:var(--text-secondary);font-size:0.9rem;padding-left:1.2rem;position:relative"><span style="position:absolute;left:0;color:#FF6B35">1.</span> Create category landing pages for each sport/activity (hiking, running, cycling, kayaking)</li>
+          <li style="color:var(--text-secondary);font-size:0.9rem;padding-left:1.2rem;position:relative"><span style="position:absolute;left:0;color:#FF6B35">2.</span> Publish 4 SEO-optimized blog posts per month targeting outdoor eyewear keywords</li>
+          <li style="color:var(--text-secondary);font-size:0.9rem;padding-left:1.2rem;position:relative"><span style="position:absolute;left:0;color:#FF6B35">3.</span> Build backlinks via outdoor media (GearJunkie, Outside Magazine, Trail Runner Mag) and PR outreach</li>
+          <li style="color:var(--text-secondary);font-size:0.9rem;padding-left:1.2rem;position:relative"><span style="position:absolute;left:0;color:#FF6B35">4.</span> Implement full schema markup, improve Core Web Vitals, and submit to Google News</li>
+          <li style="color:var(--text-secondary);font-size:0.9rem;padding-left:1.2rem;position:relative"><span style="position:absolute;left:0;color:#FF6B35">5.</span> Target competitor comparison keywords ("DEFY vs Goodr") for high-intent traffic</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3 style="font-weight:700;margin-bottom:1.25rem;font-size:1rem">🏆 PR &amp; Earned Media</h3>
+        <ul style="list-style:none;display:flex;flex-direction:column;gap:0.85rem">
+          <li style="color:var(--text-secondary);font-size:0.9rem;padding-left:1.2rem;position:relative"><span style="position:absolute;left:0;color:#22c55e">•</span> Pitch sustainability story to <strong>Outside Magazine, GearJunkie, Treehugger</strong> — "The Sunglasses Made from Plants"</li>
+          <li style="color:var(--text-secondary);font-size:0.9rem;padding-left:1.2rem;position:relative"><span style="position:absolute;left:0;color:#22c55e">•</span> Submit for "Best New Gear" lists in outdoor media — huge SEO link value + brand credibility</li>
+          <li style="color:var(--text-secondary);font-size:0.9rem;padding-left:1.2rem;position:relative"><span style="position:absolute;left:0;color:#22c55e">•</span> Partner with outdoor events (trail races, climbing comps) for product placement and sampling</li>
+          <li style="color:var(--text-secondary);font-size:0.9rem;padding-left:1.2rem;position:relative"><span style="position:absolute;left:0;color:#22c55e">•</span> Amazon Handmade / REI Co-op marketplace listing for channel diversification</li>
+          <li style="color:var(--text-secondary);font-size:0.9rem;padding-left:1.2rem;position:relative"><span style="position:absolute;left:0;color:#22c55e">•</span> HARO (Help a Reporter Out) responses for eyewear and sustainability topics</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 12. 90-DAY ROADMAP ===== -->
+<section id="roadmap">
+  <div class="container reveal">
+    <div class="section-badge">12 — 90-Day Action Roadmap</div>
+    <h2 class="section-title">Launch <span class="gradient">Roadmap</span></h2>
+    <p class="section-sub">A concrete, phased plan to take DEFY from zero to growth-stage DTC brand in 90 days.</p>
+
+    <div class="timeline">
+      <div class="timeline-phase">
+        <div class="timeline-dot"></div>
+        <div class="phase-label">Days 1–30</div>
+        <div class="phase-title">Foundation Sprint</div>
+        <ul class="phase-items">
+          <li>Google Search Console + GA4 setup</li>
+          <li>SEMrush / Ahrefs tracking live</li>
+          <li>XML sitemap submission</li>
+          <li>Klaviyo email flows (welcome, abandon cart)</li>
+          <li>Product schema markup on all pages</li>
+          <li>Meta Business Manager + pixel setup</li>
+          <li>First 3 meta title/description rewrites</li>
+          <li>Launch $500 Meta test campaign</li>
+          <li>Seed product to 20 nano-influencers</li>
+          <li>Publish 2 SEO blog posts</li>
+        </ul>
+      </div>
+      <div class="timeline-phase">
+        <div class="timeline-dot"></div>
+        <div class="phase-label">Days 31–60</div>
+        <div class="phase-title">Acquisition &amp; Content</div>
+        <ul class="phase-items">
+          <li>Scale winning Meta ad sets to $1,500/mo</li>
+          <li>Launch Google Shopping campaigns</li>
+          <li>TikTok account setup + first 10 videos</li>
+          <li>Publish 4 more SEO blog posts</li>
+          <li>Create 4 collection landing pages (hiking, running, etc.)</li>
+          <li>SMS program launch (Postscript/Klaviyo)</li>
+          <li>Expand influencer program to 50 creators</li>
+          <li>First PR pitch to outdoor media</li>
+          <li>A/B test product page layouts</li>
+          <li>Launch affiliate program (ShareASale/Impact)</li>
+        </ul>
+      </div>
+      <div class="timeline-phase">
+        <div class="timeline-dot"></div>
+        <div class="phase-label">Days 61–90</div>
+        <div class="phase-title">Scale &amp; Optimize</div>
+        <ul class="phase-items">
+          <li>Scale to $3,000/mo total ad spend</li>
+          <li>Launch retargeting campaigns (Meta + Google)</li>
+          <li>Pinterest catalog setup + promoted pins</li>
+          <li>Review campaign + reputation building</li>
+          <li>Loyalty / referral program launch</li>
+          <li>First press feature (target 1 outdoor publication)</li>
+          <li>UGC gallery live on website</li>
+          <li>Ambassador portal launch</li>
+          <li>Email list to 1,000+ subscribers</li>
+          <li>Monthly reporting dashboard setup</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 13. PROJECTED ROI ===== -->
+<section id="roi">
+  <div class="container reveal">
+    <div class="section-badge">13 — Projected ROI</div>
+    <h2 class="section-title">What <span class="gradient">Success Looks Like</span></h2>
+    <p class="section-sub">Conservative projections based on comparable DTC eyewear brand trajectories with focused investment. All numbers assume $70 AOV and standard DTC benchmarks.</p>
+
+    <div class="grid-4" style="margin-bottom:2rem">
+      <div class="card roi-card">
+        <div class="label">Monthly Website Traffic</div>
+        <div class="before">~0 now</div>
+        <div class="arrow">→</div>
+        <div class="after">8K–15K</div>
+        <div style="font-size:0.78rem;color:var(--text-secondary);margin-top:0.5rem">By Month 6 with SEO + paid</div>
+      </div>
+      <div class="card roi-card">
+        <div class="label">Monthly Revenue</div>
+        <div class="before">$0 now</div>
+        <div class="arrow">→</div>
+        <div class="after">$15K+</div>
+        <div style="font-size:0.78rem;color:var(--text-secondary);margin-top:0.5rem">Month 3 projection</div>
+      </div>
+      <div class="card roi-card">
+        <div class="label">Organic Keywords Ranking</div>
+        <div class="before">5 now</div>
+        <div class="arrow">→</div>
+        <div class="after">500+</div>
+        <div style="font-size:0.78rem;color:var(--text-secondary);margin-top:0.5rem">12-month SEO target</div>
+      </div>
+      <div class="card roi-card">
+        <div class="label">Email Subscriber List</div>
+        <div class="before">~0 now</div>
+        <div class="arrow">→</div>
+        <div class="after">5,000+</div>
+        <div style="font-size:0.78rem;color:var(--text-secondary);margin-top:0.5rem">6-month target</div>
+      </div>
+    </div>
+
+    <div class="grid-2">
+      <div class="chart-wrap">
+        <h3 style="font-weight:700;margin-bottom:1.5rem;font-size:1rem">💰 12-Month Revenue Projection</h3>
+        <canvas id="revenueChart" height="250"></canvas>
+        <p style="font-size:0.75rem;color:var(--text-muted);margin-top:0.75rem;font-style:italic">💡 Assumes phased marketing investment beginning Month 1</p>
+      </div>
+      <div class="card" style="padding:2rem">
+        <h3 style="font-weight:700;margin-bottom:1.5rem;font-size:1rem">📊 Investment vs. Return Model</h3>
+        <div style="display:flex;flex-direction:column;gap:1.25rem">
+          <div style="padding:1rem;border-radius:10px;background:rgba(255,107,53,0.06);border:1px solid rgba(255,107,53,0.15)">
+            <div style="font-weight:700;color:#FF6B35;margin-bottom:0.4rem">Brandastic Monthly Retainer</div>
+            <div style="font-size:0.9rem;color:var(--text-secondary)">SEO, paid media management, content, email: <strong>~$3,500–5,000/mo</strong></div>
+          </div>
+          <div style="padding:1rem;border-radius:10px;background:rgba(245,158,11,0.06);border:1px solid rgba(245,158,11,0.15)">
+            <div style="font-weight:700;color:#F59E0B;margin-bottom:0.4rem">Ad Spend (Month 1)</div>
+            <div style="font-size:0.9rem;color:var(--text-secondary)">Meta + Google test budget: <strong>$2,000–3,000/mo</strong></div>
+          </div>
+          <div style="padding:1rem;border-radius:10px;background:rgba(34,197,94,0.06);border:1px solid rgba(34,197,94,0.15)">
+            <div style="font-weight:700;color:#22c55e;margin-bottom:0.4rem">Expected Month 3 Return</div>
+            <div style="font-size:0.9rem;color:var(--text-secondary)">150–250 orders/mo × $70 AOV = <strong>$10,500–17,500</strong></div>
+          </div>
+          <div style="padding:1rem;border-radius:10px;background:rgba(34,197,94,0.06);border:1px solid rgba(34,197,94,0.15)">
+            <div style="font-weight:700;color:#22c55e;margin-bottom:0.4rem">12-Month ROAS Target</div>
+            <div style="font-size:0.9rem;color:var(--text-secondary)">Paid media ROAS of <strong>3.0–4.0×</strong> + organic growth = breakeven by Month 2–3</div>
+          </div>
+          <div style="padding:1rem;border-radius:10px;background:rgba(34,197,94,0.08);border:1px solid rgba(34,197,94,0.25)">
+            <div style="font-weight:800;color:#22c55e;margin-bottom:0.4rem;font-size:1.05rem">Year 1 Revenue Potential</div>
+            <div style="font-size:1rem;color:var(--text-primary);font-weight:700">$150,000–$250,000+</div>
+            <div style="font-size:0.8rem;color:var(--text-secondary);margin-top:0.25rem">With full digital strategy execution</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 14. CTA ===== -->
+<section id="cta" class="cta-section">
+  <div class="container" style="position:relative;z-index:1">
+    <div style="display:inline-flex;align-items:center;gap:8px;padding:8px 20px;border-radius:50px;background:rgba(255,107,53,0.2);border:1px solid rgba(255,107,53,0.4);font-size:0.75rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:#FF6B35;margin-bottom:2rem">
+      🚀 Ready to Defy the Ordinary?
+    </div>
+    <h2 style="font-size:clamp(2rem,5vw,3.5rem);font-weight:900;letter-spacing:-0.03em;margin-bottom:1.5rem;color:#fff;line-height:1.1">
+      Let's Build DEFY Into<br>a National Brand
+    </h2>
+    <p style="color:rgba(255,255,255,0.65);font-size:1.1rem;max-width:600px;margin:0 auto 3rem;line-height:1.7">
+      The outdoor eyewear market is wide open for a brand with DEFY's story. Great product, genuine sustainability, lifetime warranty — you have everything you need except a digital engine. That's where we come in.
+    </p>
+
+    <div style="display:flex;flex-wrap:wrap;gap:1rem;justify-content:center;margin-bottom:3rem">
+      <div style="display:flex;align-items:center;gap:8px;color:rgba(255,255,255,0.75);font-size:0.95rem"><span style="color:#22c55e;font-weight:700">✓</span> SEO + Content Strategy</div>
+      <div style="display:flex;align-items:center;gap:8px;color:rgba(255,255,255,0.75);font-size:0.95rem"><span style="color:#22c55e;font-weight:700">✓</span> Paid Media (Meta + Google)</div>
+      <div style="display:flex;align-items:center;gap:8px;color:rgba(255,255,255,0.75);font-size:0.95rem"><span style="color:#22c55e;font-weight:700">✓</span> Influencer Program</div>
+      <div style="display:flex;align-items:center;gap:8px;color:rgba(255,255,255,0.75);font-size:0.95rem"><span style="color:#22c55e;font-weight:700">✓</span> Email &amp; SMS</div>
+      <div style="display:flex;align-items:center;gap:8px;color:rgba(255,255,255,255,0.75);font-size:0.95rem"><span style="color:#22c55e;font-weight:700">✓</span> Shopify CRO</div>
+    </div>
+
+    <a href="mailto:justin@brandastic.com?subject=DEFY Eyewear - Ready to Get Started" style="text-decoration:none">
+      <button class="cta-btn pulse">
+        🕶️ Start the Conversation →
+      </button>
+    </a>
+
+    <div style="margin-top:3rem;display:flex;justify-content:center;gap:3rem;flex-wrap:wrap">
+      <div style="text-align:center">
+        <div style="font-size:1.8rem;font-weight:800;color:#FF6B35">15+</div>
+        <div style="font-size:0.8rem;color:rgba(255,255,255,0.5)">Years Experience</div>
+      </div>
+      <div style="text-align:center">
+        <div style="font-size:1.8rem;font-weight:800;color:#FF6B35">450+</div>
+        <div style="font-size:0.8rem;color:rgba(255,255,255,0.5)">Clients Served</div>
+      </div>
+      <div style="text-align:center">
+        <div style="font-size:1.8rem;font-weight:800;color:#FF6B35">5.0★</div>
+        <div style="font-size:0.8rem;color:rgba(255,255,255,0.5)">Google Rating</div>
+      </div>
+      <div style="text-align:center">
+        <div style="font-size:1.8rem;font-weight:800;color:#FF6B35">DTC</div>
+        <div style="font-size:0.8rem;color:rgba(255,255,255,0.5)">Shopify Specialists</div>
+      </div>
+    </div>
+
+    <div style="margin-top:3rem;padding-top:2rem;border-top:1px solid rgba(255,255,255,0.1)">
+      <p style="color:rgba(255,255,255,0.35);font-size:0.78rem">
+        <a href="https://brandastic.com" style="color:rgba(255,255,255,0.5)">brandastic.com</a> · Orange County, CA ·
+        <a href="mailto:justin@brandastic.com" style="color:rgba(255,255,255,0.5)">justin@brandastic.com</a> ·
+        Prepared for DEFY Eyewear · Jared Prestipino, Creative Director · June 2026
+      </p>
+    </div>
+  </div>
+</section>
+
+<script>
+// ===== THEME TOGGLE =====
+const themeToggle = document.getElementById('themeToggle');
+const themeKnob = document.getElementById('themeKnob');
+const html = document.documentElement;
+let currentTheme = localStorage.getItem('defy-theme') || 'light';
+html.setAttribute('data-theme', currentTheme);
+themeKnob.textContent = currentTheme === 'light' ? '🌙' : '☀️';
+
+themeToggle.addEventListener('click', () => {
+  currentTheme = currentTheme === 'light' ? 'dark' : 'light';
+  html.setAttribute('data-theme', currentTheme);
+  localStorage.setItem('defy-theme', currentTheme);
+  themeKnob.textContent = currentTheme === 'light' ? '🌙' : '☀️';
+  buildCharts();
+});
+
+// ===== READING PROGRESS =====
+window.addEventListener('scroll', () => {
+  const progress = document.getElementById('readingProgress');
+  const scrollTop = window.scrollY;
+  const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+  progress.style.width = (scrollTop / docHeight * 100) + '%';
+});
+
+// ===== SIDE NAV =====
+const sections = document.querySelectorAll('section[id]');
+const dots = document.querySelectorAll('.side-nav-dot');
+const obs = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      const id = entry.target.id;
+      dots.forEach(d => d.classList.toggle('active', d.dataset.section === id));
+    }
+  });
+}, { threshold: 0.3 });
+sections.forEach(s => obs.observe(s));
+dots.forEach(dot => {
+  dot.addEventListener('click', () => {
+    const target = document.getElementById(dot.dataset.section);
+    if (target) target.scrollIntoView({ behavior: 'smooth' });
+  });
+});
+
+// ===== REVEAL =====
+const revObs = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.1 });
+document.querySelectorAll('.reveal').forEach(el => revObs.observe(el));
+
+// ===== SCORE RINGS =====
+const ringObs = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.querySelectorAll('.fg[data-target]').forEach(ring => {
+        ring.style.strokeDashoffset = ring.dataset.target;
+      });
+    }
+  });
+}, { threshold: 0.2 });
+document.querySelectorAll('.card').forEach(card => {
+  if (card.querySelector('.fg[data-target]')) ringObs.observe(card);
+});
+
+// ===== CHARTS =====
+Chart.defaults.font.family = "'Inter', system-ui, sans-serif";
+let trafficChart, compChart, socialChart, revenueChart;
+
+function getTC() {
+  const d = document.documentElement.getAttribute('data-theme') === 'dark';
+  return {
+    grid: d ? 'rgba(255,255,255,0.06)' : 'rgba(0,0,0,0.06)',
+    text: d ? 'rgba(255,255,255,0.5)' : 'rgba(0,0,0,0.5)'
+  };
+}
+
+function buildCharts() {
+  const tc = getTC();
+
+  // Traffic Projection
+  const tCtx = document.getElementById('trafficChart');
+  if (tCtx) {
+    if (trafficChart) trafficChart.destroy();
+    trafficChart = new Chart(tCtx, {
+      type: 'line',
+      data: {
+        labels: ['Now','Mo 1','Mo 2','Mo 3','Mo 4','Mo 5','Mo 6','Mo 9','Mo 12'],
+        datasets: [
+          { label: 'Organic Traffic', data: [0,200,500,1200,2500,4500,7000,15000,28000], borderColor: '#FF6B35', backgroundColor: 'rgba(255,107,53,0.1)', fill: true, tension: 0.4, pointBackgroundColor: '#FF6B35' },
+          { label: 'Paid Traffic', data: [0,500,1200,2500,4000,5500,7000,9000,12000], borderColor: '#F59E0B', backgroundColor: 'rgba(245,158,11,0.1)', fill: true, tension: 0.4, pointBackgroundColor: '#F59E0B' }
+        ]
+      },
+      options: {
+        responsive: true,
+        plugins: { legend: { labels: { color: tc.text, boxWidth: 12 } } },
+        scales: {
+          x: { grid: { color: tc.grid }, ticks: { color: tc.text } },
+          y: { grid: { color: tc.grid }, ticks: { color: tc.text, callback: v => v >= 1000 ? (v/1000).toFixed(0)+'K' : v } }
+        }
+      }
+    });
+  }
+
+  // Competitor Traffic
+  const cCtx = document.getElementById('competitorTrafficChart');
+  if (cCtx) {
+    if (compChart) compChart.destroy();
+    compChart = new Chart(cCtx, {
+      type: 'bar',
+      data: {
+        labels: ['Goodr','Blenders','Pit Viper','Knockaround','Sunski','DEFY Now','DEFY Yr1'],
+        datasets: [{ label: 'Monthly Organic Traffic', data: [186394,166572,160672,84812,42518,0,28000], backgroundColor: ['rgba(100,116,139,0.5)','rgba(100,116,139,0.5)','rgba(100,116,139,0.5)','rgba(100,116,139,0.5)','rgba(100,116,139,0.5)','rgba(239,68,68,0.7)','rgba(255,107,53,0.85)'], borderRadius: 6 }]
+      },
+      options: {
+        responsive: true,
+        plugins: { legend: { display: false } },
+        scales: {
+          x: { grid: { color: tc.grid }, ticks: { color: tc.text, maxRotation: 30 } },
+          y: { grid: { color: tc.grid }, ticks: { color: tc.text, callback: v => (v/1000).toFixed(0)+'K' } }
+        }
+      }
+    });
+  }
+
+  // Social
+  const sCtx = document.getElementById('socialChart');
+  if (sCtx) {
+    if (socialChart) socialChart.destroy();
+    socialChart = new Chart(sCtx, {
+      type: 'bar',
+      data: {
+        labels: ['Goodr','Pit Viper','Blenders','Knockaround','Sunski','DEFY'],
+        datasets: [
+          { label: 'Instagram (est. K)', data: [550,800,300,150,80,1], backgroundColor: 'rgba(255,107,53,0.75)', borderRadius: 4 },
+          { label: 'TikTok (est. K)', data: [120,400,80,30,15,0], backgroundColor: 'rgba(245,158,11,0.75)', borderRadius: 4 }
+        ]
+      },
+      options: {
+        responsive: true,
+        plugins: { legend: { labels: { color: tc.text, boxWidth: 12 } } },
+        scales: {
+          x: { grid: { color: tc.grid }, ticks: { color: tc.text } },
+          y: { grid: { color: tc.grid }, ticks: { color: tc.text, callback: v => v+'K' } }
+        }
+      }
+    });
+  }
+
+  // Revenue
+  const rCtx = document.getElementById('revenueChart');
+  if (rCtx) {
+    if (revenueChart) revenueChart.destroy();
+    revenueChart = new Chart(rCtx, {
+      type: 'bar',
+      data: {
+        labels: ['Mo 1','Mo 2','Mo 3','Mo 4','Mo 5','Mo 6','Mo 7','Mo 8','Mo 9','Mo 10','Mo 11','Mo 12'],
+        datasets: [{ label: 'Monthly Revenue ($)', data: [2100,5600,11200,16800,22400,28000,32000,36000,40000,44000,48000,56000], backgroundColor: 'rgba(255,107,53,0.8)', borderRadius: 6 }]
+      },
+      options: {
+        responsive: true,
+        plugins: { legend: { display: false } },
+        scales: {
+          x: { grid: { color: tc.grid }, ticks: { color: tc.text } },
+          y: { grid: { color: tc.grid }, ticks: { color: tc.text, callback: v => '$'+(v>=1000?(v/1000).toFixed(0)+'K':v) } }
+        }
+      }
+    });
+  }
+}
+
+// Init
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', buildCharts);
+} else {
+  buildCharts();
+}
+</script>
+</body>
+</html>
