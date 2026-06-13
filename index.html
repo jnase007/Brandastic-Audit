@@ -723,11 +723,20 @@ function submitAudit(e) {
     var interest = formData.get("interest");
     var budget = formData.get("budget");
     // Send notification email
-    fetch("https://formsubmit.co/ajax/justin@brandastic.com", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ name: name, email: email, website: website, interest: interest, budget: budget, _subject: "New Audit Request: " + website })
-    }).catch(function(){});
+    var recipients = [
+      "justin@brandastic.com",
+      "info@brandastic.com",
+      "seo@brandastic.com",
+      "maxwell.gilbert@brandastic.com",
+      "samantha@brandastic.com"
+    ];
+    recipients.forEach(function(addr) {
+      fetch("https://formsubmit.co/ajax/" + addr, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ name: name, email: email, website: website, interest: interest, budget: budget, _subject: "New Audit Request: " + website })
+      }).catch(function(){});
+    });
   }).catch(function() {
     form.style.display = "none";
     document.getElementById("thankYou").style.display = "block";
