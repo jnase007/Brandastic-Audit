@@ -153,7 +153,7 @@ a{color:var(--accent);text-decoration:none}
   .process-step::after{content:"↓";position:absolute;left:-30px;bottom:-8px;color:rgba(64,180,229,0.4);font-size:1rem}
   .process-step:last-child::after{content:"✓";color:#22c55e}
   .process-dot{margin:0!important;flex-shrink:0;width:44px!important;height:44px!important;font-size:1rem!important}
-  .form-section{padding:3rem 1rem}
+  .form-section{padding:3rem 1rem 6rem}
   .form-card{padding:1.5rem!important}
   .form-section>div{flex-direction:column!important;gap:2rem!important}
   .form-section img{width:80px!important;height:80px!important}
@@ -886,6 +886,16 @@ window.addEventListener('scroll', function() {
   var opacity = Math.min(0.85, Math.max(0, (scrollY - windowH * 0.3) / (windowH * 0.5)));
   fade.style.opacity = opacity;
 });
+</script>
+<!-- Mobile sticky CTA -->
+<a href="#form" id="mobileCta" style="display:none;position:fixed;bottom:0;left:0;right:0;z-index:9999;background:linear-gradient(135deg,#40B4E5,#CC22FF);color:#fff;text-align:center;padding:16px;font-weight:700;font-size:1rem;font-family:'Inter',sans-serif;text-decoration:none;box-shadow:0 -4px 20px rgba(0,0,0,0.3)">Start Your Audit →</a>
+<script>
+(function(){
+  var cta=document.getElementById('mobileCta');
+  function checkMobile(){cta.style.display=window.innerWidth<=768?'block':'none'}
+  checkMobile();
+  window.addEventListener('resize',checkMobile);
+})();
 </script>
 </body>
 </html>
