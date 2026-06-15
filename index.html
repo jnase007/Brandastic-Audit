@@ -888,14 +888,10 @@ window.addEventListener('scroll', function() {
 });
 </script>
 <!-- Mobile sticky CTA -->
-<a href="#form" id="mobileCta" style="display:none;position:fixed;bottom:0;left:0;right:0;z-index:9999;background:linear-gradient(135deg,#40B4E5,#CC22FF);color:#fff;text-align:center;padding:16px;font-weight:700;font-size:1rem;font-family:'Inter',sans-serif;text-decoration:none;box-shadow:0 -4px 20px rgba(0,0,0,0.3)">Start Your Audit →</a>
-<script>
-(function(){
-  var cta=document.getElementById('mobileCta');
-  function checkMobile(){cta.style.display=window.innerWidth<=768?'block':'none'}
-  checkMobile();
-  window.addEventListener('resize',checkMobile);
-})();
-</script>
+<style>
+#mobileCta{display:none;position:fixed;bottom:0;left:0;right:0;z-index:9999;background:linear-gradient(135deg,#40B4E5,#CC22FF);color:#fff;text-align:center;padding:16px;font-weight:700;font-size:1rem;font-family:'Inter',sans-serif;text-decoration:none;box-shadow:0 -4px 20px rgba(0,0,0,0.3)}
+@media(max-width:768px){#mobileCta{display:block}}
+</style>
+<a href="#form" id="mobileCta">Start Your Audit →</a>
 </body>
 </html>
