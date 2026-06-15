@@ -513,7 +513,7 @@ a{color:var(--accent);text-decoration:none}
       </div>
       <div class="form-group">
         <label>What is your biggest marketing pain point?</label>
-        <select name="interest" onchange="document.getElementById('otherField').style.display=this.value==='other'?'block':'none'">
+        <select name="interest" required onchange="document.getElementById('otherField').style.display=this.value==='other'?'block':'none'">
           <option value="">Select one...</option>
           <option value="seo">SEO & Organic Growth</option>
           <option value="ppc">Google Ads / PPC</option>
