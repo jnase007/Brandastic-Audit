@@ -632,6 +632,13 @@ a{color:var(--accent);text-decoration:none}
     <h2 style="font-size:1.5rem;font-weight:900;margin-bottom:1.5rem;text-align:center;color:var(--text)">Get Your Free Audit</h2>
     <form id="auditForm" name="audit-request" method="POST" data-netlify="true" netlify-honeypot="bot-field" onsubmit="submitAudit(event)">
       <input type="hidden" name="form-name" value="audit-request">
+      <input type="hidden" name="utm_source" id="utm_source">
+      <input type="hidden" name="utm_medium" id="utm_medium">
+      <input type="hidden" name="utm_campaign" id="utm_campaign">
+      <input type="hidden" name="utm_term" id="utm_term">
+      <input type="hidden" name="utm_content" id="utm_content">
+      <input type="hidden" name="landing_page" id="landing_page">
+      <input type="hidden" name="referrer" id="referrer">
       <input type="hidden" name="bot-field">
       <input type="hidden" name="to" value="justin@brandastic.com">
       <div class="form-group">
@@ -860,6 +867,19 @@ switchTab(0);
 })();
 
 // Form submission
+// Capture UTMs and referrer on page load
+(function(){
+  var params = new URLSearchParams(window.location.search);
+  ['utm_source','utm_medium','utm_campaign','utm_term','utm_content'].forEach(function(p){
+    var val = params.get(p);
+    if(val && document.getElementById(p)) document.getElementById(p).value = val;
+  });
+  var lp = document.getElementById('landing_page');
+  if(lp) lp.value = window.location.href;
+  var ref = document.getElementById('referrer');
+  if(ref) ref.value = document.referrer || 'direct';
+})();
+
 function submitAudit(e) {
   e.preventDefault();
   var form = document.getElementById("auditForm");
@@ -890,7 +910,7 @@ function submitAudit(e) {
       fetch("https://formsubmit.co/ajax/" + addr, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ name: name, email: email, website: website, interest: interest, budget: budget, _subject: "New Audit Request: " + website })
+        body: JSON.stringify({ name: name, email: email, website: website, interest: interest, budget: budget, utm_source: formData.get("utm_source")||"", utm_medium: formData.get("utm_medium")||"", utm_campaign: formData.get("utm_campaign")||"", referrer: formData.get("referrer")||"", landing_page: formData.get("landing_page")||"", _subject: "New Audit Request: " + website })
       }).catch(function(){});
     });
   }).catch(function() {
