@@ -210,17 +210,12 @@ a{color:var(--accent);text-decoration:none}
 [data-theme="dark"] .nav.scrolled{background:rgba(10,14,26,0.92)!important;border-bottom:1px solid rgba(255,255,255,0.06)!important}
 
 /* THEME TOGGLE BUTTON */
-.theme-toggle{display:flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:50%;border:2px solid rgba(0,0,0,0.15);background:#f0f0f0;cursor:pointer;transition:all 0.2s;flex-shrink:0;padding:0}
-[data-theme="dark"] .theme-toggle{border-color:rgba(255,255,255,0.15);background:rgba(255,255,255,0.1)}
-.theme-toggle:hover{border-color:rgba(64,180,229,0.4);transform:rotate(15deg)}
-.theme-toggle img{width:20px;height:20px;display:block}
-[data-theme="light"] .theme-toggle img{filter:brightness(0)!important;opacity:0.6}
-[data-theme="dark"] .theme-toggle img{filter:brightness(0) invert(1)!important;opacity:0.8}
+.theme-toggle{display:flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:50%;border:none;background:transparent;cursor:pointer;transition:all 0.2s;flex-shrink:0;padding:0;font-size:1.3rem}
+.theme-toggle:hover{transform:scale(1.1)}
 [data-theme="light"] .nav-cta{color:#fff!important}
 [data-theme="light"] .hero-cta{color:#fff!important}
 [data-theme="light"] .hero p{color:rgba(25,31,36,0.6)!important}
 [data-theme="light"] #mobileCta{color:#fff!important}
-/* Icons: show sun in dark mode (to switch to light), show moon in light mode (to switch to dark) */
 .icon-sun{display:none}
 .icon-moon{display:block}
 [data-theme="dark"] .icon-sun{display:block}
@@ -380,8 +375,8 @@ a{color:var(--accent);text-decoration:none}
     <a href="#results">Results</a>
     <a href="#form" class="nav-cta">Start Your Audit</a>
     <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme">
-      <img src="images/icons/day.svg" class="icon-sun" alt="Light mode">
-      <img src="images/icons/night.svg" class="icon-moon" alt="Dark mode">
+      <span class="icon-sun">☀️</span>
+      <span class="icon-moon">🌙</span>
     </button>
   </div>
 </nav>
