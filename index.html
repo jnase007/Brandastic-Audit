@@ -1,6 +1,8 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
+<!-- Theme: apply saved preference before paint to avoid flash -->
+<script>(function(){var t=localStorage.getItem('brandastic-theme');if(t==='dark'){document.documentElement.setAttribute('data-theme','dark');}else{document.documentElement.setAttribute('data-theme','light');}})();</script>
 <!-- Google Tag Manager -->
 <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
 new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -24,16 +26,17 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-:root{--bg:#0a0e1a;--card:rgba(255,255,255,0.05);--card-border:rgba(255,255,255,0.08);--text:#fff;--text2:rgba(255,255,255,0.7);--muted:rgba(255,255,255,0.4);--accent:#40B4E5;--purple:#CC22FF;--green:#22c55e}
-html{scroll-behavior:smooth}body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--text);line-height:1.6;overflow-x:hidden}
+:root{--bg:#F5F3EF;--card:#ffffff;--card-border:rgba(25,31,36,0.1);--text:#191F24;--text2:rgba(25,31,36,0.7);--muted:rgba(25,31,36,0.35);--accent:#40B4E5;--purple:#CC22FF;--green:#22c55e;--red:#ef4444;--yellow:#f59e0b}
+[data-theme="dark"]{--bg:#0a0e1a;--card:rgba(255,255,255,0.05);--card-border:rgba(255,255,255,0.08);--text:#fff;--text2:rgba(255,255,255,0.7);--muted:rgba(255,255,255,0.4)}
+html{scroll-behavior:smooth}body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--text);line-height:1.6;overflow-x:hidden;transition:background-color 0.3s ease,color 0.3s ease}
 a{color:var(--accent);text-decoration:none}
 
 /* NAV */
 .nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:0 2rem;height:64px;display:flex;align-items:center;justify-content:space-between;background:transparent;backdrop-filter:none;border-bottom:none}
-.nav-brand{font-weight:800;font-size:1.1rem;letter-spacing:0.08em;color:#fff}
+.nav-brand{font-weight:800;font-size:1.1rem;letter-spacing:0.08em;color:var(--text)}
 .nav-links{display:flex;gap:2rem;align-items:center}
 .nav-links a{color:var(--text2);font-size:0.85rem;font-weight:500;transition:color 0.2s}
-.nav-links a:hover{color:#fff}
+.nav-links a:hover{color:var(--text)}
 .nav-cta{background:linear-gradient(135deg,#40B4E5,#CC22FF);color:#fff;padding:8px 20px;border-radius:8px;font-weight:600;font-size:0.85rem;border:none;cursor:pointer;transition:transform 0.2s}
 .nav-cta:hover{transform:translateY(-1px)}
 
@@ -51,7 +54,7 @@ a{color:var(--accent);text-decoration:none}
 .hero-cta:hover{transform:translateY(-2px);box-shadow:0 8px 40px rgba(64,180,229,0.5)}.hero-cta{animation:ctaGlow 2.5s ease-in-out infinite}@keyframes ctaGlow{0%,100%{box-shadow:0 4px 20px rgba(64,180,229,0.3),0 0 40px rgba(64,180,229,0.1)}50%{box-shadow:0 4px 30px rgba(204,34,255,0.4),0 0 60px rgba(204,34,255,0.15)}}
 
 /* ANIMATED SCORE */
-.score-card{margin:4rem auto 2rem;max-width:620px;background:rgba(10,14,26,0.92);border:1px solid rgba(255,255,255,0.12);border-radius:20px;padding:3rem;position:relative;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,0.5)}
+.score-card{margin:4rem auto 2rem;max-width:620px;background:var(--card);border:1px solid var(--card-border);border-radius:20px;padding:3rem;position:relative;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,0.5)}
 .score-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,#40B4E5,#CC22FF,#40B4E5);background-size:200%;animation:shimmer 3s linear infinite}
 @keyframes shimmer{0%{background-position:200% 0}100%{background-position:-200% 0}}
 .score-tabs{display:flex;gap:0;margin-bottom:2rem;border-radius:10px;overflow:hidden;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.06)}
@@ -203,7 +206,108 @@ a{color:var(--accent);text-decoration:none}
 @keyframes float{0%{transform:translateY(100vh) rotate(0deg);opacity:0}10%{opacity:1}90%{opacity:1}100%{transform:translateY(-100px) rotate(720deg);opacity:0}}
 
 /* NAV SCROLL EFFECT */
-.nav.scrolled{background:rgba(10,14,26,0.92)!important;backdrop-filter:blur(20px)!important;border-bottom:1px solid rgba(255,255,255,0.06)!important}
+.nav.scrolled{background:rgba(245,243,239,0.95)!important;backdrop-filter:blur(20px)!important;border-bottom:1px solid rgba(25,31,36,0.08)!important}
+[data-theme="dark"] .nav.scrolled{background:rgba(10,14,26,0.92)!important;border-bottom:1px solid rgba(255,255,255,0.06)!important}
+
+/* THEME TOGGLE BUTTON */
+.theme-toggle{display:flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:50%;border:1px solid var(--card-border);background:var(--card);cursor:pointer;transition:all 0.2s;flex-shrink:0;padding:0}
+.theme-toggle:hover{border-color:rgba(64,180,229,0.4);transform:rotate(15deg)}
+.theme-toggle img{width:20px;height:20px;display:block}
+[data-theme="light"] .theme-toggle{filter:none}
+[data-theme="dark"] .theme-toggle{filter:none}
+/* Icons: show sun in dark mode (to switch to light), show moon in light mode (to switch to dark) */
+.icon-sun{display:none}
+.icon-moon{display:block}
+[data-theme="dark"] .icon-sun{display:block}
+[data-theme="dark"] .icon-moon{display:none}
+
+/* DARK MODE overrides */
+[data-theme="dark"] .feature-icon img{filter:brightness(0) invert(1)!important}
+[data-theme="dark"] .social-icon{filter:brightness(0) invert(1)!important}
+[data-theme="dark"] .nav-brand img{filter:none}
+[data-theme="dark"] .nav-links a{color:var(--text2)}
+[data-theme="dark"] .trusted-label{color:rgba(255,255,255,0.6)!important}
+[data-theme="dark"] #reviewRotator p:first-child{color:rgba(255,255,255,0.7)!important}
+
+/* LIGHT MODE OVERRIDES */
+/* Nav brand logo */
+[data-theme="light"] .nav-brand img{filter:brightness(0)}
+[data-theme="light"] .nav-links a{color:var(--text2)}
+[data-theme="light"] .nav-links a:hover{color:var(--text)}
+
+/* Hero — light mode uses a lighter overlay */
+[data-theme="light"] .hero::before{background:radial-gradient(circle at 30% 40%,rgba(64,180,229,0.06) 0%,transparent 50%),radial-gradient(circle at 70% 60%,rgba(204,34,255,0.05) 0%,transparent 50%)}
+[data-theme="light"] #videoFade{background:#F5F3EF!important}
+[data-theme="light"] .hero-badge{background:rgba(25,31,36,0.06);border-color:rgba(25,31,36,0.1)}
+[data-theme="light"] .hero p{color:var(--text2)}
+[data-theme="light"] .hero h1{color:var(--text)}
+
+/* Score card */
+[data-theme="light"] .score-card{background:rgba(255,255,255,0.95);border-color:rgba(25,31,36,0.1);box-shadow:0 20px 60px rgba(0,0,0,0.08)}
+[data-theme="light"] .score-tabs{background:rgba(25,31,36,0.05);border-color:rgba(25,31,36,0.06)}
+[data-theme="light"] .score-tab{color:rgba(25,31,36,0.4)}
+[data-theme="light"] .score-tab.active{color:var(--text)}
+[data-theme="light"] .score-label{color:rgba(25,31,36,0.5)}
+[data-theme="light"] .score-items{border-top-color:rgba(25,31,36,0.06)}
+[data-theme="light"] .score-item{color:rgba(25,31,36,0.8)}
+[data-theme="light"] .score-bar-track{background:rgba(25,31,36,0.08)}
+
+/* Logo scroll */
+[data-theme="light"] .logo-scroll::before{background:linear-gradient(to right,var(--bg),transparent)}
+[data-theme="light"] .logo-scroll::after{background:linear-gradient(to left,var(--bg),transparent)}
+[data-theme="light"] .logo-track-dark{filter:brightness(0)!important;opacity:0.2!important}
+
+/* Feature cards */
+[data-theme="light"] .feature{box-shadow:0 2px 12px rgba(0,0,0,0.06)}
+[data-theme="light"] .feature:hover{box-shadow:0 12px 40px rgba(0,0,0,0.1)}
+[data-theme="light"] .feature-icon img{filter:none!important}
+[data-theme="light"] .feature h3{color:var(--text)}
+
+/* Model cards */
+[data-theme="light"] .model{box-shadow:0 2px 12px rgba(0,0,0,0.06)}
+[data-theme="light"] .model:hover{box-shadow:0 12px 40px rgba(0,0,0,0.1)}
+
+/* Case cards */
+[data-theme="light"] .case a h3{color:var(--text)!important}
+
+/* Stats bar */
+[data-theme="light"] .stats-bar{border-top:1px solid rgba(25,31,36,0.08);border-bottom:1px solid rgba(25,31,36,0.08)}
+
+/* Reviews */
+[data-theme="light"] #reviewRotator p{color:var(--text2)!important}
+
+/* Form */
+[data-theme="light"] .form-section{background:linear-gradient(135deg,rgba(64,180,229,0.05),rgba(204,34,255,0.05));border-top-color:rgba(25,31,36,0.08);border-bottom-color:rgba(25,31,36,0.08)}
+[data-theme="light"] .form-card{background:#fff;border:1px solid rgba(25,31,36,0.1);box-shadow:0 4px 24px rgba(0,0,0,0.06)}
+[data-theme="light"] .form-card h2{color:var(--text)}
+[data-theme="light"] .form-card p{color:var(--text2)}
+[data-theme="light"] .form-group label{color:var(--muted)}
+[data-theme="light"] .form-group input,[data-theme="light"] .form-group select,[data-theme="light"] .form-group textarea{background:#F5F3EF;border-color:rgba(25,31,36,0.12);color:var(--text)}
+[data-theme="light"] .form-group input::placeholder,[data-theme="light"] .form-group textarea::placeholder{color:var(--muted)}
+[data-theme="light"] #thankYou h2{color:var(--text)!important}
+[data-theme="light"] #thankYou p{color:var(--text2)!important}
+
+/* Process section */
+[data-theme="light"] .process-dot{border-color:var(--bg)}
+[data-theme="light"] .process-step p{color:var(--text2)}
+
+/* FAQ */
+[data-theme="light"] .faq-item{border-bottom-color:rgba(25,31,36,0.08)}
+[data-theme="light"] .faq-q{color:var(--text)}
+[data-theme="light"] .faq-a{color:var(--text2)}
+
+/* Footer — keep dark always */
+.footer{background:linear-gradient(to top,#0a0e1a,#0f1423)!important}
+
+/* Mobile CTA */
+[data-theme="light"] #mobileCta{box-shadow:0 -4px 20px rgba(0,0,0,0.12)}
+
+/* Trusted by label */
+[data-theme="light"] .trusted-label{color:rgba(25,31,36,0.5)!important}
+
+/* Portal btn */
+[data-theme="light"] .portal-btn{border-color:rgba(25,31,36,0.1);color:var(--text2);background:rgba(25,31,36,0.03)}
+[data-theme="light"] .portal-btn:hover{border-color:rgba(64,180,229,0.4);color:var(--text);background:rgba(64,180,229,0.05)}
 
 /* PROCESS STEPS */
 .process{display:flex;align-items:flex-start;gap:0;position:relative}
@@ -234,6 +338,18 @@ a{color:var(--accent);text-decoration:none}
 .tab-bar-animate{width:0;transition:width 1s ease-out}
 .tab-stat-count{opacity:0;transform:translateY(10px);transition:all 0.6s ease}
 .tab-stat-count.visible{opacity:1;transform:translateY(0)}
+
+/* Tab chart light-mode text overrides */
+[data-theme="light"] #tabChart div[style*="color:rgba(255,255,255"]{color:var(--text2)!important}
+[data-theme="light"] #tabChart div[style*="color:rgba(255,255,255,0.5)"]{color:var(--muted)!important}
+[data-theme="light"] #tabChart div[style*="color:rgba(255,255,255,0.4)"]{color:var(--muted)!important}
+[data-theme="light"] #tabChart div[style*="background:rgba(255,255,255,0.06)"]{background:rgba(25,31,36,0.06)!important}
+[data-theme="light"] #tabChart div[style*="background:rgba(255,255,255,0.08)"]{background:rgba(25,31,36,0.08)!important}
+[data-theme="light"] #tabDetails div[style*="border-top:1px solid rgba(255,255,255,0.06)"]{border-top-color:rgba(25,31,36,0.08)!important}
+[data-theme="light"] #tabDetails div[style*="color:rgba(255,255,255,0.8)"]{color:var(--text)!important}
+[data-theme="light"] #tabChart div[style*="font-weight:700;font-size:0.85rem;color:#fff"]{color:var(--text)!important}
+[data-theme="light"] #tabChart div[style*="font-size:0.75rem;color:rgba(255,255,255,0.5)"]{color:var(--muted)!important}
+[data-theme="light"] #tabChart div[style*="font-size:1.2rem;font-weight:800;color:#fff"]{color:var(--text)!important}
 </style>
 </head>
 <body>
@@ -249,6 +365,10 @@ a{color:var(--accent);text-decoration:none}
     <a href="#models">How We Work</a>
     <a href="#results">Results</a>
     <a href="#form" class="nav-cta">Start Your Audit</a>
+    <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme">
+      <img src="images/icons/day.svg" class="icon-sun" alt="Light mode">
+      <img src="images/icons/night.svg" class="icon-moon" alt="Dark mode">
+    </button>
   </div>
 </nav>
 
@@ -316,9 +436,9 @@ a{color:var(--accent);text-decoration:none}
 
 <!-- TRUSTED BY -->
 <div style="text-align:center;padding:3rem 2rem 1rem;position:relative;z-index:3;background:var(--bg)">
-  <p style="font-size:1.4rem;font-weight:700;letter-spacing:0.05em;color:rgba(255,255,255,0.6);margin-bottom:2rem">Brands who trust us with their story</p>
+  <p class="trusted-label" style="font-size:1.4rem;font-weight:700;letter-spacing:0.05em;color:rgba(255,255,255,0.6);margin-bottom:2rem">Brands who trust us with their story</p>
   <div class="logo-scroll">
-    <div class="logo-track" style="opacity:0.5;filter:brightness(0) invert(1)">
+    <div class="logo-track logo-track-dark" style="opacity:0.5;filter:brightness(0) invert(1)">
       <img src="https://brandastic.com/wp-content/uploads/2026/05/ricoh-logo.svg" alt="RICOH" style="height:94px;max-width:360px;flex-shrink:0">
       <img src="https://brandastic.com/wp-content/uploads/2026/05/usc-logo.svg" alt="USC" style="height:94px;max-width:192px;flex-shrink:0">
       <img src="https://brandastic.com/wp-content/uploads/2026/05/ufc-gym-logo.svg" alt="UFC Gym" style="height:37px;max-width:144px;flex-shrink:0">
@@ -341,7 +461,7 @@ a{color:var(--accent);text-decoration:none}
 
 
 <!-- HOW WE WORK -->
-<section class="section" id="models"><div class="reveal" style="background:rgba(255,255,255,0.02)">
+<section class="section" id="models"><div class="reveal">
   <div class="section-inner">
     <div class="section-badge">Partnership Models</div>
     <h2>How We Work With You</h2>
@@ -401,7 +521,7 @@ a{color:var(--accent);text-decoration:none}
       <div class="case" style="padding:0;overflow:hidden">
         <img src="https://brandastic.com/wp-content/uploads/2026/03/product_03.jpg" style="width:100%;height:200px;object-fit:cover;display:block" alt="RICOH">
         <div style="padding:1.5rem">
-          <a href="https://brandastic.com/portfolio/ricoh/" target="_blank" style="color:#fff;text-decoration:none"><h3 style="font-size:1.2rem;font-weight:800;margin-bottom:0.25rem">RICOH</h3></a>
+          <a href="https://brandastic.com/portfolio/ricoh/" target="_blank" style="color:var(--text);text-decoration:none"><h3 style="font-size:1.2rem;font-weight:800;margin-bottom:0.25rem">RICOH</h3></a>
           <div class="case-tag" style="margin-bottom:1rem">SEARCH ENGINE MARKETING</div>
           <div style="display:flex;gap:2rem">
             <div><div class="case-stat">120x</div><div class="case-stat-label">ROAS</div></div>
@@ -412,7 +532,7 @@ a{color:var(--accent);text-decoration:none}
       <div class="case" style="padding:0;overflow:hidden">
         <img src="https://brandastic.com/wp-content/uploads/2026/03/orange-theory-finess-review.jpg" style="width:100%;height:200px;object-fit:cover;display:block" alt="Orangetheory">
         <div style="padding:1.5rem">
-          <a href="https://brandastic.com/portfolio/orangetheory-fitness/" target="_blank" style="color:#fff;text-decoration:none"><h3 style="font-size:1.2rem;font-weight:800;margin-bottom:0.25rem">ORANGETHEORY</h3></a>
+          <a href="https://brandastic.com/portfolio/orangetheory-fitness/" target="_blank" style="color:var(--text);text-decoration:none"><h3 style="font-size:1.2rem;font-weight:800;margin-bottom:0.25rem">ORANGETHEORY</h3></a>
           <div class="case-tag" style="margin-bottom:1rem">SOCIAL MEDIA</div>
           <div style="display:flex;gap:2rem">
             <div><div class="case-stat">800%</div><div class="case-stat-label">CPL Decrease</div></div>
@@ -424,7 +544,7 @@ a{color:var(--accent);text-decoration:none}
       <div class="case" style="padding:0;overflow:hidden">
         <img src="https://brandastic.com/wp-content/uploads/2026/03/Screenshot-2026-03-07-at-7.37.58-AM.jpg" style="width:100%;height:200px;object-fit:cover;display:block" alt="HyperX">
         <div style="padding:1.5rem">
-          <a href="https://brandastic.com/portfolio/kingston-hyperx/" target="_blank" style="color:#fff;text-decoration:none"><h3 style="font-size:1.2rem;font-weight:800;margin-bottom:0.25rem">HYPERX</h3></a>
+          <a href="https://brandastic.com/portfolio/kingston-hyperx/" target="_blank" style="color:var(--text);text-decoration:none"><h3 style="font-size:1.2rem;font-weight:800;margin-bottom:0.25rem">HYPERX</h3></a>
           <div class="case-tag" style="margin-bottom:1rem">CONVERSION RATE OPTIMIZATION</div>
           <div style="display:flex;gap:2rem">
             <div><div class="case-stat">$100M</div><div class="case-stat-label">Annual Sales</div></div>
@@ -435,7 +555,7 @@ a{color:var(--accent);text-decoration:none}
       <div class="case" style="padding:0;overflow:hidden">
         <img src="https://brandastic.com/wp-content/uploads/2026/03/Screenshot-2026-03-07-at-7.36.04-AM.jpg" style="width:100%;height:200px;object-fit:cover;display:block" alt="KIA">
         <div style="padding:1.5rem">
-          <a href="https://brandastic.com/portfolio/kia/" target="_blank" style="color:#fff;text-decoration:none"><h3 style="font-size:1.2rem;font-weight:800;margin-bottom:0.25rem">KIA MOTORS</h3></a>
+          <a href="https://brandastic.com/portfolio/kia/" target="_blank" style="color:var(--text);text-decoration:none"><h3 style="font-size:1.2rem;font-weight:800;margin-bottom:0.25rem">KIA MOTORS</h3></a>
           <div class="case-tag" style="margin-bottom:1rem">SEARCH ENGINE OPTIMIZATION</div>
           <div style="display:flex;gap:2rem">
             <div><div class="case-stat">140%</div><div class="case-stat-label">Organic Users</div></div>
@@ -484,12 +604,13 @@ a{color:var(--accent);text-decoration:none}
 <!-- REVIEWS -->
 <div style="text-align:center;padding:2rem 2rem 3rem;position:relative;z-index:3;background:var(--bg)">
   <div style="display:flex;align-items:center;justify-content:center;gap:8px;margin-bottom:1rem">
-    <span style="font-size:1.5rem;font-weight:900;color:#fff">5.0</span>
+    <span style="font-size:1.5rem;font-weight:900;color:var(--text)">5.0</span>
     <span style="color:#fbbf24;font-size:1.3rem">★★★★★</span>
   </div>
   <div style="max-width:600px;margin:0 auto 1rem;height:80px;overflow:hidden;position:relative">
     <div id="reviewRotator" style="transition:transform 0.6s ease,opacity 0.6s ease">
       <p class="review-text" style="font-size:1rem;font-style:italic;color:var(--text2);line-height:1.7;text-align:center">"Brandastic has been a fantastic agency to work with. They've made significant improvements in our company's digital presence and overall performance."</p>
+      <p style="font-size:0.8rem;color:rgba(64,180,229,0.8);margin-top:0.5rem;text-align:center">— Cinthya Baez</p>
     </div>
   </div>
   <a href="https://shorturl.at/wViCP" target="_blank" style="font-size:0.8rem;color:var(--accent);font-weight:600">40+ Five-Star Reviews on Google →</a>
@@ -543,7 +664,7 @@ a{color:var(--accent);text-decoration:none}
       <button type="submit" class="form-submit">Request My Free Audit →</button>
     </form>
     <div id="thankYou" style="display:none;text-align:center;padding:3rem 1rem">
-      <h2 style="font-size:1.5rem;font-weight:800;margin-bottom:1rem;color:#fff">Thank You!</h2>
+      <h2 style="font-size:1.5rem;font-weight:800;margin-bottom:1rem;color:var(--text)">Thank You!</h2>
       <p style="color:rgba(255,255,255,0.7);font-size:1rem;line-height:1.7;max-width:450px;margin:0 auto">Our team will review your information and begin putting together your personalized audit.</p>
       <p style="color:rgba(255,255,255,0.7);font-size:1rem;line-height:1.7;max-width:450px;margin:1rem auto 0">We will reach out within a few business days to schedule a call, ask any follow-up questions, and review the audit.</p>
       <p style="color:rgba(255,255,255,0.5);font-size:0.85rem;margin-top:1.5rem">We look forward to connecting with you soon.</p>
@@ -807,6 +928,15 @@ function countUp() {
 }
 window.addEventListener("scroll", countUp);
 
+// Theme toggle
+function toggleTheme() {
+  var html = document.documentElement;
+  var current = html.getAttribute('data-theme');
+  var next = current === 'dark' ? 'light' : 'dark';
+  html.setAttribute('data-theme', next);
+  localStorage.setItem('brandastic-theme', next);
+}
+
 // Nav scroll effect
 window.addEventListener("scroll", function() {
   document.querySelector(".nav").classList.toggle("scrolled", window.scrollY > 50);
@@ -848,7 +978,7 @@ window.addEventListener("scroll", function() {
     el.style.transform = "translateY(10px)";
     setTimeout(function() {
       idx = (idx + 1) % reviews.length;
-      el.innerHTML = '<p style="font-size:1rem;font-style:italic;color:rgba(255,255,255,0.7);line-height:1.7;text-align:center;margin:0">\"' + reviews[idx].text + '\"</p><p style="font-size:0.8rem;color:rgba(64,180,229,0.8);margin-top:0.5rem;text-align:center">— ' + reviews[idx].author + '</p>';
+      el.innerHTML = '<p style="font-size:1rem;font-style:italic;color:var(--text2);line-height:1.7;text-align:center;margin:0">\"' + reviews[idx].text + '\"</p><p style="font-size:0.8rem;color:rgba(64,180,229,0.8);margin-top:0.5rem;text-align:center">— ' + reviews[idx].author + '</p>';
       el.style.transform = "translateY(-10px)";
       setTimeout(function() {
         el.style.opacity = "1";
