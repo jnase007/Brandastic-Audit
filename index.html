@@ -214,8 +214,8 @@ a{color:var(--accent);text-decoration:none}
 [data-theme="dark"] .theme-toggle{border-color:rgba(255,255,255,0.15);background:rgba(255,255,255,0.1)}
 .theme-toggle:hover{border-color:rgba(64,180,229,0.4);transform:rotate(15deg)}
 .theme-toggle img{width:20px;height:20px;display:block}
-[data-theme="light"] .theme-toggle{filter:none}
-[data-theme="dark"] .theme-toggle{filter:none}
+[data-theme="light"] .theme-toggle img{filter:brightness(0)!important;opacity:0.6}
+[data-theme="dark"] .theme-toggle img{filter:brightness(0) invert(1)!important;opacity:0.8}
 [data-theme="light"] .nav-cta{color:#fff!important}
 [data-theme="light"] .hero-cta{color:#fff!important}
 [data-theme="light"] .hero p{color:rgba(25,31,36,0.6)!important}
