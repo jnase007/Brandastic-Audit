@@ -210,7 +210,8 @@ a{color:var(--accent);text-decoration:none}
 [data-theme="dark"] .nav.scrolled{background:rgba(10,14,26,0.92)!important;border-bottom:1px solid rgba(255,255,255,0.06)!important}
 
 /* THEME TOGGLE BUTTON */
-.theme-toggle{display:flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:50%;border:1px solid var(--card-border);background:var(--card);cursor:pointer;transition:all 0.2s;flex-shrink:0;padding:0}
+.theme-toggle{display:flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:50%;border:2px solid rgba(0,0,0,0.15);background:#f0f0f0;cursor:pointer;transition:all 0.2s;flex-shrink:0;padding:0}
+[data-theme="dark"] .theme-toggle{border-color:rgba(255,255,255,0.15);background:rgba(255,255,255,0.1)}
 .theme-toggle:hover{border-color:rgba(64,180,229,0.4);transform:rotate(15deg)}
 .theme-toggle img{width:20px;height:20px;display:block}
 [data-theme="light"] .theme-toggle{filter:none}
@@ -297,7 +298,12 @@ a{color:var(--accent);text-decoration:none}
 [data-theme="light"] .faq-a{color:var(--text2)}
 
 /* Footer — keep dark always */
-.footer{background:linear-gradient(to top,#0a0e1a,#0f1423)!important}
+[data-theme="dark"] .footer{background:linear-gradient(to top,#0a0e1a,#0f1423)!important}
+[data-theme="light"] .footer{background:#fff!important}
+[data-theme="light"] .footer *{color:#191F24!important}
+[data-theme="light"] .footer a{color:rgba(25,31,36,0.6)!important}
+[data-theme="light"] .footer a:hover{color:#191F24!important}
+[data-theme="light"] .footer .social-icon{filter:brightness(0)!important}
 
 /* Mobile CTA */
 [data-theme="light"] #mobileCta{box-shadow:0 -4px 20px rgba(0,0,0,0.12)}
@@ -706,7 +712,7 @@ a{color:var(--accent);text-decoration:none}
 
 
 <!-- FOOTER -->
-<div class="footer" style="background:linear-gradient(to top,rgba(10,14,26,1),rgba(15,20,35,1));overflow:hidden;position:relative;z-index:3">
+<div class="footer" style="overflow:hidden;position:relative;z-index:3">
   <div style="position:absolute;top:-50px;left:10%;width:200px;height:200px;border-radius:50%;background:radial-gradient(circle,rgba(64,180,229,0.08),transparent 70%);filter:blur(40px);animation:orbFloat1 8s ease-in-out infinite;pointer-events:none"></div>
   <div style="position:absolute;top:-30px;right:15%;width:250px;height:250px;border-radius:50%;background:radial-gradient(circle,rgba(204,34,255,0.06),transparent 70%);filter:blur(50px);animation:orbFloat2 10s ease-in-out infinite;pointer-events:none"></div>
   <div style="position:absolute;bottom:-40px;left:40%;width:180px;height:180px;border-radius:50%;background:radial-gradient(circle,rgba(64,180,229,0.05),transparent 70%);filter:blur(35px);animation:orbFloat3 12s ease-in-out infinite;pointer-events:none"></div>
