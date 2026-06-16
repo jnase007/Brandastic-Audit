@@ -303,11 +303,14 @@ a{color:var(--accent);text-decoration:none}
 
 /* Footer — keep dark always */
 [data-theme="dark"] .footer{background:linear-gradient(to top,#0a0e1a,#0f1423)!important}
-[data-theme="light"] .footer{background:#fff!important}
+[data-theme="light"] .footer{background:#fff!important;border-top:1px solid rgba(0,0,0,0.08)}
 [data-theme="light"] .footer *{color:#191F24!important}
-[data-theme="light"] .footer a{color:rgba(25,31,36,0.6)!important}
+[data-theme="light"] .footer a{color:rgba(25,31,36,0.5)!important}
 [data-theme="light"] .footer a:hover{color:#191F24!important}
-[data-theme="light"] .footer .social-icon{filter:brightness(0)!important}
+[data-theme="light"] .footer img[alt="Brandastic"]{filter:brightness(0)!important;opacity:0.8!important}
+[data-theme="light"] .footer img[alt="Facebook"],[data-theme="light"] .footer img[alt="Instagram"],[data-theme="light"] .footer img[alt="LinkedIn"],[data-theme="light"] .footer img[alt="YouTube"],[data-theme="light"] .footer img[alt="TikTok"]{filter:brightness(0)!important}
+[data-theme="light"] .footer p{color:rgba(25,31,36,0.5)!important}
+[data-theme="light"] .footer span[style*="background:rgba(255"]{background:rgba(0,0,0,0.1)!important}
 
 /* Mobile CTA */
 [data-theme="light"] #mobileCta{box-shadow:0 -4px 20px rgba(0,0,0,0.12)}
