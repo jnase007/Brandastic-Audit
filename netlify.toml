@@ -71,6 +71,16 @@
   status = 200
 
 [[redirects]]
+  from = "/brandastic-seo"
+  to = "/brandastic-seo-report.html"
+  status = 200
+
+[[redirects]]
+  from = "/brandastic-seo-report"
+  to = "/brandastic-seo-report.html"
+  status = 200
+
+[[redirects]]
   from = "/onboarding/*"
   to = "/onboarding.html?channel=:splat"
   status = 200
