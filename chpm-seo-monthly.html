@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Crummack Huseby — SEO Performance Report — June 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+<style>
+:root{
+  --black:#191F24; --fog:#F5F3EF; --white:#FFFFFF;
+  --blue:#0644ED; --light:#40B4E5; --purple:#CC22FF;
+  --text:#191F24; --muted:rgba(25,31,36,0.55); --soft:rgba(25,31,36,0.72);
+  --card:#FFFFFF; --border:rgba(25,31,36,0.10);
+  --red:#ef4444; --green:#16a34a; --amber:#f59e0b;
+  --grad:linear-gradient(135deg,#40B4E5,#CC22FF);
+  --shadow:0 8px 32px rgba(0,0,0,0.06);
+}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',system-ui,-apple-system,sans-serif;background:var(--fog);
+  color:var(--text);line-height:1.6;-webkit-font-smoothing:antialiased}
+h1,h2,h3,.headline{font-family:'Forma DJR Text','Inter',system-ui,sans-serif;letter-spacing:-0.02em}
+.gradient{background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.subhead{font-size:0.72rem;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:var(--muted)}
+a{color:var(--blue);text-decoration:none}
+.wrap{max-width:1080px;margin:0 auto;padding:0 2rem}
+section{padding:3.5rem 0;border-bottom:1px solid var(--border)}
+
+/* nav */
+.topbar{position:sticky;top:0;z-index:50;background:rgba(245,243,239,0.9);backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--border);height:60px;display:flex;align-items:center}
+.topbar .wrap{display:flex;align-items:center;justify-content:space-between;width:100%}
+.brand{display:flex;align-items:center;gap:10px;font-weight:800;font-size:1.05rem;letter-spacing:0.02em}
+.brand .dot{width:11px;height:11px;border-radius:50%;background:var(--grad)}
+.pdf-btn{padding:8px 18px;border-radius:10px;border:none;cursor:pointer;background:var(--grad);
+  color:#fff;font-family:inherit;font-size:0.75rem;font-weight:700;letter-spacing:0.04em}
+
+/* cover */
+.cover{min-height:52vh;display:flex;flex-direction:column;justify-content:center;align-items:center;
+  text-align:center;background:linear-gradient(180deg,#fff,var(--fog));border-bottom:1px solid var(--border)}
+.cover .logo{display:flex;align-items:center;gap:12px;margin-bottom:2.5rem}
+.cover .logo .dot{width:14px;height:14px;border-radius:50%;background:var(--grad)}
+.cover .logo span{font-weight:800;font-size:1.3rem;letter-spacing:0.04em}
+.cover h1{font-size:clamp(2.4rem,6vw,4.2rem);font-weight:800;line-height:1.05;margin-bottom:1rem}
+.cover .sub{font-size:1.1rem;color:var(--soft);max-width:560px;margin-bottom:2rem}
+.cover .meta{display:flex;gap:1rem;flex-wrap:wrap;justify-content:center}
+.cover .meta span{padding:8px 20px;border-radius:50px;background:#fff;border:1px solid var(--border);
+  font-size:0.82rem;font-weight:600;color:var(--soft)}
+
+/* toc */
+.toc-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem;margin-top:1.5rem}
+.toc-item{display:flex;gap:1rem;align-items:center;padding:1.25rem 1.5rem;background:var(--card);
+  border:1px solid var(--border);border-radius:14px;transition:.2s}
+.toc-item:hover{box-shadow:var(--shadow);border-color:rgba(64,180,229,0.3)}
+.toc-item .n{width:36px;height:36px;border-radius:9px;background:var(--grad);color:#fff;font-weight:800;
+  display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.toc-item .t{font-weight:700;font-size:0.95rem}
+.toc-item .d{font-size:0.78rem;color:var(--muted)}
+
+/* section head */
+.sec-badge{display:inline-block;padding:6px 16px;border-radius:50px;background:#fff;border:1px solid var(--border);
+  font-size:0.68rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:var(--muted);margin-bottom:1rem}
+.sec-title{font-size:clamp(1.7rem,3.5vw,2.5rem);font-weight:800;line-height:1.15;margin-bottom:.6rem}
+.sec-sub{color:var(--soft);font-size:1rem;max-width:680px;margin-bottom:2rem}
+
+/* scorecards */
+.cards{display:grid;grid-template-columns:repeat(4,1fr);gap:1.25rem;margin-bottom:2rem}
+.cards.c3{grid-template-columns:repeat(3,1fr)}
+.metric{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:1.8rem 1.4rem;text-align:center}
+.metric .value{font-size:2.1rem;font-weight:800;letter-spacing:-0.03em}
+.metric .value.grad{background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.metric .label{font-size:0.7rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--muted);margin-top:.5rem}
+.metric .change{font-size:0.78rem;font-weight:700;margin-top:.35rem}
+.change.up{color:var(--green)} .change.down{color:var(--red)} .change.flat{color:var(--muted)}
+
+/* movement strip */
+.move-strip{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;margin-bottom:2rem}
+.move-cell{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:1rem;text-align:center}
+.move-cell .num{font-size:1.5rem;font-weight:800}
+.move-cell .lbl{font-size:0.68rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);margin-top:.2rem}
+.move-cell.imp .num{color:var(--green)} .move-cell.dec .num{color:var(--red)}
+.move-cell.ent .num{color:var(--light)} .move-cell.lft .num{color:var(--amber)}
+
+/* tables */
+.table-wrap{background:var(--card);border:1px solid var(--border);border-radius:16px;overflow:hidden;margin-bottom:2rem}
+table{width:100%;border-collapse:collapse;font-size:0.88rem}
+th{text-align:left;padding:.95rem 1rem;font-size:0.66rem;font-weight:700;letter-spacing:0.1em;
+  text-transform:uppercase;color:var(--muted);border-bottom:1px solid var(--border);background:rgba(245,243,239,0.6)}
+td{padding:.8rem 1rem;border-bottom:1px solid var(--border);color:var(--soft)}
+tr:last-child td{border-bottom:none}
+tr:hover td{color:var(--text)}
+.pos{font-weight:800;color:var(--text)}
+.chg{font-weight:700;font-size:0.82rem}
+.chg.up{color:var(--green)} .chg.down{color:var(--red)} .chg.flat{color:var(--muted)}
+.num-r{text-align:right}
+
+/* placeholder block */
+.placeholder{background:linear-gradient(135deg,rgba(64,180,229,0.06),rgba(204,34,255,0.05));
+  border:1px dashed rgba(64,180,229,0.4);border-radius:16px;padding:2.2rem;text-align:center}
+.placeholder .pico{font-size:2rem;margin-bottom:.6rem}
+.placeholder .ptitle{font-weight:800;font-size:1.15rem;margin-bottom:.5rem}
+.placeholder .ptext{color:var(--soft);font-size:0.92rem;max-width:560px;margin:0 auto}
+.placeholder .ptag{display:inline-block;margin-top:1rem;padding:5px 14px;border-radius:50px;
+  background:rgba(245,158,11,0.15);color:#b45309;font-size:0.7rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase}
+
+/* SOV horizontal bars */
+.sov-wrap{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:1.6rem 1.8rem;margin-bottom:1rem}
+.sovrow{display:grid;grid-template-columns:170px 1fr 56px;align-items:center;gap:1rem;padding:.4rem 0}
+.sovname{font-size:0.88rem}
+.sovtrack{height:14px;background:rgba(25,31,36,0.06);border-radius:50px;overflow:hidden}
+.sovfill{height:100%;border-radius:50px;min-width:3px}
+.sovval{font-size:0.85rem;text-align:right}
+
+/* priorities */
+.pri-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-bottom:2rem}
+.pri{display:flex;gap:.9rem;background:var(--card);border:1px solid var(--border);border-radius:14px;padding:1.3rem}
+.prinum{width:30px;height:30px;border-radius:8px;background:var(--grad);color:#fff;font-weight:800;font-size:0.9rem;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.prit{font-weight:800;font-size:0.92rem;margin-bottom:.3rem}
+.prid{font-size:0.82rem;color:var(--soft);line-height:1.5}
+
+/* opportunity */
+.opp{background:linear-gradient(135deg,rgba(64,180,229,0.05),rgba(204,34,255,0.04));border:1px solid var(--border);border-radius:16px;padding:1.8rem;margin-bottom:1rem}
+.recs{margin:0;padding-left:1.1rem;color:var(--soft);font-size:0.92rem}
+.recs li{margin-bottom:.6rem;line-height:1.55}
+
+.chart-wrap{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:1.8rem;margin-bottom:2rem;position:relative}
+.chart-wrap h3{font-size:1.05rem;margin-bottom:1rem}
+.chart-box{position:relative;height:300px;width:100%}
+
+.footer{text-align:center;padding:2.5rem 0;color:var(--muted);font-size:0.8rem}
+.footer .dot{display:inline-block;width:9px;height:9px;border-radius:50%;background:var(--grad);vertical-align:middle;margin-right:6px}
+
+@media(max-width:900px){.cards,.move-strip{grid-template-columns:repeat(2,1fr)}.cards.c3{grid-template-columns:repeat(2,1fr)}.pri-grid{grid-template-columns:1fr}.sovrow{grid-template-columns:120px 1fr 50px}}
+@media(max-width:560px){.cards,.cards.c3,.move-strip{grid-template-columns:1fr}}
+
+/* ---- PRINT / PDF ---- */
+@media print{
+  @page{margin:14mm}
+  body{background:#fff}
+  .topbar,.pdf-btn{display:none!important}
+  section{padding:1.4rem 0;border-bottom:none;page-break-inside:avoid;break-inside:avoid}
+  .cover{min-height:auto;padding:2rem 0;page-break-after:always}
+  .sec-block{page-break-before:always}
+  .sec-block:first-of-type{page-break-before:avoid}
+  .table-wrap,.metric,.chart-wrap,.placeholder,.move-cell,.toc-item{box-shadow:none!important;break-inside:avoid}
+  .chart-box{height:260px}
+  a{color:var(--text)}
+}
+</style>
+</head>
+<body>
+<div class="topbar"><div class="wrap">
+  <div class="brand"><span class="dot"></span>CRUMMACK HUSEBY</div>
+  <button class="pdf-btn" onclick="window.print()">Export PDF</button>
+</div></div>
+
+<section class="cover" id="cover">
+  <div class="logo"><span class="dot"></span><span>CRUMMACK HUSEBY</span></div>
+  <h1>SEO Performance<br><span class="gradient">Monthly Report</span></h1>
+  <p class="sub">Organic search visibility, keyword movement, and AI search presence for ch-pm.com</p>
+  <div class="meta">
+    <span>ch-pm.com</span>
+    <span>June 2026</span>
+    <span>Prepared by Brandastic</span>  <!-- agency attribution stays Brandastic -->
+  </div>
+</section>
+
+<section id="toc">
+  <div class="wrap">
+    <span class="sec-badge">Contents</span>
+    <h2 class="sec-title">What's <span class="gradient">inside</span></h2>
+    <div class="toc-grid"><a class="toc-item" href="#sec01"><div class="n">01</div><div><div class="t">AI Search Visibility</div><div class="d">Share of voice, mentions &amp; citations</div></div></a><a class="toc-item" href="#sec02"><div class="n">02</div><div><div class="t">Semrush Position Tracking</div><div class="d">Visibility, SOV &amp; keyword movement</div></div></a><a class="toc-item" href="#sec03"><div class="n">03</div><div><div class="t">Google Search Console</div><div class="d">Clicks, impressions, CTR &amp; top pages</div></div></a></div>
+  </div>
+</section>
+
+<section id="sec1" class="sec-block">
+  <div class="wrap">
+    <span class="sec-badge">Section 01 · AI Search</span>
+    <h2 class="sec-title">AI Search Visibility</h2>
+    <p class="sec-sub">How ch-pm.com shows up across AI answer engines (Google AI Mode). Currently 0.5% share of voice — this is the lead growth lever.</p>
+    
+    <div class="cards">
+      <div class="metric"><div class="value grad">0.5%</div>
+        <div class="label">AI Share of Voice</div><div class="change flat">Google AI Mode</div></div>
+      <div class="metric"><div class="value grad">2</div>
+        <div class="label">Mentions</div><div class="change flat">1.1% share</div></div>
+      <div class="metric"><div class="value grad">6</div>
+        <div class="label">Domain Citations</div><div class="change down">ch-pm.com citations</div></div>
+      <div class="metric"><div class="value grad">1.0</div>
+        <div class="label">Avg Position</div><div class="change flat">when surfaced</div></div>
+    </div>
+    <h3 style="margin:1.5rem 0 .8rem;font-size:1.05rem">Share of Voice — Google AI Mode</h3>
+    <div class="sov-wrap"><div class="sovrow"><div class="sovname" style="font-weight:800">Crummack Huseby</div><div class="sovtrack"><div class="sovfill" style="width:0.9%;background:var(--grad)"></div></div><div class="sovval" style="font-weight:800">0.5%</div></div><div class="sovrow"><div class="sovname" style="font-weight:600">Seabreeze Management</div><div class="sovtrack"><div class="sovfill" style="width:24.9%;background:rgba(25,31,36,0.30)"></div></div><div class="sovval" style="font-weight:600">13.6%</div></div><div class="sovrow"><div class="sovname" style="font-weight:600">Action Property Management</div><div class="sovtrack"><div class="sovfill" style="width:24.5%;background:rgba(25,31,36,0.30)"></div></div><div class="sovval" style="font-weight:600">13.4%</div></div><div class="sovrow"><div class="sovname" style="font-weight:600">HOA Unlimited</div><div class="sovtrack"><div class="sovfill" style="width:17.4%;background:rgba(25,31,36,0.30)"></div></div><div class="sovval" style="font-weight:600">9.5%</div></div><div class="sovrow"><div class="sovname" style="font-weight:600">FirstService Residential</div><div class="sovtrack"><div class="sovfill" style="width:14.8%;background:rgba(25,31,36,0.30)"></div></div><div class="sovval" style="font-weight:600">8.1%</div></div><div class="sovrow"><div class="sovname" style="font-weight:600">Other</div><div class="sovtrack"><div class="sovfill" style="width:100.0%;background:rgba(25,31,36,0.30)"></div></div><div class="sovval" style="font-weight:600">54.7%</div></div></div>
+    <p style="font-size:0.78rem;color:var(--muted);margin-bottom:1.5rem">Crummack Huseby holds 0.5% AI share of voice — the rest of the visible market is led by Seabreeze Management, Action Property Management, HOA Unlimited, FirstService Residential. 54.7% sits in the long tail.</p>
+    <h3 style="margin:1rem 0 .8rem;font-size:1.05rem">Competitor benchmark</h3>
+    <div class="table-wrap"><table><thead><tr><th>Brand</th><th class="num-r">AI SOV</th>
+      <th class="num-r">Mentions</th><th class="num-r">Avg Pos</th><th class="num-r">Favorable</th></tr></thead>
+      <tbody><tr><td>Seabreeze Management</td><td class="num-r pos">13.6%</td><td class="num-r">59</td><td class="num-r">2.34</td><td class="num-r">100%</td></tr><tr><td>Action Property Management</td><td class="num-r pos">13.4%</td><td class="num-r">57</td><td class="num-r">2.14</td><td class="num-r">96%</td></tr><tr><td>HOA Unlimited</td><td class="num-r pos">9.5%</td><td class="num-r">43</td><td class="num-r">2.67</td><td class="num-r">97%</td></tr><tr><td>FirstService Residential</td><td class="num-r pos">8.1%</td><td class="num-r">34</td><td class="num-r">2.06</td><td class="num-r">97%</td></tr><tr><td><strong>Crummack Huseby</strong></td><td class="num-r pos">0.5%</td><td class="num-r">2</td><td class="num-r">1.0</td><td class="num-r">100%</td></tr></tbody></table></div>
+    <h3 style="margin:1rem 0 .8rem;font-size:1.05rem">Top cited domains in AI answers</h3>
+    <div class="table-wrap"><table><thead><tr><th>Domain</th><th class="num-r">Citation Share</th>
+      <th class="num-r">Citations</th></tr></thead>
+      <tbody><tr><td>hoaunlimited.com</td><td class="num-r">6.1%</td><td class="num-r pos">66</td></tr><tr><td>fsresidential.com</td><td class="num-r">4.1%</td><td class="num-r pos">44</td></tr><tr><td>accessmgt.com</td><td class="num-r">3.3%</td><td class="num-r pos">35</td></tr><tr><td>realmanage.com</td><td class="num-r">3.3%</td><td class="num-r pos">35</td></tr><tr><td>kppm.com</td><td class="num-r">3.2%</td><td class="num-r pos">34</td></tr><tr><td>ch-pm.com</td><td class="num-r">0.6%</td><td class="num-r pos">6</td></tr></tbody></table></div>
+    <p style="font-size:0.78rem;color:var(--muted);margin-bottom:1.5rem">ch-pm.com earns only <strong>6 citations</strong> — AI answers lean on directories and competitor-owned content instead. Earning citations on these source pages is the fastest lever to enter the recommendation set.</p>
+    <h3 style="margin:1.5rem 0 .8rem;font-size:1.05rem">Urgent strategic priorities</h3>
+    <div class="pri-grid"><div class="pri"><div class="prinum">1</div><div><div class="prit">Make Tech Story Discoverable</div><div class="prid">Promote portal and digital capabilities so AI lists CH with RowCal, Associa, Optimum in tech-forward recommendation answers.</div></div></div><div class="pri"><div class="prinum">2</div><div><div class="prit">Premium Brain, Faster Response</div><div class="prid">Launch a &#x27;Responsiveness Upgrade&#x27; with 24–48 hour SLAs to justify premium pricing concerns cited by Google AI.</div></div></div><div class="pri"><div class="prinum">3</div><div><div class="prit">Win The Burned Boards</div><div class="prid">Over 150 queries seek high-touch alternatives to big, rotating-manager HOA firms — own that lane.</div></div></div></div>
+    <div class="opp">
+      <div class="subhead" style="margin-bottom:.6rem">Opportunity</div>
+      <p style="color:var(--soft);font-size:0.95rem;margin-bottom:1rem">Google AI&#x27;s overall narrative suggests Crummack Huseby is best suited for complex, high-stakes communities (new builds, master plans, insurance risk) rather than smaller, cost-sensitive HOAs — a strategic opportunity to embrace a more focused, higher-value portfolio. CH is surfaced for developer transitions, new condo associations, wildfire/insurance navigation, and master-planned communities; for smaller or responsiveness-driven associations, AI more often names alternatives. Trying to be &#x27;all things to all HOAs&#x27; is weakening CH&#x27;s perceived fit in its true sweet spots.</p>
+      <div class="subhead" style="margin-bottom:.6rem">Recommendations</div>
+      <ul class="recs"><li>Intentionally shift portfolio strategy toward complex, higher-value communities where strategic and regulatory strengths matter most; recalibrate messaging, case selection, and sales collateral to reflect that focus.</li><li>For smaller or low-complexity HOAs, develop a clear &#x27;right-fit&#x27; framework that points them to lighter-touch or alternative models — clarifying CH&#x27;s role and improving win rates where it competes.</li><li>Publish quantified master-plan case studies and California-compliance reference guides that AI will cite, to grow mentions from 2 to 10+ and lift share of voice toward the Seabreeze/Action benchmark (~13%).</li></ul>
+    </div>
+  </div>
+</section>
+
+<section id="sec2" class="sec-block">
+  <div class="wrap">
+    <span class="sec-badge">Section 02 · Organic Search</span>
+    <h2 class="sec-title">Semrush Organic Rankings</h2>
+    <p class="sec-sub">429 ranking organic keywords for ch-pm.com — 19 in the top 3, 36 in the top 10.</p>
+    
+    <div class="cards">
+      <div class="metric"><div class="value grad">626</div><div class="label">Est. Organic Traffic / mo</div><div class="change flat">Semrush estimate</div></div>
+      <div class="metric"><div class="value grad">429</div><div class="label">Ranking Keywords</div><div class="change flat">organic, US</div></div>
+      <div class="metric"><div class="value grad">36</div>
+        <div class="label">Top 10 Keywords</div><div class="change flat">page-one+ reach</div></div>
+      <div class="metric"><div class="value grad">19</div>
+        <div class="label">Top 3 Keywords</div><div class="change flat">page-one leaders</div></div>
+    </div><div class="move-strip"><div class="move-cell imp"><div class="num">0</div><div class="lbl">Improved</div></div><div class="move-cell dec"><div class="num">0</div><div class="lbl">Declined</div></div></div>
+    <div class="chart-wrap">
+      <h3>Ranking distribution by position bucket</h3>
+      <div class="chart-box"><canvas id="posChart"></canvas></div>
+    </div>
+    <h3 style="margin:1rem 0 .8rem;font-size:1.05rem">Keyword rankings &amp; movement (top 40)</h3>
+    <div class="table-wrap"><table><thead><tr><th>Keyword</th><th class="num-r">Volume</th>
+      <th class="num-r">Position</th><th class="num-r">Movement</th></tr></thead>
+      <tbody><tr><td>crummack huseby</td><td class="num-r">320</td><td class="num-r pos">1</td><td class="num-r chg flat">0</td></tr><tr><td>crummack huseby property management</td><td class="num-r">50</td><td class="num-r pos">1</td><td class="num-r chg flat">0</td></tr><tr><td>hoa reserve fund borrowing</td><td class="num-r">260</td><td class="num-r pos">1</td><td class="num-r chg flat">0</td></tr><tr><td>ch-pm</td><td class="num-r">30</td><td class="num-r pos">1</td><td class="num-r chg flat">0</td></tr><tr><td>ch pm</td><td class="num-r">30</td><td class="num-r pos">1</td><td class="num-r chg flat">0</td></tr><tr><td>www.ch-pm.com</td><td class="num-r">30</td><td class="num-r pos">1</td><td class="num-r chg flat">0</td></tr><tr><td>premier property pay</td><td class="num-r">210</td><td class="num-r pos">4</td><td class="num-r chg flat">0</td></tr><tr><td>ppbi.com/property pay</td><td class="num-r">170</td><td class="num-r pos">4</td><td class="num-r chg flat">0</td></tr><tr><td>hoa mgmt svcs</td><td class="num-r">320</td><td class="num-r pos">5</td><td class="num-r chg flat">0</td></tr><tr><td>hoa technology services</td><td class="num-r">90</td><td class="num-r pos">1</td><td class="num-r chg flat">0</td></tr><tr><td>hoa insurance fixtures</td><td class="num-r">720</td><td class="num-r pos">9</td><td class="num-r chg flat">0</td></tr><tr><td>ppbi.com/propertypay</td><td class="num-r">50</td><td class="num-r pos">2</td><td class="num-r chg flat">0</td></tr><tr><td>bare walls meaning</td><td class="num-r">50</td><td class="num-r pos">1</td><td class="num-r chg flat">0</td></tr><tr><td>bare walls coverage</td><td class="num-r">140</td><td class="num-r pos">3</td><td class="num-r chg flat">0</td></tr><tr><td>www ppbi com property pay</td><td class="num-r">70</td><td class="num-r pos">2</td><td class="num-r chg flat">0</td></tr><tr><td>walls in policy</td><td class="num-r">110</td><td class="num-r pos">2</td><td class="num-r chg flat">0</td></tr><tr><td>hoa technology</td><td class="num-r">70</td><td class="num-r pos">2</td><td class="num-r chg flat">0</td></tr><tr><td>ppbi com property pay</td><td class="num-r">110</td><td class="num-r pos">5</td><td class="num-r chg flat">0</td></tr><tr><td>community association billing orange county</td><td class="num-r">90</td><td class="num-r pos">4</td><td class="num-r chg flat">0</td></tr><tr><td>walls in vs walls out coverage</td><td class="num-r">40</td><td class="num-r pos">1</td><td class="num-r chg flat">0</td></tr><tr><td>certified aamc hoa management</td><td class="num-r">90</td><td class="num-r pos">6</td><td class="num-r chg flat">0</td></tr><tr><td>do hoas allow airbnb</td><td class="num-r">90</td><td class="num-r pos">6</td><td class="num-r chg flat">0</td></tr><tr><td>bare walls</td><td class="num-r">210</td><td class="num-r pos">2</td><td class="num-r chg flat">0</td></tr><tr><td>what is walls in coverage</td><td class="num-r">50</td><td class="num-r pos">2</td><td class="num-r chg flat">0</td></tr><tr><td>in walls insurance</td><td class="num-r">90</td><td class="num-r pos">3</td><td class="num-r chg flat">0</td></tr><tr><td>walls in condo insurance</td><td class="num-r">480</td><td class="num-r pos">7</td><td class="num-r chg flat">0</td></tr><tr><td>escrow services lake forest</td><td class="num-r">50</td><td class="num-r pos">2</td><td class="num-r chg flat">0</td></tr><tr><td>meet in private</td><td class="num-r">70</td><td class="num-r pos">4</td><td class="num-r chg flat">0</td></tr><tr><td>www.paybyplatema.com pay bill</td><td class="num-r">1600</td><td class="num-r pos">23</td><td class="num-r chg flat">0</td></tr><tr><td>walls in insurance</td><td class="num-r">390</td><td class="num-r pos">9</td><td class="num-r chg flat">0</td></tr><tr><td>walls in insurance</td><td class="num-r">390</td><td class="num-r pos">11</td><td class="num-r chg flat">0</td></tr><tr><td>sample hoa budget</td><td class="num-r">70</td><td class="num-r pos">6</td><td class="num-r chg flat">0</td></tr><tr><td>hoa board</td><td class="num-r">480</td><td class="num-r pos">12</td><td class="num-r chg flat">0</td></tr><tr><td>25531 commercentre drive</td><td class="num-r">40</td><td class="num-r pos">5</td><td class="num-r chg flat">0</td></tr><tr><td>wall coverage</td><td class="num-r">1000</td><td class="num-r pos">14</td><td class="num-r chg flat">0</td></tr><tr><td>airbnb hoa rules</td><td class="num-r">50</td><td class="num-r pos">4</td><td class="num-r chg flat">0</td></tr><tr><td>does hoa allow airbnb</td><td class="num-r">70</td><td class="num-r pos">7</td><td class="num-r chg flat">0</td></tr><tr><td>what is walls</td><td class="num-r">320</td><td class="num-r pos">7</td><td class="num-r chg flat">0</td></tr><tr><td>what is walls in insurance</td><td class="num-r">50</td><td class="num-r pos">3</td><td class="num-r chg flat">0</td></tr><tr><td>wall in insurance for condo</td><td class="num-r">40</td><td class="num-r pos">4</td><td class="num-r chg flat">0</td></tr></tbody></table></div>
+    <p style="font-size:0.78rem;color:var(--muted)">Movement = Semrush position delta vs the prior reading — a positive (▲) value means the keyword moved up. Sorted by current position.</p>
+  </div>
+</section>
+
+<section id="sec3" class="sec-block">
+  <div class="wrap">
+    <span class="sec-badge">Section 03 · Organic Search</span>
+    <h2 class="sec-title">Google Search Console</h2>
+    <p class="sec-sub">Organic clicks, impressions, CTR and position — May 2026 vs April 2026.</p>
+    
+    <div style="display:inline-block;margin-bottom:1.2rem;padding:6px 16px;border-radius:50px;background:rgba(6,68,237,0.08);color:var(--blue);font-size:0.78rem;font-weight:700">📅 May 2026 vs April 2026</div>
+    <div class="cards"><div class="metric"><div class="value grad">852</div><div class="label">Clicks</div><div class="change down">▼ 8%</div><div class="change flat" style="font-size:0.7rem">April 2026: 926</div></div><div class="metric"><div class="value grad">55K</div><div class="label">Impressions</div><div class="change down">▼ 12.3%</div><div class="change flat" style="font-size:0.7rem">April 2026: 62.7K</div></div><div class="metric"><div class="value grad">10.2</div><div class="label">Avg Position</div><div class="change down">▼ 3.1</div><div class="change flat" style="font-size:0.7rem">April 2026: 7.1</div></div><div class="metric"><div class="value grad">1.5%</div><div class="label">CTR</div><div class="change flat">0pt</div><div class="change flat" style="font-size:0.7rem">April 2026: 1.5%</div></div></div>
+    <h3 style="margin:1.5rem 0 .8rem;font-size:1.05rem">Top Queries — month over month</h3>
+    <div class="table-wrap"><table><thead><tr><th>Query</th>
+      <th class="num-r">Clicks (May 2026)</th><th class="num-r">Clicks (April 2026)</th>
+      <th class="num-r">Δ Clicks</th><th class="num-r">Impr (May 2026)</th><th class="num-r">Impr (April 2026)</th></tr></thead>
+      <tbody><tr><td>crummack huseby</td><td class="num-r pos">189</td><td class="num-r">207</td><td class="num-r chg down">▼ 18</td><td class="num-r">325</td><td class="num-r">420</td></tr><tr><td>crummack huseby property management</td><td class="num-r pos">29</td><td class="num-r">28</td><td class="num-r chg up">▲ 1</td><td class="num-r">54</td><td class="num-r">66</td></tr><tr><td>ch-pm</td><td class="num-r pos">26</td><td class="num-r">15</td><td class="num-r chg up">▲ 11</td><td class="num-r">32</td><td class="num-r">26</td></tr><tr><td>premier property pay</td><td class="num-r pos">10</td><td class="num-r">9</td><td class="num-r chg up">▲ 1</td><td class="num-r">143</td><td class="num-r">96</td></tr><tr><td>www.ch-pm.com</td><td class="num-r pos">9</td><td class="num-r">15</td><td class="num-r chg down">▼ 6</td><td class="num-r">15</td><td class="num-r">21</td></tr><tr><td>ch connect</td><td class="num-r pos">7</td><td class="num-r">5</td><td class="num-r chg up">▲ 2</td><td class="num-r">38</td><td class="num-r">32</td></tr><tr><td>crummack huseby login</td><td class="num-r pos">7</td><td class="num-r">18</td><td class="num-r chg down">▼ 11</td><td class="num-r">11</td><td class="num-r">22</td></tr><tr><td>crummack</td><td class="num-r pos">6</td><td class="num-r">9</td><td class="num-r chg down">▼ 3</td><td class="num-r">41</td><td class="num-r">80</td></tr><tr><td>serrano heights community association</td><td class="num-r pos">6</td><td class="num-r">3</td><td class="num-r chg up">▲ 3</td><td class="num-r">7</td><td class="num-r">4</td></tr><tr><td>walls out vs walls in</td><td class="num-r pos">4</td><td class="num-r">0</td><td class="num-r chg up">▲ 4</td><td class="num-r">48</td><td class="num-r">9</td></tr></tbody></table></div>
+    <h3 style="margin:1.5rem 0 .8rem;font-size:1.05rem">Top Pages</h3>
+    <div class="table-wrap"><table><thead><tr><th>Page</th><th class="num-r">Clicks (May 2026)</th><th class="num-r">Clicks (April 2026)</th><th class="num-r">Δ Clicks</th><th class="num-r">Impr (May 2026)</th><th class="num-r">Impr (April 2026)</th></tr></thead><tbody><tr><td>www.ch-pm.com/</td><td class="num-r pos">376</td><td class="num-r">403</td><td class="num-r chg down">▼ 27</td><td class="num-r">5105</td><td class="num-r">5849</td></tr><tr><td>www.ch-pm.com/blog/bare-walls-or-walls-in-do-you-know-the-difference-and-which-you-are</td><td class="num-r pos">102</td><td class="num-r">113</td><td class="num-r chg down">▼ 11</td><td class="num-r">10279</td><td class="num-r">10236</td></tr><tr><td>www.ch-pm.com/blog/can-hoa-board-members-meet-in-private</td><td class="num-r pos">77</td><td class="num-r">54</td><td class="num-r chg up">▲ 23</td><td class="num-r">4968</td><td class="num-r">3032</td></tr><tr><td>www.ch-pm.com/payment-options</td><td class="num-r pos">72</td><td class="num-r">77</td><td class="num-r chg down">▼ 5</td><td class="num-r">1828</td><td class="num-r">1746</td></tr><tr><td>www.ch-pm.com/blog/understanding-californias-new-room-rental-law-for-homeowners-associations</td><td class="num-r pos">50</td><td class="num-r">49</td><td class="num-r chg up">▲ 1</td><td class="num-r">3090</td><td class="num-r">2382</td></tr><tr><td>www.ch-pm.com/blog/can-the-hoa-board-borrow-money-from-the-reserves</td><td class="num-r pos">29</td><td class="num-r">38</td><td class="num-r chg down">▼ 9</td><td class="num-r">2310</td><td class="num-r">2002</td></tr><tr><td>www.ch-pm.com/property-management-contact</td><td class="num-r pos">19</td><td class="num-r">26</td><td class="num-r chg down">▼ 7</td><td class="num-r">1280</td><td class="num-r">1356</td></tr><tr><td>www.ch-pm.com/about/property-management-team</td><td class="num-r pos">13</td><td class="num-r">12</td><td class="num-r chg up">▲ 1</td><td class="num-r">1123</td><td class="num-r">1177</td></tr><tr><td>www.ch-pm.com/blog/...welcomes-new-master-planned-community-metro-heights</td><td class="num-r pos">13</td><td class="num-r">6</td><td class="num-r chg up">▲ 7</td><td class="num-r">278</td><td class="num-r">200</td></tr><tr><td>www.ch-pm.com/blog/practical-guide-for-hoa-board-members</td><td class="num-r pos">11</td><td class="num-r">7</td><td class="num-r chg up">▲ 4</td><td class="num-r">2902</td><td class="num-r">2856</td></tr></tbody></table></div>
+  </div>
+</section>
+<div class="footer"><span class="dot"></span>Crummack Huseby SEO Performance Report · June 2026 · ch-pm.com · Prepared by Brandastic · Data: Semrush + Google Search Console + Semrush AI Visibility</div>
+
+<script>
+(function(){
+  var rendered=false;
+  function draw(){
+    if(rendered) return;
+    if(typeof Chart==='undefined') return;
+    var cv=document.getElementById('posChart');
+    if(!cv) return;
+    var box=cv.parentElement;
+    // render-offscreen / zero-size guard (Chart.js + flex/print infinite-height bug)
+    if(!box || box.clientHeight===0 || box.clientWidth===0) return;
+    rendered=true;
+    new Chart(cv.getContext('2d'),{
+      type:'bar',
+      data:{
+        labels:['Top 3','4–10','11–20','21–100'],
+        datasets:[{
+          label:'Keywords',
+          data:[19,17,3,1],
+          backgroundColor:['#CC22FF','#40B4E5','#0644ED','rgba(25,31,36,0.35)'],
+          borderRadius:8,maxBarThickness:90
+        }]
+      },
+      options:{
+        responsive:true,maintainAspectRatio:false,animation:false,
+        plugins:{legend:{display:false}},
+        scales:{
+          y:{beginAtZero:true,ticks:{precision:0},grid:{color:'rgba(25,31,36,0.06)'}},
+          x:{grid:{display:false}}
+        }
+      }
+    });
+  }
+  if(document.readyState!=='loading') draw();
+  else document.addEventListener('DOMContentLoaded',draw);
+  // setTimeout fallback in case CDN/layout is late
+  setTimeout(draw,400);
+  setTimeout(draw,1500);
+  window.addEventListener('beforeprint',draw);
+})();
+</script>
+</body>
+</html>
