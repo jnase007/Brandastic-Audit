@@ -1,0 +1,2858 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta name="robots" content="noindex, nofollow">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>On Point for College — Audit Slides by Brandastic</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+<style>
+/* ========== CSS CUSTOM PROPERTIES ========== */
+:root {
+  --bg-primary:#191F24;--bg-secondary:#0d1117;--bg-tertiary:#151a20;
+  --bg-card:rgba(100,116,139,0.15);--bg-card-hover:rgba(100,116,139,0.2);
+  --bg-card-border:rgba(100,116,139,0.2);
+  --text-primary:#ffffff;--text-secondary:rgba(255,255,255,0.7);--text-muted:rgba(255,255,255,0.4);
+  --accent-blue:#0644ED;--accent-light:#40B4E5;--accent-purple:#CC22FF;
+  --coastal-fog:#F5F3EF;
+  --glass-bg:rgba(100,116,139,0.15);--glass-border:rgba(255,255,255,0.1);
+  --shadow:0 8px 32px rgba(0,0,0,0.3);
+  --red:#ef4444;--yellow:#f59e0b;--green:#22c55e;
+  --chart-grid:rgba(255,255,255,0.06);--chart-text:rgba(255,255,255,0.5);
+  --transition:0.3s ease;
+}
+[data-theme="light"] {
+  --bg-primary:#F5F3EF;--bg-secondary:#ffffff;--bg-tertiary:#f0ede8;
+  --bg-card:rgba(255,255,255,0.85);--bg-card-hover:rgba(255,255,255,0.95);
+  --bg-card-border:rgba(0,0,0,0.08);
+  --text-primary:#191F24;--text-secondary:rgba(25,31,36,0.7);--text-muted:rgba(25,31,36,0.4);
+  --glass-bg:rgba(255,255,255,0.85);--glass-border:rgba(0,0,0,0.08);
+  --shadow:0 8px 32px rgba(0,0,0,0.06);
+  --chart-grid:rgba(0,0,0,0.06);--chart-text:rgba(0,0,0,0.5);
+}
+/* ========== RESET ========== */
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',system-ui,-apple-system,sans-serif;background:var(--bg-primary);color:var(--text-primary);line-height:1.6;transition:background-color var(--transition),color var(--transition);overflow-x:hidden}
+a{color:var(--accent-light);text-decoration:none}
+/* ========== NAV ========== */
+.nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:0 2rem;height:64px;display:flex;align-items:center;justify-content:space-between;gap:8px;background:var(--glass-bg);backdrop-filter:blur(20px);border-bottom:1px solid var(--glass-border);transition:background var(--transition);overflow:hidden}
+.nav-brand{font-weight:700;font-size:1.15rem;letter-spacing:0.05em;display:flex;align-items:center;gap:10px;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;min-width:0;flex-shrink:1}
+.nav-brand .dot{width:10px;height:10px;border-radius:50%;background:linear-gradient(135deg,#40B4E5,#CC22FF)}
+.nav-actions{display:flex;align-items:center;gap:12px}
+.theme-toggle{width:56px;height:32px;min-width:44px;min-height:44px;border-radius:13px;border:none;cursor:pointer;background:linear-gradient(135deg,#40B4E5,#CC22FF);padding:2px;display:flex;align-items:center;transition:var(--transition);flex-shrink:0}
+.theme-toggle .knob{width:28px;height:28px;border-radius:50%;background:var(--bg-primary);display:flex;align-items:center;justify-content:center;font-size:11px;transition:transform var(--transition),background-color var(--transition);transform:translateX(0)}
+[data-theme="light"] .card-icon img { filter: brightness(0) !important; }
+[data-theme="light"] .theme-toggle .knob{transform:translateX(24px)}
+.pdf-btn{display:inline-flex;align-items:center;gap:6px;padding:8px 18px;border-radius:10px;border:none;cursor:pointer;background:linear-gradient(135deg,#40B4E5,#CC22FF);color:#fff;font-family:inherit;font-size:0.78rem;font-weight:600;letter-spacing:0.03em;transition:transform var(--transition),box-shadow var(--transition);white-space:nowrap}
+.pdf-btn:hover{transform:translateY(-1px);box-shadow:0 4px 20px rgba(64,180,229,0.4)}
+/* ========== SECTIONS ========== */
+section{padding:3.5rem 2rem;position:relative}
+section:nth-child(even){background:var(--bg-secondary);transition:background var(--transition)}
+.container{max-width:1200px;margin:0 auto}
+.section-badge{display:inline-flex;align-items:center;gap:6px;padding:6px 16px;border-radius:50px;background:var(--glass-bg);border:1px solid var(--glass-border);font-size:0.7rem;font-weight:600;letter-spacing:0.15em;text-transform:uppercase;color:var(--text-muted);margin-bottom:1.5rem;backdrop-filter:blur(10px)}
+.section-title{font-size:clamp(1.8rem,4vw,2.8rem);font-weight:800;letter-spacing:-0.03em;margin-bottom:1rem;line-height:1.15}
+.section-title .gradient{background:linear-gradient(135deg,#40B4E5,#CC22FF);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.section-sub{color:var(--text-secondary);font-size:1.05rem;max-width:700px;margin-bottom:3rem;line-height:1.7}
+/* ========== HERO ========== */
+.hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding-top:64px;position:relative;overflow:hidden;background:#0d1117}[data-theme="light"] .hero{background:#f5f3ef}
+.hero-video{position:absolute;inset:0;z-index:0;overflow:hidden;pointer-events:none}.hero-video::after{content:'';position:absolute;inset:0;background:rgba(13,17,23,0.85)}[data-theme="light"] .hero-video::after{background:rgba(255,255,255,0.88)}.hero-video iframe{position:absolute;top:50%;left:50%;width:180vw;height:180vh;min-width:180%;min-height:180%;transform:translate(-50%,-50%);border:0}.hero>*:not(.hero-video){position:relative;z-index:1}.hero-glow{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:90%;height:80%;border-radius:50%;background:radial-gradient(ellipse,rgba(255,255,255,0.85) 0%,rgba(255,255,255,0.6) 30%,rgba(255,255,255,0.2) 60%,transparent 80%);z-index:0;pointer-events:none;filter:blur(40px)}[data-theme="dark"] .hero-glow{background:radial-gradient(ellipse,rgba(13,17,23,0.9) 0%,rgba(13,17,23,0.7) 30%,rgba(13,17,23,0.3) 60%,transparent 80%)}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 30% 20%,rgba(64,180,229,0.12) 0%,transparent 50%),radial-gradient(ellipse at 70% 80%,rgba(204,34,255,0.08) 0%,transparent 50%);pointer-events:none}
+.hero-company{font-size:clamp(2.5rem,7vw,5.5rem);font-weight:900;letter-spacing:-0.04em;line-height:1;margin-bottom:1.5rem;background:linear-gradient(135deg,#fff 0%,rgba(255,255,255,0.7) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+[data-theme="light"] .hero-company{background:none;-webkit-background-clip:unset;-webkit-text-fill-color:#111;background-clip:unset;text-shadow:0 2px 20px rgba(255,255,255,0.8),0 0 60px rgba(255,255,255,0.4)}
+.hero-meta{display:flex;flex-wrap:wrap;gap:1rem;justify-content:center;margin-top:1rem;margin-bottom:3rem}
+.hero-meta span{padding:8px 20px;border-radius:50px;background:var(--glass-bg);border:1px solid var(--glass-border);backdrop-filter:blur(10px);font-size:0.8rem;font-weight:500;color:var(--text-secondary)}
+.hero-scroll{position:absolute;bottom:1rem;animation:bounce 2s infinite;opacity:0.5}
+@keyframes bounce{0%,100%{transform:translateY(0)}50%{transform:translateY(8px)}}
+/* ========== CARDS & GRIDS ========== */
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:2rem;align-items:start}
+.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
+.grid-4{display:grid;grid-template-columns:repeat(2,1fr);gap:1.5rem}
+.card{background:var(--bg-card);border:1px solid var(--bg-card-border);border-radius:16px;padding:2rem;backdrop-filter:blur(10px);transition:transform var(--transition),box-shadow var(--transition),background var(--transition),border-color var(--transition)}
+.card:hover{transform:translateY(-3px);box-shadow:var(--shadow);border-color:rgba(64,180,229,0.2)}
+/* ========== METRIC CARDS ========== */
+.metric-card{text-align:center;padding:2rem 1.5rem}
+.metric-card .value{font-size:2.2rem;font-weight:800;letter-spacing:-0.03em;background:linear-gradient(135deg,#40B4E5,#CC22FF);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.metric-card .label{font-size:0.75rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--text-muted);margin-top:0.5rem}
+.metric-card .change{font-size:0.8rem;margin-top:0.3rem;font-weight:600}
+.metric-card .change.down{color:var(--red)}
+.metric-card .change.up{color:var(--green)}
+/* ========== SCORECARD ========== */
+.score-ring{position:relative;width:120px;height:120px;margin:0 auto 1rem}
+.score-ring svg{transform:rotate(-90deg);width:120px;height:120px}
+.score-ring .bg{fill:none;stroke:var(--bg-card-border);stroke-width:8}
+.score-ring .fg{fill:none;stroke-width:8;stroke-linecap:round;transition:stroke-dashoffset 1.5s ease}
+.score-ring .grade{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:1.8rem;font-weight:800}
+.overall-bar{height:12px;border-radius:6px;background:var(--bg-card-border);overflow:hidden;margin-top:1rem;position:relative}
+.overall-bar .fill{height:100%;border-radius:6px;transition:width 1.5s ease;background:linear-gradient(90deg,var(--red),var(--yellow),var(--green))}
+/* ========== TABLES ========== */
+.data-table{width:100%;border-collapse:collapse;font-size:0.9rem}
+.data-table th{text-align:left;padding:1rem;font-size:0.7rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--text-muted);border-bottom:1px solid var(--bg-card-border)}
+.data-table td{padding:0.85rem 1rem;border-bottom:1px solid var(--bg-card-border);color:var(--text-secondary)}
+.data-table tr:hover td{color:var(--text-primary)}
+.badge{display:inline-block;padding:3px 10px;border-radius:6px;font-size:0.7rem;font-weight:600;letter-spacing:0.05em}
+.badge-branded{background:rgba(204,34,255,0.15);color:#CC22FF}
+.badge-generic{background:rgba(64,180,229,0.15);color:#40B4E5}
+.badge-info{background:rgba(34,197,94,0.15);color:#22c55e}
+/* ========== WARNING BANNER ========== */
+.warning-banner{background:linear-gradient(135deg,rgba(239,68,68,0.1),rgba(239,68,68,0.05));border:1px solid rgba(239,68,68,0.2);border-radius:12px;padding:1.5rem 2rem;display:flex;align-items:center;gap:1rem;margin-bottom:2rem}
+.warning-banner .icon{font-size:1.5rem}
+.warning-banner .text{font-weight:600;color:var(--red)}
+.warning-banner .sub{color:var(--text-secondary);font-size:0.9rem;font-weight:400}
+/* ========== PROBLEMS/SOLUTIONS ========== */
+.ps-row{display:grid;grid-template-columns:1fr auto 1fr;gap:1.5rem;align-items:center;margin-bottom:1.5rem}
+.ps-card{padding:1.5rem;border-radius:12px}
+.ps-problem{background:rgba(239,68,68,0.06);border:1px solid rgba(239,68,68,0.15)}
+.ps-solution{background:rgba(34,197,94,0.06);border:1px solid rgba(34,197,94,0.15)}
+.ps-arrow{font-size:1.5rem;background:linear-gradient(135deg,#40B4E5,#CC22FF);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;font-weight:800}
+.ps-card .title{font-weight:700;font-size:0.95rem;margin-bottom:0.25rem}
+.ps-problem .title{color:var(--red)}
+.ps-solution .title{color:var(--green)}
+/* ========== CONTENT GAP ========== */
+.gap-card{padding:1.5rem;text-align:center}
+.gap-card .kw{font-weight:700;font-size:1rem;margin-bottom:0.5rem}
+.gap-card .vol{font-size:1.8rem;font-weight:800;background:linear-gradient(135deg,#40B4E5,#CC22FF);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.gap-card .vol-label{font-size:0.7rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.1em}
+.gap-card .status{display:inline-block;margin-top:0.75rem;padding:4px 12px;border-radius:6px;background:rgba(239,68,68,0.12);color:var(--red);font-size:0.7rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase}
+/* ========== FINDING CARDS ========== */
+.finding-card{display:flex;gap:1.5rem;align-items:start;padding:2rem}
+.finding-num{flex-shrink:0;width:48px;height:48px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.2rem;font-weight:800;color:#fff}
+.finding-num.critical{background:linear-gradient(135deg,#ef4444,#dc2626)}
+.finding-num.high{background:linear-gradient(135deg,#f59e0b,#d97706)}
+.finding-card .title{font-weight:700;font-size:1.05rem;margin-bottom:0.3rem}
+.finding-card .desc{color:var(--text-secondary);font-size:0.9rem}
+/* ========== STRATEGY CARDS ========== */
+.strategy-card{padding:2.5rem 2rem;border-top:3px solid transparent;background-image:linear-gradient(var(--bg-card),var(--bg-card)),linear-gradient(135deg,#40B4E5,#CC22FF);background-origin:border-box;background-clip:padding-box,border-box;border-radius:16px;text-align:center}
+.strategy-card .icon{font-size:2.5rem;margin-bottom:1rem}
+.strategy-card .title{font-weight:700;font-size:1.1rem;margin-bottom:0.75rem}
+.strategy-card .desc{color:var(--text-secondary);font-size:0.9rem;line-height:1.6;margin-bottom:1rem}
+.strategy-card .outcome{padding:0.75rem;border-radius:8px;background:rgba(64,180,229,0.08);font-size:0.8rem;font-weight:600;color:var(--accent-light)}
+/* ========== TIMELINE ========== */
+.timeline{display:flex;gap:0;margin-top:2rem;position:relative}
+.timeline::before{content:'';position:absolute;top:40px;left:0;right:0;height:3px;background:var(--bg-card-border)}
+.timeline-phase{flex:1;position:relative;padding-top:60px;padding-right:1.5rem}
+.timeline-dot{position:absolute;top:32px;left:0;width:18px;height:18px;border-radius:50%;background:linear-gradient(135deg,#40B4E5,#CC22FF);border:3px solid var(--bg-primary);z-index:1;transition:border-color var(--transition)}
+.timeline-phase .phase-label{font-size:0.7rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--accent-light);margin-bottom:0.5rem}
+.timeline-phase .phase-title{font-weight:700;font-size:1.1rem;margin-bottom:0.75rem}
+.timeline-phase .phase-items{list-style:none;display:flex;flex-direction:column;gap:0.4rem}
+.timeline-phase .phase-items li{font-size:0.9rem;color:var(--text-secondary);padding-left:1.2rem;position:relative}
+.timeline-phase .phase-items li::before{content:'';position:absolute;left:0;top:8px;width:6px;height:6px;border-radius:50%;background:#40B4E5}
+/* ========== ROI ========== */
+.roi-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1.5rem}
+.roi-card{text-align:center;padding:2rem 1.5rem}
+.roi-card .label{font-size:0.7rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--text-muted);margin-bottom:0.75rem}
+.roi-card .before{font-size:1.3rem;font-weight:600;color:var(--text-muted);text-decoration:line-through}
+.roi-card .arrow{font-size:1.5rem;margin:0.5rem 0;background:linear-gradient(135deg,#40B4E5,#CC22FF);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.roi-card .after{font-size:2rem;font-weight:800;background:linear-gradient(135deg,#40B4E5,#CC22FF);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+/* ========== CTA ========== */
+.team-photo{width:100%;max-width:720px;margin:0 auto 2.5rem;display:block;border-radius:16px;box-shadow:0 12px 40px rgba(0,0,0,0.25);object-fit:cover;height:320px}
+[data-theme="light"] .team-photo{box-shadow:0 12px 40px rgba(0,0,0,0.1)}
+.cta-section{text-align:center;padding:8rem 2rem;position:relative;overflow:hidden;background:linear-gradient(rgba(25,31,36,0.85),rgba(25,31,36,0.9)),url('images/office.jpg') center/cover no-repeat}
+[data-theme="light"] .cta-section{background:linear-gradient(rgba(245,243,239,0.85),rgba(245,243,239,0.9)),url('images/office.jpg') center/cover no-repeat}
+.cta-section::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 50%,rgba(64,180,229,0.1) 0%,transparent 60%);pointer-events:none}
+.cta-btn{display:inline-flex;align-items:center;gap:8px;padding:16px 40px;border-radius:14px;background:linear-gradient(135deg,#40B4E5,#CC22FF);color:#fff;font-family:inherit;font-size:1.1rem;font-weight:700;border:none;cursor:pointer;transition:transform var(--transition),box-shadow var(--transition)}
+.cta-btn:hover{transform:translateY(-2px);box-shadow:0 8px 30px rgba(64,180,229,0.4)}
+.value-props{display:flex;flex-wrap:wrap;justify-content:center;gap:2rem;margin:3rem 0}
+.value-prop{display:flex;align-items:center;gap:8px;color:var(--text-secondary);font-size:0.95rem}
+.value-prop .check{color:var(--green);font-weight:700}
+.steps{display:flex;justify-content:center;gap:3rem;margin-top:3rem;flex-wrap:wrap}
+.step{text-align:center;max-width:200px}
+.step-num{width:48px;height:48px;border-radius:50%;background:var(--glass-bg);border:1px solid var(--glass-border);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:1.2rem;margin:0 auto 0.75rem;background:linear-gradient(135deg,#40B4E5,#CC22FF);color:#fff}
+.step .title{font-weight:700;font-size:0.95rem;margin-bottom:0.3rem}
+.step .desc{font-size:0.8rem;color:var(--text-secondary)}
+/* ========== WATERMARK ========== */
+.watermark{position:fixed;bottom:20px;left:20px;display:flex;align-items:center;gap:6px;padding:8px 16px;border-radius:10px;background:var(--glass-bg);border:1px solid var(--glass-border);backdrop-filter:blur(10px);font-size:0.7rem;font-weight:600;color:var(--text-muted);letter-spacing:0.05em;z-index:999;transition:background var(--transition)}
+/* ========== SCROLL ANIMATION ========== */
+.reveal{opacity:1;transform:none;transition:opacity 0.8s ease,transform 0.8s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
+/* ========== PERSONA ========== */
+.persona-card{padding:2rem;text-align:center}
+.persona-avatar{width:72px;height:72px;border-radius:50%;margin:0 auto 1rem;display:flex;align-items:center;justify-content:center;font-size:2rem;background:linear-gradient(135deg,rgba(64,180,229,0.15),rgba(204,34,255,0.15))}
+.persona-name{font-weight:700;font-size:1.1rem;margin-bottom:0.25rem}
+.persona-demo{font-size:0.85rem;color:var(--text-muted);margin-bottom:1rem}
+.persona-channels{display:flex;flex-wrap:wrap;gap:6px;justify-content:center;margin-bottom:1rem}
+.persona-channels .ch{padding:4px 10px;border-radius:6px;background:var(--glass-bg);border:1px solid var(--glass-border);font-size:0.7rem;font-weight:600;color:var(--text-secondary)}
+.persona-discover{font-size:0.85rem;color:var(--text-secondary);line-height:1.6}
+/* ========== CHART WRAPPER ========== */
+.chart-wrap{background:var(--bg-card);border:1px solid var(--bg-card-border);border-radius:16px;padding:2rem;backdrop-filter:blur(10px);transition:background var(--transition),border-color var(--transition)}
+
+/* ========== SIDE DOT NAV ========== */
+/* ========== NAV SLIDE TITLE ========== */
+.nav-slide-title{position:absolute;left:50%;transform:translateX(-50%);font-size:0.75rem;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:var(--text-muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:40%;opacity:0;transition:opacity 0.3s ease;pointer-events:none}
+body.slide-mode .nav-slide-title{opacity:1}
+.nav-slide-title.visible{opacity:1}
+body.nav-title-active .section-badge,body.nav-title-active .section-pill{display:none}
+body.slide-mode .section-pill{display:none !important}
+
+.side-nav{position:fixed;right:1.2rem;top:50%;transform:translateY(-50%);z-index:999;display:flex;flex-direction:column;align-items:center;padding:14px 8px;border-radius:999px;background:var(--glass-bg);backdrop-filter:blur(20px);border:1px solid var(--glass-border);box-shadow:var(--shadow);transition:background var(--transition),border-color var(--transition)}
+.side-nav-line{position:absolute;top:14px;bottom:14px;width:1px;background:var(--glass-border);z-index:0}
+.side-nav-dot{position:relative;z-index:1;width:8px;height:8px;border-radius:50%;background:var(--text-muted);margin:7px 0;cursor:pointer;transition:all 0.3s ease;flex-shrink:0}
+.side-nav-dot:hover{background:var(--text-secondary);transform:scale(1.3)}
+.side-nav-dot.active{width:10px;height:10px;background:linear-gradient(135deg,#40B4E5,#CC22FF);box-shadow:0 0 10px rgba(64,180,229,0.5);margin:6px 0}
+.side-nav-dot .tooltip{position:absolute;right:calc(100% + 12px);top:50%;transform:translateY(-50%) translateX(6px);background:var(--glass-bg);backdrop-filter:blur(16px);border:1px solid var(--glass-border);color:var(--text-primary);padding:4px 10px;border-radius:8px;font-size:0.7rem;font-weight:600;letter-spacing:0.03em;white-space:nowrap;opacity:0;pointer-events:none;transition:all 0.25s ease;box-shadow:var(--shadow)}
+.side-nav-dot:hover .tooltip{opacity:1;transform:translateY(-50%) translateX(0)}
+@media(max-width:768px){.side-nav{display:none}}
+@media print{.side-nav{display:none}}
+/* ========== RESPONSIVE ========== */
+@media(max-width:1024px){.grid-4{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:768px){
+  .grid-2,.grid-3,.grid-4{grid-template-columns:1fr}
+  .ps-row{grid-template-columns:1fr;text-align:center}
+  .ps-arrow{transform:rotate(90deg)}
+  .timeline{flex-direction:column;gap:2rem}
+  .timeline::before{display:none}
+  .timeline-phase{padding-top:0;padding-left:2rem}
+  .timeline-dot{top:0;left:0}
+  section{padding:3rem 1rem}
+  .hero-company{font-size:clamp(1.8rem,8vw,3rem)!important}
+  .section-title{font-size:1.3rem!important}
+  .data-table{font-size:0.75rem}
+  .data-table th,.data-table td{padding:0.5rem 0.4rem}
+  .seo-matrix{font-size:0.7rem;min-width:500px}
+  .nav{padding:0 0.75rem}
+  .nav-brand{font-size:0.8rem}
+  .nav-client-name{display:none!important}
+  .nav-actions{gap:2px;flex-shrink:0}
+  .nav-actions button,.nav-actions .pn-btn{padding:6px 8px;font-size:0.7rem}
+  .pdf-btn{display:none!important}
+  .nav-slide-title{font-size:0.65rem!important;max-width:30vw;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .nav-actions .label-text{display:none}
+  .chart-wrap{padding:1rem}
+  .ads-callout{flex-direction:column;text-align:center}
+  .ads-callout .icon{margin-bottom:0.5rem}
+  .stat-card .stat-num{font-size:1.8rem}
+  .metric-card .value{font-size:1.8rem}
+}
+/* ========== PRINT STYLES ========== */
+@media print{
+  *{transition:none!important;animation:none!important}
+  body{background:#fff!important;color:#191F24!important;font-size:10pt}
+  .nav,.theme-toggle,.pdf-btn,.watermark,.hero-scroll{display:none!important}
+  section{padding:2rem 0!important;background:#fff!important;page-break-inside:avoid;break-inside:avoid}
+  section:nth-child(even){background:#fff!important}
+  .hero{min-height:auto!important;padding:3rem 0!important}
+  .hero-company{-webkit-text-fill-color:#191F24!important;font-size:2.5rem!important}
+  .card{background:#f9f9f9!important;border:1px solid #ddd!important;backdrop-filter:none!important;box-shadow:none!important;page-break-inside:avoid!important}
+  .reviews-wrap{display:none!important}
+  .ps-row{margin-bottom:0.5rem!important;gap:0.5rem!important}
+  .ps-card{padding:0.75rem!important}
+  .ps-card .title{font-size:0.85rem!important}
+  .ps-card div{font-size:0.75rem!important}
+  .section-title .gradient,.gradient{-webkit-text-fill-color:#0644ED!important;background:none!important;color:#0644ED!important}
+  .metric-card .value,.roi-card .after,.gap-card .vol{-webkit-text-fill-color:#0644ED!important}
+  .reveal{opacity:1!important;transform:none!important}
+  .chart-wrap{border:1px solid #ddd!important;background:#fff!important}
+  .glass-bg,.glass-border{backdrop-filter:none!important}
+  .warning-banner{border:2px solid #ef4444!important}
+  a{color:#0644ED!important}
+  .container{max-width:100%!important}
+  @page{margin:1.5cm;size:letter}
+  h1,h2,h3{page-break-after:avoid}
+  .grid-4{grid-template-columns:repeat(2,1fr)!important}
+  .grid-3{grid-template-columns:repeat(3,1fr)!important}
+  .grid-2{grid-template-columns:1fr 1fr!important}
+}
+.stats-bar{display:grid;grid-template-columns:repeat(2,1fr);gap:1.5rem;margin-bottom:3rem}
+.stat-card{background:var(--glass-bg);border:1px solid var(--glass-border);border-radius:16px;padding:1.5rem;text-align:center;backdrop-filter:blur(10px)}
+.stat-card .stat-num{font-size:2.5rem;font-weight:800;background:linear-gradient(135deg,#40B4E5,#CC22FF);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1.2}
+.stat-card .stat-label{font-size:0.85rem;color:var(--text-muted);margin-top:0.25rem}
+.value-cards{display:grid;grid-template-columns:repeat(2,1fr);gap:1.5rem;margin:2.5rem 0;text-align:left}
+.value-card{background:var(--glass-bg);border:1px solid var(--glass-border);border-radius:16px;padding:1.75rem;backdrop-filter:blur(10px)}
+.value-card h4{font-size:1.05rem;font-weight:700;margin:0 0 0.5rem;color:var(--text-primary)}
+.value-card p{font-size:0.9rem;color:var(--text-secondary);margin:0;line-height:1.5}
+.client-logos{text-align:center;margin:2.5rem 0 1.5rem;font-size:0.8rem;color:var(--text-muted);letter-spacing:0.05em}
+.client-logos .label{font-size:0.7rem;text-transform:uppercase;letter-spacing:0.15em;font-weight:600;margin-bottom:0.75rem;color:var(--text-muted)}
+.testimonial-block{max-width:640px;margin:2rem auto 3rem;text-align:left}
+.testimonial-block blockquote{margin:0;padding:1.25rem 1.5rem;border-left:3px solid transparent;border-image:linear-gradient(180deg,#40B4E5,#CC22FF) 1;font-style:italic;font-size:0.95rem;color:var(--text-secondary);line-height:1.6}
+.testimonial-block .attribution{margin-top:0.75rem;padding-left:1.5rem;font-size:0.8rem;color:var(--text-muted)}
+[data-theme="light"] .client-logos img{filter:invert(1) brightness(0.3)}
+.awards-row{display:flex;justify-content:center;align-items:center;gap:1.5rem;flex-wrap:wrap;margin:1.5rem 0;opacity:0.45}
+.awards-row img{height:40px;width:auto;filter:brightness(0.9)}
+[data-theme="light"] .awards-row img{filter:brightness(0.4)}
+@media(max-width:768px){.stats-bar{grid-template-columns:repeat(2,1fr)}.value-cards{grid-template-columns:1fr}}
+
+/* ========== GOOGLE ADS REPLICA ========== */
+.google-serp-card{background:#fff;border:1px solid #dadce0;border-radius:12px;padding:1.5rem 2rem;margin-bottom:1.5rem;font-family:'Inter',Arial,sans-serif}
+[data-theme="dark"] .google-serp-card{background:rgba(32,33,36,0.95);border-color:rgba(255,255,255,0.1)}
+.serp-search-bar{display:flex;align-items:center;gap:10px;padding:10px 16px;border-radius:24px;border:1px solid #dfe1e5;background:#fff;margin-bottom:1.5rem;max-width:600px}
+[data-theme="dark"] .serp-search-bar{background:rgba(32,33,36,1);border-color:rgba(100,116,139,0.3)}
+.serp-search-bar svg{flex-shrink:0}
+.serp-search-bar .query{font-size:0.95rem;color:#202124;font-weight:400}
+[data-theme="dark"] .serp-search-bar .query{color:#e8eaed}
+.serp-ad{padding:1rem 0;border-bottom:1px solid #ebebeb}
+[data-theme="dark"] .serp-ad{border-bottom-color:rgba(255,255,255,0.06)}
+.serp-ad:last-child{border-bottom:none}
+.serp-sponsored{display:inline-block;font-size:0.7rem;font-weight:700;color:#202124;background:transparent;padding:0;letter-spacing:0.02em;margin-bottom:4px}
+[data-theme="dark"] .serp-sponsored{color:#e8eaed}
+.serp-ad-url{font-size:0.82rem;color:#006621;margin-bottom:2px;display:flex;align-items:center;gap:4px}
+[data-theme="dark"] .serp-ad-url{color:#99c794}
+.serp-ad-title{font-size:1.15rem;color:#1a0dab;font-weight:400;margin-bottom:4px;cursor:pointer;line-height:1.3}
+.serp-ad-title:hover{text-decoration:underline}
+[data-theme="dark"] .serp-ad-title{color:#8ab4f8}
+.serp-ad-desc{font-size:0.85rem;color:#4d5156;line-height:1.5}
+[data-theme="dark"] .serp-ad-desc{color:#bdc1c6}
+.serp-sitelinks{display:flex;flex-wrap:wrap;gap:0;margin-top:8px}
+.serp-sitelink{flex:1 1 45%;padding:6px 0;border-top:1px solid #ebebeb}
+[data-theme="dark"] .serp-sitelink{border-top-color:rgba(255,255,255,0.06)}
+.serp-sitelink-title{font-size:0.85rem;color:#1a0dab;font-weight:400;cursor:pointer}
+.serp-sitelink-title:hover{text-decoration:underline}
+[data-theme="dark"] .serp-sitelink-title{color:#8ab4f8}
+.serp-sitelink-desc{font-size:0.75rem;color:#4d5156}
+[data-theme="dark"] .serp-sitelink-desc{color:#9aa0a6}
+.serp-no-ads{padding:1.5rem;text-align:center;border:2px dashed rgba(239,68,68,0.3);border-radius:12px;margin:1rem 0}
+.serp-no-ads .label{font-size:1rem;font-weight:700;color:var(--red);margin-bottom:0.25rem}
+.serp-no-ads .sub{font-size:0.85rem;color:var(--text-secondary)}
+.ads-callout{background:linear-gradient(135deg,rgba(245,158,11,0.1),rgba(245,158,11,0.05));border:1px solid rgba(245,158,11,0.25);border-radius:12px;padding:1.5rem 2rem;margin-top:2rem;display:flex;align-items:start;gap:1rem}
+.ads-callout .icon{font-size:1.5rem;flex-shrink:0;line-height:1}
+.ads-callout .content{flex:1}
+.ads-callout .content .headline{font-weight:700;color:var(--yellow);font-size:0.95rem;margin-bottom:0.25rem}
+.ads-callout .content .body{color:var(--text-secondary);font-size:0.88rem;line-height:1.6}
+@media print{.google-serp-card{background:#fff!important;border:1px solid #ddd!important}.serp-ad-title{color:#1a0dab!important}.serp-ad-url{color:#006621!important}.ads-callout{border:2px solid #f59e0b!important}}
+
+/* ========== SEO COMPETITOR MATRIX ========== */
+.seo-matrix-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;margin-top:2rem;border-radius:16px;background:var(--bg-card);border:1px solid var(--bg-card-border);backdrop-filter:blur(10px)}
+.seo-matrix{width:100%;border-collapse:collapse;font-size:0.88rem;min-width:600px}
+.seo-matrix thead th{padding:1rem 1.25rem;font-size:0.7rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--text-muted);border-bottom:2px solid var(--bg-card-border);text-align:center;white-space:nowrap}
+.seo-matrix thead th:first-child{text-align:left}
+.seo-matrix thead th.highlight{background:linear-gradient(135deg,rgba(64,180,229,0.08),rgba(204,34,255,0.08));color:var(--accent-light);position:relative}
+.seo-matrix thead th.highlight::after{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,#40B4E5,#CC22FF);border-radius:3px 3px 0 0}
+.seo-matrix tbody td{padding:0.85rem 1.25rem;border-bottom:1px solid var(--bg-card-border);text-align:center;color:var(--text-secondary);white-space:nowrap}
+.seo-matrix tbody td:first-child{text-align:left;font-weight:600;color:var(--text-primary)}
+.seo-matrix tbody td.highlight{background:linear-gradient(135deg,rgba(64,180,229,0.04),rgba(204,34,255,0.04))}
+.seo-matrix tbody tr:hover td{background:var(--bg-card-hover)}
+.seo-matrix tbody tr:hover td.highlight{background:linear-gradient(135deg,rgba(64,180,229,0.08),rgba(204,34,255,0.08))}
+.seo-matrix .status-good{color:var(--green)}
+.seo-matrix .status-warn{color:var(--yellow)}
+.seo-matrix .status-bad{color:var(--red)}
+.seo-matrix .winner-row td{border-top:2px solid var(--bg-card-border);font-weight:700;font-size:0.75rem;letter-spacing:0.08em;text-transform:uppercase}
+.seo-matrix .winner-row td.winning{background:linear-gradient(135deg,rgba(34,197,94,0.1),rgba(34,197,94,0.05));color:var(--green)}
+.seo-matrix .winner-row td.losing{background:linear-gradient(135deg,rgba(239,68,68,0.1),rgba(239,68,68,0.05));color:var(--red)}
+.seo-matrix .winner-row td.neutral{color:var(--text-muted)}
+@media print{.seo-matrix-wrap{background:#fff!important;border:1px solid #ddd!important}.seo-matrix thead th.highlight,.seo-matrix tbody td.highlight{background:#f0f7ff!important}}
+
+/* ========== 10x UX UPGRADE CSS ========== */
+
+/* --- Scroll Reveal Animations --- */
+
+/* --- Reading Progress Bar --- */
+.reading-progress{position:fixed;top:64px;left:0;width:0%;height:3px;background:linear-gradient(90deg,#40B4E5,#CC22FF);z-index:1001;transition:width 0.1s linear;pointer-events:none}
+@media(max-width:768px){.reading-progress{top:64px}}
+
+/* --- Sticky Section Pill --- */
+.section-pill{position:fixed;top:58px;left:50%;transform:translateX(-50%) translateY(-10px);z-index:1001;padding:6px 18px;border-radius:50px;background:var(--glass-bg);backdrop-filter:blur(16px);border:1px solid var(--glass-border);font-size:0.7rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-muted);opacity:0;transition:opacity 0.3s ease,transform 0.3s ease;pointer-events:none;white-space:nowrap}
+.section-pill.visible{opacity:1;transform:translateX(-50%) translateY(0)}
+@media print{.section-pill{display:none!important}}
+
+/* --- TOC Navigator --- */
+
+
+
+@media(max-width:768px){}
+
+/* --- Gradient Section Dividers --- */
+.gradient-divider{height:2px;background:linear-gradient(90deg,transparent,#40B4E5,#CC22FF,transparent);margin:0;opacity:0;transform:scaleX(0);transition:opacity 0.8s ease,transform 1s cubic-bezier(0.22,1,0.36,1);transform-origin:center}
+.gradient-divider.active{opacity:1;transform:scaleX(1)}
+
+/* --- Hero Parallax --- */
+.hero{background-attachment:fixed}
+@media(max-width:768px){
+  .hero{background-attachment:scroll;min-height:100vh;min-height:100dvh;padding-top:64px!important;padding-bottom:2rem!important}
+  .hero-video iframe{width:300vw;height:300vh;min-width:300%;min-height:300%}
+  .hero-company{font-size:clamp(2rem,10vw,3.5rem)!important;line-height:1.1!important}
+  .hero-scroll{bottom:1.5rem!important;font-size:2.5rem!important;opacity:0.8!important}
+}
+
+/* --- Chart Hint --- */
+.chart-hint{text-align:center;font-size:0.75rem;color:var(--text-muted);margin-top:0.75rem;opacity:0.7;font-style:italic}
+.chart-hint::before{content:'💡 '}
+
+/* --- CTA Pulse --- */
+@keyframes ctaPulse{0%{box-shadow:0 0 0 0 rgba(64,180,229,0.4)}70%{box-shadow:0 0 0 15px rgba(64,180,229,0)}100%{box-shadow:0 0 0 0 rgba(64,180,229,0)}}
+.cta-btn.pulse{animation:ctaPulse 2s ease-in-out infinite}
+
+/* ========== PRINT / PDF UPGRADES ========== */
+.print-only{display:none!important}
+
+/* --- Print Cover Page --- */
+.print-cover{page-break-after:always;text-align:center;padding:4rem 2rem;min-height:90vh;display:flex;flex-direction:column;align-items:center;justify-content:center}
+.print-cover .cover-dot{width:40px;height:40px;border-radius:50%;background:#0644ED;margin:0 auto 1.5rem}
+.print-cover .cover-brand{font-size:1.8rem;font-weight:800;letter-spacing:0.08em;color:#191F24;margin-bottom:3rem}
+.print-cover .cover-type{font-size:0.85rem;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:#64748b;margin-bottom:1rem}
+.print-cover .cover-client{font-size:3rem;font-weight:900;color:#191F24;margin-bottom:0.5rem;letter-spacing:-0.03em}
+.print-cover .cover-domain{font-size:1rem;color:#64748b;margin-bottom:3rem}
+.print-cover .cover-prepared{font-size:0.9rem;color:#64748b;margin-bottom:1rem}
+.print-cover .cover-confidential{font-size:0.7rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:#ef4444;margin-top:3rem;padding:8px 24px;border:2px solid #ef4444;border-radius:4px;display:inline-block}
+
+/* --- Print TOC --- */
+.print-toc{page-break-after:always;padding:3rem 2rem}
+.print-toc h2{font-size:1.8rem;font-weight:800;color:#191F24;margin-bottom:2rem;letter-spacing:-0.03em}
+.print-toc-item{display:flex;align-items:center;padding:0.6rem 0;border-bottom:1px solid #e5e7eb;font-size:0.9rem;color:#374151}
+.print-toc-item .toc-num{width:30px;font-weight:700;color:#0644ED;flex-shrink:0}
+.print-toc-item .toc-name{flex:1}
+
+/* --- Print QR --- */
+.print-qr{text-align:center;margin-top:3rem;padding:2rem;border:1px solid #e5e7eb;border-radius:12px;page-break-inside:avoid}
+.print-qr p{font-size:0.85rem;color:#64748b;margin-bottom:1rem}
+.print-qr img{width:150px;height:150px}
+
+@media print{
+  .print-only{display:block!important}/* overrides inline style */
+  .print-cover{display:flex!important}
+  
+  /* Cover page */
+  .print-cover .cover-dot{background:#0644ED!important;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  
+  /* Section page breaks */
+  #overview,#summary,#scorecard,#pagespeed,#traffic,#keywords,#ads,#competitors,#seo-matrix,#social,#email,#reputation,#solutions,#findings,#strategy,#roadmap,#roi,#cta{page-break-before:always}
+  
+  /* Page headers/footers via @page - limited browser support, but helps */
+  
+  /* Ensure card backgrounds print */
+  .card{background:#f8f9fa!important;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  
+  /* Gradient text fallback */
+  .section-title .gradient,.metric-card .value,.roi-card .after,.gap-card .vol,.stat-card .stat-num{
+    -webkit-text-fill-color:#0644ED!important;background:none!important
+  }
+  
+  /* Score ring colors */
+  .score-ring .fg{stroke:#0644ED!important}
+  
+  /* Animations off */
+  .reveal{opacity:1!important;transform:none!important;transition:none!important}
+  .reveal .card{transition-delay:0s!important}
+}
+
+
+/* Presenter Notes Panel */
+.presenter-notes-panel {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  max-height: 0;
+  overflow: hidden;
+  background: var(--bg-card);
+  border-top: 2px solid var(--accent);
+  box-shadow: 0 -8px 32px rgba(0,0,0,0.3);
+  z-index: 10000;
+  transition: max-height 0.3s ease, padding 0.3s ease;
+  padding: 0 2rem;
+}
+.presenter-notes-panel.open {
+  max-height: 60vh;
+  padding: 1.5rem 2rem;
+  overflow-y: auto;
+}
+.pn-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.25rem;
+}
+.pn-heading {
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: var(--text-primary);
+}
+.pn-close {
+  background: none;
+  border: none;
+  color: var(--text-muted);
+  font-size: 1.2rem;
+  cursor: pointer;
+  padding: 4px 8px;
+}
+.pn-close:hover { color: var(--text-primary); }
+.pn-subtitle {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  margin-bottom: 1rem;
+}
+.pn-items {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+.pn-item {
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: 10px;
+  padding: 1rem 1.25rem;
+}
+.pn-title {
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: var(--text-primary);
+  margin-bottom: 0.3rem;
+}
+.pn-body {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+.pn-btn {
+  background: none;
+  border: 1px solid var(--glass-border);
+  color: var(--text-muted);
+  cursor: pointer;
+  border-radius: 8px;
+  padding: 6px 10px;
+  font-size: 0.85rem;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+.pn-btn:hover { color: var(--text-primary); border-color: var(--text-muted); }
+.pn-btn.active { color: var(--accent); border-color: var(--accent); }
+@media print { .presenter-notes-panel, .pn-btn { display: none !important; } }
+
+/* Presenter Markers */
+.presenter-marker {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  z-index: 100;
+  cursor: pointer;
+}
+.presenter-marker .pm-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #0644ED, #40B4E5);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.9rem;
+  box-shadow: 0 2px 8px rgba(6,68,237,0.3);
+  transition: transform 0.2s;
+}
+.presenter-marker:hover .pm-icon { transform: scale(1.15); }
+.presenter-marker .pm-tooltip {
+  position: absolute;
+  top: 40px;
+  right: 0;
+  width: 320px;
+  background: var(--bg-card);
+  border: 1px solid var(--accent);
+  border-radius: 10px;
+  padding: 0.85rem 1rem;
+  font-size: 0.82rem;
+  line-height: 1.5;
+  color: var(--text-secondary);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.25);
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(-8px);
+  transition: opacity 0.2s, transform 0.2s;
+  white-space: normal;
+}
+.presenter-marker.open .pm-tooltip {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+/* presenter-marker: visible in both modes */
+@media print { .presenter-marker { display: none !important; } }
+
+
+
+/* Logo Marquee */
+.logo-marquee { overflow: hidden; width: 100%; position: relative; mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent); -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent); }
+.logo-marquee-track { display: flex; align-items: center; gap: 4.5rem; animation: marquee 25s linear infinite; width: max-content; }
+.logo-marquee-track img { height: 32px; opacity: 0.6; transition: opacity 0.3s; flex-shrink: 0; }
+.logo-marquee-track img:hover { opacity: 1; }
+@keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+
+
+/* Logo visibility fix for light mode */
+[data-theme="light"] .logo-row img { filter: brightness(0); opacity: 0.6 !important; }
+/* Category Tags */
+.category-tag {
+  display:inline-flex;align-items:center;gap:4px;
+  padding:4px 10px;border-radius:50px;
+  font-size:0.65rem;font-weight:700;letter-spacing:0.12em;
+  text-transform:uppercase;margin-left:8px;
+  vertical-align:middle;
+}
+
+</style>
+</head>
+<body>
+
+
+
+<!-- ===== PRINT-ONLY: COVER PAGE ===== -->
+<div class="print-only print-cover" style="display:none">
+  <img src="https://brandastic.com/wp-content/uploads/2026/02/mark.png" alt="Brandastic" style="width:50px;height:auto;margin:0 auto 1.5rem;display:block">
+  <div class="cover-brand">BRANDASTIC</div>
+  <div class="cover-type">Digital Marketing Audit</div>
+  <div class="cover-client">On Point for College</div>
+  <div class="cover-domain">onpointforcollege.org</div>
+  <div class="cover-prepared">Prepared by Brandastic &nbsp;|&nbsp; May 2026</div>
+  <div class="cover-confidential">CONFIDENTIAL</div>
+</div>
+
+<!-- ===== PRINT-ONLY: TABLE OF CONTENTS ===== -->
+<div class="print-only print-toc" style="display:none">
+  <h2>Table of Contents</h2>
+  <div class="print-toc-item"><span class="toc-num">01</span><span class="toc-name">Business Overview</span></div>
+  <div class="print-toc-item"><span class="toc-num">02</span><span class="toc-name">Executive Summary</span></div>
+  <div class="print-toc-item"><span class="toc-num">03</span><span class="toc-name">Target Personas</span></div>
+  <div class="print-toc-item"><span class="toc-num">04</span><span class="toc-name">SEO Health Scorecard</span></div>
+  <div class="print-toc-item"><span class="toc-num">—</span><span class="toc-name">Google PageSpeed Insights</span></div>
+  <div class="print-toc-item"><span class="toc-num">05</span><span class="toc-name">Traffic Trend</span></div>
+  <div class="print-toc-item"><span class="toc-num">06</span><span class="toc-name">Keyword Analysis</span></div>
+  <div class="print-toc-item"><span class="toc-num">06B</span><span class="toc-name">Google Ads Preview</span></div>
+  <div class="print-toc-item"><span class="toc-num">07</span><span class="toc-name">Competitor Comparison</span></div>
+  <div class="print-toc-item"><span class="toc-num">07B</span><span class="toc-name">SEO Competitor Matrix</span></div>
+  <div class="print-toc-item"><span class="toc-num">—</span><span class="toc-name">Social Media Presence</span></div>
+  <div class="print-toc-item"><span class="toc-num">—</span><span class="toc-name">Email & Content Marketing</span></div>
+  <div class="print-toc-item"><span class="toc-num">—</span><span class="toc-name">Online Reputation</span></div>
+  <div class="print-toc-item"><span class="toc-num">08</span><span class="toc-name">Problems → Solutions</span></div>
+  <div class="print-toc-item"><span class="toc-num">09</span><span class="toc-name">Content Gap Analysis</span></div>
+  <div class="print-toc-item"><span class="toc-num">10</span><span class="toc-name">Critical Findings</span></div>
+  <div class="print-toc-item"><span class="toc-num">11</span><span class="toc-name">Strategy Preview</span></div>
+  <div class="print-toc-item"><span class="toc-num">12</span><span class="toc-name">Growth Roadmap</span></div>
+  <div class="print-toc-item"><span class="toc-num">13</span><span class="toc-name">Projected ROI</span></div>
+  <div class="print-toc-item"><span class="toc-num">—</span><span class="toc-name">Why Brandastic & Next Steps</span></div>
+</div>
+
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="nav-brand">BRANDASTIC <span style="opacity:0.4;margin:0 6px;">·</span> <span class="nav-client-name" style="font-weight:700;opacity:0.9">On Point for College</span></div>
+  <div class="nav-slide-title" id="navSlideTitle"></div>
+  <div class="nav-actions">
+    <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme"><div class="knob"><img src="images/icons/night.svg" class="theme-icon-dark" style="width:18px;height:18px;" alt=""><img src="images/icons/day.svg" class="theme-icon-light" style="width:18px;height:18px;display:none;" alt=""></div></button>
+    <button id="presenterNotesBtn" class="pn-btn" onclick="togglePresenterNotes()">📋 <span class="label-text">Notes</span></button>
+    <button class="pdf-btn" onclick="window.print()">📄 Download PDF</button>
+  </div>
+</nav>
+<div class="side-nav">
+  <div class="side-nav-line"></div>
+    <div class="side-nav-dot active" data-section="overview"><span class="tooltip">Overview</span></div>
+    <div class="side-nav-dot" data-section="summary"><span class="tooltip">Summary</span></div>
+    <div class="side-nav-dot" data-section="personas"><span class="tooltip">Personas</span></div>
+    <div class="side-nav-dot" data-section="scorecard"><span class="tooltip">Scorecard</span></div>
+    <div class="side-nav-dot" data-section="pagespeed"><span class="tooltip">PageSpeed</span></div>
+    <div class="side-nav-dot" data-section="traffic"><span class="tooltip">Traffic</span></div>
+    <div class="side-nav-dot" data-section="keywords"><span class="tooltip">Keywords</span></div>
+    <div class="side-nav-dot" data-section="ads"><span class="tooltip">Google Ads</span></div>
+    <div class="side-nav-dot" data-section="competitors"><span class="tooltip">Competitors</span></div>
+    <div class="side-nav-dot" data-section="seo-matrix"><span class="tooltip">SEO Matrix</span></div>
+    <div class="side-nav-dot" data-section="social"><span class="tooltip">Social Media</span></div>
+    <div class="side-nav-dot" data-section="email"><span class="tooltip">Email & Content</span></div>
+    <div class="side-nav-dot" data-section="reputation"><span class="tooltip">Reputation</span></div>
+    <div class="side-nav-dot" data-section="solutions"><span class="tooltip">Solutions</span></div>
+    <div class="side-nav-dot" data-section="gaps"><span class="tooltip">Gaps</span></div>
+    <div class="side-nav-dot" data-section="findings"><span class="tooltip">Findings</span></div>
+    <div class="side-nav-dot" data-section="strategy"><span class="tooltip">Strategy</span></div>
+    <div class="side-nav-dot" data-section="roadmap"><span class="tooltip">Roadmap</span></div>
+    <div class="side-nav-dot" data-section="roi"><span class="tooltip">ROI</span></div>
+</div>
+
+<!-- WATERMARK -->
+<div class="watermark"><span class="dot" style="width:6px;height:6px;border-radius:50%;background:linear-gradient(135deg,#40B4E5,#CC22FF);display:inline-block"></span> Prepared by Brandastic</div>
+
+<!-- ===== 1. HERO ===== -->
+<section class="hero" id="hero">
+  <div class="hero-video"><iframe src="https://www.youtube.com/embed/uqJV1mrHV0c?autoplay=1&mute=1&loop=1&playlist=uqJV1mrHV0c&controls=0&showinfo=0&rel=0&modestbranding=1&playsinline=1&start=2" allow="autoplay; encrypted-media" allowfullscreen></iframe></div>
+  <div class="hero-glow"></div>
+  <div class="section-badge" style="margin-bottom:2rem">Digital Marketing Audit</div>
+  <h1 class="hero-company">On Point<br>for College</h1>
+  <p style="color:var(--text-secondary);font-size:1.1rem;max-width:500px;text-align:center;margin-top:1rem">Comprehensive digital presence analysis & growth strategy</p>
+  <div class="hero-meta" style="margin-bottom:3rem">
+    <span>Prepared by Brandastic</span>
+    <span>May 2026</span>
+    <a href="https://www.onpointforcollege.org" target="_blank" rel="noopener noreferrer" style="color:var(--text-secondary);text-decoration:underline;cursor:pointer">onpointforcollege.org ↗</a>
+  </div>
+  <div class="hero-scroll" style="color:var(--text-primary);font-size:2rem;font-weight:bold;text-shadow:0 2px 8px rgba(0,0,0,0.3)">↓</div>
+</section>
+
+<!-- Data Disclaimer Banner -->
+<div style="max-width:800px;margin:0 auto 2rem;padding:1.25rem 1.5rem;border-radius:12px;background:linear-gradient(135deg,rgba(64,180,229,0.06),rgba(204,34,255,0.06));border:1px solid rgba(64,180,229,0.15);text-align:center">
+  <p style="font-size:0.85rem;color:var(--text-secondary);line-height:1.6;margin:0">This audit uses publicly available data from SEMrush, SpyFu, and social platforms. With access to your analytics <span style="white-space:nowrap">(Google Analytics, Meta Ads, Search Console)</span>, we can provide significantly deeper and more accurate insights. <a href="/onboarding" style="color:var(--accent-light,#40B4E5);font-weight:600;text-decoration:underline">Share your data</a> for the full picture.</p>
+</div>
+
+<!-- ===== 2. BUSINESS OVERVIEW ===== -->
+<section id="overview" style="position:relative"><div class="presenter-marker" onclick="this.classList.toggle('open')"><div class="pm-icon">📋</div><div class="pm-tooltip">💰 Focus on organic SEO + social media strategy — no current paid campaigns</div></div>
+  <div class="container reveal">
+    <div class="section-badge">01 — Business Overview<span class="category-tag" style="background:#6366f122;color:#6366f1;border:1px solid #6366f144">📊 OVERVIEW</span></div>
+    <div class="grid-2">
+      <div>
+        <h2 class="section-title">Helping First-Gen Students <span class="gradient">Succeed</span></h2>
+        <p class="section-sub">On Point for College is a Syracuse, NY-based nonprofit dedicated to helping first-generation students get into and through college. They provide hands-on guidance through the admissions process, financial aid applications, and college persistence.</p>
+        <p style="color:var(--text-secondary);line-height:1.7">Their mission is critical — but their digital presence isn't keeping pace with their impact. With heavy reliance on paid advertising and virtually no organic search strategy, they're leaving significant growth on the table.</p>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:1rem">
+        <div class="card" style="border-left:3px solid var(--accent-light)">
+          <div style="font-size:0.7rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--accent-light);margin-bottom:0.5rem">Goals</div>
+          <ul style="list-style:none;display:flex;flex-direction:column;gap:0.5rem">
+            <li style="color:var(--text-secondary);font-size:0.9rem">✦ Increase awareness & visibility</li>
+            <li style="color:var(--text-secondary);font-size:0.9rem">✦ Increase student enrollment &amp; participation</li>
+            <li style="color:var(--text-secondary);font-size:0.9rem">✦ Expand programs nationwide</li>
+            <li style="color:var(--text-secondary);font-size:0.9rem">✦ Reduce paid ad dependency</li>
+          </ul>
+        </div>
+        <div class="card" style="border-left:3px solid var(--red)">
+          <div style="font-size:0.7rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--red);margin-bottom:0.5rem">Key Weaknesses</div>
+          <ul style="list-style:none;display:flex;flex-direction:column;gap:0.5rem">
+            <li style="color:var(--text-secondary);font-size:0.9rem">⚠ Zero technical SEO foundation</li>
+            <li style="color:var(--text-secondary);font-size:0.9rem">⚠ No organic traffic foundation</li>
+            <li style="color:var(--text-secondary);font-size:0.9rem">⚠ Not using Google Ad Grants</li>
+            <li style="color:var(--text-secondary);font-size:0.9rem">⚠ Thin content & brand-only traffic</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+<div style="text-align:center;margin-top:1.5rem;padding-top:1rem;border-top:1px solid rgba(255,255,255,0.06);font-size:0.75rem;color:var(--text-muted)">
+  Data sources: <a href="https://semrush.com" target="_blank" style="color:var(--text-muted);text-decoration:underline">Semrush</a> · <a href="https://similarweb.com" target="_blank" style="color:var(--text-muted);text-decoration:underline">SimilarWeb</a> · Accessed May 2026
+</div>
+</section>
+
+<!-- ===== 3. EXECUTIVE SUMMARY ===== -->
+<section id="summary">
+  <div class="container reveal">
+    <div class="section-badge">02 — Executive Summary<span class="category-tag" style="background:#6366f122;color:#6366f1;border:1px solid #6366f144">📊 OVERVIEW</span></div>
+    <h2 class="section-title">Current Digital <span class="gradient">Snapshot</span></h2>
+    <div class="grid-4" style="margin-bottom:3rem">
+      <div class="card metric-card">
+        <div class="value" data-count="1141300">0</div>
+        <div class="label">Semrush Rank</div>
+        <div class="change down">Poor visibility</div>
+      </div>
+      <div class="card metric-card">
+        <div class="value" data-count="916">0</div>
+        <div class="label">Monthly Traffic</div>
+        <div class="change down">↓ 26.5%</div>
+      </div>
+      <div class="card metric-card">
+        <div class="value" data-count="388">0</div>
+        <div class="label">Organic Keywords</div>
+        <div class="change down">↓ 32.5%</div>
+      </div>
+      <div class="card metric-card">
+        <div class="value" data-prefix="$" data-count="703">0</div>
+        <div class="label">Traffic Value</div>
+        <div class="change down">↓ low value</div>
+      </div>
+    </div>
+    <div class="grid-2">
+      <div>
+        <h3 style="font-weight:700;margin-bottom:1rem;font-size:1.1rem">🔍 Key Findings</h3>
+        <ul style="list-style:none;display:flex;flex-direction:column;gap:0.75rem">
+          <li style="color:var(--text-secondary);font-size:0.9rem;padding-left:1.2rem;position:relative"><span style="position:absolute;left:0;color:#40B4E5">•</span> Google Ad Grants not utilized — up to $10K/mo in free ads for brand awareness & top-of-funnel traffic</li>
+          <li style="color:var(--text-secondary);font-size:0.9rem;padding-left:1.2rem;position:relative"><span style="position:absolute;left:0;color:#40B4E5">•</span> Zero technical SEO foundation in place</li>
+          <li style="color:var(--text-secondary);font-size:0.9rem;padding-left:1.2rem;position:relative"><span style="position:absolute;left:0;color:#40B4E5">•</span> Destructive cache policy hurting performance</li>
+          <li style="color:var(--text-secondary);font-size:0.9rem;padding-left:1.2rem;position:relative"><span style="position:absolute;left:0;color:#40B4E5">•</span> No organic traffic strategy — 100% reliant on referral/direct</li>
+          <li style="color:var(--text-secondary);font-size:0.9rem;padding-left:1.2rem;position:relative"><span style="position:absolute;left:0;color:#40B4E5">•</span> Brand-only organic traffic (no discovery keywords)</li>
+        </ul>
+      </div>
+      <div>
+        <h3 style="font-weight:700;margin-bottom:1rem;font-size:1.1rem"><img src="images/icons/pillar-02.svg" style="width:20px;height:20px;vertical-align:middle;margin-right:6px;filter:brightness(0) invert(1);" alt=""> Biggest Opportunities</h3>
+        <ul style="list-style:none;display:flex;flex-direction:column;gap:0.75rem">
+          <li style="color:var(--text-secondary);font-size:0.9rem;padding-left:1.2rem;position:relative"><span style="position:absolute;left:0;color:#40B4E5">•</span> Google Ad Grants = free awareness traffic ($10K/mo cap) to supplement paid campaigns</li>
+          <li style="color:var(--text-secondary);font-size:0.9rem;padding-left:1.2rem;position:relative"><span style="position:absolute;left:0;color:#40B4E5">•</span> 18K+ monthly searches for content they should own</li>
+          <li style="color:var(--text-secondary);font-size:0.9rem;padding-left:1.2rem;position:relative"><span style="position:absolute;left:0;color:#40B4E5">•</span> Local SEO dominance in Syracuse + expansion markets</li>
+          <li style="color:var(--text-secondary);font-size:0.9rem;padding-left:1.2rem;position:relative"><span style="position:absolute;left:0;color:#40B4E5">•</span> Technical overhaul could multiply organic performance</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 4. PERSONAS ===== -->
+<section id="personas">
+  <div class="container reveal">
+    <div class="section-badge">03 — Target Personas<span class="category-tag" style="background:#6366f122;color:#6366f1;border:1px solid #6366f144">📊 OVERVIEW</span></div>
+    <h2 class="section-title">Who Are You <span class="gradient">Reaching?</span></h2>
+    <p class="section-sub">Understanding your ideal audiences is the foundation of every strategy we build.</p>
+    <div class="grid-3">
+      <div class="card persona-card">
+        <div class="persona-avatar">🎓</div>
+        <div class="persona-name">First-Gen Students</div>
+        <div class="persona-demo">Ages 16–19 • High school juniors & seniors</div>
+        <div class="persona-channels">
+          <span class="ch">Instagram</span><span class="ch">TikTok</span><span class="ch">Snapchat</span>
+        </div>
+        <div class="persona-discover">Discover via school counselors, social media feeds, and Google searches for college help.</div>
+      </div>
+      <div class="card persona-card">
+        <div class="persona-avatar">👨‍👩‍👧</div>
+        <div class="persona-name">Parents & Guardians</div>
+        <div class="persona-demo">Ages 35–55 • Navigating college for the first time</div>
+        <div class="persona-channels">
+          <span class="ch">Facebook</span><span class="ch">Google</span><span class="ch">Community Events</span>
+        </div>
+        <div class="persona-discover">Discover via school events, community organizations, and Google searches for financial aid help.</div>
+      </div>
+      <div class="card persona-card">
+        <div class="persona-avatar">💎</div>
+        <div class="persona-name">Donors & Philanthropists</div>
+        <div class="persona-demo">Ages 40–70 • HNW individuals & foundations</div>
+        <div class="persona-channels">
+        </div>
+        <div class="persona-discover">Discover via nonprofit directories, galas, board referrals, and thought leadership content.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 5. SEO SCORECARD ===== -->
+<section id="scorecard" style="position:relative"><div class="presenter-marker" onclick="this.classList.toggle('open')"><div class="pm-icon">📋</div><div class="pm-tooltip">📉 All SEO scores are low — the technical foundation doesn&#39;t exist. Google can&#39;t properly crawl or index the site</div></div>
+  <div class="container reveal">
+    <div class="section-badge">04 — SEO Health Scorecar<span class="category-tag" style="background:#10b98122;color:#10b981;border:1px solid #10b98144">🔍 SEO</span></div>
+    <h2 class="section-title">Overall Score: <span class="gradient">27/100</span></h2>
+    <p class="section-sub">A comprehensive evaluation of your site's SEO health across four critical dimensions.</p>
+    <div class="grid-4" style="margin-bottom:2rem">
+      <div class="card" style="text-align:center;padding:2rem">
+        <div class="score-ring">
+          <svg viewBox="0 0 120 120"><circle class="bg" cx="60" cy="60" r="52"/><circle class="fg" cx="60" cy="60" r="52" stroke="var(--red)" stroke-dasharray="327" stroke-dashoffset="327" data-target="262"/></svg>
+          <div class="grade" style="color:var(--red)">D</div>
+        </div>
+        <div style="font-weight:700;font-size:0.95rem">Technical SEO</div>
+        <div style="font-size:0.8rem;color:var(--text-muted);margin-top:0.25rem">20/100</div>
+      </div>
+      <div class="card" style="text-align:center;padding:2rem">
+        <div class="score-ring">
+          <svg viewBox="0 0 120 120"><circle class="bg" cx="60" cy="60" r="52"/><circle class="fg" cx="60" cy="60" r="52" stroke="var(--red)" stroke-dasharray="327" stroke-dashoffset="327" data-target="262"/></svg>
+          <div class="grade" style="color:var(--red)">D</div>
+        </div>
+        <div style="font-weight:700;font-size:0.95rem">Content</div>
+        <div style="font-size:0.8rem;color:var(--text-muted);margin-top:0.25rem">25/100</div>
+      </div>
+      <div class="card" style="text-align:center;padding:2rem">
+        <div class="score-ring">
+          <svg viewBox="0 0 120 120"><circle class="bg" cx="60" cy="60" r="52"/><circle class="fg" cx="60" cy="60" r="52" stroke="var(--yellow)" stroke-dasharray="327" stroke-dashoffset="327" data-target="212"/></svg>
+          <div class="grade" style="color:var(--yellow)">C-</div>
+        </div>
+        <div style="font-weight:700;font-size:0.95rem">Authority</div>
+        <div style="font-size:0.8rem;color:var(--text-muted);margin-top:0.25rem">35/100</div>
+      </div>
+      <div class="card" style="text-align:center;padding:2rem">
+        <div class="score-ring">
+          <svg viewBox="0 0 120 120"><circle class="bg" cx="60" cy="60" r="52"/><circle class="fg" cx="60" cy="60" r="52" stroke="var(--red)" stroke-dasharray="327" stroke-dashoffset="327" data-target="262"/></svg>
+          <div class="grade" style="color:var(--red)">D</div>
+        </div>
+        <div style="font-weight:700;font-size:0.95rem">Local SEO</div>
+        <div style="font-size:0.8rem;color:var(--text-muted);margin-top:0.25rem">20/100</div>
+      </div>
+    </div>
+    <div class="card" style="padding:2rem">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:0.75rem">
+        <span style="font-weight:700">Overall Health</span>
+        <span style="font-weight:800;color:var(--red)">27/100</span>
+      </div>
+      <div class="overall-bar"><div class="fill" style="width:0%" data-target="27"></div></div>
+    </div>
+  </div>
+<div style="text-align:center;margin-top:1.5rem;padding-top:1rem;border-top:1px solid rgba(255,255,255,0.06);font-size:0.75rem;color:var(--text-muted)">
+  Data sources: <a href="https://semrush.com" target="_blank" style="color:var(--text-muted);text-decoration:underline">Semrush</a> · <a href="https://moz.com" target="_blank" style="color:var(--text-muted);text-decoration:underline">Moz</a> · Google Search Console public data · Accessed May 2026
+</div>
+</section>
+
+<!-- ===== GOOGLE PAGESPEED INSIGHTS ===== -->
+<section id="pagespeed" style="position:relative"><div class="presenter-marker" onclick="this.classList.toggle('open')"><div class="pm-icon">📋</div><div class="pm-tooltip">🔧 Performance 29/100 — site loads slow on mobile, Google penalizes this in rankings</div></div>
+  <div class="container reveal">
+    <div class="section-badge">📊 Google PageSpeed Insights<span class="category-tag" style="background:#10b98122;color:#10b981;border:1px solid #10b98144">🔍 SEO</span></div>
+    <h2 class="section-title">Google <span class="gradient">PageSpeed Insights</span></h2>
+    <p class="section-sub">Real-time performance analysis from Google — May 2026</p>
+    <div class="grid-4" style="margin-bottom:2rem">
+      <div class="card" style="text-align:center;padding:2rem">
+        <div class="score-ring">
+          <svg viewBox="0 0 120 120"><circle class="bg" cx="60" cy="60" r="52"/><circle class="fg" cx="60" cy="60" r="52" stroke="var(--red)" stroke-dasharray="327" stroke-dashoffset="327" data-target="232"/></svg>
+          <div class="grade" style="color:var(--red);font-size:2.2rem">29</div>
+        </div>
+        <div style="font-weight:700;font-size:0.95rem">Performance</div>
+      </div>
+      <div class="card" style="text-align:center;padding:2rem">
+        <div class="score-ring">
+          <svg viewBox="0 0 120 120"><circle class="bg" cx="60" cy="60" r="52"/><circle class="fg" cx="60" cy="60" r="52" stroke="var(--yellow)" stroke-dasharray="327" stroke-dashoffset="327" data-target="72"/></svg>
+          <div class="grade" style="color:var(--yellow);font-size:2.2rem">78</div>
+        </div>
+        <div style="font-weight:700;font-size:0.95rem">Accessibility</div>
+      </div>
+      <div class="card" style="text-align:center;padding:2rem">
+        <div class="score-ring">
+          <svg viewBox="0 0 120 120"><circle class="bg" cx="60" cy="60" r="52"/><circle class="fg" cx="60" cy="60" r="52" stroke="var(--yellow)" stroke-dasharray="327" stroke-dashoffset="327" data-target="105"/></svg>
+          <div class="grade" style="color:var(--yellow);font-size:2.2rem">68</div>
+        </div>
+        <div style="font-weight:700;font-size:0.95rem">Best Practices</div>
+      </div>
+      <div class="card" style="text-align:center;padding:2rem">
+        <div class="score-ring">
+          <svg viewBox="0 0 120 120"><circle class="bg" cx="60" cy="60" r="52"/><circle class="fg" cx="60" cy="60" r="52" stroke="var(--yellow)" stroke-dasharray="327" stroke-dashoffset="327" data-target="82"/></svg>
+          <div class="grade" style="color:var(--yellow);font-size:2.2rem">75</div>
+        </div>
+        <div style="font-weight:700;font-size:0.95rem">SEO</div>
+      </div>
+    </div>
+
+    <!-- Core Web Vitals -->
+    <div class="card" style="padding:2rem;margin-bottom:2rem">
+      <div style="display:flex;align-items:center;gap:1rem;margin-bottom:0.5rem">
+        <span style="font-weight:700;font-size:1.1rem">Core Web Vitals</span>
+        <span class="badge" style="background:rgba(34,197,94,0.15);color:var(--green);font-size:0.75rem;font-weight:700;letter-spacing:0.08em">PASSED</span>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-top:1.5rem"><div class="card" style="text-align:center;padding:1.5rem"><div style="font-size:1.5rem;font-weight:800;color:var(--green)">2.1s</div><div style="font-size:0.7rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-muted);margin-top:0.25rem">LCP</div><div style="font-size:0.7rem;color:var(--green);margin-top:0.25rem">Good (&lt; 2.5s)</div></div><div class="card" style="text-align:center;padding:1.5rem"><div style="font-size:1.5rem;font-weight:800;color:var(--text-muted)">N/A</div><div style="font-size:0.7rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-muted);margin-top:0.25rem">INP</div><div style="font-size:0.7rem;color:var(--text-muted);margin-top:0.25rem">Not enough data</div></div><div class="card" style="text-align:center;padding:1.5rem"><div style="font-size:1.5rem;font-weight:800;color:var(--green)">0.01</div><div style="font-size:0.7rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-muted);margin-top:0.25rem">CLS</div><div style="font-size:0.7rem;color:var(--green);margin-top:0.25rem">Good (&lt; 0.1)</div></div></div>
+    </div>
+
+    <!-- Callout -->
+    <div class="warning-banner">
+      <div class="icon">⚠️</div>
+      <div>
+        <div class="text">⚠️ Performance score of 29/100 means your site loads slowly on mobile — Google penalizes this in rankings.</div>
+      </div>
+    </div>
+
+    <div style="text-align:center;margin-top:1.5rem;font-size:0.75rem;color:var(--text-muted)">Data from Google PageSpeed Insights • <a href="https://pagespeed.web.dev" target="_blank" style="color:var(--text-muted);text-decoration:underline">pagespeed.web.dev</a></div>
+  </div>
+</section>
+
+
+<!-- ===== 6. TRAFFIC TREND ===== -->
+<section id="traffic" style="position:relative"><div class="presenter-marker" onclick="this.classList.toggle('open')"><div class="pm-icon">📋</div><div class="pm-tooltip">📉 Organic traffic trending down month over month — heading toward 100% paid dependency</div></div>
+  <div class="container reveal">
+    <div class="section-badge">05 — Traffic Tren<span class="category-tag" style="background:#10b98122;color:#10b981;border:1px solid #10b98144">🔍 SEO</span></div>
+    <h2 class="section-title">12-Month <span class="gradient">Performance</span></h2>
+    <p class="section-sub">12 months of organic traffic and keyword data reveals a steep decline that needs immediate attention.</p>
+    <div class="chart-wrap">
+      <canvas id="trafficChart" height="100"></canvas>
+    </div>
+  </div>
+<div style="text-align:center;margin-top:1.5rem;padding-top:1rem;border-top:1px solid rgba(255,255,255,0.06);font-size:0.75rem;color:var(--text-muted)">
+  Data sources: <a href="https://semrush.com" target="_blank" style="color:var(--text-muted);text-decoration:underline">Semrush</a> · <a href="https://similarweb.com" target="_blank" style="color:var(--text-muted);text-decoration:underline">SimilarWeb</a> · Accessed May 2026
+</div>
+</section>
+
+<!-- ===== 7. KEYWORD ANALYSIS ===== -->
+<section id="keywords" style="position:relative"><div class="presenter-marker" onclick="this.classList.toggle('open')"><div class="pm-icon">📋</div><div class="pm-tooltip">📝 All traffic is brand-only. Zero content targeting keywords their audience actually searches (first-gen college, first generation student resources, first-gen support programs)</div></div>
+  <div class="container reveal">
+    <div class="section-badge">06 — Keyword Analysis<span class="category-tag" style="background:#10b98122;color:#10b981;border:1px solid #10b98144">🔍 SEO</span></div>
+    <h2 class="section-title">Where You <span class="gradient">Rank</span></h2>
+    <div class="warning-banner">
+      <div class="icon">⚠️</div>
+      <div>
+        <div class="text">Brand Dependency Alert</div>
+        <div class="sub">Nearly all organic traffic comes from branded searches. You're invisible to people searching for your services.</div>
+      </div>
+    </div>
+    <div class="card" style="overflow-x:auto">
+      <table class="data-table">
+        <thead><tr><th>Keyword</th><th>Position</th><th>Volume</th><th>Type</th></tr></thead>
+        <tbody>
+          <tr><td style="font-weight:600">"on point for college"</td><td>1</td><td>320</td><td><span class="badge badge-branded">Branded</span></td></tr>
+          <tr><td style="font-weight:600">"onpoint for college"</td><td>1</td><td>320</td><td><span class="badge badge-branded">Branded</span></td></tr>
+          <tr><td style="font-weight:600">"on point"</td><td>7</td><td>18,100</td><td><span class="badge badge-generic">Generic</span></td></tr>
+          <tr><td style="font-weight:600">"disadvantages of public university"</td><td>1</td><td>70</td><td><span class="badge badge-info">Info</span></td></tr>
+          <tr><td style="font-weight:600">"public vs private university"</td><td>9</td><td>880</td><td><span class="badge badge-info">Info</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+<div style="text-align:center;margin-top:1.5rem;padding-top:1rem;border-top:1px solid rgba(255,255,255,0.06);font-size:0.75rem;color:var(--text-muted)">
+  Data sources: <a href="https://semrush.com" target="_blank" style="color:var(--text-muted);text-decoration:underline">Semrush</a> · <a href="https://ads.google.com/home/tools/keyword-planner/" target="_blank" style="color:var(--text-muted);text-decoration:underline">Google Keyword Planner</a> · Accessed May 2026
+</div>
+</section>
+
+
+<section id="gaps">
+  <div class="container reveal">
+    <div class="section-badge">09 — Content Gap Analysis<span class="category-tag" style="background:#10b98122;color:#10b981;border:1px solid #10b98144">🔍 SEO</span></div>
+    <h2 class="section-title">Searches You're <span class="gradient">Missing</span></h2>
+    <p class="section-sub">High-volume keywords your target audience is searching for — and you're not ranking for any of them.</p>
+    <div class="grid-3" style="margin-bottom:2rem">
+      <div class="card gap-card">
+        <div class="kw">"first-generation college students"</div>
+        <div class="vol" data-count="9900">0</div>
+        <div class="vol-label">Monthly Searches</div>
+        <div class="status">NOT RANKING</div>
+      </div>
+      <div class="card gap-card">
+        <div class="kw">"how to help first generation college students"</div>
+        <div class="vol" data-count="2400">0</div>
+        <div class="vol-label">Monthly Searches</div>
+        <div class="status">NOT RANKING</div>
+      </div>
+      <div class="card gap-card">
+        <div class="kw">"first generation college student resources"</div>
+        <div class="vol" data-count="1600">0</div>
+        <div class="vol-label">Monthly Searches</div>
+        <div class="status">NOT RANKING</div>
+      </div>
+      <div class="card gap-card">
+        <div class="kw">"first generation college programs"</div>
+        <div class="vol" data-count="1300">0</div>
+        <div class="vol-label">Monthly Searches</div>
+        <div class="status">NOT RANKING</div>
+      </div>
+      <div class="card gap-card">
+        <div class="kw">"first-gen college support"</div>
+        <div class="vol" data-count="880">0</div>
+        <div class="vol-label">Monthly Searches</div>
+        <div class="status">NOT RANKING</div>
+      </div>
+    </div>
+    <div class="card" style="text-align:center;padding:2rem;border:1px solid rgba(239,68,68,0.2);background:rgba(239,68,68,0.05)">
+      <div style="font-size:0.75rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--red);margin-bottom:0.5rem">Total Missed Opportunity</div>
+      <div style="font-size:2.5rem;font-weight:800;color:var(--red)">16,080+</div>
+      <div style="color:var(--text-secondary);font-size:0.9rem">monthly searches for first-gen students you could be capturing</div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 7B. GOOGLE ADS PREVIEW ===== -->
+<section id="ads">
+  <div class="container reveal">
+    <div class="section-badge">06B — Google Ads Preview<span class="category-tag" style="background:#f59e0b22;color:#f59e0b;border:1px solid #f59e0b44">💰 PPC</span></div>
+    <h2 class="section-title">Your <span class="gradient">Google Ads</span></h2>
+    <p class="section-sub">Here's what prospects see when they search for you on Google — and the opportunity you're missing without an active paid strategy.</p>
+
+    <div class="google-serp-card">
+      <div class="serp-search-bar">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 01-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+        <span class="query">on point for college</span>
+      </div>
+
+      <div class="serp-ad">
+        <div class="serp-sponsored">Sponsored</div>
+        <div class="serp-ad-url">https://www.onpointforcollege.org</div>
+        <div class="serp-ad-title">On Point For College — For All Students</div>
+        <div class="serp-ad-desc">On Point For College connects first-generation students in New York. On...</div>
+        <div class="serp-sitelinks">
+          <div class="serp-sitelink">
+            <div class="serp-sitelink-title">Join Us</div>
+            <div class="serp-sitelink-desc">Join On Point for College online. Learn how today!</div>
+          </div>
+          <div class="serp-sitelink">
+            <div class="serp-sitelink-title">Volunteer Opportunities</div>
+            <div class="serp-sitelink-desc">Be part of our programs by contributing your time.</div>
+          </div>
+          <div class="serp-sitelink">
+            <div class="serp-sitelink-title">For First-Generation Students</div>
+            <div class="serp-sitelink-desc">We Make College, Training And Career Success A Reality.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card" style="text-align:center;padding:2rem;border:1px solid rgba(204,34,255,0.2);background:rgba(204,34,255,0.05);margin-bottom:1.5rem">
+      <div style="font-size:0.75rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:#CC22FF;margin-bottom:0.5rem">Current Google Ads Spend</div>
+      <div style="font-size:2.5rem;font-weight:800;background:linear-gradient(135deg,#40B4E5,#CC22FF);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">$0/mo (confirmed)</div>
+      <div style="color:var(--text-secondary);font-size:0.9rem">No active Google Ads campaigns running</div>
+    </div>
+
+    <div class="ads-callout">
+      <div class="icon">💡</div>
+      <div class="content">
+        <div class="headline">Untapped Opportunity: Google Ad Grants</div>
+        <div class="body">On Point currently runs <strong>no Google Ads campaigns</strong>. As a nonprofit, you qualify for <strong>Google Ad Grants — up to $10K/mo in free Google Ads</strong>. Grants are perfect for <strong>branded searches, content promotion, and awareness campaigns</strong> targeting first-generation college students and their families. Combined with a social media strategy and organic SEO, this creates a powerful multi-channel approach to reach more students — at zero cost.</div>
+      </div>
+    </div>
+  </div>
+<div style="text-align:center;margin-top:1.5rem;padding-top:1rem;border-top:1px solid rgba(255,255,255,0.06);font-size:0.75rem;color:var(--text-muted)">
+  Data sources: <a href="https://semrush.com" target="_blank" style="color:var(--text-muted);text-decoration:underline">Semrush</a> · <a href="https://spyfu.com" target="_blank" style="color:var(--text-muted);text-decoration:underline">SpyFu</a> · <a href="https://adstransparency.google.com" target="_blank" style="color:var(--text-muted);text-decoration:underline">Google Ads Transparency Center</a> · Accessed May 2026
+</div>
+</section>
+
+<!-- ===== 8C. SHARE OF VOICE ===== -->
+<section id="sov">
+  <div class="container reveal">
+    <div class="section-badge">07C — Share of Voice<span class="category-tag" style="background:#ef444422;color:#ef4444;border:1px solid #ef444444">📊 SEO</span></div>
+    <h2 class="section-title">Who Owns the <span class="gradient">Market?</span></h2>
+    <p class="section-sub">Share of Voice measures what percentage of your market's total organic search traffic you actually own. Right now, the competition is capturing most of it.</p>
+    <div style="margin-bottom:2.5rem">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:1.5rem">
+        <p style="color:var(--text-secondary);font-size:0.85rem;margin:0">Total addressable market: <strong style="color:var(--text-primary)">9,767 visits/mo</strong> organic traffic across your competitive set</p>
+        <span style="font-size:0.75rem;color:var(--text-muted);font-weight:600;letter-spacing:0.08em;text-transform:uppercase">Share of Voice — SEO Visibility</span>
+      </div>
+
+      <!-- SOV Bar: On Point for College -->
+      <div style="margin-bottom:1.2rem">
+        <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:0.4rem">
+          <div>
+            <span style="font-size:0.9rem;font-weight:700;color:#ef4444">On Point for College</span>
+            <span style="font-size:0.75rem;color:var(--text-muted);margin-left:0.5rem">← You are here</span>
+          </div>
+          <div style="display:flex;align-items:baseline;gap:0.75rem">
+            <span style="font-size:0.8rem;color:var(--text-secondary)">916/mo</span>
+            <span style="font-size:1rem;font-weight:800;color:#ef4444;min-width:3.5rem;text-align:right">9.4%</span>
+          </div>
+        </div>
+        <div style="background:rgba(255,255,255,0.06);border-radius:6px;height:16px;overflow:hidden;position:relative">
+          <div style="width:9.4%;height:100%;background:linear-gradient(90deg,#ef4444,#dc2626);border-radius:6px;position:relative">
+            <div style="position:absolute;right:-1px;top:0;height:100%;width:2px;background:rgba(239,68,68,0.6);box-shadow:0 0 6px #ef4444"></div>
+          </div>
+        </div>
+        <div style="margin-top:0.4rem;font-size:0.72rem;color:#ef4444;font-weight:600">⚠ Only 9.4% of your market's organic traffic reaches you — competitors own the other 90.6%</div>
+      </div>
+
+      <!-- SOV Bar: College Possible -->
+      <div style="margin-bottom:1.2rem">
+        <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:0.4rem">
+          <span style="font-size:0.9rem;font-weight:600;color:var(--text-primary)">College Possible</span>
+          <div style="display:flex;align-items:baseline;gap:0.75rem">
+            <span style="font-size:0.8rem;color:var(--text-secondary)">5,231/mo</span>
+            <span style="font-size:1rem;font-weight:700;color:var(--text-secondary);min-width:3.5rem;text-align:right">53.6%</span>
+          </div>
+        </div>
+        <div style="background:rgba(255,255,255,0.06);border-radius:6px;height:16px;overflow:hidden">
+          <div style="width:53.6%;height:100%;background:rgba(100,116,139,0.45);border-radius:6px"></div>
+        </div>
+      </div>
+
+      <!-- SOV Bar: iMentor -->
+      <div style="margin-bottom:1.2rem">
+        <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:0.4rem">
+          <span style="font-size:0.9rem;font-weight:600;color:var(--text-primary)">iMentor</span>
+          <div style="display:flex;align-items:baseline;gap:0.75rem">
+            <span style="font-size:0.8rem;color:var(--text-secondary)">2,730/mo</span>
+            <span style="font-size:1rem;font-weight:700;color:var(--text-secondary);min-width:3.5rem;text-align:right">27.9%</span>
+          </div>
+        </div>
+        <div style="background:rgba(255,255,255,0.06);border-radius:6px;height:16px;overflow:hidden">
+          <div style="width:27.9%;height:100%;background:rgba(100,116,139,0.45);border-radius:6px"></div>
+        </div>
+      </div>
+
+      <!-- SOV Bar: First Gen Forward -->
+      <div style="margin-bottom:1.2rem">
+        <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:0.4rem">
+          <span style="font-size:0.9rem;font-weight:600;color:var(--text-primary)">First Gen Forward</span>
+          <div style="display:flex;align-items:baseline;gap:0.75rem">
+            <span style="font-size:0.8rem;color:var(--text-secondary)">890/mo</span>
+            <span style="font-size:1rem;font-weight:700;color:var(--text-secondary);min-width:3.5rem;text-align:right">9.1%</span>
+          </div>
+        </div>
+        <div style="background:rgba(255,255,255,0.06);border-radius:6px;height:16px;overflow:hidden">
+          <div style="width:9.1%;height:100%;background:rgba(100,116,139,0.45);border-radius:6px"></div>
+        </div>
+      </div>
+
+      <!-- Summary callout -->
+      <div style="margin-top:2rem;padding:1.25rem 1.5rem;background:rgba(239,68,68,0.08);border:1px solid rgba(239,68,68,0.25);border-radius:10px;display:flex;gap:1rem;align-items:flex-start">
+        <span style="font-size:1.5rem;line-height:1">🚨</span>
+        <div>
+          <div style="font-size:0.9rem;font-weight:700;color:#ef4444;margin-bottom:0.35rem">College Possible is capturing 5× more organic traffic than you are</div>
+          <div style="font-size:0.82rem;color:var(--text-secondary);line-height:1.6">Students searching for first-generation college support are finding your competitors before they ever reach you. At just 9.4% Share of Voice, On Point is largely invisible in organic search. A content strategy targeting the right keywords can dramatically increase your visibility — and reach more students who need you.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 8B. SEO COMPETITOR MATRIX ===== -->
+<section id="seo-matrix">
+  <div class="container reveal">
+    <div class="section-badge">07B — SEO Competitor Matrix<span class="category-tag" style="background:#10b98122;color:#10b981;border:1px solid #10b98144">🔍 SEO</span></div>
+    <h2 class="section-title">Detailed <span class="gradient">Comparison</span></h2>
+    <p class="section-sub">A head-to-head breakdown of your SEO fundamentals versus the competition.</p>
+    <div class="seo-matrix-wrap">
+      <table class="seo-matrix">
+        <thead>
+          <tr>
+            <th>Metric</th>
+            <th class="highlight">On Point for College</th>
+            <th>collegepossible.org</th>
+            <th>firstgenforward.org</th>
+            <th>imentor.org</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Domain Authority</td>
+            <td class="highlight"><span class="status-bad">Low</span></td>
+            <td><span class="status-warn">Medium</span></td>
+            <td><span class="status-warn">Medium</span></td>
+            <td><span class="status-warn">Medium</span></td>
+          </tr>
+          <tr>
+            <td>Organic Keywords</td>
+            <td class="highlight"><span class="status-bad">388</span></td>
+            <td>183</td>
+            <td>260</td>
+            <td><span class="status-good">429</span></td>
+          </tr>
+          <tr>
+            <td>Monthly Traffic</td>
+            <td class="highlight"><span class="status-bad">916</span></td>
+            <td><span class="status-good">5,231</span></td>
+            <td>890</td>
+            <td>2,730</td>
+          </tr>
+          <tr>
+            <td>Schema Markup</td>
+            <td class="highlight"><span class="status-bad">❌ None</span></td>
+            <td><span class="status-good">✅</span></td>
+            <td><span class="status-good">✅</span></td>
+            <td><span class="status-good">✅</span></td>
+          </tr>
+          <tr>
+            <td>Blog Active</td>
+            <td class="highlight"><span class="status-warn">⚠️ Thin</span></td>
+            <td><span class="status-good">✅ Active</span></td>
+            <td><span class="status-good">✅ Active</span></td>
+            <td><span class="status-good">✅ Active</span></td>
+          </tr>
+          <tr>
+            <td>H1 Tags</td>
+            <td class="highlight"><span class="status-bad">❌ Missing</span></td>
+            <td><span class="status-good">✅</span></td>
+            <td><span class="status-good">✅</span></td>
+            <td><span class="status-good">✅</span></td>
+          </tr>
+          <tr>
+            <td>HTTPS</td>
+            <td class="highlight"><span class="status-good">✅</span></td>
+            <td><span class="status-good">✅</span></td>
+            <td><span class="status-good">✅</span></td>
+            <td><span class="status-good">✅</span></td>
+          </tr>
+          <tr>
+            <td>Page Speed</td>
+            <td class="highlight"><span class="status-bad">❌ Poor (no-cache)</span></td>
+            <td><span class="status-warn">⚠️ Average</span></td>
+            <td><span class="status-warn">⚠️ Average</span></td>
+            <td><span class="status-good">✅ Good</span></td>
+          </tr>
+          <tr>
+          <tr class="winner-row">
+            <td>Who's Winning</td>
+            <td class="highlight losing">Behind</td>
+            <td class="winning">Leading</td>
+            <td class="winning">Leading</td>
+            <td class="winning">Leading</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SOCIAL MEDIA PRESENCE ===== -->
+<section id="social">
+  <div class="container reveal">
+    <div class="section-badge">📱 Social Media<span class="category-tag" style="background:#a855f722;color:#a855f7;border:1px solid #a855f744">📱 SOCIAL</span></div>
+    <h2 class="section-title">Social Media <span class="gradient">Presence</span></h2>
+    <p class="section-sub">How you show up across platforms</p>
+
+    <div class="grid-3">
+      <div class="card" style="text-align:center">
+        <div style="font-size:2.5rem;margin-bottom:0.75rem">📘</div>
+        <div style="font-weight:700;font-size:1.05rem;margin-bottom:0.25rem">Facebook</div>
+        <div style="font-size:1.8rem;font-weight:800;background:linear-gradient(135deg,#40B4E5,#CC22FF);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">3,073</div>
+        <div style="font-size:0.75rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.1em">likes</div>
+        <div style="margin-top:0.5rem"><span class="badge badge-generic">83 talking about this</span></div>
+        <div style="margin-top:0.75rem;padding:6px 12px;border-radius:8px;background:rgba(245,158,11,0.12);color:var(--yellow);font-size:0.78rem;font-weight:600;display:inline-block">⚡ MODERATE</div>
+      </div>
+      <div class="card" style="text-align:center">
+        <div style="font-size:2.5rem;margin-bottom:0.75rem">📸</div>
+        <div style="font-weight:700;font-size:1.05rem;margin-bottom:0.25rem">Instagram</div>
+        <div style="font-size:1.8rem;font-weight:800;background:linear-gradient(135deg,#40B4E5,#CC22FF);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">1,056</div>
+        <div style="font-size:0.75rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.1em">followers</div>
+        <div style="margin-top:0.75rem;padding:6px 12px;border-radius:8px;background:rgba(239,68,68,0.12);color:var(--red);font-size:0.78rem;font-weight:600;display:inline-block">🔻 LOW — 860 posts but only 1K followers</div>
+      </div>
+      <div class="card" style="text-align:center">
+        <div style="font-size:2.5rem;margin-bottom:0.75rem">💼</div>
+        
+        <div style="margin-top:0.75rem;padding:6px 12px;border-radius:8px;background:rgba(239,68,68,0.12);color:var(--red);font-size:0.78rem;font-weight:600;display:inline-block">🔻 NOT LEVERAGED for donor/partner outreach</div>
+      </div>
+      <div class="card" style="text-align:center">
+        <div style="font-size:2.5rem;margin-bottom:0.75rem">🐦</div>
+        <div style="font-weight:700;font-size:1.05rem;margin-bottom:0.25rem">Twitter / X</div>
+        <div style="font-size:1.8rem;font-weight:800;background:linear-gradient(135deg,#40B4E5,#CC22FF);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">407</div><div style="font-size:0.75rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--text-muted);margin-top:0.25rem">FOLLOWERS</div>
+        <div style="margin-top:0.75rem;padding:6px 12px;border-radius:8px;background:rgba(239,68,68,0.12);color:var(--red);font-size:0.78rem;font-weight:600;display:inline-block">🔻 LOW — 764 posts, 407 followers since 2014</div>
+      </div>
+      <div class="card" style="text-align:center">
+        <div style="font-size:2.5rem;margin-bottom:0.75rem">▶️</div>
+        <div style="font-weight:700;font-size:1.05rem;margin-bottom:0.25rem">YouTube</div>
+        <div style="font-size:1.8rem;font-weight:800;background:linear-gradient(135deg,#40B4E5,#CC22FF);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">186</div><div style="font-size:0.75rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--text-muted);margin-top:0.25rem">SUBSCRIBERS</div><div style="margin-top:0.75rem;padding:6px 12px;border-radius:8px;background:rgba(239,68,68,0.12);color:var(--red);font-size:0.78rem;font-weight:600;display:inline-block">LOW — brand videos only, no search strategy</div>
+        <div style="margin-top:0.75rem;padding:6px 12px;border-radius:8px;background:rgba(239,68,68,0.12);color:var(--red);font-size:0.78rem;font-weight:600;display:inline-block">❌ MISSING — Huge gap for student testimonials</div>
+      </div>
+      <div class="card" style="text-align:center">
+        <div style="font-size:2.5rem;margin-bottom:0.75rem">🎵</div>
+        <div style="font-weight:700;font-size:1.05rem;margin-bottom:0.25rem">TikTok</div>
+        <div style="font-size:1.1rem;font-weight:600;color:var(--red);margin-top:0.5rem">NOT FOUND</div>
+        <div style="margin-top:0.75rem;padding:6px 12px;border-radius:8px;background:rgba(239,68,68,0.12);color:var(--red);font-size:0.78rem;font-weight:600;display:inline-block">❌ MISSING — Critical for Gen Z students</div>
+      </div>
+    </div>
+
+    <div class="warning-banner" style="margin-top:2rem">
+      <div class="icon">⚠️</div>
+      <div>
+        <div class="text">YouTube has only 186 subscribers with brand-focused content. Missing TikTok entirely. Both platforms are where Gen Z students live.</div>
+        <div class="sub">Your competitors are capturing this attention.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== EMAIL & CONTENT MARKETING ===== -->
+<section id="email">
+  <div class="container reveal">
+    <div class="section-badge">📧 Email & Content<span class="category-tag" style="background:#06b6d422;color:#06b6d4;border:1px solid #06b6d444">📝 CONTENT</span></div>
+    <h2 class="section-title">Email & Content <span class="gradient">Marketing</span></h2>
+    <p class="section-sub">Lead nurture and content engine analysis</p>
+
+    <div class="grid-2">
+      <div class="card">
+        <div style="display:flex;align-items:center;gap:12px;margin-bottom:1.25rem">
+          <div style="width:48px;height:48px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.5rem;background:linear-gradient(135deg,rgba(64,180,229,0.15),rgba(204,34,255,0.15))">📧</div>
+          <div>
+            <div style="font-weight:700;font-size:1.05rem">Email Capture</div>
+            <div style="font-size:0.85rem;color:var(--text-secondary)">Newsletter & Lead Generation</div>
+          </div>
+        </div>
+        <p style="color:var(--text-secondary);font-size:0.9rem;line-height:1.6;margin-bottom:1rem">Basic newsletter signup exists, but no popup, no segmentation, and no automated nurture sequences.</p>
+        <span class="badge" style="background:rgba(239,68,68,0.12);color:var(--red)">BASIC</span>
+      </div>
+      <div class="card">
+        <div style="display:flex;align-items:center;gap:12px;margin-bottom:1.25rem">
+          <div style="width:48px;height:48px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.5rem;background:linear-gradient(135deg,rgba(64,180,229,0.15),rgba(204,34,255,0.15))">📝</div>
+          <div>
+            <div style="font-weight:700;font-size:1.05rem">Blog & Content</div>
+            <div style="font-size:0.85rem;color:var(--text-secondary)">Content Engine Status</div>
+          </div>
+        </div>
+        <p style="color:var(--text-secondary);font-size:0.9rem;line-height:1.6;margin-bottom:1rem">Minimal content, not optimized for SEO. No resource library, no downloadable guides for students or parents.</p>
+        <span class="badge" style="background:rgba(239,68,68,0.12);color:var(--red)">WEAK</span>
+      </div>
+      <div class="card">
+        <div style="display:flex;align-items:center;gap:12px;margin-bottom:1.25rem">
+          <div style="width:48px;height:48px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.5rem;background:linear-gradient(135deg,rgba(64,180,229,0.15),rgba(204,34,255,0.15))">🧲</div>
+          <div>
+            <div style="font-weight:700;font-size:1.05rem">Lead Magnets</div>
+            <div style="font-size:0.85rem;color:var(--text-secondary)">Downloadable Resources</div>
+          </div>
+        </div>
+        <p style="color:var(--text-secondary);font-size:0.9rem;line-height:1.6;margin-bottom:1rem">None found. No downloadable guides, no scholarship checklists, no college readiness assessments.</p>
+        <span class="badge" style="background:rgba(239,68,68,0.12);color:var(--red)">MISSING</span>
+      </div>
+      <div class="card" style="display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center">
+        <div style="font-size:3rem;font-weight:900;background:linear-gradient(135deg,var(--red),#dc2626);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:0.5rem">D</div>
+        <div style="font-size:0.75rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--text-muted)">Overall Email & Content Grade</div>
+        <div class="overall-bar" style="width:100%;margin-top:1rem"><div class="fill" style="width:25%"></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== ONLINE REPUTATION ===== -->
+<section id="reputation">
+  <div class="container reveal">
+    <div class="section-badge">⭐ Reputation<span class="category-tag" style="background:#ec489922;color:#ec4899;border:1px solid #ec489944">⭐ REPUTATION</span></div>
+    <h2 class="section-title">Online <span class="gradient">Reputation</span></h2>
+    <p class="section-sub">What people see when they search your brand</p>
+
+    <div class="grid-3">
+      <div class="card" style="text-align:center">
+        <div style="font-size:2.5rem;margin-bottom:0.75rem">⭐</div>
+        <div style="font-weight:700;font-size:1.05rem;margin-bottom:0.5rem">Google Reviews</div>
+        <p style="color:var(--text-secondary);font-size:0.9rem;line-height:1.6">No verified Google reviews found. A nonprofit with 25+ years of impact and thousands of alumni should have hundreds of testimonials driving trust with donors and students alike.</p>
+        <div style="margin-top:1rem;padding:6px 12px;border-radius:8px;background:rgba(239,68,68,0.12);color:var(--red);font-size:0.78rem;font-weight:600;display:inline-block">❌ CRITICAL GAP</div>
+      </div>
+      <div class="card" style="text-align:center">
+        <div style="font-size:2.5rem;margin-bottom:0.75rem">🔍</div>
+        <div style="font-weight:700;font-size:1.05rem;margin-bottom:0.5rem">Yelp</div>
+        <p style="color:var(--text-secondary);font-size:0.9rem;line-height:1.6"><strong style="color:var(--text-primary)">1 review (5★)</strong> on Yelp — that's it. A 25-year organization with real student outcomes has essentially no public social proof. Success stories aren't being collected or amplified anywhere.</p>
+        <div style="margin-top:1rem;padding:6px 12px;border-radius:8px;background:rgba(239,68,68,0.12);color:var(--red);font-size:0.78rem;font-weight:600;display:inline-block">❌ 1 REVIEW TOTAL</div>
+      </div>
+      <div class="card" style="text-align:center">
+        <div style="font-size:2.5rem;margin-bottom:0.75rem">💬</div>
+        <div style="font-weight:700;font-size:1.05rem;margin-bottom:0.5rem">Brand Sentiment</div>
+        <p style="color:var(--text-secondary);font-size:0.9rem;line-height:1.6">Positive but invisible — incredible student outcomes exist but aren't being turned into public testimonials, donor proof, or grant-application social proof.</p>
+        <div style="margin-top:1rem;padding:6px 12px;border-radius:8px;background:rgba(245,158,11,0.12);color:var(--yellow);font-size:0.78rem;font-weight:600;display:inline-block">⚠️ UNDERSOLD</div>
+      </div>
+    </div>
+
+    <!-- Reputation Action Plan -->
+    <div class="card" style="margin-top:2rem;border:1px solid rgba(236,72,153,0.25);background:rgba(236,72,153,0.05)">
+      <div style="display:flex;align-items:center;gap:12px;margin-bottom:1.25rem">
+        <div style="font-size:1.75rem">🚨</div>
+        <div>
+          <div style="font-weight:700;font-size:1.05rem">Reputation Emergency: 1 Review in 25+ Years</div>
+          <div style="font-size:0.85rem;color:var(--text-secondary)">This is the single most fixable high-impact gap in your entire digital presence</div>
+        </div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:0.85rem">
+        <div style="display:flex;align-items:flex-start;gap:10px">
+          <span style="color:var(--red);font-weight:700;flex-shrink:0">→</span>
+          <div style="font-size:0.9rem;color:var(--text-secondary)"><strong style="color:var(--text-primary)">Launch a review generation campaign:</strong> Email past students, families, and alumni asking for Google and Yelp reviews. A simple "Can you share your story?" email to your alumni list could generate 50+ reviews in weeks.</div>
+        </div>
+        <div style="display:flex;align-items:flex-start;gap:10px">
+          <span style="color:var(--red);font-weight:700;flex-shrink:0">→</span>
+          <div style="font-size:0.9rem;color:var(--text-secondary)"><strong style="color:var(--text-primary)">Student success stories = donor fuel:</strong> Testimonials aren't just for marketing — they're essential social proof for grant applications, major donor asks, and partner recruitment. Every story you collect has multi-channel value.</div>
+        </div>
+        <div style="display:flex;align-items:flex-start;gap:10px">
+          <span style="color:var(--red);font-weight:700;flex-shrink:0">→</span>
+          <div style="font-size:0.9rem;color:var(--text-secondary)"><strong style="color:var(--text-primary)">Target: 50+ Google reviews in 6 months.</strong> That alone would transform how prospects and donors perceive the organization when they search your name.</div>
+        </div>
+      </div>
+    </div>
+
+    <div style="text-align:center;margin-top:2.5rem">
+      <div style="font-size:3rem;font-weight:900;background:linear-gradient(135deg,var(--red),#d97706);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:0.5rem">D</div>
+      <div style="font-size:0.75rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--text-muted)">Overall Reputation Grade</div>
+      <div class="overall-bar" style="max-width:400px;margin:1rem auto 0"><div class="fill" style="width:25%"></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 9. HOW BRANDASTIC CAN HELP ===== -->
+<section id="solutions">
+  <div class="container reveal">
+    <div class="section-badge">08 — Problems → Solutions<span class="category-tag" style="background:#0644ED22;color:#0644ED;border:1px solid #0644ED44">🚀 STRATEGY</span></div>
+    <h2 class="section-title">How Brandastic <span class="gradient">Can Help</span></h2>
+    <p class="section-sub">Every problem we identified has a proven solution. Here's the roadmap from where you are to where you need to be.</p>
+<div style="display:flex;flex-direction:column;gap:1.5rem">
+      <div class="ps-row">
+        <div class="ps-card ps-problem"><div class="title">Weak Technical SEO</div><div style="color:var(--text-secondary);font-size:0.85rem">Minimal foundational optimization — schema, canonicals, H1 tags all missing</div></div>
+        <div class="ps-arrow">→</div>
+        <div class="ps-card ps-solution"><div class="title">Full Technical Overhaul</div><div style="color:var(--text-secondary);font-size:0.85rem">Complete site audit, schema markup, cache fixes, canonical tags, H1 optimization</div></div>
+      </div>
+      <div class="ps-row">
+        <div class="ps-card ps-problem"><div class="title">No Digital Marketing Strategy</div><div style="color:var(--text-secondary);font-size:0.85rem">Zero Google Ads, zero organic SEO — entirely dependent on direct traffic and referrals</div></div>
+        <div class="ps-arrow">→</div>
+        <div class="ps-card ps-solution"><div class="title">Google Ad Grants (Up to $10K/mo Free)</div><div style="color:var(--text-secondary);font-size:0.85rem">Free awareness & top-of-funnel traffic — lets you redirect paid budget to high-converting keywords</div></div>
+      </div>
+      <div class="ps-row">
+        <div class="ps-card ps-problem"><div class="title">Weak Content Strategy</div><div style="color:var(--text-secondary);font-size:0.85rem">Missing 18K+ monthly searches from users actively looking for their services</div></div>
+        <div class="ps-arrow">→</div>
+        <div class="ps-card ps-solution"><div class="title">Targeted Content for 18K+ Searches</div><div style="color:var(--text-secondary);font-size:0.85rem">FAFSA guides, college prep resources, financial aid content that ranks</div></div>
+      </div>
+      <div class="ps-row">
+        <div class="ps-card ps-problem"><div class="title">Weak Local SEO Presence</div><div style="color:var(--text-secondary);font-size:0.85rem">Invisible in Syracuse and expansion markets for local searches</div></div>
+        <div class="ps-arrow">→</div>
+        <div class="ps-card ps-solution"><div class="title">Syracuse + Expansion Market Domination</div><div style="color:var(--text-secondary);font-size:0.85rem">Google Business Profile, local citations, geo-targeted content</div></div>
+      </div>
+      <div class="ps-row">
+        <div class="ps-card ps-problem"><div class="title">Weak Schema Markup</div><div style="color:var(--text-secondary);font-size:0.85rem">Missing rich snippets, event markup, FAQ schema — invisible in enhanced results</div></div>
+        <div class="ps-arrow">→</div>
+        <div class="ps-card ps-solution"><div class="title">Rich Snippet Optimization</div><div style="color:var(--text-secondary);font-size:0.85rem">Nonprofit, Event, FAQ, and Organization schema for enhanced SERP presence</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 11. TOP 5 CRITICAL FINDINGS ===== -->
+<section id="findings">
+  <div class="container reveal">
+    <div class="section-badge">10 — Critical Findings<span class="category-tag" style="background:#0644ED22;color:#0644ED;border:1px solid #0644ED44">🚀 STRATEGY</span></div>
+    <h2 class="section-title">Top 5 <span class="gradient">Issues</span></h2>
+    <p class="section-sub">The most impactful problems holding back your digital growth, ranked by severity.</p>
+    <div style="display:flex;flex-direction:column;gap:1rem">
+      <div class="card finding-card">
+        <div class="finding-num critical">1</div>
+        <div><div class="title">Google Ad Grants Not Utilized</div><div class="desc">As an eligible nonprofit, you qualify for up to $10K/mo in free Google Ads. The $5 CPC cap means competitive keywords are off-limits, and you must maintain 5% CTR or lose the grant. But it's ideal for branded and awareness traffic — and frees your paid budget for the keywords that actually convert.</div></div>
+      </div>
+      <div class="card finding-card">
+        <div class="finding-num critical">2</div>
+        <div><div class="title">Weak Technical SEO Foundation</div><div class="desc">Minimal schema markup, broken canonical tags, missing H1 structures, no XML sitemap optimization. The site is essentially invisible to search engine crawlers.</div></div>
+      </div>
+      <div class="card finding-card">
+        <div class="finding-num critical">3</div>
+        <div><div class="title">Destructive Cache Policy</div><div class="desc">Current caching configuration is actively hurting page speed and crawl efficiency, damaging your rankings potential.</div></div>
+      </div>
+      <div class="card finding-card">
+        <div class="finding-num high">4</div>
+        <div><div class="title">No Organic Foundation</div><div class="desc">No organic traffic strategy and no paid campaigns. Entirely reliant on word-of-mouth and direct visits. A proper SEO + social media strategy would transform their reach.</div></div>
+      </div>
+      <div class="card finding-card">
+        <div class="finding-num high">5</div>
+        <div><div class="title">Brand-Only Organic Traffic</div><div class="desc">People only find you if they already know your name. You're completely invisible to the audiences searching for your exact services — especially high-intent first-gen keywords.</div></div>
+      </div>
+      <div class="card finding-card">
+        <div class="finding-num high">6</div>
+        <div><div class="title">Zero Reputation Infrastructure — 1 Review in 25+ Years</div><div class="desc">Only 1 Yelp review (5★) and no verified Google reviews for an organization that has served thousands of students. No review generation strategy, no testimonial collection, no social proof for donors or grant applications. This is the lowest-effort, highest-impact fix available.</div></div>
+      </div>
+    </div>
+  </div>
+<div style="text-align:center;margin-top:1.5rem;padding-top:1rem;border-top:1px solid rgba(255,255,255,0.06);font-size:0.75rem;color:var(--text-muted)">
+  Data sources: <a href="https://pagespeed.web.dev" target="_blank" style="color:var(--text-muted);text-decoration:underline">Google PageSpeed Insights</a> · Screaming Frog · Manual site audit · Accessed May 2026
+</div>
+</section>
+
+<!-- ===== 12. STRATEGY PREVIEW ===== -->
+<section id="strategy" style="position:relative"><div class="presenter-marker" onclick="this.classList.toggle('open')"><div class="pm-icon">📋</div><div class="pm-tooltip">🎯 Pitch: Technical SEO + content strategy to build organic engine. Reduce paid dependency over 6-12 months. Google Ad Grants can supplement ($5 CPC cap, must maintain 5% CTR)</div></div>
+  <div class="container reveal">
+    <div class="section-badge">11 — Strategy Preview<span class="category-tag" style="background:#0644ED22;color:#0644ED;border:1px solid #0644ED44">🚀 STRATEGY</span></div>
+    <h2 class="section-title">What It <span class="gradient">Could Look Like</span></h2>
+    <p class="section-sub">Four strategic pillars designed to transform your digital presence from invisible to indispensable.</p>
+    <div class="grid-4">
+      <div class="card strategy-card">
+        <div class="icon">🎯</div>
+        <div class="title">Google Ad Grants Activation</div>
+        <div class="desc">Apply for Grants and carefully manage within the $5 CPC cap and 5% CTR requirement. Use for branded and awareness terms — then redirect paid budget to competitive keywords that convert.</div>
+        <div class="outcome">Free awareness traffic + smarter paid allocation</div>
+      </div>
+      <div class="card strategy-card">
+        <div class="icon">⚡</div>
+        <div class="title">Technical SEO Overhaul</div>
+        <div class="desc">Schema markup, cache fixes, canonical tags, H1 structure, sitemap optimization — build the foundation right.</div>
+        <div class="outcome">3-5x crawl efficiency improvement</div>
+      </div>
+      <div class="card strategy-card">
+        <div class="icon">📝</div>
+        <div class="title">Content Strategy</div>
+        <div class="desc">First-gen college guides, student success stories, and support program content targeting 16K+ monthly searches your exact audience is making.</div>
+        <div class="outcome">16K+ new monthly first-gen search captures</div>
+      </div>
+      <div class="card strategy-card">
+        <div class="icon">📍</div>
+        <div class="title">Local SEO Domination</div>
+        <div class="desc">Own Syracuse and expansion markets. Google Business Profile, local citations, geo-targeted landing pages.</div>
+        <div class="outcome">Top 3 local rankings in target markets</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 13. 6-MONTH ROADMAP ===== -->
+<section id="roadmap">
+  <div class="container reveal">
+    <div class="section-badge">12 — Growth Roadmap<span class="category-tag" style="background:#0644ED22;color:#0644ED;border:1px solid #0644ED44">🚀 STRATEGY</span></div>
+    <h2 class="section-title">6-Month <span class="gradient">Plan</span></h2>
+    <p class="section-sub">A phased approach to maximum impact — building the foundation first, then scaling aggressively.</p>
+    <div class="timeline">
+      <div class="timeline-phase">
+        <div class="timeline-dot"></div>
+        <div class="phase-label">Month 1–2</div>
+        <div class="phase-title">Foundation</div>
+        <ul class="phase-items">
+          <li>Full technical SEO audit & fixes</li>
+          <li>Google Ad Grants application</li>
+          <li>Schema markup implementation</li>
+          <li>Cache & performance optimization</li>
+          <li>First-gen keyword research & content plan</li>
+          <li>Google Business Profile & review setup</li>
+        </ul>
+      </div>
+      <div class="timeline-phase">
+        <div class="timeline-dot"></div>
+        <div class="phase-label">Month 3–4</div>
+        <div class="phase-title">Content & Authority</div>
+        <ul class="phase-items">
+          <li>Launch first-gen focused content strategy</li>
+          <li>First-gen college guides & success stories</li>
+          <li>Review generation campaign (target: 50+ Google reviews)</li>
+          <li>Local SEO setup & optimization</li>
+          <li>Google Ad Grants campaign launch</li>
+        </ul>
+      </div>
+      <div class="timeline-phase">
+        <div class="timeline-dot"></div>
+        <div class="phase-label">Month 5–6</div>
+        <div class="phase-title">Scale & Optimize</div>
+        <ul class="phase-items">
+          <li>Scale Ad Grants to max budget</li>
+          <li>Expand content to new topics</li>
+          <li>Expansion market targeting</li>
+          <li>Conversion rate optimization</li>
+          <li>Performance reporting & iteration</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 14. PROJECTED ROI ===== -->
+<section id="roi">
+  <div class="container reveal">
+    <div class="section-badge">13 — Projected ROI<span class="category-tag" style="background:#0644ED22;color:#0644ED;border:1px solid #0644ED44">🚀 STRATEGY</span></div>
+    <h2 class="section-title">The <span class="gradient">Transformation</span></h2>
+    <p class="section-sub">Conservative projections based on implementing our recommended strategy over 6 months.</p>
+    <div class="roi-grid">
+      <div class="card roi-card">
+        <div class="label">Monthly Traffic</div>
+        <div class="before">916/mo</div>
+        <div class="arrow">↓</div>
+        <div class="after" data-count="5000" data-suffix="/mo">0</div>
+      </div>
+      <div class="card roi-card">
+        <div class="label">Organic Keywords</div>
+        <div class="before">388</div>
+        <div class="arrow">↓</div>
+        <div class="after" data-count="1200">0</div>
+      </div>
+      <div class="card roi-card">
+        <div class="label">Traffic Value</div>
+        <div class="before">$703/mo</div>
+        <div class="arrow">↓</div>
+        <div class="after" data-count="5000" data-prefix="$" data-suffix="/mo">0</div>
+      </div>
+      <div class="card roi-card">
+        <div class="label">Ad Grants Value</div>
+        <div class="before">$0/mo</div>
+        <div class="arrow">↓</div>
+        <div class="after" data-count="10000" data-prefix="$" data-suffix="/mo">0</div>
+      </div>
+      <div class="card roi-card">
+        <div class="label">Annual Savings</div>
+        <div class="before">$0</div>
+        <div class="arrow">↓</div>
+        <div class="after" data-count="50000" data-prefix="$" data-suffix="+/yr">0</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 15. WHY BRANDASTIC + NEXT STEPS ===== -->
+<section class="cta-section" id="cta">
+  <div class="container reveal">
+    <div class="section-badge">Sparked By Creativity, Fueled By Results.<span class="category-tag" style="background:#0644ED22;color:#0644ED;border:1px solid #0644ED44">🚀 STRATEGY</span></div>
+    <h2 class="section-title">Why <span class="gradient">Brandastic?</span></h2>
+
+    <!-- Stats Bar -->
+    <div class="stats-bar">
+      <div class="stat-card"><div class="stat-num">15+</div><div class="stat-label">Years in Business</div></div>
+      <div class="stat-card"><div class="stat-num">450+</div><div class="stat-label">Clients Served</div></div>
+      <div class="stat-card"><div class="stat-num">118x</div><div class="stat-label">Best ROAS Achieved</div></div>
+      <div class="stat-card"><div class="stat-num">48x</div><div class="stat-label">Average Top ROAS</div></div>
+    </div>
+
+    <!-- Value Prop Cards -->
+    <div class="value-cards">
+      <div class="value-card"><h4>Full-Service Digital</h4><p>From brand discovery to PPC, SEO, social media, and web development — one partner for everything.</p></div>
+      <div class="value-card"><h4>Data-Driven Results</h4><p>48x ROAS for Mono B. 118x ROAS for CalOPS. 33x ROAS for DESS. We don't guess — we deliver.</p></div>
+      <div class="value-card"><h4>15+ Years of Expertise</h4><p>450+ clients across healthcare, education, fashion, dental, and enterprise. We become your industry experts.</p></div>
+      <div class="value-card"><h4>Award-Winning Agency</h4><p>Sparked by creativity, fueled by results. Orange County's premier digital marketing agency.</p></div>
+    </div>
+
+    <!-- Client Logos -->
+    
+
+    <!-- Awards -->
+    
+
+    <!-- Testimonial -->
+    <!-- CLIENT REVIEWS --><div class="reviews-wrap">
+    <div style="text-align:center;margin:4rem 0 2rem">
+      <div style="display:inline-flex;align-items:center;gap:8px;margin-bottom:1rem">
+        <svg width="24" height="24" viewBox="0 0 24 24"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 01-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+        <span style="color:#FBBC05;font-size:1.1rem">★★★★★</span>
+        <span style="color:var(--text-muted);font-size:0.9rem">5.0</span>
+      </div>
+      <h3 style="font-size:clamp(1.8rem,4vw,2.5rem);font-weight:800;margin-bottom:0.5rem">What Our Clients Say</h3>
+      <p style="margin-bottom:2rem"><a href="https://shorturl.at/wViCP" target="_blank" style="color:var(--accent-light);text-decoration:none;font-size:0.9rem">40+ Five-Star Reviews on Google →</a></p>
+    </div>
+    <div style="display:flex;gap:24px;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;padding:0 4px 20px;scrollbar-width:none;margin-bottom:3rem">
+      <div class="card" style="flex:0 0 380px;scroll-snap-align:start;padding:36px 32px;text-align:left;border:1px solid rgba(64,180,229,0.15)">
+        <div style="font-size:48px;line-height:1;color:var(--accent-light);opacity:0.4;font-family:Georgia,serif;margin-bottom:12px">"</div>
+        <p style="color:var(--text-secondary);font-size:0.95rem;line-height:1.7;margin-bottom:1.5rem">Brandastic has been a fantastic agency to work with. They've made significant improvements in our company's digital presence and overall performance. A special shout-out to Tri and Aimee!</p>
+        <p style="font-weight:600;font-size:0.9rem;margin-bottom:4px">Cinthya Baez</p>
+        <div style="display:flex;gap:2px"><span style="color:#FBBC05">★★★★★</span></div>
+      </div>
+      <div class="card" style="flex:0 0 380px;scroll-snap-align:start;padding:36px 32px;text-align:left;border:1px solid rgba(64,180,229,0.15)">
+        <div style="font-size:48px;line-height:1;color:var(--accent-light);opacity:0.4;font-family:Georgia,serif;margin-bottom:12px">"</div>
+        <p style="color:var(--text-secondary);font-size:0.95rem;line-height:1.7;margin-bottom:1.5rem">I had the pleasure of working with Ben at Brandastic, and I can't say enough good things about the experience. From start to finish, Ben was incredibly helpful, professional, and attentive.</p>
+        <p style="font-weight:600;font-size:0.9rem;margin-bottom:4px">Pedro Matabuena</p>
+        <div style="display:flex;gap:2px"><span style="color:#FBBC05">★★★★★</span></div>
+      </div>
+      <div class="card" style="flex:0 0 380px;scroll-snap-align:start;padding:36px 32px;text-align:left;border:1px solid rgba(64,180,229,0.15)">
+        <div style="font-size:48px;line-height:1;color:var(--accent-light);opacity:0.4;font-family:Georgia,serif;margin-bottom:12px">"</div>
+        <p style="color:var(--text-secondary);font-size:0.95rem;line-height:1.7;margin-bottom:1.5rem">I have worked with Lachelle and Justin now for over 5 years, and I have to say they are hands down the best marketing company we have used.</p>
+        <p style="font-weight:600;font-size:0.9rem;margin-bottom:4px">Corey S</p>
+        <div style="display:flex;gap:2px"><span style="color:#FBBC05">★★★★★</span></div>
+      </div>
+      <div class="card" style="flex:0 0 380px;scroll-snap-align:start;padding:36px 32px;text-align:left;border:1px solid rgba(64,180,229,0.15)">
+        <div style="font-size:48px;line-height:1;color:var(--accent-light);opacity:0.4;font-family:Georgia,serif;margin-bottom:12px">"</div>
+        <p style="color:var(--text-secondary);font-size:0.95rem;line-height:1.7;margin-bottom:1.5rem">Working with the Brandastic team has been excellent. They are very responsive and have great marketing ideas and strategies! Looking forward to many more years of partnership!</p>
+        <p style="font-weight:600;font-size:0.9rem;margin-bottom:4px">Haziel Mitchell</p>
+        <p style="color:var(--text-muted);font-size:0.8rem;margin-bottom:4px">Director of Marketing & Sales, Ricoh</p>
+        <div style="display:flex;gap:2px"><span style="color:#FBBC05">★★★★★</span></div>
+      </div>
+    </div>
+
+</div>
+    <div style="margin-top:2rem;display:flex;align-items:center;gap:2rem;flex-wrap:wrap">
+      <p style="color:var(--text-muted);font-size:0.55rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;white-space:nowrap;margin:0">Brands Who Trust Us</p>
+                        <div style="display:flex;align-items:center;gap:2.5rem;flex-wrap:wrap;flex:1" class="logo-row">
+        <img src="images/logos/ricoh-color.webp" alt="Ricoh" style="height:40px;opacity:0.8">
+        <img src="images/logos/orangetheory-color.webp" alt="Orangetheory Fitness" style="height:40px;opacity:0.8">
+        <img src="images/logos/ufcgym-color.webp" alt="UFC Gym" style="height:40px;opacity:0.8">
+        <img src="images/logos/pocky-color.webp" alt="Pocky" style="height:40px;opacity:0.8">
+        <img src="images/logos/kia-color.webp" alt="KIA" style="height:40px;opacity:0.8">
+        <img src="images/logos/meathead-movers.webp" alt="Meathead Movers" style="height:40px;opacity:0.8">
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+if('scrollRestoration' in history) history.scrollRestoration='manual';
+window.scrollTo(0,0);
+/* ========== THEME ========== */
+function getPreferredTheme(){const s=localStorage.getItem('brandastic-theme');if(s)return s;return 'light'}
+function applyTheme(t){document.documentElement.setAttribute('data-theme',t);localStorage.setItem('brandastic-theme',t);document.querySelector('.theme-icon-dark').style.display=t==='dark'?'block':'none';document.querySelector('.theme-icon-light').style.display=t==='light'?'block':'none';updateCharts()}
+function toggleTheme(){applyTheme(document.documentElement.getAttribute('data-theme')==='dark'?'light':'dark')}
+applyTheme(getPreferredTheme());
+
+/* ========== INTERSECTION OBSERVER ========== */
+/* old reveal observer removed - upgraded version in UX upgrade block */
+
+/* ========== ANIMATED COUNTERS ========== */
+function animateCounter(el,target,prefix='',suffix=''){
+  const duration=2000;const start=performance.now();
+  const fmt=n=>n>=1000000?(n/1000000).toFixed(1)+'M':n>=10000?Math.round(n).toLocaleString():n.toLocaleString();
+  function step(now){
+    const p=Math.min((now-start)/duration,1);
+    const eased=1-Math.pow(1-p,3);
+    el.textContent=prefix+fmt(Math.round(target*eased))+suffix;
+    if(p<1)requestAnimationFrame(step);
+  }
+  requestAnimationFrame(step);
+}
+const counterObs=new IntersectionObserver((entries)=>{entries.forEach(e=>{if(e.isIntersecting){const t=parseInt(e.target.dataset.count);const p=e.target.dataset.prefix||'';const s=e.target.dataset.suffix||'';animateCounter(e.target,t,p,s);counterObs.unobserve(e.target)}})},{threshold:0.3});
+document.querySelectorAll('[data-count]').forEach(el=>counterObs.observe(el));setTimeout(()=>{document.querySelectorAll('[data-count]').forEach(el=>{if(el.textContent==='0'){const t=parseInt(el.dataset.count);if(!t)return;const p=el.dataset.prefix||'';const s=el.dataset.suffix||'';animateCounter(el,t,p,s)}})},2000);
+
+/* ========== SCORE RINGS ========== */
+const ringObs=new IntersectionObserver((entries)=>{entries.forEach(e=>{if(e.isIntersecting){e.target.querySelectorAll('.fg[data-target]').forEach(fg=>{fg.style.strokeDashoffset=fg.dataset.target});ringObs.unobserve(e.target)}})},{threshold:0.3});
+document.querySelectorAll('#scorecard .container').forEach(el=>ringObs.observe(el));setTimeout(()=>{document.querySelectorAll('.fg[data-target]').forEach(fg=>{fg.style.strokeDashoffset=fg.dataset.target})},2000);
+
+/* ========== OVERALL BAR ========== */
+const barObs=new IntersectionObserver((entries)=>{entries.forEach(e=>{if(e.isIntersecting){e.target.querySelector('.fill').style.width=e.target.querySelector('.fill').dataset.target+'%';barObs.unobserve(e.target)}})},{threshold:0.3});
+document.querySelectorAll('.overall-bar').forEach(el=>barObs.observe(el));setTimeout(()=>{document.querySelectorAll('.overall-bar .fill').forEach(el=>{if(el.style.width==='0%')el.style.width=el.dataset.target+'%'})},2000);
+
+/* ========== CHARTS ========== */
+var trafficChart,competitorChart;
+function isDark(){return document.documentElement.getAttribute('data-theme')==='dark';}
+function chartColors(){var d=isDark();return{grid:d?'rgba(255,255,255,0.06)':'rgba(0,0,0,0.06)',text:d?'rgba(255,255,255,0.5)':'rgba(0,0,0,0.5)'}}
+
+function createTrafficChart(){
+  const ctx=document.getElementById('trafficChart').getContext('2d');
+  const c=chartColors();
+  trafficChart=new Chart(ctx,{
+    type:'line',
+    data:{
+      labels:['May 25','Jun','Jul','Aug','Sep','Oct','Nov','Dec','Jan 26','Feb','Mar','Apr'],
+      datasets:[
+        {label:'Traffic',data:[1344,1780,1867,3796,3871,1302,1247,729,741,693,660,926],borderColor:'#40B4E5',backgroundColor:'rgba(64,180,229,0.1)',fill:true,tension:0.4,pointRadius:8,pointHoverRadius:12,pointBackgroundColor:'#40B4E5',yAxisID:'y'},
+        {label:'Keywords',data:[573,560,481,426,496,503,505,528,554,575,471,389],borderColor:'#CC22FF',backgroundColor:'rgba(204,34,255,0.1)',fill:true,tension:0.4,pointRadius:8,pointHoverRadius:12,pointBackgroundColor:'#CC22FF',yAxisID:'y1'}
+      ]
+    },
+    options:{
+      responsive:true,animation:{duration:2000,easing:'easeOutQuart'},
+      plugins:{legend:{labels:{color:c.text,font:{family:'Inter'}}}},
+      scales:{
+        x:{grid:{color:c.grid},ticks:{color:c.text,font:{family:'Inter'}}},
+        y:{position:'left',grid:{color:c.grid},ticks:{color:c.text,font:{family:'Inter'}},title:{display:true,text:'Traffic',color:c.text,font:{family:'Inter'}}},
+        y1:{position:'right',grid:{display:false},ticks:{color:c.text,font:{family:'Inter'}},title:{display:true,text:'Keywords',color:c.text,font:{family:'Inter'}}}
+      }
+    }
+  });
+}
+function createCompetitorChart(){
+  const ctx=document.getElementById('competitorChart').getContext('2d');
+  const c=chartColors();
+  competitorChart=new Chart(ctx,{
+    type:'bar',
+    data:{
+      labels:['On Point for College','collegepossible.org','firstgenforward.org','imentor.org'],
+      datasets:[
+        {label:'Keywords',data:[388,183,260,429],backgroundColor:['rgba(64,180,229,0.8)','rgba(100,116,139,0.3)','rgba(100,116,139,0.3)','rgba(100,116,139,0.3)']},
+        {label:'Traffic',data:[916,5231,890,2730],backgroundColor:['rgba(204,34,255,0.8)','rgba(100,116,139,0.2)','rgba(100,116,139,0.2)','rgba(100,116,139,0.2)']},
+        
+      ]
+    },
+    options:{
+      indexAxis:'y',responsive:true,animation:{duration:2000,easing:'easeOutQuart'},
+      plugins:{legend:{labels:{color:c.text,font:{family:'Inter'}}}},
+      scales:{
+        x:{grid:{color:c.grid},ticks:{color:c.text,font:{family:'Inter'}}},
+        y:{grid:{color:c.grid},ticks:{color:c.text,font:{family:'Inter',size:11}}}
+      }
+    }
+  });
+}
+function updateCharts(){
+  const c=chartColors();
+  [trafficChart,competitorChart].forEach(ch=>{
+    if(!ch)return;
+    Object.keys(ch.options.scales).forEach(k=>{
+      if(ch.options.scales[k].grid)ch.options.scales[k].grid.color=c.grid;
+      if(ch.options.scales[k].ticks)ch.options.scales[k].ticks.color=c.text;
+      if(ch.options.scales[k].title)ch.options.scales[k].title.color=c.text;
+    });
+    ch.options.plugins.legend.labels.color=c.text;
+    ch.update();
+  });
+}
+
+/* Lazy init charts on scroll */
+const chartObs=new IntersectionObserver((entries)=>{entries.forEach(e=>{if(e.isIntersecting){
+  if(e.target.id==='trafficChart'&&!trafficChart)createTrafficChart();
+  if(e.target.id==='competitorChart'&&!competitorChart)createCompetitorChart();
+  chartObs.unobserve(e.target);
+}})},{threshold:0.1});
+document.querySelectorAll('canvas').forEach(el=>chartObs.observe(el));
+window.addEventListener("load",function(){setTimeout(function(){if(!trafficChart)createTrafficChart();if(!competitorChart)createCompetitorChart();},300);});
+window.addEventListener("DOMContentLoaded",function(){setTimeout(function(){if(!trafficChart)createTrafficChart();if(!competitorChart)createCompetitorChart();},1000);});
+document.addEventListener("scroll",function(){if(!trafficChart)createTrafficChart();if(!competitorChart)createCompetitorChart();},{once:true});
+
+/* ========== SIDE DOT NAV ========== */
+(function(){
+  const sections = document.querySelectorAll('section[id]');
+  const nav = document.querySelector('.side-nav');
+  if(!nav || !sections.length) return;
+  const dots = nav.querySelectorAll('.side-nav-dot');
+
+  /* Click → smooth scroll */
+  dots.forEach(dot => {
+    dot.addEventListener('click', () => {
+      const target = document.getElementById(dot.dataset.section);
+      if(target){window.scrollTo({top:target.offsetTop-80,behavior:'instant'});}
+    });
+  });
+
+  /* IntersectionObserver → active dot */
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if(e.isIntersecting){
+        dots.forEach(d => d.classList.remove('active'));
+        const active = nav.querySelector('[data-section="'+e.target.id+'"]');
+        if(active) active.classList.add('active');
+      }
+    });
+  }, {rootMargin:'-20% 0px -70% 0px'});
+  sections.forEach(s => obs.observe(s));
+})();
+
+
+/* ========== 10x UX UPGRADE JS ========== */
+
+/* --- 1. Smooth Scroll Reveal (replace old observer) --- */
+(function(){
+  // Remove old observers that add 'visible' class and use new 'active' class
+  const revealObs = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if(e.isIntersecting) {
+        e.target.classList.add('active');
+        // Don't unobserve - we need to track for TOC
+      }
+    });
+  }, {threshold:0.05, rootMargin:'50px'});
+  document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
+  // Fallback
+  setTimeout(() => {
+    document.querySelectorAll('.reveal:not(.active)').forEach(el => el.classList.add('active'));
+  }, 3000);
+})();
+
+/* --- 2. Reading Progress Bar --- */
+(function(){
+  const bar = document.createElement('div');
+  bar.className = 'reading-progress';
+  document.body.appendChild(bar);
+  window.addEventListener('scroll', () => {
+    const scrollTop = window.scrollY;
+    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    bar.style.width = (scrollTop / docHeight * 100) + '%';
+  }, {passive:true});
+})();
+
+/* --- 3. Sticky Section Pill --- */
+(function(){
+  const pill = document.createElement('div');
+  pill.className = 'section-pill';
+  document.body.appendChild(pill);
+  const sections = document.querySelectorAll('section[id]');
+  const sectionNames = {};
+  sections.forEach(s => {
+    const badge = s.querySelector('.section-badge');
+    const title = s.querySelector('.section-title');
+    sectionNames[s.id] = badge ? badge.textContent.trim() : (title ? title.textContent.trim().substring(0,40) : s.id);
+  });
+  let currentSection = '';
+  const navTitle = document.getElementById('navSlideTitle');
+  const pillObs = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if(e.isIntersecting && e.target.id) {
+        currentSection = sectionNames[e.target.id] || e.target.id;
+        pill.textContent = currentSection;
+        pill.classList.add('visible');
+        if(navTitle && !document.body.classList.contains('slide-mode')) {
+          navTitle.textContent = currentSection;
+          navTitle.classList.add('visible'); document.body.classList.add('nav-title-active');
+        }
+      }
+    });
+  }, {rootMargin:'-80px 0px -85% 0px'});
+  sections.forEach(s => pillObs.observe(s));
+  // Hide pill at top
+  window.addEventListener('scroll', () => {
+    if(window.scrollY < 200) { pill.classList.remove('visible'); if(navTitle) navTitle.classList.remove('visible'); document.body.classList.remove('nav-title-active'); }
+  }, {passive:true});
+})();
+
+
+
+/* --- 5. Gradient Section Dividers --- */
+(function(){
+  const sections = document.querySelectorAll('section[id]');
+  sections.forEach((s, i) => {
+    if(i === 0) return; // skip hero
+    const divider = document.createElement('div');
+    divider.className = 'gradient-divider';
+    s.parentNode.insertBefore(divider, s);
+  });
+  const divObs = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if(e.isIntersecting) {
+        e.target.classList.add('active');
+        divObs.unobserve(e.target);
+      }
+    });
+  }, {threshold:0.5});
+  document.querySelectorAll('.gradient-divider').forEach(d => divObs.observe(d));
+})();
+
+/* --- 6. Chart Hints --- */
+(function(){
+  document.querySelectorAll('.chart-wrap').forEach(wrap => {
+    const hint = document.createElement('div');
+    hint.className = 'chart-hint';
+    hint.textContent = 'Hover over chart for details';
+    wrap.appendChild(hint);
+  });
+})();
+
+/* --- 7. CTA Pulse --- */
+(function(){
+  const ctaObs = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if(e.isIntersecting) {
+        e.target.querySelectorAll('.cta-btn').forEach(btn => btn.classList.add('pulse'));
+      }
+    });
+  }, {threshold:0.3});
+  document.querySelectorAll('.cta-section, #cta').forEach(s => ctaObs.observe(s));
+  // Also pulse the last section's CTA
+  const lastSection = document.querySelector('section:last-of-type');
+  if(lastSection) ctaObs.observe(lastSection);
+})();
+
+/* --- 8. Score Ring Animation (upgrade existing) --- */
+(function(){
+  const allRingObs = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if(e.isIntersecting) {
+        e.target.querySelectorAll('.fg[data-target]').forEach(fg => {
+          // Animate from full dasharray to target
+          fg.style.strokeDashoffset = '327';
+          requestAnimationFrame(() => {
+            requestAnimationFrame(() => {
+              fg.style.strokeDashoffset = fg.dataset.target;
+            });
+          });
+        });
+        allRingObs.unobserve(e.target);
+      }
+    });
+  }, {threshold:0.2});
+  // Observe all sections with score rings, not just #scorecard
+  document.querySelectorAll('section').forEach(s => {
+    if(s.querySelector('.score-ring')) allRingObs.observe(s);
+  });
+})();
+
+/* --- 9. Overall Bar Animation (upgrade existing) --- */
+(function(){
+  document.querySelectorAll('.overall-bar .fill[data-target]').forEach(fill => {
+    fill.style.width = '0%';
+  });
+  const allBarObs = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if(e.isIntersecting) {
+        const fill = e.target.querySelector('.fill[data-target]');
+        if(fill) {
+          fill.style.width = fill.dataset.target + '%';
+        }
+        allBarObs.unobserve(e.target);
+      }
+    });
+  }, {threshold:0.3});
+  document.querySelectorAll('.overall-bar').forEach(el => allBarObs.observe(el));
+})();
+
+/* --- 10. PDF: Canvas to Image for Print --- */
+window.addEventListener('beforeprint', () => {
+  document.querySelectorAll('canvas').forEach(canvas => {
+    try {
+      const img = document.createElement('img');
+      img.src = canvas.toDataURL('image/png');
+      img.style.width = '100%';
+      img.className = 'chart-print-img';
+      canvas.style.display = 'none';
+      canvas.parentNode.insertBefore(img, canvas);
+    } catch(e) { /* cross-origin canvas, skip */ }
+  });
+});
+window.addEventListener('afterprint', () => {
+  document.querySelectorAll('.chart-print-img').forEach(img => img.remove());
+  document.querySelectorAll('canvas').forEach(c => c.style.display = '');
+});
+
+</script>
+
+<!-- THANK YOU + NEXT STEPS + CONTACT -->
+<section style="padding:5rem 2rem;background:var(--bg-secondary);text-align:center">
+  <div class="container" style="max-width:900px">
+    <h2 style="font-size:clamp(2rem,5vw,3.5rem);font-weight:900;letter-spacing:-0.03em;margin-bottom:2.5rem">
+      <span class="gradient">Next Steps</span>
+    </h2>
+    <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:2rem;margin-bottom:3rem">
+      <div class="card" style="flex:1;min-width:200px;max-width:260px;padding:1.5rem;text-align:center">
+        <div style="width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,#40B4E5,#CC22FF);display:flex;align-items:center;justify-content:center;margin:0 auto 0.75rem;font-weight:800;color:#fff;font-size:1.1rem">1</div>
+        <div style="font-weight:700;margin-bottom:0.25rem">Kickoff Call</div>
+        <div style="color:var(--text-muted);font-size:0.85rem">We're here — reviewing your audit and discussing goals</div>
+      </div>
+      <div class="card" style="flex:1;min-width:200px;max-width:260px;padding:1.5rem;text-align:center">
+        <div style="width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,#40B4E5,#CC22FF);display:flex;align-items:center;justify-content:center;margin:0 auto 0.75rem;font-weight:800;color:#fff;font-size:1.1rem">2</div>
+        <div style="font-weight:700;margin-bottom:0.25rem">Roadmap Review</div>
+        <div style="color:var(--text-muted);font-size:0.85rem">Custom strategy roadmap tailored to your goals and budget</div>
+      </div>
+      <div class="card" style="flex:1;min-width:200px;max-width:260px;padding:1.5rem;text-align:center">
+        <div style="width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,#40B4E5,#CC22FF);display:flex;align-items:center;justify-content:center;margin:0 auto 0.75rem;font-weight:800;color:#fff;font-size:1.1rem">3</div>
+        <div style="font-weight:700;margin-bottom:0.25rem">Proposal</div>
+        <div style="color:var(--text-muted);font-size:0.85rem">Detailed scope, timeline, investment, and expected results</div>
+      </div>
+    </div>
+    <div style="display:flex;align-items:center;justify-content:center;gap:1.5rem;flex-wrap:wrap;padding:2rem;border-radius:16px;background:var(--bg-card);border:1px solid var(--bg-card-border)">
+      <img src="https://brandastic.com/wp-content/uploads/2024/10/justin-evil-laugh.png" alt="Justin Nassie" style="width:80px;height:80px;object-fit:cover;object-position:top;border-radius:50%;flex-shrink:0;-webkit-print-color-adjust:exact;print-color-adjust:exact" loading="lazy">
+      <div style="text-align:left">
+        <div style="font-weight:800;font-size:1.1rem">Justin Nassie</div>
+        <div style="color:var(--text-muted);font-size:0.85rem;margin-bottom:0.25rem">President, Brandastic</div>
+        <div style="display:flex;flex-wrap:wrap;gap:1rem;font-size:0.85rem">
+          <a href="tel:9498928944" style="color:var(--accent-light);text-decoration:none">📱 (949) 892-8944</a>
+          <a href="mailto:justin@brandastic.com" style="color:var(--accent-light);text-decoration:none">✉️ justin@brandastic.com</a>
+        </div>
+      </div>
+    </div>
+    <div style="margin-top:2rem">
+      <a href="https://brandastic.com/contact/" target="_blank" class="cta-btn">Dive Deeper — Let's Talk →</a>
+    </div>
+  </div>
+</section>
+
+<noscript><style>.reveal,.reveal.active{opacity:1!important;transform:none!important;transition:none!important}</style></noscript>
+<!-- ===== PRINT-ONLY: QR CODE ===== -->
+<div class="print-only print-qr" style="display:none">
+  <p><strong>Scan to view the interactive version of this audit:</strong></p>
+  <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https%3A%2F%2Fbrandastic-audit.netlify.app%2Fonpoint.html" alt="QR Code" />
+  <p style="margin-top:0.75rem;font-size:0.8rem;color:#64748b">https://brandastic-audit.netlify.app/onpoint.html</p>
+</div>
+
+<!-- ===== PRINT-ONLY: FOOTER INFO ===== -->
+<div class="print-only" style="display:none;text-align:center;padding:1rem;font-size:0.75rem;color:#64748b;border-top:1px solid #e5e7eb;margin-top:2rem">
+  Brandastic Digital Audit | On Point for College | brandastic.com | (949) 617-2731 | CONFIDENTIAL
+</div>
+
+
+<style id="slide-mode-css">
+/* ===== PRESENTATION SLIDE MODE ===== */
+body.slide-mode { overflow: hidden !important; margin: 0; }
+body.slide-mode .side-nav { display: none !important; }
+body.slide-mode .reading-progress { display: none !important; }
+body.slide-mode .section-pill { display: none !important; }
+body.slide-mode .reveal { opacity: 1 !important; transform: none !important; transition: none !important; }
+body.slide-mode .reveal .card { transition-delay: 0s !important; }
+
+/* Slide viewport */
+.slide-viewport {
+  position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
+  overflow: hidden; z-index: 900;
+  display: none;
+}
+body.slide-mode .slide-viewport { display: block; }
+body.slide-mode > *:not(.slide-viewport):not(.nav):not(.slide-progress):not(.slide-counter):not(.slide-dots):not(.slide-logo):not(.slide-arrow):not(.presenter-notes-panel):not(script):not(style):not(link):not(noscript) {
+  display: none !important;
+}
+body.slide-mode .nav { z-index: 1001; }
+body.slide-mode .watermark { display: none !important; }
+
+.slide-track {
+  display: flex; width: max-content;
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  height: 100vh;
+}
+
+.slide-track > section {
+  width: 100vw !important; min-height: 100vh !important; max-height: 100vh !important;
+  overflow: hidden !important; flex-shrink: 0;
+  box-sizing: border-box;
+  display: flex !important; flex-direction: column; align-items: stretch; justify-content: center; padding-top: 64px !important;
+  position: relative;
+}
+
+/* Clean clip on slides */
+[data-theme="light"] .slide-track > section::after {
+  background: linear-gradient(transparent, var(--bg-primary));
+}
+
+/* ===== AGGRESSIVE COMPACTION ===== */
+body.slide-mode section { padding: 0.5rem 2rem !important; padding-top: 60px !important; padding-bottom: 10px !important; }
+body.slide-mode section.hero { padding: 0 2rem !important; padding-top: 80px !important; padding-bottom: 60px !important; }
+body.slide-mode .container { max-width: 1200px; margin: 0 auto; padding: 0 !important; overflow: hidden !important; }
+body.slide-mode .section-sub { font-size: 1rem !important; margin-bottom: 0.75rem !important; line-height: 1.4 !important; }
+body.slide-mode .section-title { font-size: 1.8rem !important; margin-bottom: 0.3rem !important; margin-top: 0 !important; }
+body.slide-mode .section-subtitle { font-size: 0.95rem !important; margin-bottom: 0.75rem !important; }
+body.slide-mode .section-badge { display: none !important; }
+
+/* Presenter marker slide-mode fix */
+body.slide-mode .presenter-marker {
+  display: block !important;
+  position: absolute !important;
+  top: 70px !important;
+  right: 20px !important;
+  z-index: 1010 !important;
+}
+body.slide-mode .presenter-marker .pm-tooltip {
+  z-index: 1011 !important;
+}
+
+body.slide-mode p { font-size: 1rem !important; line-height: 1.5 !important; margin-bottom: 0.4rem !important; }
+body.slide-mode .card { padding: 0.75rem !important; border-radius: 12px !important; }
+body.slide-mode .card h3 { font-size: 1.1rem !important; margin-bottom: 0.3rem !important; }
+body.slide-mode .card p { font-size: 0.78rem !important; }
+body.slide-mode li { font-size: 0.95rem !important; line-height: 1.4 !important; margin-bottom: 0.15rem !important; }
+body.slide-mode h1 { font-size: 1.6rem !important; }
+body.slide-mode h2 { font-size: 1.3rem !important; }
+body.slide-mode h3 { font-size: 1rem !important; }
+body.slide-mode h4 { font-size: 0.85rem !important; }
+body.slide-mode ul, body.slide-mode ol { font-size: 0.95rem !important; margin: 0.3rem 0 !important; padding-left: 1.2rem !important; }
+body.slide-mode .divider-wave, body.slide-mode .divider-dots { display: none !important; }
+body.slide-mode .data-source { font-size: 0.65rem !important; margin-top: 0.3rem !important; margin-bottom: 0 !important; }
+body.slide-mode .section-subtitle + * { margin-top: 0.5rem !important; }
+
+/* ===== CONTENT FILLS SLIDE VERTICALLY ===== */
+body.slide-mode .slide-track > section > .container {
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: center !important;
+  flex: 0 1 auto !important;
+  max-width: 1200px !important;
+  width: 100% !important;
+  margin: 0 auto !important;
+  overflow: visible !important;
+  gap: 0.5rem !important;
+}
+body.slide-mode .slide-track > section {
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: center !important;
+  align-items: center !important;
+}
+
+/* Grids expand to fill available space */
+body.slide-mode .grid-2,
+body.slide-mode .grid-3 {
+  gap: 1.2rem !important;
+  flex: 1 !important;
+  align-content: stretch !important;
+}
+body.slide-mode .grid-4 {
+  grid-template-columns: repeat(2, 1fr) !important;
+  gap: 1.2rem !important;
+  flex: 1 !important;
+  align-content: stretch !important;
+}
+
+
+
+/* Cards stretch to fill grid cells - no gaps */
+body.slide-mode .grid-4 > .card,
+body.slide-mode .grid-3 > .card,
+body.slide-mode .grid-2 > .card {
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: center !important;
+  height: 100% !important;
+  min-height: 0 !important;
+}
+body.slide-mode .grid-4 > .card .desc,
+body.slide-mode .grid-3 > .card .desc {
+  flex: 1 !important;
+}
+
+/* Stats bar also 2x2 in slide mode */
+body.slide-mode .stats-bar {
+  grid-template-columns: repeat(2, 1fr) !important;
+  gap: 1.2rem !important;
+}
+/* Force 2x2 grid for strategy cards in slide mode */
+body.slide-mode .grid-4.strategy-grid,
+body.slide-mode section#strategy .grid-4 {
+  grid-template-columns: repeat(2, 1fr) !important;
+  gap: 1.5rem !important;
+}
+
+
+/* Score ring cards - compact in slide mode */
+body.slide-mode .score-ring { margin-bottom: 0.25rem !important; }
+body.slide-mode .score-ring .grade { font-size: 1.2rem !important; }
+body.slide-mode section#pagespeed .card[style*="padding:2rem"],
+body.slide-mode section#pagespeed .card[style*="padding: 2rem"] {
+  padding: 0.75rem !important;
+}
+body.slide-mode section#scorecard .card[style*="padding:2rem"],
+body.slide-mode section#scorecard .card[style*="padding: 2rem"] {
+  padding: 0.75rem !important;
+}
+/* Section sub-text and title should not flex-grow */
+body.slide-mode .section-title,
+body.slide-mode .section-sub {
+  flex-shrink: 0 !important;
+}
+
+/* Cards and grids fill remaining space */
+body.slide-mode .grid-2,
+body.slide-mode .grid-3,
+body.slide-mode .grid-4,
+body.slide-mode .card,
+body.slide-mode .chart-wrap,
+body.slide-mode .ps-row {
+  flex: 1 1 auto !important;
+  min-height: 0 !important;
+}
+
+/* Metric cards row should vertically center its content */
+body.slide-mode .grid-4 .metric-card,
+body.slide-mode .grid-3 .card,
+body.slide-mode .grid-2 .card {
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: center !important;
+}
+
+/* ===== WARNING BANNERS ===== */
+body.slide-mode .warning-banner { padding: 0.75rem 1rem !important; margin-bottom: 0.75rem !important; margin-top: 0.75rem !important; font-size: 0.9rem !important; }
+body.slide-mode .warning-banner .icon, body.slide-mode .warning-banner .warning-icon { font-size: 1rem !important; }
+body.slide-mode .warning-banner .text { font-size: 0.72rem !important; }
+body.slide-mode .warning-banner .sub { font-size: 0.68rem !important; }
+
+/* ===== METRIC CARDS ===== */
+body.slide-mode .metric-card { padding: 0.75rem 0.5rem !important; }
+body.slide-mode .metric-card .value { font-size: 1.8rem !important; line-height: 1.2 !important; }
+body.slide-mode .metric-card .label { font-size: 0.8rem !important; margin-top: 0.15rem !important; }
+body.slide-mode .metric-card .change { font-size: 0.6rem !important; }
+
+/* ===== SCORE RINGS ===== */
+body.slide-mode .score-ring { width: 60px !important; height: 60px !important; margin: 0 auto 0.5rem !important; }
+body.slide-mode .score-ring svg { width: 60px !important; height: 60px !important; }
+body.slide-mode .score-ring .grade { font-size: 1.2rem !important; }
+body.slide-mode .score-ring .score-label { font-size: 0.65rem !important; }
+body.slide-mode .score-ring .score-value { font-size: 1.1rem !important; }
+
+/* ===== PS ROWS (Problems → Solutions) ===== */
+body.slide-mode .ps-row { margin-bottom: 0.3rem !important; gap: 0.5rem !important; }
+body.slide-mode .ps-card { padding: 1rem !important; }
+body.slide-mode .ps-card .title { font-size: 0.72rem !important; }
+body.slide-mode .ps-card h4 { font-size: 0.75rem !important; }
+body.slide-mode .ps-card div { font-size: 0.85rem !important; line-height: 1.3 !important; }
+body.slide-mode .ps-card .score-ring svg { width: 60px !important; height: 60px !important; }
+body.slide-mode .ps-arrow { font-size: 1rem !important; }
+
+/* ===== FINDING CARDS ===== */
+body.slide-mode .finding-card { padding: 0.6rem 0.75rem !important; gap: 0.75rem !important; }
+body.slide-mode .finding-num { width: 32px !important; height: 32px !important; font-size: 0.85rem !important; }
+body.slide-mode .finding-card .title, body.slide-mode .finding-card h4 { font-size: 0.78rem !important; }
+body.slide-mode .finding-card .desc { font-size: 0.68rem !important; line-height: 1.3 !important; }
+
+/* ===== STRATEGY CARDS ===== */
+body.slide-mode .strategy-card { padding: 1rem 0.75rem !important; }
+body.slide-mode .strategy-card .icon { font-size: 1.5rem !important; margin-bottom: 0.3rem !important; }
+body.slide-mode .strategy-card .title { font-size: 0.8rem !important; }
+body.slide-mode .strategy-card .desc { font-size: 0.68rem !important; line-height: 1.3 !important; }
+body.slide-mode .strategy-card .outcome { padding: 0.4rem !important; font-size: 0.65rem !important; }
+
+/* ===== TIMELINE / ROADMAP ===== */
+body.slide-mode .timeline { gap: 1rem !important; margin-top: 0.5rem !important; }
+body.slide-mode .timeline-phase { padding-top: 50px !important; padding-right: 0.75rem !important; }
+body.slide-mode .timeline-dot { width: 22px !important; height: 22px !important; top: 32px !important; border-width: 3px !important; }
+body.slide-mode .timeline::before { top: 40px !important; }
+body.slide-mode .timeline-phase .phase-label { font-size: 0.85rem !important; padding-left: 28px !important; }
+body.slide-mode .timeline-phase .phase-title { font-size: 1.05rem !important; margin-bottom: 0.4rem !important; }
+body.slide-mode .timeline-phase .phase-items li { font-size: 0.85rem !important; }
+body.slide-mode .timeline-item { padding: 0.6rem 0 !important; }
+body.slide-mode .timeline-item h4 { font-size: 0.8rem !important; }
+body.slide-mode .timeline-item p { font-size: 0.72rem !important; }
+
+/* ===== ROI CARDS ===== */
+body.slide-mode .roi-grid { gap: 0.5rem !important; }
+body.slide-mode .roi-card { padding: 0.75rem !important; }
+body.slide-mode .roi-card .label { font-size: 0.65rem !important; }
+body.slide-mode .roi-card .before { font-size: 0.85rem !important; }
+body.slide-mode .roi-card .after { font-size: 1.1rem !important; }
+body.slide-mode .roi-card .arrow { font-size: 1rem !important; margin: 0.15rem 0 !important; }
+
+/* ===== CHARTS — FILL AVAILABLE SPACE ===== */
+body.slide-mode .chart-wrap { max-height: none !important; padding: 0.75rem !important; flex: 1 !important; min-height: 0 !important; }
+body.slide-mode canvas { max-height: calc(100vh - 160px) !important; height: auto !important; }
+body.slide-mode .chart-hint { display: none !important; }
+
+/* ===== GOOGLE ADS / SERP ===== */
+body.slide-mode .google-serp-card { padding: 0.75rem 1rem !important; }
+body.slide-mode .serp-ad { padding: 0.4rem 0 !important; }
+body.slide-mode .serp-ad-title { font-size: 0.85rem !important; }
+body.slide-mode .serp-ad-desc { font-size: 0.7rem !important; }
+body.slide-mode .serp-no-ads { padding: 0.75rem !important; }
+body.slide-mode .ads-callout { padding: 0.75rem 1rem !important; }
+body.slide-mode .ads-callout .headline { font-size: 0.78rem !important; }
+body.slide-mode .ads-callout .body { font-size: 0.7rem !important; }
+
+/* ===== SEO MATRIX ===== */
+body.slide-mode .seo-matrix th, body.slide-mode .seo-matrix td,
+body.slide-mode .seo-matrix-table th, body.slide-mode .seo-matrix-table td {
+  padding: 0.6rem 0.7rem !important; font-size: 0.95rem !important;
+}
+
+/* ===== SOCIAL / EMAIL / REPUTATION ===== */
+body.slide-mode #social .card, body.slide-mode #email .card, body.slide-mode #reputation .card,
+body.slide-mode .email-card, body.slide-mode .social-card {
+  padding: 0.6rem !important;
+}
+
+/* ===== DATA SOURCE FOOTERS — HIDE ===== */
+body.slide-mode section > div:last-child[style*="Data source"],
+body.slide-mode section > div:last-child[style*="font-size:0.75rem"] {
+  display: none !important;
+}
+
+/* ===== CTA SECTION ===== */
+body.slide-mode .stats-bar { gap: 0.5rem !important; margin-bottom: 1rem !important; }
+body.slide-mode .stat-card { padding: 0.5rem !important; }
+body.slide-mode .stat-card .stat-num { font-size: 1.5rem !important; }
+body.slide-mode .value-cards { gap: 0.5rem !important; margin: 0.75rem 0 !important; }
+body.slide-mode .value-card { padding: 0.75rem !important; }
+body.slide-mode .value-card h4 { font-size: 0.8rem !important; }
+body.slide-mode .value-card p { font-size: 0.7rem !important; }
+body.slide-mode .reviews-wrap { display: none !important; }
+body.slide-mode .cta-section h2 { font-size: 1.4rem !important; }
+body.slide-mode .team-photo { width: 90px !important; height: 90px !important; }
+body.slide-mode .cta-btn { padding: 10px 28px !important; font-size: 0.85rem !important; }
+
+/* ===== PERSONA CARDS ===== */
+body.slide-mode .persona-card { padding: 0.6rem !important; }
+body.slide-mode .persona-avatar { width: 48px !important; height: 48px !important; font-size: 1.3rem !important; margin-bottom: 0.4rem !important; }
+body.slide-mode .persona-name { font-size: 0.9rem !important; }
+body.slide-mode .persona-demo { font-size: 0.68rem !important; margin-bottom: 0.3rem !important; }
+body.slide-mode .persona-channels { gap: 3px !important; margin-bottom: 0.3rem !important; }
+body.slide-mode .persona-channels .ch { padding: 2px 6px !important; font-size: 0.6rem !important; }
+body.slide-mode .persona-discover { font-size: 0.68rem !important; line-height: 1.3 !important; }
+
+/* ===== COMPETITOR CARDS ===== */
+body.slide-mode .competitor-card { padding: 0.75rem !important; }
+body.slide-mode .competitor-card h4 { font-size: 0.8rem !important; }
+
+/* ===== SOLUTION/PROBLEM ROWS ===== */
+body.slide-mode .solution-row, body.slide-mode .problem-row { padding: 0.5rem 0.75rem !important; gap: 0.5rem !important; }
+
+/* ===== GAP CARDS ===== */
+body.slide-mode .gap-card { padding: 0.75rem 1rem !important; }
+body.slide-mode .gap-card h4 { font-size: 0.8rem !important; }
+body.slide-mode .gap-card p { font-size: 0.72rem !important; }
+
+/* ===== TABLES ===== */
+body.slide-mode .table-wrap { max-height: none !important; overflow: visible !important; }
+body.slide-mode table { font-size: 1rem !important; margin-bottom: 0 !important; }
+body.slide-mode th, body.slide-mode td { padding: 0.65rem 0.75rem !important; }
+
+/* ===== CRAWL / ISSUES LISTS ===== */
+body.slide-mode .issue-list li, body.slide-mode .crawl-issues li { 
+  font-size: 0.72rem !important; line-height: 1.3 !important; margin-bottom: 0.1rem !important; 
+}
+body.slide-mode .issue-card, body.slide-mode .crawl-card { padding: 0.6rem !important; }
+body.slide-mode .issue-card h4, body.slide-mode .crawl-card h4 { font-size: 0.8rem !important; margin-bottom: 0.25rem !important; }
+body.slide-mode .card ul li { font-size: 0.72rem !important; line-height: 1.25 !important; margin-bottom: 0.08rem !important; }
+body.slide-mode .card ul { margin: 0.2rem 0 !important; }
+
+/* ===== HERO SLIDE ===== */
+body.slide-mode .hero { min-height: 100vh !important; max-height: 100vh !important; }
+body.slide-mode .hero-company { font-size: clamp(2rem, 5vw, 4rem) !important; }
+
+/* ===== THEME TOGGLE — match pdf-btn pill style ===== */
+.theme-toggle {
+  width: auto !important;
+  height: auto !important;
+  min-width: auto !important;
+  min-height: auto !important;
+  padding: 8px 18px !important;
+  border-radius: 10px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 6px !important;
+  font-size: 0.78rem !important;
+  font-weight: 600 !important;
+}
+.theme-toggle .knob {
+  width: auto !important;
+  height: auto !important;
+  transform: none !important;
+  background: transparent !important;
+  border-radius: 0 !important;
+  position: static !important;
+  font-size: 0.85rem !important;
+}
+[data-theme="light"] .card-icon img { filter: brightness(0) !important; }
+[data-theme="light"] .theme-toggle .knob {
+  transform: none !important;
+}
+
+/* Slide progress bar at top */
+.slide-progress {
+  position: fixed; top: 64px; left: 0; height: 3px; z-index: 1002;
+  background: linear-gradient(90deg, #40B4E5, #CC22FF);
+  transition: width 0.5s ease; pointer-events: none;
+  display: none;
+}
+body.slide-mode .slide-progress { display: block; }
+
+/* Slide counter pill — bottom RIGHT for dedicated deck */
+.slide-counter {
+  position: fixed; bottom: 20px; right: 24px; left: auto; transform: none;
+  z-index: 1002; padding: 6px 20px; border-radius: 50px;
+  background: var(--glass-bg); backdrop-filter: blur(16px);
+  border: 1px solid var(--glass-border); box-shadow: var(--shadow);
+  font-size: 0.75rem; font-weight: 600; letter-spacing: 0.08em;
+  color: var(--text-secondary); white-space: nowrap;
+  display: none; font-family: 'Inter', sans-serif;
+}
+body.slide-mode .slide-counter { display: block; }
+
+/* Bottom dot navigation */
+.slide-dots {
+  position: fixed; bottom: 18px; left: 50%; transform: translateX(-50%);
+  z-index: 1002; display: none; align-items: center; gap: 6px;
+  padding: 6px 14px; border-radius: 50px;
+  background: var(--glass-bg); backdrop-filter: blur(16px);
+  border: 1px solid var(--glass-border); box-shadow: var(--shadow);
+}
+/* Dedicated deck: NO side dot nav (builds suspense) */
+body.slide-mode .slide-dots { display: none !important; }
+.slide-dot {
+  width: 7px; height: 7px; border-radius: 50%;
+  background: var(--text-muted); cursor: pointer;
+  transition: all 0.3s ease; flex-shrink: 0;
+}
+.slide-dot:hover { background: var(--text-secondary); transform: scale(1.3); }
+.slide-dot.active {
+  width: 9px; height: 9px; background: linear-gradient(135deg, #40B4E5, #CC22FF);
+  box-shadow: 0 0 8px rgba(64, 180, 229, 0.5);
+}
+
+/* Navigation arrows */
+.slide-arrow {
+  position: fixed; top: 50%; transform: translateY(-50%);
+  z-index: 1002; width: 48px; height: 48px; border-radius: 50%;
+  background: var(--glass-bg); backdrop-filter: blur(16px);
+  border: 1px solid var(--glass-border); box-shadow: var(--shadow);
+  cursor: pointer; display: none; align-items: center; justify-content: center;
+  font-size: 1.2rem; color: var(--text-secondary);
+  transition: all 0.3s ease; opacity: 0.4;
+  -webkit-tap-highlight-color: transparent;
+}
+body.slide-mode .slide-arrow { display: flex; }
+.slide-arrow:hover { opacity: 1; transform: translateY(-50%) scale(1.1); }
+.slide-arrow-left { left: 16px; }
+.slide-arrow-right { right: 16px; }
+.slide-arrow.disabled { opacity: 0.15; cursor: default; pointer-events: none; }
+
+/* Toggle button in nav */
+.slide-toggle-btn {
+  display: inline-flex; align-items: center; gap: 5px;
+  padding: 6px 14px; border-radius: 10px; border: none; cursor: pointer;
+  background: var(--glass-bg); backdrop-filter: blur(10px);
+  border: 1px solid var(--glass-border); color: var(--text-secondary);
+  font-family: inherit; font-size: 0.72rem; font-weight: 600;
+  letter-spacing: 0.03em; transition: all 0.3s ease; white-space: nowrap;
+}
+.slide-toggle-btn:hover { color: var(--text-primary); border-color: var(--text-muted); }
+.slide-toggle-btn.active {
+  background: linear-gradient(135deg, #40B4E5, #CC22FF); color: #fff;
+  border-color: transparent;
+}
+/* Dedicated deck: hide scroll/slide toggle entirely */
+.slide-toggle-btn { display: none !important; }
+
+/* Brandastic logo bottom-left */
+.slide-logo {
+  position: fixed; bottom: 20px; left: 24px; z-index: 1002;
+  display: none; align-items: center; gap: 8px;
+  font-size: 0.8rem; font-weight: 700; letter-spacing: 0.05em;
+  color: var(--text-secondary); font-family: 'Inter', sans-serif;
+  padding: 6px 16px; border-radius: 50px;
+  background: var(--glass-bg); backdrop-filter: blur(16px);
+  border: 1px solid var(--glass-border); box-shadow: var(--shadow);
+}
+body.slide-mode .slide-logo { display: inline-flex; }
+.slide-logo .dot { width: 9px; height: 9px; border-radius: 50%; background: linear-gradient(135deg,#40B4E5,#CC22FF); flex-shrink: 0; }
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+  body.slide-mode section { padding: 1rem 1rem !important; padding-top: 80px !important; }
+  body.slide-mode section.hero { padding: 0 1rem !important; }
+  .slide-arrow { width: 36px; height: 36px; font-size: 1rem; opacity: 0.5; }
+  .slide-arrow-left { left: 8px; }
+  .slide-arrow-right { right: 8px; }
+  .slide-counter { font-size: 0.75rem; bottom: 16px; right: 14px; padding: 5px 14px; }
+  .slide-logo { bottom: 16px; left: 14px; font-size: 0.7rem; padding: 5px 12px; }
+  .slide-dots { bottom: 14px; gap: 5px; }
+  .slide-dot { width: 6px; height: 6px; }
+  .slide-dot.active { width: 8px; height: 8px; }
+  body.slide-mode .section-title { font-size: 1.2rem !important; }
+  body.slide-mode .grid-4 { grid-template-columns: repeat(2, 1fr) !important; }
+  body.slide-mode .hero-company { font-size: clamp(1.6rem, 6vw, 2.5rem) !important; }
+  .slide-toggle-btn span.label-text { display: none; }
+}
+
+/* Print: disable slide mode */
+@media print {
+  body.slide-mode { overflow: visible !important; }
+  .slide-viewport, .slide-progress, .slide-counter, .slide-dots,
+  .slide-arrow, .slide-toggle-btn { display: none !important; }
+  body.slide-mode > * { display: block !important; }
+  body.slide-mode .side-nav { display: none !important; }
+  body.slide-mode section {
+    width: auto !important; min-height: auto !important; max-height: none !important;
+    overflow: visible !important; padding: 2rem !important;
+  }
+}
+</style>
+<script id="slide-mode-js">
+(function(){
+  'use strict';
+
+  /* ---- State ---- */
+  // URL param ?mode=scroll forces scroll mode, ?mode=slide forces slide mode
+  const urlMode = new URLSearchParams(window.location.search).get('mode');
+  // Dedicated slide deck: default ON. Only ?mode=scroll opts out.
+  let slideMode = urlMode === 'scroll' ? false : true;
+  let currentSlide = 0;
+  let slides = [];
+  let viewport, track, counter, progress, dotsContainer, arrowL, arrowR;
+
+  /* ---- Build DOM ---- */
+  function buildSlideUI() {
+    /* Viewport wrapper */
+    viewport = document.createElement('div');
+    viewport.className = 'slide-viewport';
+
+    track = document.createElement('div');
+    track.className = 'slide-track';
+    viewport.appendChild(track);
+    document.body.appendChild(viewport);
+
+    /* Progress bar */
+    progress = document.createElement('div');
+    progress.className = 'slide-progress';
+    document.body.appendChild(progress);
+
+    /* Counter pill */
+    counter = document.createElement('div');
+    counter.className = 'slide-counter';
+    document.body.appendChild(counter);
+
+    /* Dots (kept for internal state refs, but hidden via CSS) */
+    dotsContainer = document.createElement('div');
+    dotsContainer.className = 'slide-dots';
+    document.body.appendChild(dotsContainer);
+
+    /* Brandastic logo bottom-left */
+    var logo = document.createElement('div');
+    logo.className = 'slide-logo';
+    logo.innerHTML = '<span class="dot"></span> BRANDASTIC';
+    document.body.appendChild(logo);
+
+    /* Arrows */
+    arrowL = document.createElement('button');
+    arrowL.className = 'slide-arrow slide-arrow-left';
+    arrowL.innerHTML = '&#8249;';
+    arrowL.setAttribute('aria-label', 'Previous slide');
+    arrowL.addEventListener('click', () => goTo(currentSlide - 1));
+    document.body.appendChild(arrowL);
+
+    arrowR = document.createElement('button');
+    arrowR.className = 'slide-arrow slide-arrow-right';
+    arrowR.innerHTML = '&#8250;';
+    arrowR.setAttribute('aria-label', 'Next slide');
+    arrowR.addEventListener('click', () => goTo(currentSlide + 1));
+    document.body.appendChild(arrowR);
+  }
+
+  /* ---- Collect sections ---- */
+  function collectSlides() {
+    const allSections = document.querySelectorAll('body > section');
+    slides = [];
+    allSections.forEach(s => {
+      if (s.classList.contains('print-only') || s.closest('.print-only')) return;
+      if (s.style.display === 'none' && s.classList.contains('print-only')) return;
+      slides.push(s);
+    });
+    return slides;
+  }
+
+  /* ---- Populate track ---- */
+  function populateTrack() {
+    track.innerHTML = '';
+    dotsContainer.innerHTML = '';
+    slides.forEach((s, i) => {
+      track.appendChild(s);
+      /* No side dot nav in dedicated deck — builds suspense */
+    });
+  }
+
+  /* ---- Restore sections to body (exit slide mode) ---- */
+  let originalOrder = []; // {element, nextSibling}
+
+  function saveOriginalOrder() {
+    originalOrder = [];
+    const allSections = document.querySelectorAll('body > section');
+    allSections.forEach(s => {
+      originalOrder.push({ el: s, next: s.nextSibling });
+    });
+  }
+
+  function restoreSections() {
+    /* Move slides back from track to body in original positions */
+    slides.forEach(s => {
+      const entry = originalOrder.find(o => o.el === s);
+      if (entry && entry.next && entry.next.parentNode === document.body) {
+        document.body.insertBefore(s, entry.next);
+      } else {
+        /* Append before viewport as fallback */
+        document.body.insertBefore(s, viewport);
+      }
+    });
+  }
+
+  /* ---- Navigate ---- */
+  function goTo(idx) {
+    if (idx < 0 || idx >= slides.length) return;
+    currentSlide = idx;
+    track.style.transform = 'translateX(-' + (currentSlide * 100) + 'vw)';
+    updateUI();
+    triggerAnimations(slides[currentSlide]);
+  }
+
+  function updateUI() {
+    /* Counter */
+    counter.textContent = (currentSlide + 1) + ' / ' + slides.length;
+    /* Nav slide title */
+    var navTitle = document.getElementById('navSlideTitle');
+    if (navTitle && slides[currentSlide]) {
+      var badge = slides[currentSlide].querySelector('.section-badge');
+      var title = slides[currentSlide].querySelector('.section-title');
+      navTitle.textContent = badge ? badge.textContent.trim() : (title ? title.textContent.trim().substring(0,50) : '');
+    }
+    /* Progress */
+    const pct = slides.length > 1 ? (currentSlide / (slides.length - 1)) * 100 : 100;
+    progress.style.width = pct + '%';
+    /* Dots */
+    dotsContainer.querySelectorAll('.slide-dot').forEach((d, i) => {
+      d.classList.toggle('active', i === currentSlide);
+    });
+    /* Arrows */
+    arrowL.classList.toggle('disabled', currentSlide === 0);
+    arrowR.classList.toggle('disabled', currentSlide === slides.length - 1);
+  }
+
+  /* ---- Trigger animations on active slide ---- */
+  function triggerAnimations(section) {
+    if (!section) return;
+    /* Counters */
+    section.querySelectorAll('[data-count]').forEach(el => {
+      const t = parseInt(el.dataset.count);
+      if (!t) return;
+      const p = el.dataset.prefix || '';
+      const s = el.dataset.suffix || '';
+      if (typeof animateCounter === 'function') animateCounter(el, t, p, s);
+    });
+    /* Score rings */
+    section.querySelectorAll('.fg[data-target]').forEach(fg => {
+      fg.style.strokeDashoffset = fg.dataset.target;
+    });
+    /* Bars */
+    section.querySelectorAll('.overall-bar .fill, .fill[data-target]').forEach(el => {
+      if (el.dataset.target) el.style.width = el.dataset.target + '%';
+    });
+    /* Reveal */
+    section.querySelectorAll('.reveal').forEach(el => el.classList.add('active'));
+    /* Charts — try creating them if canvas is in this section */
+    section.querySelectorAll('canvas').forEach(cv => {
+      if (cv.id === 'trafficChart' && typeof createTrafficChart === 'function' && !window.trafficChart) {
+        try { createTrafficChart(); } catch(e){}
+      }
+      if (cv.id === 'competitorChart' && typeof createCompetitorChart === 'function' && !window.competitorChart) {
+        try { createCompetitorChart(); } catch(e){}
+      }
+    });
+    /* CTA animations */
+    section.querySelectorAll('.cta-animate').forEach(el => el.classList.add('active'));
+  }
+
+  /* ---- Toggle ---- */
+  function enableSlideMode() {
+    slideMode = true;
+    localStorage.setItem('brandastic-slide-mode', 'on');
+    collectSlides();
+    saveOriginalOrder();
+    populateTrack();
+    document.body.classList.add('slide-mode');
+    currentSlide = 0;
+    goTo(0);
+    const btn = document.getElementById('slideToggleBtn');
+    if (btn) { btn.classList.add('active'); btn.querySelector('.label-text').textContent = 'Scroll'; }
+  }
+
+  function disableSlideMode() {
+    slideMode = false;
+    localStorage.setItem('brandastic-slide-mode', 'off');
+    document.body.classList.remove('slide-mode');
+    restoreSections();
+    const btn = document.getElementById('slideToggleBtn');
+    if (btn) { btn.classList.remove('active'); btn.querySelector('.label-text').textContent = 'Slides'; }
+  }
+
+  function toggleSlideMode() {
+    if (slideMode) disableSlideMode();
+    else enableSlideMode();
+  }
+
+  /* ---- Keyboard ---- */
+  document.addEventListener('keydown', function(e) {
+    if (!slideMode) return;
+    if (e.key === 'ArrowRight' || e.key === 'ArrowDown') { e.preventDefault(); goTo(currentSlide + 1); }
+    if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') { e.preventDefault(); goTo(currentSlide - 1); }
+    if (e.key === 'Home') { e.preventDefault(); goTo(0); }
+    if (e.key === 'End') { e.preventDefault(); goTo(slides.length - 1); }
+    if (e.key === 'Escape') { disableSlideMode(); }
+  });
+
+  /* ---- Touch / Swipe ---- */
+  let touchStartX = 0, touchStartY = 0;
+  document.addEventListener('touchstart', function(e) {
+    if (!slideMode) return;
+    touchStartX = e.touches[0].clientX;
+    touchStartY = e.touches[0].clientY;
+  }, { passive: true });
+  document.addEventListener('touchend', function(e) {
+    if (!slideMode) return;
+    const dx = e.changedTouches[0].clientX - touchStartX;
+    const dy = e.changedTouches[0].clientY - touchStartY;
+    if (Math.abs(dx) > 50 && Math.abs(dx) > Math.abs(dy)) {
+      if (dx < 0) goTo(currentSlide + 1);
+      else goTo(currentSlide - 1);
+    }
+  }, { passive: true });
+
+  /* ---- Print handling ---- */
+  window.addEventListener('beforeprint', function() {
+    if (slideMode) {
+      document.body.classList.remove('slide-mode');
+      restoreSections();
+    }
+  });
+  window.addEventListener('afterprint', function() {
+    if (slideMode) {
+      collectSlides();
+      saveOriginalOrder();
+      populateTrack();
+      document.body.classList.add('slide-mode');
+      goTo(currentSlide);
+    }
+  });
+
+  /* Override PDF button to handle slide mode */
+  const pdfBtn = document.querySelector('.pdf-btn');
+  if (pdfBtn) {
+    pdfBtn.onclick = function() {
+      if (slideMode) {
+        document.body.classList.remove('slide-mode');
+        restoreSections();
+        setTimeout(function() {
+          window.print();
+          setTimeout(function() {
+            if (slideMode) {
+              collectSlides();
+              saveOriginalOrder();
+              populateTrack();
+              document.body.classList.add('slide-mode');
+              goTo(currentSlide);
+            }
+          }, 500);
+        }, 100);
+      } else {
+        window.print();
+      }
+    };
+  }
+
+  /* ---- Init ---- */
+  function init() {
+    buildSlideUI();
+    /* Add toggle button to nav */
+    /* Dedicated deck: no scroll/slide toggle button */
+    if (slideMode) enableSlideMode();
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+
+  /* Expose for external use */
+  window.toggleSlideMode = toggleSlideMode;
+  window.goToSlide = goTo;
+})();
+
+
+function togglePresenterNotes() {
+  const panel = document.getElementById('presenterNotes');
+  if (panel) {
+    panel.classList.toggle('open');
+    const btn = document.getElementById('presenterNotesBtn');
+    if (btn) btn.classList.toggle('active', panel.classList.contains('open'));
+  }
+}
+
+</script>
+
+
+<!-- Presenter Notes -->
+<div id="presenterNotes" class="presenter-notes-panel">
+  <div class="pn-header">
+    <span class="pn-heading">📋 Presenter Notes</span>
+    <button class="pn-close" onclick="togglePresenterNotes()">✕</button>
+  </div>
+  <div class="pn-subtitle">Key talking points for On Point for College</div>
+  <div class="pn-items">
+    <div class="pn-item"><div class="pn-title">💡 PPC Opportunity</div><div class="pn-body">No current Google Ads campaigns. Qualifies for Google Ad Grants ($10K/mo free). Big opportunity to build organic + social + paid strategy from scratch.</div></div>
+        <div class="pn-item"><div class="pn-title">📉 Organic Traffic in Free Fall</div><div class="pn-body">Organic traffic is trending down — they're losing ground every month. Without intervention, they'll become 100% dependent on paid.</div></div>
+        <div class="pn-item"><div class="pn-title">🔧 Zero Technical SEO</div><div class="pn-body">No schema markup, broken cache headers, missing H1s, no sitemap optimization. The technical foundation doesn't exist — Google can't properly crawl or index the site.</div></div>
+        <div class="pn-item"><div class="pn-title">📝 Thin Content = No Discovery</div><div class="pn-body">All their organic traffic is brand-only. Zero content targeting the keywords their audience actually searches ("first-generation college students", "first-gen college support", "first generation college programs"). Massive missed opportunity — 16K+ monthly searches going to competitors.</div></div>
+        <div class="pn-item"><div class="pn-title">🎯 Our Recommendation</div><div class="pn-body">Technical SEO overhaul + content strategy. Build the organic engine so they can reduce paid dependency over 6-12 months. Google Ad Grants ($5 CPC cap, must maintain 5% CTR) can supplement with free awareness traffic.</div></div>
+  </div>
+</div>
+
+
+<!-- Feedback Button -->
+<div id="feedbackWidget" style="position:fixed;bottom:24px;right:24px;z-index:9999">
+  <button onclick="document.getElementById('feedbackForm').style.display=document.getElementById('feedbackForm').style.display==='none'?'block':'none'" style="width:56px;height:56px;border-radius:50%;background:linear-gradient(135deg,#40B4E5,#CC22FF);border:none;cursor:pointer;box-shadow:0 4px 20px rgba(64,180,229,0.4);display:flex;align-items:center;justify-content:center;transition:transform 0.2s" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
+    <svg width="24" height="24" fill="none" stroke="white" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"/></svg>
+  </button>
+  <div id="feedbackForm" style="display:none;position:absolute;bottom:70px;right:0;width:320px;background:var(--bg-card,#fff);border:1px solid var(--glass-border,#e5e7eb);border-radius:16px;box-shadow:0 12px 40px rgba(0,0,0,0.15);padding:20px;font-family:Inter,system-ui,sans-serif">
+    <p style="font-weight:700;font-size:0.95rem;margin:0 0 4px;color:var(--text-primary,#111)">Feedback</p>
+    <p style="font-size:0.75rem;color:var(--text-muted,#888);margin:0 0 12px">Questions or corrections? Let us know.</p>
+    <textarea id="feedbackText" rows="3" placeholder="Your feedback..." style="width:100%;border:1px solid var(--glass-border,#ddd);border-radius:10px;padding:10px;font-size:0.85rem;resize:none;background:var(--bg-primary,#f9f9f9);color:var(--text-primary,#111);font-family:Inter,system-ui,sans-serif"></textarea>
+    <button onclick="var t=document.getElementById('feedbackText').value;if(t){window.open('mailto:seo@brandastic.com?subject=Audit Feedback</body>body='+encodeURIComponent(t),'_blank');document.getElementById('feedbackText').value='';document.getElementById('feedbackForm').style.display='none';alert('Thank you for your feedback!')}" style="margin-top:8px;width:100%;padding:10px;border:none;border-radius:10px;background:linear-gradient(135deg,#40B4E5,#CC22FF);color:#fff;font-weight:600;font-size:0.85rem;cursor:pointer;font-family:Inter,system-ui,sans-serif">Send Feedback</button>
+  </div>
+</div>
+</body>
+</html>
