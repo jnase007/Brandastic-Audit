@@ -89,3 +89,13 @@
   from = "/onboarding/*"
   to = "/onboarding.html?channel=:splat"
   status = 200
+
+[[redirects]]
+  from = "/dess-usa"
+  to = "/dess-usa.html"
+  status = 200
+
+[[redirects]]
+  from = "/dess"
+  to = "/dess-usa.html"
+  status = 200
