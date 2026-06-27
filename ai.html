@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Brandastic.ai — AI That Actually Works for Established Businesses</title>
+<meta name="description" content="Brandastic.ai implements and manages custom AI agents for established businesses — without the overwhelm. Book your free 30-minute AI Opportunity Audit." />
+<link rel="icon" href="/favicon.ico" />
+<meta property="og:title" content="Brandastic.ai — AI That Actually Works for Established Businesses" />
+<meta property="og:description" content="We implement and manage custom AI agents so you stay competitive — without the overwhelm or learning curve. Book your free 30-Min AI Opportunity Audit." />
+<meta property="og:type" content="website" />
+<meta property="og:image" content="https://ai.brandastic.com/images/office.jpg" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --black:#191F24;
+    --navy:#0A2540;
+    --deep-blue:#0644ED;
+    --light-blue:#40B4E5;
+    --teal:#0EA5E9;
+    --cream:#F5F3EF;
+    --white:#FFFFFF;
+    --ink:#0F172A;
+    --muted:#5B6672;
+    --grad:linear-gradient(120deg,#40B4E5 0%,#0644ED 60%,#CC22FF 130%);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;
+    color:var(--ink);
+    background:var(--white);
+    -webkit-font-smoothing:antialiased;
+    line-height:1.6;
+  }
+  h1,h2,h3{font-family:'Fraunces',Georgia,serif;font-weight:500;letter-spacing:-0.02em;line-height:1.05}
+  .wrap{max-width:1160px;margin:0 auto;padding:0 28px}
+  .eyebrow{font-family:'Inter';text-transform:uppercase;letter-spacing:.22em;font-size:.72rem;font-weight:600;color:var(--light-blue)}
+  .btn{display:inline-block;border-radius:999px;font-weight:600;font-size:.98rem;padding:16px 34px;text-decoration:none;transition:.25s ease;cursor:pointer;border:none}
+  .btn-primary{background:var(--grad);color:#fff;box-shadow:0 10px 30px rgba(6,68,237,.28)}
+  .btn-primary:hover{transform:translateY(-2px);box-shadow:0 16px 40px rgba(6,68,237,.38)}
+  .btn-ghost{background:transparent;color:#fff;border:1.5px solid rgba(255,255,255,.5)}
+  .btn-ghost:hover{background:#fff;color:var(--navy)}
+
+  /* NAV */
+  nav{position:sticky;top:0;z-index:50;backdrop-filter:blur(14px);background:rgba(10,37,64,.82);border-bottom:1px solid rgba(255,255,255,.08)}
+  nav .wrap{display:flex;align-items:center;justify-content:space-between;height:70px}
+  .logo{font-family:'Fraunces';color:#fff;font-size:1.45rem;font-weight:600;letter-spacing:-.02em}
+  .logo span{background:var(--grad);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+  .nav-links{display:flex;gap:30px;align-items:center}
+  .nav-links a{color:rgba(255,255,255,.78);text-decoration:none;font-size:.92rem;font-weight:500}
+  .nav-links a:hover{color:#fff}
+  .nav-cta{background:var(--grad);color:#fff!important;padding:10px 22px;border-radius:999px;font-size:.86rem}
+  @media(max-width:760px){.nav-links a:not(.nav-cta){display:none}}
+
+  /* HERO */
+  .hero{position:relative;background:var(--navy);color:#fff;overflow:hidden;padding:96px 0 110px}
+  .hero::before{content:"";position:absolute;inset:0;background:
+    radial-gradient(620px 380px at 80% -5%,rgba(64,180,229,.28),transparent 65%),
+    radial-gradient(560px 420px at 8% 110%,rgba(6,68,237,.32),transparent 60%);pointer-events:none}
+  .hero .wrap{position:relative;text-align:center}
+  .hero .eyebrow{margin-bottom:22px}
+  .hero h1{font-size:clamp(2.6rem,6vw,4.6rem);color:#fff;margin-bottom:22px}
+  .hero p.sub{max-width:660px;margin:0 auto 38px;font-size:1.2rem;color:rgba(255,255,255,.82)}
+  .hero .cta-row{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+  .hero .note{margin-top:22px;font-size:.86rem;color:rgba(255,255,255,.55)}
+
+  /* LOGOS / TRUST */
+  .trust{background:var(--cream);padding:38px 0;text-align:center}
+  .trust p{font-size:.78rem;text-transform:uppercase;letter-spacing:.2em;color:var(--muted);margin-bottom:18px;font-weight:600}
+  .trust img{max-width:760px;width:90%;opacity:.7}
+  .stats{display:flex;gap:48px;justify-content:center;flex-wrap:wrap}
+  .stat{text-align:center}
+  .stat b{display:block;font-family:'Fraunces';font-size:2.2rem;font-weight:600;color:var(--navy);line-height:1}
+  .stat span{font-size:.86rem;color:var(--muted);font-weight:500}
+  .checklist.dark li{color:var(--ink)}
+
+  /* SECTION */
+  section.block{padding:90px 0}
+  .center{text-align:center;max-width:680px;margin:0 auto 56px}
+  .center h2{font-size:clamp(2rem,4vw,2.9rem);margin-bottom:18px}
+  .center p{color:var(--muted);font-size:1.1rem}
+
+  .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:26px}
+  @media(max-width:840px){.grid3{grid-template-columns:1fr}}
+  .card{background:#fff;border:1px solid #ECEFF3;border-radius:20px;padding:34px 30px;transition:.25s}
+  .card:hover{transform:translateY(-4px);box-shadow:0 18px 44px rgba(10,37,64,.1);border-color:transparent}
+  .card .ic{width:50px;height:50px;border-radius:14px;background:var(--grad);display:flex;align-items:center;justify-content:center;margin-bottom:20px;font-size:1.4rem}
+  .card h3{font-size:1.32rem;margin-bottom:10px}
+  .card p{color:var(--muted);font-size:.98rem}
+
+  /* SPLIT */
+  .split{display:grid;grid-template-columns:1.05fr 1fr;gap:54px;align-items:center}
+  @media(max-width:840px){.split{grid-template-columns:1fr;gap:34px}}
+  .split img{width:100%;border-radius:22px;box-shadow:0 24px 60px rgba(10,37,64,.18)}
+  .split h2{font-size:clamp(1.9rem,3.6vw,2.6rem);margin-bottom:20px}
+  .split .step{display:flex;gap:16px;margin-bottom:22px}
+  .split .num{flex:none;width:38px;height:38px;border-radius:50%;background:var(--navy);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.95rem}
+  .split .step h4{font-family:'Inter';font-weight:700;font-size:1.05rem;margin-bottom:3px}
+  .split .step p{color:var(--muted);font-size:.96rem}
+
+  /* AUDIT / FORM */
+  #audit{background:var(--navy);color:#fff;padding:96px 0}
+  .audit-grid{display:grid;grid-template-columns:1fr 1.05fr;gap:56px;align-items:start}
+  @media(max-width:860px){.audit-grid{grid-template-columns:1fr;gap:40px}}
+  #audit h2{font-size:clamp(2rem,4vw,3rem);color:#fff;margin-bottom:18px}
+  #audit .lede{color:rgba(255,255,255,.8);font-size:1.12rem;margin-bottom:28px}
+  .checklist{list-style:none;margin-top:10px}
+  .checklist li{display:flex;gap:12px;align-items:flex-start;margin-bottom:14px;color:rgba(255,255,255,.85)}
+  .checklist .dot{flex:none;width:22px;height:22px;border-radius:50%;background:var(--grad);display:flex;align-items:center;justify-content:center;font-size:.7rem;margin-top:3px}
+  .formcard{background:#fff;border-radius:24px;padding:36px;color:var(--ink);box-shadow:0 30px 70px rgba(0,0,0,.3)}
+  .formcard h3{font-size:1.5rem;margin-bottom:6px}
+  .formcard .small{color:var(--muted);font-size:.9rem;margin-bottom:22px}
+  .field{margin-bottom:16px}
+  .field label{display:block;font-size:.82rem;font-weight:600;margin-bottom:6px;color:#33414F}
+  .input,select,textarea{width:100%;padding:13px 16px;border:1px solid #DDE3EA;border-radius:12px;font-family:'Inter';font-size:.94rem;outline:none;transition:.2s;background:#fff}
+  .input:focus,select:focus,textarea:focus{border-color:var(--light-blue);box-shadow:0 0 0 3px rgba(64,180,229,.16)}
+  textarea{resize:vertical;min-height:84px}
+  .row2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  @media(max-width:480px){.row2{grid-template-columns:1fr}}
+  .submit{width:100%;margin-top:8px;padding:16px;font-size:1.02rem}
+  .ok{display:none;text-align:center;padding:30px 10px}
+  .ok .big{font-size:2.6rem;margin-bottom:10px}
+  .ok h3{font-size:1.5rem;margin-bottom:8px}
+  .ok p{color:var(--muted)}
+
+  /* FOOTER */
+  footer{background:var(--black);color:rgba(255,255,255,.66);padding:54px 0 40px;text-align:center}
+  footer .logo{justify-content:center;margin-bottom:14px}
+  footer a{color:var(--light-blue);text-decoration:none}
+  footer .fine{font-size:.82rem;margin-top:16px;color:rgba(255,255,255,.4)}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <div class="logo">Brandastic<span>.ai</span></div>
+    <div class="nav-links">
+      <a href="#what">What We Do</a>
+      <a href="#how">How It Works</a>
+      <a href="#why">Why Brandastic</a>
+      <a href="#audit" class="nav-cta">Book Free Audit</a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="wrap">
+    <div class="eyebrow">Built by operators, for operators</div>
+    <h1>AI That Actually Works<br/>for Established Businesses</h1>
+    <p class="sub">We implement and manage custom AI agents so you stay competitive — without the overwhelm, the hype, or the learning curve.</p>
+    <div class="cta-row">
+      <a href="#audit" class="btn btn-primary">Book Your Free 30-Min AI Opportunity Audit</a>
+      <a href="#how" class="btn btn-ghost">See How It Works</a>
+    </div>
+    <p class="note">No pitch. Just clarity on what's possible for your business.</p>
+  </div>
+</header>
+
+<!-- TRUST -->
+<div class="trust">
+  <div class="wrap">
+    <p>An established agency · trusted by brands across the country</p>
+    <div class="stats">
+      <div class="stat"><b>10+</b><span>Years in business</span></div>
+      <div class="stat"><b>100s</b><span>Of campaigns shipped</span></div>
+      <div class="stat"><b>SoCal</b><span>Operator-led team</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- WHAT WE DO -->
+<section class="block" id="what">
+  <div class="wrap">
+    <div class="center">
+      <div class="eyebrow" style="color:var(--deep-blue)">What We Do</div>
+      <h2>AI, handled for you — end to end</h2>
+      <p>You don't need another tool to learn. You need a partner who identifies the right opportunities, builds the agents, and runs them so your team gets the upside without the headache.</p>
+    </div>
+    <div class="grid3">
+      <div class="card">
+        <div class="ic">🔍</div>
+        <h3>Find the Opportunities</h3>
+        <p>We audit your workflows and pinpoint exactly where AI saves hours, cuts cost, or wins revenue — no guesswork.</p>
+      </div>
+      <div class="card">
+        <div class="ic">⚙️</div>
+        <h3>Build & Implement</h3>
+        <p>Custom AI agents wired into the tools you already use. We handle the technical lift end to end.</p>
+      </div>
+      <div class="card">
+        <div class="ic">📈</div>
+        <h3>Manage & Optimize</h3>
+        <p>We monitor, tune, and improve your agents over time so they keep delivering as your business grows.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="block" id="how" style="background:var(--cream)">
+  <div class="wrap">
+    <div class="split">
+      <img src="/images/team-meeting.jpg" alt="The Brandastic team" />
+      <div>
+        <div class="eyebrow" style="color:var(--deep-blue)">How It Works</div>
+        <h2>From overwhelmed to ahead — in three steps</h2>
+        <div class="step">
+          <div class="num">1</div>
+          <div><h4>Free 30-Min AI Opportunity Audit</h4><p>We map where AI can move the needle in your business. Walk away with clarity whether or not we work together.</p></div>
+        </div>
+        <div class="step">
+          <div class="num">2</div>
+          <div><h4>We Build Your AI Agents</h4><p>Our team designs and implements custom agents tailored to your operations and goals.</p></div>
+        </div>
+        <div class="step">
+          <div class="num">3</div>
+          <div><h4>We Run & Refine</h4><p>Ongoing management means your AI keeps improving — and you stay focused on running the business.</p></div>
+        </div>
+        <a href="#audit" class="btn btn-primary" style="margin-top:10px">Start With a Free Audit</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY BRANDASTIC -->
+<section class="block" id="why">
+  <div class="wrap">
+    <div class="split">
+      <div>
+        <div class="eyebrow" style="color:var(--deep-blue)">Why Brandastic</div>
+        <h2>A real agency. Real operators. Real results.</h2>
+        <p style="color:var(--muted);font-size:1.08rem;margin-bottom:24px">Brandastic isn't an AI startup chasing hype. We're an established digital agency that's helped real businesses grow for years. Now we bring that same operator mindset to AI — practical, accountable, and built to last.</p>
+        <ul class="checklist dark">
+          <li><span class="dot">✓</span> Years of hands-on agency experience</li>
+          <li><span class="dot">✓</span> A dedicated team, not a black box</li>
+          <li><span class="dot">✓</span> Practical AI that ships — no science projects</li>
+          <li><span class="dot">✓</span> Built for businesses doing real revenue</li>
+        </ul>
+      </div>
+      <img src="/images/office.jpg" alt="The Brandastic office" />
+    </div>
+  </div>
+</section>
+
+<!-- AUDIT / FORM -->
+<section id="audit">
+  <div class="wrap">
+    <div class="audit-grid">
+      <div>
+        <div class="eyebrow">Your Free 30-Min AI Opportunity Audit</div>
+        <h2>See exactly where AI can work for you</h2>
+        <p class="lede">A focused, no-pressure session with our team. We'll review your business and show you the highest-impact AI opportunities — completely free.</p>
+        <ul class="checklist">
+          <li><span class="dot">✓</span> A personalized map of your AI opportunities</li>
+          <li><span class="dot">✓</span> Quick wins you can act on right away</li>
+          <li><span class="dot">✓</span> Honest guidance — no pitch, no obligation</li>
+          <li><span class="dot">✓</span> 30 minutes, zero cost, real clarity</li>
+        </ul>
+      </div>
+
+      <div class="formcard">
+        <div id="formInner">
+          <h3>Prepare for your audit</h3>
+          <p class="small">Tell us a bit about your business so we come prepared with real opportunities.</p>
+          <form id="auditForm">
+            <div class="row2">
+              <div class="field"><label>Name</label><input class="input" name="name" required placeholder="Your name" /></div>
+              <div class="field"><label>Email</label><input class="input" type="email" name="email" required placeholder="you@company.com" /></div>
+            </div>
+            <div class="field"><label>Company</label><input class="input" name="company" placeholder="Company name" /></div>
+            <div class="field"><label>Annual Revenue</label>
+              <select name="revenue">
+                <option value="">Select range…</option>
+                <option>Under $1M</option>
+                <option>$1M – $5M</option>
+                <option>$5M – $25M</option>
+                <option>$25M – $100M</option>
+                <option>$100M+</option>
+              </select>
+            </div>
+            <div class="field"><label>What tasks eat up the most time?</label><textarea name="tasks" placeholder="e.g. customer support, reporting, content, scheduling…"></textarea></div>
+            <div class="field"><label>Biggest bottleneck right now?</label><textarea name="bottlenecks" placeholder="Where do things slow down or break?"></textarea></div>
+            <div class="field"><label>Experience with AI so far?</label>
+              <select name="ai_experience">
+                <option value="">Select…</option>
+                <option>Haven't started</option>
+                <option>Dabbled a little</option>
+                <option>Using some tools</option>
+                <option>Fairly advanced</option>
+              </select>
+            </div>
+            <button type="submit" class="btn btn-primary submit">Submit &amp; Book My Audit</button>
+            <p class="small" style="text-align:center;margin-top:12px;margin-bottom:0">We'll reach out within one business day.</p>
+          </form>
+        </div>
+        <div class="ok" id="okMsg">
+          <div class="big">🎉</div>
+          <h3>You're all set!</h3>
+          <p>Thanks — we've got your details. Our team will reach out within one business day to lock in your free AI Opportunity Audit.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="logo">Brandastic<span>.ai</span></div>
+    <p>AI implementation &amp; management for established businesses.</p>
+    <p style="margin-top:6px">A <a href="https://brandastic.com" target="_blank" rel="noopener">Brandastic</a> company · Southern California</p>
+    <p class="fine">© <span id="yr"></span> Brandastic. All rights reserved.</p>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('yr').textContent = new Date().getFullYear();
+
+  // Form handling — works as static demo now; wire Supabase/Calendly later.
+  document.getElementById('auditForm').addEventListener('submit', function(e){
+    e.preventDefault();
+    var data = Object.fromEntries(new FormData(this).entries());
+    console.log('Audit lead:', data); // TODO: insert into Supabase `leads` table
+    document.getElementById('formInner').style.display = 'none';
+    document.getElementById('okMsg').style.display = 'block';
+    // TODO: optionally open Calendly modal here
+  });
+</script>
+</body>
+</html>

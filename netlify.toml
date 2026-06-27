@@ -99,3 +99,8 @@
   from = "/dess"
   to = "/dess-usa.html"
   status = 200
+
+[[redirects]]
+  from = "/ai"
+  to = "/ai.html"
+  status = 200
