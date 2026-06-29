@@ -95,6 +95,17 @@ tr:hover td{color:var(--text)}
 .chg{font-weight:700;font-size:0.82rem}
 .chg.up{color:var(--green)} .chg.down{color:var(--red)} .chg.flat{color:var(--muted)}
 .num-r{text-align:right}
+.kt{display:inline-block;font-size:0.68rem;font-weight:700;letter-spacing:0.03em;padding:3px 9px;border-radius:6px;white-space:nowrap}
+.kt-ai{background:linear-gradient(135deg,rgba(204,34,255,0.12),rgba(64,180,229,0.12));color:#8b18c9;border:1px solid rgba(204,34,255,0.25)}
+.kt-org{background:rgba(6,68,237,0.07);color:var(--blue);border:1px solid rgba(6,68,237,0.15)}
+.kt-none{color:var(--muted)}
+.ai-overview-note{background:linear-gradient(135deg,rgba(64,180,229,0.06),rgba(204,34,255,0.06));border:1px solid rgba(204,34,255,0.2);border-radius:14px;padding:1.4rem 1.6rem;margin:0 0 1.6rem}
+.aon-head{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:6px}
+.aon-badge{font-size:0.64rem;font-weight:800;letter-spacing:0.12em;padding:4px 10px;border-radius:50px;background:var(--grad);color:#fff}
+.aon-title{font-weight:800;font-size:1.02rem;letter-spacing:-0.01em}
+.aon-sub{font-size:0.85rem;color:var(--soft);margin-bottom:0.9rem;max-width:680px}
+.ai-chips{display:flex;flex-wrap:wrap;gap:8px}
+.ai-chip{font-size:0.76rem;font-weight:600;padding:5px 12px;border-radius:50px;background:#fff;border:1px solid rgba(204,34,255,0.2);color:var(--text)}
 
 /* placeholder block */
 .placeholder{background:linear-gradient(135deg,rgba(64,180,229,0.06),rgba(204,34,255,0.05));
@@ -128,6 +139,10 @@ tr:hover td{color:var(--text)}
 .chart-wrap{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:1.8rem;margin-bottom:2rem;position:relative}
 .chart-wrap h3{font-size:1.05rem;margin-bottom:1rem}
 .chart-box{position:relative;height:300px;width:100%}
+.chart-grid2{display:grid;grid-template-columns:1fr 1fr;gap:1.4rem;margin-bottom:2rem}
+.chart-grid2 .chart-wrap{margin-bottom:0}
+.chart-sub{font-size:0.78rem;color:var(--muted);margin-top:.6rem}
+@media(max-width:860px){.chart-grid2{grid-template-columns:1fr}}
 
 .footer{text-align:center;padding:2.5rem 0;color:var(--muted);font-size:0.8rem}
 .footer .dot{display:inline-block;width:9px;height:9px;border-radius:50%;background:var(--grad);vertical-align:middle;margin-right:6px}
@@ -146,6 +161,7 @@ tr:hover td{color:var(--text)}
   .sec-block:first-of-type{page-break-before:avoid}
   .table-wrap,.metric,.chart-wrap,.placeholder,.move-cell,.toc-item{box-shadow:none!important;break-inside:avoid}
   .chart-box{height:260px}
+  .chart-grid2{grid-template-columns:1fr 1fr}
   a{color:var(--text)}
 }
 </style>
@@ -163,7 +179,7 @@ tr:hover td{color:var(--text)}
   <div class="meta">
     <span>brandastic.com</span>
     <span>June 2026</span>
-    <span>Prepared by Brandastic</span>
+    <span>Prepared by Brandastic</span>  <!-- agency attribution stays Brandastic -->
   </div>
 </section>
 
@@ -187,13 +203,13 @@ tr:hover td{color:var(--text)}
       <div class="metric"><div class="value grad">1</div>
         <div class="label">Mentions</div><div class="change flat">0.6% share</div></div>
       <div class="metric"><div class="value grad">0</div>
-        <div class="label">Domain Citations</div><div class="change down">brandastic.com not cited</div></div>
+        <div class="label">Domain Citations</div><div class="change down">brandastic.com citations</div></div>
       <div class="metric"><div class="value grad">2.0</div>
         <div class="label">Avg Position</div><div class="change flat">when surfaced</div></div>
     </div>
     <h3 style="margin:1.5rem 0 .8rem;font-size:1.05rem">Share of Voice — Google AI Mode</h3>
     <div class="sov-wrap"><div class="sovrow"><div class="sovname" style="font-weight:800">Brandastic</div><div class="sovtrack"><div class="sovfill" style="width:0.5%;background:var(--grad)"></div></div><div class="sovval" style="font-weight:800">0.4%</div></div><div class="sovrow"><div class="sovname" style="font-weight:600">Ignite Visibility</div><div class="sovtrack"><div class="sovfill" style="width:11.2%;background:rgba(25,31,36,0.30)"></div></div><div class="sovval" style="font-weight:600">8.6%</div></div><div class="sovrow"><div class="sovname" style="font-weight:600">Coalition Technologies</div><div class="sovtrack"><div class="sovfill" style="width:7.6%;background:rgba(25,31,36,0.30)"></div></div><div class="sovval" style="font-weight:600">5.8%</div></div><div class="sovrow"><div class="sovname" style="font-weight:600">Klientboost</div><div class="sovtrack"><div class="sovfill" style="width:6.0%;background:rgba(25,31,36,0.30)"></div></div><div class="sovval" style="font-weight:600">4.6%</div></div><div class="sovrow"><div class="sovname" style="font-weight:600">Digital Silk</div><div class="sovtrack"><div class="sovfill" style="width:4.6%;background:rgba(25,31,36,0.30)"></div></div><div class="sovval" style="font-weight:600">3.5%</div></div><div class="sovrow"><div class="sovname" style="font-weight:600">Other</div><div class="sovtrack"><div class="sovfill" style="width:100.0%;background:rgba(25,31,36,0.30)"></div></div><div class="sovval" style="font-weight:600">76.7%</div></div></div>
-    <p style="font-size:0.78rem;color:var(--muted);margin-bottom:1.5rem">Brandastic holds 0.4% AI share of voice — the rest of the visible market is led by Ignite Visibility, Coalition Technologies, Klientboost and Digital Silk. 76.7% sits in the long tail.</p>
+    <p style="font-size:0.78rem;color:var(--muted);margin-bottom:1.5rem">Brandastic holds 0.4% AI share of voice — the rest of the visible market is led by Ignite Visibility, Coalition Technologies, Klientboost, Digital Silk. 76.7% sits in the long tail.</p>
     <h3 style="margin:1rem 0 .8rem;font-size:1.05rem">Competitor benchmark</h3>
     <div class="table-wrap"><table><thead><tr><th>Brand</th><th class="num-r">AI SOV</th>
       <th class="num-r">Mentions</th><th class="num-r">Avg Pos</th><th class="num-r">Favorable</th></tr></thead>
@@ -202,7 +218,7 @@ tr:hover td{color:var(--text)}
     <div class="table-wrap"><table><thead><tr><th>Domain</th><th class="num-r">Citation Share</th>
       <th class="num-r">Citations</th></tr></thead>
       <tbody><tr><td>agencies.semrush.com</td><td class="num-r">4.3%</td><td class="num-r pos">53</td></tr><tr><td>clutch.co</td><td class="num-r">2.4%</td><td class="num-r pos">29</td></tr><tr><td>sanfranciscoseo.ai</td><td class="num-r">2.2%</td><td class="num-r pos">27</td></tr><tr><td>linkedin.com</td><td class="num-r">2.0%</td><td class="num-r pos">24</td></tr><tr><td>designrush.com</td><td class="num-r">1.8%</td><td class="num-r pos">22</td></tr><tr><td>brandastic.com</td><td class="num-r">0.0%</td><td class="num-r pos">0</td></tr></tbody></table></div>
-    <p style="font-size:0.78rem;color:var(--muted);margin-bottom:1.5rem">brandastic.com currently earns <strong>0 citations</strong> — AI answers cite directories (Semrush, Clutch, DesignRush) and competitor-owned content instead. Earning citations on these source pages is the fastest lever to enter the recommendation set.</p>
+    <p style="font-size:0.78rem;color:var(--muted);margin-bottom:1.5rem">brandastic.com earns only <strong>0 citations</strong> — AI answers lean on directories and competitor-owned content instead. Earning citations on these source pages is the fastest lever to enter the recommendation set.</p>
     <h3 style="margin:1.5rem 0 .8rem;font-size:1.05rem">Urgent strategic priorities</h3>
     <div class="pri-grid"><div class="pri"><div class="prinum">1</div><div><div class="prit">Close AI Visibility Gap</div><div class="prid">Grow Share of Voice from 0.40% by targeting 20–30 priority AI query themes.</div></div></div><div class="pri"><div class="prinum">2</div><div><div class="prit">Showcase Transparent SEO Ownership</div><div class="prid">Clarify in-house versus outsourced SEO, matching or exceeding transparency touted by rivals.</div></div></div><div class="pri"><div class="prinum">3</div><div><div class="prit">Claim Full-Funnel Ground</div><div class="prid">Reframe as $2M–$50M mid-market growth partner with integrated, revenue-proven programs, not isolated &#x27;Shopify&#x27; or &#x27;SEO&#x27; projects.</div></div></div></div>
     <div class="opp">
@@ -218,33 +234,25 @@ tr:hover td{color:var(--text)}
   <div class="wrap">
     <span class="sec-badge">Section 02 · Organic Search</span>
     <h2 class="sec-title">Semrush Position Tracking</h2>
-    <p class="sec-sub">176 tracked keywords for brandastic.com. Visibility 10.53%, share of voice 4.81%.</p>
+    <p class="sec-sub">Tracked Position Tracking campaign: visibility 10.53% and share of voice 4.81% for brandastic.com. 176 of 176 tracked keywords rank — 30 in the top 3 (including 0 cited at #1 in Google AI Overviews) and 49 in the top 10.</p>
     
     <div class="cards">
-      <div class="metric"><div class="value grad">10.53%</div>
-        <div class="label">Visibility</div><div class="change down">▼ 0.82pt</div></div>
-      <div class="metric"><div class="value grad">4.81%</div>
-        <div class="label">Share of Voice</div><div class="change up">▲ 0.82pt</div></div>
+      <div class="metric"><div class="value grad">10.53%</div><div class="label">Visibility</div><div class="change down">▼ 0.82pt</div><div class="change flat" style="font-size:0.68rem">tracked campaign</div></div>
+      <div class="metric"><div class="value grad">4.81%</div><div class="label">Share of Voice</div><div class="change up">▲ 0.82pt</div><div class="change flat" style="font-size:0.68rem">tracked campaign</div></div>
       <div class="metric"><div class="value grad">49</div>
-        <div class="label">Top 10 Keywords</div><div class="change flat">of 176 tracked</div></div>
+        <div class="label">Top 10 Keywords</div><div class="change flat">tracked, page-one</div></div>
       <div class="metric"><div class="value grad">30</div>
-        <div class="label">Top 3 Keywords</div><div class="change flat">page-one leaders</div></div>
-    </div>
-    <div class="move-strip">
-      <div class="move-cell imp"><div class="num">23</div><div class="lbl">Improved</div></div>
-      <div class="move-cell dec"><div class="num">27</div><div class="lbl">Declined</div></div>
-      <div class="move-cell ent"><div class="num">4</div><div class="lbl">Entered</div></div>
-      <div class="move-cell lft"><div class="num">9</div><div class="lbl">Left Top 100</div></div>
-    </div>
+        <div class="label">Top 3 Keywords</div><div class="change flat">incl. AI Overview #1s</div></div>
+    </div><div class="move-strip"><div class="move-cell imp"><div class="num">23</div><div class="lbl">Improved</div></div><div class="move-cell dec"><div class="num">27</div><div class="lbl">Declined</div></div><div class="move-cell ent"><div class="num">4</div><div class="lbl">Entered</div></div><div class="move-cell lft"><div class="num">9</div><div class="lbl">Left Top 100</div></div></div>
     <div class="chart-wrap">
       <h3>Ranking distribution by position bucket</h3>
       <div class="chart-box"><canvas id="posChart"></canvas></div>
     </div>
-    <h3 style="margin:1rem 0 .8rem;font-size:1.05rem">Keyword movement (top 40 ranking)</h3>
-    <div class="table-wrap"><table><thead><tr><th>Keyword</th><th class="num-r">Volume</th>
-      <th class="num-r">Position</th><th class="num-r">7-Day</th><th class="num-r">30-Day</th></tr></thead>
-      <tbody><tr><td>branding agency</td><td class="num-r">20</td><td class="num-r pos">1</td><td class="num-r chg up">▲ 1</td><td class="num-r chg flat">0</td></tr><tr><td>brand marketing firm</td><td class="num-r">10</td><td class="num-r pos">1</td><td class="num-r chg flat">0</td><td class="num-r chg flat">0</td></tr><tr><td>marketing firms orange county</td><td class="num-r">10</td><td class="num-r pos">1</td><td class="num-r chg up">▲ 9</td><td class="num-r chg up">▲ 2</td></tr><tr><td>content marketing agency orange county</td><td class="num-r">0</td><td class="num-r pos">1</td><td class="num-r chg flat">0</td><td class="num-r chg up">▲ 1</td></tr><tr><td>digital marketing agency costa mesa</td><td class="num-r">0</td><td class="num-r pos">1</td><td class="num-r chg flat">0</td><td class="num-r chg flat">0</td></tr><tr><td>marketing agency costa mesa</td><td class="num-r">0</td><td class="num-r pos">1</td><td class="num-r chg flat">0</td><td class="num-r chg flat">0</td></tr><tr><td>orange county shopify developer</td><td class="num-r">0</td><td class="num-r pos">1</td><td class="num-r chg flat">0</td><td class="num-r chg flat">0</td></tr><tr><td>ppc agency costa mesa</td><td class="num-r">0</td><td class="num-r pos">1</td><td class="num-r chg flat">0</td><td class="num-r chg up">▲ 16</td></tr><tr><td>ppc agency orange county</td><td class="num-r">0</td><td class="num-r pos">1</td><td class="num-r chg flat">0</td><td class="num-r chg up">▲ 22</td></tr><tr><td>shopify developer near me</td><td class="num-r">0</td><td class="num-r pos">1</td><td class="num-r chg flat">0</td><td class="num-r chg up">▲ 22</td></tr><tr><td>branding agency near me</td><td class="num-r">10</td><td class="num-r pos">2</td><td class="num-r chg flat">0</td><td class="num-r chg flat">0</td></tr><tr><td>digital marketing agency near me</td><td class="num-r">10</td><td class="num-r pos">2</td><td class="num-r chg flat">0</td><td class="num-r chg up">▲ 1</td></tr><tr><td>marketing orange county</td><td class="num-r">10</td><td class="num-r pos">2</td><td class="num-r chg flat">0</td><td class="num-r chg up">▲ 1</td></tr><tr><td>orange county digital marketing agency</td><td class="num-r">10</td><td class="num-r pos">2</td><td class="num-r chg flat">0</td><td class="num-r chg up">▲ 1</td></tr><tr><td>digital marketing services in orange county</td><td class="num-r">0</td><td class="num-r pos">2</td><td class="num-r chg flat">0</td><td class="num-r chg flat">0</td></tr><tr><td>shopify agency orange county</td><td class="num-r">0</td><td class="num-r pos">2</td><td class="num-r chg flat">0</td><td class="num-r chg down">▼ 1</td></tr><tr><td>shopify developer orange county</td><td class="num-r">0</td><td class="num-r pos">2</td><td class="num-r chg down">▼ 1</td><td class="num-r chg down">▼ 1</td></tr><tr><td>top marketing firms in orange county</td><td class="num-r">0</td><td class="num-r pos">2</td><td class="num-r chg up">▲ 1</td><td class="num-r chg down">▼ 1</td></tr><tr><td>digital marketing agency</td><td class="num-r">30</td><td class="num-r pos">3</td><td class="num-r chg up">▲ 3</td><td class="num-r chg flat">0</td></tr><tr><td>digital marketing agency orange county</td><td class="num-r">30</td><td class="num-r pos">3</td><td class="num-r chg flat">0</td><td class="num-r chg down">▼ 1</td></tr><tr><td>marketing agency orange county</td><td class="num-r">30</td><td class="num-r pos">3</td><td class="num-r chg flat">0</td><td class="num-r chg flat">0</td></tr><tr><td>digital marketing orange county</td><td class="num-r">20</td><td class="num-r pos">3</td><td class="num-r chg flat">0</td><td class="num-r chg flat">0</td></tr><tr><td>orange county branding agency</td><td class="num-r">20</td><td class="num-r pos">3</td><td class="num-r chg up">▲ 5</td><td class="num-r chg up">▲ 3</td></tr><tr><td>ppc agency near me</td><td class="num-r">20</td><td class="num-r pos">3</td><td class="num-r chg down">▼ 1</td><td class="num-r chg flat">0</td></tr><tr><td>digital marketing agency california</td><td class="num-r">10</td><td class="num-r pos">3</td><td class="num-r chg flat">0</td><td class="num-r chg flat">0</td></tr><tr><td>orange county marketing agency</td><td class="num-r">10</td><td class="num-r pos">3</td><td class="num-r chg flat">0</td><td class="num-r chg flat">0</td></tr><tr><td>advertising agencies orange county</td><td class="num-r">0</td><td class="num-r pos">3</td><td class="num-r chg flat">0</td><td class="num-r chg up">▲ 1</td></tr><tr><td>digital marketing agency in california</td><td class="num-r">0</td><td class="num-r pos">3</td><td class="num-r chg flat">0</td><td class="num-r chg flat">0</td></tr><tr><td>digital marketing agency santa ana</td><td class="num-r">0</td><td class="num-r pos">3</td><td class="num-r chg flat">0</td><td class="num-r chg up">▲ 16</td></tr><tr><td>marketing company orange county</td><td class="num-r">0</td><td class="num-r pos">3</td><td class="num-r chg down">▼ 1</td><td class="num-r chg flat">0</td></tr><tr><td>branding agency orange county</td><td class="num-r">10</td><td class="num-r pos">4</td><td class="num-r chg down">▼ 1</td><td class="num-r chg down">▼ 1</td></tr><tr><td>orange county advertising agencies</td><td class="num-r">0</td><td class="num-r pos">4</td><td class="num-r chg down">▼ 1</td><td class="num-r chg up">▲ 1</td></tr><tr><td>sem agency orange county</td><td class="num-r">0</td><td class="num-r pos">4</td><td class="num-r chg flat">0</td><td class="num-r chg up">▲ 1</td></tr><tr><td>content marketing agency</td><td class="num-r">40</td><td class="num-r pos">5</td><td class="num-r chg flat">0</td><td class="num-r chg down">▼ 2</td></tr><tr><td>marketing agency</td><td class="num-r">10</td><td class="num-r pos">5</td><td class="num-r chg up">▲ 7</td><td class="num-r chg up">▲ 8</td></tr><tr><td>social media agency orange county</td><td class="num-r">0</td><td class="num-r pos">6</td><td class="num-r chg flat">0</td><td class="num-r chg down">▼ 2</td></tr><tr><td>ad agencies in orange county</td><td class="num-r">10</td><td class="num-r pos">7</td><td class="num-r chg up">▲ 2</td><td class="num-r chg flat">0</td></tr><tr><td>orange county digital marketing</td><td class="num-r">10</td><td class="num-r pos">7</td><td class="num-r chg down">▼ 1</td><td class="num-r chg flat">0</td></tr><tr><td>magento agency los angeles</td><td class="num-r">0</td><td class="num-r pos">7</td><td class="num-r chg flat">0</td><td class="num-r chg up">▲ 4</td></tr><tr><td>orange county advertising agency</td><td class="num-r">0</td><td class="num-r pos">7</td><td class="num-r chg up">▲ 1</td><td class="num-r chg up">▲ 2</td></tr></tbody></table></div>
-    <p style="font-size:0.78rem;color:var(--muted)">Movement values are Semrush position deltas — a positive number means the keyword moved up (improved). Showing ranking keywords (top 100) sorted by current position.</p>
+    <h3 style="margin:1rem 0 .8rem;font-size:1.05rem">Keyword rankings &amp; movement (top 40)</h3>
+    <div class="table-wrap"><table><thead><tr><th>Keyword</th><th>Type</th><th class="num-r">Volume</th>
+      <th class="num-r">Position</th><th class="num-r">Movement</th></tr></thead>
+      <tbody><tr><td>branding agency</td><td><span class="kt kt-none">—</span></td><td class="num-r">20</td><td class="num-r pos">1</td><td class="num-r chg flat">0</td></tr><tr><td>brand marketing firm</td><td><span class="kt kt-none">—</span></td><td class="num-r">10</td><td class="num-r pos">1</td><td class="num-r chg flat">0</td></tr><tr><td>marketing firms orange county</td><td><span class="kt kt-none">—</span></td><td class="num-r">10</td><td class="num-r pos">1</td><td class="num-r chg up">▲ 2</td></tr><tr><td>content marketing agency orange county</td><td><span class="kt kt-none">—</span></td><td class="num-r">0</td><td class="num-r pos">1</td><td class="num-r chg up">▲ 1</td></tr><tr><td>digital marketing agency costa mesa</td><td><span class="kt kt-none">—</span></td><td class="num-r">0</td><td class="num-r pos">1</td><td class="num-r chg flat">0</td></tr><tr><td>marketing agency costa mesa</td><td><span class="kt kt-none">—</span></td><td class="num-r">0</td><td class="num-r pos">1</td><td class="num-r chg flat">0</td></tr><tr><td>orange county shopify developer</td><td><span class="kt kt-none">—</span></td><td class="num-r">0</td><td class="num-r pos">1</td><td class="num-r chg flat">0</td></tr><tr><td>ppc agency costa mesa</td><td><span class="kt kt-none">—</span></td><td class="num-r">0</td><td class="num-r pos">1</td><td class="num-r chg up">▲ 16</td></tr><tr><td>ppc agency orange county</td><td><span class="kt kt-none">—</span></td><td class="num-r">0</td><td class="num-r pos">1</td><td class="num-r chg up">▲ 22</td></tr><tr><td>shopify developer near me</td><td><span class="kt kt-none">—</span></td><td class="num-r">0</td><td class="num-r pos">1</td><td class="num-r chg up">▲ 22</td></tr><tr><td>branding agency near me</td><td><span class="kt kt-none">—</span></td><td class="num-r">10</td><td class="num-r pos">2</td><td class="num-r chg flat">0</td></tr><tr><td>digital marketing agency near me</td><td><span class="kt kt-none">—</span></td><td class="num-r">10</td><td class="num-r pos">2</td><td class="num-r chg up">▲ 1</td></tr><tr><td>marketing orange county</td><td><span class="kt kt-none">—</span></td><td class="num-r">10</td><td class="num-r pos">2</td><td class="num-r chg up">▲ 1</td></tr><tr><td>orange county digital marketing agency</td><td><span class="kt kt-none">—</span></td><td class="num-r">10</td><td class="num-r pos">2</td><td class="num-r chg up">▲ 1</td></tr><tr><td>digital marketing services in orange county</td><td><span class="kt kt-none">—</span></td><td class="num-r">0</td><td class="num-r pos">2</td><td class="num-r chg flat">0</td></tr><tr><td>shopify agency orange county</td><td><span class="kt kt-none">—</span></td><td class="num-r">0</td><td class="num-r pos">2</td><td class="num-r chg down">▼ 1</td></tr><tr><td>shopify developer orange county</td><td><span class="kt kt-none">—</span></td><td class="num-r">0</td><td class="num-r pos">2</td><td class="num-r chg down">▼ 1</td></tr><tr><td>top marketing firms in orange county</td><td><span class="kt kt-none">—</span></td><td class="num-r">0</td><td class="num-r pos">2</td><td class="num-r chg down">▼ 1</td></tr><tr><td>digital marketing agency</td><td><span class="kt kt-none">—</span></td><td class="num-r">30</td><td class="num-r pos">3</td><td class="num-r chg flat">0</td></tr><tr><td>digital marketing agency orange county</td><td><span class="kt kt-none">—</span></td><td class="num-r">30</td><td class="num-r pos">3</td><td class="num-r chg down">▼ 1</td></tr><tr><td>marketing agency orange county</td><td><span class="kt kt-none">—</span></td><td class="num-r">30</td><td class="num-r pos">3</td><td class="num-r chg flat">0</td></tr><tr><td>digital marketing orange county</td><td><span class="kt kt-none">—</span></td><td class="num-r">20</td><td class="num-r pos">3</td><td class="num-r chg flat">0</td></tr><tr><td>orange county branding agency</td><td><span class="kt kt-none">—</span></td><td class="num-r">20</td><td class="num-r pos">3</td><td class="num-r chg up">▲ 3</td></tr><tr><td>ppc agency near me</td><td><span class="kt kt-none">—</span></td><td class="num-r">20</td><td class="num-r pos">3</td><td class="num-r chg flat">0</td></tr><tr><td>digital marketing agency california</td><td><span class="kt kt-none">—</span></td><td class="num-r">10</td><td class="num-r pos">3</td><td class="num-r chg flat">0</td></tr><tr><td>orange county marketing agency</td><td><span class="kt kt-none">—</span></td><td class="num-r">10</td><td class="num-r pos">3</td><td class="num-r chg flat">0</td></tr><tr><td>advertising agencies orange county</td><td><span class="kt kt-none">—</span></td><td class="num-r">0</td><td class="num-r pos">3</td><td class="num-r chg up">▲ 1</td></tr><tr><td>digital marketing agency in california</td><td><span class="kt kt-none">—</span></td><td class="num-r">0</td><td class="num-r pos">3</td><td class="num-r chg flat">0</td></tr><tr><td>digital marketing agency santa ana</td><td><span class="kt kt-none">—</span></td><td class="num-r">0</td><td class="num-r pos">3</td><td class="num-r chg up">▲ 16</td></tr><tr><td>marketing company orange county</td><td><span class="kt kt-none">—</span></td><td class="num-r">0</td><td class="num-r pos">3</td><td class="num-r chg flat">0</td></tr><tr><td>branding agency orange county</td><td><span class="kt kt-none">—</span></td><td class="num-r">10</td><td class="num-r pos">4</td><td class="num-r chg down">▼ 1</td></tr><tr><td>orange county advertising agencies</td><td><span class="kt kt-none">—</span></td><td class="num-r">0</td><td class="num-r pos">4</td><td class="num-r chg up">▲ 1</td></tr><tr><td>sem agency orange county</td><td><span class="kt kt-none">—</span></td><td class="num-r">0</td><td class="num-r pos">4</td><td class="num-r chg up">▲ 1</td></tr><tr><td>content marketing agency</td><td><span class="kt kt-none">—</span></td><td class="num-r">40</td><td class="num-r pos">5</td><td class="num-r chg down">▼ 2</td></tr><tr><td>marketing agency</td><td><span class="kt kt-none">—</span></td><td class="num-r">10</td><td class="num-r pos">5</td><td class="num-r chg up">▲ 8</td></tr><tr><td>social media agency orange county</td><td><span class="kt kt-none">—</span></td><td class="num-r">0</td><td class="num-r pos">6</td><td class="num-r chg down">▼ 2</td></tr><tr><td>ad agencies in orange county</td><td><span class="kt kt-none">—</span></td><td class="num-r">10</td><td class="num-r pos">7</td><td class="num-r chg flat">0</td></tr><tr><td>orange county digital marketing</td><td><span class="kt kt-none">—</span></td><td class="num-r">10</td><td class="num-r pos">7</td><td class="num-r chg flat">0</td></tr><tr><td>magento agency los angeles</td><td><span class="kt kt-none">—</span></td><td class="num-r">0</td><td class="num-r pos">7</td><td class="num-r chg up">▲ 4</td></tr><tr><td>orange county advertising agency</td><td><span class="kt kt-none">—</span></td><td class="num-r">0</td><td class="num-r pos">7</td><td class="num-r chg up">▲ 2</td></tr></tbody></table></div>
+    <p style="font-size:0.78rem;color:var(--muted)">Tracked Position Tracking campaign (46 keywords). Movement = Semrush position delta over the period — a positive (▲) value means the keyword moved up. Sorted by current position.</p>
   </div>
 </section>
 
@@ -256,6 +264,19 @@ tr:hover td{color:var(--text)}
     
     <div style="display:inline-block;margin-bottom:1.2rem;padding:6px 16px;border-radius:50px;background:rgba(6,68,237,0.08);color:var(--blue);font-size:0.78rem;font-weight:700">📅 May 2026 vs April 2026</div>
     <div class="cards"><div class="metric"><div class="value grad">448</div><div class="label">Clicks</div><div class="change up">▲ 9.5%</div><div class="change flat" style="font-size:0.7rem">April 2026: 409</div></div><div class="metric"><div class="value grad">270K</div><div class="label">Impressions</div><div class="change down">▼ 6.2%</div><div class="change flat" style="font-size:0.7rem">April 2026: 288K</div></div><div class="metric"><div class="value grad">21.4</div><div class="label">Avg Position</div><div class="change down">▼ 1.8</div><div class="change flat" style="font-size:0.7rem">April 2026: 19.6</div></div><div class="metric"><div class="value grad">0.2%</div><div class="label">CTR</div><div class="change up">▲ 0.1pt</div><div class="change flat" style="font-size:0.7rem">April 2026: 0.1%</div></div></div>
+    
+    <div class="chart-grid2">
+      <div class="chart-wrap">
+        <h3>Clicks — 12-month trend (year over year)</h3>
+        <div class="chart-box"><canvas id="gscYoyChart"></canvas></div>
+        <div class="chart-sub">Organic clicks by month, current 12 months vs. the same months a year earlier (Google Search Console).</div>
+      </div>
+      <div class="chart-wrap">
+        <h3>Clicks — month over month</h3>
+        <div class="chart-box"><canvas id="gscMomChart"></canvas></div>
+        <div class="chart-sub">Organic clicks per month across the trailing window (Google Search Console).</div>
+      </div>
+    </div>
     <h3 style="margin:1.5rem 0 .8rem;font-size:1.05rem">Top Queries — month over month</h3>
     <div class="table-wrap"><table><thead><tr><th>Query</th>
       <th class="num-r">Clicks (May 2026)</th><th class="num-r">Clicks (April 2026)</th>
@@ -265,7 +286,7 @@ tr:hover td{color:var(--text)}
     <div class="table-wrap"><table><thead><tr><th>Page</th><th class="num-r">Clicks (May 2026)</th><th class="num-r">Clicks (April 2026)</th><th class="num-r">Δ Clicks</th><th class="num-r">Impr (May 2026)</th><th class="num-r">Impr (April 2026)</th></tr></thead><tbody><tr><td>brandastic.com/</td><td class="num-r pos">169</td><td class="num-r">175</td><td class="num-r chg down">▼ 6</td><td class="num-r">40082</td><td class="num-r">36732</td></tr><tr><td>brandastic.com/blog/digital-marketing-trends-for-2027/</td><td class="num-r pos">129</td><td class="num-r">96</td><td class="num-r chg up">▲ 33</td><td class="num-r">4994</td><td class="num-r">3962</td></tr><tr><td>brandastic.com/digital-marketing-agency-austin-tx/</td><td class="num-r pos">11</td><td class="num-r">13</td><td class="num-r chg down">▼ 2</td><td class="num-r">3773</td><td class="num-r">7928</td></tr><tr><td>brandastic.com/blog/what-is-tiktok-and-why-is-it-so-popular/</td><td class="num-r pos">10</td><td class="num-r">13</td><td class="num-r chg down">▼ 3</td><td class="num-r">13850</td><td class="num-r">13544</td></tr><tr><td>brandastic.com/blog/social-media-marketing-strategies-drive-revenue/</td><td class="num-r pos">9</td><td class="num-r">2</td><td class="num-r chg up">▲ 7</td><td class="num-r">4513</td><td class="num-r">3320</td></tr><tr><td>brandastic.com/blog/7-important-marketing-trends-of-the-2010s/</td><td class="num-r pos">8</td><td class="num-r">6</td><td class="num-r chg up">▲ 2</td><td class="num-r">552</td><td class="num-r">575</td></tr><tr><td>brandastic.com/about/</td><td class="num-r pos">6</td><td class="num-r">2</td><td class="num-r chg up">▲ 4</td><td class="num-r">694</td><td class="num-r">617</td></tr><tr><td>brandastic.com/contact/</td><td class="num-r pos">6</td><td class="num-r">5</td><td class="num-r chg up">▲ 1</td><td class="num-r">642</td><td class="num-r">567</td></tr><tr><td>brandastic.com/blog/future-proof-seo-strategies-2027/</td><td class="num-r pos">6</td><td class="num-r">2</td><td class="num-r chg up">▲ 4</td><td class="num-r">579</td><td class="num-r">43</td></tr><tr><td>brandastic.com/blog/direct-vs-indirect-marketing/</td><td class="num-r pos">5</td><td class="num-r">5</td><td class="num-r chg flat">0</td><td class="num-r">7157</td><td class="num-r">5781</td></tr></tbody></table></div>
   </div>
 </section>
-<div class="footer"><span class="dot"></span>Brandastic SEO Performance Report · June 2026 · brandastic.com · Data: Semrush Position Tracking + Google Search Console + Semrush AI Visibility</div>
+<div class="footer"><span class="dot"></span>Brandastic SEO Performance Report · June 2026 · brandastic.com · Prepared by Brandastic · Data: Semrush + Google Search Console + Semrush AI Visibility</div>
 
 <script>
 (function(){
@@ -303,6 +324,55 @@ tr:hover td{color:var(--text)}
   if(document.readyState!=='loading') draw();
   else document.addEventListener('DOMContentLoaded',draw);
   // setTimeout fallback in case CDN/layout is late
+  setTimeout(draw,400);
+  setTimeout(draw,1500);
+  window.addEventListener('beforeprint',draw);
+})();
+</script>
+
+<script>
+(function(){
+  var done=false;
+  function draw(){
+    if(done) return;
+    if(typeof Chart==='undefined') return;
+    var yc=document.getElementById('gscYoyChart');
+    var mc=document.getElementById('gscMomChart');
+    if(!yc&&!mc) return;
+    var ready=false;
+    [yc,mc].forEach(function(cv){ if(cv){var b=cv.parentElement; if(b&&b.clientHeight>0&&b.clientWidth>0) ready=true;} });
+    if(!ready) return;
+    done=true;
+    if(yc){
+      new Chart(yc.getContext('2d'),{
+        type:'bar',
+        data:{labels:["Jul", "Aug", "Sep", "Oct", "Nov", "Dec", "Jan", "Feb", "Mar", "Apr", "May", "Jun"],datasets:[
+          {label:'This year',data:[563, 532, 563, 500, 409, 397, 535, 575, 467, 409, 448, 394],backgroundColor:'#0644ED',borderRadius:6,maxBarThickness:26},
+          {label:'Prior year',data:[null, null, null, null, null, null, null, null, 908, 714, 580, 565],backgroundColor:'rgba(64,180,229,0.55)',borderRadius:6,maxBarThickness:26}
+        ]},
+        options:{responsive:true,maintainAspectRatio:false,animation:false,
+          plugins:{legend:{display:true,position:'bottom',labels:{boxWidth:12,font:{size:11}}}},
+          scales:{y:{beginAtZero:true,ticks:{precision:0},grid:{color:'rgba(25,31,36,0.06)'}},x:{grid:{display:false}}}
+        }
+      });
+    }
+    if(mc){
+      new Chart(mc.getContext('2d'),{
+        type:'line',
+        data:{labels:["Jun 2025", "Jul 2025", "Aug 2025", "Sep 2025", "Oct 2025", "Nov 2025", "Dec 2025", "Jan 2026", "Feb 2026", "Mar 2026", "Apr 2026", "May 2026", "Jun 2026"],datasets:[
+          {label:'Clicks',data:[565, 563, 532, 563, 500, 409, 397, 535, 575, 467, 409, 448, 394],borderColor:'#CC22FF',
+            backgroundColor:'rgba(204,34,255,0.10)',fill:true,tension:0.32,
+            pointRadius:3,pointBackgroundColor:'#CC22FF',borderWidth:2.5}
+        ]},
+        options:{responsive:true,maintainAspectRatio:false,animation:false,
+          plugins:{legend:{display:false}},
+          scales:{y:{beginAtZero:true,ticks:{precision:0},grid:{color:'rgba(25,31,36,0.06)'}},x:{grid:{display:false},ticks:{maxRotation:0,font:{size:10}}}}
+        }
+      });
+    }
+  }
+  if(document.readyState!=='loading') draw();
+  else document.addEventListener('DOMContentLoaded',draw);
   setTimeout(draw,400);
   setTimeout(draw,1500);
   window.addEventListener('beforeprint',draw);
