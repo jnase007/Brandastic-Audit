@@ -267,9 +267,9 @@ tr:hover td{color:var(--text)}
     
     <div class="chart-grid2">
       <div class="chart-wrap">
-        <h3>Clicks — 12-month trend (year over year)</h3>
+        <h3>Clicks — monthly trend by year</h3>
         <div class="chart-box"><canvas id="gscYoyChart"></canvas></div>
-        <div class="chart-sub">Organic clicks by month, current 12 months vs. the same months a year earlier (Google Search Console).</div>
+        <div class="chart-sub">Organic clicks by month YoY (Google Search Console).</div>
       </div>
       <div class="chart-wrap">
         <h3>Clicks — month over month</h3>
@@ -346,13 +346,10 @@ tr:hover td{color:var(--text)}
     if(yc){
       new Chart(yc.getContext('2d'),{
         type:'bar',
-        data:{labels:["Jul", "Aug", "Sep", "Oct", "Nov", "Dec", "Jan", "Feb", "Mar", "Apr", "May", "Jun"],datasets:[
-          {label:'This year',data:[563, 532, 563, 500, 409, 397, 535, 575, 467, 409, 448, 394],backgroundColor:'#0644ED',borderRadius:6,maxBarThickness:26},
-          {label:'Prior year',data:[null, null, null, null, null, null, null, null, 908, 714, 580, 565],backgroundColor:'rgba(64,180,229,0.55)',borderRadius:6,maxBarThickness:26}
-        ]},
+        data:{labels:["Mar '25", "Apr '25", "May '25", "Jun '25", "Jul '25", "Aug '25", "Sep '25", "Oct '25", "Nov '25", "Dec '25", "Jan '26", "Feb '26", "Mar '26", "Apr '26", "May '26", "Jun '26"],datasets:[{"label": "2025", "data": [908, 714, 580, 565, 563, 532, 563, 500, 409, 397, null, null, null, null, null, null], "backgroundColor": "rgba(64,180,229,0.55)"}, {"label": "2026", "data": [null, null, null, null, null, null, null, null, null, null, 535, 575, 467, 409, 448, 394], "backgroundColor": "#0644ED"}].map(function(d){d.borderRadius=6;d.maxBarThickness=26;return d;})},
         options:{responsive:true,maintainAspectRatio:false,animation:false,
           plugins:{legend:{display:true,position:'bottom',labels:{boxWidth:12,font:{size:11}}}},
-          scales:{y:{beginAtZero:true,ticks:{precision:0},grid:{color:'rgba(25,31,36,0.06)'}},x:{grid:{display:false}}}
+          scales:{y:{stacked:true,beginAtZero:true,ticks:{precision:0},grid:{color:'rgba(25,31,36,0.06)'}},x:{stacked:true,grid:{display:false},ticks:{autoSkip:false,maxRotation:60,minRotation:60,font:{size:9}}}}
         }
       });
     }
