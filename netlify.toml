@@ -101,6 +101,16 @@
   status = 200
 
 [[redirects]]
+  from = "/viking-bags-seo-audit"
+  to = "/viking-bags-seo-audit.html"
+  status = 200
+
+[[redirects]]
+  from = "/viking-bags"
+  to = "/viking-bags-seo-audit.html"
+  status = 200
+
+[[redirects]]
   from = "/ai"
   to = "/ai.html"
   status = 200
