@@ -111,6 +111,16 @@
   status = 200
 
 [[redirects]]
+  from = "/elite-sports-seo-audit"
+  to = "/elite-sports-seo-audit.html"
+  status = 200
+
+[[redirects]]
+  from = "/elite-sports"
+  to = "/elite-sports-seo-audit.html"
+  status = 200
+
+[[redirects]]
   from = "/ai"
   to = "/ai.html"
   status = 200
