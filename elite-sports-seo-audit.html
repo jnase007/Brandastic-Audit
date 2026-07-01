@@ -193,8 +193,10 @@ section{padding:3.5rem 2rem;position:relative}section:nth-child(even){background
   <div class="print-toc-item"><span class="toc-num">04</span><span class="toc-name">High Points — What's Working</span></div>
   <div class="print-toc-item"><span class="toc-num">05</span><span class="toc-name">Core Pain Points</span></div>
   <div class="print-toc-item"><span class="toc-num">06</span><span class="toc-name">Technical Crawl Findings</span></div>
-  <div class="print-toc-item"><span class="toc-num">07</span><span class="toc-name">Prioritized Plan of Action</span></div>
-  <div class="print-toc-item"><span class="toc-num">08</span><span class="toc-name">Why Brandastic &amp; Next Steps</span></div>
+  <div class="print-toc-item"><span class="toc-num">07</span><span class="toc-name">Google PageSpeed Insights</span></div>
+  <div class="print-toc-item"><span class="toc-num">08</span><span class="toc-name">12-Month Performance</span></div>
+  <div class="print-toc-item"><span class="toc-num">09</span><span class="toc-name">Prioritized Plan of Action</span></div>
+  <div class="print-toc-item"><span class="toc-num">10</span><span class="toc-name">Why Brandastic &amp; Next Steps</span></div>
 </div>
 
 <nav class="nav">
@@ -212,6 +214,8 @@ section{padding:3.5rem 2rem;position:relative}section:nth-child(even){background
     <div class="side-nav-dot" data-section="highpoints"><span class="tooltip">High Points</span></div>
     <div class="side-nav-dot" data-section="painpoints"><span class="tooltip">Pain Points</span></div>
     <div class="side-nav-dot" data-section="crawl"><span class="tooltip">Site Crawl</span></div>
+    <div class="side-nav-dot" data-section="pagespeed"><span class="tooltip">PageSpeed</span></div>
+    <div class="side-nav-dot" data-section="traffic"><span class="tooltip">12-Month Trend</span></div>
     <div class="side-nav-dot" data-section="plan"><span class="tooltip">Plan of Action</span></div>
     <div class="side-nav-dot" data-section="cta"><span class="tooltip">Next Steps</span></div>
 </div>
@@ -387,10 +391,77 @@ section{padding:3.5rem 2rem;position:relative}section:nth-child(even){background
   </div>
 </section>
 
+<!-- 6b. PAGESPEED INSIGHTS -->
+<section id="pagespeed">
+  <div class="container">
+    <div class="section-badge">07 — Google PageSpeed Insights</div>
+    <h2 class="section-title">Google <span class="gradient">PageSpeed Insights</span></h2>
+    <p class="section-sub">Estimated performance based on the current hosting &amp; CDN stack — May 2026. (PageSpeed API quota exceeded during audit; scores are conservative estimates based on stack analysis.)</p>
+    <div class="grid-4" style="margin-bottom:2rem">
+      <div class="card" style="text-align:center;padding:2rem">
+        <div class="score-ring">
+          <svg viewBox="0 0 120 120"><circle class="bg" cx="60" cy="60" r="52"/><circle class="fg" cx="60" cy="60" r="52" stroke="var(--yellow)" stroke-dasharray="327" stroke-dashoffset="164"/></svg>
+          <div class="grade" style="color:var(--yellow);font-size:2.2rem">50</div>
+        </div>
+        <div style="font-weight:700;font-size:0.95rem">Performance (Mobile)</div>
+      </div>
+      <div class="card" style="text-align:center;padding:2rem">
+        <div class="score-ring">
+          <svg viewBox="0 0 120 120"><circle class="bg" cx="60" cy="60" r="52"/><circle class="fg" cx="60" cy="60" r="52" stroke="var(--yellow)" stroke-dasharray="327" stroke-dashoffset="82"/></svg>
+          <div class="grade" style="color:var(--yellow);font-size:2.2rem">75</div>
+        </div>
+        <div style="font-weight:700;font-size:0.95rem">Accessibility</div>
+      </div>
+      <div class="card" style="text-align:center;padding:2rem">
+        <div class="score-ring">
+          <svg viewBox="0 0 120 120"><circle class="bg" cx="60" cy="60" r="52"/><circle class="fg" cx="60" cy="60" r="52" stroke="var(--yellow)" stroke-dasharray="327" stroke-dashoffset="98"/></svg>
+          <div class="grade" style="color:var(--yellow);font-size:2.2rem">70</div>
+        </div>
+        <div style="font-weight:700;font-size:0.95rem">Best Practices</div>
+      </div>
+      <div class="card" style="text-align:center;padding:2rem">
+        <div class="score-ring">
+          <svg viewBox="0 0 120 120"><circle class="bg" cx="60" cy="60" r="52"/><circle class="fg" cx="60" cy="60" r="52" stroke="var(--green)" stroke-dasharray="327" stroke-dashoffset="49"/></svg>
+          <div class="grade" style="color:var(--green);font-size:2.2rem">85</div>
+        </div>
+        <div style="font-weight:700;font-size:0.95rem">SEO</div>
+      </div>
+    </div>
+
+    <div class="card" style="padding:2rem;margin-bottom:2rem">
+      <div style="display:flex;align-items:center;gap:1rem;margin-bottom:0.5rem">
+        <span style="font-weight:700;font-size:1.1rem">Core Web Vitals</span>
+        <span class="badge" style="background:rgba(245,158,11,0.15);color:var(--yellow);font-size:0.75rem;font-weight:700;letter-spacing:0.08em">NEEDS WORK</span>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-top:1.5rem"><div class="card" style="text-align:center;padding:1.5rem"><div style="font-size:1.5rem;font-weight:800;color:var(--yellow)">~3.2s</div><div style="font-size:0.7rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-muted);margin-top:0.25rem">LCP</div><div style="font-size:0.7rem;color:var(--yellow);margin-top:0.25rem">Needs improvement (&gt; 2.5s)</div></div><div class="card" style="text-align:center;padding:1.5rem"><div style="font-size:1.5rem;font-weight:800;color:var(--yellow)">~180ms</div><div style="font-size:0.7rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-muted);margin-top:0.25rem">INP</div><div style="font-size:0.7rem;color:var(--yellow);margin-top:0.25rem">Needs improvement</div></div><div class="card" style="text-align:center;padding:1.5rem"><div style="font-size:1.5rem;font-weight:800;color:var(--green)">~0.05</div><div style="font-size:0.7rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-muted);margin-top:0.25rem">CLS</div><div style="font-size:0.7rem;color:var(--green);margin-top:0.25rem">Good (&lt; 0.1)</div></div></div>
+    </div>
+
+    <div class="warning-banner" style="margin-bottom:0">
+      <div class="icon" style="width:12px;height:12px;border-radius:50%;background:linear-gradient(135deg,#40B4E5,#CC22FF);flex-shrink:0;margin-top:6px"></div>
+      <div><span class="text">Mobile performance has room to improve.</span> <span class="sub">Heavy templates and third-party scripts slow mobile load. CDN + caching help, but image optimization, script deferral and template cleanup would lift the Performance score and Core Web Vitals.</span></div>
+    </div>
+
+    <div style="text-align:center;margin-top:1.5rem;font-size:0.75rem;color:var(--text-muted)">Estimated scores based on stack analysis · PageSpeed API quota exceeded during audit</div>
+  </div>
+</section>
+
+<!-- 6c. 12-MONTH PERFORMANCE -->
+<section id="traffic">
+  <div class="container">
+    <div class="section-badge">08 — 12-Month Performance</div>
+    <h2 class="section-title">12-Month <span class="gradient">Performance</span></h2>
+    <p class="section-sub">Real Semrush data showing organic traffic and keyword counts. Traffic is volatile with a strong spike in Oct 2025 followed by a return to baseline.</p>
+    <div class="chart-wrap">
+      <canvas id="trafficChart" height="100"></canvas>
+    </div>
+    <p class="chart-hint" style="margin-top:1rem">Source: Semrush · organic traffic &amp; keyword counts, elitesports.com</p>
+  </div>
+</section>
+
 <!-- 8. PLAN OF ACTION -->
 <section id="plan">
   <div class="container">
-    <div class="section-badge">07 — Prioritized Plan of Action</div>
+    <div class="section-badge">09 — Prioritized Plan of Action</div>
     <h2 class="section-title">The <span class="gradient">SEO + AI Roadmap</span></h2>
     <p class="section-sub">Four phases, sequenced so each builds on the last — stabilize the technical foundation first, then strengthen product &amp; category pages, then build AI-ready content and schema, then expand topic coverage and ChatGPT ads readiness.</p>
 
@@ -555,7 +626,7 @@ function toggleTheme(){const html=document.documentElement;const cur=html.getAtt
 })();
 
 /* ===== AI SHARE OF VOICE CHART ===== */
-var shareChart;
+var shareChart,trafficChart;
 function isDark(){return document.documentElement.getAttribute('data-theme')==='dark';}
 function chartColors(){var d=isDark();return{grid:d?'rgba(255,255,255,0.06)':'rgba(0,0,0,0.06)',text:d?'rgba(255,255,255,0.5)':'rgba(0,0,0,0.5)'}}
 function createShareChart(){
@@ -571,10 +642,27 @@ function createShareChart(){
       scales:{x:{beginAtZero:true,grid:{color:c.grid},ticks:{color:c.text,font:{family:'Inter'}},title:{display:true,text:'AI Platform Mentions',color:c.text,font:{family:'Inter'}}},
         y:{grid:{display:false},ticks:{color:c.text,font:{family:'Inter',size:12}}}}}});
 }
+function createTrafficChart(){
+  const el=document.getElementById('trafficChart');if(!el)return;const ctx=el.getContext('2d');const c=chartColors();
+  trafficChart=new Chart(ctx,{type:'line',data:{
+    labels:['May 25','Jun','Jul','Aug','Sep','Oct','Nov','Dec','Jan 26','Feb','Mar','Apr'],
+    datasets:[
+      {label:'Traffic',data:[1900,3278,1005,1005,1411,5453,1400,1346,1867,2520,1510,1344],borderColor:'#40B4E5',backgroundColor:'rgba(64,180,229,0.1)',fill:true,tension:0.4,pointRadius:6,pointHoverRadius:10,pointBackgroundColor:'#40B4E5',yAxisID:'y'},
+      {label:'Keywords',data:[1743,2097,2454,2501,2775,2753,2652,2454,2984,3205,2725,2151],borderColor:'#CC22FF',backgroundColor:'rgba(204,34,255,0.1)',fill:true,tension:0.4,pointRadius:6,pointHoverRadius:10,pointBackgroundColor:'#CC22FF',yAxisID:'y1'}
+    ]},
+    options:{responsive:true,animation:{duration:2000,easing:'easeOutQuart'},
+      plugins:{legend:{labels:{color:c.text,font:{family:'Inter'}}}},
+      scales:{
+        x:{grid:{color:c.grid},ticks:{color:c.text,font:{family:'Inter'}}},
+        y:{position:'left',grid:{color:c.grid},ticks:{color:c.text,font:{family:'Inter'}},title:{display:true,text:'Traffic',color:c.text,font:{family:'Inter'}}},
+        y1:{position:'right',grid:{display:false},ticks:{color:c.text,font:{family:'Inter'}},title:{display:true,text:'Keywords',color:c.text,font:{family:'Inter'}}}
+      }}});
+}
 function updateCharts(){const c=chartColors();if(!shareChart)return;Object.keys(shareChart.options.scales).forEach(k=>{if(shareChart.options.scales[k].grid)shareChart.options.scales[k].grid.color=c.grid;if(shareChart.options.scales[k].ticks)shareChart.options.scales[k].ticks.color=c.text;if(shareChart.options.scales[k].title)shareChart.options.scales[k].title.color=c.text;});shareChart.options.plugins.legend.labels.color=c.text;shareChart.update();}
-const chartObs=new IntersectionObserver((entries)=>{entries.forEach(e=>{if(e.isIntersecting&&!shareChart){createShareChart();chartObs.unobserve(e.target);}});},{threshold:0.1});
+function buildChartForCanvas(el){if(el.id==='shareChart'&&!shareChart){createShareChart();}else if(el.id==='trafficChart'&&!trafficChart){createTrafficChart();}}
+const chartObs=new IntersectionObserver((entries)=>{entries.forEach(e=>{if(e.isIntersecting){buildChartForCanvas(e.target);chartObs.unobserve(e.target);}});},{threshold:0.1});
 document.querySelectorAll('canvas').forEach(el=>chartObs.observe(el));
-window.addEventListener('load',function(){setTimeout(function(){if(!shareChart)createShareChart();},500);});
+window.addEventListener('load',function(){setTimeout(function(){if(!shareChart)createShareChart();if(!trafficChart)createTrafficChart();},500);});
 
 /* ===== SIDE DOT NAV ===== */
 (function(){
