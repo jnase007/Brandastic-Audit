@@ -47,7 +47,7 @@ section{padding:3.5rem 2rem;position:relative}section:nth-child(even){background
 .warning-banner{background:linear-gradient(135deg,rgba(239,68,68,0.1),rgba(239,68,68,0.05));border:1px solid rgba(239,68,68,0.2);border-radius:12px;padding:1.5rem 2rem;display:flex;align-items:center;gap:1rem;margin-bottom:2rem}.warning-banner .icon{font-size:1.5rem}.warning-banner .text{font-weight:600;color:var(--red)}.warning-banner .sub{color:var(--text-secondary);font-size:0.9rem;font-weight:400}
 .ps-row{display:grid;grid-template-columns:1fr auto 1fr;gap:1.5rem;align-items:center;margin-bottom:1.5rem}.ps-card{padding:1.5rem;border-radius:12px}.ps-problem{background:rgba(239,68,68,0.06);border:1px solid rgba(239,68,68,0.15)}.ps-solution{background:rgba(34,197,94,0.06);border:1px solid rgba(34,197,94,0.15)}.ps-arrow{font-size:1.5rem;background:linear-gradient(135deg,#40B4E5,#CC22FF);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;font-weight:800}.ps-card .title{font-weight:700;font-size:0.95rem;margin-bottom:0.25rem}.ps-problem .title{color:var(--red)}.ps-solution .title{color:var(--green)}
 .gap-card{padding:1.5rem;text-align:center}.gap-card .kw{font-weight:700;font-size:1rem;margin-bottom:0.5rem}.gap-card .vol{font-size:1.8rem;font-weight:800;background:linear-gradient(135deg,#40B4E5,#CC22FF);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}.gap-card .vol-label{font-size:0.7rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.1em}.gap-card .status{display:inline-block;margin-top:0.75rem;padding:4px 12px;border-radius:6px;background:rgba(239,68,68,0.12);color:var(--red);font-size:0.7rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase}
-.finding-card{display:flex;gap:1.5rem;align-items:start;padding:2rem}.finding-num{flex-shrink:0;width:48px;height:48px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.2rem;font-weight:800;color:#fff}.finding-num.critical{background:linear-gradient(135deg,#ef4444,#dc2626)}.finding-num.high{background:linear-gradient(135deg,#f59e0b,#d97706)}.finding-card .title{font-weight:700;font-size:1.05rem;margin-bottom:0.3rem}.finding-card .desc{color:var(--text-secondary);font-size:0.9rem}
+.finding-card{display:flex;gap:1.5rem;align-items:start;padding:2rem}.finding-num{flex-shrink:0;width:48px;height:48px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.2rem;font-weight:800;color:#fff;background:linear-gradient(135deg,#40B4E5,#CC22FF)}.finding-num.critical,.finding-num.high{background:linear-gradient(135deg,#40B4E5,#CC22FF)}.finding-card .title{font-weight:700;font-size:1.05rem;margin-bottom:0.3rem}.finding-card .desc{color:var(--text-secondary);font-size:0.9rem}
 .strategy-card{padding:2.5rem 2rem;border-top:3px solid transparent;background-image:linear-gradient(var(--bg-card),var(--bg-card)),linear-gradient(135deg,#40B4E5,#CC22FF);background-origin:border-box;background-clip:padding-box,border-box;border-radius:16px;text-align:center}.strategy-card .icon{font-size:2.5rem;margin-bottom:1rem}.strategy-card .title{font-weight:700;font-size:1.1rem;margin-bottom:0.75rem}.strategy-card .desc{color:var(--text-secondary);font-size:0.9rem;line-height:1.6;margin-bottom:1rem}.strategy-card .outcome{padding:0.75rem;border-radius:8px;background:rgba(64,180,229,0.08);font-size:0.8rem;font-weight:600;color:var(--accent-light)}
 .timeline{display:flex;gap:0;margin-top:2rem;position:relative}.timeline::before{content:'';position:absolute;top:40px;left:0;right:0;height:3px;background:var(--bg-card-border)}.timeline-phase{flex:1;position:relative;padding-top:60px;padding-right:1.5rem}.timeline-dot{position:absolute;top:32px;left:0;width:18px;height:18px;border-radius:50%;background:linear-gradient(135deg,#40B4E5,#CC22FF);border:3px solid var(--bg-primary);z-index:1;transition:border-color var(--transition)}.timeline-phase .phase-label{font-size:0.7rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--accent-light);margin-bottom:0.5rem}.timeline-phase .phase-title{font-weight:700;font-size:1.1rem;margin-bottom:0.75rem}.timeline-phase .phase-items{list-style:none;display:flex;flex-direction:column;gap:0.4rem}.timeline-phase .phase-items li{font-size:0.9rem;color:var(--text-secondary);padding-left:1.2rem;position:relative}.timeline-phase .phase-items li::before{content:'';position:absolute;left:0;top:8px;width:6px;height:6px;border-radius:50%;background:var(--accent-light)}
 .roi-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1.5rem}.roi-card{text-align:center;padding:2rem 1.5rem}.roi-card .label{font-size:0.7rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--text-muted);margin-bottom:0.75rem}.roi-card .before{font-size:1.3rem;font-weight:600;color:var(--text-muted);text-decoration:line-through}.roi-card .arrow{font-size:1.5rem;margin:0.5rem 0;background:linear-gradient(135deg,#40B4E5,#CC22FF);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}.roi-card .after{font-size:2rem;font-weight:800;background:linear-gradient(135deg,#40B4E5,#CC22FF);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
@@ -139,7 +139,7 @@ section{padding:3.5rem 2rem;position:relative}section:nth-child(even){background
 .gradient-divider{height:2px;background:linear-gradient(90deg,transparent,#40B4E5,#CC22FF,transparent);margin:0;opacity:0;transform:scaleX(0);transition:opacity 0.8s ease,transform 1s cubic-bezier(0.22,1,0.36,1);transform-origin:center}
 .gradient-divider.active{opacity:1;transform:scaleX(1)}
 .chart-hint{text-align:center;font-size:0.75rem;color:var(--text-muted);margin-top:0.75rem;opacity:0.7;font-style:italic}
-.chart-hint::before{content:'💡 '}
+.chart-hint::before{content:''}
 @keyframes ctaPulse{0%{box-shadow:0 0 0 0 rgba(64,180,229,0.4)}70%{box-shadow:0 0 0 15px rgba(64,180,229,0)}100%{box-shadow:0 0 0 0 rgba(64,180,229,0)}}
 .cta-btn.pulse{animation:ctaPulse 2s ease-in-out infinite}
 .print-only{display:none!important}
@@ -200,8 +200,8 @@ section{padding:3.5rem 2rem;position:relative}section:nth-child(even){background
 <nav class="nav">
   <div class="nav-brand"><span class="dot"></span> BRANDASTIC</div>
   <div class="nav-actions">
-    <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme"><div class="knob">🌙</div></button>
-    <button class="pdf-btn" onclick="window.print()">📄 Download PDF</button>
+    <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme"><div class="knob"></div></button>
+    <button class="pdf-btn" onclick="window.print()">Download PDF</button>
   </div>
 </nav>
 <div class="side-nav">
@@ -224,7 +224,7 @@ section{padding:3.5rem 2rem;position:relative}section:nth-child(even){background
   <h1 class="hero-company">Elite Sports</h1>
   <p style="color:var(--text-secondary);font-size:1.1rem;max-width:640px;text-align:center;margin-top:1rem">A combat-sports ecommerce brand with real search footprint and existing AI visibility — currently under pressure. This is a cleanup and ecommerce-growth plan, not a wish list.</p>
   <div class="hero-meta" style="margin-bottom:3rem"><span>Prepared by Brandastic</span><span>June 2026</span><span>elitesports.com</span></div>
-  <div class="hero-scroll" style="color:var(--text-muted);font-size:1.2rem">↓</div>
+  <div class="hero-scroll" style="color:var(--text-muted);font-size:1.2rem"></div>
 </section>
 
 <!-- 2. EXECUTIVE OVERVIEW -->
@@ -279,9 +279,9 @@ section{padding:3.5rem 2rem;position:relative}section:nth-child(even){background
       <div class="stat-card"><div class="stat-num">775</div><div class="stat-label">Cited Pages</div></div>
       <div class="stat-card"><div class="stat-num">954</div><div class="stat-label">Pages With Issues</div></div>
     </div>
-    <div class="warning-banner" style="margin-top:2.5rem;margin-bottom:0">
-      <div class="icon">💡</div>
-      <div><span class="text">The foundation exists — the trendline is the problem.</span> <span class="sub">Elite Sports has a real search footprint, blog authority and measurable AI visibility. But organic traffic, keywords and backlinks are declining. Stabilize the foundation first, then turn general martial-arts authority into product recommendations and AI-driven ecommerce discovery.</span></div>
+    <div class="warning-banner" style="margin-top:2.5rem;margin-bottom:0;background:linear-gradient(135deg,rgba(64,180,229,0.1),rgba(64,180,229,0.05));border-color:rgba(64,180,229,0.2)">
+      <div class="icon" style="width:12px;height:12px;border-radius:50%;background:linear-gradient(135deg,#40B4E5,#CC22FF);flex-shrink:0;margin-top:6px"></div>
+      <div><span class="text" style="color:var(--accent-light)">The foundation exists — the trendline is the problem.</span> <span class="sub">Elite Sports has a real search footprint, blog authority and measurable AI visibility. But organic traffic, keywords and backlinks are declining. Stabilize the foundation first, then turn general martial-arts authority into product recommendations and AI-driven ecommerce discovery.</span></div>
     </div>
   </div>
 </section>
@@ -322,32 +322,26 @@ section{padding:3.5rem 2rem;position:relative}section:nth-child(even){background
     <p class="section-sub">Elite Sports has several strengths that make recovery and growth realistic. The issue is cleanup and ecommerce focus, not a lack of foundation.</p>
     <div class="grid-2">
       <div class="card">
-        <div style="font-size:1.6rem;margin-bottom:0.5rem">🥋</div>
         <h4 style="font-weight:700;font-size:1.05rem;margin-bottom:0.5rem">Existing AI visibility across platforms</h4>
         <p style="color:var(--text-secondary);font-size:0.9rem;line-height:1.6">Elite Sports already appears across AI-powered platforms — AI Mode 119, ChatGPT 108, AI Overview 97, Gemini 86, with AI Overview holding a 57.4% cited-page share. That's a strong starting point. The work is to make that visibility more ecommerce-focused so it supports product discovery, not just informational answers.</p>
       </div>
       <div class="card">
-        <div style="font-size:1.6rem;margin-bottom:0.5rem">🛒</div>
         <h4 style="font-weight:700;font-size:1.05rem;margin-bottom:0.5rem">Real ecommerce &amp; content footprint</h4>
         <p style="color:var(--text-secondary);font-size:0.9rem;line-height:1.6">The Screaming Frog crawl found <strong>2,537 total URLs</strong> with <strong>1,839 indexable URLs</strong> — product pages, category pages, blog posts and landing pages. There's enough crawlable content to work with; the priority is structure and depth, not building from scratch.</p>
       </div>
       <div class="card">
-        <div style="font-size:1.6rem;margin-bottom:0.5rem">📚</div>
         <h4 style="font-weight:700;font-size:1.05rem;margin-bottom:0.5rem">Blog content is an AI-citation asset</h4>
         <p style="color:var(--text-secondary);font-size:0.9rem;line-height:1.6">Elite Sports' cited pages are mostly blog articles — IBJJF-legal gis, best beginner BJJ gis, boxing punch-number system, UFC basics, pearl-weave vs ripstop, gi care and stain removal, Jiu-Jitsu vs Taekwondo, best self-defense martial art, women's BJJ gis. AI systems already use this content as a source.</p>
       </div>
       <div class="card">
-        <div style="font-size:1.6rem;margin-bottom:0.5rem">📈</div>
         <h4 style="font-weight:700;font-size:1.05rem;margin-bottom:0.5rem">Paid channel is trending up</h4>
         <p style="color:var(--text-secondary);font-size:0.9rem;line-height:1.6">While organic is under pressure, paid keywords are up <strong>20.83% (29)</strong> and paid traffic is up <strong>1.1K</strong>. There's momentum on the paid side to build on — and cleaner landing pages will make that spend more efficient.</p>
       </div>
       <div class="card">
-        <div style="font-size:1.6rem;margin-bottom:0.5rem">🥊</div>
         <h4 style="font-weight:700;font-size:1.05rem;margin-bottom:0.5rem">Strong category breadth to map</h4>
         <p style="color:var(--text-secondary);font-size:0.9rem;line-height:1.6">AI visibility is strongest around BJJ, martial arts, boxing, UFC, rash guards, gis and training content — all of which map cleanly to existing product and category pages. The next step is connecting that visibility to the pages that convert.</p>
       </div>
       <div class="card">
-        <div style="font-size:1.6rem;margin-bottom:0.5rem">🧠</div>
         <h4 style="font-weight:700;font-size:1.05rem;margin-bottom:0.5rem">Solid AI Search Health baseline</h4>
         <p style="color:var(--text-secondary);font-size:0.9rem;line-height:1.6">Semrush reports an AI Search Health score of <strong>81%</strong> and Site Health of <strong>78%</strong>. The baseline is healthy enough that the work is structured cleanup — metadata, headings, content structure and schema — not a rebuild.</p>
       </div>
@@ -388,19 +382,9 @@ section{padding:3.5rem 2rem;position:relative}section:nth-child(even){background
       <div class="metric-card card"><div class="value">553</div><div class="label">URLs With ≤5 Inlinks</div></div>
       <div class="metric-card card"><div class="value">57</div><div class="label">Pages Flagged for AI Readability</div></div>
     </div>
-    <div class="grid-2" style="margin-top:1.5rem">
-      <div class="warning-banner" style="margin-bottom:0">
-        <div class="icon">⚠️</div>
-        <div><span class="text">Error responses to investigate</span> <span class="sub">160 URLs returned 429, 31 returned 503, 8 x 404 and 1 x 500. Review throttling and server errors so Googlebot, AdsBot and AI crawlers can reach product, category and blog pages reliably.</span></div>
-      </div>
-      <div class="warning-banner" style="margin-bottom:0">
-        <div class="icon">🔗</div>
-        <div><span class="text">Depth &amp; internal-linking gaps</span> <span class="sub">739 indexable URLs sit deeper than crawl depth 3 and 553 have 5 or fewer inlinks. The large blog buries value — internal linking should surface priority pages and push authority to commercial destinations.</span></div>
-      </div>
-    </div>
-    <div class="warning-banner" style="margin-top:1.5rem;margin-bottom:0;background:linear-gradient(135deg,rgba(34,197,94,0.08),rgba(34,197,94,0.04));border-color:rgba(34,197,94,0.2)">
-      <div class="icon">📊</div>
-      <div><span class="text" style="color:var(--green)">Site Health 78% · AI Search Health 81%</span> <span class="sub">1,000 pages crawled · 954 with issues · 8 healthy · 35 redirects · 3 blocked. The baseline is workable — the work is structured cleanup, not a rebuild.</span></div>
+    <div class="warning-banner" style="margin-top:1.5rem;margin-bottom:0;background:linear-gradient(135deg,rgba(64,180,229,0.08),rgba(64,180,229,0.04));border-color:rgba(64,180,229,0.2)">
+      <div class="icon" style="width:12px;height:12px;border-radius:50%;background:linear-gradient(135deg,#40B4E5,#CC22FF);flex-shrink:0;margin-top:6px"></div>
+      <div><span class="text" style="color:var(--accent-light)">Site Health 78% · AI Search Health 81% — a workable baseline.</span> <span class="sub">1,000 pages crawled · 954 with issues · 8 healthy · 35 redirects · 3 blocked. Error responses to resolve: 160 x 429, 31 x 503, 8 x 404, 1 x 500. Depth &amp; linking: 739 indexable URLs sit deeper than crawl depth 3 and 553 have 5 or fewer inlinks. The work is structured cleanup, not a rebuild.</span></div>
     </div>
   </div>
 </section>
@@ -548,21 +532,21 @@ section{padding:3.5rem 2rem;position:relative}section:nth-child(even){background
         <div style="font-weight:800;font-size:1.1rem">Justin Nassie</div>
         <div style="color:var(--text-muted);font-size:0.85rem;margin-bottom:0.25rem">President, Brandastic</div>
         <div style="display:flex;flex-wrap:wrap;gap:1rem;font-size:0.85rem">
-          <a href="tel:9498928944" style="color:var(--accent-light);text-decoration:none">📱 (949) 892-8944</a>
-          <a href="mailto:justin@brandastic.com" style="color:var(--accent-light);text-decoration:none">✉️ justin@brandastic.com</a>
+          <a href="tel:9498928944" style="color:var(--accent-light);text-decoration:none">(949) 892-8944</a>
+          <a href="mailto:justin@brandastic.com" style="color:var(--accent-light);text-decoration:none">justin@brandastic.com</a>
         </div>
       </div>
     </div>
     <div style="margin-top:2rem">
-      <a href="https://brandastic.com/contact/" target="_blank" class="cta-btn">Let's Get Started →</a>
+      <a href="https://brandastic.com/contact/" target="_blank" class="cta-btn">Let's Get Started</a>
     </div>
   </div>
 </section>
 
 <script>
 /* ===== THEME TOGGLE ===== */
-function toggleTheme(){const html=document.documentElement;const cur=html.getAttribute('data-theme');const next=cur==='dark'?'light':'dark';html.setAttribute('data-theme',next);try{localStorage.setItem('audit-theme',next);}catch(e){}const knob=document.querySelector('.theme-toggle .knob');if(knob)knob.textContent=next==='dark'?'🌙':'☀️';if(typeof updateCharts==='function')updateCharts();}
-(function(){try{const saved=localStorage.getItem('audit-theme');if(saved)document.documentElement.setAttribute('data-theme',saved);}catch(e){}const knob=document.querySelector('.theme-toggle .knob');if(knob)knob.textContent=document.documentElement.getAttribute('data-theme')==='dark'?'🌙':'☀️';})();
+function toggleTheme(){const html=document.documentElement;const cur=html.getAttribute('data-theme');const next=cur==='dark'?'light':'dark';html.setAttribute('data-theme',next);try{localStorage.setItem('audit-theme',next);}catch(e){}if(typeof updateCharts==='function')updateCharts();}
+(function(){try{const saved=localStorage.getItem('audit-theme');if(saved)document.documentElement.setAttribute('data-theme',saved);}catch(e){}})();
 
 /* ===== REVEAL ON SCROLL ===== */
 (function(){
