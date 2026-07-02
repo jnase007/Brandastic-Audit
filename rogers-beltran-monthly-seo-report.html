@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Rogers | Beltran LLP — SEO Performance Report — June 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+<style>
+:root{
+  --black:#191F24; --fog:#F5F3EF; --white:#FFFFFF;
+  --blue:#0644ED; --light:#40B4E5; --purple:#CC22FF;
+  --text:#191F24; --muted:rgba(25,31,36,0.55); --soft:rgba(25,31,36,0.72);
+  --card:#FFFFFF; --border:rgba(25,31,36,0.10);
+  --red:#ef4444; --green:#16a34a; --amber:#f59e0b;
+  --grad:linear-gradient(135deg,#40B4E5,#CC22FF);
+  --shadow:0 8px 32px rgba(0,0,0,0.06);
+}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',system-ui,-apple-system,sans-serif;background:var(--fog);
+  color:var(--text);line-height:1.6;-webkit-font-smoothing:antialiased}
+h1,h2,h3,.headline{font-family:'Forma DJR Text','Inter',system-ui,sans-serif;letter-spacing:-0.02em}
+.gradient{background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.subhead{font-size:0.72rem;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:var(--muted)}
+a{color:var(--blue);text-decoration:none}
+.wrap{max-width:1080px;margin:0 auto;padding:0 2rem}
+section{padding:3.5rem 0;border-bottom:1px solid var(--border)}
+
+/* nav */
+.topbar{position:sticky;top:0;z-index:50;background:rgba(245,243,239,0.9);backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--border);height:60px;display:flex;align-items:center}
+.topbar .wrap{display:flex;align-items:center;justify-content:space-between;width:100%}
+.brand{display:flex;align-items:center;gap:10px;font-weight:800;font-size:1.05rem;letter-spacing:0.02em}
+.brand .dot{width:11px;height:11px;border-radius:50%;background:var(--grad)}
+.pdf-btn{padding:8px 18px;border-radius:10px;border:none;cursor:pointer;background:var(--grad);
+  color:#fff;font-family:inherit;font-size:0.75rem;font-weight:700;letter-spacing:0.04em}
+
+/* cover */
+.cover{min-height:52vh;display:flex;flex-direction:column;justify-content:center;align-items:center;
+  text-align:center;background:linear-gradient(180deg,#fff,var(--fog));border-bottom:1px solid var(--border)}
+.cover .logo{display:flex;align-items:center;gap:12px;margin-bottom:2.5rem}
+.cover .logo .dot{width:14px;height:14px;border-radius:50%;background:var(--grad)}
+.cover .logo span{font-weight:800;font-size:1.3rem;letter-spacing:0.04em}
+.cover h1{font-size:clamp(2.4rem,6vw,4.2rem);font-weight:800;line-height:1.05;margin-bottom:1rem}
+.cover .sub{font-size:1.1rem;color:var(--soft);max-width:560px;margin-bottom:2rem}
+.cover .meta{display:flex;gap:1rem;flex-wrap:wrap;justify-content:center}
+.cover .meta span{padding:8px 20px;border-radius:50px;background:#fff;border:1px solid var(--border);
+  font-size:0.82rem;font-weight:600;color:var(--soft)}
+
+/* toc */
+.toc-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem;margin-top:1.5rem}
+.toc-item{display:flex;gap:1rem;align-items:center;padding:1.25rem 1.5rem;background:var(--card);
+  border:1px solid var(--border);border-radius:14px;transition:.2s}
+.toc-item:hover{box-shadow:var(--shadow);border-color:rgba(64,180,229,0.3)}
+.toc-item .n{width:36px;height:36px;border-radius:9px;background:var(--grad);color:#fff;font-weight:800;
+  display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.toc-item .t{font-weight:700;font-size:0.95rem}
+.toc-item .d{font-size:0.78rem;color:var(--muted)}
+
+/* section head */
+.sec-badge{display:inline-block;padding:6px 16px;border-radius:50px;background:#fff;border:1px solid var(--border);
+  font-size:0.68rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:var(--muted);margin-bottom:1rem}
+.sec-title{font-size:clamp(1.7rem,3.5vw,2.5rem);font-weight:800;line-height:1.15;margin-bottom:.6rem}
+.sec-sub{color:var(--soft);font-size:1rem;max-width:680px;margin-bottom:2rem}
+
+/* scorecards */
+.cards{display:grid;grid-template-columns:repeat(4,1fr);gap:1.25rem;margin-bottom:2rem}
+.cards.c3{grid-template-columns:repeat(3,1fr)}
+.metric{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:1.8rem 1.4rem;text-align:center}
+.metric .value{font-size:2.1rem;font-weight:800;letter-spacing:-0.03em}
+.metric .value.grad{background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.metric .label{font-size:0.7rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--muted);margin-top:.5rem}
+.metric .change{font-size:0.78rem;font-weight:700;margin-top:.35rem}
+.change.up{color:var(--green)} .change.down{color:var(--red)} .change.flat{color:var(--muted)}
+
+/* movement strip */
+.move-strip{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;margin-bottom:2rem}
+.move-cell{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:1rem;text-align:center}
+.move-cell .num{font-size:1.5rem;font-weight:800}
+.move-cell .lbl{font-size:0.68rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);margin-top:.2rem}
+.move-cell.imp .num{color:var(--green)} .move-cell.dec .num{color:var(--red)}
+.move-cell.ent .num{color:var(--light)} .move-cell.lft .num{color:var(--amber)}
+
+/* tables */
+.table-wrap{background:var(--card);border:1px solid var(--border);border-radius:16px;overflow:hidden;margin-bottom:2rem}
+table{width:100%;border-collapse:collapse;font-size:0.88rem}
+th{text-align:left;padding:.95rem 1rem;font-size:0.66rem;font-weight:700;letter-spacing:0.1em;
+  text-transform:uppercase;color:var(--muted);border-bottom:1px solid var(--border);background:rgba(245,243,239,0.6)}
+td{padding:.8rem 1rem;border-bottom:1px solid var(--border);color:var(--soft)}
+tr:last-child td{border-bottom:none}
+tr:hover td{color:var(--text)}
+.pos{font-weight:800;color:var(--text)}
+.chg{font-weight:700;font-size:0.82rem}
+.chg.up{color:var(--green)} .chg.down{color:var(--red)} .chg.flat{color:var(--muted)}
+.num-r{text-align:right}
+.kt{display:inline-block;font-size:0.68rem;font-weight:700;letter-spacing:0.03em;padding:3px 9px;border-radius:6px;white-space:nowrap}
+.kt-ai{background:linear-gradient(135deg,rgba(204,34,255,0.12),rgba(64,180,229,0.12));color:#8b18c9;border:1px solid rgba(204,34,255,0.25)}
+.kt-org{background:rgba(6,68,237,0.07);color:var(--blue);border:1px solid rgba(6,68,237,0.15)}
+.kt-none{color:var(--muted)}
+.ai-overview-note{background:linear-gradient(135deg,rgba(64,180,229,0.06),rgba(204,34,255,0.06));border:1px solid rgba(204,34,255,0.2);border-radius:14px;padding:1.4rem 1.6rem;margin:0 0 1.6rem}
+.aon-head{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:6px}
+.aon-badge{font-size:0.64rem;font-weight:800;letter-spacing:0.12em;padding:4px 10px;border-radius:50px;background:var(--grad);color:#fff}
+.aon-title{font-weight:800;font-size:1.02rem;letter-spacing:-0.01em}
+.aon-sub{font-size:0.85rem;color:var(--soft);margin-bottom:0.9rem;max-width:680px}
+.ai-chips{display:flex;flex-wrap:wrap;gap:8px}
+.ai-chip{font-size:0.76rem;font-weight:600;padding:5px 12px;border-radius:50px;background:#fff;border:1px solid rgba(204,34,255,0.2);color:var(--text)}
+
+/* placeholder block */
+.placeholder{background:linear-gradient(135deg,rgba(64,180,229,0.06),rgba(204,34,255,0.05));
+  border:1px dashed rgba(64,180,229,0.4);border-radius:16px;padding:2.2rem;text-align:center}
+.placeholder .pico{font-size:2rem;margin-bottom:.6rem}
+.placeholder .ptitle{font-weight:800;font-size:1.15rem;margin-bottom:.5rem}
+.placeholder .ptext{color:var(--soft);font-size:0.92rem;max-width:560px;margin:0 auto}
+.placeholder .ptag{display:inline-block;margin-top:1rem;padding:5px 14px;border-radius:50px;
+  background:rgba(245,158,11,0.15);color:#b45309;font-size:0.7rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase}
+
+/* SOV horizontal bars */
+.sov-wrap{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:1.6rem 1.8rem;margin-bottom:1rem}
+.sovrow{display:grid;grid-template-columns:170px 1fr 56px;align-items:center;gap:1rem;padding:.4rem 0}
+.sovname{font-size:0.88rem}
+.sovtrack{height:14px;background:rgba(25,31,36,0.06);border-radius:50px;overflow:hidden}
+.sovfill{height:100%;border-radius:50px;min-width:3px}
+.sovval{font-size:0.85rem;text-align:right}
+
+/* priorities */
+.pri-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-bottom:2rem}
+.pri{display:flex;gap:.9rem;background:var(--card);border:1px solid var(--border);border-radius:14px;padding:1.3rem}
+.prinum{width:30px;height:30px;border-radius:8px;background:var(--grad);color:#fff;font-weight:800;font-size:0.9rem;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.prit{font-weight:800;font-size:0.92rem;margin-bottom:.3rem}
+.prid{font-size:0.82rem;color:var(--soft);line-height:1.5}
+
+/* opportunity */
+.opp{background:linear-gradient(135deg,rgba(64,180,229,0.05),rgba(204,34,255,0.04));border:1px solid var(--border);border-radius:16px;padding:1.8rem;margin-bottom:1rem}
+.recs{margin:0;padding-left:1.1rem;color:var(--soft);font-size:0.92rem}
+.recs li{margin-bottom:.6rem;line-height:1.55}
+
+.chart-wrap{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:1.8rem;margin-bottom:2rem;position:relative}
+.chart-wrap h3{font-size:1.05rem;margin-bottom:1rem}
+.chart-box{position:relative;height:300px;width:100%}
+.chart-grid2{display:grid;grid-template-columns:1fr 1fr;gap:1.4rem;margin-bottom:2rem}
+.chart-grid2 .chart-wrap{margin-bottom:0}
+.chart-sub{font-size:0.78rem;color:var(--muted);margin-top:.6rem}
+@media(max-width:860px){.chart-grid2{grid-template-columns:1fr}}
+
+.footer{text-align:center;padding:2.5rem 0;color:var(--muted);font-size:0.8rem}
+.footer .dot{display:inline-block;width:9px;height:9px;border-radius:50%;background:var(--grad);vertical-align:middle;margin-right:6px}
+
+@media(max-width:900px){.cards,.move-strip{grid-template-columns:repeat(2,1fr)}.cards.c3{grid-template-columns:repeat(2,1fr)}.pri-grid{grid-template-columns:1fr}.sovrow{grid-template-columns:120px 1fr 50px}}
+@media(max-width:560px){.cards,.cards.c3,.move-strip{grid-template-columns:1fr}}
+
+/* ---- PRINT / PDF ---- */
+@media print{
+  @page{margin:14mm}
+  body{background:#fff}
+  .topbar,.pdf-btn{display:none!important}
+  section{padding:1.4rem 0;border-bottom:none;page-break-inside:avoid;break-inside:avoid}
+  .cover{min-height:auto;padding:2rem 0;page-break-after:always}
+  .sec-block{page-break-before:always}
+  .sec-block:first-of-type{page-break-before:avoid}
+  .table-wrap,.metric,.chart-wrap,.placeholder,.move-cell,.toc-item{box-shadow:none!important;break-inside:avoid}
+  .chart-box{height:260px}
+  .chart-grid2{grid-template-columns:1fr 1fr}
+  a{color:var(--text)}
+}
+</style>
+</head>
+<body>
+<div class="topbar"><div class="wrap">
+  <div class="brand"><span class="dot"></span>ROGERS | BELTRAN LLP</div>
+  <button class="pdf-btn" onclick="window.print()">Export PDF</button>
+</div></div>
+
+<section class="cover" id="cover">
+  <div class="logo"><span class="dot"></span><span>ROGERS | BELTRAN LLP</span></div>
+  <h1>SEO Performance<br><span class="gradient">Monthly Report</span></h1>
+  <p class="sub">Organic search visibility, keyword movement, and AI search presence for rogersbeltran.com</p>
+  <div class="meta">
+    <span>rogersbeltran.com</span>
+    <span>June 2026</span>
+    <span>Prepared by Brandastic</span>  <!-- agency attribution stays Brandastic -->
+  </div>
+</section>
+
+<section id="toc">
+  <div class="wrap">
+    <span class="sec-badge">Contents</span>
+    <h2 class="sec-title">What's <span class="gradient">inside</span></h2>
+    <div class="toc-grid"><a class="toc-item" href="#sec01"><div class="n">01</div><div><div class="t">AI Search Visibility</div><div class="d">Share of voice, mentions &amp; citations</div></div></a><a class="toc-item" href="#sec02"><div class="n">02</div><div><div class="t">Semrush Position Tracking</div><div class="d">Visibility, SOV &amp; keyword movement</div></div></a><a class="toc-item" href="#sec03"><div class="n">03</div><div><div class="t">Google Search Console</div><div class="d">Clicks, impressions, CTR &amp; top pages</div></div></a></div>
+  </div>
+</section>
+
+<section id="sec1" class="sec-block">
+  <div class="wrap">
+    <span class="sec-badge">Section 01 · AI Search</span>
+    <h2 class="sec-title">AI Search Visibility</h2>
+    <p class="sec-sub">How rogersbeltran.com shows up across AI answer engines (Google AI Mode). Currently 0% share of voice — this is the lead growth lever.</p>
+    
+    <div class="cards">
+      <div class="metric"><div class="value grad">0%</div>
+        <div class="label">AI Share of Voice</div><div class="change flat">Google AI Mode</div></div>
+      <div class="metric"><div class="value grad">0</div>
+        <div class="label">Mentions</div><div class="change flat">0% share</div></div>
+      <div class="metric"><div class="value grad">0</div>
+        <div class="label">Domain Citations</div><div class="change down">rogersbeltran.com citations</div></div>
+      <div class="metric"><div class="value grad"></div>
+        <div class="label">Avg Position</div><div class="change flat">when surfaced</div></div>
+    </div>
+    <h3 style="margin:1.5rem 0 .8rem;font-size:1.05rem">Share of Voice — Google AI Mode</h3>
+    <div class="sov-wrap"><div class="sovrow"><div class="sovname" style="font-weight:800">Rogers | Beltran LLP</div><div class="sovtrack"><div class="sovfill" style="width:0.0%;background:var(--grad)"></div></div><div class="sovval" style="font-weight:800">0%</div></div><div class="sovrow"><div class="sovname" style="font-weight:600">Wilshire Law Firm</div><div class="sovtrack"><div class="sovfill" style="width:0.5%;background:rgba(25,31,36,0.30)"></div></div><div class="sovval" style="font-weight:600">0.5%</div></div><div class="sovrow"><div class="sovname" style="font-weight:600">Shouse Law Group</div><div class="sovtrack"><div class="sovfill" style="width:0.1%;background:rgba(25,31,36,0.30)"></div></div><div class="sovval" style="font-weight:600">0.1%</div></div><div class="sovrow"><div class="sovname" style="font-weight:600">Omega Law Group</div><div class="sovtrack"><div class="sovfill" style="width:0.0%;background:rgba(25,31,36,0.30)"></div></div><div class="sovval" style="font-weight:600">0%</div></div><div class="sovrow"><div class="sovname" style="font-weight:600">Other</div><div class="sovtrack"><div class="sovfill" style="width:100.0%;background:rgba(25,31,36,0.30)"></div></div><div class="sovval" style="font-weight:600">99.1%</div></div></div>
+    <p style="font-size:0.78rem;color:var(--muted);margin-bottom:1.5rem">Rogers | Beltran LLP holds 0% AI share of voice — the rest of the visible market is led by Wilshire Law Firm, Shouse Law Group, Omega Law Group. 99.1% sits in the long tail.</p>
+    <h3 style="margin:1rem 0 .8rem;font-size:1.05rem">Competitor benchmark</h3>
+    <div class="table-wrap"><table><thead><tr><th>Brand</th><th class="num-r">AI SOV</th>
+      <th class="num-r">Mentions</th><th class="num-r">Avg Pos</th><th class="num-r">Favorable</th></tr></thead>
+      <tbody><tr><td>Wilshire Law Firm</td><td class="num-r pos">0.5%</td><td class="num-r">3</td><td class="num-r">2.33</td><td class="num-r">100%</td></tr><tr><td>Shouse Law Group</td><td class="num-r pos">0.1%</td><td class="num-r">1</td><td class="num-r">6</td><td class="num-r">100%</td></tr><tr><td><strong>Rogers | Beltran LLP</strong></td><td class="num-r pos">0%</td><td class="num-r">0</td><td class="num-r"></td><td class="num-r">%</td></tr><tr><td>Omega Law Group</td><td class="num-r pos">0%</td><td class="num-r">0</td><td class="num-r"></td><td class="num-r">%</td></tr></tbody></table></div>
+    <h3 style="margin:1rem 0 .8rem;font-size:1.05rem">Top cited domains in AI answers</h3>
+    <div class="table-wrap"><table><thead><tr><th>Domain</th><th class="num-r">Citation Share</th>
+      <th class="num-r">Citations</th></tr></thead>
+      <tbody><tr><td>bestlawfirms.com</td><td class="num-r">3.9%</td><td class="num-r pos">49</td></tr><tr><td>forthepeople.com</td><td class="num-r">2.6%</td><td class="num-r pos">33</td></tr><tr><td>counselhound.com</td><td class="num-r">2.4%</td><td class="num-r pos">31</td></tr><tr><td>bencrump.com</td><td class="num-r">2.1%</td><td class="num-r pos">27</td></tr><tr><td>youtube.com</td><td class="num-r">2.1%</td><td class="num-r pos">27</td></tr><tr><td>rogersbeltran.com</td><td class="num-r">0%</td><td class="num-r pos">0</td></tr></tbody></table></div>
+    <p style="font-size:0.78rem;color:var(--muted);margin-bottom:1.5rem">rogersbeltran.com earns <strong>zero citations</strong> in Google AI Mode — AI answers lean entirely on legal directories and rankings sources (Best Law Firms, CounselHound, ForThePeople, Ben Crump, YouTube). And the whole category is barely visible: even the leader holds just 0.5%, with 99.1% in the long tail. Getting cited on these ranking/directory pages is the fastest, most winnable lever to go from invisible to included.</p>
+    <h3 style="margin:1.5rem 0 .8rem;font-size:1.05rem">Urgent strategic priorities</h3>
+    <div class="pri-grid"><div class="pri"><div class="prinum">1</div><div><div class="prit">Bilingual Authority Everywhere</div><div class="prid">Mirror competitors&#x27; Spanish presence with Spanish practice pages, directories, and media — targeting 10+ independent, AI-visible bilingual mentions to enter the recommendation set for California&#x27;s large Spanish-speaking market.</div></div></div><div class="pri"><div class="prinum">2</div><div><div class="prit">Own the Latino Trial Niche</div><div class="prid">Raise bilingual-driver visibility from 1 toward parity with Block O&#x27;Toole by publishing Spanish-language success stories and foregrounding bilingual attorney leadership.</div></div></div><div class="pri"><div class="prinum">3</div><div><div class="prit">Decide: Mill or Trial</div><div class="prid">Over 30 comparison queries question Rogers | Beltran&#x27;s trial-first stance versus billboard/volume competitors. Clarify the firm&#x27;s identity and publish verdict/results data now so AI can position it correctly.</div></div></div></div>
+    <div class="opp">
+      <div class="subhead" style="margin-bottom:.6rem">Opportunity</div>
+      <p style="color:var(--soft);font-size:0.95rem;margin-bottom:1rem">Rogers | Beltran sits at 0% share of voice with zero mentions and zero citations in Google AI Mode — invisible in broad AI answers. The category itself is barely visible (leader Wilshire Law Firm holds just 0.5%, with 99.1% in the long tail), so this is an open, winnable lane. The firm&#x27;s business model — high-touch, low-volume, serious cases only — positions it to maximize impact and net recovery on catastrophic and life-altering matters, but only if it consciously declines lower-value, misaligned work and communicates that boundary clearly in AI-facing channels. AI&#x27;s drivers associate Rogers | Beltran with high-stakes, complex cases and contingency access, but flag tension around boutique-level fees for &#x27;routine&#x27; matters. When Google AI advises cost-sensitive or lower-stakes users, it points them to mega-firms or mid-market providers, not boutiques — so the firm must make its &#x27;serious case&#x27; identity explicit and machine-readable.</p>
+      <div class="subhead" style="margin-bottom:.6rem">Recommendations</div>
+      <ul class="recs"><li>Explicitly reframe Rogers | Beltran as a &#x27;serious case&#x27; firm across Google Business, legal directories, and website copy — spelling out the case types the firm is built for (catastrophic injury, wrongful death, felony-level and rights-implicating criminal cases) and routing smaller matters to a vetted referral network.</li><li>Make the Latino/Spanish-speaking segment a deliberate growth pillar: build Spanish-first journeys (practice pages, FAQs, bilingual bios, Spanish directory listings, Spanish-language media) so AI aligns the brand with bilingual trial expertise.</li><li>Attach the firm to high-credibility, AI-cited platforms (Best Law Firms, Benchmark Litigation, bar-association rankings, trial-lawyer and criminal-defense association leadership) and publish verdict/results data — the sources AI leans on (bestlawfirms.com, counselhound.com, forthepeople.com) to build the recommendation set.</li></ul>
+    </div>
+  </div>
+</section>
+
+<section id="sec2" class="sec-block">
+  <div class="wrap">
+    <span class="sec-badge">Section 02 · Organic Search</span>
+    <h2 class="sec-title">Semrush Organic Rankings</h2>
+    <p class="sec-sub">1,382 ranking organic keywords for rogersbeltran.com — 4 in the top 3, 65 in the top 10, 303 in the top 20.</p>
+    
+    <div class="cards">
+      <div class="metric"><div class="value grad">158</div><div class="label">Est. Organic Traffic / mo</div><div class="change flat">Semrush estimate</div></div>
+      <div class="metric"><div class="value grad">1,382</div><div class="label">Ranking Keywords</div><div class="change flat">organic, US</div></div>
+      <div class="metric"><div class="value grad">65</div>
+        <div class="label">Top 10 Keywords</div><div class="change flat">tracked, page-one</div></div>
+      <div class="metric"><div class="value grad">4</div>
+        <div class="label">Top 3 Keywords</div><div class="change flat">organic leaders</div></div>
+    </div><div class="move-strip"><div class="move-cell imp"><div class="num">8</div><div class="lbl">Improved</div></div><div class="move-cell dec"><div class="num">12</div><div class="lbl">Declined</div></div><div class="move-cell ent"><div class="num">7</div><div class="lbl">Entered</div></div></div>
+    <div class="chart-wrap">
+      <h3>Ranking distribution by position bucket</h3>
+      <div class="chart-box"><canvas id="posChart"></canvas></div>
+    </div>
+    <h3 style="margin:1rem 0 .8rem;font-size:1.05rem">Keyword rankings &amp; movement (top 40)</h3>
+    <div class="table-wrap"><table><thead><tr><th>Keyword</th><th>Type</th><th class="num-r">Volume</th>
+      <th class="num-r">Position</th><th class="num-r">Movement</th></tr></thead>
+      <tbody><tr><td>andy beltran</td><td><span class="kt kt-org">Organic</span></td><td class="num-r">40</td><td class="num-r pos">2</td><td class="num-r chg flat">0</td></tr><tr><td>prisons in southern california</td><td><span class="kt kt-org">Organic</span></td><td class="num-r">260</td><td class="num-r pos">3</td><td class="num-r chg flat">0</td></tr><tr><td>correctional facilities in southern california</td><td><span class="kt kt-org">Organic</span></td><td class="num-r">210</td><td class="num-r pos">3</td><td class="num-r chg flat">0</td></tr><tr><td>prison southern california</td><td><span class="kt kt-org">Organic</span></td><td class="num-r">90</td><td class="num-r pos">3</td><td class="num-r chg flat">0</td></tr><tr><td>vc 12500 a</td><td><span class="kt kt-org">Organic</span></td><td class="num-r">390</td><td class="num-r pos">5</td><td class="num-r chg flat">0</td></tr><tr><td>29180 pc</td><td><span class="kt kt-org">Organic</span></td><td class="num-r">140</td><td class="num-r pos">5</td><td class="num-r chg flat">0</td></tr><tr><td>is 12500 a vc a misdemeanor or infraction</td><td><span class="kt kt-org">Organic</span></td><td class="num-r">110</td><td class="num-r pos">5</td><td class="num-r chg flat">0</td></tr><tr><td>body armor legal in california</td><td><span class="kt kt-org">Organic</span></td><td class="num-r">110</td><td class="num-r pos">5</td><td class="num-r chg flat">0</td></tr><tr><td>is body armor illegal in california</td><td><span class="kt kt-org">Organic</span></td><td class="num-r">90</td><td class="num-r pos">5</td><td class="num-r chg flat">0</td></tr><tr><td>12500 a vc misdemeanor</td><td><span class="kt kt-org">Organic</span></td><td class="num-r">70</td><td class="num-r pos">5</td><td class="num-r chg flat">0</td></tr><tr><td>vc 12500a</td><td><span class="kt kt-org">Organic</span></td><td class="num-r">40</td><td class="num-r pos">5</td><td class="num-r chg flat">0</td></tr><tr><td>cvc 12500a</td><td><span class="kt kt-org">Organic</span></td><td class="num-r">390</td><td class="num-r pos">6</td><td class="num-r chg flat">0</td></tr><tr><td>state prisons in southern california</td><td><span class="kt kt-org">Organic</span></td><td class="num-r">140</td><td class="num-r pos">6</td><td class="num-r chg flat">0</td></tr><tr><td>12500 a cvc</td><td><span class="kt kt-org">Organic</span></td><td class="num-r">110</td><td class="num-r pos">6</td><td class="num-r chg flat">0</td></tr><tr><td>body armor laws california</td><td><span class="kt kt-org">Organic</span></td><td class="num-r">70</td><td class="num-r pos">6</td><td class="num-r chg flat">0</td></tr><tr><td>estes 211</td><td><span class="kt kt-org">Organic</span></td><td class="num-r">70</td><td class="num-r pos">6</td><td class="num-r chg flat">0</td></tr><tr><td>pc 29180</td><td><span class="kt kt-org">Organic</span></td><td class="num-r">70</td><td class="num-r pos">6</td><td class="num-r chg flat">0</td></tr><tr><td>12500a cvc</td><td><span class="kt kt-org">Organic</span></td><td class="num-r">50</td><td class="num-r pos">6</td><td class="num-r chg flat">0</td></tr><tr><td>5801 e slauson ave commerce ca 90040</td><td><span class="kt kt-org">Organic</span></td><td class="num-r">40</td><td class="num-r pos">6</td><td class="num-r chg flat">0</td></tr><tr><td>beltran law firm</td><td><span class="kt kt-org">Organic</span></td><td class="num-r">40</td><td class="num-r pos">6</td><td class="num-r chg flat">0</td></tr><tr><td>12500 a vc</td><td><span class="kt kt-org">Organic</span></td><td class="num-r">1000</td><td class="num-r pos">7</td><td class="num-r chg flat">0</td></tr><tr><td>southern california prisons</td><td><span class="kt kt-org">Organic</span></td><td class="num-r">210</td><td class="num-r pos">7</td><td class="num-r chg up">▲ 1</td></tr><tr><td>california duty to retreat</td><td><span class="kt kt-org">Organic</span></td><td class="num-r">140</td><td class="num-r pos">7</td><td class="num-r chg flat">0</td></tr><tr><td>duty to retreat california</td><td><span class="kt kt-org">Organic</span></td><td class="num-r">140</td><td class="num-r pos">7</td><td class="num-r chg flat">0</td></tr><tr><td>california body armor</td><td><span class="kt kt-org">Organic</span></td><td class="num-r">90</td><td class="num-r pos">7</td><td class="num-r chg flat">0</td></tr><tr><td>body armor laws in california</td><td><span class="kt kt-org">Organic</span></td><td class="num-r">90</td><td class="num-r pos">7</td><td class="num-r chg flat">0</td></tr><tr><td>is california a duty to retreat state</td><td><span class="kt kt-org">Organic</span></td><td class="num-r">90</td><td class="num-r pos">7</td><td class="num-r chg flat">0</td></tr><tr><td>california vehicle code 12500 a</td><td><span class="kt kt-org">Organic</span></td><td class="num-r">70</td><td class="num-r pos">7</td><td class="num-r chg flat">0</td></tr><tr><td>vehicle code 12500 a vc</td><td><span class="kt kt-org">Organic</span></td><td class="num-r">70</td><td class="num-r pos">7</td><td class="num-r chg flat">0</td></tr><tr><td>penalty driving without license california</td><td><span class="kt kt-org">Organic</span></td><td class="num-r">70</td><td class="num-r pos">7</td><td class="num-r chg flat">0</td></tr><tr><td>can you wear body armor in public in california</td><td><span class="kt kt-org">Organic</span></td><td class="num-r">50</td><td class="num-r pos">7</td><td class="num-r chg flat">0</td></tr><tr><td>estes robbery pc</td><td><span class="kt kt-org">Organic</span></td><td class="num-r">50</td><td class="num-r pos">7</td><td class="num-r chg flat">0</td></tr><tr><td>body armor california law</td><td><span class="kt kt-org">Organic</span></td><td class="num-r">40</td><td class="num-r pos">7</td><td class="num-r chg flat">0</td></tr><tr><td>wic 601 vs 602</td><td><span class="kt kt-org">Organic</span></td><td class="num-r">40</td><td class="num-r pos">7</td><td class="num-r chg flat">0</td></tr><tr><td>oc courts.org</td><td><span class="kt kt-org">Organic</span></td><td class="num-r">50</td><td class="num-r pos">8</td><td class="num-r chg flat">0</td></tr><tr><td>12556 pc</td><td><span class="kt kt-org">Organic</span></td><td class="num-r">40</td><td class="num-r pos">8</td><td class="num-r chg flat">0</td></tr><tr><td>possession of unserialized firearm pc</td><td><span class="kt kt-org">Organic</span></td><td class="num-r">40</td><td class="num-r pos">8</td><td class="num-r chg flat">0</td></tr><tr><td>california castle laws</td><td><span class="kt kt-org">Organic</span></td><td class="num-r">40</td><td class="num-r pos">8</td><td class="num-r chg flat">0</td></tr><tr><td>estes robbery</td><td><span class="kt kt-org">Organic</span></td><td class="num-r">390</td><td class="num-r pos">9</td><td class="num-r chg flat">0</td></tr><tr><td>california body armor laws</td><td><span class="kt kt-org">Organic</span></td><td class="num-r">170</td><td class="num-r pos">9</td><td class="num-r chg flat">0</td></tr></tbody></table></div>
+    <p style="font-size:0.78rem;color:var(--muted)">Semrush Organic Research — 1,382 ranking US keywords. Movement = Semrush position delta vs the prior reading; a positive (▲) value means the keyword moved up. Sorted by current position.</p>
+  </div>
+</section>
+
+<section id="sec3" class="sec-block">
+  <div class="wrap">
+    <span class="sec-badge">Section 03 · Organic Search</span>
+    <h2 class="sec-title">Google Search Console</h2>
+    <p class="sec-sub">Organic clicks, impressions, CTR and position — June 2026 vs May 2026.</p>
+    
+    <div style="display:inline-block;margin-bottom:1.2rem;padding:6px 16px;border-radius:50px;background:rgba(6,68,237,0.08);color:var(--blue);font-size:0.78rem;font-weight:700">📅 June 2026 vs May 2026</div>
+    <div class="cards"><div class="metric"><div class="value grad">255</div><div class="label">Clicks</div><div class="change up">▲ 62.4%</div><div class="change flat" style="font-size:0.7rem">May 2026: 157</div></div><div class="metric"><div class="value grad">63.1K</div><div class="label">Impressions</div><div class="change up">▲ 21.1%</div><div class="change flat" style="font-size:0.7rem">May 2026: 52.1K</div></div><div class="metric"><div class="value grad">12.0</div><div class="label">Avg Position</div><div class="change up">▲ 0.4</div><div class="change flat" style="font-size:0.7rem">May 2026: 12.4</div></div><div class="metric"><div class="value grad">0.4%</div><div class="label">CTR</div><div class="change up">▲ 0.1pt</div><div class="change flat" style="font-size:0.7rem">May 2026: 0.3%</div></div></div>
+    
+    <div class="chart-grid2">
+      <div class="chart-wrap">
+        <h3>Clicks — monthly trend by year</h3>
+        <div class="chart-box"><canvas id="gscYoyChart"></canvas></div>
+        <div class="chart-sub">Organic clicks by month YoY (Google Search Console).</div>
+      </div>
+      <div class="chart-wrap">
+        <h3>Clicks — month over month</h3>
+        <div class="chart-box"><canvas id="gscMomChart"></canvas></div>
+        <div class="chart-sub">Organic clicks per month (Google Search Console).</div>
+      </div>
+    </div>
+    <h3 style="margin:1.5rem 0 .8rem;font-size:1.05rem">Top Queries — month over month</h3>
+    <div class="table-wrap"><table><thead><tr><th>Query</th>
+      <th class="num-r">Clicks (June 2026)</th><th class="num-r">Clicks (May 2026)</th>
+      <th class="num-r">Δ Clicks</th><th class="num-r">Impr (June 2026)</th><th class="num-r">Impr (May 2026)</th></tr></thead>
+      <tbody><tr><td>rogers beltran llp</td><td class="num-r pos">10</td><td class="num-r">6</td><td class="num-r chg up">▲ 4</td><td class="num-r">35</td><td class="num-r">9</td></tr><tr><td>andy beltran</td><td class="num-r pos">3</td><td class="num-r">1</td><td class="num-r chg up">▲ 2</td><td class="num-r">60</td><td class="num-r">61</td></tr><tr><td>damon rogers</td><td class="num-r pos">3</td><td class="num-r">1</td><td class="num-r chg up">▲ 2</td><td class="num-r">58</td><td class="num-r">26</td></tr><tr><td>roger beltran</td><td class="num-r pos">2</td><td class="num-r">0</td><td class="num-r chg up">▲ 2</td><td class="num-r">12</td><td class="num-r">6</td></tr><tr><td>is california a duty to retreat state</td><td class="num-r pos">1</td><td class="num-r">1</td><td class="num-r chg flat">0</td><td class="num-r">86</td><td class="num-r">77</td></tr><tr><td>pc 10851</td><td class="num-r pos">1</td><td class="num-r">0</td><td class="num-r chg up">▲ 1</td><td class="num-r">61</td><td class="num-r">44</td></tr><tr><td>what happens if you get caught with a ghost gun</td><td class="num-r pos">1</td><td class="num-r">0</td><td class="num-r chg up">▲ 1</td><td class="num-r">31</td><td class="num-r">8</td></tr><tr><td>487d1 pc</td><td class="num-r pos">1</td><td class="num-r">0</td><td class="num-r chg up">▲ 1</td><td class="num-r">28</td><td class="num-r">15</td></tr><tr><td>pc273a(b)</td><td class="num-r pos">1</td><td class="num-r">0</td><td class="num-r chg up">▲ 1</td><td class="num-r">24</td><td class="num-r">2</td></tr><tr><td>ghost gun charges</td><td class="num-r pos">1</td><td class="num-r">1</td><td class="num-r chg flat">0</td><td class="num-r">17</td><td class="num-r">9</td></tr></tbody></table></div>
+    <h3 style="margin:1.5rem 0 .8rem;font-size:1.05rem">Top Pages</h3>
+    <div class="table-wrap"><table><thead><tr><th>Page</th><th class="num-r">Clicks (June 2026)</th><th class="num-r">Clicks (May 2026)</th><th class="num-r">Δ Clicks</th><th class="num-r">Impr (June 2026)</th><th class="num-r">Impr (May 2026)</th></tr></thead><tbody><tr><td>rogersbeltran.com/</td><td class="num-r pos">26</td><td class="num-r">17</td><td class="num-r chg up">▲ 9</td><td class="num-r">1,079</td><td class="num-r">637</td></tr><tr><td>rogersbeltran.com/inmate-search/</td><td class="num-r pos">20</td><td class="num-r">8</td><td class="num-r chg up">▲ 12</td><td class="num-r">1,208</td><td class="num-r">567</td></tr><tr><td>rogersbeltran.com/our-team/andy-beltran/</td><td class="num-r pos">17</td><td class="num-r">11</td><td class="num-r chg up">▲ 6</td><td class="num-r">352</td><td class="num-r">221</td></tr><tr><td>rogersbeltran.com/los-angeles-ghost-gun-defense-understanding-californias-ghost-gun-laws/</td><td class="num-r pos">16</td><td class="num-r">5</td><td class="num-r chg up">▲ 11</td><td class="num-r">3,508</td><td class="num-r">2,678</td></tr><tr><td>rogersbeltran.com/los-angeles-driving-without-a-license-defense-understanding-california-vc-12500-charges/</td><td class="num-r pos">14</td><td class="num-r">8</td><td class="num-r chg up">▲ 6</td><td class="num-r">8,257</td><td class="num-r">5,782</td></tr><tr><td>rogersbeltran.com/los-angeles-castle-doctrine-defense-understanding-californias-home-defense-law/</td><td class="num-r pos">13</td><td class="num-r">7</td><td class="num-r chg up">▲ 6</td><td class="num-r">5,036</td><td class="num-r">4,399</td></tr><tr><td>rogersbeltran.com/los-angeles-stand-your-ground-defense-understanding-californias-no-duty-to-retreat-rule/</td><td class="num-r pos">12</td><td class="num-r">7</td><td class="num-r chg up">▲ 5</td><td class="num-r">5,594</td><td class="num-r">3,810</td></tr><tr><td>rogersbeltran.com/southern-california-jails-list/</td><td class="num-r pos">12</td><td class="num-r">11</td><td class="num-r chg up">▲ 1</td><td class="num-r">1,689</td><td class="num-r">1,200</td></tr><tr><td>rogersbeltran.com/our-team/damon-rogers/</td><td class="num-r pos">12</td><td class="num-r">7</td><td class="num-r chg up">▲ 5</td><td class="num-r">448</td><td class="num-r">225</td></tr><tr><td>rogersbeltran.com/los-angeles-diversion-programs-your-guide-to-avoiding-a-criminal-conviction-in-california/</td><td class="num-r pos">11</td><td class="num-r">4</td><td class="num-r chg up">▲ 7</td><td class="num-r">1,212</td><td class="num-r">1,245</td></tr></tbody></table></div>
+  </div>
+</section>
+<div class="footer"><span class="dot"></span>Rogers | Beltran LLP SEO Performance Report · June 2026 · rogersbeltran.com · Prepared by Brandastic · Data: Semrush + Google Search Console + Semrush AI Visibility</div>
+
+<script>
+(function(){
+  var rendered=false;
+  function draw(){
+    if(rendered) return;
+    if(typeof Chart==='undefined') return;
+    var cv=document.getElementById('posChart');
+    if(!cv) return;
+    var box=cv.parentElement;
+    // render-offscreen / zero-size guard (Chart.js + flex/print infinite-height bug)
+    if(!box || box.clientHeight===0 || box.clientWidth===0) return;
+    rendered=true;
+    new Chart(cv.getContext('2d'),{
+      type:'bar',
+      data:{
+        labels:['Top 3','4–10','11–20','21–100'],
+        datasets:[{
+          label:'Keywords',
+          data:[4,61,238,1041],
+          backgroundColor:['#CC22FF','#40B4E5','#0644ED','rgba(25,31,36,0.35)'],
+          borderRadius:8,maxBarThickness:90
+        }]
+      },
+      options:{
+        responsive:true,maintainAspectRatio:false,animation:false,
+        plugins:{legend:{display:false}},
+        scales:{
+          y:{beginAtZero:true,ticks:{precision:0},grid:{color:'rgba(25,31,36,0.06)'}},
+          x:{grid:{display:false}}
+        }
+      }
+    });
+  }
+  if(document.readyState!=='loading') draw();
+  else document.addEventListener('DOMContentLoaded',draw);
+  // setTimeout fallback in case CDN/layout is late
+  setTimeout(draw,400);
+  setTimeout(draw,1500);
+  window.addEventListener('beforeprint',draw);
+})();
+</script>
+
+<script>
+(function(){
+  var done=false;
+  function draw(){
+    if(done) return;
+    if(typeof Chart==='undefined') return;
+    var yc=document.getElementById('gscYoyChart');
+    var mc=document.getElementById('gscMomChart');
+    if(!yc&&!mc) return;
+    var ready=false;
+    [yc,mc].forEach(function(cv){ if(cv){var b=cv.parentElement; if(b&&b.clientHeight>0&&b.clientWidth>0) ready=true;} });
+    if(!ready) return;
+    done=true;
+    if(yc){
+      new Chart(yc.getContext('2d'),{
+        type:'bar',
+        data:{labels:["Mar '25", "Apr '25", "May '25", "Jun '25", "Jul '25", "Aug '25", "May '26", "Jun '26"],datasets:[{"label": "2025", "data": [78, 60, 69, 81, 174, 59, null, null], "backgroundColor": "rgba(64,180,229,0.55)"}, {"label": "2026", "data": [null, null, null, null, null, null, 157, 255], "backgroundColor": "#0644ED"}].map(function(d){d.borderRadius=6;d.maxBarThickness=26;return d;})},
+        options:{responsive:true,maintainAspectRatio:false,animation:false,
+          plugins:{legend:{display:true,position:'bottom',labels:{boxWidth:12,font:{size:11}}}},
+          scales:{y:{stacked:true,beginAtZero:true,ticks:{precision:0},grid:{color:'rgba(25,31,36,0.06)'}},x:{stacked:true,grid:{display:false},ticks:{autoSkip:false,maxRotation:60,minRotation:60,font:{size:9}}}}
+        }
+      });
+    }
+    if(mc){
+      new Chart(mc.getContext('2d'),{
+        type:'line',
+        data:{labels:["Mar 2025", "Apr 2025", "May 2025", "Jun 2025", "Jul 2025", "Aug 2025", "May 2026", "Jun 2026"],datasets:[
+          {label:'Clicks',data:[78, 60, 69, 81, 174, 59, 157, 255],borderColor:'#CC22FF',
+            backgroundColor:'rgba(204,34,255,0.10)',fill:true,tension:0.32,
+            pointRadius:3,pointBackgroundColor:'#CC22FF',borderWidth:2.5}
+        ]},
+        options:{responsive:true,maintainAspectRatio:false,animation:false,
+          plugins:{legend:{display:false}},
+          scales:{y:{beginAtZero:true,ticks:{precision:0},grid:{color:'rgba(25,31,36,0.06)'}},x:{grid:{display:false},ticks:{maxRotation:0,font:{size:10}}}}
+        }
+      });
+    }
+  }
+  if(document.readyState!=='loading') draw();
+  else document.addEventListener('DOMContentLoaded',draw);
+  setTimeout(draw,400);
+  setTimeout(draw,1500);
+  window.addEventListener('beforeprint',draw);
+})();
+</script>
+</body>
+</html>
