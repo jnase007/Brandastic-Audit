@@ -116,6 +116,16 @@
   status = 200
 
 [[redirects]]
+  from = "/nordic-sauna-monthly-seo-report"
+  to = "/nordic-sauna-monthly-seo-report.html"
+  status = 200
+
+[[redirects]]
+  from = "/nordic-sauna"
+  to = "/nordic-sauna-monthly-seo-report.html"
+  status = 200
+
+[[redirects]]
   from = "/onboarding/*"
   to = "/onboarding.html?channel=:splat"
   status = 200
