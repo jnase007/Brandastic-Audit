@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>LabTech Supply Company — SEO Performance Report — June 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+<style>
+:root{
+  --black:#191F24; --fog:#F5F3EF; --white:#FFFFFF;
+  --blue:#0644ED; --light:#40B4E5; --purple:#CC22FF;
+  --text:#191F24; --muted:rgba(25,31,36,0.55); --soft:rgba(25,31,36,0.72);
+  --card:#FFFFFF; --border:rgba(25,31,36,0.10);
+  --red:#ef4444; --green:#16a34a; --amber:#f59e0b;
+  --grad:linear-gradient(135deg,#40B4E5,#CC22FF);
+  --shadow:0 8px 32px rgba(0,0,0,0.06);
+}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',system-ui,-apple-system,sans-serif;background:var(--fog);
+  color:var(--text);line-height:1.6;-webkit-font-smoothing:antialiased}
+h1,h2,h3,.headline{font-family:'Forma DJR Text','Inter',system-ui,sans-serif;letter-spacing:-0.02em}
+.gradient{background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.subhead{font-size:0.72rem;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:var(--muted)}
+a{color:var(--blue);text-decoration:none}
+.wrap{max-width:1080px;margin:0 auto;padding:0 2rem}
+section{padding:3.5rem 0;border-bottom:1px solid var(--border)}
+
+/* nav */
+.topbar{position:sticky;top:0;z-index:50;background:rgba(245,243,239,0.9);backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--border);height:60px;display:flex;align-items:center}
+.topbar .wrap{display:flex;align-items:center;justify-content:space-between;width:100%}
+.brand{display:flex;align-items:center;gap:10px;font-weight:800;font-size:1.05rem;letter-spacing:0.02em}
+.brand .dot{width:11px;height:11px;border-radius:50%;background:var(--grad)}
+.pdf-btn{padding:8px 18px;border-radius:10px;border:none;cursor:pointer;background:var(--grad);
+  color:#fff;font-family:inherit;font-size:0.75rem;font-weight:700;letter-spacing:0.04em}
+
+/* cover */
+.cover{min-height:52vh;display:flex;flex-direction:column;justify-content:center;align-items:center;
+  text-align:center;background:linear-gradient(180deg,#fff,var(--fog));border-bottom:1px solid var(--border)}
+.cover .logo{display:flex;align-items:center;gap:12px;margin-bottom:2.5rem}
+.cover .logo .dot{width:14px;height:14px;border-radius:50%;background:var(--grad)}
+.cover .logo span{font-weight:800;font-size:1.3rem;letter-spacing:0.04em}
+.cover h1{font-size:clamp(2.4rem,6vw,4.2rem);font-weight:800;line-height:1.05;margin-bottom:1rem}
+.cover .sub{font-size:1.1rem;color:var(--soft);max-width:560px;margin-bottom:2rem}
+.cover .meta{display:flex;gap:1rem;flex-wrap:wrap;justify-content:center}
+.cover .meta span{padding:8px 20px;border-radius:50px;background:#fff;border:1px solid var(--border);
+  font-size:0.82rem;font-weight:600;color:var(--soft)}
+
+/* toc */
+.toc-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem;margin-top:1.5rem}
+.toc-item{display:flex;gap:1rem;align-items:center;padding:1.25rem 1.5rem;background:var(--card);
+  border:1px solid var(--border);border-radius:14px;transition:.2s}
+.toc-item:hover{box-shadow:var(--shadow);border-color:rgba(64,180,229,0.3)}
+.toc-item .n{width:36px;height:36px;border-radius:9px;background:var(--grad);color:#fff;font-weight:800;
+  display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.toc-item .t{font-weight:700;font-size:0.95rem}
+.toc-item .d{font-size:0.78rem;color:var(--muted)}
+
+/* section head */
+.sec-badge{display:inline-block;padding:6px 16px;border-radius:50px;background:#fff;border:1px solid var(--border);
+  font-size:0.68rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:var(--muted);margin-bottom:1rem}
+.sec-title{font-size:clamp(1.7rem,3.5vw,2.5rem);font-weight:800;line-height:1.15;margin-bottom:.6rem}
+.sec-sub{color:var(--soft);font-size:1rem;max-width:680px;margin-bottom:2rem}
+
+/* scorecards */
+.cards{display:grid;grid-template-columns:repeat(4,1fr);gap:1.25rem;margin-bottom:2rem}
+.cards.c3{grid-template-columns:repeat(3,1fr)}
+.metric{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:1.8rem 1.4rem;text-align:center}
+.metric .value{font-size:2.1rem;font-weight:800;letter-spacing:-0.03em}
+.metric .value.grad{background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.metric .label{font-size:0.7rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--muted);margin-top:.5rem}
+.metric .change{font-size:0.78rem;font-weight:700;margin-top:.35rem}
+.change.up{color:var(--green)} .change.down{color:var(--red)} .change.flat{color:var(--muted)}
+
+/* movement strip */
+.move-strip{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;margin-bottom:2rem}
+.move-cell{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:1rem;text-align:center}
+.move-cell .num{font-size:1.5rem;font-weight:800}
+.move-cell .lbl{font-size:0.68rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);margin-top:.2rem}
+.move-cell.imp .num{color:var(--green)} .move-cell.dec .num{color:var(--red)}
+.move-cell.ent .num{color:var(--light)} .move-cell.lft .num{color:var(--amber)}
+
+/* tables */
+.table-wrap{background:var(--card);border:1px solid var(--border);border-radius:16px;overflow:hidden;margin-bottom:2rem}
+table{width:100%;border-collapse:collapse;font-size:0.88rem}
+th{text-align:left;padding:.95rem 1rem;font-size:0.66rem;font-weight:700;letter-spacing:0.1em;
+  text-transform:uppercase;color:var(--muted);border-bottom:1px solid var(--border);background:rgba(245,243,239,0.6)}
+td{padding:.8rem 1rem;border-bottom:1px solid var(--border);color:var(--soft)}
+tr:last-child td{border-bottom:none}
+tr:hover td{color:var(--text)}
+.pos{font-weight:800;color:var(--text)}
+.chg{font-weight:700;font-size:0.82rem}
+.chg.up{color:var(--green)} .chg.down{color:var(--red)} .chg.flat{color:var(--muted)}
+.num-r{text-align:right}
+.kt{display:inline-block;font-size:0.68rem;font-weight:700;letter-spacing:0.03em;padding:3px 9px;border-radius:6px;white-space:nowrap}
+.kt-ai{background:linear-gradient(135deg,rgba(204,34,255,0.12),rgba(64,180,229,0.12));color:#8b18c9;border:1px solid rgba(204,34,255,0.25)}
+.kt-org{background:rgba(6,68,237,0.07);color:var(--blue);border:1px solid rgba(6,68,237,0.15)}
+.kt-none{color:var(--muted)}
+.ai-overview-note{background:linear-gradient(135deg,rgba(64,180,229,0.06),rgba(204,34,255,0.06));border:1px solid rgba(204,34,255,0.2);border-radius:14px;padding:1.4rem 1.6rem;margin:0 0 1.6rem}
+.aon-head{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:6px}
+.aon-badge{font-size:0.64rem;font-weight:800;letter-spacing:0.12em;padding:4px 10px;border-radius:50px;background:var(--grad);color:#fff}
+.aon-title{font-weight:800;font-size:1.02rem;letter-spacing:-0.01em}
+.aon-sub{font-size:0.85rem;color:var(--soft);margin-bottom:0.9rem;max-width:680px}
+.ai-chips{display:flex;flex-wrap:wrap;gap:8px}
+.ai-chip{font-size:0.76rem;font-weight:600;padding:5px 12px;border-radius:50px;background:#fff;border:1px solid rgba(204,34,255,0.2);color:var(--text)}
+
+/* placeholder block */
+.placeholder{background:linear-gradient(135deg,rgba(64,180,229,0.06),rgba(204,34,255,0.05));
+  border:1px dashed rgba(64,180,229,0.4);border-radius:16px;padding:2.2rem;text-align:center}
+.placeholder .pico{font-size:2rem;margin-bottom:.6rem}
+.placeholder .ptitle{font-weight:800;font-size:1.15rem;margin-bottom:.5rem}
+.placeholder .ptext{color:var(--soft);font-size:0.92rem;max-width:560px;margin:0 auto}
+.placeholder .ptag{display:inline-block;margin-top:1rem;padding:5px 14px;border-radius:50px;
+  background:rgba(245,158,11,0.15);color:#b45309;font-size:0.7rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase}
+
+/* SOV horizontal bars */
+.sov-wrap{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:1.6rem 1.8rem;margin-bottom:1rem}
+.sovrow{display:grid;grid-template-columns:170px 1fr 56px;align-items:center;gap:1rem;padding:.4rem 0}
+.sovname{font-size:0.88rem}
+.sovtrack{height:14px;background:rgba(25,31,36,0.06);border-radius:50px;overflow:hidden}
+.sovfill{height:100%;border-radius:50px;min-width:3px}
+.sovval{font-size:0.85rem;text-align:right}
+
+/* priorities */
+.pri-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-bottom:2rem}
+.pri{display:flex;gap:.9rem;background:var(--card);border:1px solid var(--border);border-radius:14px;padding:1.3rem}
+.prinum{width:30px;height:30px;border-radius:8px;background:var(--grad);color:#fff;font-weight:800;font-size:0.9rem;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.prit{font-weight:800;font-size:0.92rem;margin-bottom:.3rem}
+.prid{font-size:0.82rem;color:var(--soft);line-height:1.5}
+
+/* opportunity */
+.opp{background:linear-gradient(135deg,rgba(64,180,229,0.05),rgba(204,34,255,0.04));border:1px solid var(--border);border-radius:16px;padding:1.8rem;margin-bottom:1rem}
+.recs{margin:0;padding-left:1.1rem;color:var(--soft);font-size:0.92rem}
+.recs li{margin-bottom:.6rem;line-height:1.55}
+
+.chart-wrap{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:1.8rem;margin-bottom:2rem;position:relative}
+.chart-wrap h3{font-size:1.05rem;margin-bottom:1rem}
+.chart-box{position:relative;height:300px;width:100%}
+.chart-grid2{display:grid;grid-template-columns:1fr 1fr;gap:1.4rem;margin-bottom:2rem}
+.chart-grid2 .chart-wrap{margin-bottom:0}
+.chart-sub{font-size:0.78rem;color:var(--muted);margin-top:.6rem}
+@media(max-width:860px){.chart-grid2{grid-template-columns:1fr}}
+
+.footer{text-align:center;padding:2.5rem 0;color:var(--muted);font-size:0.8rem}
+.footer .dot{display:inline-block;width:9px;height:9px;border-radius:50%;background:var(--grad);vertical-align:middle;margin-right:6px}
+
+@media(max-width:900px){.cards,.move-strip{grid-template-columns:repeat(2,1fr)}.cards.c3{grid-template-columns:repeat(2,1fr)}.pri-grid{grid-template-columns:1fr}.sovrow{grid-template-columns:120px 1fr 50px}}
+@media(max-width:560px){.cards,.cards.c3,.move-strip{grid-template-columns:1fr}}
+
+/* ---- PRINT / PDF ---- */
+@media print{
+  @page{margin:14mm}
+  body{background:#fff}
+  .topbar,.pdf-btn{display:none!important}
+  section{padding:1.4rem 0;border-bottom:none;page-break-inside:avoid;break-inside:avoid}
+  .cover{min-height:auto;padding:2rem 0;page-break-after:always}
+  .sec-block{page-break-before:always}
+  .sec-block:first-of-type{page-break-before:avoid}
+  .table-wrap,.metric,.chart-wrap,.placeholder,.move-cell,.toc-item{box-shadow:none!important;break-inside:avoid}
+  .chart-box{height:260px}
+  .chart-grid2{grid-template-columns:1fr 1fr}
+  a{color:var(--text)}
+}
+</style>
+</head>
+<body>
+<div class="topbar"><div class="wrap">
+  <div class="brand"><span class="dot"></span>LABTECH SUPPLY CO</div>
+  <button class="pdf-btn" onclick="window.print()">Export PDF</button>
+</div></div>
+
+<section class="cover" id="cover">
+  <div class="logo"><span class="dot"></span><span>LABTECH SUPPLY CO</span></div>
+  <h1>SEO Performance<br><span class="gradient">Monthly Report</span></h1>
+  <p class="sub">Organic search visibility, keyword movement, and AI search presence for labtechsupplyco.com</p>
+  <div class="meta">
+    <span>labtechsupplyco.com</span>
+    <span>June 2026</span>
+    <span>Prepared by Brandastic</span>  <!-- agency attribution stays Brandastic -->
+  </div>
+</section>
+
+<section id="toc">
+  <div class="wrap">
+    <span class="sec-badge">Contents</span>
+    <h2 class="sec-title">What's <span class="gradient">inside</span></h2>
+    <div class="toc-grid"><a class="toc-item" href="#sec01"><div class="n">01</div><div><div class="t">AI Search Visibility</div><div class="d">Share of voice, mentions &amp; citations</div></div></a><a class="toc-item" href="#sec02"><div class="n">02</div><div><div class="t">Semrush Position Tracking</div><div class="d">Visibility, SOV &amp; keyword movement</div></div></a><a class="toc-item" href="#sec03"><div class="n">03</div><div><div class="t">Google Search Console</div><div class="d">Connection pending</div></div></a></div>
+  </div>
+</section>
+
+<section id="sec1" class="sec-block">
+  <div class="wrap">
+    <span class="sec-badge">Section 01 · AI Search</span>
+    <h2 class="sec-title">AI Search Visibility</h2>
+    <p class="sec-sub">First-month AI-search readiness baseline for labtechsupplyco.com. AI answer engines (Google AI Overviews, ChatGPT, Perplexity) cite the same authoritative, high-ranking organic content that Semrush measures — so this uses LabTech's real US organic footprint versus the lab-furniture competitive set as the AI-visibility proxy. LabTech holds a 10.3% share of that visible market today.</p>
+    <div style="display:inline-block;margin-bottom:1.2rem;padding:6px 16px;border-radius:50px;background:rgba(6,68,237,0.08);color:var(--blue);font-size:0.78rem;font-weight:700">Baseline — organic-visibility proxy (Semrush US). AI Mode tracking to be enabled next.</div>
+    
+    <div class="cards">
+      <div class="metric"><div class="value grad">10.3%</div>
+        <div class="label">AI Visibility Share</div><div class="change flat">of lab-furniture market</div></div>
+      <div class="metric"><div class="value grad">2,092</div>
+        <div class="label">Ranking Keywords</div><div class="change flat">the citable content base</div></div>
+      <div class="metric"><div class="value grad">1,436</div>
+        <div class="label">Est. Organic Traffic / mo</div><div class="change flat">Semrush US estimate</div></div>
+      <div class="metric"><div class="value grad">30</div>
+        <div class="label">Top-3 Product Terms</div><div class="change up">already AI-citable</div></div>
+    </div>
+    <h3 style="margin:1.5rem 0 .8rem;font-size:1.05rem">Visibility Share — Lab-Furniture Competitive Set</h3>
+    <div class="sov-wrap"><div class="sovrow"><div class="sovname" style="font-weight:800">LabTech Supply Company</div><div class="sovtrack"><div class="sovfill" style="width:47.2%;background:var(--grad)"></div></div><div class="sovval" style="font-weight:800">10.3%</div></div><div class="sovrow"><div class="sovname" style="font-weight:600">Formaspace</div><div class="sovtrack"><div class="sovfill" style="width:100.0%;background:rgba(25,31,36,0.30)"></div></div><div class="sovval" style="font-weight:600">21.8%</div></div><div class="sovrow"><div class="sovname" style="font-weight:600">Workstation Industries</div><div class="sovtrack"><div class="sovfill" style="width:84.4%;background:rgba(25,31,36,0.30)"></div></div><div class="sovval" style="font-weight:600">18.4%</div></div><div class="sovrow"><div class="sovname" style="font-weight:600">H2I Group</div><div class="sovtrack"><div class="sovfill" style="width:63.3%;background:rgba(25,31,36,0.30)"></div></div><div class="sovval" style="font-weight:600">13.8%</div></div><div class="sovrow"><div class="sovname" style="font-weight:600">Labs-USA</div><div class="sovtrack"><div class="sovfill" style="width:56.4%;background:rgba(25,31,36,0.30)"></div></div><div class="sovval" style="font-weight:600">12.3%</div></div><div class="sovrow"><div class="sovname" style="font-weight:600">Genie Scientific</div><div class="sovtrack"><div class="sovfill" style="width:42.7%;background:rgba(25,31,36,0.30)"></div></div><div class="sovval" style="font-weight:600">9.3%</div></div><div class="sovrow"><div class="sovname" style="font-weight:600">LOC Scientific</div><div class="sovtrack"><div class="sovfill" style="width:32.6%;background:rgba(25,31,36,0.30)"></div></div><div class="sovval" style="font-weight:600">7.1%</div></div><div class="sovrow"><div class="sovname" style="font-weight:600">GLE Sales</div><div class="sovtrack"><div class="sovfill" style="width:32.6%;background:rgba(25,31,36,0.30)"></div></div><div class="sovval" style="font-weight:600">7.1%</div></div><div class="sovrow"><div class="sovname" style="font-weight:600">Other</div><div class="sovtrack"><div class="sovfill" style="width:0.0%;background:rgba(25,31,36,0.30)"></div></div><div class="sovval" style="font-weight:600">0.0%</div></div></div>
+    <p style="font-size:0.78rem;color:var(--muted);margin-bottom:1.5rem">LabTech Supply Company holds 10.3% of the visible lab-furniture market — led by Formaspace and Workstation Industries. Share here is measured by US organic traffic across the eight-brand competitive set, the pool AI answer engines draw citations from.</p>
+    <h3 style="margin:1rem 0 .8rem;font-size:1.05rem">Competitor benchmark — lab-furniture visibility</h3>
+    <div class="table-wrap"><table><thead><tr><th>Brand</th><th class="num-r">Visibility Share</th>
+      <th class="num-r">Ranking Kw</th><th class="num-r">Est. Traffic/mo</th></tr></thead>
+      <tbody><tr><td>Formaspace</td><td class="num-r pos">21.8%</td><td class="num-r">2,140</td><td class="num-r">3,021</td></tr><tr><td>Workstation Industries</td><td class="num-r pos">18.4%</td><td class="num-r">3,006</td><td class="num-r">2,557</td></tr><tr><td>H2I Group</td><td class="num-r pos">13.8%</td><td class="num-r">1,105</td><td class="num-r">1,913</td></tr><tr><td>Labs-USA</td><td class="num-r pos">12.3%</td><td class="num-r">3,284</td><td class="num-r">1,707</td></tr><tr><td><strong>LabTech Supply Company</strong></td><td class="num-r pos">10.3%</td><td class="num-r">2,092</td><td class="num-r">1,436</td></tr><tr><td>Genie Scientific</td><td class="num-r pos">9.3%</td><td class="num-r">1,203</td><td class="num-r">1,288</td></tr><tr><td>LOC Scientific</td><td class="num-r pos">7.1%</td><td class="num-r">1,935</td><td class="num-r">980</td></tr><tr><td>GLE Sales</td><td class="num-r pos">7.1%</td><td class="num-r">1,894</td><td class="num-r">980</td></tr></tbody></table></div>
+    <h3 style="margin:1rem 0 .8rem;font-size:1.05rem">Visibility by domain — the AI citation pool</h3>
+    <div class="table-wrap"><table><thead><tr><th>Domain</th><th class="num-r">Visibility Share</th>
+      <th class="num-r">Est. Traffic/mo</th></tr></thead>
+      <tbody><tr><td>labtechsupplyco.com</td><td class="num-r">10.3%</td><td class="num-r pos">1436</td></tr><tr><td>formaspace.com</td><td class="num-r">21.8%</td><td class="num-r pos">3021</td></tr><tr><td>workstationindustries.com</td><td class="num-r">18.4%</td><td class="num-r pos">2557</td></tr><tr><td>h2igroup.com</td><td class="num-r">13.8%</td><td class="num-r pos">1913</td></tr><tr><td>labs-usa.com</td><td class="num-r">12.3%</td><td class="num-r pos">1707</td></tr><tr><td>geniescientific.com</td><td class="num-r">9.3%</td><td class="num-r pos">1288</td></tr><tr><td>locscientific.com</td><td class="num-r">7.1%</td><td class="num-r pos">980</td></tr><tr><td>glesales.com</td><td class="num-r">7.1%</td><td class="num-r pos">980</td></tr></tbody></table></div>
+    <p style="font-size:0.78rem;color:var(--muted);margin-bottom:1.5rem">labtechsupplyco.com sits mid-pack at <strong>10.3%</strong> of the visible lab-furniture market — ahead of Genie Scientific, LOC Scientific and GLE Sales, and within reach of H2I Group and Labs-USA. Formaspace and Workstation Industries lead on head-term traffic. Closing that gap is what lifts LabTech into the AI answer set.</p>
+    <h3 style="margin:1.5rem 0 .8rem;font-size:1.05rem">Urgent strategic priorities</h3>
+    <div class="pri-grid"><div class="pri"><div class="prinum">1</div><div><div class="prit">Own the Buyer-Intent Product Terms</div><div class="prid">LabTech already ranks #1-3 for &#x27;lab workstation&#x27;, &#x27;lab bench material&#x27;, &#x27;chemistry lab bench&#x27;. Feed these pages structured specs and FAQ schema so Google AI Overviews cite them by name for lab-furniture buying questions.</div></div></div><div class="pri"><div class="prinum">2</div><div><div class="prit">Publish Comparison &amp; Materials Content</div><div class="prid">AI answers love decision content. LabTech&#x27;s &#x27;lab bench materials&#x27;, &#x27;epoxy vs phenolic countertops&#x27;, and &#x27;what are lab tables made of&#x27; articles are prime — expand them into citable, quantified buyer guides to out-cite Formaspace and Labs-USA.</div></div></div><div class="pri"><div class="prinum">3</div><div><div class="prit">Close the Traffic Gap on Head Terms</div><div class="prid">Formaspace (3,021) and Workstation Industries (2,557) pull ~2x LabTech&#x27;s organic traffic largely on &#x27;lab bench&#x27;/&#x27;lab tables&#x27; head terms where LabTech sits #3-#7. Moving these to the top 3 is the single biggest AI-visibility lever.</div></div></div></div>
+    <div class="opp">
+      <div class="subhead" style="margin-bottom:.6rem">Opportunity</div>
+      <p style="color:var(--soft);font-size:0.95rem;margin-bottom:1rem">LabTech Supply Co enters AI search from a genuine strength position — it already ranks in the top 3 for a cluster of high-intent product terms (lab workstation, lab bench material, chemistry lab bench, computer workbenches, IT workbench) that AI answer engines pull from directly. The gap is head-term authority: Formaspace and Workstation Industries carry roughly twice the organic traffic on the biggest &#x27;lab bench&#x27; / &#x27;lab tables&#x27; queries, which is where Google AI Overviews source most citations. LabTech&#x27;s deep, USA-made, made-to-order catalog and 30+ years of expertise are exactly the kind of authoritative, specific content AI engines favor — but that story needs to be structured (specs, schema, comparison guides) to be machine-readable and citable.</p>
+      <div class="subhead" style="margin-bottom:.6rem">Recommendations</div>
+      <ul class="recs"><li>Add Product and FAQ structured data to the top-ranking category pages (laboratory workbenches, laboratory tables, casework, fume extraction) so AI engines can extract specs, materials, and lead times directly into answers.</li><li>Expand the existing materials/decision articles (&#x27;8 common types of laboratory benches&#x27;, &#x27;lab table top materials&#x27;, &#x27;phenolic vs epoxy&#x27;) into quantified, comparison-style buyer guides — the format AI Overviews cite most for &#x27;what is / which is best&#x27; lab-furniture queries.</li><li>Prioritize moving &#x27;lab bench&#x27; (pos 3), &#x27;lab benches&#x27; (pos 6), &#x27;lab tables&#x27; (pos 6) and &#x27;lab workbench&#x27; (pos 7) into the top 3 with internal linking and content depth — these are the head terms driving the competitor traffic and AI-citation gap.</li></ul>
+    </div>
+  </div>
+</section>
+
+<section id="sec2" class="sec-block">
+  <div class="wrap">
+    <span class="sec-badge">Section 02 · Organic Search</span>
+    <h2 class="sec-title">Semrush Organic Rankings</h2>
+    <p class="sec-sub">2,092 ranking organic keywords for labtechsupplyco.com — 30 in the top 3, 154 in the top 10, 382 in the top 20.</p>
+    
+    <div class="cards">
+      <div class="metric"><div class="value grad">1,436</div><div class="label">Est. Organic Traffic / mo</div><div class="change flat">Semrush estimate</div></div>
+      <div class="metric"><div class="value grad">2,092</div><div class="label">Ranking Keywords</div><div class="change flat">organic, US</div></div>
+      <div class="metric"><div class="value grad">154</div>
+        <div class="label">Top 10 Keywords</div><div class="change flat">tracked, page-one</div></div>
+      <div class="metric"><div class="value grad">30</div>
+        <div class="label">Top 3 Keywords</div><div class="change flat">organic leaders</div></div>
+    </div><div class="move-strip"><div class="move-cell imp"><div class="num">5</div><div class="lbl">Improved</div></div><div class="move-cell dec"><div class="num">3</div><div class="lbl">Declined</div></div><div class="move-cell ent"><div class="num">4</div><div class="lbl">Entered</div></div></div>
+    <div class="chart-wrap">
+      <h3>Ranking distribution by position bucket</h3>
+      <div class="chart-box"><canvas id="posChart"></canvas></div>
+    </div>
+    <h3 style="margin:1rem 0 .8rem;font-size:1.05rem">Keyword rankings &amp; movement (top 40)</h3>
+    <div class="table-wrap"><table><thead><tr><th>Keyword</th><th>Type</th><th class="num-r">Volume</th>
+      <th class="num-r">Position</th><th class="num-r">Movement</th></tr></thead>
+      <tbody><tr><td>lab workstation</td><td><span class="kt kt-org">Organic</span></td><td class="num-r">210</td><td class="num-r pos">1</td><td class="num-r chg flat">0</td></tr><tr><td>it workbench</td><td><span class="kt kt-org">Organic</span></td><td class="num-r">90</td><td class="num-r pos">1</td><td class="num-r chg flat">0</td></tr><tr><td>computer workbenches</td><td><span class="kt kt-org">Organic</span></td><td class="num-r">70</td><td class="num-r pos">1</td><td class="num-r chg flat">0</td></tr><tr><td>lab workstation bench</td><td><span class="kt kt-org">Organic</span></td><td class="num-r">140</td><td class="num-r pos">2</td><td class="num-r chg flat">0</td></tr><tr><td>laboratory supply co</td><td><span class="kt kt-org">Organic</span></td><td class="num-r">140</td><td class="num-r pos">2</td><td class="num-r chg flat">0</td></tr><tr><td>lab supply co</td><td><span class="kt kt-org">Organic</span></td><td class="num-r">90</td><td class="num-r pos">2</td><td class="num-r chg flat">0</td></tr><tr><td>lab bench material</td><td><span class="kt kt-org">Organic</span></td><td class="num-r">70</td><td class="num-r pos">2</td><td class="num-r chg flat">0</td></tr><tr><td>laboratory furniture installation</td><td><span class="kt kt-org">Organic</span></td><td class="num-r">70</td><td class="num-r pos">2</td><td class="num-r chg flat">0</td></tr><tr><td>chemistry lab bench</td><td><span class="kt kt-org">Organic</span></td><td class="num-r">40</td><td class="num-r pos">2</td><td class="num-r chg flat">0</td></tr><tr><td>chemistry lab benches</td><td><span class="kt kt-org">Organic</span></td><td class="num-r">40</td><td class="num-r pos">2</td><td class="num-r chg up">▲ 5</td></tr><tr><td>lab bench</td><td><span class="kt kt-org">Organic</span></td><td class="num-r">1900</td><td class="num-r pos">3</td><td class="num-r chg flat">0</td></tr><tr><td>modular lab benches</td><td><span class="kt kt-org">Organic</span></td><td class="num-r">90</td><td class="num-r pos">3</td><td class="num-r chg flat">0</td></tr><tr><td>lab supplies company</td><td><span class="kt kt-org">Organic</span></td><td class="num-r">90</td><td class="num-r pos">3</td><td class="num-r chg flat">0</td></tr><tr><td>flex tech overhead</td><td><span class="kt kt-org">Organic</span></td><td class="num-r">90</td><td class="num-r pos">3</td><td class="num-r chg flat">0</td></tr><tr><td>lab table with drawers</td><td><span class="kt kt-org">Organic</span></td><td class="num-r">70</td><td class="num-r pos">3</td><td class="num-r chg flat">0</td></tr><tr><td>lab bench top</td><td><span class="kt kt-org">Organic</span></td><td class="num-r">70</td><td class="num-r pos">3</td><td class="num-r chg flat">0</td></tr><tr><td>laboratory benches and cabinets</td><td><span class="kt kt-org">Organic</span></td><td class="num-r">70</td><td class="num-r pos">3</td><td class="num-r chg flat">0</td></tr><tr><td>lab table drawing</td><td><span class="kt kt-org">Organic</span></td><td class="num-r">50</td><td class="num-r pos">3</td><td class="num-r chg flat">0</td></tr><tr><td>lab table top</td><td><span class="kt kt-org">Organic</span></td><td class="num-r">50</td><td class="num-r pos">3</td><td class="num-r chg flat">0</td></tr><tr><td>laboratory bench top</td><td><span class="kt kt-org">Organic</span></td><td class="num-r">40</td><td class="num-r pos">3</td><td class="num-r chg flat">0</td></tr><tr><td>laboratory table drawing</td><td><span class="kt kt-org">Organic</span></td><td class="num-r">40</td><td class="num-r pos">3</td><td class="num-r chg flat">0</td></tr><tr><td>lab table tops</td><td><span class="kt kt-org">Organic</span></td><td class="num-r">40</td><td class="num-r pos">3</td><td class="num-r chg flat">0</td></tr><tr><td>lab bench top material</td><td><span class="kt kt-org">Organic</span></td><td class="num-r">40</td><td class="num-r pos">3</td><td class="num-r chg flat">0</td></tr><tr><td>ergonomic lab packaging</td><td><span class="kt kt-org">Organic</span></td><td class="num-r">40</td><td class="num-r pos">3</td><td class="num-r chg flat">0</td></tr><tr><td>laboratory workbench</td><td><span class="kt kt-org">Organic</span></td><td class="num-r">210</td><td class="num-r pos">4</td><td class="num-r chg flat">0</td></tr><tr><td>lab desks</td><td><span class="kt kt-org">Organic</span></td><td class="num-r">210</td><td class="num-r pos">4</td><td class="num-r chg flat">0</td></tr><tr><td>laboratory workstations</td><td><span class="kt kt-org">Organic</span></td><td class="num-r">210</td><td class="num-r pos">4</td><td class="num-r chg flat">0</td></tr><tr><td>laboratory benchtops</td><td><span class="kt kt-org">Organic</span></td><td class="num-r">170</td><td class="num-r pos">4</td><td class="num-r chg flat">0</td></tr><tr><td>stainless steel lab furniture</td><td><span class="kt kt-org">Organic</span></td><td class="num-r">90</td><td class="num-r pos">4</td><td class="num-r chg flat">0</td></tr><tr><td>epoxy resin lab tables</td><td><span class="kt kt-org">Organic</span></td><td class="num-r">70</td><td class="num-r pos">4</td><td class="num-r chg flat">0</td></tr><tr><td>lab furniture installations</td><td><span class="kt kt-org">Organic</span></td><td class="num-r">70</td><td class="num-r pos">4</td><td class="num-r chg flat">0</td></tr><tr><td>what are chemistry lab tables made of</td><td><span class="kt kt-org">Organic</span></td><td class="num-r">50</td><td class="num-r pos">4</td><td class="num-r chg flat">0</td></tr><tr><td>lab furniture installation</td><td><span class="kt kt-org">Organic</span></td><td class="num-r">50</td><td class="num-r pos">4</td><td class="num-r chg flat">0</td></tr><tr><td>lab table material</td><td><span class="kt kt-org">Organic</span></td><td class="num-r">50</td><td class="num-r pos">4</td><td class="num-r chg flat">0</td></tr><tr><td>lab table top material</td><td><span class="kt kt-org">Organic</span></td><td class="num-r">50</td><td class="num-r pos">4</td><td class="num-r chg flat">0</td></tr><tr><td>laboratory bench tops</td><td><span class="kt kt-org">Organic</span></td><td class="num-r">40</td><td class="num-r pos">4</td><td class="num-r chg flat">0</td></tr><tr><td>science lab table tops</td><td><span class="kt kt-org">Organic</span></td><td class="num-r">40</td><td class="num-r pos">4</td><td class="num-r chg flat">0</td></tr><tr><td>lab work benches</td><td><span class="kt kt-org">Organic</span></td><td class="num-r">110</td><td class="num-r pos">5</td><td class="num-r chg flat">0</td></tr><tr><td>lab organization ideas</td><td><span class="kt kt-org">Organic</span></td><td class="num-r">70</td><td class="num-r pos">5</td><td class="num-r chg flat">0</td></tr><tr><td>lab bench chairs</td><td><span class="kt kt-org">Organic</span></td><td class="num-r">70</td><td class="num-r pos">5</td><td class="num-r chg flat">0</td></tr></tbody></table></div>
+    <p style="font-size:0.78rem;color:var(--muted)">Semrush Organic Research — 2,092 ranking US keywords. Movement = Semrush position delta vs the prior reading; a positive (▲) value means the keyword moved up. Sorted by current position.</p>
+  </div>
+</section>
+
+<section id="sec3" class="sec-block">
+  <div class="wrap">
+    <span class="sec-badge">Section 03</span>
+    <h2 class="sec-title">Google Search Console</h2>
+    <p class="sec-sub">Organic clicks, impressions, CTR and the pages &amp; queries driving them.</p>
+    
+    <div class="placeholder">
+      <div class="pico">🔌</div>
+      <div class="ptitle">Google Search Console access pending</div>
+      <div class="ptext">This section will show month-over-month clicks, impressions, average
+      position and CTR, plus keyword-level and page-level performance, once Brandastic is granted
+      access to the labtechsupplyco.com Search Console property. One click from the site owner
+      (add dalenase007@gmail.com as a user) unlocks the full first-party click &amp; impression data
+      for next month's report.</div>
+      <div class="ptag">Awaiting property access</div>
+    </div>
+  </div>
+</section>
+<div class="footer"><span class="dot"></span>LabTech Supply Company SEO Performance Report · June 2026 · labtechsupplyco.com · Prepared by Brandastic · Data: Semrush + Semrush AI Visibility</div>
+
+<script>
+(function(){
+  var rendered=false;
+  function draw(){
+    if(rendered) return;
+    if(typeof Chart==='undefined') return;
+    var cv=document.getElementById('posChart');
+    if(!cv) return;
+    var box=cv.parentElement;
+    // render-offscreen / zero-size guard (Chart.js + flex/print infinite-height bug)
+    if(!box || box.clientHeight===0 || box.clientWidth===0) return;
+    rendered=true;
+    new Chart(cv.getContext('2d'),{
+      type:'bar',
+      data:{
+        labels:['Top 3','4–10','11–20','21–100'],
+        datasets:[{
+          label:'Keywords',
+          data:[30,124,228,1450],
+          backgroundColor:['#CC22FF','#40B4E5','#0644ED','rgba(25,31,36,0.35)'],
+          borderRadius:8,maxBarThickness:90
+        }]
+      },
+      options:{
+        responsive:true,maintainAspectRatio:false,animation:false,
+        plugins:{legend:{display:false}},
+        scales:{
+          y:{beginAtZero:true,ticks:{precision:0},grid:{color:'rgba(25,31,36,0.06)'}},
+          x:{grid:{display:false}}
+        }
+      }
+    });
+  }
+  if(document.readyState!=='loading') draw();
+  else document.addEventListener('DOMContentLoaded',draw);
+  // setTimeout fallback in case CDN/layout is late
+  setTimeout(draw,400);
+  setTimeout(draw,1500);
+  window.addEventListener('beforeprint',draw);
+})();
+</script>
+
+</body>
+</html>

@@ -86,6 +86,16 @@
   status = 200
 
 [[redirects]]
+  from = "/labtech-supply-seo-monthly"
+  to = "/labtech-supply-seo-monthly.html"
+  status = 200
+
+[[redirects]]
+  from = "/labtech"
+  to = "/labtech-supply-seo-monthly.html"
+  status = 200
+
+[[redirects]]
   from = "/onboarding/*"
   to = "/onboarding.html?channel=:splat"
   status = 200
