@@ -72,6 +72,10 @@ section{padding:3.5rem 2rem;position:relative}section:nth-child(even){background
 .stats-bar{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem;margin-bottom:3rem}
 .stat-card{background:var(--glass-bg);border:1px solid var(--glass-border);border-radius:16px;padding:1.5rem;text-align:center;backdrop-filter:blur(10px)}
 .stat-card .stat-num{font-size:2.5rem;font-weight:800;background:linear-gradient(135deg,#40B4E5,#CC22FF);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1.2}
+#ppc-calc input[type=range]{-webkit-appearance:none;appearance:none;height:6px;border-radius:3px;background:var(--bg-card-border);outline:none;cursor:pointer}
+#ppc-calc input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;appearance:none;width:20px;height:20px;border-radius:50%;background:linear-gradient(135deg,#40B4E5,#CC22FF);cursor:pointer;border:2px solid var(--bg-secondary);box-shadow:0 2px 6px rgba(0,0,0,0.2)}
+#ppc-calc input[type=range]::-moz-range-thumb{width:20px;height:20px;border-radius:50%;background:linear-gradient(135deg,#40B4E5,#CC22FF);cursor:pointer;border:2px solid var(--bg-secondary)}
+@media(max-width:640px){#ppc-calc .calc-inputs{grid-template-columns:1fr!important}}
 .stat-card .stat-label{font-size:0.85rem;color:var(--text-muted);margin-top:0.25rem}
 .value-cards{display:grid;grid-template-columns:repeat(2,1fr);gap:1.5rem;margin:2.5rem 0;text-align:left}
 .value-card{background:var(--glass-bg);border:1px solid var(--glass-border);border-radius:16px;padding:1.75rem;backdrop-filter:blur(10px)}
@@ -303,23 +307,42 @@ section{padding:3.5rem 2rem;position:relative}section:nth-child(even){background
       <div class="card"><h4 style="font-weight:700;font-size:1rem;margin-bottom:0.4rem">Dedicated landing pages</h4><p style="color:var(--text-secondary);font-size:0.88rem;line-height:1.55">One page per service instead of the messy /home1/ catch-all — higher Quality Score, lower CPC, more conversions.</p></div>
     </div>
 
-    <h3 style="font-weight:800;font-size:1.4rem;margin:3rem 0 1rem;letter-spacing:-0.02em">Illustrative budget-to-outcome model</h3>
-    <div class="card" style="padding:2rem">
-      <div class="roi-grid">
-        <div class="roi-card">
-          <div class="label">Test Budget / Month</div>
-          <div class="after">$1.5&ndash;3K</div>
+    <h3 style="font-weight:800;font-size:1.4rem;margin:3rem 0 1rem;letter-spacing:-0.02em">Ad-spend calculator: what a campaign could return</h3>
+    <p style="color:var(--text-secondary);font-size:0.95rem;margin-bottom:1.5rem;max-width:760px">Drag the sliders to model the economics. Defaults use conservative benchmarks for high-intent local auto-services search (avg CPC ~$5 from the keyword data above, ~8% landing-page conversion to lead, ~30% lead-to-booked-job close rate, $2,500 average PPF/wrap ticket). Adjust any assumption to match Elevate's real numbers.</p>
+    <div class="card" id="ppc-calc" style="padding:2rem">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.5rem 2.5rem" class="calc-inputs">
+        <div>
+          <label style="display:flex;justify-content:space-between;font-size:0.85rem;font-weight:600;margin-bottom:0.5rem"><span>Monthly ad budget</span><span id="v-budget" style="color:var(--accent-light);font-weight:800">$2,500</span></label>
+          <input type="range" id="i-budget" min="500" max="10000" step="250" value="2500" style="width:100%">
         </div>
-        <div class="roi-card">
-          <div class="label">Avg. PPF / Wrap Ticket</div>
-          <div class="after">$1.5&ndash;6K</div>
+        <div>
+          <label style="display:flex;justify-content:space-between;font-size:0.85rem;font-weight:600;margin-bottom:0.5rem"><span>Average cost-per-click</span><span id="v-cpc" style="color:var(--accent-light);font-weight:800">$5.00</span></label>
+          <input type="range" id="i-cpc" min="2" max="13" step="0.25" value="5" style="width:100%">
         </div>
-        <div class="roi-card">
-          <div class="label">Jobs to Break Even</div>
-          <div class="after">1&ndash;2</div>
+        <div>
+          <label style="display:flex;justify-content:space-between;font-size:0.85rem;font-weight:600;margin-bottom:0.5rem"><span>Click &rarr; lead conversion</span><span id="v-cvr" style="color:var(--accent-light);font-weight:800">8%</span></label>
+          <input type="range" id="i-cvr" min="2" max="20" step="0.5" value="8" style="width:100%">
+        </div>
+        <div>
+          <label style="display:flex;justify-content:space-between;font-size:0.85rem;font-weight:600;margin-bottom:0.5rem"><span>Lead &rarr; booked-job close rate</span><span id="v-close" style="color:var(--accent-light);font-weight:800">30%</span></label>
+          <input type="range" id="i-close" min="10" max="60" step="5" value="30" style="width:100%">
+        </div>
+        <div>
+          <label style="display:flex;justify-content:space-between;font-size:0.85rem;font-weight:600;margin-bottom:0.5rem"><span>Average job value (ticket)</span><span id="v-ticket" style="color:var(--accent-light);font-weight:800">$2,500</span></label>
+          <input type="range" id="i-ticket" min="500" max="8000" step="250" value="2500" style="width:100%">
+        </div>
+        <div style="display:flex;align-items:end">
+          <label style="display:flex;align-items:center;gap:0.6rem;font-size:0.85rem;font-weight:600;cursor:pointer"><input type="checkbox" id="i-fee" style="width:18px;height:18px;cursor:pointer"> Include Brandastic management fee (~$1,750/mo)</label>
         </div>
       </div>
-      <p style="color:var(--text-muted);font-size:0.8rem;font-style:italic;margin-top:1.5rem;text-align:center;max-width:760px;margin-left:auto;margin-right:auto"><strong>Illustrative model only.</strong> These figures illustrate the economics of a high-ticket service in a competitive local auction — they are not a guarantee of specific results. Because a single PPF or wrap job can cover a full month of test spend, the model is structured so that even a modest booking rate makes the campaign self-funding. Actual performance depends on conversion rate, close rate and pricing.</p>
+      <div class="roi-grid" style="margin-top:2rem">
+        <div class="roi-card"><div class="label">Clicks / mo</div><div class="after" id="o-clicks">500</div></div>
+        <div class="roi-card"><div class="label">Leads / mo</div><div class="after" id="o-leads">40</div></div>
+        <div class="roi-card"><div class="label">Booked jobs / mo</div><div class="after" id="o-jobs">12</div></div>
+        <div class="roi-card"><div class="label">Est. revenue / mo</div><div class="after" id="o-rev">$30,000</div></div>
+        <div class="roi-card"><div class="label" id="l-roas">Return on ad spend</div><div class="after" id="o-roas">12.0x</div></div>
+      </div>
+      <p style="color:var(--text-muted);font-size:0.8rem;font-style:italic;margin-top:1.5rem;max-width:820px"><strong>Illustrative model, not a guarantee.</strong> Outputs are driven by the assumptions you set above; actual results depend on ad quality, landing pages, seasonality, close rate and pricing. Defaults are deliberately conservative. “Return on ad spend” compares estimated revenue to ad budget (and management fee when included) — it reflects gross booked revenue, not net profit after cost of goods and labor.</p>
     </div>
   </div>
 </section>
@@ -563,6 +586,36 @@ section{padding:3.5rem 2rem;position:relative}section:nth-child(even){background
 </section>
 
 <script>
+/* ===== PPC AD-SPEND CALCULATOR ===== */
+(function(){
+  const $=id=>document.getElementById(id);
+  const calc=$('ppc-calc'); if(!calc) return;
+  const fmt=n=>'$'+Math.round(n).toLocaleString();
+  function run(){
+    const budget=+$('i-budget').value, cpc=+$('i-cpc').value, cvr=+$('i-cvr').value/100,
+          close=+$('i-close').value/100, ticket=+$('i-ticket').value, fee=$('i-fee').checked?1750:0;
+    $('v-budget').textContent=fmt(budget);
+    $('v-cpc').textContent='$'+cpc.toFixed(2);
+    $('v-cvr').textContent=(cvr*100).toFixed(1).replace(/\.0$/,'')+'%';
+    $('v-close').textContent=Math.round(close*100)+'%';
+    $('v-ticket').textContent=fmt(ticket);
+    const clicks=cpc>0?budget/cpc:0;
+    const leads=clicks*cvr;
+    const jobs=leads*close;
+    const rev=jobs*ticket;
+    const totalCost=budget+fee;
+    const roas=totalCost>0?rev/totalCost:0;
+    $('o-clicks').textContent=Math.round(clicks).toLocaleString();
+    $('o-leads').textContent=Math.round(leads).toLocaleString();
+    $('o-jobs').textContent=(jobs<10?jobs.toFixed(1):Math.round(jobs)).toLocaleString();
+    $('o-rev').textContent=fmt(rev);
+    $('o-roas').textContent=roas.toFixed(1)+'x';
+    $('l-roas').textContent=fee?'Return on spend + fee':'Return on ad spend';
+  }
+  ['i-budget','i-cpc','i-cvr','i-close','i-ticket','i-fee'].forEach(id=>{const el=$(id); if(el){el.addEventListener('input',run);el.addEventListener('change',run);}});
+  run();
+})();
+
 /* ===== THEME TOGGLE ===== */
 function toggleTheme(){const html=document.documentElement;const cur=html.getAttribute('data-theme');const next=cur==='dark'?'light':'dark';html.setAttribute('data-theme',next);try{localStorage.setItem('audit-theme',next);}catch(e){}const knob=document.querySelector('.theme-toggle .knob');if(knob)knob.textContent=next==='dark'?'\u263D':'\u2600';if(typeof updateCharts==='function')updateCharts();}
 (function(){try{const saved=localStorage.getItem('audit-theme');if(saved)document.documentElement.setAttribute('data-theme',saved);}catch(e){}const knob=document.querySelector('.theme-toggle .knob');if(knob)knob.textContent=document.documentElement.getAttribute('data-theme')==='dark'?'\u263D':'\u2600';})();
