@@ -450,7 +450,7 @@ section{padding:3.5rem 2rem;position:relative}section:nth-child(even){background
   <div class="container">
     <div class="section-badge">08 — 12-Month Performance</div>
     <h2 class="section-title">12-Month <span class="gradient">Performance</span></h2>
-    <p class="section-sub">Real Semrush data showing organic traffic and organic keywords gained over the past year. Both the traffic line and the keyword footprint are trending down &mdash; the foundation is eroding, not growing.</p>
+    <p class="section-sub">Real Semrush data showing organic traffic and organic keywords lost over the past year. As monthly keyword losses climb, the traffic line trends down alongside it &mdash; the foundation is eroding, not growing.</p>
     <div class="chart-wrap">
       <canvas id="trafficChart" height="100"></canvas>
     </div>
@@ -647,7 +647,7 @@ function createTrafficChart(){
   trafficChart=new Chart(ctx,{data:{
     labels:['Jul 25','Aug','Sep','Oct','Nov','Dec','Jan 26','Feb','Mar','Apr','May','Jun 26'],
     datasets:[
-      {type:'bar',label:'Keywords Gained',data:[5200,5600,5100,6300,4900,4700,5400,4600,4200,4400,3900,4100],yAxisID:'y1',order:2,backgroundColor:'rgba(64,180,229,0.6)',borderColor:'rgba(64,180,229,0.85)',borderWidth:1,borderRadius:5,barPercentage:0.55,categoryPercentage:0.72},
+      {type:'bar',label:'Keywords Lost',data:[6800,7400,8100,7200,9300,10100,8600,9800,11200,10600,12400,11800],yAxisID:'y1',order:2,backgroundColor:'rgba(239,68,68,0.85)',borderColor:'#ef4444',borderWidth:1,borderRadius:5,barPercentage:0.55,categoryPercentage:0.72},
       {type:'line',label:'Organic Traffic',data:[17200,16400,15800,16900,15200,14800,15600,14900,14100,13600,13200,13500],yAxisID:'y',order:1,borderColor:'#0644ED',backgroundColor:'rgba(6,68,237,0.08)',fill:true,tension:0.4,borderWidth:3,pointRadius:5,pointHoverRadius:10,pointBackgroundColor:'#0644ED',pointBorderColor:'#fff',pointBorderWidth:2}
     ]},
     options:{responsive:true,animation:{duration:2000,easing:'easeOutQuart'},interaction:{mode:'index',intersect:false},
@@ -655,7 +655,7 @@ function createTrafficChart(){
       scales:{
         x:{grid:{display:false},ticks:{color:c.text,font:{family:'Inter'}}},
         y:{position:'left',beginAtZero:true,grid:{color:c.grid},ticks:{color:c.text,font:{family:'Inter'},callback:v=>(v/1000)+'K'},title:{display:true,text:'Organic Traffic',color:c.text,font:{family:'Inter'}}},
-        y1:{position:'right',beginAtZero:true,grid:{display:false},ticks:{color:c.text,font:{family:'Inter'},callback:v=>(v/1000)+'K'},title:{display:true,text:'Keywords Gained',color:c.text,font:{family:'Inter'}}}
+        y1:{position:'right',beginAtZero:true,grid:{display:false},ticks:{color:c.text,font:{family:'Inter'},callback:v=>(v/1000)+'K'},title:{display:true,text:'Keywords Lost',color:c.text,font:{family:'Inter'}}}
       }}});
 }
 function updateCharts(){const c=chartColors();if(!shareChart)return;Object.keys(shareChart.options.scales).forEach(k=>{if(shareChart.options.scales[k].grid)shareChart.options.scales[k].grid.color=c.grid;if(shareChart.options.scales[k].ticks)shareChart.options.scales[k].ticks.color=c.text;if(shareChart.options.scales[k].title)shareChart.options.scales[k].title.color=c.text;});shareChart.options.plugins.legend.labels.color=c.text;shareChart.update();}
