@@ -96,6 +96,16 @@
   status = 200
 
 [[redirects]]
+  from = "/american-tristar-monthly-seo-report"
+  to = "/american-tristar-monthly-seo-report.html"
+  status = 200
+
+[[redirects]]
+  from = "/american-tristar"
+  to = "/american-tristar-monthly-seo-report.html"
+  status = 200
+
+[[redirects]]
   from = "/onboarding/*"
   to = "/onboarding.html?channel=:splat"
   status = 200
