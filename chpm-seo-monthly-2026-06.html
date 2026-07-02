@@ -95,6 +95,17 @@ tr:hover td{color:var(--text)}
 .chg{font-weight:700;font-size:0.82rem}
 .chg.up{color:var(--green)} .chg.down{color:var(--red)} .chg.flat{color:var(--muted)}
 .num-r{text-align:right}
+.kt{display:inline-block;font-size:0.68rem;font-weight:700;letter-spacing:0.03em;padding:3px 9px;border-radius:6px;white-space:nowrap}
+.kt-ai{background:linear-gradient(135deg,rgba(204,34,255,0.12),rgba(64,180,229,0.12));color:#8b18c9;border:1px solid rgba(204,34,255,0.25)}
+.kt-org{background:rgba(6,68,237,0.07);color:var(--blue);border:1px solid rgba(6,68,237,0.15)}
+.kt-none{color:var(--muted)}
+.ai-overview-note{background:linear-gradient(135deg,rgba(64,180,229,0.06),rgba(204,34,255,0.06));border:1px solid rgba(204,34,255,0.2);border-radius:14px;padding:1.4rem 1.6rem;margin:0 0 1.6rem}
+.aon-head{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:6px}
+.aon-badge{font-size:0.64rem;font-weight:800;letter-spacing:0.12em;padding:4px 10px;border-radius:50px;background:var(--grad);color:#fff}
+.aon-title{font-weight:800;font-size:1.02rem;letter-spacing:-0.01em}
+.aon-sub{font-size:0.85rem;color:var(--soft);margin-bottom:0.9rem;max-width:680px}
+.ai-chips{display:flex;flex-wrap:wrap;gap:8px}
+.ai-chip{font-size:0.76rem;font-weight:600;padding:5px 12px;border-radius:50px;background:#fff;border:1px solid rgba(204,34,255,0.2);color:var(--text)}
 
 /* placeholder block */
 .placeholder{background:linear-gradient(135deg,rgba(64,180,229,0.06),rgba(204,34,255,0.05));
@@ -128,6 +139,10 @@ tr:hover td{color:var(--text)}
 .chart-wrap{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:1.8rem;margin-bottom:2rem;position:relative}
 .chart-wrap h3{font-size:1.05rem;margin-bottom:1rem}
 .chart-box{position:relative;height:300px;width:100%}
+.chart-grid2{display:grid;grid-template-columns:1fr 1fr;gap:1.4rem;margin-bottom:2rem}
+.chart-grid2 .chart-wrap{margin-bottom:0}
+.chart-sub{font-size:0.78rem;color:var(--muted);margin-top:.6rem}
+@media(max-width:860px){.chart-grid2{grid-template-columns:1fr}}
 
 .footer{text-align:center;padding:2.5rem 0;color:var(--muted);font-size:0.8rem}
 .footer .dot{display:inline-block;width:9px;height:9px;border-radius:50%;background:var(--grad);vertical-align:middle;margin-right:6px}
@@ -146,6 +161,7 @@ tr:hover td{color:var(--text)}
   .sec-block:first-of-type{page-break-before:avoid}
   .table-wrap,.metric,.chart-wrap,.placeholder,.move-cell,.toc-item{box-shadow:none!important;break-inside:avoid}
   .chart-box{height:260px}
+  .chart-grid2{grid-template-columns:1fr 1fr}
   a{color:var(--text)}
 }
 </style>
@@ -217,26 +233,26 @@ tr:hover td{color:var(--text)}
 <section id="sec2" class="sec-block">
   <div class="wrap">
     <span class="sec-badge">Section 02 · Organic Search</span>
-    <h2 class="sec-title">Semrush Position Tracking</h2>
-    <p class="sec-sub">Tracked-campaign visibility 11.51% and share of voice 1.69% for ch-pm.com; organic rankings below show 19 keywords in the top 3 and 36 in the top 10.</p>
+    <h2 class="sec-title">Semrush Organic Rankings</h2>
+    <p class="sec-sub">460 ranking organic keywords for ch-pm.com — 18 in the top 3, 64 in the top 10, 120 in the top 20.</p>
     
     <div class="cards">
-      <div class="metric"><div class="value grad">11.51%</div><div class="label">Visibility</div><div class="change up">▲ 0.13pt</div><div class="change flat" style="font-size:0.68rem">tracked campaign (46 kw)</div></div>
-      <div class="metric"><div class="value grad">1.69%</div><div class="label">Share of Voice</div><div class="change up">▲ 0.46pt</div><div class="change flat" style="font-size:0.68rem">tracked campaign (46 kw)</div></div>
-      <div class="metric"><div class="value grad">36</div>
-        <div class="label">Top 10 Keywords</div><div class="change flat">organic, page-one+</div></div>
-      <div class="metric"><div class="value grad">19</div>
+      <div class="metric"><div class="value grad">684</div><div class="label">Est. Organic Traffic / mo</div><div class="change flat">Semrush estimate</div></div>
+      <div class="metric"><div class="value grad">460</div><div class="label">Ranking Keywords</div><div class="change flat">organic, US</div></div>
+      <div class="metric"><div class="value grad">64</div>
+        <div class="label">Top 10 Keywords</div><div class="change flat">tracked, page-one</div></div>
+      <div class="metric"><div class="value grad">18</div>
         <div class="label">Top 3 Keywords</div><div class="change flat">organic leaders</div></div>
-    </div><div class="move-strip"><div class="move-cell imp"><div class="num">0</div><div class="lbl">Improved</div></div><div class="move-cell dec"><div class="num">0</div><div class="lbl">Declined</div></div></div>
+    </div><div class="move-strip"><div class="move-cell imp"><div class="num">3</div><div class="lbl">Improved</div></div><div class="move-cell dec"><div class="num">0</div><div class="lbl">Declined</div></div><div class="move-cell ent"><div class="num">6</div><div class="lbl">Entered</div></div></div>
     <div class="chart-wrap">
       <h3>Ranking distribution by position bucket</h3>
       <div class="chart-box"><canvas id="posChart"></canvas></div>
     </div>
-    <h3 style="margin:1rem 0 .8rem;font-size:1.05rem">Keyword rankings &amp; movement (top 39)</h3>
-    <div class="table-wrap"><table><thead><tr><th>Keyword</th><th class="num-r">Volume</th>
+    <h3 style="margin:1rem 0 .8rem;font-size:1.05rem">Keyword rankings &amp; movement (top 40)</h3>
+    <div class="table-wrap"><table><thead><tr><th>Keyword</th><th>Type</th><th class="num-r">Volume</th>
       <th class="num-r">Position</th><th class="num-r">Movement</th></tr></thead>
-      <tbody><tr><td>crummack huseby</td><td class="num-r">320</td><td class="num-r pos">1</td><td class="num-r chg flat">0</td></tr><tr><td>crummack huseby property management</td><td class="num-r">50</td><td class="num-r pos">1</td><td class="num-r chg flat">0</td></tr><tr><td>hoa reserve fund borrowing</td><td class="num-r">260</td><td class="num-r pos">1</td><td class="num-r chg flat">0</td></tr><tr><td>ch-pm</td><td class="num-r">30</td><td class="num-r pos">1</td><td class="num-r chg flat">0</td></tr><tr><td>ch pm</td><td class="num-r">30</td><td class="num-r pos">1</td><td class="num-r chg flat">0</td></tr><tr><td>www.ch-pm.com</td><td class="num-r">30</td><td class="num-r pos">1</td><td class="num-r chg flat">0</td></tr><tr><td>premier property pay</td><td class="num-r">210</td><td class="num-r pos">4</td><td class="num-r chg flat">0</td></tr><tr><td>ppbi.com/property pay</td><td class="num-r">170</td><td class="num-r pos">4</td><td class="num-r chg flat">0</td></tr><tr><td>hoa mgmt svcs</td><td class="num-r">320</td><td class="num-r pos">5</td><td class="num-r chg flat">0</td></tr><tr><td>hoa technology services</td><td class="num-r">90</td><td class="num-r pos">1</td><td class="num-r chg flat">0</td></tr><tr><td>hoa insurance fixtures</td><td class="num-r">720</td><td class="num-r pos">9</td><td class="num-r chg flat">0</td></tr><tr><td>ppbi.com/propertypay</td><td class="num-r">50</td><td class="num-r pos">2</td><td class="num-r chg flat">0</td></tr><tr><td>bare walls meaning</td><td class="num-r">50</td><td class="num-r pos">1</td><td class="num-r chg flat">0</td></tr><tr><td>bare walls coverage</td><td class="num-r">140</td><td class="num-r pos">3</td><td class="num-r chg flat">0</td></tr><tr><td>www ppbi com property pay</td><td class="num-r">70</td><td class="num-r pos">2</td><td class="num-r chg flat">0</td></tr><tr><td>walls in policy</td><td class="num-r">110</td><td class="num-r pos">2</td><td class="num-r chg flat">0</td></tr><tr><td>hoa technology</td><td class="num-r">70</td><td class="num-r pos">2</td><td class="num-r chg flat">0</td></tr><tr><td>ppbi com property pay</td><td class="num-r">110</td><td class="num-r pos">5</td><td class="num-r chg flat">0</td></tr><tr><td>community association billing orange county</td><td class="num-r">90</td><td class="num-r pos">4</td><td class="num-r chg flat">0</td></tr><tr><td>walls in vs walls out coverage</td><td class="num-r">40</td><td class="num-r pos">1</td><td class="num-r chg flat">0</td></tr><tr><td>certified aamc hoa management</td><td class="num-r">90</td><td class="num-r pos">6</td><td class="num-r chg flat">0</td></tr><tr><td>do hoas allow airbnb</td><td class="num-r">90</td><td class="num-r pos">6</td><td class="num-r chg flat">0</td></tr><tr><td>bare walls</td><td class="num-r">210</td><td class="num-r pos">2</td><td class="num-r chg flat">0</td></tr><tr><td>what is walls in coverage</td><td class="num-r">50</td><td class="num-r pos">2</td><td class="num-r chg flat">0</td></tr><tr><td>in walls insurance</td><td class="num-r">90</td><td class="num-r pos">3</td><td class="num-r chg flat">0</td></tr><tr><td>walls in condo insurance</td><td class="num-r">480</td><td class="num-r pos">7</td><td class="num-r chg flat">0</td></tr><tr><td>escrow services lake forest</td><td class="num-r">50</td><td class="num-r pos">2</td><td class="num-r chg flat">0</td></tr><tr><td>meet in private</td><td class="num-r">70</td><td class="num-r pos">4</td><td class="num-r chg flat">0</td></tr><tr><td>www.paybyplatema.com pay bill</td><td class="num-r">1600</td><td class="num-r pos">23</td><td class="num-r chg flat">0</td></tr><tr><td>walls in insurance</td><td class="num-r">390</td><td class="num-r pos">9</td><td class="num-r chg flat">0</td></tr><tr><td>sample hoa budget</td><td class="num-r">70</td><td class="num-r pos">6</td><td class="num-r chg flat">0</td></tr><tr><td>hoa board</td><td class="num-r">480</td><td class="num-r pos">12</td><td class="num-r chg flat">0</td></tr><tr><td>25531 commercentre drive</td><td class="num-r">40</td><td class="num-r pos">5</td><td class="num-r chg flat">0</td></tr><tr><td>wall coverage</td><td class="num-r">1000</td><td class="num-r pos">14</td><td class="num-r chg flat">0</td></tr><tr><td>airbnb hoa rules</td><td class="num-r">50</td><td class="num-r pos">4</td><td class="num-r chg flat">0</td></tr><tr><td>does hoa allow airbnb</td><td class="num-r">70</td><td class="num-r pos">7</td><td class="num-r chg flat">0</td></tr><tr><td>what is walls</td><td class="num-r">320</td><td class="num-r pos">7</td><td class="num-r chg flat">0</td></tr><tr><td>what is walls in insurance</td><td class="num-r">50</td><td class="num-r pos">3</td><td class="num-r chg flat">0</td></tr><tr><td>wall in insurance for condo</td><td class="num-r">40</td><td class="num-r pos">4</td><td class="num-r chg flat">0</td></tr></tbody></table></div>
-    <p style="font-size:0.78rem;color:var(--muted)">Movement = Semrush position delta vs the prior reading — a positive (▲) value means the keyword moved up. Sorted by current position.</p>
+      <tbody><tr><td>crummack huseby</td><td><span class="kt kt-org">Organic</span></td><td class="num-r">320</td><td class="num-r pos">1</td><td class="num-r chg flat">0</td></tr><tr><td>hoa reserve fund borrowing</td><td><span class="kt kt-org">Organic</span></td><td class="num-r">260</td><td class="num-r pos">1</td><td class="num-r chg flat">0</td></tr><tr><td>hoa technology services</td><td><span class="kt kt-org">Organic</span></td><td class="num-r">90</td><td class="num-r pos">1</td><td class="num-r chg flat">0</td></tr><tr><td>meet in private</td><td><span class="kt kt-org">Organic</span></td><td class="num-r">70</td><td class="num-r pos">1</td><td class="num-r chg flat">0</td></tr><tr><td>crummack huseby property management</td><td><span class="kt kt-org">Organic</span></td><td class="num-r">50</td><td class="num-r pos">1</td><td class="num-r chg flat">0</td></tr><tr><td>bare walls meaning</td><td><span class="kt kt-org">Organic</span></td><td class="num-r">50</td><td class="num-r pos">1</td><td class="num-r chg flat">0</td></tr><tr><td>walls in vs walls out coverage</td><td><span class="kt kt-org">Organic</span></td><td class="num-r">40</td><td class="num-r pos">1</td><td class="num-r chg flat">0</td></tr><tr><td>ch-pm</td><td><span class="kt kt-org">Organic</span></td><td class="num-r">30</td><td class="num-r pos">1</td><td class="num-r chg flat">0</td></tr><tr><td>ch pm</td><td><span class="kt kt-org">Organic</span></td><td class="num-r">30</td><td class="num-r pos">1</td><td class="num-r chg flat">0</td></tr><tr><td>www.ch-pm.com</td><td><span class="kt kt-org">Organic</span></td><td class="num-r">30</td><td class="num-r pos">1</td><td class="num-r chg flat">0</td></tr><tr><td>walls in policy</td><td><span class="kt kt-org">Organic</span></td><td class="num-r">110</td><td class="num-r pos">2</td><td class="num-r chg flat">0</td></tr><tr><td>hoa technology</td><td><span class="kt kt-org">Organic</span></td><td class="num-r">90</td><td class="num-r pos">2</td><td class="num-r chg flat">0</td></tr><tr><td>www ppbi com property pay</td><td><span class="kt kt-org">Organic</span></td><td class="num-r">70</td><td class="num-r pos">2</td><td class="num-r chg flat">0</td></tr><tr><td>what is walls in coverage</td><td><span class="kt kt-org">Organic</span></td><td class="num-r">50</td><td class="num-r pos">2</td><td class="num-r chg flat">0</td></tr><tr><td>ppbi.com/propertypay</td><td><span class="kt kt-org">Organic</span></td><td class="num-r">50</td><td class="num-r pos">2</td><td class="num-r chg flat">0</td></tr><tr><td>what is walls in insurance</td><td><span class="kt kt-org">Organic</span></td><td class="num-r">50</td><td class="num-r pos">2</td><td class="num-r chg flat">0</td></tr><tr><td>walls in</td><td><span class="kt kt-org">Organic</span></td><td class="num-r">50</td><td class="num-r pos">2</td><td class="num-r chg flat">0</td></tr><tr><td>bare walls coverage</td><td><span class="kt kt-org">Organic</span></td><td class="num-r">140</td><td class="num-r pos">3</td><td class="num-r chg flat">0</td></tr><tr><td>premier property pay</td><td><span class="kt kt-org">Organic</span></td><td class="num-r">210</td><td class="num-r pos">4</td><td class="num-r chg flat">0</td></tr><tr><td>ppbi.com/property pay</td><td><span class="kt kt-org">Organic</span></td><td class="num-r">170</td><td class="num-r pos">4</td><td class="num-r chg flat">0</td></tr><tr><td>community association billing orange county</td><td><span class="kt kt-org">Organic</span></td><td class="num-r">90</td><td class="num-r pos">4</td><td class="num-r chg flat">0</td></tr><tr><td>airbnb hoa rules</td><td><span class="kt kt-org">Organic</span></td><td class="num-r">50</td><td class="num-r pos">4</td><td class="num-r chg flat">0</td></tr><tr><td>walls in coverage meaning</td><td><span class="kt kt-org">Organic</span></td><td class="num-r">40</td><td class="num-r pos">4</td><td class="num-r chg flat">0</td></tr><tr><td>25531 commercentre drive</td><td><span class="kt kt-org">Organic</span></td><td class="num-r">40</td><td class="num-r pos">4</td><td class="num-r chg flat">0</td></tr><tr><td>walls in insurance coverage</td><td><span class="kt kt-org">Organic</span></td><td class="num-r">30</td><td class="num-r pos">4</td><td class="num-r chg flat">0</td></tr><tr><td>hoa mgmt svcs</td><td><span class="kt kt-org">Organic</span></td><td class="num-r">320</td><td class="num-r pos">5</td><td class="num-r chg flat">0</td></tr><tr><td>wall to wall condo insurance</td><td><span class="kt kt-org">Organic</span></td><td class="num-r">140</td><td class="num-r pos">5</td><td class="num-r chg flat">0</td></tr><tr><td>ppbi com property pay</td><td><span class="kt kt-org">Organic</span></td><td class="num-r">110</td><td class="num-r pos">5</td><td class="num-r chg flat">0</td></tr><tr><td>certified aamc community management</td><td><span class="kt kt-org">Organic</span></td><td class="num-r">50</td><td class="num-r pos">5</td><td class="num-r chg flat">0</td></tr><tr><td>hoa airbnb</td><td><span class="kt kt-org">Organic</span></td><td class="num-r">50</td><td class="num-r pos">5</td><td class="num-r chg flat">0</td></tr><tr><td>wall in insurance</td><td><span class="kt kt-org">Organic</span></td><td class="num-r">40</td><td class="num-r pos">5</td><td class="num-r chg flat">0</td></tr><tr><td>condo insurance walls in</td><td><span class="kt kt-org">Organic</span></td><td class="num-r">30</td><td class="num-r pos">5</td><td class="num-r chg flat">0</td></tr><tr><td>walls in coverage</td><td><span class="kt kt-org">Organic</span></td><td class="num-r">140</td><td class="num-r pos">6</td><td class="num-r chg flat">0</td></tr><tr><td>certified aamc hoa management</td><td><span class="kt kt-org">Organic</span></td><td class="num-r">90</td><td class="num-r pos">6</td><td class="num-r chg flat">0</td></tr><tr><td>do hoas allow airbnb</td><td><span class="kt kt-org">Organic</span></td><td class="num-r">90</td><td class="num-r pos">6</td><td class="num-r chg flat">0</td></tr><tr><td>in walls insurance</td><td><span class="kt kt-org">Organic</span></td><td class="num-r">90</td><td class="num-r pos">6</td><td class="num-r chg flat">0</td></tr><tr><td>sample hoa budget</td><td><span class="kt kt-org">Organic</span></td><td class="num-r">70</td><td class="num-r pos">6</td><td class="num-r chg flat">0</td></tr><tr><td>walls-in insurance</td><td><span class="kt kt-org">Organic</span></td><td class="num-r">40</td><td class="num-r pos">6</td><td class="num-r chg flat">0</td></tr><tr><td>walls in coverage for condo</td><td><span class="kt kt-org">Organic</span></td><td class="num-r">40</td><td class="num-r pos">6</td><td class="num-r chg flat">0</td></tr><tr><td>walls in coverage condo</td><td><span class="kt kt-org">Organic</span></td><td class="num-r">30</td><td class="num-r pos">6</td><td class="num-r chg flat">0</td></tr></tbody></table></div>
+    <p style="font-size:0.78rem;color:var(--muted)">Semrush Organic Research — 460 ranking US keywords. Movement = Semrush position delta vs the prior reading; a positive (▲) value means the keyword moved up. Sorted by current position.</p>
   </div>
 </section>
 
@@ -244,17 +260,30 @@ tr:hover td{color:var(--text)}
   <div class="wrap">
     <span class="sec-badge">Section 03 · Organic Search</span>
     <h2 class="sec-title">Google Search Console</h2>
-    <p class="sec-sub">Organic clicks, impressions, CTR and position — May 2026 vs April 2026.</p>
+    <p class="sec-sub">Organic clicks, impressions, CTR and position — June 2026 vs May 2026.</p>
     
-    <div style="display:inline-block;margin-bottom:1.2rem;padding:6px 16px;border-radius:50px;background:rgba(6,68,237,0.08);color:var(--blue);font-size:0.78rem;font-weight:700">📅 May 2026 vs April 2026</div>
-    <div class="cards"><div class="metric"><div class="value grad">852</div><div class="label">Clicks</div><div class="change down">▼ 8%</div><div class="change flat" style="font-size:0.7rem">April 2026: 926</div></div><div class="metric"><div class="value grad">55K</div><div class="label">Impressions</div><div class="change down">▼ 12.3%</div><div class="change flat" style="font-size:0.7rem">April 2026: 62.7K</div></div><div class="metric"><div class="value grad">10.2</div><div class="label">Avg Position</div><div class="change down">▼ 3.1</div><div class="change flat" style="font-size:0.7rem">April 2026: 7.1</div></div><div class="metric"><div class="value grad">1.5%</div><div class="label">CTR</div><div class="change flat">0pt</div><div class="change flat" style="font-size:0.7rem">April 2026: 1.5%</div></div></div>
+    <div style="display:inline-block;margin-bottom:1.2rem;padding:6px 16px;border-radius:50px;background:rgba(6,68,237,0.08);color:var(--blue);font-size:0.78rem;font-weight:700">📅 June 2026 vs May 2026</div>
+    <div class="cards"><div class="metric"><div class="value grad">919</div><div class="label">Clicks</div><div class="change up">▲ 7.9%</div><div class="change flat" style="font-size:0.7rem">May 2026: 852</div></div><div class="metric"><div class="value grad">51.9K</div><div class="label">Impressions</div><div class="change down">▼ 5.6%</div><div class="change flat" style="font-size:0.7rem">May 2026: 55K</div></div><div class="metric"><div class="value grad">11.4</div><div class="label">Avg Position</div><div class="change down">▼ 1.2</div><div class="change flat" style="font-size:0.7rem">May 2026: 10.2</div></div><div class="metric"><div class="value grad">1.8%</div><div class="label">CTR</div><div class="change up">▲ 0.3pt</div><div class="change flat" style="font-size:0.7rem">May 2026: 1.5%</div></div></div>
+    
+    <div class="chart-grid2">
+      <div class="chart-wrap">
+        <h3>Clicks — monthly trend by year</h3>
+        <div class="chart-box"><canvas id="gscYoyChart"></canvas></div>
+        <div class="chart-sub">Organic clicks by month YoY (Google Search Console).</div>
+      </div>
+      <div class="chart-wrap">
+        <h3>Clicks — month over month</h3>
+        <div class="chart-box"><canvas id="gscMomChart"></canvas></div>
+        <div class="chart-sub">Organic clicks per month (Google Search Console).</div>
+      </div>
+    </div>
     <h3 style="margin:1.5rem 0 .8rem;font-size:1.05rem">Top Queries — month over month</h3>
     <div class="table-wrap"><table><thead><tr><th>Query</th>
-      <th class="num-r">Clicks (May 2026)</th><th class="num-r">Clicks (April 2026)</th>
-      <th class="num-r">Δ Clicks</th><th class="num-r">Impr (May 2026)</th><th class="num-r">Impr (April 2026)</th></tr></thead>
-      <tbody><tr><td>crummack huseby</td><td class="num-r pos">189</td><td class="num-r">207</td><td class="num-r chg down">▼ 18</td><td class="num-r">325</td><td class="num-r">420</td></tr><tr><td>crummack huseby property management</td><td class="num-r pos">29</td><td class="num-r">28</td><td class="num-r chg up">▲ 1</td><td class="num-r">54</td><td class="num-r">66</td></tr><tr><td>ch-pm</td><td class="num-r pos">26</td><td class="num-r">15</td><td class="num-r chg up">▲ 11</td><td class="num-r">32</td><td class="num-r">26</td></tr><tr><td>premier property pay</td><td class="num-r pos">10</td><td class="num-r">9</td><td class="num-r chg up">▲ 1</td><td class="num-r">143</td><td class="num-r">96</td></tr><tr><td>www.ch-pm.com</td><td class="num-r pos">9</td><td class="num-r">15</td><td class="num-r chg down">▼ 6</td><td class="num-r">15</td><td class="num-r">21</td></tr><tr><td>ch connect</td><td class="num-r pos">7</td><td class="num-r">5</td><td class="num-r chg up">▲ 2</td><td class="num-r">38</td><td class="num-r">32</td></tr><tr><td>crummack huseby login</td><td class="num-r pos">7</td><td class="num-r">18</td><td class="num-r chg down">▼ 11</td><td class="num-r">11</td><td class="num-r">22</td></tr><tr><td>crummack</td><td class="num-r pos">6</td><td class="num-r">9</td><td class="num-r chg down">▼ 3</td><td class="num-r">41</td><td class="num-r">80</td></tr><tr><td>serrano heights community association</td><td class="num-r pos">6</td><td class="num-r">3</td><td class="num-r chg up">▲ 3</td><td class="num-r">7</td><td class="num-r">4</td></tr><tr><td>walls out vs walls in</td><td class="num-r pos">4</td><td class="num-r">0</td><td class="num-r chg up">▲ 4</td><td class="num-r">48</td><td class="num-r">9</td></tr></tbody></table></div>
+      <th class="num-r">Clicks (June 2026)</th><th class="num-r">Clicks (May 2026)</th>
+      <th class="num-r">Δ Clicks</th><th class="num-r">Impr (June 2026)</th><th class="num-r">Impr (May 2026)</th></tr></thead>
+      <tbody><tr><td>crummack huseby</td><td class="num-r pos">243</td><td class="num-r">189</td><td class="num-r chg up">▲ 54</td><td class="num-r">414</td><td class="num-r">325</td></tr><tr><td>crummack huseby property management</td><td class="num-r pos">29</td><td class="num-r">29</td><td class="num-r chg flat">0</td><td class="num-r">88</td><td class="num-r">54</td></tr><tr><td>ch-pm</td><td class="num-r pos">16</td><td class="num-r">26</td><td class="num-r chg down">▼ 10</td><td class="num-r">24</td><td class="num-r">32</td></tr><tr><td>crummack</td><td class="num-r pos">14</td><td class="num-r">6</td><td class="num-r chg up">▲ 8</td><td class="num-r">148</td><td class="num-r">41</td></tr><tr><td>www.ch-pm.com</td><td class="num-r pos">8</td><td class="num-r">9</td><td class="num-r chg down">▼ 1</td><td class="num-r">13</td><td class="num-r">15</td></tr><tr><td>ch-pm.com</td><td class="num-r pos">6</td><td class="num-r">0</td><td class="num-r chg up">▲ 6</td><td class="num-r">24</td><td class="num-r">2</td></tr><tr><td>premier property pay</td><td class="num-r pos">5</td><td class="num-r">10</td><td class="num-r chg down">▼ 5</td><td class="num-r">99</td><td class="num-r">143</td></tr><tr><td>premier property pay login</td><td class="num-r pos">4</td><td class="num-r">2</td><td class="num-r chg up">▲ 2</td><td class="num-r">48</td><td class="num-r">59</td></tr><tr><td>ch connect</td><td class="num-r pos">4</td><td class="num-r">7</td><td class="num-r chg down">▼ 3</td><td class="num-r">32</td><td class="num-r">38</td></tr><tr><td>can an hoa board meet in private</td><td class="num-r pos">4</td><td class="num-r">1</td><td class="num-r chg up">▲ 3</td><td class="num-r">20</td><td class="num-r">13</td></tr><tr><td>ppbi.com/property pay</td><td class="num-r pos">3</td><td class="num-r">3</td><td class="num-r chg flat">0</td><td class="num-r">99</td><td class="num-r">114</td></tr><tr><td>rules for renting a room in your house in california</td><td class="num-r pos">3</td><td class="num-r">3</td><td class="num-r chg flat">0</td><td class="num-r">87</td><td class="num-r">100</td></tr></tbody></table></div>
     <h3 style="margin:1.5rem 0 .8rem;font-size:1.05rem">Top Pages</h3>
-    <div class="table-wrap"><table><thead><tr><th>Page</th><th class="num-r">Clicks (May 2026)</th><th class="num-r">Clicks (April 2026)</th><th class="num-r">Δ Clicks</th><th class="num-r">Impr (May 2026)</th><th class="num-r">Impr (April 2026)</th></tr></thead><tbody><tr><td>www.ch-pm.com/</td><td class="num-r pos">376</td><td class="num-r">403</td><td class="num-r chg down">▼ 27</td><td class="num-r">5105</td><td class="num-r">5849</td></tr><tr><td>www.ch-pm.com/blog/bare-walls-or-walls-in-do-you-know-the-difference-and-which-you-are</td><td class="num-r pos">102</td><td class="num-r">113</td><td class="num-r chg down">▼ 11</td><td class="num-r">10279</td><td class="num-r">10236</td></tr><tr><td>www.ch-pm.com/blog/can-hoa-board-members-meet-in-private</td><td class="num-r pos">77</td><td class="num-r">54</td><td class="num-r chg up">▲ 23</td><td class="num-r">4968</td><td class="num-r">3032</td></tr><tr><td>www.ch-pm.com/payment-options</td><td class="num-r pos">72</td><td class="num-r">77</td><td class="num-r chg down">▼ 5</td><td class="num-r">1828</td><td class="num-r">1746</td></tr><tr><td>www.ch-pm.com/blog/understanding-californias-new-room-rental-law-for-homeowners-associations</td><td class="num-r pos">50</td><td class="num-r">49</td><td class="num-r chg up">▲ 1</td><td class="num-r">3090</td><td class="num-r">2382</td></tr><tr><td>www.ch-pm.com/blog/can-the-hoa-board-borrow-money-from-the-reserves</td><td class="num-r pos">29</td><td class="num-r">38</td><td class="num-r chg down">▼ 9</td><td class="num-r">2310</td><td class="num-r">2002</td></tr><tr><td>www.ch-pm.com/property-management-contact</td><td class="num-r pos">19</td><td class="num-r">26</td><td class="num-r chg down">▼ 7</td><td class="num-r">1280</td><td class="num-r">1356</td></tr><tr><td>www.ch-pm.com/about/property-management-team</td><td class="num-r pos">13</td><td class="num-r">12</td><td class="num-r chg up">▲ 1</td><td class="num-r">1123</td><td class="num-r">1177</td></tr><tr><td>www.ch-pm.com/blog/...welcomes-new-master-planned-community-metro-heights</td><td class="num-r pos">13</td><td class="num-r">6</td><td class="num-r chg up">▲ 7</td><td class="num-r">278</td><td class="num-r">200</td></tr><tr><td>www.ch-pm.com/blog/practical-guide-for-hoa-board-members</td><td class="num-r pos">11</td><td class="num-r">7</td><td class="num-r chg up">▲ 4</td><td class="num-r">2902</td><td class="num-r">2856</td></tr></tbody></table></div>
+    <div class="table-wrap"><table><thead><tr><th>Page</th><th class="num-r">Clicks (June 2026)</th><th class="num-r">Clicks (May 2026)</th><th class="num-r">Δ Clicks</th><th class="num-r">Impr (June 2026)</th><th class="num-r">Impr (May 2026)</th></tr></thead><tbody><tr><td>www.ch-pm.com/</td><td class="num-r pos">438</td><td class="num-r">376</td><td class="num-r chg up">▲ 62</td><td class="num-r">5,523</td><td class="num-r">5,105</td></tr><tr><td>www.ch-pm.com/blog/bare-walls-or-walls-in-do-you-know-the-difference-and-which-you-are</td><td class="num-r pos">106</td><td class="num-r">102</td><td class="num-r chg up">▲ 4</td><td class="num-r">9,318</td><td class="num-r">10,279</td></tr><tr><td>www.ch-pm.com/payment-options</td><td class="num-r pos">69</td><td class="num-r">72</td><td class="num-r chg down">▼ 3</td><td class="num-r">2,091</td><td class="num-r">1,828</td></tr><tr><td>www.ch-pm.com/blog/can-hoa-board-members-meet-in-private</td><td class="num-r pos">65</td><td class="num-r">77</td><td class="num-r chg down">▼ 12</td><td class="num-r">3,987</td><td class="num-r">4,968</td></tr><tr><td>www.ch-pm.com/blog/understanding-californias-new-room-rental-law-for-homeowners-associations</td><td class="num-r pos">33</td><td class="num-r">50</td><td class="num-r chg down">▼ 17</td><td class="num-r">2,594</td><td class="num-r">3,090</td></tr><tr><td>www.ch-pm.com/blog/can-the-hoa-board-borrow-money-from-the-reserves</td><td class="num-r pos">32</td><td class="num-r">29</td><td class="num-r chg up">▲ 3</td><td class="num-r">2,082</td><td class="num-r">2,310</td></tr><tr><td>www.ch-pm.com/property-management-contact</td><td class="num-r pos">24</td><td class="num-r">19</td><td class="num-r chg up">▲ 5</td><td class="num-r">1,681</td><td class="num-r">1,280</td></tr><tr><td>www.ch-pm.com/blog/practical-guide-for-hoa-board-members</td><td class="num-r pos">17</td><td class="num-r">11</td><td class="num-r chg up">▲ 6</td><td class="num-r">2,559</td><td class="num-r">2,902</td></tr><tr><td>www.ch-pm.com/about/property-management-team</td><td class="num-r pos">17</td><td class="num-r">13</td><td class="num-r chg up">▲ 4</td><td class="num-r">1,424</td><td class="num-r">1,123</td></tr><tr><td>www.ch-pm.com/old/blog/can-hoa-board-members-meet-in-private</td><td class="num-r pos">13</td><td class="num-r">11</td><td class="num-r chg up">▲ 2</td><td class="num-r">467</td><td class="num-r">596</td></tr></tbody></table></div>
   </div>
 </section>
 <div class="footer"><span class="dot"></span>Crummack Huseby SEO Performance Report · June 2026 · ch-pm.com · Prepared by Brandastic · Data: Semrush + Google Search Console + Semrush AI Visibility</div>
@@ -277,7 +306,7 @@ tr:hover td{color:var(--text)}
         labels:['Top 3','4–10','11–20','21–100'],
         datasets:[{
           label:'Keywords',
-          data:[19,17,2,1],
+          data:[18,46,56,251],
           backgroundColor:['#CC22FF','#40B4E5','#0644ED','rgba(25,31,36,0.35)'],
           borderRadius:8,maxBarThickness:90
         }]
@@ -295,6 +324,52 @@ tr:hover td{color:var(--text)}
   if(document.readyState!=='loading') draw();
   else document.addEventListener('DOMContentLoaded',draw);
   // setTimeout fallback in case CDN/layout is late
+  setTimeout(draw,400);
+  setTimeout(draw,1500);
+  window.addEventListener('beforeprint',draw);
+})();
+</script>
+
+<script>
+(function(){
+  var done=false;
+  function draw(){
+    if(done) return;
+    if(typeof Chart==='undefined') return;
+    var yc=document.getElementById('gscYoyChart');
+    var mc=document.getElementById('gscMomChart');
+    if(!yc&&!mc) return;
+    var ready=false;
+    [yc,mc].forEach(function(cv){ if(cv){var b=cv.parentElement; if(b&&b.clientHeight>0&&b.clientWidth>0) ready=true;} });
+    if(!ready) return;
+    done=true;
+    if(yc){
+      new Chart(yc.getContext('2d'),{
+        type:'bar',
+        data:{labels:["Mar '25", "Apr '25", "May '25", "Jun '25", "Jul '25", "Aug '25", "Sep '25", "Oct '25", "Nov '25", "Dec '25", "Jan '26", "Feb '26", "Mar '26", "Apr '26", "May '26", "Jun '26"],datasets:[{"label": "2025", "data": [1476, 1310, 1222, 1106, 1095, 985, 836, 862, 768, 804, null, null, null, null, null, null], "backgroundColor": "rgba(64,180,229,0.55)"}, {"label": "2026", "data": [null, null, null, null, null, null, null, null, null, null, 1096, 908, 870, 926, 852, 919], "backgroundColor": "#0644ED"}].map(function(d){d.borderRadius=6;d.maxBarThickness=26;return d;})},
+        options:{responsive:true,maintainAspectRatio:false,animation:false,
+          plugins:{legend:{display:true,position:'bottom',labels:{boxWidth:12,font:{size:11}}}},
+          scales:{y:{stacked:true,beginAtZero:true,ticks:{precision:0},grid:{color:'rgba(25,31,36,0.06)'}},x:{stacked:true,grid:{display:false},ticks:{autoSkip:false,maxRotation:60,minRotation:60,font:{size:9}}}}
+        }
+      });
+    }
+    if(mc){
+      new Chart(mc.getContext('2d'),{
+        type:'line',
+        data:{labels:["Jun 2025", "Jul 2025", "Aug 2025", "Sep 2025", "Oct 2025", "Nov 2025", "Dec 2025", "Jan 2026", "Feb 2026", "Mar 2026", "Apr 2026", "May 2026", "Jun 2026"],datasets:[
+          {label:'Clicks',data:[1106, 1095, 985, 836, 862, 768, 804, 1096, 908, 870, 926, 852, 919],borderColor:'#CC22FF',
+            backgroundColor:'rgba(204,34,255,0.10)',fill:true,tension:0.32,
+            pointRadius:3,pointBackgroundColor:'#CC22FF',borderWidth:2.5}
+        ]},
+        options:{responsive:true,maintainAspectRatio:false,animation:false,
+          plugins:{legend:{display:false}},
+          scales:{y:{beginAtZero:true,ticks:{precision:0},grid:{color:'rgba(25,31,36,0.06)'}},x:{grid:{display:false},ticks:{maxRotation:0,font:{size:10}}}}
+        }
+      });
+    }
+  }
+  if(document.readyState!=='loading') draw();
+  else document.addEventListener('DOMContentLoaded',draw);
   setTimeout(draw,400);
   setTimeout(draw,1500);
   window.addEventListener('beforeprint',draw);
