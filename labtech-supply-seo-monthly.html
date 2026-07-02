@@ -260,18 +260,30 @@ tr:hover td{color:var(--text)}
   <div class="wrap">
     <span class="sec-badge">Section 03 · Organic Search</span>
     <h2 class="sec-title">Google Search Console</h2>
-    <p class="sec-sub">Organic clicks, impressions, CTR and position — May 2026 vs April 2026.</p>
+    <p class="sec-sub">Organic clicks, impressions, CTR and position — June 2026 vs May 2026.</p>
     
-    <div style="display:inline-block;margin-bottom:1.2rem;padding:6px 16px;border-radius:50px;background:rgba(6,68,237,0.08);color:var(--blue);font-size:0.78rem;font-weight:700">📅 May 2026 vs April 2026</div>
-    <div class="cards"><div class="metric"><div class="value grad">579</div><div class="label">Clicks</div><div class="change down">▼ 13.1%</div><div class="change flat" style="font-size:0.7rem">April 2026: 666</div></div><div class="metric"><div class="value grad">161K</div><div class="label">Impressions</div><div class="change up">▲ 12.6%</div><div class="change flat" style="font-size:0.7rem">April 2026: 143K</div></div><div class="metric"><div class="value grad">18.5</div><div class="label">Avg Position</div><div class="change up">▲ 2.1</div><div class="change flat" style="font-size:0.7rem">April 2026: 16.4</div></div><div class="metric"><div class="value grad">0.4%</div><div class="label">CTR</div><div class="change down">▼ 0.1pt</div><div class="change flat" style="font-size:0.7rem">April 2026: 0.5%</div></div></div>
+    <div style="display:inline-block;margin-bottom:1.2rem;padding:6px 16px;border-radius:50px;background:rgba(6,68,237,0.08);color:var(--blue);font-size:0.78rem;font-weight:700">📅 June 2026 vs May 2026</div>
+    <div class="cards"><div class="metric"><div class="value grad">702</div><div class="label">Clicks</div><div class="change up">▲ 21.2%</div><div class="change flat" style="font-size:0.7rem">May 2026: 579</div></div><div class="metric"><div class="value grad">170K</div><div class="label">Impressions</div><div class="change up">▲ 5.6%</div><div class="change flat" style="font-size:0.7rem">May 2026: 161K</div></div><div class="metric"><div class="value grad">17.6</div><div class="label">Avg Position</div><div class="change up">▲ 0.9</div><div class="change flat" style="font-size:0.7rem">May 2026: 18.5</div></div><div class="metric"><div class="value grad">0.4%</div><div class="label">CTR</div><div class="change flat">0pt</div><div class="change flat" style="font-size:0.7rem">May 2026: 0.4%</div></div></div>
     
+    <div class="chart-grid2">
+      <div class="chart-wrap">
+        <h3>Clicks — monthly trend by year</h3>
+        <div class="chart-box"><canvas id="gscYoyChart"></canvas></div>
+        <div class="chart-sub">Organic clicks by month YoY (Google Search Console).</div>
+      </div>
+      <div class="chart-wrap">
+        <h3>Clicks — month over month</h3>
+        <div class="chart-box"><canvas id="gscMomChart"></canvas></div>
+        <div class="chart-sub">Organic clicks per month (Google Search Console).</div>
+      </div>
+    </div>
     <h3 style="margin:1.5rem 0 .8rem;font-size:1.05rem">Top Queries — month over month</h3>
     <div class="table-wrap"><table><thead><tr><th>Query</th>
-      <th class="num-r">Clicks (May 2026)</th><th class="num-r">Clicks (April 2026)</th>
-      <th class="num-r">Δ Clicks</th><th class="num-r">Impr (May 2026)</th><th class="num-r">Impr (April 2026)</th></tr></thead>
-      <tbody><tr><td>lab tables</td><td class="num-r pos">10</td><td class="num-r">8</td><td class="num-r chg up">▲ 2</td><td class="num-r">2,419</td><td class="num-r">2,295</td></tr><tr><td>labtech supply company</td><td class="num-r pos">9</td><td class="num-r">8</td><td class="num-r chg up">▲ 1</td><td class="num-r">103</td><td class="num-r">45</td></tr><tr><td>lab bench</td><td class="num-r pos">7</td><td class="num-r">10</td><td class="num-r chg down">▼ 3</td><td class="num-r">2,824</td><td class="num-r">2,902</td></tr><tr><td>it workbench</td><td class="num-r pos">7</td><td class="num-r">7</td><td class="num-r chg flat">0</td><td class="num-r">204</td><td class="num-r">197</td></tr><tr><td>lab benches</td><td class="num-r pos">6</td><td class="num-r">0</td><td class="num-r chg up">▲ 6</td><td class="num-r">1,467</td><td class="num-r">1,431</td></tr><tr><td>laboratory bench</td><td class="num-r pos">4</td><td class="num-r">1</td><td class="num-r chg up">▲ 3</td><td class="num-r">502</td><td class="num-r">527</td></tr><tr><td>laboratory benches and cabinets</td><td class="num-r pos">4</td><td class="num-r">0</td><td class="num-r chg up">▲ 4</td><td class="num-r">151</td><td class="num-r">150</td></tr><tr><td>lab table</td><td class="num-r pos">3</td><td class="num-r">9</td><td class="num-r chg down">▼ 6</td><td class="num-r">1,942</td><td class="num-r">1,702</td></tr><tr><td>lab workstation</td><td class="num-r pos">3</td><td class="num-r">3</td><td class="num-r chg flat">0</td><td class="num-r">371</td><td class="num-r">347</td></tr><tr><td>computer workbench</td><td class="num-r pos">3</td><td class="num-r">0</td><td class="num-r chg up">▲ 3</td><td class="num-r">343</td><td class="num-r">297</td></tr><tr><td>microscope table</td><td class="num-r pos">3</td><td class="num-r">1</td><td class="num-r chg up">▲ 2</td><td class="num-r">208</td><td class="num-r">162</td></tr><tr><td>lab bench table</td><td class="num-r pos">3</td><td class="num-r">3</td><td class="num-r chg flat">0</td><td class="num-r">195</td><td class="num-r">192</td></tr></tbody></table></div>
+      <th class="num-r">Clicks (June 2026)</th><th class="num-r">Clicks (May 2026)</th>
+      <th class="num-r">Δ Clicks</th><th class="num-r">Impr (June 2026)</th><th class="num-r">Impr (May 2026)</th></tr></thead>
+      <tbody><tr><td>lab bench</td><td class="num-r pos">8</td><td class="num-r">7</td><td class="num-r chg up">▲ 1</td><td class="num-r">2,810</td><td class="num-r">2,824</td></tr><tr><td>it workbench</td><td class="num-r pos">8</td><td class="num-r">7</td><td class="num-r chg up">▲ 1</td><td class="num-r">214</td><td class="num-r">204</td></tr><tr><td>labtech supply company</td><td class="num-r pos">8</td><td class="num-r">9</td><td class="num-r chg down">▼ 1</td><td class="num-r">61</td><td class="num-r">103</td></tr><tr><td>lab tables</td><td class="num-r pos">5</td><td class="num-r">10</td><td class="num-r chg down">▼ 5</td><td class="num-r">2,241</td><td class="num-r">2,419</td></tr><tr><td>lab table</td><td class="num-r pos">5</td><td class="num-r">3</td><td class="num-r chg up">▲ 2</td><td class="num-r">2,230</td><td class="num-r">1,942</td></tr><tr><td>lab benches</td><td class="num-r pos">5</td><td class="num-r">6</td><td class="num-r chg down">▼ 1</td><td class="num-r">1,466</td><td class="num-r">1,467</td></tr><tr><td>laboratory benches</td><td class="num-r pos">4</td><td class="num-r">2</td><td class="num-r chg up">▲ 2</td><td class="num-r">786</td><td class="num-r">815</td></tr><tr><td>microscope table</td><td class="num-r pos">4</td><td class="num-r">3</td><td class="num-r chg up">▲ 1</td><td class="num-r">181</td><td class="num-r">208</td></tr><tr><td>lab bench material</td><td class="num-r pos">3</td><td class="num-r">0</td><td class="num-r chg up">▲ 3</td><td class="num-r">115</td><td class="num-r">105</td></tr><tr><td>lab organization ideas</td><td class="num-r pos">3</td><td class="num-r">0</td><td class="num-r chg up">▲ 3</td><td class="num-r">104</td><td class="num-r">97</td></tr><tr><td>epoxy resin sink</td><td class="num-r pos">3</td><td class="num-r">0</td><td class="num-r chg up">▲ 3</td><td class="num-r">35</td><td class="num-r">20</td></tr><tr><td>esd chair</td><td class="num-r pos">2</td><td class="num-r">2</td><td class="num-r chg flat">0</td><td class="num-r">782</td><td class="num-r">751</td></tr></tbody></table></div>
     <h3 style="margin:1.5rem 0 .8rem;font-size:1.05rem">Top Pages</h3>
-    <div class="table-wrap"><table><thead><tr><th>Page</th><th class="num-r">Clicks (May 2026)</th><th class="num-r">Clicks (April 2026)</th><th class="num-r">Δ Clicks</th><th class="num-r">Impr (May 2026)</th><th class="num-r">Impr (April 2026)</th></tr></thead><tbody><tr><td>www.labtechsupplyco.com/lab-furniture/laboratory-workbenches/</td><td class="num-r pos">60</td><td class="num-r">61</td><td class="num-r chg down">▼ 1</td><td class="num-r">19,445</td><td class="num-r">18,131</td></tr><tr><td>www.labtechsupplyco.com/lab-furniture/laboratory-tables/</td><td class="num-r pos">40</td><td class="num-r">51</td><td class="num-r chg down">▼ 11</td><td class="num-r">18,738</td><td class="num-r">14,480</td></tr><tr><td>www.labtechsupplyco.com/</td><td class="num-r pos">39</td><td class="num-r">36</td><td class="num-r chg up">▲ 3</td><td class="num-r">5,791</td><td class="num-r">4,126</td></tr><tr><td>www.labtechsupplyco.com/proper-ways-to-store-laboratory-glassware/</td><td class="num-r pos">36</td><td class="num-r">25</td><td class="num-r chg up">▲ 11</td><td class="num-r">1,545</td><td class="num-r">1,362</td></tr><tr><td>www.labtechsupplyco.com/computer-furniture/it-lan-workstations/</td><td class="num-r pos">32</td><td class="num-r">20</td><td class="num-r chg up">▲ 12</td><td class="num-r">1,697</td><td class="num-r">1,551</td></tr><tr><td>www.labtechsupplyco.com/8-common-types-of-laboratory-benches/</td><td class="num-r pos">30</td><td class="num-r">45</td><td class="num-r chg down">▼ 15</td><td class="num-r">6,107</td><td class="num-r">6,648</td></tr><tr><td>www.labtechsupplyco.com/how-to-measure-the-right-laboratory-bench-dimensions-for-your-needs/</td><td class="num-r pos">17</td><td class="num-r">20</td><td class="num-r chg down">▼ 3</td><td class="num-r">3,231</td><td class="num-r">3,641</td></tr><tr><td>www.labtechsupplyco.com/getting-into-the-basics-of-phenolic-resin/</td><td class="num-r pos">16</td><td class="num-r">20</td><td class="num-r chg down">▼ 4</td><td class="num-r">4,588</td><td class="num-r">5,470</td></tr><tr><td>www.labtechsupplyco.com/sefa-8-testing-standards-for-lab-casework/</td><td class="num-r pos">16</td><td class="num-r">19</td><td class="num-r chg down">▼ 3</td><td class="num-r">1,401</td><td class="num-r">1,140</td></tr><tr><td>www.labtechsupplyco.com/lab-furniture/casework-cabinets/</td><td class="num-r pos">13</td><td class="num-r">15</td><td class="num-r chg down">▼ 2</td><td class="num-r">6,693</td><td class="num-r">6,473</td></tr></tbody></table></div>
+    <div class="table-wrap"><table><thead><tr><th>Page</th><th class="num-r">Clicks (June 2026)</th><th class="num-r">Clicks (May 2026)</th><th class="num-r">Δ Clicks</th><th class="num-r">Impr (June 2026)</th><th class="num-r">Impr (May 2026)</th></tr></thead><tbody><tr><td>www.labtechsupplyco.com/lab-furniture/laboratory-workbenches/</td><td class="num-r pos">47</td><td class="num-r">60</td><td class="num-r chg down">▼ 13</td><td class="num-r">18,745</td><td class="num-r">19,445</td></tr><tr><td>www.labtechsupplyco.com/lab-furniture/laboratory-tables/</td><td class="num-r pos">40</td><td class="num-r">40</td><td class="num-r chg flat">0</td><td class="num-r">19,123</td><td class="num-r">18,738</td></tr><tr><td>www.labtechsupplyco.com/proper-ways-to-store-laboratory-glassware/</td><td class="num-r pos">40</td><td class="num-r">36</td><td class="num-r chg up">▲ 4</td><td class="num-r">1,547</td><td class="num-r">1,545</td></tr><tr><td>www.labtechsupplyco.com/8-common-types-of-laboratory-benches/</td><td class="num-r pos">37</td><td class="num-r">30</td><td class="num-r chg up">▲ 7</td><td class="num-r">7,547</td><td class="num-r">6,107</td></tr><tr><td>www.labtechsupplyco.com/</td><td class="num-r pos">31</td><td class="num-r">39</td><td class="num-r chg down">▼ 8</td><td class="num-r">3,632</td><td class="num-r">5,791</td></tr><tr><td>www.labtechsupplyco.com/how-to-measure-the-right-laboratory-bench-dimensions-for-your-needs/</td><td class="num-r pos">28</td><td class="num-r">17</td><td class="num-r chg up">▲ 11</td><td class="num-r">3,262</td><td class="num-r">3,231</td></tr><tr><td>www.labtechsupplyco.com/how-to-properly-clean-and-disinfect-your-lab-benches/</td><td class="num-r pos">25</td><td class="num-r">5</td><td class="num-r chg up">▲ 20</td><td class="num-r">4,190</td><td class="num-r">3,212</td></tr><tr><td>www.labtechsupplyco.com/10-organization-tips-for-lab-benches-with-storage/</td><td class="num-r pos">23</td><td class="num-r">9</td><td class="num-r chg up">▲ 14</td><td class="num-r">3,587</td><td class="num-r">3,041</td></tr><tr><td>www.labtechsupplyco.com/computer-furniture/it-lan-workstations/</td><td class="num-r pos">19</td><td class="num-r">32</td><td class="num-r chg down">▼ 13</td><td class="num-r">1,811</td><td class="num-r">1,697</td></tr><tr><td>www.labtechsupplyco.com/countertops/epoxy-resin-sinks/</td><td class="num-r pos">16</td><td class="num-r">6</td><td class="num-r chg up">▲ 10</td><td class="num-r">1,080</td><td class="num-r">616</td></tr></tbody></table></div>
   </div>
 </section>
 <div class="footer"><span class="dot"></span>LabTech Supply Company SEO Performance Report · June 2026 · labtechsupplyco.com · Prepared by Brandastic · Data: Semrush + Google Search Console + Semrush AI Visibility</div>
@@ -318,5 +330,50 @@ tr:hover td{color:var(--text)}
 })();
 </script>
 
+<script>
+(function(){
+  var done=false;
+  function draw(){
+    if(done) return;
+    if(typeof Chart==='undefined') return;
+    var yc=document.getElementById('gscYoyChart');
+    var mc=document.getElementById('gscMomChart');
+    if(!yc&&!mc) return;
+    var ready=false;
+    [yc,mc].forEach(function(cv){ if(cv){var b=cv.parentElement; if(b&&b.clientHeight>0&&b.clientWidth>0) ready=true;} });
+    if(!ready) return;
+    done=true;
+    if(yc){
+      new Chart(yc.getContext('2d'),{
+        type:'bar',
+        data:{labels:["Mar '25", "Apr '25", "May '25", "Jun '25", "Jul '25", "Aug '25", "Sep '25", "Oct '25", "Nov '25", "Dec '25", "Jan '26", "Feb '26", "Mar '26", "Apr '26", "May '26", "Jun '26"],datasets:[{"label": "2025", "data": [1971, 1632, 1531, 1455, 1393, 1307, 1299, 987, 757, 679, null, null, null, null, null, null], "backgroundColor": "rgba(64,180,229,0.55)"}, {"label": "2026", "data": [null, null, null, null, null, null, null, null, null, null, 767, 646, 686, 666, 579, 702], "backgroundColor": "#0644ED"}].map(function(d){d.borderRadius=6;d.maxBarThickness=26;return d;})},
+        options:{responsive:true,maintainAspectRatio:false,animation:false,
+          plugins:{legend:{display:true,position:'bottom',labels:{boxWidth:12,font:{size:11}}}},
+          scales:{y:{stacked:true,beginAtZero:true,ticks:{precision:0},grid:{color:'rgba(25,31,36,0.06)'}},x:{stacked:true,grid:{display:false},ticks:{autoSkip:false,maxRotation:60,minRotation:60,font:{size:9}}}}
+        }
+      });
+    }
+    if(mc){
+      new Chart(mc.getContext('2d'),{
+        type:'line',
+        data:{labels:["Jun 2025", "Jul 2025", "Aug 2025", "Sep 2025", "Oct 2025", "Nov 2025", "Dec 2025", "Jan 2026", "Feb 2026", "Mar 2026", "Apr 2026", "May 2026", "Jun 2026"],datasets:[
+          {label:'Clicks',data:[1455, 1393, 1307, 1299, 987, 757, 679, 767, 646, 686, 666, 579, 702],borderColor:'#CC22FF',
+            backgroundColor:'rgba(204,34,255,0.10)',fill:true,tension:0.32,
+            pointRadius:3,pointBackgroundColor:'#CC22FF',borderWidth:2.5}
+        ]},
+        options:{responsive:true,maintainAspectRatio:false,animation:false,
+          plugins:{legend:{display:false}},
+          scales:{y:{beginAtZero:true,ticks:{precision:0},grid:{color:'rgba(25,31,36,0.06)'}},x:{grid:{display:false},ticks:{maxRotation:0,font:{size:10}}}}
+        }
+      });
+    }
+  }
+  if(document.readyState!=='loading') draw();
+  else document.addEventListener('DOMContentLoaded',draw);
+  setTimeout(draw,400);
+  setTimeout(draw,1500);
+  window.addEventListener('beforeprint',draw);
+})();
+</script>
 </body>
 </html>
