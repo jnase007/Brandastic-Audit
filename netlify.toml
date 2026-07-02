@@ -126,6 +126,21 @@
   status = 200
 
 [[redirects]]
+  from = "/elevate-auto-haus-audit"
+  to = "/elevate-auto-haus-audit.html"
+  status = 200
+
+[[redirects]]
+  from = "/elevate-auto-haus"
+  to = "/elevate-auto-haus-audit.html"
+  status = 200
+
+[[redirects]]
+  from = "/elevate"
+  to = "/elevate-auto-haus-audit.html"
+  status = 200
+
+[[redirects]]
   from = "/onboarding/*"
   to = "/onboarding.html?channel=:splat"
   status = 200
