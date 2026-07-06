@@ -179,3 +179,13 @@
   from = "/ai"
   to = "/ai.html"
   status = 200
+
+[[redirects]]
+  from = "/ipa-1031-group-monthly-seo-report"
+  to = "/ipa-1031-group-monthly-seo-report.html"
+  status = 200
+
+[[redirects]]
+  from = "/ipa-1031"
+  to = "/ipa-1031-group-monthly-seo-report.html"
+  status = 200
