@@ -176,6 +176,26 @@
   status = 200
 
 [[redirects]]
+  from = "/liderelectric"
+  to = "/liderelectric.html"
+  status = 200
+
+[[redirects]]
+  from = "/lider-electric"
+  to = "/liderelectric.html"
+  status = 200
+
+[[redirects]]
+  from = "/crummack"
+  to = "/chpm-seo-monthly.html"
+  status = 200
+
+[[redirects]]
+  from = "/crummack-huseby"
+  to = "/chpm-seo-monthly.html"
+  status = 200
+
+[[redirects]]
   from = "/ai"
   to = "/ai.html"
   status = 200
