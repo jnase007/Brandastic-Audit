@@ -1,0 +1,5 @@
+Domain;Rank;Organic Keywords;Organic Traffic;Organic Cost;Adwords Keywords;Adwords Traffic;Adwords Cost
+jbwhitedds.com;4256283;60;72;159;0;0;0
+
+Retrieved: 2026-07-08
+Notes: Domain Rank 4.2M+ (very low authority). Only 60 organic keywords, 72 monthly visits. No paid ads running.

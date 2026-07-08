@@ -1,0 +1,25 @@
+Keyword;Position;Search Volume;CPC;Url;Traffic (%);Traffic Cost (%)
+jb white dds;1;90;2.21;https://www.jbwhitedds.com/;100.00;100.00
+professional teeth whitening las vegas;36;90;4.14;https://www.jbwhitedds.com/bleaching-las-vegas-nv/;0.00;0.00
+dr dustin white;32;50;0.00;https://www.jbwhitedds.com/;0.00;0.00
+white dental studio;39;40;0.00;https://www.jbwhitedds.com/;0.00;0.00
+white dental studio;47;40;0.00;https://www.jbwhitedds.com/;0.00;0.00
+gum tissue regeneration henderson nevada;47;50;0.00;https://www.jbwhitedds.com/periodontal-therapy-las-vegas-nv/;0.00;0.00
+john white dds;36;110;0.00;https://www.jbwhitedds.com/;0.00;0.00
+composite bonding las vegas;57;170;0.00;https://www.jbwhitedds.com/composite-veneers-las-vegas-nv/;0.00;0.00
+guided tissue regeneration las vegas;37;70;0.00;https://www.jbwhitedds.com/periodontal-therapy-las-vegas-nv/;0.00;0.00
+periodontal laser therapy in las vegas;27;70;0.00;https://www.jbwhitedds.com/periodontal-therapy-in-las-vegas-what-it-is-how-it-works-and-when-you-need-it/;0.00;0.00
+smile designers of las vegas;33;210;2.33;https://www.jbwhitedds.com/smile-design-las-vegas-nv/;0.00;0.00
+las vegas institute for advanced dental studies;38;50;0.00;https://www.jbwhitedds.com/advanced-dental-education-las-vegas/;0.00;0.00
+robert b lowe dds;70;70;0.00;https://www.jbwhitedds.com/our-team/;0.00;0.00
+bright white dental of fresh meadows;81;480;1.59;https://www.jbwhitedds.com/;0.00;0.00
+composite veneers las vegas;13;90;3.88;https://www.jbwhitedds.com/veneers-las-vegas-nv/composite-porcelain-veneers/;0.00;0.00
+composite veneers las vegas;24;90;3.88;https://www.jbwhitedds.com/composite-veneers-las-vegas-nv/;0.00;0.00
+las vegas gum regeneration;47;70;0.00;https://www.jbwhitedds.com/periodontal-therapy-las-vegas-nv/;0.00;0.00
+smiles by jiveh;62;90;2.24;https://www.jbwhitedds.com/our-team/;0.00;0.00
+dr.white dentist;31;90;2.84;https://www.jbwhitedds.com/;0.00;0.00
+gum tissue regeneration las vegas;64;70;0.00;https://www.jbwhitedds.com/periodontal-therapy-las-vegas-nv/;0.00;0.00
+
+Retrieved: 2026-07-08
+CRITICAL: 100% of measurable organic traffic comes from branded term "jb white dds" (position 1).
+No significant non-branded traffic. Not ranking for high-value terms like "dental implants las vegas" or "cosmetic dentist las vegas".

@@ -1,0 +1,94 @@
+CONTENT ANALYSIS RAW DATA - jbwhitedds.com
+Fetched: 2026-07-08
+
+=== SERVICES OFFERED ===
+Core Services:
+1. Dental Implants (single tooth, full arch, full mouth)
+2. Porcelain Veneers
+3. Composite Veneers / Composite Bonding
+4. Smile Design
+5. Teeth Whitening (Bleaching)
+6. Dental Crowns & Bridges
+7. Orthodontic Treatments
+8. Root Canal Treatment
+9. Periodontal Therapy
+10. Full Mouth Reconstruction
+
+Additional Offerings:
+- The White Institute (dental CE courses for dentists)
+- M.Vision Evolution course (digital workflow)
+- Dental Photography course
+- VIP consultation experience
+- Before & After cases gallery
+
+=== BLOG STATUS ===
+Blog URL: https://www.jbwhitedds.com/dental-advice-and-knowledge/ (also /dental_advice_and_knowledge/)
+Status: ACTIVE - blog exists
+Post-sitemap URL: https://www.jbwhitedds.com/post-sitemap.xml
+Recent posts (from sitemap, 2026):
+  - Root canal posts (April 2026)
+  - Periodontal therapy posts (April 2026)
+  - Bleaching posts (April 2026)
+  - Dental implants posts (April 2026)
+  - Full mouth dental implants (April 2026)
+  - Cosmetic dentistry posts (March 2026)
+NOTE: Blog titles appear repetitive/thin (multiple posts per topic in same month)
+Blog indexed at: /dental-advice-and-knowledge/ (redirected from /dental_advice_and_knowledge/)
+
+=== SITEMAP PAGE COUNT ===
+Pages in page-sitemap.xml: ~50+ pages
+Posts in post-sitemap.xml: ~20+ posts
+Total indexed content: ~70+ URLs
+
+=== KEY PAGES ANALYZED ===
+Homepage:
+  - Title: "JB White, DDS - Las Vegas Cosmetic Dentistry & Dental Implants"
+  - H1: "Las Vegas Cosmetic Dentistry & Dental Implants"
+  - Content: Strong - service overview, FAQ, patient story (Dorothy), VIP experience
+  - FAQ section: 10 questions about implants/cosmetic dentistry
+
+About Page (/about-jb-white-dds/):
+  - Title: "Best Cosmetic Dentist Las Vegas, Nevada"
+  - Content: Dr. background - UMKC DDS 2007, award winner, Las Vegas since 2007, lecturer
+  - Thin content - relatively short about page
+
+Contact Page (/contact-us/):
+  - Title: "Contact Us: JB White, DDS"
+  - NAP: Complete (name, address, phone, fax, email)
+  - Google Maps embed present
+
+Dental Implants Page (/dental-implants-las-vegas-nv/):
+  - Title: "Premier Dental Implants in Las Vegas, NV"
+  - Extensive content - very well detailed
+  - FAQ section with 6+ questions
+  - Before/After section
+
+Blog (/dental-advice-and-knowledge/):
+  - Title: "Blog - JB White, DDS" (weak)
+  - Recent posts: dental implants, periodontal therapy, bleaching, root canals, cosmetic dentistry
+
+=== CONTENT GAPS ===
+Missing high-value pages:
+1. "Dental implants cost Las Vegas" - FAQ answers it but no dedicated page
+2. "All-on-4 Las Vegas" - mentioned but no dedicated page
+3. "Invisalign Las Vegas" - orthodontics page exists but keyword not optimized
+4. "Emergency dentist Las Vegas" - not mentioned
+5. "Sedation dentistry Las Vegas" - not mentioned
+6. "Teeth grinding / bruxism Las Vegas" - not mentioned
+7. City-specific pages (Henderson, Summerlin, North Las Vegas)
+8. Patient testimonials page with schema markup
+9. Financing/payment options page
+10. Before/After gallery with individual case SEO pages (only cases/ exist but not optimized)
+
+=== INTERNAL LINKING ===
+Service pages are in sitemap with proper URL structure (/service-las-vegas-nv/)
+Sub-pages present for veneers and implants (hierarchical)
+Blog posts appear to be standalone without strong internal links to service pages
+
+=== URL STRUCTURE ===
+Good: /dental-implants-las-vegas-nv/
+Good: /veneers-las-vegas-nv/
+Good: /periodontal-therapy-las-vegas-nv/
+Odd: /jb-new/ (likely staging page, should be noindexed)
+Odd: /composite-bonding/ (no location in URL)
+Odd: /full-mouth-dental-implants/ (duplicate of /full-mouth-dental-implants-las-vegas-nv/)

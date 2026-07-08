@@ -1,0 +1,1313 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta name="robots" content="noindex, nofollow">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>JB White, DDS — SEO Audit by Brandastic</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+<style>
+:root{--bg-primary:#191F24;--bg-secondary:#0d1117;--bg-tertiary:#151a20;--bg-card:rgba(100,116,139,0.15);--bg-card-hover:rgba(100,116,139,0.2);--bg-card-border:rgba(100,116,139,0.2);--text-primary:#ffffff;--text-secondary:rgba(255,255,255,0.7);--text-muted:rgba(255,255,255,0.4);--accent-blue:#0644ED;--accent-light:#40B4E5;--accent-purple:#CC22FF;--glass-bg:rgba(100,116,139,0.15);--glass-border:rgba(255,255,255,0.1);--shadow:0 8px 32px rgba(0,0,0,0.3);--red:#ef4444;--yellow:#f59e0b;--green:#22c55e;--chart-grid:rgba(255,255,255,0.06);--chart-text:rgba(255,255,255,0.5);--transition:0.3s ease}
+[data-theme="light"]{--bg-primary:#F5F3EF;--bg-secondary:#ffffff;--bg-tertiary:#f0ede8;--bg-card:rgba(255,255,255,0.85);--bg-card-hover:rgba(255,255,255,0.95);--bg-card-border:rgba(0,0,0,0.08);--text-primary:#191F24;--text-secondary:rgba(25,31,36,0.7);--text-muted:rgba(25,31,36,0.4);--glass-bg:rgba(255,255,255,0.85);--glass-border:rgba(0,0,0,0.08);--shadow:0 8px 32px rgba(0,0,0,0.06);--chart-grid:rgba(0,0,0,0.06);--chart-text:rgba(0,0,0,0.5)}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth}body{font-family:'Inter',system-ui,-apple-system,sans-serif;background:var(--bg-primary);color:var(--text-primary);line-height:1.6;transition:background-color var(--transition),color var(--transition);overflow-x:hidden}a{color:var(--accent-light);text-decoration:none}
+
+/* NAV */
+.nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:0 2rem;height:64px;display:flex;align-items:center;justify-content:space-between;background:var(--glass-bg);backdrop-filter:blur(20px);border-bottom:1px solid var(--glass-border);transition:background var(--transition)}.nav-brand{font-weight:700;font-size:1.15rem;letter-spacing:0.05em;display:flex;align-items:center;gap:10px}.nav-brand .dot{width:10px;height:10px;border-radius:50%;background:linear-gradient(135deg,#40B4E5,#CC22FF)}.nav-actions{display:flex;align-items:center;gap:12px}
+.theme-toggle{width:56px;height:32px;min-width:44px;min-height:44px;border-radius:13px;border:none;cursor:pointer;background:linear-gradient(135deg,#40B4E5,#CC22FF);padding:2px;display:flex;align-items:center;transition:var(--transition);flex-shrink:0}.theme-toggle .knob{width:28px;height:28px;border-radius:50%;background:var(--bg-primary);display:flex;align-items:center;justify-content:center;font-size:11px;transition:transform var(--transition),background-color var(--transition);transform:translateX(0)}[data-theme="light"] .theme-toggle .knob{transform:translateX(24px)}
+.pdf-btn{display:inline-flex;align-items:center;gap:6px;padding:8px 18px;border-radius:10px;border:none;cursor:pointer;background:linear-gradient(135deg,#40B4E5,#CC22FF);color:#fff;font-family:inherit;font-size:0.78rem;font-weight:600;letter-spacing:0.03em;transition:transform var(--transition),box-shadow var(--transition);white-space:nowrap}.pdf-btn:hover{transform:translateY(-1px);box-shadow:0 4px 20px rgba(64,180,229,0.4)}
+
+/* LAYOUT */
+section{padding:4rem 2rem;position:relative}section:nth-child(even){background:var(--bg-secondary);transition:background var(--transition)}.container{max-width:1200px;margin:0 auto}
+.section-badge{display:inline-flex;align-items:center;gap:6px;padding:6px 16px;border-radius:50px;background:var(--glass-bg);border:1px solid var(--glass-border);font-size:0.7rem;font-weight:600;letter-spacing:0.15em;text-transform:uppercase;color:var(--text-muted);margin-bottom:1.5rem;backdrop-filter:blur(10px)}
+.section-title{font-size:clamp(1.8rem,4vw,2.8rem);font-weight:800;letter-spacing:-0.03em;margin-bottom:1rem;line-height:1.15}.section-title .gradient{background:linear-gradient(135deg,#40B4E5,#CC22FF);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}.section-sub{color:var(--text-secondary);font-size:1.05rem;max-width:700px;margin-bottom:3rem;line-height:1.7}
+
+/* HERO */
+.hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding-top:64px;position:relative;overflow:hidden;background:#0d1117}[data-theme="light"] .hero{background:#f5f3ef}
+.hero-bg{position:absolute;inset:0;z-index:0}
+.hero-bg::after{content:'';position:absolute;inset:0;background:linear-gradient(rgba(13,17,23,0.65),rgba(13,17,23,0.85))}[data-theme="light"] .hero-bg::after{background:linear-gradient(rgba(245,243,239,0.7),rgba(255,255,255,0.88))}
+.hero-bg img{position:absolute;top:50%;left:50%;width:100%;height:100%;object-fit:cover;transform:translate(-50%,-50%);opacity:0.3}
+.hero>*:not(.hero-bg){position:relative;z-index:1}
+.hero-company{font-size:clamp(2.5rem,7vw,5.5rem);font-weight:900;letter-spacing:-0.04em;line-height:1;margin-bottom:1.5rem;background:linear-gradient(135deg,#fff 0%,rgba(255,255,255,0.7) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}[data-theme="light"] .hero-company{background:linear-gradient(135deg,#191F24 0%,rgba(25,31,36,0.7) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hero-meta{display:flex;flex-wrap:wrap;gap:1rem;justify-content:center;margin-top:1rem;margin-bottom:3rem}.hero-meta span{padding:8px 20px;border-radius:50px;background:var(--glass-bg);border:1px solid var(--glass-border);backdrop-filter:blur(10px);font-size:0.8rem;font-weight:500;color:var(--text-secondary)}
+.hero-scroll{position:absolute;bottom:1.5rem;animation:bounce 2s infinite;opacity:0.5}@keyframes bounce{0%,100%{transform:translateY(0)}50%{transform:translateY(8px)}}
+
+/* GRIDS */
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:2rem;align-items:start}.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}.grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem}
+
+/* CARDS */
+.card{background:var(--bg-card);border:1px solid var(--bg-card-border);border-radius:16px;padding:2rem;backdrop-filter:blur(10px);transition:transform var(--transition),box-shadow var(--transition),background var(--transition),border-color var(--transition)}.card:hover{transform:translateY(-3px);box-shadow:var(--shadow);border-color:rgba(64,180,229,0.2)}
+.metric-card{text-align:center;padding:2rem 1.5rem}.metric-card .value{font-size:2.2rem;font-weight:800;letter-spacing:-0.03em;background:linear-gradient(135deg,#40B4E5,#CC22FF);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}.metric-card .label{font-size:0.75rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--text-muted);margin-top:0.5rem}.metric-card .sub{font-size:0.8rem;margin-top:0.3rem;color:var(--text-muted)}
+
+/* SCORE RING */
+.score-ring-wrap{text-align:center}.score-ring{position:relative;width:110px;height:110px;margin:0 auto 0.75rem}.score-ring svg{transform:rotate(-90deg);width:110px;height:110px}.score-ring .bg{fill:none;stroke:var(--bg-card-border);stroke-width:8}.score-ring .fg{fill:none;stroke-width:8;stroke-linecap:round;transition:stroke-dashoffset 1.5s ease}.score-ring .grade{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;font-size:1.5rem;font-weight:800;line-height:1}.score-ring .grade-sub{font-size:0.65rem;color:var(--text-muted);font-weight:600;margin-top:2px}.score-ring-label{font-size:0.75rem;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:var(--text-muted)}
+
+/* OVERALL SCORE */
+.overall-score-section{background:linear-gradient(135deg,rgba(6,68,237,0.08),rgba(64,180,229,0.05));border:1px solid rgba(64,180,229,0.15);border-radius:20px;padding:2.5rem;margin-bottom:2.5rem;display:flex;align-items:center;gap:3rem;flex-wrap:wrap}
+.overall-ring{position:relative;width:180px;height:180px;flex-shrink:0}.overall-ring svg{transform:rotate(-90deg);width:180px;height:180px}.overall-ring .bg{fill:none;stroke:var(--bg-card-border);stroke-width:10}.overall-ring .fg{fill:none;stroke-width:10;stroke-linecap:round;stroke:url(#scoreGrad);transition:stroke-dashoffset 1.5s ease}.overall-ring .center{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center}.overall-ring .score-num{font-size:3rem;font-weight:900;letter-spacing:-0.04em;background:linear-gradient(135deg,#40B4E5,#CC22FF);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1}.overall-ring .score-grade{font-size:1.1rem;font-weight:700;color:var(--text-muted)}
+.overall-details{flex:1;min-width:280px}.overall-details h3{font-size:1.5rem;font-weight:800;margin-bottom:0.5rem}.overall-details p{color:var(--text-secondary);font-size:0.95rem;line-height:1.7}
+.category-scores-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:1.25rem;margin-top:2.5rem}
+@media(max-width:1024px){.category-scores-grid{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:600px){.category-scores-grid{grid-template-columns:repeat(2,1fr)}}
+
+/* STATS BAR */
+.stats-bar{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem;margin-bottom:2rem}
+.stat-card{background:var(--glass-bg);border:1px solid var(--glass-border);border-radius:16px;padding:1.5rem;text-align:center;backdrop-filter:blur(10px)}
+.stat-card .stat-num{font-size:2.5rem;font-weight:800;background:linear-gradient(135deg,#40B4E5,#CC22FF);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1.2}
+.stat-card .stat-label{font-size:0.85rem;color:var(--text-muted);margin-top:0.25rem}
+
+/* WARNING */
+.warning-banner{background:linear-gradient(135deg,rgba(239,68,68,0.1),rgba(239,68,68,0.05));border:1px solid rgba(239,68,68,0.2);border-radius:12px;padding:1.5rem 2rem;display:flex;align-items:center;gap:1rem;margin-bottom:2rem}.warning-banner .icon{flex-shrink:0;color:var(--red)}.warning-banner .text{font-weight:600;color:var(--red)}.warning-banner .sub{color:var(--text-secondary);font-size:0.9rem;font-weight:400}
+.success-banner{background:linear-gradient(135deg,rgba(34,197,94,0.08),rgba(34,197,94,0.04));border:1px solid rgba(34,197,94,0.2);border-radius:12px;padding:1.5rem 2rem;display:flex;align-items:center;gap:1rem;margin-bottom:2rem}
+.success-banner .icon{flex-shrink:0;color:var(--green)}.success-banner .text{font-weight:600;color:var(--green)}.success-banner .sub{color:var(--text-secondary);font-size:0.9rem;font-weight:400}
+
+/* FINDING */
+.finding-card{display:flex;gap:1.5rem;align-items:start;padding:1.75rem}.finding-num{flex-shrink:0;width:44px;height:44px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.1rem;font-weight:800;color:#fff}.finding-num.critical{background:linear-gradient(135deg,#ef4444,#dc2626)}.finding-num.high{background:linear-gradient(135deg,#f59e0b,#d97706)}.finding-num.medium{background:linear-gradient(135deg,#40B4E5,#0644ED)}.finding-card .title{font-weight:700;font-size:1rem;margin-bottom:0.3rem}.finding-card .desc{color:var(--text-secondary);font-size:0.88rem;line-height:1.65}
+
+/* CHECKLIST */
+.check-list{list-style:none;display:flex;flex-direction:column;gap:0.5rem}
+.check-list li{display:flex;align-items:flex-start;gap:0.6rem;font-size:0.9rem;color:var(--text-secondary);line-height:1.5}
+.check-list li .icon{flex-shrink:0;margin-top:2px}
+.check-list li.pass .icon{color:var(--green)}
+.check-list li.fail .icon{color:var(--red)}
+.check-list li.warn .icon{color:var(--yellow)}
+
+/* PS ROW */
+.ps-row{display:grid;grid-template-columns:1fr auto 1fr;gap:1.5rem;align-items:center;margin-bottom:1.5rem}.ps-card{padding:1.5rem;border-radius:12px}.ps-problem{background:rgba(239,68,68,0.06);border:1px solid rgba(239,68,68,0.15)}.ps-solution{background:rgba(34,197,94,0.06);border:1px solid rgba(34,197,94,0.15)}.ps-arrow{display:flex;align-items:center;justify-content:center}.ps-arrow svg{background:linear-gradient(135deg,#40B4E5,#CC22FF);border-radius:50%;padding:4px}.ps-card .title{font-weight:700;font-size:0.95rem;margin-bottom:0.25rem}.ps-problem .title{color:var(--red)}.ps-solution .title{color:var(--green)}.ps-card .body{color:var(--text-secondary);font-size:0.88rem;line-height:1.5}
+
+/* GAP KEYWORD CARDS */
+.gap-card{padding:1.5rem;text-align:center}.gap-card .kw{font-weight:700;font-size:0.95rem;margin-bottom:0.5rem;color:var(--text-primary)}.gap-card .vol{font-size:1.8rem;font-weight:800;background:linear-gradient(135deg,#40B4E5,#CC22FF);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}.gap-card .vol-label{font-size:0.68rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.1em}.gap-card .status{display:inline-block;margin-top:0.75rem;padding:4px 12px;border-radius:6px;background:rgba(239,68,68,0.12);color:var(--red);font-size:0.68rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase}
+
+/* TIMELINE */
+.timeline{display:flex;gap:0;margin-top:2rem;position:relative}.timeline::before{content:'';position:absolute;top:40px;left:0;right:0;height:3px;background:var(--bg-card-border)}.timeline-phase{flex:1;position:relative;padding-top:60px;padding-right:1.5rem}.timeline-dot{position:absolute;top:32px;left:0;width:18px;height:18px;border-radius:50%;background:linear-gradient(135deg,#40B4E5,#CC22FF);border:3px solid var(--bg-primary);z-index:1;transition:border-color var(--transition)}.timeline-phase .phase-label{font-size:0.7rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--accent-light);margin-bottom:0.5rem}.timeline-phase .phase-title{font-weight:700;font-size:1.05rem;margin-bottom:0.75rem}.timeline-phase .phase-items{list-style:none;display:flex;flex-direction:column;gap:0.4rem}.timeline-phase .phase-items li{font-size:0.88rem;color:var(--text-secondary);padding-left:1.2rem;position:relative}.timeline-phase .phase-items li::before{content:'';position:absolute;left:0;top:8px;width:6px;height:6px;border-radius:50%;background:var(--accent-light)}
+
+/* STRATEGY CARD */
+.strategy-card{padding:2.5rem 2rem;border-top:3px solid transparent;background-image:linear-gradient(var(--bg-card),var(--bg-card)),linear-gradient(135deg,#40B4E5,#CC22FF);background-origin:border-box;background-clip:padding-box,border-box;border-radius:16px;margin-bottom:1.5rem}
+
+/* INVESTMENT TIERS */
+.tier-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:2rem}
+.tier-card{border-radius:20px;padding:2.5rem 2rem;position:relative;transition:transform var(--transition),box-shadow var(--transition)}
+.tier-card:hover{transform:translateY(-4px);box-shadow:var(--shadow)}
+.tier-card.featured{background:linear-gradient(135deg,rgba(64,180,229,0.12),rgba(204,34,255,0.12));border:2px solid rgba(64,180,229,0.4)}
+.tier-card:not(.featured){background:var(--bg-card);border:1px solid var(--bg-card-border)}
+.tier-badge{position:absolute;top:-14px;left:50%;transform:translateX(-50%);padding:4px 18px;border-radius:50px;background:linear-gradient(135deg,#40B4E5,#CC22FF);color:#fff;font-size:0.7rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;white-space:nowrap}
+.tier-price{font-size:2.5rem;font-weight:900;letter-spacing:-0.04em;background:linear-gradient(135deg,#40B4E5,#CC22FF);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.tier-period{font-size:0.85rem;color:var(--text-muted);font-weight:500}
+.tier-name{font-weight:700;font-size:1.1rem;margin:1rem 0 0.25rem}
+.tier-desc{font-size:0.85rem;color:var(--text-secondary);margin-bottom:1.5rem;line-height:1.5}
+.tier-features{list-style:none;display:flex;flex-direction:column;gap:0.5rem}
+.tier-features li{display:flex;align-items:center;gap:0.5rem;font-size:0.88rem;color:var(--text-secondary)}
+.tier-features li svg{flex-shrink:0;color:var(--green)}
+
+/* CASE STUDIES */
+.case-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
+.case-card{border-radius:16px;padding:2rem;position:relative;overflow:hidden}
+.case-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px}
+.case-card.c1::before{background:linear-gradient(90deg,#40B4E5,#CC22FF)}
+.case-card.c2::before{background:linear-gradient(90deg,#CC22FF,#f59e0b)}
+.case-card.c3::before{background:linear-gradient(90deg,#22c55e,#40B4E5)}
+.case-card{background:var(--bg-card);border:1px solid var(--bg-card-border)}
+.case-client{font-size:0.7rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--text-muted);margin-bottom:0.5rem}
+.case-result{font-size:2.5rem;font-weight:900;letter-spacing:-0.04em;background:linear-gradient(135deg,#40B4E5,#CC22FF);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1.1;margin-bottom:0.25rem}
+.case-metric{font-weight:600;font-size:0.9rem;margin-bottom:0.75rem}
+.case-desc{font-size:0.85rem;color:var(--text-secondary);line-height:1.55}
+
+/* CTA FORM */
+.form-section{padding:6rem 2rem;background:var(--bg-secondary)}
+.form-wrap{background:var(--bg-card);border:1px solid var(--bg-card-border);border-radius:24px;padding:3rem;max-width:760px;margin:0 auto;backdrop-filter:blur(10px)}
+.form-field{margin-bottom:1.25rem}
+.form-field label{display:block;font-size:0.78rem;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:var(--text-muted);margin-bottom:0.4rem}
+.form-field input,.form-field textarea,.form-field select{width:100%;padding:12px 16px;border-radius:10px;border:1px solid var(--bg-card-border);background:var(--bg-primary);color:var(--text-primary);font-family:inherit;font-size:0.9rem;transition:border-color var(--transition),background var(--transition),color var(--transition);outline:none}
+.form-field input:focus,.form-field textarea:focus{border-color:rgba(64,180,229,0.5);box-shadow:0 0 0 3px rgba(64,180,229,0.1)}
+.form-field textarea{min-height:100px;resize:vertical}
+.form-grid-2{display:grid;grid-template-columns:1fr 1fr;gap:1.25rem}
+.form-submit{width:100%;padding:14px;border-radius:12px;border:none;cursor:pointer;background:linear-gradient(135deg,#40B4E5,#CC22FF);color:#fff;font-family:inherit;font-size:1rem;font-weight:700;margin-top:0.5rem;transition:transform var(--transition),box-shadow var(--transition)}
+.form-submit:hover{transform:translateY(-2px);box-shadow:0 8px 30px rgba(64,180,229,0.4)}
+.form-success{display:none;text-align:center;padding:2rem;background:rgba(34,197,94,0.08);border:1px solid rgba(34,197,94,0.2);border-radius:12px;margin-top:1rem;color:var(--green);font-weight:600}
+
+/* CHART */
+.chart-wrap{background:var(--bg-card);border:1px solid var(--bg-card-border);border-radius:16px;padding:2rem;backdrop-filter:blur(10px);transition:background var(--transition),border-color var(--transition)}
+.chart-hint{text-align:center;font-size:0.75rem;color:var(--text-muted);margin-top:0.75rem;font-style:italic}
+
+/* BADGES */
+.badge{display:inline-block;padding:3px 10px;border-radius:6px;font-size:0.7rem;font-weight:600;letter-spacing:0.05em}.badge-red{background:rgba(239,68,68,0.12);color:#ef4444}.badge-green{background:rgba(34,197,94,0.15);color:#22c55e}.badge-blue{background:rgba(64,180,229,0.15);color:#40B4E5}.badge-purple{background:rgba(204,34,255,0.15);color:#CC22FF}.badge-yellow{background:rgba(245,158,11,0.12);color:#f59e0b}
+
+/* ROI */
+.roi-band{background:linear-gradient(135deg,rgba(64,180,229,0.08),rgba(204,34,255,0.06));border:1px solid rgba(64,180,229,0.15);border-radius:20px;padding:2.5rem;margin-top:2rem}
+.roi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
+.roi-card{text-align:center;padding:1.5rem}.roi-card .label{font-size:0.7rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--text-muted);margin-bottom:0.5rem}.roi-card .value{font-size:2.2rem;font-weight:900;background:linear-gradient(135deg,#40B4E5,#CC22FF);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;letter-spacing:-0.03em}.roi-card .sub{font-size:0.82rem;color:var(--text-secondary);margin-top:0.25rem}
+
+/* WATERMARK & SIDE NAV */
+.watermark{position:fixed;bottom:20px;left:20px;display:flex;align-items:center;gap:6px;padding:8px 16px;border-radius:10px;background:var(--glass-bg);border:1px solid var(--glass-border);backdrop-filter:blur(10px);font-size:0.7rem;font-weight:600;color:var(--text-muted);letter-spacing:0.05em;z-index:999;transition:background var(--transition)}
+.side-nav{position:fixed;right:1.2rem;top:50%;transform:translateY(-50%);z-index:999;display:flex;flex-direction:column;align-items:center;padding:14px 8px;border-radius:999px;background:var(--glass-bg);backdrop-filter:blur(20px);border:1px solid var(--glass-border);box-shadow:var(--shadow);transition:background var(--transition),border-color var(--transition)}
+.side-nav-line{position:absolute;top:14px;bottom:14px;width:1px;background:var(--glass-border);z-index:0}
+.side-nav-dot{position:relative;z-index:1;width:8px;height:8px;border-radius:50%;background:var(--text-muted);margin:7px 0;cursor:pointer;transition:all 0.3s ease;flex-shrink:0}
+.side-nav-dot:hover{background:var(--text-secondary);transform:scale(1.3)}
+.side-nav-dot.active{width:10px;height:10px;background:linear-gradient(135deg,#40B4E5,#CC22FF);box-shadow:0 0 10px rgba(64,180,229,0.5);margin:6px 0}
+.side-nav-dot .tooltip{position:absolute;right:calc(100% + 12px);top:50%;transform:translateY(-50%) translateX(6px);background:var(--glass-bg);backdrop-filter:blur(16px);border:1px solid var(--glass-border);color:var(--text-primary);padding:4px 10px;border-radius:8px;font-size:0.7rem;font-weight:600;letter-spacing:0.03em;white-space:nowrap;opacity:0;pointer-events:none;transition:all 0.25s ease;box-shadow:var(--shadow)}
+.side-nav-dot:hover .tooltip{opacity:1;transform:translateY(-50%) translateX(0)}
+
+/* READING PROGRESS */
+.reading-progress{position:fixed;top:64px;left:0;width:0%;height:3px;background:linear-gradient(90deg,#40B4E5,#CC22FF);z-index:1001;transition:width 0.1s linear;pointer-events:none}
+
+/* GRADIENT DIVIDER */
+.gradient-divider{height:2px;background:linear-gradient(90deg,transparent,#40B4E5,#CC22FF,transparent);margin:0;opacity:0;transform:scaleX(0);transition:opacity 0.8s ease,transform 1s cubic-bezier(0.22,1,0.36,1);transform-origin:center}
+.gradient-divider.active{opacity:1;transform:scaleX(1)}
+
+/* REVEAL */
+.reveal{opacity:0;transform:translateY(20px);transition:opacity 0.6s ease,transform 0.6s ease}
+.reveal.active{opacity:1;transform:none}
+
+/* CTA PULSE */
+@keyframes ctaPulse{0%{box-shadow:0 0 0 0 rgba(64,180,229,0.4)}70%{box-shadow:0 0 0 15px rgba(64,180,229,0)}100%{box-shadow:0 0 0 0 rgba(64,180,229,0)}}
+.cta-btn{display:inline-flex;align-items:center;gap:8px;padding:16px 40px;border-radius:14px;background:linear-gradient(135deg,#40B4E5,#CC22FF);color:#fff;font-family:inherit;font-size:1.1rem;font-weight:700;border:none;cursor:pointer;transition:transform var(--transition),box-shadow var(--transition);text-decoration:none}
+.cta-btn:hover{transform:translateY(-2px);box-shadow:0 8px 30px rgba(64,180,229,0.4);color:#fff}
+.cta-btn.pulse{animation:ctaPulse 2s ease-in-out infinite}
+
+/* COMPETITOR TABLE */
+.seo-matrix-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;border-radius:16px;background:var(--bg-card);border:1px solid var(--bg-card-border);backdrop-filter:blur(10px)}
+.seo-matrix{width:100%;border-collapse:collapse;font-size:0.88rem;min-width:500px}
+.seo-matrix thead th{padding:1rem 1.25rem;font-size:0.7rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--text-muted);border-bottom:2px solid var(--bg-card-border);text-align:left}
+.seo-matrix thead th.center{text-align:center}
+.seo-matrix thead th.highlight{background:linear-gradient(135deg,rgba(64,180,229,0.08),rgba(204,34,255,0.08));color:var(--accent-light);position:relative;text-align:center}
+.seo-matrix thead th.highlight::after{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,#40B4E5,#CC22FF);border-radius:3px 3px 0 0}
+.seo-matrix tbody td{padding:0.85rem 1.25rem;border-bottom:1px solid var(--bg-card-border);color:var(--text-secondary)}
+.seo-matrix tbody td.center{text-align:center}
+.seo-matrix tbody td.highlight{background:linear-gradient(135deg,rgba(64,180,229,0.04),rgba(204,34,255,0.04));text-align:center}
+.seo-matrix tbody tr:last-child td{border-bottom:none}
+.seo-matrix .status-good{color:var(--green);font-weight:600}
+.seo-matrix .status-warn{color:var(--yellow);font-weight:600}
+.seo-matrix .status-bad{color:var(--red);font-weight:600}
+.seo-matrix tbody td:first-child{font-weight:600;color:var(--text-primary)}
+
+/* PRINT */
+.print-only{display:none!important}
+@media print{
+  *{transition:none!important;animation:none!important}
+  body{background:#fff!important;color:#191F24!important;font-size:10pt}
+  .nav,.theme-toggle,.pdf-btn,.watermark,.hero-scroll,.side-nav,.reading-progress{display:none!important}
+  section{padding:2rem 0!important;background:#fff!important;page-break-inside:avoid}
+  section:nth-child(even){background:#fff!important}
+  .hero{min-height:auto!important;padding:3rem 0!important}
+  .hero-company{-webkit-text-fill-color:#191F24!important;font-size:2.5rem!important}
+  .card,.tier-card,.case-card,.stat-card{background:#f9f9f9!important;border:1px solid #ddd!important;backdrop-filter:none!important;box-shadow:none!important;page-break-inside:avoid!important}
+  .section-title .gradient,.gradient,.tier-price,.case-result,.score-ring .grade,.overall-ring .score-num,.metric-card .value,.stat-card .stat-num,.roi-card .value{-webkit-text-fill-color:#0644ED!important;background:none!important;color:#0644ED!important}
+  .reveal{opacity:1!important;transform:none!important}
+  .chart-wrap{border:1px solid #ddd!important;background:#fff!important}
+  .container{max-width:100%!important}
+  @page{margin:1.5cm;size:letter}
+  h1,h2,h3{page-break-after:avoid}
+  .grid-3{grid-template-columns:repeat(3,1fr)!important}
+  .grid-2{grid-template-columns:1fr 1fr!important}
+  .tier-grid{grid-template-columns:repeat(3,1fr)!important}
+  .print-only{display:block!important}
+  .category-scores-grid{grid-template-columns:repeat(6,1fr)!important}
+}
+@media(max-width:1024px){.tier-grid{grid-template-columns:1fr 1fr}.case-grid{grid-template-columns:1fr 1fr}.grid-4{grid-template-columns:repeat(2,1fr)}.stats-bar{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:768px){.grid-2,.grid-3,.tier-grid,.case-grid{grid-template-columns:1fr}.ps-row{grid-template-columns:1fr;text-align:center}.ps-arrow{transform:rotate(90deg)}.timeline{flex-direction:column;gap:2rem}.timeline::before{display:none}.timeline-phase{padding-top:0;padding-left:2rem}.timeline-dot{top:0;left:0}.side-nav{display:none}.form-grid-2{grid-template-columns:1fr}section{padding:4rem 1.5rem}}
+</style>
+</head>
+<body>
+
+<!-- PRINT COVER -->
+<div class="print-only" style="text-align:center;padding:5rem 2rem;min-height:90vh;display:flex;flex-direction:column;align-items:center;justify-content:center">
+  <img src="https://brandastic.com/wp-content/uploads/2026/02/mark.png" alt="Brandastic" style="width:50px;height:auto;margin:0 auto 1.5rem;display:block">
+  <div style="font-size:1.5rem;font-weight:800;letter-spacing:0.08em;color:#191F24;margin-bottom:2rem">BRANDASTIC</div>
+  <div style="font-size:0.85rem;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:#64748b;margin-bottom:1rem">SEO Audit Report</div>
+  <div style="font-size:3rem;font-weight:900;color:#191F24;margin-bottom:0.5rem;letter-spacing:-0.03em">JB WHITE, DDS</div>
+  <div style="font-size:1rem;color:#64748b;margin-bottom:2rem">jbwhitedds.com</div>
+  <div style="font-size:0.9rem;color:#64748b">Prepared by Brandastic &nbsp;|&nbsp; July 2026</div>
+  <div style="font-size:0.7rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:#ef4444;margin-top:3rem;padding:8px 24px;border:2px solid #ef4444;border-radius:4px;display:inline-block">CONFIDENTIAL</div>
+</div>
+
+<nav class="nav">
+  <div class="nav-brand"><span class="dot"></span> BRANDASTIC</div>
+  <div class="nav-actions">
+    <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme"><div class="knob">☀</div></button>
+    <button class="pdf-btn" onclick="window.print()">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
+      Download PDF
+    </button>
+  </div>
+</nav>
+
+<div class="reading-progress" id="readingBar"></div>
+
+<div class="side-nav">
+  <div class="side-nav-line"></div>
+  <div class="side-nav-dot active" data-section="hero"><span class="tooltip">Overview</span></div>
+  <div class="side-nav-dot" data-section="scorecard"><span class="tooltip">Scorecard</span></div>
+  <div class="side-nav-dot" data-section="technical"><span class="tooltip">Technical SEO</span></div>
+  <div class="side-nav-dot" data-section="onpage"><span class="tooltip">On-Page SEO</span></div>
+  <div class="side-nav-dot" data-section="local"><span class="tooltip">Local SEO</span></div>
+  <div class="side-nav-dot" data-section="authority"><span class="tooltip">Authority</span></div>
+  <div class="side-nav-dot" data-section="competitive"><span class="tooltip">Competitive</span></div>
+  <div class="side-nav-dot" data-section="roadmap"><span class="tooltip">Roadmap</span></div>
+  <div class="side-nav-dot" data-section="investment"><span class="tooltip">Investment</span></div>
+  <div class="side-nav-dot" data-section="casestudies"><span class="tooltip">Case Studies</span></div>
+  <div class="side-nav-dot" data-section="cta"><span class="tooltip">Get Started</span></div>
+</div>
+
+<div class="watermark"><span style="width:6px;height:6px;border-radius:50%;background:linear-gradient(135deg,#40B4E5,#CC22FF);display:inline-block;flex-shrink:0"></span> Prepared by Brandastic</div>
+
+<!-- ===== 1. HERO ===== -->
+<section class="hero" id="hero">
+  <div class="hero-bg">
+    <img src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?w=1800&q=80" alt="Dental Practice">
+  </div>
+  <div class="section-badge">SEO Audit Report — July 2026</div>
+  <h1 class="hero-company">JB White, DDS</h1>
+  <p style="color:var(--text-secondary);font-size:1.1rem;max-width:640px;text-align:center;margin-top:1rem;line-height:1.7">Dr. White is a credentialed KOL with a strong clinical reputation — but jbwhitedds.com is nearly invisible online. This audit reveals exactly why, and exactly how to fix it.</p>
+  <div class="hero-meta">
+    <span>jbwhitedds.com</span>
+    <span>Las Vegas, NV</span>
+    <span>Cosmetic Dentistry &amp; Implants</span>
+    <span>Prepared by Brandastic</span>
+  </div>
+  <div class="hero-scroll" style="color:var(--text-muted)">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 13l5 5 5-5"/><path d="M7 7l5 5 5-5"/></svg>
+  </div>
+</section>
+
+<!-- ===== 2. SCORECARD ===== -->
+<section id="scorecard">
+  <div class="container">
+    <div class="section-badge">01 — Audit Scorecard</div>
+    <h2 class="section-title">Overall Grade: <span class="gradient">D+ (47/100)</span></h2>
+    <p class="section-sub">jbwhitedds.com scores significantly below average across all major SEO categories. The good news: the issues are fixable, and the upside — given Dr. White's credentials and the value of dental patients — is enormous.</p>
+
+    <!-- Overall Score Ring -->
+    <div class="overall-score-section">
+      <div class="overall-ring">
+        <svg viewBox="0 0 180 180">
+          <defs>
+            <linearGradient id="scoreGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" stop-color="#40B4E5"/>
+              <stop offset="100%" stop-color="#CC22FF"/>
+            </linearGradient>
+          </defs>
+          <circle class="bg" cx="90" cy="90" r="80"/>
+          <circle class="fg" id="overallRing" cx="90" cy="90" r="80" stroke-dasharray="502.65" stroke-dashoffset="502.65"/>
+        </svg>
+        <div class="center">
+          <div class="score-num">47</div>
+          <div class="score-grade">D+</div>
+        </div>
+      </div>
+      <div class="overall-details">
+        <h3>Room to Grow — Dramatically</h3>
+        <p>With zero structured data, minimal backlinks, and no ranking for any high-value dental keywords, JB White's practice is missing thousands of potential patients per month. Las Vegas dental patients are searching — they're just finding competitors instead. This is a fixable problem.</p>
+        <div style="margin-top:1.25rem;display:flex;flex-wrap:wrap;gap:0.75rem">
+          <span class="badge badge-red">No Schema Markup</span>
+          <span class="badge badge-red">Minimal Backlinks</span>
+          <span class="badge badge-red">0 High-Value Rankings</span>
+          <span class="badge badge-yellow">Content Gaps</span>
+          <span class="badge badge-green">Active Blog</span>
+          <span class="badge badge-green">SSL &amp; Mobile Ready</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Category Score Rings -->
+    <div class="category-scores-grid">
+      <div class="score-ring-wrap card reveal">
+        <div class="score-ring">
+          <svg viewBox="0 0 110 110"><circle class="bg" cx="55" cy="55" r="46"/><circle class="fg" data-score="58" cx="55" cy="55" r="46" stroke="#f59e0b" stroke-dasharray="289" stroke-dashoffset="289"/></svg>
+          <div class="grade"><span>58</span><span class="grade-sub">/100</span></div>
+        </div>
+        <div class="score-ring-label">Technical SEO</div>
+      </div>
+      <div class="score-ring-wrap card reveal">
+        <div class="score-ring">
+          <svg viewBox="0 0 110 110"><circle class="bg" cx="55" cy="55" r="46"/><circle class="fg" data-score="62" cx="55" cy="55" r="46" stroke="#f59e0b" stroke-dasharray="289" stroke-dashoffset="289"/></svg>
+          <div class="grade"><span>62</span><span class="grade-sub">/100</span></div>
+        </div>
+        <div class="score-ring-label">On-Page SEO</div>
+      </div>
+      <div class="score-ring-wrap card reveal">
+        <div class="score-ring">
+          <svg viewBox="0 0 110 110"><circle class="bg" cx="55" cy="55" r="46"/><circle class="fg" data-score="70" cx="55" cy="55" r="46" stroke="#22c55e" stroke-dasharray="289" stroke-dashoffset="289"/></svg>
+          <div class="grade"><span>70</span><span class="grade-sub">/100</span></div>
+        </div>
+        <div class="score-ring-label">Content Quality</div>
+      </div>
+      <div class="score-ring-wrap card reveal">
+        <div class="score-ring">
+          <svg viewBox="0 0 110 110"><circle class="bg" cx="55" cy="55" r="46"/><circle class="fg" data-score="52" cx="55" cy="55" r="46" stroke="#f59e0b" stroke-dasharray="289" stroke-dashoffset="289"/></svg>
+          <div class="grade"><span>52</span><span class="grade-sub">/100</span></div>
+        </div>
+        <div class="score-ring-label">Local SEO</div>
+      </div>
+      <div class="score-ring-wrap card reveal">
+        <div class="score-ring">
+          <svg viewBox="0 0 110 110"><circle class="bg" cx="55" cy="55" r="46"/><circle class="fg" data-score="20" cx="55" cy="55" r="46" stroke="#ef4444" stroke-dasharray="289" stroke-dashoffset="289"/></svg>
+          <div class="grade"><span>20</span><span class="grade-sub">/100</span></div>
+        </div>
+        <div class="score-ring-label">Authority &amp; Links</div>
+      </div>
+      <div class="score-ring-wrap card reveal">
+        <div class="score-ring">
+          <svg viewBox="0 0 110 110"><circle class="bg" cx="55" cy="55" r="46"/><circle class="fg" data-score="18" cx="55" cy="55" r="46" stroke="#ef4444" stroke-dasharray="289" stroke-dashoffset="289"/></svg>
+          <div class="grade"><span>18</span><span class="grade-sub">/100</span></div>
+        </div>
+        <div class="score-ring-label">Competitive Position</div>
+      </div>
+    </div>
+
+    <!-- Radar Chart -->
+    <div class="chart-wrap" style="margin-top:2.5rem">
+      <canvas id="radarChart" style="max-height:380px"></canvas>
+      <p class="chart-hint">Spider chart — higher is better. Authority &amp; Competitive Position are the primary bottlenecks.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 3. TECHNICAL SEO ===== -->
+<section id="technical">
+  <div class="container">
+    <div class="section-badge">02 — Technical SEO · 58/100</div>
+    <h2 class="section-title">Technical Foundation: <span class="gradient">Partial</span></h2>
+    <p class="section-sub">The basics are in place — SSL, mobile, sitemap. But the complete absence of structured data (schema markup) is a critical gap that costs rankings, rich snippets, and local visibility every single day.</p>
+
+    <div class="grid-2">
+      <div class="card reveal">
+        <h4 style="font-weight:700;margin-bottom:1rem;display:flex;align-items:center;gap:8px">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
+          What's Working
+        </h4>
+        <ul class="check-list">
+          <li class="pass"><span class="icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg></span>SSL certificate active — site fully HTTPS</li>
+          <li class="pass"><span class="icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg></span>robots.txt and sitemap.xml present</li>
+          <li class="pass"><span class="icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg></span>WP Rocket caching plugin active</li>
+          <li class="pass"><span class="icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg></span>Mobile viewport tag properly set</li>
+          <li class="pass"><span class="icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg></span>WordPress CMS — manageable and extensible</li>
+        </ul>
+      </div>
+      <div class="card reveal">
+        <h4 style="font-weight:700;margin-bottom:1rem;display:flex;align-items:center;gap:8px">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#ef4444" stroke-width="2.5"><path d="M18 6L6 18M6 6l12 12"/></svg>
+          Critical Gaps
+        </h4>
+        <ul class="check-list">
+          <li class="fail"><span class="icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 6L6 18M6 6l12 12"/></svg></span><strong>ZERO JSON-LD schema</strong> — no LocalBusiness, Dentist, or FAQPage markup</li>
+          <li class="fail"><span class="icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 6L6 18M6 6l12 12"/></svg></span>H4 tags misused as body copy (heading hierarchy broken)</li>
+          <li class="fail"><span class="icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 6L6 18M6 6l12 12"/></svg></span>3 duplicate Google Site Verification codes in &lt;head&gt;</li>
+          <li class="fail"><span class="icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 6L6 18M6 6l12 12"/></svg></span>No CDN — site assets served from single origin</li>
+          <li class="fail"><span class="icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 6L6 18M6 6l12 12"/></svg></span>Duplicate URL: <em>full-mouth-dental-implants</em> vs <em>full-mouth-dental-implants-las-vegas-nv</em></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="warning-banner" style="margin-top:2rem">
+      <div class="icon">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+      </div>
+      <div><span class="text">Schema markup is the single highest-leverage fix available.</span> <span class="sub">Google uses LocalBusiness + Dentist schema to power Maps rankings, knowledge panels, and rich snippets. Every competitor using schema has a structural advantage over jbwhitedds.com right now.</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 4. ON-PAGE SEO ===== -->
+<section id="onpage">
+  <div class="container">
+    <div class="section-badge">03 — On-Page SEO · 62/100</div>
+    <h2 class="section-title">On-Page: <span class="gradient">Needs Keyword Strategy</span></h2>
+    <p class="section-sub">The homepage is solid, but several key pages are missing keyword optimization — a problem because Google ranks individual pages, not whole websites.</p>
+
+    <div class="grid-2" style="margin-bottom:2rem">
+      <div class="ps-row" style="display:block">
+        <div class="ps-card ps-problem" style="margin-bottom:1rem">
+          <div class="title">Contact page title: "Contact Us: JB White, DDS"</div>
+          <div class="body">No location, no service keywords. A wasted opportunity on a page Google may rank for "las vegas cosmetic dentist contact" type queries.</div>
+        </div>
+        <div class="ps-card ps-solution">
+          <div class="title">Fix: "Contact a Las Vegas Cosmetic Dentist | JB White, DDS"</div>
+          <div class="body">Add keywords + location to signal relevance for local searchers.</div>
+        </div>
+      </div>
+      <div class="ps-row" style="display:block">
+        <div class="ps-card ps-problem" style="margin-bottom:1rem">
+          <div class="title">Blog section title: just "Blog"</div>
+          <div class="body">Blog category page has no keyword context. Google doesn't know what this blog is about.</div>
+        </div>
+        <div class="ps-card ps-solution">
+          <div class="title">Fix: "Dental Health Blog | JB White, DDS Las Vegas"</div>
+          <div class="body">Descriptive titles help Google categorize and rank the entire blog section.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="grid-3">
+      <div class="finding-card card reveal">
+        <div class="finding-num high">!</div>
+        <div>
+          <div class="title">About Page Too Thin (~350 words)</div>
+          <div class="desc">Google uses About pages as trust signals. 350 words is far below the threshold. Dr. White's KOL credentials, international lecturing, and awards should be here in detail.</div>
+        </div>
+      </div>
+      <div class="finding-card card reveal">
+        <div class="finding-num critical">!</div>
+        <div>
+          <div class="title">Keyword Cannibalization on Veneers</div>
+          <div class="desc">Multiple pages targeting "composite veneers las vegas" compete with each other, splitting ranking signal and preventing any single page from breaking into top positions.</div>
+        </div>
+      </div>
+      <div class="finding-card card reveal">
+        <div class="finding-num high">!</div>
+        <div>
+          <div class="title">Homepage H1 &amp; Title Are Good</div>
+          <div class="desc">The homepage is well-optimized. The main target keywords are present in the H1 and title tag. This shows the right instincts — just needs to be applied site-wide.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 5. LOCAL SEO ===== -->
+<section id="local">
+  <div class="container">
+    <div class="section-badge">04 — Local SEO · 52/100</div>
+    <h2 class="section-title">Local SEO: <span class="gradient">Major Gaps</span></h2>
+    <p class="section-sub">For a dental practice, local SEO is everything. Patients search "dentist near me" and "cosmetic dentist las vegas" — and right now, jbwhitedds.com is not positioned to capture any of it.</p>
+
+    <div class="grid-2">
+      <div>
+        <div class="card reveal" style="margin-bottom:1.5rem">
+          <h4 style="font-weight:700;margin-bottom:1rem;display:flex;align-items:center;gap:8px">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
+            Local Signals Present
+          </h4>
+          <ul class="check-list">
+            <li class="pass"><span class="icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg></span>Google Maps embed on contact page</li>
+            <li class="pass"><span class="icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg></span>Phone number visible in header</li>
+            <li class="pass"><span class="icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg></span>Listed on Yelp (citation exists)</li>
+          </ul>
+        </div>
+        <div class="card reveal">
+          <h4 style="font-weight:700;margin-bottom:1rem;display:flex;align-items:center;gap:8px">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#ef4444" stroke-width="2.5"><path d="M18 6L6 18M6 6l12 12"/></svg>
+            Critical Local Failures
+          </h4>
+          <ul class="check-list">
+            <li class="fail"><span class="icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 6L6 18M6 6l12 12"/></svg></span>No LocalBusiness or Dentist schema markup</li>
+            <li class="fail"><span class="icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 6L6 18M6 6l12 12"/></svg></span>NAP (Name, Address, Phone) not in footer</li>
+            <li class="fail"><span class="icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 6L6 18M6 6l12 12"/></svg></span>No service area pages (Henderson, Summerlin)</li>
+            <li class="fail"><span class="icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 6L6 18M6 6l12 12"/></svg></span>No Review/AggregateRating schema</li>
+            <li class="fail"><span class="icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 6L6 18M6 6l12 12"/></svg></span>Phone format inconsistency: 702-823-3000 vs 702.823.3000</li>
+          </ul>
+        </div>
+      </div>
+      <div class="chart-wrap reveal">
+        <canvas id="localChart" style="max-height:340px"></canvas>
+        <p class="chart-hint">Local SEO components — current state vs. full optimization potential</p>
+      </div>
+    </div>
+
+    <div class="warning-banner" style="margin-top:2rem">
+      <div class="icon">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+      </div>
+      <div><span class="text">NAP inconsistency hurts Local Pack rankings.</span> <span class="sub">Google cross-references your phone number across directories. Using two formats (dashes vs dots) creates conflicting citations that weaken local authority. Simple fix, big impact.</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 6. AUTHORITY ===== -->
+<section id="authority">
+  <div class="container">
+    <div class="section-badge">05 — Authority &amp; Backlinks · 20/100</div>
+    <h2 class="section-title">Authority: <span class="gradient">Massive Untapped Potential</span></h2>
+    <p class="section-sub">The domain is critically weak in backlinks right now — but Dr. White has an extraordinary opportunity to build authority that most dentists never will. He's a KOL who lectures internationally. That's a link-building goldmine.</p>
+
+    <div class="stats-bar">
+      <div class="stat-card reveal"><div class="stat-num">4.2M</div><div class="stat-label">SEMrush Domain Rank (lower = better)</div></div>
+      <div class="stat-card reveal"><div class="stat-num">60</div><div class="stat-label">Organic Keywords Ranking</div></div>
+      <div class="stat-card reveal"><div class="stat-num">72</div><div class="stat-label">Organic Visits / Month</div></div>
+      <div class="stat-card reveal"><div class="stat-num">KOL</div><div class="stat-label">Dr. White's Industry Status</div></div>
+    </div>
+
+    <div class="grid-2">
+      <div class="card reveal">
+        <h4 style="font-weight:700;margin-bottom:1rem;display:flex;align-items:center;gap:8px">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#ef4444" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/></svg>
+          The Problem
+        </h4>
+        <p style="color:var(--text-secondary);font-size:0.9rem;line-height:1.65">Domain Rank 4,256,283 puts jbwhitedds.com in the bottom percentile of all websites. With only 72 organic visits per month and 60 tracked keywords, the site has virtually no search presence. Google sees it as a low-authority domain and refuses to rank it for competitive terms.</p>
+      </div>
+      <div class="card reveal">
+        <h4 style="font-weight:700;margin-bottom:1rem;display:flex;align-items:center;gap:8px">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+          The KOL Opportunity
+        </h4>
+        <p style="color:var(--text-secondary);font-size:0.9rem;line-height:1.65">Dr. White lectures internationally — a fact almost no local competitor can claim. Dental manufacturers, conference organizers, CE platforms, dental schools, and industry publications will link to a featured speaker's website. Each link from these high-authority domains dramatically boosts jbwhitedds.com's ranking power.</p>
+      </div>
+    </div>
+
+    <div class="card reveal" style="margin-top:1.5rem;background:linear-gradient(135deg,rgba(64,180,229,0.06),rgba(204,34,255,0.04));border-color:rgba(64,180,229,0.2)">
+      <h4 style="font-weight:700;margin-bottom:0.75rem">KOL Link-Building Targets</h4>
+      <div class="grid-3" style="gap:1rem;margin-top:0.5rem">
+        <div style="background:var(--bg-card);border-radius:10px;padding:1rem">
+          <div style="font-weight:700;font-size:0.9rem;margin-bottom:0.4rem;color:var(--accent-light)">Dental Manufacturers</div>
+          <div style="font-size:0.82rem;color:var(--text-secondary)">Straumann, Nobel Biocare, Envista — these companies spotlight KOL speakers with featured bios and profile pages linking back to their websites.</div>
+        </div>
+        <div style="background:var(--bg-card);border-radius:10px;padding:1rem">
+          <div style="font-weight:700;font-size:0.9rem;margin-bottom:0.4rem;color:var(--accent-light)">Conference &amp; CE Platforms</div>
+          <div style="font-size:0.82rem;color:var(--text-secondary)">Every speaking engagement should have a speaker bio page linking to jbwhitedds.com. High-DA dental education sites pass significant link equity.</div>
+        </div>
+        <div style="background:var(--bg-card);border-radius:10px;padding:1rem">
+          <div style="font-weight:700;font-size:0.9rem;margin-bottom:0.4rem;color:var(--accent-light)">Dental Publications</div>
+          <div style="font-size:0.82rem;color:var(--text-secondary)">Dental Economics, Inside Dentistry, Compendium — guest articles and expert commentary with links are natural for a practicing KOL.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 7. COMPETITIVE ===== -->
+<section id="competitive">
+  <div class="container">
+    <div class="section-badge">06 — Competitive Position · 18/100</div>
+    <h2 class="section-title">Competitive: <span class="gradient">Invisible Right Now</span></h2>
+    <p class="section-sub">jbwhitedds.com only ranks for its own brand name. Every high-value Las Vegas dental keyword belongs to competitors — including some with far weaker clinical credentials than Dr. White.</p>
+
+    <!-- Keyword Gaps -->
+    <h3 style="font-size:1.1rem;font-weight:700;margin-bottom:1.25rem;color:var(--text-muted);letter-spacing:0.05em;text-transform:uppercase;font-size:0.8rem">Keywords You're Not Ranking For</h3>
+    <div class="grid-4" style="margin-bottom:2.5rem">
+      <div class="gap-card card reveal">
+        <div class="kw">dental implants las vegas</div>
+        <div class="vol">2,400</div>
+        <div class="vol-label">searches / month</div>
+        <div class="status">Not Ranking</div>
+      </div>
+      <div class="gap-card card reveal">
+        <div class="kw">cosmetic dentist las vegas</div>
+        <div class="vol">1,600</div>
+        <div class="vol-label">searches / month</div>
+        <div class="status">Not Ranking</div>
+      </div>
+      <div class="gap-card card reveal">
+        <div class="kw">invisalign las vegas</div>
+        <div class="vol">1,300</div>
+        <div class="vol-label">searches / month</div>
+        <div class="status">Not Ranking</div>
+      </div>
+      <div class="gap-card card reveal">
+        <div class="kw">composite veneers las vegas</div>
+        <div class="vol">590</div>
+        <div class="vol-label">searches / month</div>
+        <div class="status" style="background:rgba(245,158,11,0.12);color:var(--yellow)">Position #13</div>
+      </div>
+    </div>
+
+    <!-- Competitor Matrix -->
+    <div class="seo-matrix-wrap reveal">
+      <table class="seo-matrix">
+        <thead>
+          <tr>
+            <th>SEO Factor</th>
+            <th class="highlight">JB White, DDS</th>
+            <th class="center">Aspiring Smiles</th>
+            <th class="center">Typical Competitor</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Schema Markup</td>
+            <td class="highlight status-bad">None</td>
+            <td class="center status-good">Full</td>
+            <td class="center status-warn">Partial</td>
+          </tr>
+          <tr>
+            <td>NAP in Footer</td>
+            <td class="highlight status-bad">No</td>
+            <td class="center status-good">Yes</td>
+            <td class="center status-good">Yes</td>
+          </tr>
+          <tr>
+            <td>Organic Traffic</td>
+            <td class="highlight status-bad">72/mo</td>
+            <td class="center status-good">2,400+/mo</td>
+            <td class="center status-warn">500+/mo</td>
+          </tr>
+          <tr>
+            <td>Service Area Pages</td>
+            <td class="highlight status-bad">None</td>
+            <td class="center status-good">Multiple</td>
+            <td class="center status-warn">1–2</td>
+          </tr>
+          <tr>
+            <td>KOL Credentials</td>
+            <td class="highlight status-good">International KOL</td>
+            <td class="center status-bad">No</td>
+            <td class="center status-bad">No</td>
+          </tr>
+          <tr>
+            <td>PPC Spend</td>
+            <td class="highlight status-bad">$0</td>
+            <td class="center status-good">Active</td>
+            <td class="center status-warn">Varies</td>
+          </tr>
+          <tr>
+            <td>Content Breadth</td>
+            <td class="highlight status-warn">Core Services Only</td>
+            <td class="center status-good">All-on-4, Invisalign, Cost</td>
+            <td class="center status-warn">Moderate</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="warning-banner" style="margin-top:2rem">
+      <div class="icon">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+      </div>
+      <div><span class="text">Aspiring Smiles outranks Dr. White with lesser credentials.</span> <span class="sub">This is purely an SEO execution gap — not a quality gap. Dr. White is clinically superior, but that doesn't matter to Google without the proper technical and content signals.</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 8. THE OPPORTUNITY ===== -->
+<section style="background:var(--bg-secondary)">
+  <div class="container">
+    <div class="section-badge">The Business Case</div>
+    <h2 class="section-title">What Ranking Is <span class="gradient">Actually Worth</span></h2>
+    <p class="section-sub">Dental SEO has one of the highest ROIs of any local business category. Here's the math for Las Vegas cosmetic dentistry and implants.</p>
+
+    <div class="roi-band">
+      <div class="roi-grid">
+        <div class="roi-card">
+          <div class="label">Keyword CPC (Google Ads)</div>
+          <div class="value">$8–20</div>
+          <div class="sub">Per click for dental implant / cosmetic dentist keywords — each organic ranking replaces paid spend</div>
+        </div>
+        <div class="roi-card">
+          <div class="label">Average Dental Implant Case</div>
+          <div class="value">$3K–30K</div>
+          <div class="sub">Per patient, depending on complexity — full-mouth cases at the high end</div>
+        </div>
+        <div class="roi-card">
+          <div class="label">10 New Patients / Month from SEO</div>
+          <div class="value">$30K–300K</div>
+          <div class="sub">Annual revenue impact — conservative estimate at implant case values</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="grid-3" style="margin-top:2rem">
+      <div class="card reveal" style="text-align:center;padding:2rem">
+        <div style="width:56px;height:56px;border-radius:16px;background:linear-gradient(135deg,rgba(239,68,68,0.15),rgba(239,68,68,0.08));display:flex;align-items:center;justify-content:center;margin:0 auto 1rem">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#ef4444" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+        </div>
+        <div style="font-size:1.5rem;font-weight:800;margin-bottom:0.4rem">$0</div>
+        <div style="font-size:0.85rem;color:var(--text-muted);margin-bottom:0.5rem">Current PPC Spend</div>
+        <div style="font-size:0.85rem;color:var(--text-secondary)">No paid coverage means zero presence on the keywords competitors are paying $8–20/click to own.</div>
+      </div>
+      <div class="card reveal" style="text-align:center;padding:2rem">
+        <div style="width:56px;height:56px;border-radius:16px;background:linear-gradient(135deg,rgba(245,158,11,0.15),rgba(245,158,11,0.08));display:flex;align-items:center;justify-content:center;margin:0 auto 1rem">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#f59e0b" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        </div>
+        <div style="font-size:1.5rem;font-weight:800;margin-bottom:0.4rem">5,300+</div>
+        <div style="font-size:0.85rem;color:var(--text-muted);margin-bottom:0.5rem">Monthly Searches, Top 3 Keywords</div>
+        <div style="font-size:0.85rem;color:var(--text-secondary)">Just from "dental implants," "cosmetic dentist," and "invisalign" in Las Vegas alone.</div>
+      </div>
+      <div class="card reveal" style="text-align:center;padding:2rem">
+        <div style="width:56px;height:56px;border-radius:16px;background:linear-gradient(135deg,rgba(34,197,94,0.15),rgba(34,197,94,0.08));display:flex;align-items:center;justify-content:center;margin:0 auto 1rem">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+        </div>
+        <div style="font-size:1.5rem;font-weight:800;margin-bottom:0.4rem">12 mo.</div>
+        <div style="font-size:0.85rem;color:var(--text-muted);margin-bottom:0.5rem">Realistic Ranking Timeline</div>
+        <div style="font-size:0.85rem;color:var(--text-secondary)">With proper execution, page 1 positions for priority keywords are achievable within 6–12 months.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 9. ROADMAP ===== -->
+<section id="roadmap">
+  <div class="container">
+    <div class="section-badge">07 — Priority Roadmap</div>
+    <h2 class="section-title">The <span class="gradient">Action Plan</span></h2>
+    <p class="section-sub">Three phases, sequenced by impact. Each phase builds on the last — fix the foundation, then grow content, then amplify authority.</p>
+
+    <div class="strategy-card reveal">
+      <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:0.5rem;margin-bottom:1rem">
+        <div style="font-size:0.7rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--accent-light)">Month 1 — Foundation</div>
+        <span class="badge badge-red">Highest Priority</span>
+      </div>
+      <div style="font-size:1.15rem;font-weight:800;margin-bottom:1rem">Fix What's Breaking Rankings Now</div>
+      <div class="grid-2" style="gap:1.5rem">
+        <div>
+          <div style="font-size:0.72rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-muted);margin-bottom:0.5rem">Actions</div>
+          <ul style="list-style:none;display:flex;flex-direction:column;gap:0.4rem;color:var(--text-secondary);font-size:0.88rem">
+            <li style="display:flex;align-items:start;gap:0.5rem"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#40B4E5" stroke-width="2.5" style="flex-shrink:0;margin-top:3px"><path d="M20 6L9 17l-5-5"/></svg>Implement LocalBusiness + Dentist JSON-LD schema</li>
+            <li style="display:flex;align-items:start;gap:0.5rem"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#40B4E5" stroke-width="2.5" style="flex-shrink:0;margin-top:3px"><path d="M20 6L9 17l-5-5"/></svg>Add FAQPage schema to service pages</li>
+            <li style="display:flex;align-items:start;gap:0.5rem"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#40B4E5" stroke-width="2.5" style="flex-shrink:0;margin-top:3px"><path d="M20 6L9 17l-5-5"/></svg>Add consistent NAP in footer (use one format)</li>
+            <li style="display:flex;align-items:start;gap:0.5rem"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#40B4E5" stroke-width="2.5" style="flex-shrink:0;margin-top:3px"><path d="M20 6L9 17l-5-5"/></svg>Fully optimize Google Business Profile</li>
+            <li style="display:flex;align-items:start;gap:0.5rem"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#40B4E5" stroke-width="2.5" style="flex-shrink:0;margin-top:3px"><path d="M20 6L9 17l-5-5"/></svg>Rewrite keyword-poor title tags (Contact, Blog, About)</li>
+            <li style="display:flex;align-items:start;gap:0.5rem"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#40B4E5" stroke-width="2.5" style="flex-shrink:0;margin-top:3px"><path d="M20 6L9 17l-5-5"/></svg>Fix duplicate URL canonicalization issue on implants page</li>
+            <li style="display:flex;align-items:start;gap:0.5rem"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#40B4E5" stroke-width="2.5" style="flex-shrink:0;margin-top:3px"><path d="M20 6L9 17l-5-5"/></svg>Remove duplicate Site Verification codes from &lt;head&gt;</li>
+          </ul>
+        </div>
+        <div>
+          <div style="font-size:0.72rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-muted);margin-bottom:0.5rem">Expected Impact</div>
+          <p style="color:var(--text-secondary);font-size:0.88rem;line-height:1.65">Schema markup alone can trigger rich snippets in Google Search and boost Local Pack rankings. Combined with a fully optimized GBP and consistent NAP, this phase typically shows measurable improvement within 4–8 weeks. These are the highest-leverage fixes available — and none require new content.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="strategy-card reveal">
+      <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:0.5rem;margin-bottom:1rem">
+        <div style="font-size:0.7rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--accent-light)">Months 2–3 — Content Expansion</div>
+        <span class="badge badge-yellow">High Priority</span>
+      </div>
+      <div style="font-size:1.15rem;font-weight:800;margin-bottom:1rem">Build the Content That Captures Demand</div>
+      <div class="grid-2" style="gap:1.5rem">
+        <div>
+          <div style="font-size:0.72rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-muted);margin-bottom:0.5rem">Actions</div>
+          <ul style="list-style:none;display:flex;flex-direction:column;gap:0.4rem;color:var(--text-secondary);font-size:0.88rem">
+            <li style="display:flex;align-items:start;gap:0.5rem"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#f59e0b" stroke-width="2.5" style="flex-shrink:0;margin-top:3px"><path d="M20 6L9 17l-5-5"/></svg>Create dedicated All-on-4 implants page</li>
+            <li style="display:flex;align-items:start;gap:0.5rem"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#f59e0b" stroke-width="2.5" style="flex-shrink:0;margin-top:3px"><path d="M20 6L9 17l-5-5"/></svg>Create Invisalign las vegas landing page</li>
+            <li style="display:flex;align-items:start;gap:0.5rem"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#f59e0b" stroke-width="2.5" style="flex-shrink:0;margin-top:3px"><path d="M20 6L9 17l-5-5"/></svg>Add dental implant cost page (high commercial intent)</li>
+            <li style="display:flex;align-items:start;gap:0.5rem"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#f59e0b" stroke-width="2.5" style="flex-shrink:0;margin-top:3px"><path d="M20 6L9 17l-5-5"/></svg>Add dental financing / payment options page</li>
+            <li style="display:flex;align-items:start;gap:0.5rem"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#f59e0b" stroke-width="2.5" style="flex-shrink:0;margin-top:3px"><path d="M20 6L9 17l-5-5"/></svg>Expand About page to 1,000+ words featuring KOL credentials</li>
+            <li style="display:flex;align-items:start;gap:0.5rem"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#f59e0b" stroke-width="2.5" style="flex-shrink:0;margin-top:3px"><path d="M20 6L9 17l-5-5"/></svg>Resolve composite veneers keyword cannibalization</li>
+            <li style="display:flex;align-items:start;gap:0.5rem"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#f59e0b" stroke-width="2.5" style="flex-shrink:0;margin-top:3px"><path d="M20 6L9 17l-5-5"/></svg>Audit and refresh thin blog posts</li>
+          </ul>
+        </div>
+        <div>
+          <div style="font-size:0.72rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-muted);margin-bottom:0.5rem">Expected Impact</div>
+          <p style="color:var(--text-secondary);font-size:0.88rem;line-height:1.65">Invisalign (1,300/mo) and All-on-4 searches are high-intent, high-value. Creating these pages positions JB White for rankings that drive $10K–30K+ cases. An expanded About page with KOL credentials also builds E-E-A-T (Experience, Expertise, Authority, Trust) signals Google heavily weights for medical/dental sites.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="strategy-card reveal">
+      <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:0.5rem;margin-bottom:1rem">
+        <div style="font-size:0.7rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--accent-light)">Months 3–6 — Authority &amp; Growth</div>
+        <span class="badge badge-blue">Ongoing</span>
+      </div>
+      <div style="font-size:1.15rem;font-weight:800;margin-bottom:1rem">Build the Authority Competitors Can't Match</div>
+      <div class="grid-2" style="gap:1.5rem">
+        <div>
+          <div style="font-size:0.72rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-muted);margin-bottom:0.5rem">Actions</div>
+          <ul style="list-style:none;display:flex;flex-direction:column;gap:0.4rem;color:var(--text-secondary);font-size:0.88rem">
+            <li style="display:flex;align-items:start;gap:0.5rem"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#40B4E5" stroke-width="2.5" style="flex-shrink:0;margin-top:3px"><path d="M20 6L9 17l-5-5"/></svg>KOL backlink outreach: manufacturer speaker pages, CE platforms</li>
+            <li style="display:flex;align-items:start;gap:0.5rem"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#40B4E5" stroke-width="2.5" style="flex-shrink:0;margin-top:3px"><path d="M20 6L9 17l-5-5"/></svg>Create neighborhood pages: Henderson, Summerlin, Centennial Hills</li>
+            <li style="display:flex;align-items:start;gap:0.5rem"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#40B4E5" stroke-width="2.5" style="flex-shrink:0;margin-top:3px"><path d="M20 6L9 17l-5-5"/></svg>Launch structured review acquisition campaign</li>
+            <li style="display:flex;align-items:start;gap:0.5rem"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#40B4E5" stroke-width="2.5" style="flex-shrink:0;margin-top:3px"><path d="M20 6L9 17l-5-5"/></svg>Build citation consistency across Yelp, Healthgrades, Zocdoc, etc.</li>
+            <li style="display:flex;align-items:start;gap:0.5rem"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#40B4E5" stroke-width="2.5" style="flex-shrink:0;margin-top:3px"><path d="M20 6L9 17l-5-5"/></svg>Launch Google Ads for dental implants + cosmetic dentist keywords</li>
+            <li style="display:flex;align-items:start;gap:0.5rem"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#40B4E5" stroke-width="2.5" style="flex-shrink:0;margin-top:3px"><path d="M20 6L9 17l-5-5"/></svg>Guest articles in dental publications (Dental Economics, Inside Dentistry)</li>
+            <li style="display:flex;align-items:start;gap:0.5rem"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#40B4E5" stroke-width="2.5" style="flex-shrink:0;margin-top:3px"><path d="M20 6L9 17l-5-5"/></svg>Reputation management: aggregate and respond to reviews</li>
+          </ul>
+        </div>
+        <div>
+          <div style="font-size:0.72rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-muted);margin-bottom:0.5rem">Expected Impact</div>
+          <p style="color:var(--text-secondary);font-size:0.88rem;line-height:1.65">Neighborhood pages can capture "dentist near me" + location searches across the greater Las Vegas market. Backlinks from dental manufacturers and publications can dramatically improve Domain Authority within 6 months. A Google Ads campaign during the organic ramp-up ensures no search traffic opportunity is missed. Reviews directly influence Local Pack rankings and patient conversion.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 10. INVESTMENT ===== -->
+<section id="investment" style="background:var(--bg-secondary)">
+  <div class="container">
+    <div class="section-badge">08 — Investment Options</div>
+    <h2 class="section-title">Choose Your <span class="gradient">Growth Level</span></h2>
+    <p class="section-sub">Three engagement tiers designed for different goals and budgets. All tiers include monthly reporting, strategic oversight, and direct access to your Brandastic team.</p>
+
+    <div class="tier-grid">
+      <!-- Tier 1 -->
+      <div class="tier-card reveal">
+        <div style="margin-bottom:0.5rem">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="color:var(--accent-light)"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        </div>
+        <div class="tier-price">$5K<span class="tier-period">/mo</span></div>
+        <div class="tier-name">Local Dominance</div>
+        <div class="tier-desc">SEO + Local SEO + Content. Fix the foundation and start capturing local search traffic.</div>
+        <ul class="tier-features">
+          <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Full technical SEO audit &amp; implementation</li>
+          <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Schema markup (LocalBusiness, Dentist, FAQ)</li>
+          <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Google Business Profile optimization</li>
+          <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>4 content pages/month (service + location)</li>
+          <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Citation building &amp; NAP consistency</li>
+          <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Monthly performance reporting</li>
+        </ul>
+      </div>
+
+      <!-- Tier 2 (Featured) -->
+      <div class="tier-card featured reveal">
+        <div class="tier-badge">Most Popular</div>
+        <div style="margin-bottom:0.5rem">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="color:var(--accent-light)"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        </div>
+        <div class="tier-price">$7.5K<span class="tier-period">/mo</span></div>
+        <div class="tier-name">Growth Accelerator</div>
+        <div class="tier-desc">SEO + Local + Content + Link Building + PPC. Fastest path to new patient volume.</div>
+        <ul class="tier-features">
+          <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Everything in Local Dominance</li>
+          <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>KOL backlink outreach campaign</li>
+          <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Google Ads management (implants, cosmetic)</li>
+          <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>6 content pages/month + blog strategy</li>
+          <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Neighborhood service area pages</li>
+          <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Conversion rate optimization</li>
+          <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Bi-weekly strategy calls</li>
+        </ul>
+      </div>
+
+      <!-- Tier 3 -->
+      <div class="tier-card reveal">
+        <div style="margin-bottom:0.5rem">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="color:var(--accent-light)"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+        </div>
+        <div class="tier-price">$10K<span class="tier-period">/mo</span></div>
+        <div class="tier-name">Total Market Ownership</div>
+        <div class="tier-desc">Full service: SEO, PPC, Content, Social, Link Building, and Review Management.</div>
+        <ul class="tier-features">
+          <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Everything in Growth Accelerator</li>
+          <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Social media content &amp; management</li>
+          <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Full review management system</li>
+          <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Dental publication guest articles</li>
+          <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Video SEO &amp; YouTube channel setup</li>
+          <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Competitor conquest campaigns</li>
+          <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Dedicated account strategist</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="success-banner" style="margin-top:2rem">
+      <div class="icon">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg>
+      </div>
+      <div><span class="text">ROI Math:</span> <span class="sub">At the $7.5K/mo tier, a single additional All-on-4 case ($25K average) pays for the entire month. Even conservative projections show dental SEO paying for itself within 60–90 days for an implant-focused practice.</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 11. CASE STUDIES ===== -->
+<section id="casestudies">
+  <div class="container">
+    <div class="section-badge">09 — Brandastic Track Record</div>
+    <h2 class="section-title">Results We've <span class="gradient">Delivered</span></h2>
+    <p class="section-sub">Brandastic is an Orange County-based full-service digital marketing agency with a track record of delivering transformational results across healthcare, retail, and B2B.</p>
+
+    <div class="case-grid">
+      <div class="case-card c1 reveal">
+        <div class="case-client">RICOH</div>
+        <div class="case-result">120×</div>
+        <div class="case-metric">Return on Ad Spend</div>
+        <div class="case-desc">Brandastic drove a 120x ROAS for RICOH through precision-targeted paid media and conversion-optimized landing pages — turning a modest ad budget into a revenue machine.</div>
+      </div>
+      <div class="case-card c2 reveal">
+        <div class="case-client">Orangetheory Fitness</div>
+        <div class="case-result">800%</div>
+        <div class="case-metric">Decrease in Cost Per Lead</div>
+        <div class="case-desc">We slashed Orangetheory's CPL by 800% through multi-location local SEO, Google Ads restructuring, and hyper-targeted audience segmentation — flooding franchises with qualified leads at a fraction of the previous cost.</div>
+      </div>
+      <div class="case-card c3 reveal">
+        <div class="case-client">Young Surgical</div>
+        <div class="case-result">25×</div>
+        <div class="case-metric">Return on Ad Spend</div>
+        <div class="case-desc">For a healthcare-adjacent client, Brandastic delivered 25x ROAS through integrated SEO, PPC, and CRO — proving we know how to generate ROI for medically-oriented businesses where trust and conversions both matter.</div>
+      </div>
+    </div>
+
+    <div class="card reveal" style="margin-top:2rem;text-align:center;padding:2.5rem;background:linear-gradient(135deg,rgba(64,180,229,0.06),rgba(204,34,255,0.04));border-color:rgba(64,180,229,0.15)">
+      <div style="font-size:0.78rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--text-muted);margin-bottom:0.75rem">Why Brandastic for Dental</div>
+      <p style="color:var(--text-secondary);font-size:0.95rem;max-width:680px;margin:0 auto 1.5rem;line-height:1.7">Dental is one of the highest-ROI local marketing categories, and we understand the specific demands of healthcare-adjacent SEO: E-E-A-T requirements, HIPAA-safe content, local intent signals, and review strategy. We bring the same results-obsessed approach to every client — with transparent monthly reporting and no lock-in contracts.</p>
+      <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:1.5rem">
+        <div style="display:flex;align-items:center;gap:6px;font-size:0.88rem;color:var(--text-secondary)">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>No long-term lock-in contracts
+        </div>
+        <div style="display:flex;align-items:center;gap:6px;font-size:0.88rem;color:var(--text-secondary)">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Transparent monthly reporting
+        </div>
+        <div style="display:flex;align-items:center;gap:6px;font-size:0.88rem;color:var(--text-secondary)">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Orange County-based team
+        </div>
+        <div style="display:flex;align-items:center;gap:6px;font-size:0.88rem;color:var(--text-secondary)">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Healthcare + local SEO expertise
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 12. CTA / CONTACT ===== -->
+<section class="form-section" id="cta">
+  <div class="container" style="max-width:900px">
+    <div style="text-align:center;margin-bottom:3rem">
+      <div class="section-badge" style="margin:0 auto 1.5rem">10 — Let's Get Started</div>
+      <h2 class="section-title">Ready to Fill Your <span class="gradient">Schedule?</span></h2>
+      <p class="section-sub" style="margin:0 auto">Dr. White's clinical credentials deserve a digital presence to match. Let's build you one. Fill out the form and a Brandastic strategist will reach out within one business day.</p>
+    </div>
+
+    <div style="display:flex;gap:2rem;align-items:center;margin-bottom:3rem;flex-wrap:wrap;justify-content:center">
+      <div style="display:flex;align-items:center;gap:1rem;background:var(--bg-card);border:1px solid var(--bg-card-border);border-radius:16px;padding:1.5rem 2rem">
+        <img src="https://brandastic.com/wp-content/uploads/2024/10/justin-evil-laugh.png" alt="Justin Nassie" style="width:72px;height:72px;object-fit:cover;object-position:top;border-radius:50%;flex-shrink:0" loading="lazy">
+        <div>
+          <div style="font-weight:800;font-size:1.05rem">Justin Nassie</div>
+          <div style="color:var(--text-muted);font-size:0.82rem;margin-bottom:0.4rem">President, Brandastic</div>
+          <a href="tel:9498928944" style="font-size:0.85rem;color:var(--accent-light);display:flex;align-items:center;gap:5px">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
+            (949) 892-8944
+          </a>
+        </div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:0.75rem">
+        <div style="display:flex;align-items:center;gap:0.5rem;font-size:0.88rem;color:var(--text-secondary)">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
+          Respond within 1 business day
+        </div>
+        <div style="display:flex;align-items:center;gap:0.5rem;font-size:0.88rem;color:var(--text-secondary)">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
+          Free strategy call included
+        </div>
+        <div style="display:flex;align-items:center;gap:0.5rem;font-size:0.88rem;color:var(--text-secondary)">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
+          No commitment required
+        </div>
+      </div>
+    </div>
+
+    <div class="form-wrap">
+      <form id="contactForm" onsubmit="handleSubmit(event)">
+        <div class="form-grid-2">
+          <div class="form-field">
+            <label for="fname">First Name</label>
+            <input type="text" id="fname" name="fname" placeholder="Dr. White" required>
+          </div>
+          <div class="form-field">
+            <label for="lname">Last Name</label>
+            <input type="text" id="lname" name="lname" placeholder="White" required>
+          </div>
+        </div>
+        <div class="form-grid-2">
+          <div class="form-field">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" name="email" placeholder="doctor@jbwhitedds.com" required>
+          </div>
+          <div class="form-field">
+            <label for="phone">Phone Number</label>
+            <input type="tel" id="phone" name="phone" placeholder="702-823-3000">
+          </div>
+        </div>
+        <div class="form-field">
+          <label for="tier">Interested Tier</label>
+          <select id="tier" name="tier">
+            <option value="">Select a tier (optional)</option>
+            <option value="tier1">Tier 1 — Local Dominance ($5K/mo)</option>
+            <option value="tier2">Tier 2 — Growth Accelerator ($7.5K/mo)</option>
+            <option value="tier3">Tier 3 — Total Market Ownership ($10K/mo)</option>
+            <option value="unsure">Not sure yet — let's talk</option>
+          </select>
+        </div>
+        <div class="form-field">
+          <label for="message">Questions or Goals</label>
+          <textarea id="message" name="message" placeholder="What's your biggest challenge right now? Any specific questions about the audit?"></textarea>
+        </div>
+        <button type="submit" class="form-submit">
+          Send to Brandastic Team
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="display:inline;margin-left:4px"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </button>
+      </form>
+      <div class="form-success" id="formSuccess">
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin:0 auto 0.75rem;display:block"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+        <div style="font-size:1.1rem;margin-bottom:0.5rem">Message sent!</div>
+        <div style="font-size:0.88rem;font-weight:400;color:var(--text-secondary)">The Brandastic team will be in touch within one business day. We look forward to talking strategy with you.</div>
+      </div>
+      <p style="font-size:0.75rem;color:var(--text-muted);text-align:center;margin-top:1rem">Your information goes directly to the Brandastic team. We never share your data.</p>
+    </div>
+  </div>
+</section>
+
+<!-- PRINT FOOTER -->
+<div class="print-only" style="text-align:center;padding:1rem;font-size:0.75rem;color:#64748b;border-top:1px solid #e5e7eb;margin-top:2rem">
+  Brandastic SEO Audit | JB White, DDS | jbwhitedds.com | brandastic.com | (949) 892-8944 | CONFIDENTIAL
+</div>
+
+<script>
+/* ===== THEME TOGGLE ===== */
+function toggleTheme(){
+  const html=document.documentElement;
+  const cur=html.getAttribute('data-theme');
+  const next=cur==='dark'?'light':'dark';
+  html.setAttribute('data-theme',next);
+  try{localStorage.setItem('audit-theme',next);}catch(e){}
+  const knob=document.querySelector('.theme-toggle .knob');
+  if(knob)knob.textContent=next==='dark'?'☾':'☀';
+  if(typeof updateCharts==='function')updateCharts();
+}
+(function(){
+  try{const saved=localStorage.getItem('audit-theme');if(saved)document.documentElement.setAttribute('data-theme',saved);}catch(e){}
+  const knob=document.querySelector('.theme-toggle .knob');
+  if(knob)knob.textContent=document.documentElement.getAttribute('data-theme')==='dark'?'☾':'☀';
+})();
+
+/* ===== REVEAL ON SCROLL ===== */
+(function(){
+  const els=document.querySelectorAll('.reveal');
+  const obs=new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('active');obs.unobserve(e.target);}});
+  },{threshold:0.08});
+  els.forEach(el=>obs.observe(el));
+})();
+
+/* ===== OVERALL SCORE RING ANIMATION ===== */
+(function(){
+  const ring=document.getElementById('overallRing');
+  if(!ring)return;
+  const r=80;const circ=2*Math.PI*r;
+  const score=47;const offset=circ-(score/100*circ);
+  const obs=new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting){
+        setTimeout(()=>{ring.style.transition='stroke-dashoffset 1.8s ease';ring.style.strokeDashoffset=offset;},200);
+        obs.unobserve(e.target);
+      }
+    });
+  },{threshold:0.3});
+  obs.observe(ring.closest('section')||ring);
+})();
+
+/* ===== CATEGORY SCORE RINGS ===== */
+(function(){
+  const rings=document.querySelectorAll('.score-ring .fg[data-score]');
+  const r=46;const circ=2*Math.PI*r;
+  const obs=new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting){
+        const score=parseInt(e.target.dataset.score)||0;
+        const offset=circ-(score/100*circ);
+        setTimeout(()=>{e.target.style.transition='stroke-dashoffset 1.5s ease';e.target.style.strokeDashoffset=offset;},200);
+        obs.unobserve(e.target);
+      }
+    });
+  },{threshold:0.3});
+  rings.forEach(r=>obs.observe(r));
+})();
+
+/* ===== CHARTS ===== */
+var radarChart,localChart;
+function isDark(){return document.documentElement.getAttribute('data-theme')==='dark';}
+function chartColors(){
+  var d=isDark();
+  return{grid:d?'rgba(255,255,255,0.06)':'rgba(0,0,0,0.06)',text:d?'rgba(255,255,255,0.5)':'rgba(0,0,0,0.5)',bg:d?'rgba(13,17,23,0.8)':'rgba(245,243,239,0.9)'};
+}
+
+function createRadarChart(){
+  const el=document.getElementById('radarChart');if(!el)return;
+  const ctx=el.getContext('2d');const c=chartColors();
+  radarChart=new Chart(ctx,{
+    type:'radar',
+    data:{
+      labels:['Technical SEO','On-Page SEO','Content Quality','Local SEO','Authority & Links','Competitive'],
+      datasets:[{
+        label:'JB White, DDS',
+        data:[58,62,70,52,20,18],
+        backgroundColor:'rgba(64,180,229,0.15)',
+        borderColor:'rgba(64,180,229,0.8)',
+        pointBackgroundColor:'#40B4E5',
+        pointBorderColor:'#fff',
+        pointHoverBackgroundColor:'#fff',
+        pointHoverBorderColor:'#40B4E5',
+        borderWidth:2
+      },{
+        label:'Top Las Vegas Competitor',
+        data:[78,82,75,85,65,80],
+        backgroundColor:'rgba(204,34,255,0.08)',
+        borderColor:'rgba(204,34,255,0.5)',
+        pointBackgroundColor:'#CC22FF',
+        pointBorderColor:'#fff',
+        borderWidth:2,
+        borderDash:[5,5]
+      }]
+    },
+    options:{
+      responsive:true,
+      animation:{duration:1800,easing:'easeOutQuart'},
+      plugins:{
+        legend:{labels:{color:c.text,font:{family:'Inter',size:12}}},
+        tooltip:{backgroundColor:c.bg,titleColor:c.text,bodyColor:c.text}
+      },
+      scales:{
+        r:{
+          beginAtZero:true,max:100,
+          grid:{color:c.grid},
+          angleLines:{color:c.grid},
+          pointLabels:{color:c.text,font:{family:'Inter',size:11}},
+          ticks:{color:c.text,font:{family:'Inter',size:10},stepSize:20,backdropColor:'transparent'}
+        }
+      }
+    }
+  });
+}
+
+function createLocalChart(){
+  const el=document.getElementById('localChart');if(!el)return;
+  const ctx=el.getContext('2d');const c=chartColors();
+  localChart=new Chart(ctx,{
+    type:'bar',
+    data:{
+      labels:['Schema Markup','GBP Optimization','NAP Consistency','Service Pages','Review Signals','Citation Coverage'],
+      datasets:[{
+        label:'Current State',
+        data:[0,35,30,20,25,40],
+        backgroundColor:'rgba(239,68,68,0.7)',
+        borderColor:'#ef4444',
+        borderWidth:1,borderRadius:4
+      },{
+        label:'Full Optimization Potential',
+        data:[100,100,100,100,100,100],
+        backgroundColor:'rgba(34,197,94,0.12)',
+        borderColor:'rgba(34,197,94,0.4)',
+        borderWidth:1,borderRadius:4
+      }]
+    },
+    options:{
+      responsive:true,
+      animation:{duration:1800,easing:'easeOutQuart'},
+      plugins:{
+        legend:{labels:{color:c.text,font:{family:'Inter',size:12}}},
+        tooltip:{callbacks:{label:function(ctx){return ctx.dataset.label+': '+ctx.parsed.y+'%';}}}
+      },
+      scales:{
+        x:{grid:{display:false},ticks:{color:c.text,font:{family:'Inter',size:10}}},
+        y:{beginAtZero:true,max:100,grid:{color:c.grid},ticks:{color:c.text,font:{family:'Inter'},callback:function(v){return v+'%';}}}
+      }
+    }
+  });
+}
+
+function updateCharts(){
+  const c=chartColors();
+  [radarChart,localChart].forEach(chart=>{
+    if(!chart)return;
+    Object.keys(chart.options.scales||{}).forEach(k=>{
+      if(chart.options.scales[k].grid)chart.options.scales[k].grid.color=c.grid;
+      if(chart.options.scales[k].ticks)chart.options.scales[k].ticks.color=c.text;
+      if(chart.options.scales[k].angleLines)chart.options.scales[k].angleLines.color=c.grid;
+      if(chart.options.scales[k].pointLabels)chart.options.scales[k].pointLabels.color=c.text;
+    });
+    if(chart.options.plugins&&chart.options.plugins.legend)chart.options.plugins.legend.labels.color=c.text;
+    chart.update();
+  });
+}
+
+const chartObs=new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      const id=e.target.id;
+      if(id==='radarChart'&&!radarChart)createRadarChart();
+      if(id==='localChart'&&!localChart)createLocalChart();
+      chartObs.unobserve(e.target);
+    }
+  });
+},{threshold:0.1});
+document.querySelectorAll('canvas').forEach(el=>chartObs.observe(el));
+window.addEventListener('load',function(){
+  setTimeout(function(){if(!radarChart)createRadarChart();if(!localChart)createLocalChart();},600);
+});
+
+/* ===== SIDE DOT NAV ===== */
+(function(){
+  const sections=document.querySelectorAll('section[id]');
+  const nav=document.querySelector('.side-nav');
+  if(!nav||!sections.length)return;
+  const dots=nav.querySelectorAll('.side-nav-dot');
+  dots.forEach(dot=>{
+    dot.addEventListener('click',()=>{
+      const t=document.getElementById(dot.dataset.section);
+      if(t){window.scrollTo({top:t.offsetTop-80,behavior:'smooth'});}
+    });
+  });
+  const obs=new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting){
+        dots.forEach(d=>d.classList.remove('active'));
+        const a=nav.querySelector('[data-section="'+e.target.id+'"]');
+        if(a)a.classList.add('active');
+      }
+    });
+  },{rootMargin:'-20% 0px -70% 0px'});
+  sections.forEach(s=>obs.observe(s));
+})();
+
+/* ===== READING PROGRESS ===== */
+(function(){
+  const bar=document.getElementById('readingBar');
+  if(!bar)return;
+  window.addEventListener('scroll',()=>{
+    const st=window.scrollY;
+    const dh=document.documentElement.scrollHeight-window.innerHeight;
+    bar.style.width=(st/dh*100)+'%';
+  },{passive:true});
+})();
+
+/* ===== GRADIENT DIVIDERS ===== */
+(function(){
+  const sections=document.querySelectorAll('section[id]');
+  sections.forEach((s,i)=>{
+    if(i===0)return;
+    const d=document.createElement('div');d.className='gradient-divider';
+    s.parentNode.insertBefore(d,s);
+  });
+  const o=new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('active');o.unobserve(e.target);}});
+  },{threshold:0.5});
+  document.querySelectorAll('.gradient-divider').forEach(d=>o.observe(d));
+})();
+
+/* ===== CTA PULSE ===== */
+(function(){
+  const o=new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{if(e.isIntersecting){e.target.querySelectorAll('.cta-btn').forEach(b=>b.classList.add('pulse'));}});
+  },{threshold:0.3});
+  document.querySelectorAll('#cta').forEach(s=>o.observe(s));
+})();
+
+/* ===== FORM SUBMISSION ===== */
+function handleSubmit(e){
+  e.preventDefault();
+  const form=document.getElementById('contactForm');
+  const data=new FormData(form);
+  const recipients='justin@brandastic.com,info@brandastic.com,seo@brandastic.com,maxwell.gilbert@brandastic.com,samantha@brandastic.com';
+  const body=encodeURIComponent(
+    'New SEO Audit Inquiry — JB White, DDS\n\n'+
+    'Name: '+data.get('fname')+' '+data.get('lname')+'\n'+
+    'Email: '+data.get('email')+'\n'+
+    'Phone: '+data.get('phone')+'\n'+
+    'Tier Interest: '+data.get('tier')+'\n\n'+
+    'Message:\n'+data.get('message')
+  );
+  const subject=encodeURIComponent('SEO Audit Inquiry: JB White, DDS');
+  window.location.href='mailto:'+recipients+'?subject='+subject+'&body='+body;
+  setTimeout(()=>{
+    form.style.display='none';
+    document.getElementById('formSuccess').style.display='block';
+  },500);
+}
+
+/* ===== PDF: CANVAS → IMAGE FOR PRINT ===== */
+window.addEventListener('beforeprint',()=>{
+  document.querySelectorAll('canvas').forEach(canvas=>{
+    try{
+      const img=document.createElement('img');
+      img.src=canvas.toDataURL('image/png');
+      img.style.width='100%';
+      img.className='chart-print-img';
+      canvas.style.display='none';
+      canvas.parentNode.insertBefore(img,canvas);
+    }catch(e){}
+  });
+});
+window.addEventListener('afterprint',()=>{
+  document.querySelectorAll('.chart-print-img').forEach(img=>img.remove());
+  document.querySelectorAll('canvas').forEach(c=>c.style.display='');
+});
+</script>
+
+<noscript><style>.reveal,.reveal.active{opacity:1!important;transform:none!important;transition:none!important}</style></noscript>
+
+</body>
+</html>

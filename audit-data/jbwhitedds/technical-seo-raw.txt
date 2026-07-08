@@ -1,0 +1,96 @@
+TECHNICAL SEO RAW DATA - jbwhitedds.com
+Fetched: 2026-07-08
+
+=== SSL / HTTPS ===
+Status: ACTIVE (HTTPS)
+Final URL: https://www.jbwhitedds.com/
+HTTP Status: 200
+
+=== ROBOTS.TXT ===
+URL: https://www.jbwhitedds.com/robots.txt
+Content:
+  User-agent: *
+  Disallow: /wp-admin/
+  Allow: /wp-admin/admin-ajax.php
+  Sitemap: https://www.jbwhitedds.com/sitemap_index.xml
+Assessment: Standard WordPress setup. Correct. No issues.
+
+=== SITEMAP ===
+URL: https://www.jbwhitedds.com/sitemap_index.xml
+Sub-sitemaps:
+  - https://www.jbwhitedds.com/post-sitemap.xml (lastmod: 2026-05-05)
+  - https://www.jbwhitedds.com/page-sitemap.xml (lastmod: 2026-05-19)
+Plugin: Rank Math SEO
+Assessment: Sitemap index properly structured. Image sitemap included. Good.
+
+=== META TAGS (HOMEPAGE) ===
+Title: "JB White, DDS - Las Vegas Cosmetic Dentistry & Dental Implants"
+  - Length: 62 chars (ideal: 50-60, slightly over)
+  - Contains primary keywords: YES
+  - Contains location: YES
+
+Meta Description: "Las Vegas cosmetic dentist JB White DDS specializes in dental implants, veneers, teeth whitening, and cosmetic dentistry. Call: 702-823-3000"
+  - Length: 143 chars (ideal: 150-160, slightly under)
+  - Contains CTA/phone: YES
+  - Contains location: YES
+
+Canonical: https://www.jbwhitedds.com/ (present, correct)
+hreflang: NOT PRESENT (acceptable for single-language single-region site)
+Google Site Verification: 3 separate codes present (minor cleanup opportunity)
+
+=== OPEN GRAPH / SOCIAL ===
+og:title: "JB White, DDS - Las Vegas Cosmetic Dentistry & Dental Implants"
+og:description: Present
+og:image: https://www.jbwhitedds.com/wp-content/uploads/2024/03/Office-pic-for-website-1024x683.jpg
+og:image:alt: "Home" (WEAK - should describe the image better)
+Twitter Card: summary_large_image - present
+
+=== STRUCTURED DATA / SCHEMA ===
+JSON-LD: NOT FOUND - CRITICAL ISSUE
+LocalBusiness schema: NOT FOUND
+Dentist schema: NOT FOUND
+Review/AggregateRating schema: NOT FOUND
+FAQPage schema: NOT FOUND (despite FAQ section on homepage)
+Organization schema: NOT FOUND
+Only found: WPHeader/WPFooter via itemtype attributes (schema.org microdata, minimal)
+
+=== HEADER HIERARCHY (HOMEPAGE) ===
+H1: "Las Vegas Cosmetic Dentistry & Dental Implants" (1 H1 - correct count)
+H2: "Exceptional Cosmetic Dental Care & Implants in Las Vegas, NV"
+H2: "Premier Las Vegas Dental Implants"
+H2: "Before & After Dental Implants"
+H2: "Frequently Asked Questions about Cosmetic Dentistry & Dental Implants"
+H2: "Want Life-Changing Results?"
+H3: "Your Experience"
+H3: "The White Institute"
+H3: "Why Trust Dr. White With Your Cosmetic Dental Care?"
+H4: Used for long body paragraph text (IMPROPER - H4 should not contain paragraph-length content)
+H4: "Our Services", "Practice", "Contact Us", "Get Directions" (footer labels)
+Issue: H4 used for body copy content including multi-sentence paragraphs
+
+=== IMAGES (HOMEPAGE) ===
+Total images detected (in initial HTML load): 13
+Images missing alt tags: 0
+Images with empty alt tags: 0
+Assessment: Good alt tag coverage on homepage
+
+=== PERFORMANCE SIGNALS ===
+WP Rocket Caching: YES
+Lazy Loading: YES (data-wpr-lazyrender)
+CDN: Not detected
+WordPress Version: 7.0
+Elementor Version: 4.0.9
+Content Visibility CSS: YES (auto)
+
+=== CMS / PLUGINS ===
+CMS: WordPress 7.0
+Page Builder: Elementor 4.0.9
+SEO Plugin: Rank Math SEO
+Caching: WP Rocket 3.21.3
+
+=== PAGE TITLES BY SECTION ===
+Homepage: "JB White, DDS - Las Vegas Cosmetic Dentistry & Dental Implants"
+About: "Best Cosmetic Dentist Las Vegas, Nevada"
+Contact: "Contact Us: JB White, DDS"
+Dental Implants: "Premier Dental Implants in Las Vegas, NV"
+Blog: "Blog - JB White, DDS" (weak title for blog)

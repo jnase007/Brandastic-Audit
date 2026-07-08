@@ -1,0 +1,46 @@
+LOCAL SEO RAW DATA - jbwhitedds.com
+Fetched: 2026-07-08
+
+=== NAP (NAME, ADDRESS, PHONE) ===
+Business Name: JB White, DDS - Las Vegas Cosmetic Dentistry & Dental Implants
+Address: 8084 W. Sahara Ave, Suite G, Las Vegas, NV 89117
+Phone: 702-823-3000 (also shown as 702.823.3000)
+Fax: 702.685.8254
+Email: info@jbwhitedds.com
+Hours: By Appointment Only
+
+=== YELP LISTING ===
+URL: https://www.yelp.com/biz/jb-white-dds-las-vegas-2
+Address: 8084 W Sahara Ave, Las Vegas, Nevada (consistent with website)
+Note: "People searched for Cosmetic Dentists 7,554 times last month within 15 miles" - high demand area
+
+=== MAPQUEST LISTING ===
+URL: https://www.mapquest.com/us/nevada/jb-white-dds-cosmetic-dentist-dental-implants-653173685
+Name: "JB White, DDS - Cosmetic Dentist - Dental Implants"
+
+=== YELLOW PAGES ===
+URL: https://www.yellowpages.com/las-vegas-nv/jb-white-dds
+Listed: YES
+
+=== WEBSITE LOCAL SIGNALS ===
+Google Maps embed: YES (on contact page)
+Schema LocalBusiness: NOT PRESENT (critical gap)
+NAP in footer: PARTIAL (phone present, address not in visible footer - verified on contact page only)
+Service area mentioned: Las Vegas, NV (specific neighborhoods not mentioned)
+
+=== PHONE FORMATTING INCONSISTENCY ===
+Website header: 702-823-3000
+Contact page: 702.823.3000
+Search result snippet: 702-823-3000
+Yelp: Listed as per Yelp format
+Note: Minor format inconsistency (dashes vs dots) - not a critical NAP issue but should be standardized
+
+=== GOOGLE BUSINESS PROFILE ===
+Evidence of GBP: Google site verification codes present (3 codes - may indicate multiple GBP setups)
+Google Maps embed present on site
+No explicit GBP URL found in search results
+
+=== SERVICE AREA ===
+Primary: Las Vegas, NV
+Secondary locations mentioned: Henderson, Nevada (periodontal page)
+Missing: Summerlin, Henderson, North Las Vegas service area pages
