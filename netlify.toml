@@ -209,3 +209,13 @@
   from = "/ipa-1031"
   to = "/ipa-1031-group-monthly-seo-report.html"
   status = 200
+
+[[redirects]]
+  from = "/jbwhitedds"
+  to = "/jbwhitedds.html"
+  status = 200
+
+[[redirects]]
+  from = "/jb-white-dds"
+  to = "/jbwhitedds.html"
+  status = 200
