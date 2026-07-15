@@ -237,6 +237,7 @@ section{padding:4rem 2rem;position:relative}section:nth-child(even){background:v
   <div class="side-nav-line"></div>
   <div class="side-nav-dot active" data-section="hero"><span class="tooltip">Overview</span></div>
   <div class="side-nav-dot" data-section="scorecard"><span class="tooltip">Scorecard</span></div>
+  <div class="side-nav-dot" data-section="why-stuck"><span class="tooltip">Why No Results</span></div>
   <div class="side-nav-dot" data-section="technical"><span class="tooltip">Technical SEO</span></div>
   <div class="side-nav-dot" data-section="crawl"><span class="tooltip">Site Crawl</span></div>
   <div class="side-nav-dot" data-section="onpage"><span class="tooltip">On-Page SEO</span></div>
@@ -356,6 +357,119 @@ section{padding:4rem 2rem;position:relative}section:nth-child(even){background:v
     <div class="chart-wrap" style="margin-top:2.5rem">
       <canvas id="radarChart" style="max-height:380px"></canvas>
       <p class="chart-hint">Spider chart — higher is better. Authority &amp; Competitive Position are the primary bottlenecks.</p>
+    </div>
+  </div>
+</section>
+
+
+<!-- ===== 2B. WHY NO RESULTS ===== -->
+<section id="why-stuck">
+  <div class="container">
+    <div class="section-badge">01B — Why the Current SEO Team Hasn't Produced Results</div>
+    <h2 class="section-title">They're Busy. <span class="gradient">Google Still Can't See You.</span></h2>
+    <p class="section-sub">If the practice is paying for SEO and still only shows up for its own name, the work is incomplete — not “SEO is hard.” Here's the proof in plain English.</p>
+
+    <div class="stats-bar">
+      <div class="stat-card reveal">
+        <div class="stat-num">72</div>
+        <div class="stat-label">Est. Monthly Organic Visits</div>
+      </div>
+      <div class="stat-card reveal">
+        <div class="stat-num">100%</div>
+        <div class="stat-label">Traffic From Brand Name Only</div>
+      </div>
+      <div class="stat-card reveal">
+        <div class="stat-num">0</div>
+        <div class="stat-label">High-Value Non-Brand Rankings</div>
+      </div>
+      <div class="stat-card reveal">
+        <div class="stat-num">$159</div>
+        <div class="stat-label">Monthly Organic Traffic Value</div>
+      </div>
+    </div>
+
+    <div class="warning-banner">
+      <div class="icon">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+      </div>
+      <div><span class="text">SEMrush: 100% of measurable organic traffic comes from “jb white dds.”</span> <span class="sub">Patients already know the name. Everyone searching “dental implants Las Vegas,” “cosmetic dentist Las Vegas,” or “All-on-4 Las Vegas” is landing with competitors. That is not a content shortage — it is a ranking failure.</span></div>
+    </div>
+
+    <div class="grid-2" style="margin-bottom:2rem">
+      <div class="card reveal">
+        <h4 style="font-weight:700;margin-bottom:1rem;color:var(--red)">What Activity Looks Like (Without Outcomes)</h4>
+        <ul class="check-list">
+          <li class="warn"><span class="icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 9v4"/><path d="M12 17h.01"/><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/></svg></span>Blog posts exist — but thin/repetitive patterns and weak titles limit ranking power</li>
+          <li class="warn"><span class="icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 9v4"/><path d="M12 17h.01"/><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/></svg></span>Rank Math + titles/metas present — table stakes, not a growth strategy</li>
+          <li class="warn"><span class="icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 9v4"/><path d="M12 17h.01"/><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/></svg></span>Service pages exist — but missing high-intent money pages still leave demand on the table</li>
+          <li class="warn"><span class="icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 9v4"/><path d="M12 17h.01"/><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/></svg></span>Plugins / caching installed — technical “busywork” without competitive leverage</li>
+        </ul>
+      </div>
+      <div class="card reveal">
+        <h4 style="font-weight:700;margin-bottom:1rem;color:var(--red)">What Was Never Fixed (The Real Blockers)</h4>
+        <ul class="check-list">
+          <li class="fail"><span class="icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 6L6 18M6 6l12 12"/></svg></span><strong>Zero JSON-LD schema</strong> — no Dentist / LocalBusiness / FAQ / reviews markup</li>
+          <li class="fail"><span class="icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 6L6 18M6 6l12 12"/></svg></span><strong>Domain Rank ~4.2M</strong> with almost no authority-building backlinks</li>
+          <li class="fail"><span class="icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 6L6 18M6 6l12 12"/></svg></span><strong>Local SEO incomplete</strong> — NAP inconsistency, no sitewide footer NAP, weak Local Pack signals</li>
+          <li class="fail"><span class="icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 6L6 18M6 6l12 12"/></svg></span><strong>No non-brand page-1 rankings</strong> for implants, veneers, cosmetic dentist, All-on-4</li>
+          <li class="fail"><span class="icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 6L6 18M6 6l12 12"/></svg></span><strong>Crawl still finds 19 long titles, 4 missing H1s, 26 thin pages, 103 heavy images, 37 redirects</strong></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="grid-3" style="margin-bottom:2rem">
+      <div class="finding-card card reveal">
+        <div class="finding-num critical">1</div>
+        <div>
+          <div class="title">Activity ≠ Authority</div>
+          <div class="desc">Publishing posts without schema, local consistency, and backlinks is like printing brochures no one can find. Google still treats the domain as low-authority.</div>
+        </div>
+      </div>
+      <div class="finding-card card reveal">
+        <div class="finding-num critical">2</div>
+        <div>
+          <div class="title">Brand Rankings Hide the Problem</div>
+          <div class="desc">Ranking #1 for “JB White DDS” is expected. Real SEO is ranking when strangers search for the procedure + city. Right now that traffic is $0.</div>
+        </div>
+      </div>
+      <div class="finding-card card reveal">
+        <div class="finding-num high">3</div>
+        <div>
+          <div class="title">KOL Leverage Untapped</div>
+          <div class="desc">Dr. White lectures internationally. Manufacturer, CE, and publication links should be a moat. That asset is not being converted into Domain Authority.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card reveal" style="margin-bottom:2rem">
+      <h4 style="font-weight:700;margin-bottom:0.75rem">What “Results” Should Look Like (vs. Today)</h4>
+      <div class="grid-2" style="gap:1.25rem">
+        <div>
+          <div style="font-size:0.72rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-muted);margin-bottom:0.5rem">Today</div>
+          <ul class="check-list">
+            <li class="fail"><span class="icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 6L6 18M6 6l12 12"/></svg></span>~72 organic visits / month</li>
+            <li class="fail"><span class="icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 6L6 18M6 6l12 12"/></svg></span>Only brand term drives traffic</li>
+            <li class="fail"><span class="icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 6L6 18M6 6l12 12"/></svg></span>$159 estimated organic traffic value</li>
+            <li class="fail"><span class="icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 6L6 18M6 6l12 12"/></svg></span>0 Google Ads keywords running</li>
+          </ul>
+        </div>
+        <div>
+          <div style="font-size:0.72rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-muted);margin-bottom:0.5rem">With a Results-Based Program</div>
+          <ul class="check-list">
+            <li class="pass"><span class="icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg></span>Non-brand rankings for implants, cosmetic, All-on-4, Invisalign</li>
+            <li class="pass"><span class="icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg></span>Local Pack visibility with schema + NAP + GBP discipline</li>
+            <li class="pass"><span class="icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg></span>KOL backlink engine (manufacturers, CE, pubs)</li>
+            <li class="pass"><span class="icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg></span>Monthly scorecard: rankings, leads, not “posts published”</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="success-banner">
+      <div class="icon">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>
+      </div>
+      <div><span class="text">Bottom line: the practice doesn’t need more busywork.</span> <span class="sub">It needs the fundamentals the current program skipped — schema, local authority, non-brand keyword capture, and KOL link-building — plus a crawl-backed fix list we already quantified.</span></div>
     </div>
   </div>
 </section>
