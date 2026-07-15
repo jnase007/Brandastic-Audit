@@ -238,14 +238,12 @@ section{padding:4rem 2rem;position:relative}section:nth-child(even){background:v
   <div class="side-nav-dot active" data-section="hero"><span class="tooltip">Overview</span></div>
   <div class="side-nav-dot" data-section="scorecard"><span class="tooltip">Scorecard</span></div>
   <div class="side-nav-dot" data-section="technical"><span class="tooltip">Technical SEO</span></div>
+  <div class="side-nav-dot" data-section="crawl"><span class="tooltip">Site Crawl</span></div>
   <div class="side-nav-dot" data-section="onpage"><span class="tooltip">On-Page SEO</span></div>
   <div class="side-nav-dot" data-section="local"><span class="tooltip">Local SEO</span></div>
   <div class="side-nav-dot" data-section="authority"><span class="tooltip">Authority</span></div>
   <div class="side-nav-dot" data-section="competitive"><span class="tooltip">Competitive</span></div>
   <div class="side-nav-dot" data-section="roadmap"><span class="tooltip">Roadmap</span></div>
-  
-  <div class="side-nav-dot" data-section="casestudies"><span class="tooltip">Case Studies</span></div>
-  <div class="side-nav-dot" data-section="cta"><span class="tooltip">Get Started</span></div>
 </div>
 
 <div class="watermark"><span style="width:6px;height:6px;border-radius:50%;background:linear-gradient(135deg,#40B4E5,#CC22FF);display:inline-block;flex-shrink:0"></span> Prepared by Brandastic</div>
@@ -403,6 +401,205 @@ section{padding:4rem 2rem;position:relative}section:nth-child(even){background:v
         <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
       </div>
       <div><span class="text">Schema markup is the single highest-leverage fix available.</span> <span class="sub">Google uses LocalBusiness + Dentist schema to power Maps rankings, knowledge panels, and rich snippets. Every competitor using schema has a structural advantage over jbwhitedds.com right now.</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 3B. SCREAMING FROG CRAWL ===== -->
+<section id="crawl">
+  <div class="container">
+    <div class="section-badge">02B — Full Site Crawl · Screaming Frog SEO Spider 24.3</div>
+    <h2 class="section-title">Paid Crawl Findings: <span class="gradient">Where It Hurts</span></h2>
+    <p class="section-sub">Full site crawl of jbwhitedds.com on July 15, 2026 with Screaming Frog SEO Spider (paid license). 393 URLs crawled. These issue counts are the hard pain points — not spot checks.</p>
+
+    <div class="stats-bar">
+      <div class="stat-card reveal">
+        <div class="stat-num">393</div>
+        <div class="stat-label">URLs Crawled</div>
+      </div>
+      <div class="stat-card reveal">
+        <div class="stat-num">55</div>
+        <div class="stat-label">Indexable HTML Pages</div>
+      </div>
+      <div class="stat-card reveal">
+        <div class="stat-num">31</div>
+        <div class="stat-label">Issue Types Flagged</div>
+      </div>
+      <div class="stat-card reveal">
+        <div class="stat-num">0</div>
+        <div class="stat-label">4xx / 5xx Errors</div>
+      </div>
+    </div>
+
+    <div class="warning-banner">
+      <div class="icon">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+      </div>
+      <div><span class="text">The crawl confirms the site is live and indexable — but under-optimized at scale.</span> <span class="sub">No missing titles or metas. The pain is long titles, missing H1s on key pages, thin content, oversized images, and 37 internal redirects draining crawl efficiency.</span></div>
+    </div>
+
+    <div class="grid-3" style="margin-bottom:2rem">
+      <div class="finding-card card reveal">
+        <div class="finding-num critical">19</div>
+        <div>
+          <div class="title">Titles Over 60 Characters</div>
+          <div class="desc"><strong>34.5% of pages</strong> have titles that get truncated in Google. Homepage (62 chars), Contact, Blog, and multiple service/blog posts push past the SERP limit — keywords get cut off where patients actually click.</div>
+        </div>
+      </div>
+      <div class="finding-card card reveal">
+        <div class="finding-num high">4</div>
+        <div>
+          <div class="title">Missing H1 Tags</div>
+          <div class="desc">Key pages with <strong>no H1</strong>: /cases/, /the-experience/, /our-team/, /dental-education-course/. These are patient-facing pages with zero primary heading signal for Google.</div>
+        </div>
+      </div>
+      <div class="finding-card card reveal">
+        <div class="finding-num high">26</div>
+        <div>
+          <div class="title">Low Content Pages</div>
+          <div class="desc"><strong>47% of HTML pages</strong> under 200 words. Thin pages struggle to rank for competitive dental terms and look weak against larger Las Vegas competitors.</div>
+        </div>
+      </div>
+      <div class="finding-card card reveal">
+        <div class="finding-num high">103</div>
+        <div>
+          <div class="title">Images Over 100KB</div>
+          <div class="desc"><strong>72.5% of images</strong> are oversized. Page speed and Core Web Vitals take the hit — especially on mobile where dental patients search.</div>
+        </div>
+      </div>
+      <div class="finding-card card reveal">
+        <div class="finding-num medium">37</div>
+        <div>
+          <div class="title">Internal 301 Redirects</div>
+          <div class="desc">Old service URLs still linked internally redirect to new paths (veneers, bleaching, smile design, orthodontics). Extra hops waste crawl budget and slow users.</div>
+        </div>
+      </div>
+      <div class="finding-card card reveal">
+        <div class="finding-num medium">2</div>
+        <div>
+          <div class="title">Meta Descriptions Too Long</div>
+          <div class="desc">About page (174 chars) and All-on-4 guide (157 chars) get cut off in search snippets. Contact/Blog titles also lack strong keyword + location framing.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="grid-2" style="margin-bottom:2rem">
+      <div class="card reveal">
+        <h4 style="font-weight:700;margin-bottom:1rem">What the Crawl Confirmed Is Working</h4>
+        <ul class="check-list">
+          <li class="pass"><span class="icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg></span><strong>0 missing page titles</strong> across 55 indexable pages</li>
+          <li class="pass"><span class="icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg></span><strong>0 missing meta descriptions</strong> — Rank Math is covering basics</li>
+          <li class="pass"><span class="icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg></span><strong>0 duplicate titles / metas</strong> — no exact-copy title cannibalization</li>
+          <li class="pass"><span class="icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg></span><strong>0 4xx / 5xx errors</strong> — clean server health</li>
+          <li class="pass"><span class="icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg></span>100% HTTPS internal URLs</li>
+        </ul>
+      </div>
+      <div class="card reveal">
+        <h4 style="font-weight:700;margin-bottom:1rem">Heading & Structure Pain</h4>
+        <ul class="check-list">
+          <li class="fail"><span class="icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 6L6 18M6 6l12 12"/></svg></span><strong>4 pages missing H1</strong> — Cases, Experience, Team, Education Course</li>
+          <li class="warn"><span class="icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 9v4"/><path d="M12 17h.01"/><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/></svg></span><strong>1 page with multiple H1s</strong> — Advanced Dental Education</li>
+          <li class="warn"><span class="icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 9v4"/><path d="M12 17h.01"/><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/></svg></span><strong>2 duplicate H1s</strong> across education pages</li>
+          <li class="warn"><span class="icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 9v4"/><path d="M12 17h.01"/><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/></svg></span><strong>27 pages with duplicate H2s</strong> (template / Elementor reuse)</li>
+          <li class="fail"><span class="icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 6L6 18M6 6l12 12"/></svg></span><strong>1 high-priority pagination issue</strong> — next/prev URL not in anchor tags</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="card reveal" style="overflow-x:auto">
+      <h4 style="font-weight:700;margin-bottom:0.35rem">Screaming Frog Issue Ledger</h4>
+      <p style="color:var(--text-secondary);font-size:0.88rem;margin-bottom:1.25rem">Paid crawl issue counts (priority-ranked). These numbers are what the full spider found — not estimates.</p>
+      <table style="width:100%;border-collapse:collapse;font-size:0.86rem">
+        <thead>
+          <tr style="text-align:left;border-bottom:1px solid var(--bg-card-border)">
+            <th style="padding:0.75rem 0.5rem;color:var(--text-muted);font-size:0.72rem;letter-spacing:0.08em;text-transform:uppercase">Issue</th>
+            <th style="padding:0.75rem 0.5rem;color:var(--text-muted);font-size:0.72rem;letter-spacing:0.08em;text-transform:uppercase">Priority</th>
+            <th style="padding:0.75rem 0.5rem;color:var(--text-muted);font-size:0.72rem;letter-spacing:0.08em;text-transform:uppercase">Count</th>
+            <th style="padding:0.75rem 0.5rem;color:var(--text-muted);font-size:0.72rem;letter-spacing:0.08em;text-transform:uppercase">Pain</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr style="border-bottom:1px solid var(--bg-card-border)">
+            <td style="padding:0.85rem 0.5rem;font-weight:600">Pagination URL not in anchor tag</td>
+            <td style="padding:0.85rem 0.5rem"><span class="badge badge-red">High</span></td>
+            <td style="padding:0.85rem 0.5rem;font-weight:800">1</td>
+            <td style="padding:0.85rem 0.5rem;color:var(--text-secondary)">Breaks crawl path / PageRank flow on paginated series</td>
+          </tr>
+          <tr style="border-bottom:1px solid var(--bg-card-border)">
+            <td style="padding:0.85rem 0.5rem;font-weight:600">Page titles over 60 characters</td>
+            <td style="padding:0.85rem 0.5rem"><span class="badge badge-yellow">Medium</span></td>
+            <td style="padding:0.85rem 0.5rem;font-weight:800">19</td>
+            <td style="padding:0.85rem 0.5rem;color:var(--text-secondary)">SERP truncation on ~35% of pages</td>
+          </tr>
+          <tr style="border-bottom:1px solid var(--bg-card-border)">
+            <td style="padding:0.85rem 0.5rem;font-weight:600">H1 missing</td>
+            <td style="padding:0.85rem 0.5rem"><span class="badge badge-yellow">Medium</span></td>
+            <td style="padding:0.85rem 0.5rem;font-weight:800">4</td>
+            <td style="padding:0.85rem 0.5rem;color:var(--text-secondary)">Cases, Experience, Team, Education Course</td>
+          </tr>
+          <tr style="border-bottom:1px solid var(--bg-card-border)">
+            <td style="padding:0.85rem 0.5rem;font-weight:600">Low content pages (<200 words)</td>
+            <td style="padding:0.85rem 0.5rem"><span class="badge badge-yellow">Medium</span></td>
+            <td style="padding:0.85rem 0.5rem;font-weight:800">26</td>
+            <td style="padding:0.85rem 0.5rem;color:var(--text-secondary)">Nearly half the site is thin</td>
+          </tr>
+          <tr style="border-bottom:1px solid var(--bg-card-border)">
+            <td style="padding:0.85rem 0.5rem;font-weight:600">Images over 100KB</td>
+            <td style="padding:0.85rem 0.5rem"><span class="badge badge-yellow">Medium</span></td>
+            <td style="padding:0.85rem 0.5rem;font-weight:800">103</td>
+            <td style="padding:0.85rem 0.5rem;color:var(--text-secondary)">Speed + mobile UX drag</td>
+          </tr>
+          <tr style="border-bottom:1px solid var(--bg-card-border)">
+            <td style="padding:0.85rem 0.5rem;font-weight:600">Multiple H1s</td>
+            <td style="padding:0.85rem 0.5rem"><span class="badge badge-yellow">Medium</span></td>
+            <td style="padding:0.85rem 0.5rem;font-weight:800">1</td>
+            <td style="padding:0.85rem 0.5rem;color:var(--text-secondary)">Advanced Dental Education page</td>
+          </tr>
+          <tr style="border-bottom:1px solid var(--bg-card-border)">
+            <td style="padding:0.85rem 0.5rem;font-weight:600">Internal redirects (3xx)</td>
+            <td style="padding:0.85rem 0.5rem"><span class="badge badge-blue">Low</span></td>
+            <td style="padding:0.85rem 0.5rem;font-weight:800">37</td>
+            <td style="padding:0.85rem 0.5rem;color:var(--text-secondary)">Update internal links to final URLs</td>
+          </tr>
+          <tr style="border-bottom:1px solid var(--bg-card-border)">
+            <td style="padding:0.85rem 0.5rem;font-weight:600">Meta descriptions over 155 chars</td>
+            <td style="padding:0.85rem 0.5rem"><span class="badge badge-blue">Low</span></td>
+            <td style="padding:0.85rem 0.5rem;font-weight:800">2</td>
+            <td style="padding:0.85rem 0.5rem;color:var(--text-secondary)">About + All-on-4 guide snippets cut off</td>
+          </tr>
+          <tr style="border-bottom:1px solid var(--bg-card-border)">
+            <td style="padding:0.85rem 0.5rem;font-weight:600">Duplicate H1s</td>
+            <td style="padding:0.85rem 0.5rem"><span class="badge badge-blue">Low</span></td>
+            <td style="padding:0.85rem 0.5rem;font-weight:800">2</td>
+            <td style="padding:0.85rem 0.5rem;color:var(--text-secondary)">Education section overlap</td>
+          </tr>
+          <tr style="border-bottom:1px solid var(--bg-card-border)">
+            <td style="padding:0.85rem 0.5rem;font-weight:600">Duplicate H2s</td>
+            <td style="padding:0.85rem 0.5rem"><span class="badge badge-blue">Low</span></td>
+            <td style="padding:0.85rem 0.5rem;font-weight:800">27</td>
+            <td style="padding:0.85rem 0.5rem;color:var(--text-secondary)">Template reuse dilutes section uniqueness</td>
+          </tr>
+          <tr style="border-bottom:1px solid var(--bg-card-border)">
+            <td style="padding:0.85rem 0.5rem;font-weight:600">Missing image size attributes</td>
+            <td style="padding:0.85rem 0.5rem"><span class="badge badge-blue">Low</span></td>
+            <td style="padding:0.85rem 0.5rem;font-weight:800">21</td>
+            <td style="padding:0.85rem 0.5rem;color:var(--text-secondary)">CLS / layout shift risk</td>
+          </tr>
+          <tr>
+            <td style="padding:0.85rem 0.5rem;font-weight:600">Missing alt text</td>
+            <td style="padding:0.85rem 0.5rem"><span class="badge badge-blue">Low</span></td>
+            <td style="padding:0.85rem 0.5rem;font-weight:800">1</td>
+            <td style="padding:0.85rem 0.5rem;color:var(--text-secondary)">Accessibility + image SEO gap</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="success-banner" style="margin-top:2rem">
+      <div class="icon">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>
+      </div>
+      <div><span class="text">Good news: this is a fix list, not a rebuild.</span> <span class="sub">Titles, H1s, thin pages, image compression, and redirect cleanup are all executable in Phase 1–2 without redesigning the site. Full crawl exports saved for the engagement kickoff.</span></div>
     </div>
   </div>
 </section>
@@ -743,7 +940,10 @@ section{padding:4rem 2rem;position:relative}section:nth-child(even){background:v
             <li style="display:flex;align-items:start;gap:0.5rem"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#40B4E5" stroke-width="2.5" style="flex-shrink:0;margin-top:3px"><path d="M20 6L9 17l-5-5"/></svg>Add FAQPage schema to service pages</li>
             <li style="display:flex;align-items:start;gap:0.5rem"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#40B4E5" stroke-width="2.5" style="flex-shrink:0;margin-top:3px"><path d="M20 6L9 17l-5-5"/></svg>Add consistent NAP in footer (use one format)</li>
             <li style="display:flex;align-items:start;gap:0.5rem"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#40B4E5" stroke-width="2.5" style="flex-shrink:0;margin-top:3px"><path d="M20 6L9 17l-5-5"/></svg>Fully optimize Google Business Profile</li>
-            <li style="display:flex;align-items:start;gap:0.5rem"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#40B4E5" stroke-width="2.5" style="flex-shrink:0;margin-top:3px"><path d="M20 6L9 17l-5-5"/></svg>Rewrite keyword-poor title tags (Contact, Blog, About)</li>
+            <li style="display:flex;align-items:start;gap:0.5rem"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#40B4E5" stroke-width="2.5" style="flex-shrink:0;margin-top:3px"><path d="M20 6L9 17l-5-5"/></svg>Rewrite 19 titles over 60 characters (Contact, Blog, service + blog posts)</li>
+            <li style="display:flex;align-items:start;gap:0.5rem"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#40B4E5" stroke-width="2.5" style="flex-shrink:0;margin-top:3px"><path d="M20 6L9 17l-5-5"/></svg>Add missing H1s on Cases, Experience, Team, Education Course</li>
+            <li style="display:flex;align-items:start;gap:0.5rem"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#40B4E5" stroke-width="2.5" style="flex-shrink:0;margin-top:3px"><path d="M20 6L9 17l-5-5"/></svg>Fix 37 internal redirect chains — link to final URLs</li>
+            <li style="display:flex;align-items:start;gap:0.5rem"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#40B4E5" stroke-width="2.5" style="flex-shrink:0;margin-top:3px"><path d="M20 6L9 17l-5-5"/></svg>Compress 103 oversized images + add missing width/height attrs</li>
             <li style="display:flex;align-items:start;gap:0.5rem"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#40B4E5" stroke-width="2.5" style="flex-shrink:0;margin-top:3px"><path d="M20 6L9 17l-5-5"/></svg>Fix duplicate URL canonicalization issue on implants page</li>
             <li style="display:flex;align-items:start;gap:0.5rem"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#40B4E5" stroke-width="2.5" style="flex-shrink:0;margin-top:3px"><path d="M20 6L9 17l-5-5"/></svg>Remove duplicate Site Verification codes from &lt;head&gt;</li>
           </ul>
@@ -809,59 +1009,7 @@ section{padding:4rem 2rem;position:relative}section:nth-child(even){background:v
   </div>
 </section>
 
-<!-- ===== 10. INVESTMENT ===== -->
-
-
-<!-- ===== 11. CASE STUDIES ===== -->
-<section id="casestudies">
-  <div class="container">
-    <div class="section-badge">09 — Brandastic Track Record</div>
-    <h2 class="section-title">Results We've <span class="gradient">Delivered</span></h2>
-    <p class="section-sub">Brandastic is an Orange County-based full-service digital marketing agency with a track record of delivering transformational results across healthcare, retail, and B2B.</p>
-
-    <div class="case-grid">
-      <div class="case-card c1 reveal">
-        <div class="case-client">RICOH</div>
-        <div class="case-result">120×</div>
-        <div class="case-metric">Return on Ad Spend</div>
-        <div class="case-desc">Brandastic drove a 120x ROAS for RICOH through precision-targeted paid media and conversion-optimized landing pages — turning a modest ad budget into a revenue machine.</div>
-      </div>
-      <div class="case-card c2 reveal">
-        <div class="case-client">Orangetheory Fitness</div>
-        <div class="case-result">800%</div>
-        <div class="case-metric">Decrease in Cost Per Lead</div>
-        <div class="case-desc">We slashed Orangetheory's CPL by 800% through multi-location local SEO, Google Ads restructuring, and hyper-targeted audience segmentation — flooding franchises with qualified leads at a fraction of the previous cost.</div>
-      </div>
-      <div class="case-card c3 reveal">
-        <div class="case-client">Young Surgical</div>
-        <div class="case-result">25×</div>
-        <div class="case-metric">Return on Ad Spend</div>
-        <div class="case-desc">For a healthcare-adjacent client, Brandastic delivered 25x ROAS through integrated SEO, PPC, and CRO — proving we know how to generate ROI for medically-oriented businesses where trust and conversions both matter.</div>
-      </div>
-    </div>
-
-    <div class="card reveal" style="margin-top:2rem;text-align:center;padding:2.5rem;background:linear-gradient(135deg,rgba(64,180,229,0.06),rgba(204,34,255,0.04));border-color:rgba(64,180,229,0.15)">
-      <div style="font-size:0.78rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--text-muted);margin-bottom:0.75rem">Why Brandastic for Dental</div>
-      <p style="color:var(--text-secondary);font-size:0.95rem;max-width:680px;margin:0 auto 1.5rem;line-height:1.7">Dental is one of the highest-ROI local marketing categories, and we understand the specific demands of healthcare-adjacent SEO: E-E-A-T requirements, HIPAA-safe content, local intent signals, and review strategy. We bring the same results-obsessed approach to every client — with transparent monthly reporting and no lock-in contracts.</p>
-      <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:1.5rem">
-        <div style="display:flex;align-items:center;gap:6px;font-size:0.88rem;color:var(--text-secondary)">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>No long-term lock-in contracts
-        </div>
-        <div style="display:flex;align-items:center;gap:6px;font-size:0.88rem;color:var(--text-secondary)">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Transparent monthly reporting
-        </div>
-        <div style="display:flex;align-items:center;gap:6px;font-size:0.88rem;color:var(--text-secondary)">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Orange County-based team
-        </div>
-        <div style="display:flex;align-items:center;gap:6px;font-size:0.88rem;color:var(--text-secondary)">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Healthcare + local SEO expertise
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ===== 12. CTA / CONTACT ===== -->
+<!-- Case studies / track record section removed per Justin 2026-07-15 -->
 
 
 <!-- PRINT FOOTER -->
