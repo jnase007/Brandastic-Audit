@@ -63,6 +63,11 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       'website': 9,
       'doordash': 10,
       'mailchimp': 13,
+      'merchant-center': 14,
+      'merchant': 14,
+      'gmc': 14,
+      'google-merchant': 14,
+      'google-merchant-center': 14,
     };
 
     // Check URL on load
@@ -82,7 +87,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
     // Update URL when tab is clicked
     var origShowStep = window.showStep;
-    var slugs = ['google-ads','google-tag-manager','google-analytics','google-search-console','meta','instagram','tiktok','linkedin','yelp','website','doordash'];
+    var slugs = ['google-ads','google-tag-manager','google-analytics','google-search-console','meta','instagram','tiktok','linkedin','yelp','website','doordash','instacart','bing','mailchimp','merchant-center'];
   </script>
 </head>
 <body class="bg-gray-50 text-gray-900 min-h-screen">
@@ -200,6 +205,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         <span class="w-6 h-6 rounded-full bg-yellow-100 text-yellow-700 flex items-center justify-center text-xs font-bold" id="num-13">14</span>
         Mailchimp
       </button>
+      <button onclick="showStep(14)" id="tab-14" class="tab-btn flex items-center gap-2 px-4 py-2.5 rounded-xl text-sm font-semibold border border-gray-200 bg-white whitespace-nowrap transition-all">
+        <span class="w-6 h-6 rounded-full bg-lime-100 text-lime-700 flex items-center justify-center text-xs font-bold" id="num-14">15</span>
+        Merchant Center
+      </button>
     </div>
 
     <!-- Progress Bar -->
@@ -239,6 +248,13 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             <div>
               <p class="text-sm font-medium text-gray-900">Accept our access request</p>
               <p class="text-xs text-gray-500 mt-0.5">Go to <strong>Admin → Access and Security → Managers tab</strong> and accept the manager link request</p>
+            </div>
+          </div>
+          <div class="flex items-start gap-3 p-4 bg-lime-50 border border-lime-100 rounded-xl">
+            <span class="w-7 h-7 rounded-full bg-lime-100 text-lime-700 flex items-center justify-center text-xs font-bold flex-shrink-0 mt-0.5">+</span>
+            <div>
+              <p class="text-sm font-medium text-gray-900">Running Shopping / Performance Max product ads?</p>
+              <p class="text-xs text-gray-500 mt-0.5">Also complete the <button type="button" onclick="showStep(14)" class="text-blue-600 underline font-semibold">Google Merchant Center</button> step so we can manage your product feed.</p>
             </div>
           </div>
         </div>
@@ -888,7 +904,73 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         </div>
         <div class="flex items-center justify-between">
           <button onclick="markDone(13)" id="done-13" class="px-6 py-2.5 bg-gray-900 text-white rounded-full text-sm font-semibold hover:bg-gray-700 transition">Mark as Done ✓</button>
-          <button onclick="showStep(12)" class="text-sm text-gray-400 hover:text-gray-900 font-medium transition">← Back</button>
+          <div class="flex items-center gap-4">
+            <button onclick="showStep(12)" class="text-sm text-gray-400 hover:text-gray-900 font-medium transition">← Back</button>
+            <button onclick="showStep(14)" class="text-sm text-gray-400 hover:text-gray-900 font-medium transition">Next: Merchant Center →</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Step 15: Google Merchant Center -->
+    <div class="step-panel" id="panel-14">
+      <div class="bg-white rounded-2xl border border-gray-200 p-8">
+        <div class="flex items-center gap-3 mb-6">
+          <div class="w-10 h-10 rounded-xl bg-lime-50 flex items-center justify-center">
+            <span class="text-lg font-bold text-lime-600">15</span>
+          </div>
+          <div>
+            <h2 class="text-xl font-bold">Google Merchant Center</h2>
+            <p class="text-sm text-gray-400">Share product feed access for Shopping & Performance Max</p>
+          </div>
+        </div>
+        <div class="space-y-4 mb-8">
+          <div class="flex items-start gap-3 p-4 bg-gray-50 rounded-xl">
+            <span class="w-7 h-7 rounded-full bg-lime-100 text-lime-700 flex items-center justify-center text-xs font-bold flex-shrink-0 mt-0.5">a</span>
+            <div>
+              <p class="text-sm font-medium text-gray-900">Visit Google Merchant Center</p>
+              <p class="text-xs text-gray-500 mt-0.5">Go to <a href="https://merchants.google.com/" target="_blank" class="text-blue-600 underline">merchants.google.com</a> and sign in with the account that owns your product feed</p>
+            </div>
+          </div>
+          <div class="flex items-start gap-3 p-4 bg-gray-50 rounded-xl">
+            <span class="w-7 h-7 rounded-full bg-lime-100 text-lime-700 flex items-center justify-center text-xs font-bold flex-shrink-0 mt-0.5">b</span>
+            <div>
+              <p class="text-sm font-medium text-gray-900">Open Account access</p>
+              <p class="text-xs text-gray-500 mt-0.5">Click the <strong>settings gear</strong> → <strong>Account access</strong> (or People & access, depending on your Merchant Center version)</p>
+            </div>
+          </div>
+          <div class="flex items-start gap-3 p-4 bg-gray-50 rounded-xl">
+            <span class="w-7 h-7 rounded-full bg-lime-100 text-lime-700 flex items-center justify-center text-xs font-bold flex-shrink-0 mt-0.5">c</span>
+            <div>
+              <p class="text-sm font-medium text-gray-900">Add Brandastic as a user</p>
+              <p class="text-xs text-gray-500 mt-0.5">Click <strong>+ Add user</strong> → enter <strong>seo@brandastic.com</strong> → set access level to <strong>Admin</strong> (preferred) or at least <strong>Standard</strong> → Send invite</p>
+            </div>
+          </div>
+          <div class="flex items-start gap-3 p-4 bg-gray-50 rounded-xl">
+            <span class="w-7 h-7 rounded-full bg-lime-100 text-lime-700 flex items-center justify-center text-xs font-bold flex-shrink-0 mt-0.5">d</span>
+            <div>
+              <p class="text-sm font-medium text-gray-900">Link to Google Ads (if not already linked)</p>
+              <p class="text-xs text-gray-500 mt-0.5">In Merchant Center go to <strong>Settings → Linked accounts → Google Ads</strong> and link the Google Ads account you shared with us. Approve any pending link requests on both sides.</p>
+            </div>
+          </div>
+          <div class="flex items-start gap-3 p-4 bg-gray-50 rounded-xl">
+            <span class="w-7 h-7 rounded-full bg-lime-100 text-lime-700 flex items-center justify-center text-xs font-bold flex-shrink-0 mt-0.5">e</span>
+            <div>
+              <p class="text-sm font-medium text-gray-900">Send us your Merchant Center ID</p>
+              <p class="text-xs text-gray-500 mt-0.5">Copy the <strong>Merchant Center ID</strong> from the top of Merchant Center (or Settings → Account information) and email it to <strong>seo@brandastic.com</strong></p>
+            </div>
+          </div>
+          <div class="flex items-start gap-3 p-4 bg-gray-50 rounded-xl">
+            <span class="w-7 h-7 rounded-full bg-lime-100 text-lime-700 flex items-center justify-center text-xs font-bold flex-shrink-0 mt-0.5">f</span>
+            <div>
+              <p class="text-sm font-medium text-gray-900">Confirm product data sources stay active</p>
+              <p class="text-xs text-gray-500 mt-0.5">Make sure your primary product feed / Content API source is approved and not suspended so we can manage Shopping and Performance Max product ads</p>
+            </div>
+          </div>
+        </div>
+        <div class="flex items-center justify-between">
+          <button onclick="markDone(14)" id="done-14" class="px-6 py-2.5 bg-gray-900 text-white rounded-full text-sm font-semibold hover:bg-gray-700 transition">Mark as Done ✓</button>
+          <button onclick="showStep(13)" class="text-sm text-gray-400 hover:text-gray-900 font-medium transition">← Back</button>
         </div>
       </div>
     </div>
@@ -899,7 +981,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         <div class="text-4xl mb-4">✓</div>
         <h3 class="text-2xl font-bold text-white mb-3">All Done!</h3>
         <p class="text-gray-400 text-sm max-w-md mx-auto leading-relaxed mb-6">
-          You've shared access to all four platforms. We'll confirm everything on our end and reach out within 24 hours to get started.
+          You've shared access across the platforms on this checklist. We'll confirm everything on our end and reach out within 24 hours to get started.
         </p>
         <a href="mailto:seo@brandastic.com?subject=Onboarding Complete — All Access Shared" class="inline-block bg-white text-gray-900 font-semibold px-8 py-3 rounded-full text-sm hover:bg-gray-100 transition-colors">
           Let Us Know You're Done
@@ -917,7 +999,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   </footer>
 
   <script>
-    const completed = [false, false, false, false, false, false, false, false, false, false, false, false, false];
+    const completed = [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false];
     let currentStep = 0;
 
     function showStep(index) {
@@ -927,7 +1009,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       document.getElementById('panel-' + index).classList.add('active');
       document.getElementById('tab-' + index).classList.add('active');
       // Update URL with channel slug
-      var slugs = ['google-ads','tag-manager','analytics','search-console','meta','instagram','tiktok','linkedin','yelp','website','doordash','email','crm','reporting','mailchimp'];
+      var slugs = ['google-ads','tag-manager','analytics','search-console','meta','instagram','tiktok','linkedin','yelp','website','doordash','instacart','bing','mailchimp','merchant-center'];
       if (slugs[index]) history.replaceState(null, '', '/onboarding#' + slugs[index]);
     }
 
@@ -948,10 +1030,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
       // Update progress
       const doneCount = completed.filter(Boolean).length;
-      document.getElementById('progress').style.width = (doneCount / 13 * 100) + '%';
+      document.getElementById('progress').style.width = (doneCount / 15 * 100) + '%';
 
       // If all done, show completion
-      if (doneCount === 13) {
+      if (doneCount === 15) {
         setTimeout(() => {
           document.querySelectorAll('.step-panel').forEach(p => p.classList.remove('active'));
           document.getElementById('panel-done').classList.add('active');
