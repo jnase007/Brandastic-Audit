@@ -1065,5 +1065,119 @@ window.addEventListener('scroll', function() {
 @media(max-width:768px){#mobileCta{display:block}}
 </style>
 <a href="#form" id="mobileCta">Start Your Audit →</a>
+<!-- Brandastic CTA + lead tracking -->
+<!-- Brandastic CTA + lead tracking -->
+<script>
+(function () {
+  window.dataLayer = window.dataLayer || [];
+  function track(eventName, params) {
+    params = params || {};
+    params.page_location = window.location.href;
+    params.page_hostname = window.location.hostname;
+    try {
+      if (typeof gtag === 'function') gtag('event', eventName, params);
+    } catch (e) {}
+    try {
+      window.dataLayer.push(Object.assign({ event: eventName }, params));
+    } catch (e) {}
+    try {
+      if (typeof fbq === 'function') {
+        if (eventName === 'generate_lead') fbq('track', 'Lead', params);
+        else if (eventName === 'cta_click') fbq('trackCustom', 'CTAClick', params);
+      }
+    } catch (e) {}
+  }
+
+  function labelFromEl(el) {
+    var t = (el.getAttribute('aria-label') || el.textContent || '').replace(/\s+/g, ' ').trim();
+    return t.slice(0, 100);
+  }
+
+  document.addEventListener('click', function (e) {
+    var a = e.target && e.target.closest ? e.target.closest('a,button') : null;
+    if (!a) return;
+    var href = (a.getAttribute('href') || '').trim();
+    var cls = a.className || '';
+    var id = a.id || '';
+    var text = labelFromEl(a);
+
+    // Form submit button
+    if (a.matches('button.form-submit') || (a.type === 'submit' && a.closest('#auditForm'))) {
+      track('cta_click', {
+        event_category: 'cta',
+        event_label: text || 'Request My Free Audit',
+        cta_name: 'audit_form_submit_click',
+        cta_location: 'form'
+      });
+      return;
+    }
+
+    // Start audit / scroll-to-form CTAs
+    if (id === 'mobileCta' || /\bnav-cta\b|\bhero-cta\b/.test(cls) || href === '#form' || /start your audit|see what you/i.test(text)) {
+      track('cta_click', {
+        event_category: 'cta',
+        event_label: text || 'Start Audit',
+        cta_name: 'start_audit',
+        cta_location: id === 'mobileCta' ? 'mobile_sticky' : (/\bnav-cta\b/.test(cls) ? 'nav' : (/\bhero-cta\b/.test(cls) ? 'hero' : 'other')),
+        link_url: href || '#form'
+      });
+      return;
+    }
+
+    if (href.indexOf('/portal') !== -1) {
+      track('cta_click', {
+        event_category: 'cta',
+        event_label: 'Client Audit Portal',
+        cta_name: 'client_portal',
+        link_url: href
+      });
+      return;
+    }
+
+    if (href.indexOf('brandastic.com/contact') !== -1) {
+      track('contact', {
+        event_category: 'contact',
+        event_label: 'contact_page',
+        method: 'link',
+        link_url: href
+      });
+      return;
+    }
+
+    if (href.indexOf('tel:') === 0) {
+      track('contact', {
+        event_category: 'contact',
+        event_label: 'phone',
+        method: 'phone',
+        link_url: href
+      });
+      return;
+    }
+
+    if (href.indexOf('facebook.com') !== -1 || href.indexOf('linkedin.com') !== -1) {
+      track('cta_click', {
+        event_category: 'social',
+        event_label: href.indexOf('facebook') !== -1 ? 'facebook' : 'linkedin',
+        cta_name: 'social_link',
+        link_url: href
+      });
+    }
+  }, true);
+
+  // Patch form success → generate_lead (conversion)
+  var _origSubmitAudit = window.submitAudit;
+  window.submitAudit = function (e) {
+    try {
+      track('generate_lead', {
+        event_category: 'lead',
+        event_label: 'audit_request',
+        cta_name: 'audit_form_success',
+        value: 1
+      });
+    } catch (err) {}
+    if (typeof _origSubmitAudit === 'function') return _origSubmitAudit(e);
+  };
+})();
+</script>
 </body>
 </html>
