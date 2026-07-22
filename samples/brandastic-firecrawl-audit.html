@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Brandastic.com Firecrawl Audit Sample | Brandastic</title>
+  <meta name="robots" content="noindex,nofollow" />
+  <meta name="description" content="Internal demo: Firecrawl-powered on-site audit sample for brandastic.com" />
+  <style>
+    :root {
+      --bg: #0b0f14;
+      --panel: #121821;
+      --panel-2: #182131;
+      --text: #e8eef7;
+      --muted: #9aabbf;
+      --line: rgba(255,255,255,.08);
+      --accent: #3d8bfd;
+      --good: #3dd68c;
+      --warn: #f5c84c;
+      --bad: #ff7b72;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+      background:
+        radial-gradient(1200px 600px at 10% -10%, rgba(61,139,253,.18), transparent 60%),
+        radial-gradient(900px 500px at 100% 0%, rgba(61,214,140,.08), transparent 55%),
+        var(--bg);
+      color: var(--text);
+      line-height: 1.55;
+    }
+    .wrap { max-width: 920px; margin: 0 auto; padding: 28px 18px 80px; }
+    .badge {
+      display: inline-flex; gap: 8px; align-items: center;
+      padding: 6px 10px; border-radius: 999px;
+      background: rgba(61,139,253,.12); color: #9cc3ff;
+      border: 1px solid rgba(61,139,253,.25);
+      font-size: 12px; letter-spacing: .02em; text-transform: uppercase;
+    }
+    h1 { font-size: clamp(1.7rem, 3vw, 2.3rem); line-height: 1.15; margin: 14px 0 8px; }
+    .sub { color: var(--muted); margin: 0 0 22px; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 10px; margin: 18px 0 28px; }
+    .score {
+      background: linear-gradient(180deg, var(--panel-2), var(--panel));
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 14px 12px;
+    }
+    .score b { display: block; font-size: 1.5rem; margin-top: 4px; }
+    .score span { color: var(--muted); font-size: 12px; }
+    .card {
+      background: rgba(18,24,33,.92);
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 18px 18px 8px;
+      margin: 16px 0;
+      box-shadow: 0 10px 40px rgba(0,0,0,.25);
+    }
+    h2 { font-size: 1.15rem; margin: 0 0 10px; }
+    h3 { font-size: 1rem; margin: 18px 0 8px; color: #d7e4f5; }
+    p, li { color: #d5deea; }
+    ul { padding-left: 1.15rem; }
+    li { margin: 6px 0; }
+    table { width: 100%; border-collapse: collapse; margin: 10px 0 16px; font-size: 14px; }
+    th, td { text-align: left; padding: 10px 8px; border-bottom: 1px solid var(--line); vertical-align: top; }
+    th { color: var(--muted); font-weight: 600; font-size: 12px; text-transform: uppercase; letter-spacing: .04em; }
+    .tag {
+      display: inline-block; font-size: 11px; font-weight: 700; letter-spacing: .04em;
+      padding: 3px 8px; border-radius: 999px; margin-right: 6px;
+    }
+    .p0 { background: rgba(255,123,114,.15); color: #ffb1ab; }
+    .p1 { background: rgba(245,200,76,.14); color: #ffe29a; }
+    .p2 { background: rgba(61,139,253,.14); color: #a9cbff; }
+    .meta { display: flex; flex-wrap: wrap; gap: 10px 16px; color: var(--muted); font-size: 13px; margin-bottom: 8px; }
+    .meta a { color: #9cc3ff; }
+    code, pre {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      font-size: 12.5px;
+    }
+    pre {
+      background: #0a1018;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 14px;
+      overflow: auto;
+      color: #cfe0f5;
+    }
+    .foot { margin-top: 28px; color: var(--muted); font-size: 13px; }
+    a { color: #9cc3ff; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="badge">Firecrawl demo · Internal sample · Not a final client audit</div>
+    <h1>Brandastic.com Marketing Audit Sample</h1>
+    <p class="sub">Auto-generated research pack from Firecrawl scrape → Chip synthesis. Same shape we’d produce after a lead submits their site on audit.brandastic.com.</p>
+
+    <div class="meta">
+      <span><strong>Site:</strong> <a href="https://brandastic.com/" target="_blank" rel="noopener">brandastic.com</a></span>
+      <span><strong>Generated:</strong> Jul 22, 2026 · 3:51 PM PT</span>
+      <span><strong>Pages:</strong> 8</span>
+      <span><strong>Mode:</strong> keyless Firecrawl test</span>
+    </div>
+
+    <div class="grid">
+      <div class="score"><span>Brand clarity</span><b>4/5</b></div>
+      <div class="score"><span>Proof / portfolio</span><b>5/5</b></div>
+      <div class="score"><span>Service architecture</span><b>4/5</b></div>
+      <div class="score"><span>Conversion UX</span><b>3/5</b></div>
+      <div class="score"><span>Local SEO</span><b>4/5</b></div>
+      <div class="score"><span>Content / AEO</span><b>4/5</b></div>
+    </div>
+
+    <section class="card">
+      <h2>1. Executive snapshot</h2>
+      <p>Brandastic presents as a full-service digital marketing agency with multi-market footprint (Orange County HQ, Los Angeles, Austin). The site has strong <strong>proof</strong> (named portfolio brands), a clear <strong>service taxonomy</strong>, and solid <strong>local SEO</strong> coverage via market landings.</p>
+      <p>Main upside: tighten conversion paths, reduce homepage noise, and make service/money pages more decision-ready for inbound audit/sales traffic.</p>
+      <p style="color:var(--muted);font-size:13px">Firecrawl covers on-site research only — not rankings, traffic, or ad account data.</p>
+    </section>
+
+    <section class="card">
+      <h2>2. Extracted signals</h2>
+      <h3>Positioning & offers</h3>
+      <ul>
+        <li>Full-service digital marketing / branding agency</li>
+        <li>Markets: Orange County, Los Angeles, Austin</li>
+        <li>Primary conversion language: free consultation / work with us / strategy talk</li>
+        <li>Phone: <strong>949-617-2731</strong></li>
+        <li>Offices: Costa Mesa · Downtown LA · Austin</li>
+      </ul>
+      <h3>Service taxonomy</h3>
+      <ul>
+        <li>Brand Development</li>
+        <li>Digital Marketing</li>
+        <li>Web Design + Development</li>
+        <li>Supporting services: Discovery + Strategy, SEO/SEM, Social, Programmatic, Content, Photo/Video, Branding</li>
+      </ul>
+      <h3>Portfolio proof (sample)</h3>
+      <p>Nordic Sauna, Check n’ Play, SmileSet, OSI, Super Glue, Ualett, HyperX, Don Roberto Jewelers, Glico, Think Together, Young Surgical, DESS USA, CalOPS, UFC Gym, Fujifilm Biosciences, EquityMD, Cast & Crew, Girl Scouts of LA, Orangetheory, Mono B, Pocky, KIA, RICOH, Friar Tux, Health Mate…</p>
+      <h3>Blog / AEO content (sample)</h3>
+      <ul>
+        <li>Search Everywhere Optimization: Why SEO No Longer Stops at Google</li>
+        <li>How to Measure AI Search Visibility Before the Click</li>
+        <li>Why Google Rankings Don’t Guarantee AI Citations</li>
+        <li>Are AI Overviews Stealing Your Clicks?</li>
+        <li>Local SEO for LLMs: How Businesses Get Recommended by AI Tools</li>
+      </ul>
+    </section>
+
+    <section class="card">
+      <h2>3. Page-by-page notes</h2>
+      <table>
+        <thead>
+          <tr><th>Page</th><th>Extract</th><th>Notes</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Home</td><td>~6.5k words</td><td>Strong OC growth positioning + logo proof; YouTube chrome noisy in extract</td></tr>
+          <tr><td>Services</td><td>~2.0k words</td><td>Clear hub: Brand Dev / Digital / Web</td></tr>
+          <tr><td>Work</td><td>~2.8k words</td><td>Named portfolio density is a major asset</td></tr>
+          <tr><td>Contact</td><td>~3.6k words</td><td>Phone + multi-office NAP + form/reCAPTCHA</td></tr>
+          <tr><td>About</td><td>~2.3k words</td><td>Team/FAQ present — good entity support</td></tr>
+          <tr><td>Blog</td><td>~4.6k words</td><td>Active AI/SEO topical coverage</td></tr>
+          <tr><td>SEO service</td><td>~6.2k words</td><td>Deep money page with AEO language</td></tr>
+          <tr><td>OC local landing</td><td>~8.6k words</td><td>Strong local page; reviews + services + work</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="card">
+      <h2>4. Findings (prioritized)</h2>
+      <h3><span class="tag p0">P0</span> Fix first</h3>
+      <ol>
+        <li><strong>Homepage media noise</strong> — YouTube endscreen/related-video chrome pollutes the experience and likely hurts LCP/CLS. Simplify hero, defer/lazy video, one primary CTA above the fold.</li>
+        <li><strong>Primary CTA consistency</strong> — Free Consultation / Work With Us / form / phone compete. Pick one primary conversion for paid/SEO paths and repeat it.</li>
+        <li><strong>Contact form friction</strong> — Keep reCAPTCHA, but measure start→submit; add click-to-call + calendar secondary on mobile.</li>
+      </ol>
+      <h3><span class="tag p1">P1</span> SEO / service strength</h3>
+      <ol start="4">
+        <li><strong>Money page consistency</strong> — Every core service page needs unique H1, proof, FAQs, related work links, and one hard CTA.</li>
+        <li><strong>Portfolio → service internal links</strong> — Case studies should deep-link exact services/industries.</li>
+        <li><strong>Blog → money keyword bridging</strong> — Keep AI/SEO content, systematically support commercial intent.</li>
+      </ol>
+      <h3><span class="tag p2">P2</span> AI visibility / entity</h3>
+      <ol start="7">
+        <li>Entity clarity is already decent (locations, phone, portfolio, taxonomy). Confirm Organization schema + sameAs + keep AI facts page fresh.</li>
+        <li>Package explicit proof stats in crawlable text (years, clients, verticals) — not logo walls alone.</li>
+      </ol>
+    </section>
+
+    <section class="card">
+      <h2>5. Quick wins (next 14 days)</h2>
+      <table>
+        <thead>
+          <tr><th>#</th><th>Action</th><th>Owner</th><th>Impact</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>1</td><td>Hero cleanup + single primary CTA</td><td>Web</td><td>Conversion</td></tr>
+          <tr><td>2</td><td>Mark <code>generate_lead</code> as key event (justin + audit microsites)</td><td>Growth</td><td>Measurement</td></tr>
+          <tr><td>3</td><td>FAQ blocks on top 5 service pages</td><td>SEO</td><td>SEO/AEO</td></tr>
+          <tr><td>4</td><td>Case study → service internal links pass</td><td>SEO</td><td>Rankings</td></tr>
+          <tr><td>5</td><td>Phone + calendar sticky on mobile contact paths</td><td>Web</td><td>Leads</td></tr>
+          <tr><td>6</td><td>Refresh AI/brand facts page quarterly</td><td>Ops</td><td>AI visibility</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="card">
+      <h2>6. Still needs account access (full audit)</h2>
+      <ul>
+        <li>GA4: traffic, conversions, landing page quality</li>
+        <li>GSC: queries, pages, CWV, coverage</li>
+        <li>Semrush: rankings + competitors</li>
+        <li>Meta/Google Ads (review-only): wasted spend + query themes</li>
+        <li>CWV lab + real-user experience</li>
+      </ul>
+    </section>
+
+    <section class="card">
+      <h2>7. Slack alert shape (post form submit)</h2>
+      <pre>New audit lead → brandastic.com
+Snapshot: full-service agency · OC/LA/ATX · strong portfolio proof
+P0: homepage video noise, CTA focus, contact friction
+P1: money-page FAQs + case→service links
+Brief: [this page / portal draft]</pre>
+    </section>
+
+    <p class="foot">
+      Sample for Justin · Firecrawl keyless test · hosted on audit.brandastic.com for review.<br />
+      Source markdown also saved in workspace: <code>.firecrawl/audit-test/BRANDASTIC-AUDIT-SAMPLE.md</code>
+    </p>
+  </div>
+</body>
+</html>
