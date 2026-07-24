@@ -180,7 +180,7 @@ a{color:var(--accent);text-decoration:none}
 }
 
 /* LOGO SCROLL */
-.logo-scroll{overflow:hidden;width:100%;position:relative}
+.logo-scroll{overflow:hidden;width:100%;position:relative;height:100px;display:flex;align-items:center}.logo-track img{object-fit:contain}
 .logo-scroll::before,.logo-scroll::after{content:"";position:absolute;top:0;bottom:0;width:80px;z-index:2}
 .logo-scroll::before{left:0;background:linear-gradient(to right,var(--bg),transparent)}
 .logo-scroll::after{right:0;background:linear-gradient(to left,var(--bg),transparent)}
@@ -261,7 +261,7 @@ a{color:var(--accent);text-decoration:none}
 /* Logo scroll */
 [data-theme="light"] .logo-scroll::before{background:linear-gradient(to right,var(--bg),transparent)}
 [data-theme="light"] .logo-scroll::after{background:linear-gradient(to left,var(--bg),transparent)}
-[data-theme="light"] .logo-track-dark{filter:brightness(0)!important;opacity:0.2!important}
+[data-theme="light"] .logo-track-dark{filter:brightness(0)!important;opacity:0.55!important}
 
 /* Feature cards */
 [data-theme="light"] .feature{box-shadow:0 2px 12px rgba(0,0,0,0.06)}
@@ -459,11 +459,11 @@ a{color:var(--accent);text-decoration:none}
 <div style="text-align:center;padding:2.5rem 2rem 1rem;position:relative;z-index:3;background:var(--bg)">
   <p class="trusted-label" style="font-size:1.4rem;font-weight:700;letter-spacing:0.05em;color:rgba(255,255,255,0.6);margin-bottom:1.5rem">Brands who trust us with their story</p>
   <div class="logo-scroll">
-    <div class="logo-track logo-track-dark" style="opacity:0.5;filter:brightness(0) invert(1)">
+    <div class="logo-track logo-track-dark" style="opacity:0.8;filter:brightness(0) invert(1)">
       <img src="https://brandastic.com/wp-content/uploads/2026/05/ricoh-logo.svg" alt="RICOH" style="height:94px;max-width:360px;flex-shrink:0">
       <img src="https://brandastic.com/wp-content/uploads/2026/05/usc-logo.svg" alt="USC" style="height:94px;max-width:192px;flex-shrink:0">
       <img src="https://brandastic.com/wp-content/uploads/2026/05/ufc-gym-logo.svg" alt="UFC Gym" style="height:56px;max-width:180px;flex-shrink:0">
-      <img src="https://brandastic.com/wp-content/uploads/2026/05/Orangetheory-Fitness-Logo-1.svg" alt="Orangetheory" style="height:94px;max-width:320px;flex-shrink:0">
+      <img src="https://brandastic.com/wp-content/uploads/2026/05/Orangetheory-Fitness-Logo-1.svg" alt="Orangetheory" style="height:160px;max-width:420px;flex-shrink:0;margin:0 -24px">
       <img src="https://brandastic.com/wp-content/uploads/2026/05/hyperx-logo.svg" alt="HyperX" style="height:56px;max-width:180px;flex-shrink:0">
       <img src="https://brandastic.com/wp-content/uploads/2026/05/fujifilm-seeklogo.svg" alt="Fujifilm" style="height:94px;max-width:360px;flex-shrink:0">
       <img src="https://brandastic.com/wp-content/uploads/2026/05/Pocky-Logo-1.svg" alt="Pocky" style="height:94px;max-width:300px;flex-shrink:0">
@@ -471,7 +471,7 @@ a{color:var(--accent);text-decoration:none}
       <img src="https://brandastic.com/wp-content/uploads/2026/05/ricoh-logo.svg" alt="RICOH" style="height:94px;max-width:360px;flex-shrink:0">
       <img src="https://brandastic.com/wp-content/uploads/2026/05/usc-logo.svg" alt="USC" style="height:94px;max-width:192px;flex-shrink:0">
       <img src="https://brandastic.com/wp-content/uploads/2026/05/ufc-gym-logo.svg" alt="UFC Gym" style="height:56px;max-width:180px;flex-shrink:0">
-      <img src="https://brandastic.com/wp-content/uploads/2026/05/Orangetheory-Fitness-Logo-1.svg" alt="Orangetheory" style="height:94px;max-width:320px;flex-shrink:0">
+      <img src="https://brandastic.com/wp-content/uploads/2026/05/Orangetheory-Fitness-Logo-1.svg" alt="Orangetheory" style="height:160px;max-width:420px;flex-shrink:0;margin:0 -24px">
       <img src="https://brandastic.com/wp-content/uploads/2026/05/hyperx-logo.svg" alt="HyperX" style="height:56px;max-width:180px;flex-shrink:0">
       <img src="https://brandastic.com/wp-content/uploads/2026/05/fujifilm-seeklogo.svg" alt="Fujifilm" style="height:94px;max-width:360px;flex-shrink:0">
       <img src="https://brandastic.com/wp-content/uploads/2026/05/Pocky-Logo-1.svg" alt="Pocky" style="height:94px;max-width:300px;flex-shrink:0">
