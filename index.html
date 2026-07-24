@@ -800,20 +800,39 @@ const tabData = [
   }
 ];
 
+var tabAnimToken = 0;
+var tabCountPlayed = false;
+var activeTabIdx = -1;
+var switchTabTimer = null;
+
+function zeroTabCounts(chartEl) {
+  if (!chartEl) return;
+  chartEl.querySelectorAll("[data-count]").forEach(function(el) {
+    var suffix = el.getAttribute("data-suffix") || "";
+    el.textContent = "0" + (suffix === "+" ? "" : suffix);
+  });
+  chartEl.querySelectorAll("[data-width]").forEach(function(bar) {
+    bar.style.width = "0";
+  });
+}
+
 function animateTabCounts(chartEl) {
   if (!chartEl) return;
+  var token = ++tabAnimToken;
   var tabNums = chartEl.querySelectorAll("[data-count]");
   tabNums.forEach(function(el) {
     var target = parseFloat(el.getAttribute("data-count"));
     var suffix = el.getAttribute("data-suffix") || "";
     el.textContent = "0" + (suffix === "+" ? "" : suffix);
-    var dur = 1200;
+    var dur = 1400;
     var startTime = null;
     function anim(ts) {
+      if (token !== tabAnimToken) return; // cancel stale loops (stops flashing)
       if (!startTime) startTime = ts;
       var p = Math.min((ts - startTime) / dur, 1);
       var eased = 1 - Math.pow(1 - p, 3);
-      el.textContent = Math.floor(target * eased) + suffix;
+      var val = p < 1 ? Math.floor(target * eased) : Math.round(target);
+      el.textContent = val + suffix;
       if (p < 1) requestAnimationFrame(anim);
     }
     requestAnimationFrame(anim);
@@ -822,87 +841,109 @@ function animateTabCounts(chartEl) {
   bars.forEach(function(bar) {
     bar.style.width = "0";
     requestAnimationFrame(function() {
+      if (token !== tabAnimToken) return;
       bar.style.width = bar.getAttribute("data-width");
     });
+  });
+}
+
+function renderTab(idx, opts) {
+  opts = opts || {};
+  var chartEl = document.getElementById("tabChart");
+  var detailsEl = document.getElementById("tabDetails");
+  if (!chartEl || !detailsEl) return;
+
+  chartEl.innerHTML = tabData[idx].chart;
+  detailsEl.innerHTML = tabData[idx].details;
+  activeTabIdx = idx;
+
+  if (opts.deferCount) {
+    zeroTabCounts(chartEl);
+  } else {
+    animateTabCounts(chartEl);
+  }
+
+  // Stagger detail items once on render
+  var items = detailsEl.querySelectorAll("[data-delay]");
+  items.forEach(function(item, i) {
+    item.style.opacity = "0";
+    item.style.transform = "translateX(-10px)";
+    setTimeout(function() {
+      item.style.transition = "all 0.3s ease";
+      item.style.opacity = "1";
+      item.style.transform = "translateX(0)";
+    }, i * 120);
   });
 }
 
 function switchTab(idx, opts) {
   opts = opts || {};
   document.querySelectorAll(".score-tab").forEach(function(t,i) { t.classList.toggle("active", i === idx); });
-  
+
   var chartEl = document.getElementById("tabChart");
   var detailsEl = document.getElementById("tabDetails");
-  
-  // Fade out
-  chartEl.style.opacity = "0";
-  chartEl.style.transform = "scale(0.95)";
-  detailsEl.style.opacity = "0";
-  detailsEl.style.transform = "translateY(15px)";
-  
-  setTimeout(function() {
-    chartEl.innerHTML = tabData[idx].chart;
-    detailsEl.innerHTML = tabData[idx].details;
-    
-    // Fade in
-    chartEl.style.transition = "all 0.4s ease";
-    chartEl.style.opacity = "1";
-    chartEl.style.transform = "scale(1)";
-    
-    detailsEl.style.transition = "all 0.4s ease 0.15s";
-    detailsEl.style.opacity = "1";
-    detailsEl.style.transform = "translateY(0)";
-    
-    if (!opts.deferCount) {
-      setTimeout(function() { animateTabCounts(chartEl); }, 100);
-    } else {
-      // Keep zeros / empty bars until scroll reveal
-      chartEl.querySelectorAll("[data-count]").forEach(function(el) {
-        var suffix = el.getAttribute("data-suffix") || "";
-        el.textContent = "0" + (suffix === "+" ? "" : suffix);
-      });
-      chartEl.querySelectorAll("[data-width]").forEach(function(bar) {
-        bar.style.width = "0";
-      });
-    }
-    
-    // Stagger detail items
-    var items = detailsEl.querySelectorAll("[data-delay]");
-    items.forEach(function(item, i) {
-      item.style.opacity = "0";
-      item.style.transform = "translateX(-10px)";
-      setTimeout(function() {
-        item.style.transition = "all 0.3s ease";
-        item.style.opacity = "1";
-        item.style.transform = "translateX(0)";
-      }, i * 120);
-    });
-  }, 200);
-}
+  if (!chartEl || !detailsEl) return;
 
-// Competitive is default; count-up starts when score card is scrolled into view
-(function() {
-  var counted = false;
-  switchTab(2, { deferCount: true });
-  function playCounts() {
-    if (counted) return;
-    counted = true;
-    var chartEl = document.getElementById("tabChart");
-    animateTabCounts(chartEl);
-  }
-  var card = document.querySelector(".score-card");
-  if (!card || !("IntersectionObserver" in window)) {
-    setTimeout(playCounts, 400);
+  // Instant first paint (no fade) so Competitive doesn't flash on load/scroll
+  if (opts.instant) {
+    if (switchTabTimer) { clearTimeout(switchTabTimer); switchTabTimer = null; }
+    chartEl.style.transition = "none";
+    detailsEl.style.transition = "none";
+    chartEl.style.opacity = "1";
+    chartEl.style.transform = "none";
+    detailsEl.style.opacity = "1";
+    detailsEl.style.transform = "none";
+    renderTab(idx, opts);
     return;
   }
+
+  // Fade only when user clicks another tab
+  if (switchTabTimer) clearTimeout(switchTabTimer);
+  tabAnimToken++; // kill any in-flight count animations
+  chartEl.style.transition = "all 0.25s ease";
+  detailsEl.style.transition = "all 0.25s ease";
+  chartEl.style.opacity = "0";
+  chartEl.style.transform = "scale(0.98)";
+  detailsEl.style.opacity = "0";
+  detailsEl.style.transform = "translateY(8px)";
+
+  switchTabTimer = setTimeout(function() {
+    switchTabTimer = null;
+    renderTab(idx, opts);
+    chartEl.style.opacity = "1";
+    chartEl.style.transform = "scale(1)";
+    detailsEl.style.opacity = "1";
+    detailsEl.style.transform = "translateY(0)";
+  }, 180);
+}
+
+// Competitive default; count-up once when score card is mostly in view
+(function() {
+  switchTab(2, { instant: true, deferCount: true });
+
+  function playCountsOnce() {
+    if (tabCountPlayed) return;
+    if (activeTabIdx !== 2) return;
+    var chartEl = document.getElementById("tabChart");
+    if (!chartEl || !chartEl.querySelector("[data-count]")) return;
+    tabCountPlayed = true;
+    animateTabCounts(chartEl);
+  }
+
+  var card = document.querySelector(".score-card");
+  if (!card || !("IntersectionObserver" in window)) {
+    setTimeout(playCountsOnce, 500);
+    return;
+  }
+
   var io = new IntersectionObserver(function(entries) {
     entries.forEach(function(entry) {
-      if (entry.isIntersecting) {
-        playCounts();
+      if (entry.isIntersecting && entry.intersectionRatio >= 0.45) {
+        playCountsOnce();
         io.disconnect();
       }
     });
-  }, { threshold: 0.4 });
+  }, { threshold: [0.45, 0.6, 0.8] });
   io.observe(card);
 })();
 
