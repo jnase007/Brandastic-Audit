@@ -82,7 +82,7 @@ a{color:var(--accent);text-decoration:none}
 .section p.sub{color:var(--text2);font-size:1rem;max-width:600px;margin-bottom:2.5rem}
 
 /* FEATURES */
-.features{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1.5rem}
+.features{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:1.25rem}.feature h3{font-size:0.95rem}.feature p{font-size:0.8rem}
 .feature{background:var(--card);border:1px solid var(--card-border);border-radius:16px;padding:1.5rem;transition:border-color 0.2s}
 .feature:hover{border-color:rgba(64,180,229,0.3);transform:translateY(-4px);box-shadow:0 12px 40px rgba(0,0,0,0.2)}.feature{transition:all 0.3s ease}
 .feature-icon{width:48px;height:48px;border-radius:12px;background:linear-gradient(135deg,rgba(64,180,229,0.15),rgba(204,34,255,0.15));display:flex;align-items:center;justify-content:center;margin-bottom:1rem}
@@ -131,6 +131,12 @@ a{color:var(--accent);text-decoration:none}
 /* FOOTER */
 .footer{text-align:center;padding:3rem 2rem;font-size:0.75rem;color:var(--muted);border-top:1px solid rgba(64,180,229,0.15);position:relative;z-index:3;background:var(--bg)}.footer::before{content:"";position:absolute;top:0;left:50%;transform:translateX(-50%);width:80%;height:1px;background:linear-gradient(90deg,transparent,#40B4E5,#CC22FF,#40B4E5,transparent)}.footer::after{content:"";position:absolute;top:-60px;left:0;right:0;height:120px;background:radial-gradient(ellipse at center top,rgba(64,180,229,0.08) 0%,transparent 70%);pointer-events:none}
 
+@media(max-width:1100px){
+  .features{grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem}
+}
+@media(max-width:900px){
+  .features{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
 @media(max-width:768px){
   .hero h1{font-size:2.2rem}
   #rotatingWord{display:inline!important;background:none!important;-webkit-background-clip:unset!important;-webkit-text-fill-color:#40B4E5!important;background-clip:unset!important;color:#40B4E5!important}
@@ -198,7 +204,7 @@ a{color:var(--accent);text-decoration:none}
 /* TYPING EFFECT */
 @keyframes blink{0%,100%{opacity:1}50%{opacity:0}}
 .cursor{animation:blink 1s infinite;color:var(--accent)}
-#rotatingWord{display:inline-block;transition:opacity 0.3s ease,transform 0.3s ease}
+#rotatingWord{display:inline-block;min-width:7.5ch;text-align:left;vertical-align:bottom;transition:opacity 0.3s ease,transform 0.3s ease}
 
 /* FLOATING PARTICLES */
 .particles{position:absolute;top:0;left:0;right:0;bottom:0;overflow:hidden;z-index:0;pointer-events:none}
@@ -390,7 +396,7 @@ a{color:var(--accent);text-decoration:none}
   <div id="videoFade" style="position:fixed;top:0;left:0;right:0;bottom:0;background:#0a0e1a;opacity:0;z-index:1;pointer-events:none;transition:opacity 0.1s;max-height:100vh"></div>
   <div class="particles" id="particles"></div>
   <div style="position:relative;z-index:2" class="hero-content">
-  <h1>Uncover What's<br><span class="gradient">Costing You <span id="rotatingWord" style="display:inline;background:linear-gradient(135deg,#40B4E5,#CC22FF);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;color:transparent;border-bottom:4px solid #CC22FF;padding-bottom:2px">Revenue</span></span></h1>
+  <h1>Uncover What's<br><span class="gradient">Costing You <span id="rotatingWord" style="display:inline-block;min-width:7.5ch;text-align:left;background:linear-gradient(135deg,#40B4E5,#CC22FF);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;color:transparent;border-bottom:4px solid #CC22FF;padding-bottom:2px;box-sizing:content-box">Revenue</span></span></h1>
   <p>Premium digital marketing audits. Deep analysis. Actionable strategy. Real results. Get a personalized audit and see exactly where your growth opportunities are.</p>
   <a href="#form" class="hero-cta">See What You're Missing →</a>
   <p style="margin-top:1.5rem;font-size:0.9rem;color:var(--text2);font-weight:700;text-align:center;display:block;letter-spacing:0.02em">Powering growth for 450+ brands since 2010</p>
@@ -865,12 +871,26 @@ switchTab(0);
   var idx = 0;
   var el = document.getElementById("rotatingWord");
   if (!el) return;
+  // Reserve width for the longest word so hero content below doesn't shift
+  var measure = document.createElement("span");
+  measure.style.cssText = "position:absolute;visibility:hidden;white-space:nowrap;font:inherit;pointer-events:none";
+  el.parentNode.appendChild(measure);
+  var maxW = 0;
+  words.forEach(function(w){ measure.textContent = w; maxW = Math.max(maxW, measure.offsetWidth); });
+  measure.remove();
+  if (maxW) el.style.minWidth = maxW + "px";
   setInterval(function() {
     el.style.opacity = "0";
     el.style.transform = "translateY(10px)";
     setTimeout(function() {
       idx = (idx + 1) % words.length;
-      el.textContent = words[idx]; el.style.background = "linear-gradient(135deg,#4fa3e0,#b8a0d4)"; el.style.webkitBackgroundClip = "text"; el.style.webkitTextFillColor = "transparent"; el.style.borderBottom = "3px solid rgba(79,163,224,0.3)"; el.style.paddingBottom = "4px";
+      el.textContent = words[idx];
+      el.style.background = "linear-gradient(135deg,#40B4E5,#CC22FF)";
+      el.style.webkitBackgroundClip = "text";
+      el.style.backgroundClip = "text";
+      el.style.webkitTextFillColor = "transparent";
+      el.style.borderBottom = "4px solid #CC22FF";
+      el.style.paddingBottom = "2px";
       el.style.opacity = "1";
       el.style.transform = "translateY(0)";
     }, 300);
