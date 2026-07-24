@@ -404,9 +404,9 @@ a{color:var(--accent);text-decoration:none}
   <!-- ANIMATED SCORE CARD -->
   <div class="score-card">
     <div class="score-tabs">
-      <div class="score-tab active" onclick="switchTab(0)">SEO Health</div>
+      <div class="score-tab" onclick="switchTab(0)">SEO Health</div>
       <div class="score-tab" onclick="switchTab(1)">Paid Media</div>
-      <div class="score-tab" onclick="switchTab(2)">Competitive</div>
+      <div class="score-tab active" onclick="switchTab(2)">Competitive</div>
       <div class="score-tab" onclick="switchTab(3)">Conversions</div>
       <div class="score-tab" onclick="switchTab(4)">Action Plan</div>
     </div>
@@ -800,7 +800,35 @@ const tabData = [
   }
 ];
 
-function switchTab(idx) {
+function animateTabCounts(chartEl) {
+  if (!chartEl) return;
+  var tabNums = chartEl.querySelectorAll("[data-count]");
+  tabNums.forEach(function(el) {
+    var target = parseFloat(el.getAttribute("data-count"));
+    var suffix = el.getAttribute("data-suffix") || "";
+    el.textContent = "0" + (suffix === "+" ? "" : suffix);
+    var dur = 1200;
+    var startTime = null;
+    function anim(ts) {
+      if (!startTime) startTime = ts;
+      var p = Math.min((ts - startTime) / dur, 1);
+      var eased = 1 - Math.pow(1 - p, 3);
+      el.textContent = Math.floor(target * eased) + suffix;
+      if (p < 1) requestAnimationFrame(anim);
+    }
+    requestAnimationFrame(anim);
+  });
+  var bars = chartEl.querySelectorAll("[data-width]");
+  bars.forEach(function(bar) {
+    bar.style.width = "0";
+    requestAnimationFrame(function() {
+      bar.style.width = bar.getAttribute("data-width");
+    });
+  });
+}
+
+function switchTab(idx, opts) {
+  opts = opts || {};
   document.querySelectorAll(".score-tab").forEach(function(t,i) { t.classList.toggle("active", i === idx); });
   
   var chartEl = document.getElementById("tabChart");
@@ -825,30 +853,18 @@ function switchTab(idx) {
     detailsEl.style.opacity = "1";
     detailsEl.style.transform = "translateY(0)";
     
-    // Animate progress bars
-    setTimeout(function() {
-      var bars = chartEl.querySelectorAll("[data-width]");
-      bars.forEach(function(bar) {
-        bar.style.width = bar.getAttribute("data-width");
+    if (!opts.deferCount) {
+      setTimeout(function() { animateTabCounts(chartEl); }, 100);
+    } else {
+      // Keep zeros / empty bars until scroll reveal
+      chartEl.querySelectorAll("[data-count]").forEach(function(el) {
+        var suffix = el.getAttribute("data-suffix") || "";
+        el.textContent = "0" + (suffix === "+" ? "" : suffix);
       });
-    }, 100);
-    
-    // Count up numbers in tabs
-    var tabNums = chartEl.querySelectorAll("[data-count]");
-    tabNums.forEach(function(el) {
-      var target = parseFloat(el.getAttribute("data-count"));
-      var suffix = el.getAttribute("data-suffix") || "";
-      var dur = 1200;
-      var startTime = null;
-      function anim(ts) {
-        if (!startTime) startTime = ts;
-        var p = Math.min((ts - startTime) / dur, 1);
-        var eased = 1 - Math.pow(1 - p, 3);
-        el.textContent = Math.floor(target * eased) + suffix;
-        if (p < 1) requestAnimationFrame(anim);
-      }
-      requestAnimationFrame(anim);
-    });
+      chartEl.querySelectorAll("[data-width]").forEach(function(bar) {
+        bar.style.width = "0";
+      });
+    }
     
     // Stagger detail items
     var items = detailsEl.querySelectorAll("[data-delay]");
@@ -863,7 +879,32 @@ function switchTab(idx) {
     });
   }, 200);
 }
-switchTab(0);
+
+// Competitive is default; count-up starts when score card is scrolled into view
+(function() {
+  var counted = false;
+  switchTab(2, { deferCount: true });
+  function playCounts() {
+    if (counted) return;
+    counted = true;
+    var chartEl = document.getElementById("tabChart");
+    animateTabCounts(chartEl);
+  }
+  var card = document.querySelector(".score-card");
+  if (!card || !("IntersectionObserver" in window)) {
+    setTimeout(playCounts, 400);
+    return;
+  }
+  var io = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        playCounts();
+        io.disconnect();
+      }
+    });
+  }, { threshold: 0.4 });
+  io.observe(card);
+})();
 
 // Rotating headline word
 (function() {
