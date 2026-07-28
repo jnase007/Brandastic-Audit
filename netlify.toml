@@ -219,3 +219,13 @@
   from = "/jb-white-dds"
   to = "/jbwhitedds.html"
   status = 200
+
+[[redirects]]
+  from = "/calops-seo-strategic-growth"
+  to = "/calops-seo-strategic-growth.html"
+  status = 200
+
+[[redirects]]
+  from = "/calops"
+  to = "/calops-seo-strategic-growth.html"
+  status = 200
