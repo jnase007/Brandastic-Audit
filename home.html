@@ -119,9 +119,9 @@ h1{font-size:clamp(2.5rem,5.4vw,4.2rem);line-height:1.02;letter-spacing:-.045em;
 .person div{padding:12px}
 .person strong{display:block;font-size:14px}
 .person em{display:block;font-style:normal;margin-top:3px;font-size:11px;color:var(--cyan);font-weight:750;letter-spacing:.04em;text-transform:uppercase}
-.logos{display:flex;flex-wrap:wrap;gap:22px 40px;align-items:center;opacity:.92;filter:grayscale(1) brightness(1.55) contrast(1.05);margin-top:18px}
-.logos img{height:56px;max-width:180px;width:auto;object-fit:contain}
-@media (max-width:720px){.logos{gap:18px 28px;margin-top:14px}.logos img{height:46px;max-width:150px}}
+.logos{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:12px;margin-top:18px}
+.logos span{display:flex;align-items:center;justify-content:center;min-height:84px;padding:14px 10px;border:1px solid var(--line);border-radius:16px;background:rgba(255,255,255,.03);backdrop-filter:blur(8px)}
+.logos img{height:48px;max-width:100%;width:auto;object-fit:contain;filter:grayscale(1) brightness(1.65) contrast(1.08);opacity:.95}
 .footer{margin-top:64px;padding:28px 0 40px;border-top:1px solid var(--line);color:var(--soft);font-size:12px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
 .footer a{color:var(--muted)}.footer a:hover{color:#fff}
 #thankYou{display:none;text-align:center;padding:34px 10px}
@@ -133,12 +133,59 @@ h1{font-size:clamp(2.5rem,5.4vw,4.2rem);line-height:1.02;letter-spacing:-.045em;
   .metrics,.grid4,.team{grid-template-columns:1fr 1fr}
   .choice-grid.two{grid-template-columns:1fr}
   .steps{grid-template-columns:1fr 1fr}
+  .logos{grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+  .logos span{min-height:78px}
   h1{max-width:none}
+  .visual-row img{height:180px}
 }
 @media(max-width:560px){
-  .metrics,.grid4,.team,.row2{grid-template-columns:1fr}
+  .wrap{padding:0 16px}
+  .preview{padding:8px 12px;font-size:11px;line-height:1.35}
+  .nav{padding:14px 0 6px}
+  .nav img{height:20px}
+  .nav-cta{padding:10px 14px;font-size:12px}
   .nav-right a:not(.nav-cta){display:none}
-  .step-pill span{display:none}
+  .hero{padding:14px 0 8px;gap:18px}
+  h1{font-size:clamp(2.05rem,9.2vw,2.55rem);line-height:1.05;margin-bottom:12px}
+  .lead{font-size:15px;line-height:1.6;margin-bottom:14px}
+  .proof{gap:6px;margin-bottom:14px}
+  .chip{padding:7px 10px;font-size:11px}
+  .metrics{grid-template-columns:1fr 1fr;gap:8px}
+  .metric{padding:12px 10px;border-radius:14px}
+  .metric b{font-size:20px}
+  .metric span{font-size:10px}
+  .form-card{padding:16px;border-radius:20px}
+  .form-title{font-size:22px}
+  .form-sub{font-size:13px;margin-bottom:14px}
+  .steps{grid-template-columns:repeat(4,1fr);gap:6px;margin-bottom:14px}
+  .step-pill{justify-content:center;min-height:36px;padding:6px;border-radius:10px}
+  .step-pill span:not(.dot){display:none}
+  .choice{padding:13px 12px}
+  .choice b{font-size:13px}
+  .choice span{font-size:11px}
+  .actions{flex-direction:column-reverse}
+  .btn{width:100%}
+  .row2{grid-template-columns:1fr}
+  .section{padding:36px 0 4px;margin-top:22px}
+  .section h4{font-size:1.55rem;max-width:none}
+  .section p.copy{font-size:14px;margin-bottom:14px}
+  .grid4{grid-template-columns:1fr 1fr;gap:8px}
+  .card{min-height:0;border-radius:14px}
+  .card img{height:88px}
+  .card .body{padding:10px}
+  .card b{font-size:13px}
+  .card span{font-size:11px}
+  .visual-row{gap:8px;margin-top:10px}
+  .visual-row img{height:140px;border-radius:14px}
+  .logos{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin-top:12px}
+  .logos span{min-height:72px;padding:12px 10px;border-radius:14px}
+  .logos img{height:42px}
+  .team{grid-template-columns:1fr 1fr;gap:8px}
+  .person{border-radius:14px}
+  .person div{padding:10px}
+  .person strong{font-size:13px}
+  .person em{font-size:10px}
+  .footer{margin-top:40px;padding:22px 0 30px;gap:10px}
 }
 </style>
 </head>
@@ -335,13 +382,13 @@ h1{font-size:clamp(2.5rem,5.4vw,4.2rem);line-height:1.02;letter-spacing:-.045em;
       <div class="metric"><b>5.0★</b><span>Google reviews</span></div>
       <div class="metric"><b>Inc</b><span>Growth recognized</span></div>
     </div>
-    <div class="logos">
-      <img src="https://brandastic.com/wp-content/uploads/2026/05/ricoh-logo.svg" alt="RICOH">
-      <img src="https://brandastic.com/wp-content/uploads/2026/05/Orangetheory-Fitness-Logo-1.svg" alt="Orangetheory">
-      <img src="https://brandastic.com/wp-content/uploads/2026/05/hyperx-logo.svg" alt="HyperX">
-      <img src="https://brandastic.com/wp-content/uploads/2026/05/Kia-Logo-1.svg" alt="KIA">
-      <img src="https://brandastic.com/wp-content/uploads/2026/05/usc-logo.svg" alt="USC">
-      <img src="https://brandastic.com/wp-content/uploads/2026/05/fujifilm-seeklogo.svg" alt="Fujifilm">
+    <div class="logos" aria-label="Client logos">
+      <span><img src="https://brandastic.com/wp-content/uploads/2026/05/ricoh-logo.svg" alt="RICOH"></span>
+      <span><img src="https://brandastic.com/wp-content/uploads/2026/05/Orangetheory-Fitness-Logo-1.svg" alt="Orangetheory"></span>
+      <span><img src="https://brandastic.com/wp-content/uploads/2026/05/hyperx-logo.svg" alt="HyperX"></span>
+      <span><img src="https://brandastic.com/wp-content/uploads/2026/05/Kia-Logo-1.svg" alt="KIA"></span>
+      <span><img src="https://brandastic.com/wp-content/uploads/2026/05/usc-logo.svg" alt="USC"></span>
+      <span><img src="https://brandastic.com/wp-content/uploads/2026/05/fujifilm-seeklogo.svg" alt="Fujifilm"></span>
     </div>
   </section>
 
