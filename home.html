@@ -119,9 +119,14 @@ h1{font-size:clamp(2.5rem,5.4vw,4.2rem);line-height:1.02;letter-spacing:-.045em;
 .person div{padding:12px}
 .person strong{display:block;font-size:14px}
 .person em{display:block;font-style:normal;margin-top:3px;font-size:11px;color:var(--cyan);font-weight:750;letter-spacing:.04em;text-transform:uppercase}
-.logos{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:12px;margin-top:18px}
-.logos span{display:flex;align-items:center;justify-content:center;min-height:84px;padding:14px 10px;border:1px solid var(--line);border-radius:16px;background:rgba(255,255,255,.03);backdrop-filter:blur(8px)}
-.logos img{height:48px;max-width:100%;width:auto;object-fit:contain;filter:grayscale(1) brightness(1.65) contrast(1.08);opacity:.95}
+.logo-scroll{overflow:hidden;width:100%;position:relative;height:100px;display:flex;align-items:center;margin-top:18px}
+.logo-scroll::before,.logo-scroll::after{content:"";position:absolute;top:0;bottom:0;width:64px;z-index:2;pointer-events:none}
+.logo-scroll::before{left:0;background:linear-gradient(to right,var(--bg),transparent)}
+.logo-scroll::after{right:0;background:linear-gradient(to left,var(--bg),transparent)}
+.logo-track{display:flex;align-items:center;gap:3rem;animation:scrollLogos 25s linear infinite;width:max-content;opacity:.88;filter:brightness(0) invert(1)}
+.logo-track img{object-fit:contain;flex-shrink:0}
+@keyframes scrollLogos{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+@media (prefers-reduced-motion:reduce){.logo-track{animation:none}}
 .footer{margin-top:64px;padding:28px 0 40px;border-top:1px solid var(--line);color:var(--soft);font-size:12px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
 .footer a{color:var(--muted)}.footer a:hover{color:#fff}
 #thankYou{display:none;text-align:center;padding:34px 10px}
@@ -133,10 +138,10 @@ h1{font-size:clamp(2.5rem,5.4vw,4.2rem);line-height:1.02;letter-spacing:-.045em;
   .metrics,.grid4,.team{grid-template-columns:1fr 1fr}
   .choice-grid.two{grid-template-columns:1fr}
   .steps{grid-template-columns:1fr 1fr}
-  .logos{grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
-  .logos span{min-height:78px}
   h1{max-width:none}
   .visual-row img{height:180px}
+  .logo-scroll{height:88px}
+  .logo-scroll::before,.logo-scroll::after{width:40px}
 }
 @media(max-width:560px){
   .wrap{padding:0 16px}
@@ -177,9 +182,8 @@ h1{font-size:clamp(2.5rem,5.4vw,4.2rem);line-height:1.02;letter-spacing:-.045em;
   .card span{font-size:11px}
   .visual-row{gap:8px;margin-top:10px}
   .visual-row img{height:140px;border-radius:14px}
-  .logos{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin-top:12px}
-  .logos span{min-height:72px;padding:12px 10px;border-radius:14px}
-  .logos img{height:42px}
+  .logo-scroll{height:80px;margin-top:12px}
+  .logo-track{gap:2rem}
   .team{grid-template-columns:1fr 1fr;gap:8px}
   .person{border-radius:14px}
   .person div{padding:10px}
@@ -382,13 +386,25 @@ h1{font-size:clamp(2.5rem,5.4vw,4.2rem);line-height:1.02;letter-spacing:-.045em;
       <div class="metric"><b>5.0★</b><span>Google reviews</span></div>
       <div class="metric"><b>Inc</b><span>Growth recognized</span></div>
     </div>
-    <div class="logos" aria-label="Client logos">
-      <span><img src="https://brandastic.com/wp-content/uploads/2026/05/ricoh-logo.svg" alt="RICOH"></span>
-      <span><img src="https://brandastic.com/wp-content/uploads/2026/05/Orangetheory-Fitness-Logo-1.svg" alt="Orangetheory"></span>
-      <span><img src="https://brandastic.com/wp-content/uploads/2026/05/hyperx-logo.svg" alt="HyperX"></span>
-      <span><img src="https://brandastic.com/wp-content/uploads/2026/05/Kia-Logo-1.svg" alt="KIA"></span>
-      <span><img src="https://brandastic.com/wp-content/uploads/2026/05/usc-logo.svg" alt="USC"></span>
-      <span><img src="https://brandastic.com/wp-content/uploads/2026/05/fujifilm-seeklogo.svg" alt="Fujifilm"></span>
+    <div class="logo-scroll" aria-label="Client logos">
+      <div class="logo-track">
+        <img src="https://brandastic.com/wp-content/uploads/2026/05/ricoh-logo.svg" alt="RICOH" style="height:94px;max-width:360px">
+        <img src="https://brandastic.com/wp-content/uploads/2026/05/usc-logo.svg" alt="USC" style="height:94px;max-width:192px">
+        <img src="https://brandastic.com/wp-content/uploads/2026/05/ufc-gym-logo.svg" alt="UFC Gym" style="height:56px;max-width:180px">
+        <img src="https://brandastic.com/wp-content/uploads/2026/05/Orangetheory-Fitness-Logo-1.svg" alt="Orangetheory" style="height:160px;max-width:420px;margin:0 -24px">
+        <img src="https://brandastic.com/wp-content/uploads/2026/05/hyperx-logo.svg" alt="HyperX" style="height:56px;max-width:180px">
+        <img src="https://brandastic.com/wp-content/uploads/2026/05/fujifilm-seeklogo.svg" alt="Fujifilm" style="height:94px;max-width:360px">
+        <img src="https://brandastic.com/wp-content/uploads/2026/05/Pocky-Logo-1.svg" alt="Pocky" style="height:94px;max-width:300px">
+        <img src="https://brandastic.com/wp-content/uploads/2026/05/Kia-Logo-1.svg" alt="KIA" style="height:94px;max-width:240px">
+        <img src="https://brandastic.com/wp-content/uploads/2026/05/ricoh-logo.svg" alt="RICOH" style="height:94px;max-width:360px">
+        <img src="https://brandastic.com/wp-content/uploads/2026/05/usc-logo.svg" alt="USC" style="height:94px;max-width:192px">
+        <img src="https://brandastic.com/wp-content/uploads/2026/05/ufc-gym-logo.svg" alt="UFC Gym" style="height:56px;max-width:180px">
+        <img src="https://brandastic.com/wp-content/uploads/2026/05/Orangetheory-Fitness-Logo-1.svg" alt="Orangetheory" style="height:160px;max-width:420px;margin:0 -24px">
+        <img src="https://brandastic.com/wp-content/uploads/2026/05/hyperx-logo.svg" alt="HyperX" style="height:56px;max-width:180px">
+        <img src="https://brandastic.com/wp-content/uploads/2026/05/fujifilm-seeklogo.svg" alt="Fujifilm" style="height:94px;max-width:360px">
+        <img src="https://brandastic.com/wp-content/uploads/2026/05/Pocky-Logo-1.svg" alt="Pocky" style="height:94px;max-width:300px">
+        <img src="https://brandastic.com/wp-content/uploads/2026/05/Kia-Logo-1.svg" alt="KIA" style="height:94px;max-width:240px">
+      </div>
     </div>
   </section>
 
