@@ -59,8 +59,9 @@ h1{font-size:clamp(2.5rem,5.4vw,4.2rem);line-height:1.02;letter-spacing:-.045em;
 .metric b{display:block;font-size:22px;font-weight:900;letter-spacing:-.03em;background:linear-gradient(135deg,#7DD3FC,#E879F9);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
 .metric span{display:block;margin-top:4px;font-size:11px;color:var(--soft);font-weight:700;text-transform:uppercase;letter-spacing:.06em}
 .form-shell{position:sticky;top:58px;animation:rise .8s .08s ease both}
-.form-card{background:linear-gradient(180deg,rgba(16,23,34,.96),rgba(11,16,24,.98));border:1px solid rgba(255,255,255,.1);border-radius:24px;padding:22px;box-shadow:0 30px 90px rgba(0,0,0,.45), inset 0 1px 0 rgba(255,255,255,.04);overflow:hidden;position:relative}
+.form-card{background:linear-gradient(180deg,rgba(16,23,34,.96),rgba(11,16,24,.98));border:1px solid rgba(255,255,255,.1);border-radius:24px;padding:22px 22px 0;box-shadow:0 30px 90px rgba(0,0,0,.45), inset 0 1px 0 rgba(255,255,255,.04);overflow:hidden;position:relative;display:flex;flex-direction:column}
 .form-card::before{content:"";position:absolute;inset:0 0 auto 0;height:2px;background:linear-gradient(90deg,var(--cyan),var(--purple),var(--orange))}
+.form-body{flex:1;min-height:0}
 .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:18px}
 .step-pill{display:flex;align-items:center;gap:8px;min-height:42px;padding:8px 10px;border-radius:12px;border:1px solid var(--line);background:rgba(255,255,255,.02);font-size:11px;font-weight:700;color:var(--soft);transition:.25s}
 .step-pill .dot{width:18px;height:18px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;font-size:10px;border:1px solid rgba(255,255,255,.18);flex:0 0 auto}
@@ -78,7 +79,7 @@ h1{font-size:clamp(2.5rem,5.4vw,4.2rem);line-height:1.02;letter-spacing:-.045em;
   color:var(--text);border-radius:14px;padding:14px 14px;font:inherit;transition:.2s;
 }
 .choice:hover{border-color:rgba(64,180,229,.4);background:rgba(64,180,229,.06);transform:translateY(-1px)}
-.choice.selected{border-color:rgba(255,106,61,.7);background:rgba(255,106,61,.1);box-shadow:0 0 0 1px rgba(255,106,61,.25) inset}
+.choice.selected{border-color:rgba(255,122,47,.95);background:rgba(255,106,61,.16);box-shadow:0 0 0 1px rgba(255,122,47,.45) inset,0 10px 28px rgba(255,90,30,.18)}
 .choice b{display:block;font-size:14px;font-weight:750;margin-bottom:3px}
 .choice span{display:block;font-size:12px;color:var(--muted);line-height:1.45}
 .choice-grid.two{grid-template-columns:1fr 1fr}
@@ -91,13 +92,16 @@ h1{font-size:clamp(2.5rem,5.4vw,4.2rem);line-height:1.02;letter-spacing:-.045em;
 .form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:rgba(64,180,229,.55)}
 .form-group select option{color:#111}
 .row2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-.actions{display:flex;gap:10px;margin-top:8px}
-.btn{flex:1;border:0;border-radius:12px;padding:13px 16px;font:inherit;font-size:14px;font-weight:800;cursor:pointer;transition:.2s}
-.btn-primary{background:linear-gradient(135deg,var(--orange),#ff8a3d);color:#fff;box-shadow:0 12px 30px rgba(255,106,61,.25)}
-.btn-primary:hover{filter:brightness(1.05);transform:translateY(-1px)}
-.btn-ghost{background:transparent;border:1px solid var(--line);color:var(--text)}
-.btn-ghost:hover{border-color:rgba(255,255,255,.22)}
-.fine{margin-top:12px;text-align:center;font-size:12px;color:var(--soft);line-height:1.5}
+.actions{display:flex;gap:10px;margin-top:0;padding:14px 0 4px;position:sticky;bottom:0;z-index:5;background:linear-gradient(180deg,rgba(11,16,24,0),rgba(11,16,24,.96) 28%,rgba(11,16,24,.98) 100%);backdrop-filter:blur(10px)}
+.btn{flex:1;border:0;border-radius:14px;padding:16px 18px;font:inherit;font-size:15px;font-weight:850;cursor:pointer;transition:.2s;min-height:54px}
+.btn-primary{background:linear-gradient(135deg,#FF7A2F 0%,#FF4D1A 55%,#FF6A3D 100%);color:#fff;box-shadow:0 14px 36px rgba(255,90,30,.45),0 0 0 1px rgba(255,255,255,.12) inset;letter-spacing:.01em;animation:ctaPulse 2.6s ease-in-out infinite}
+.btn-primary:hover{filter:brightness(1.08);transform:translateY(-1px)}
+.btn-primary:disabled{opacity:.55;cursor:not-allowed;animation:none;filter:none;transform:none}
+.btn-ghost{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.16);color:var(--text);flex:0 0 auto;min-width:96px}
+.btn-ghost:hover{border-color:rgba(255,255,255,.28);background:rgba(255,255,255,.07)}
+.cta-hint{display:block;text-align:center;font-size:12px;font-weight:650;color:rgba(255,255,255,.55);margin:2px 0 10px;letter-spacing:.02em}
+.fine{margin:0;padding:0 0 16px;text-align:center;font-size:12px;color:var(--soft);line-height:1.5}
+@keyframes ctaPulse{0%,100%{box-shadow:0 14px 36px rgba(255,90,30,.42),0 0 0 1px rgba(255,255,255,.12) inset}50%{box-shadow:0 16px 44px rgba(255,90,30,.62),0 0 0 1px rgba(255,255,255,.18) inset}}
 .err{display:none;margin:0 0 10px;padding:10px 12px;border-radius:10px;background:rgba(239,68,68,.1);border:1px solid rgba(239,68,68,.25);color:#fecaca;font-size:12px;font-weight:600}
 .err.show{display:block}
 .section{position:relative;z-index:2;padding:54px 0 8px;border-top:1px solid var(--line);margin-top:34px}
@@ -159,7 +163,7 @@ h1{font-size:clamp(2.5rem,5.4vw,4.2rem);line-height:1.02;letter-spacing:-.045em;
   .metric{padding:12px 10px;border-radius:14px}
   .metric b{font-size:20px}
   .metric span{font-size:10px}
-  .form-card{padding:16px;border-radius:20px}
+  .form-card{padding:16px 16px 0;border-radius:20px}
   .form-title{font-size:22px}
   .form-sub{font-size:13px;margin-bottom:14px}
   .steps{grid-template-columns:repeat(4,1fr);gap:6px;margin-bottom:14px}
@@ -168,8 +172,12 @@ h1{font-size:clamp(2.5rem,5.4vw,4.2rem);line-height:1.02;letter-spacing:-.045em;
   .choice{padding:13px 12px}
   .choice b{font-size:13px}
   .choice span{font-size:11px}
-  .actions{flex-direction:column-reverse}
-  .btn{width:100%}
+  .actions{position:sticky;bottom:0;padding:12px 0 6px;gap:8px;flex-direction:row}
+  .btn{width:auto;min-height:52px;padding:15px 16px;font-size:15px;border-radius:14px}
+  .btn-ghost{min-width:84px}
+  .btn-primary{flex:1}
+  .cta-hint{margin-bottom:8px}
+  .fine{padding-bottom:14px}
   .row2{grid-template-columns:1fr}
   .section{padding:36px 0 4px;margin-top:22px}
   .section h4{font-size:1.55rem;max-width:none}
@@ -270,8 +278,9 @@ h1{font-size:clamp(2.5rem,5.4vw,4.2rem);line-height:1.02;letter-spacing:-.045em;
               <button type="button" class="choice" data-value="fix-channels"><b>Fix underperforming channels</b><span>SEO, paid, or conversion feels expensive for the return.</span></button>
               <button type="button" class="choice" data-value="ai-visibility"><b>Get recommended by AI</b><span>Show up when buyers ask ChatGPT / Perplexity who to hire.</span></button>
             </div>
-            <div class="actions" style="margin-top:14px">
-              <button type="button" class="btn btn-primary" onclick="nextStep()">Continue →</button>
+            <p class="cta-hint">Select a goal, then continue</p>
+            <div class="actions">
+              <button type="button" class="btn btn-primary" id="ctaStep0" onclick="nextStep()">Continue →</button>
             </div>
           </div>
 
@@ -287,9 +296,10 @@ h1{font-size:clamp(2.5rem,5.4vw,4.2rem);line-height:1.02;letter-spacing:-.045em;
               <button type="button" class="choice" data-value="100M+"><b>$100M+</b><span>Annual revenue</span></button>
               <button type="button" class="choice" data-value="unknown"><b>Prefer not to say</b><span>We’ll still review fit</span></button>
             </div>
+            <p class="cta-hint">Select your scale, then continue</p>
             <div class="actions">
               <button type="button" class="btn btn-ghost" onclick="prevStep()">Back</button>
-              <button type="button" class="btn btn-primary" onclick="nextStep()">Continue →</button>
+              <button type="button" class="btn btn-primary" id="ctaStep1" onclick="nextStep()">Continue →</button>
             </div>
           </div>
 
@@ -304,9 +314,10 @@ h1{font-size:clamp(2.5rem,5.4vw,4.2rem);line-height:1.02;letter-spacing:-.045em;
               <button type="button" class="choice" data-value="ai"><b>AI visibility</b><span>Can AI explain and recommend your brand?</span></button>
               <button type="button" class="choice" data-value="full-funnel"><b>Full funnel</b><span>Look across all of it — I want the full diagnostic.</span></button>
             </div>
+            <p class="cta-hint">Pick where we should look first</p>
             <div class="actions">
               <button type="button" class="btn btn-ghost" onclick="prevStep()">Back</button>
-              <button type="button" class="btn btn-primary" onclick="nextStep()">Continue →</button>
+              <button type="button" class="btn btn-primary" id="ctaStep2" onclick="nextStep()">Continue →</button>
             </div>
           </div>
 
@@ -332,6 +343,7 @@ h1{font-size:clamp(2.5rem,5.4vw,4.2rem);line-height:1.02;letter-spacing:-.045em;
               <label>Anything else <span style="text-transform:none;letter-spacing:0;font-weight:500;opacity:.7">(optional)</span></label>
               <textarea name="message" id="field_message" rows="3" placeholder="Goals, competitors, deadlines..."></textarea>
             </div>
+            <p class="cta-hint">Last step — submit your diagnostic request</p>
             <div class="actions">
               <button type="button" class="btn btn-ghost" onclick="prevStep()">Back</button>
               <button type="button" class="btn btn-primary" id="submitBtn" onclick="submitDiagnostic()">Get My Growth Diagnostic →</button>
