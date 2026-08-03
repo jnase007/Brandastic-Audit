@@ -131,6 +131,48 @@ h1{font-size:clamp(2.5rem,5.4vw,4.2rem);line-height:1.02;letter-spacing:-.045em;
 .logo-track img{object-fit:contain;flex-shrink:0}
 @keyframes scrollLogos{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
 @media (prefers-reduced-motion:reduce){.logo-track{animation:none}}
+.steps3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.step-card{position:relative;border:1px solid var(--line);background:rgba(255,255,255,.03);border-radius:18px;padding:20px 18px;min-height:170px;overflow:hidden}
+.step-card::before{content:"";position:absolute;inset:0 auto auto 0;width:100%;height:2px;background:linear-gradient(90deg,var(--cyan),var(--purple))}
+.step-num{display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:999px;background:rgba(64,180,229,.12);border:1px solid rgba(64,180,229,.35);color:#7DD3FC;font-size:12px;font-weight:850;margin-bottom:12px}
+.step-card b{display:block;font-size:16px;font-weight:800;letter-spacing:-.02em;margin-bottom:8px}
+.step-card span{display:block;font-size:13px;color:var(--muted);line-height:1.55}
+.systems{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.sys{border:1px solid var(--line);background:linear-gradient(180deg,rgba(16,23,34,.7),rgba(11,16,24,.5));border-radius:18px;padding:18px 16px;min-height:160px;transition:transform .25s,border-color .25s}
+.sys:hover{transform:translateY(-3px);border-color:rgba(64,180,229,.35)}
+.sys i{display:block;font-style:normal;font-size:11px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--cyan);margin-bottom:10px}
+.sys b{display:block;font-size:15px;font-weight:800;margin-bottom:8px;letter-spacing:-.02em}
+.sys span{display:block;font-size:12px;color:var(--muted);line-height:1.55}
+.cases{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.case{border:1px solid var(--line);background:rgba(255,255,255,.03);border-radius:18px;padding:18px 16px;min-height:180px;display:flex;flex-direction:column;gap:10px}
+.case .tag{display:inline-flex;align-self:flex-start;font-size:10px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--soft);border:1px solid var(--line);border-radius:999px;padding:5px 9px}
+.case .stat{font-size:28px;font-weight:900;letter-spacing:-.04em;background:linear-gradient(135deg,#7DD3FC,#E879F9);-webkit-background-clip:text;-webkit-text-fill-color:transparent;line-height:1.1}
+.case b{font-size:15px;font-weight:800}
+.case span{font-size:12px;color:var(--muted);line-height:1.55}
+.pod-wrap{margin-top:8px}
+.pod-stage{position:relative;height:420px;border:1px solid var(--line);border-radius:24px;background:radial-gradient(circle at 50% 50%,rgba(64,180,229,.10),transparent 42%),radial-gradient(circle at 50% 50%,rgba(255,106,61,.06),transparent 58%),rgba(255,255,255,.02);overflow:hidden}
+.pod-ring{position:absolute;left:50%;top:50%;border:1px dashed rgba(255,255,255,.08);border-radius:50%;transform:translate(-50%,-50%)}
+.pod-ring.r1{width:210px;height:210px}
+.pod-ring.r2{width:320px;height:320px}
+.pod-ring.r3{width:400px;height:400px;opacity:.55}
+.pod-center{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:132px;height:132px;border-radius:50%;display:flex;align-items:center;justify-content:center;text-align:center;padding:12px;background:radial-gradient(circle at 35% 30%,rgba(255,140,70,.35),rgba(20,12,10,.95) 62%);border:2px solid rgba(255,122,47,.9);box-shadow:0 0 40px rgba(255,106,61,.28), inset 0 0 24px rgba(255,106,61,.15);z-index:3}
+.pod-center b{font-size:13px;font-weight:900;letter-spacing:.08em;text-transform:uppercase;color:#FFD7C2;line-height:1.25}
+.pod-node{position:absolute;width:148px;min-height:86px;border-radius:18px;border:1px solid rgba(64,180,229,.45);background:rgba(8,14,22,.92);box-shadow:0 12px 40px rgba(0,0,0,.35),0 0 0 1px rgba(255,255,255,.03) inset;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:12px 10px;z-index:4;backdrop-filter:blur(10px)}
+.pod-node b{font-size:11px;font-weight:850;letter-spacing:.08em;text-transform:uppercase;color:#7DD3FC;line-height:1.25}
+.pod-node span{display:block;margin-top:6px;font-size:11px;color:var(--soft);font-weight:650}
+.pod-node.n1{left:50%;top:28px;transform:translateX(-50%)}
+.pod-node.n2{right:34px;top:50%;transform:translateY(-50%)}
+.pod-node.n3{left:50%;bottom:28px;transform:translateX(-50%)}
+.pod-node.n4{left:34px;top:50%;transform:translateY(-50%)}
+.cta-band{margin-top:34px;border:1px solid rgba(255,122,47,.28);border-radius:24px;padding:28px 24px;background:radial-gradient(circle at 12% 20%,rgba(255,106,61,.16),transparent 40%),radial-gradient(circle at 88% 30%,rgba(64,180,229,.14),transparent 42%),linear-gradient(180deg,rgba(18,14,12,.96),rgba(10,14,22,.98));display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap}
+.cta-band h4{font-size:clamp(1.5rem,2.6vw,2rem);letter-spacing:-.035em;font-weight:900;max-width:16ch;margin:0 0 8px}
+.cta-band p{color:var(--muted);max-width:36rem;margin:0;font-size:14px;line-height:1.6}
+.cta-band .btn{display:inline-flex;align-items:center;justify-content:center;min-width:220px;text-decoration:none}
+.audit-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.audit-item{border:1px solid var(--line);background:rgba(255,255,255,.03);border-radius:18px;padding:18px 16px}
+.audit-item i{display:block;font-style:normal;font-size:11px;font-weight:850;letter-spacing:.12em;text-transform:uppercase;color:var(--soft);margin-bottom:10px}
+.audit-item b{display:block;font-size:15px;margin-bottom:8px}
+.audit-item span{display:block;font-size:12px;color:var(--muted);line-height:1.55}
 .footer{margin-top:64px;padding:28px 0 40px;border-top:1px solid var(--line);color:var(--soft);font-size:12px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
 .footer a{color:var(--muted)}.footer a:hover{color:#fff}
 #thankYou{display:none;text-align:center;padding:34px 10px}
@@ -139,7 +181,7 @@ h1{font-size:clamp(2.5rem,5.4vw,4.2rem);line-height:1.02;letter-spacing:-.045em;
 @media(max-width:960px){
   .hero,.visual-row{grid-template-columns:1fr}
   .form-shell{position:static}
-  .metrics,.grid4,.team{grid-template-columns:1fr 1fr}
+  .metrics,.grid4,.team,.steps3,.systems,.cases,.audit-grid{grid-template-columns:1fr 1fr}
   .choice-grid.two{grid-template-columns:1fr}
   .steps{grid-template-columns:1fr 1fr}
   h1{max-width:none}
@@ -214,6 +256,22 @@ h1{font-size:clamp(2.5rem,5.4vw,4.2rem);line-height:1.02;letter-spacing:-.045em;
   .person strong{font-size:13px}
   .person em{font-size:10px}
   .footer{margin-top:40px;padding:22px 0 30px;gap:10px}
+  .steps3,.systems,.cases,.audit-grid{grid-template-columns:1fr 1fr;gap:8px}
+  .step-card,.sys,.case,.audit-item{min-height:0;padding:14px 12px;border-radius:14px}
+  .step-card b,.sys b,.case b,.audit-item b{font-size:13px}
+  .step-card span,.sys span,.case span,.audit-item span{font-size:11px}
+  .case .stat{font-size:22px}
+  .pod-stage{height:360px;border-radius:18px}
+  .pod-center{width:104px;height:104px}
+  .pod-center b{font-size:11px}
+  .pod-node{width:118px;min-height:72px;padding:10px 8px;border-radius:14px}
+  .pod-node b{font-size:10px}
+  .pod-node span{font-size:10px}
+  .pod-node.n2{right:10px}
+  .pod-node.n4{left:10px}
+  .pod-ring.r3{display:none}
+  .cta-band{padding:20px 16px;border-radius:18px}
+  .cta-band .btn{width:100%;min-width:0}
 }
 </style>
 </head>
@@ -246,15 +304,16 @@ h1{font-size:clamp(2.5rem,5.4vw,4.2rem);line-height:1.02;letter-spacing:-.045em;
       <p class="lead">Tell us about your business. Our team will map exactly where growth is getting stuck — across SEO, paid media, conversion, and AI visibility — then build the <strong>90-day plan</strong> to fix it.</p>
       <div class="proof">
         <span class="chip">Serving 450+ brands over 16 years</span>
+        <span class="chip">$1M+ annual ad spend managed</span>
         <span class="chip">Inc recognized</span>
         <span class="chip">5.0★ Google reviews</span>
         <span class="chip">No obligation</span>
       </div>
       <div class="metrics">
+        <div class="metric"><b>$1M+</b><span>Ad spend / year</span></div>
         <div class="metric"><b>120x</b><span>RICOH ROAS</span></div>
         <div class="metric"><b>800%</b><span>CPL decrease</span></div>
         <div class="metric"><b>720%</b><span>Organic clicks</span></div>
-        <div class="metric"><b>$100M</b><span>Sales support</span></div>
       </div>
     </div>
 
@@ -377,9 +436,44 @@ h1{font-size:clamp(2.5rem,5.4vw,4.2rem);line-height:1.02;letter-spacing:-.045em;
   </section>
 
   <section class="section">
+    <h3>How it works</h3>
+    <h4>Three steps. One clear 90-day map.</h4>
+    <p class="copy">No fluff deck. No junior handoff. You tell us the goal — we return with where revenue is leaking and what to fix first.</p>
+    <div class="steps3">
+      <div class="step-card">
+        <div class="step-num">01</div>
+        <b>Submit the diagnostic</b>
+        <span>Four quick questions on goal, scale, and where growth feels stuck. Takes under two minutes.</span>
+      </div>
+      <div class="step-card">
+        <div class="step-num">02</div>
+        <b>We run the forensic pass</b>
+        <span>Paid, SEO, conversion, and AI visibility reviewed against the same operator systems we use on live accounts.</span>
+      </div>
+      <div class="step-card">
+        <div class="step-num">03</div>
+        <b>Get the 90-day readout</b>
+        <span>Walk the leak map, priorities, and sequence on a senior call. Keep the plan either way.</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <h3>What we audit</h3>
+    <h4>Where money actually gets stuck.</h4>
+    <p class="copy">Most “audits” stop at surface channel notes. This diagnostic ranks leaks by impact across demand, spend, conversion, and AI recommendation.</p>
+    <div class="audit-grid">
+      <div class="audit-item"><i>01</i><b>Paid channels</b><span>Google + Meta structure, waste, creative, query intent, and efficiency against real revenue goals.</span></div>
+      <div class="audit-item"><i>02</i><b>Organic & search</b><span>Technical SEO, content gaps, competitor visibility, and pages that should already be compounding.</span></div>
+      <div class="audit-item"><i>03</i><b>Conversion</b><span>Landing friction, offer clarity, funnel drop-off, and why traffic dies before lead or sale.</span></div>
+      <div class="audit-item"><i>04</i><b>AI visibility</b><span>Can ChatGPT, Gemini, and Perplexity explain who you are — and recommend you when buyers ask?</span></div>
+    </div>
+  </section>
+
+  <section class="section">
     <h3>What you get</h3>
     <h4>A senior diagnostic. Not a template PDF.</h4>
-    <p class="copy">Most free audits dump channel notes. This one answers one question: where is money getting stuck, and what should change in the next 90 days?</p>
+    <p class="copy">One question drives everything: where is money getting stuck, and what should change in the next 90 days?</p>
     <div class="grid4">
       <div class="card">
         <img src="/images/diag/leak.png" alt="">
@@ -398,9 +492,17 @@ h1{font-size:clamp(2.5rem,5.4vw,4.2rem);line-height:1.02;letter-spacing:-.045em;
         <div class="body"><b>90-day plan</b><span>Clear priorities and sequence — usable with us or without us.</span></div>
       </div>
     </div>
-    <div class="visual-row">
-      <img src="/images/diag/desk.png" alt="Operator systems">
-      <img src="/images/diag/glow.png" alt="Growth systems visual">
+  </section>
+
+  <section class="section">
+    <h3>Systems</h3>
+    <h4>Same stack we use on live accounts.</h4>
+    <p class="copy">Not a white-labeled PDF factory. Your diagnostic is pulled through the operator systems Brandastic already runs for client growth.</p>
+    <div class="systems">
+      <div class="sys"><i>01</i><b>Growth Diagnostic</b><span>Goal → leak map → 90-day priorities. The conversion engine for this page.</span></div>
+      <div class="sys"><i>02</i><b>Brandastic Dash</b><span>Live Meta, Google Ads, and Semrush visibility in one operator board.</span></div>
+      <div class="sys"><i>03</i><b>AI Visibility Review</b><span>Mention + extractability check across ChatGPT, Gemini, and Perplexity.</span></div>
+      <div class="sys"><i>04</i><b>Channel Forensics</b><span>Paid waste, SEO gaps, and conversion friction ranked by revenue impact.</span></div>
     </div>
   </section>
 
@@ -409,10 +511,10 @@ h1{font-size:clamp(2.5rem,5.4vw,4.2rem);line-height:1.02;letter-spacing:-.045em;
     <h4>Hard numbers. Named brands.</h4>
     <p class="copy">Diagnosed with the same operator systems we use to run client accounts — Meta, Google, SEO, and AI visibility review.</p>
     <div class="metrics" style="margin-bottom:18px">
+      <div class="metric"><b>$1M+</b><span>Ad spend / year</span></div>
       <div class="metric"><b>450+</b><span>Brands served</span></div>
       <div class="metric"><b>16 yrs</b><span>In market</span></div>
       <div class="metric"><b>5.0★</b><span>Google reviews</span></div>
-      <div class="metric"><b>Inc</b><span>Growth recognized</span></div>
     </div>
     <div class="logo-scroll" aria-label="Client logos">
       <div class="logo-track">
@@ -437,6 +539,50 @@ h1{font-size:clamp(2.5rem,5.4vw,4.2rem);line-height:1.02;letter-spacing:-.045em;
   </section>
 
   <section class="section">
+    <h3>Results</h3>
+    <h4>What the work looks like when it lands.</h4>
+    <p class="copy">Named outcomes from brands we’ve grown — the same operator standard behind the diagnostic.</p>
+    <div class="cases">
+      <div class="case">
+        <span class="tag">Paid media</span>
+        <div class="stat">120x</div>
+        <b>RICOH ROAS</b>
+        <span>Efficiency unlocked after channel structure, creative, and waste were rebuilt around revenue — not vanity spend.</span>
+      </div>
+      <div class="case">
+        <span class="tag">Lead gen</span>
+        <div class="stat">800%</div>
+        <b>CPL decrease</b>
+        <span>Cost-per-lead compressed by fixing targeting, offer friction, and the pages demand was landing on.</span>
+      </div>
+      <div class="case">
+        <span class="tag">Organic</span>
+        <div class="stat">720%</div>
+        <b>Organic click lift</b>
+        <span>Search demand compounded after technical + content gaps were closed against real commercial intent.</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <h3>Your pod</h3>
+    <h4>Senior operators. Not junior handoffs.</h4>
+    <p class="copy">Every diagnostic is owned by a tight Costa Mesa pod — strategy, creative, ops, and channel specialists in the same room so the plan doesn’t die after the call.</p>
+    <div class="pod-wrap">
+      <div class="pod-stage" aria-label="Your Brandastic pod">
+        <div class="pod-ring r1"></div>
+        <div class="pod-ring r2"></div>
+        <div class="pod-ring r3"></div>
+        <div class="pod-center"><b>Your<br>Brand</b></div>
+        <div class="pod-node n1"><b>Growth Lead</b><span>Senior</span></div>
+        <div class="pod-node n2"><b>Creative</b><span>Senior</span></div>
+        <div class="pod-node n3"><b>Operations</b><span>Senior</span></div>
+        <div class="pod-node n4"><b>Channel · AI</b><span>Specialist</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
     <h3>Team</h3>
     <h4>Operators in the room.</h4>
     <p class="copy">Most of Brandastic works together in Costa Mesa. Strategy, creative, and ops stay tight so the diagnostic doesn’t die in handoffs.</p>
@@ -445,6 +591,16 @@ h1{font-size:clamp(2.5rem,5.4vw,4.2rem);line-height:1.02;letter-spacing:-.045em;
       <div class="person"><img src="https://brandastic.com/wp-content/uploads/2024/12/Melissa-01_editedBW-1@2x.png" alt="Melissa Hatch"><div><strong>Melissa Hatch</strong><em>Director of Marketing</em></div></div>
       <div class="person"><img src="https://brandastic.com/wp-content/uploads/2024/12/Sandy-28_portraitBW-2@2x.png" alt="Sandy Ortiz"><div><strong>Sandy Ortiz</strong><em>Director of Operations</em></div></div>
       <div class="person"><img src="https://brandastic.com/wp-content/uploads/2024/12/Maxwell-Gilbert.png" alt="Maxwell Gilbert"><div><strong>Maxwell Gilbert</strong><em>Creative Marketing</em></div></div>
+    </div>
+  </section>
+
+  <section class="section" style="border-top:none;margin-top:10px;padding-top:10px">
+    <div class="cta-band">
+      <div>
+        <h4>Your revenue is leaking. We’ll find where.</h4>
+        <p>Get the Growth Diagnostic — leak map, channel diagnosis, AI visibility check, and a 90-day plan you can keep either way.</p>
+      </div>
+      <a class="btn btn-primary" href="#form">Start My Diagnostic →</a>
     </div>
   </section>
 
