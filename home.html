@@ -180,20 +180,19 @@ h1{font-size:clamp(2.5rem,5.4vw,4.2rem);line-height:1.02;letter-spacing:-.045em;
 .case b{font-size:15px;font-weight:800}
 .case span{font-size:12px;color:var(--muted);line-height:1.55}
 .pod-wrap{margin-top:8px}
-.pod-stage{position:relative;height:420px;border:1px solid var(--line);border-radius:24px;background:radial-gradient(circle at 50% 50%,rgba(64,180,229,.10),transparent 42%),radial-gradient(circle at 50% 50%,rgba(255,106,61,.06),transparent 58%),rgba(255,255,255,.02);overflow:hidden}
-.pod-ring{position:absolute;left:50%;top:50%;border:1px dashed rgba(255,255,255,.08);border-radius:50%;transform:translate(-50%,-50%)}
-.pod-ring.r1{width:210px;height:210px}
-.pod-ring.r2{width:320px;height:320px}
-.pod-ring.r3{width:400px;height:400px;opacity:.55}
-.pod-center{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:132px;height:132px;border-radius:50%;display:flex;align-items:center;justify-content:center;text-align:center;padding:12px;background:radial-gradient(circle at 35% 30%,rgba(255,140,70,.35),rgba(20,12,10,.95) 62%);border:2px solid rgba(255,122,47,.9);box-shadow:0 0 40px rgba(255,106,61,.28), inset 0 0 24px rgba(255,106,61,.15);z-index:3}
-.pod-center b{font-size:13px;font-weight:900;letter-spacing:.08em;text-transform:uppercase;color:#FFD7C2;line-height:1.25}
-.pod-node{position:absolute;width:148px;min-height:86px;border-radius:18px;border:1px solid rgba(64,180,229,.45);background:rgba(8,14,22,.92);box-shadow:0 12px 40px rgba(0,0,0,.35),0 0 0 1px rgba(255,255,255,.03) inset;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:12px 10px;z-index:4;backdrop-filter:blur(10px)}
-.pod-node b{font-size:11px;font-weight:850;letter-spacing:.08em;text-transform:uppercase;color:#7DD3FC;line-height:1.25}
-.pod-node span{display:block;margin-top:6px;font-size:11px;color:var(--soft);font-weight:650}
-.pod-node.n1{left:50%;top:28px;transform:translateX(-50%)}
-.pod-node.n2{right:34px;top:50%;transform:translateY(-50%)}
-.pod-node.n3{left:50%;bottom:28px;transform:translateX(-50%)}
-.pod-node.n4{left:34px;top:50%;transform:translateY(-50%)}
+.pod-stage{position:relative;height:520px;border:1px solid var(--line);border-radius:28px;background:radial-gradient(circle at 50% 50%,rgba(255,106,61,.10),transparent 28%),radial-gradient(circle at 50% 50%,rgba(64,180,229,.08),transparent 52%),radial-gradient(circle at 18% 14%,rgba(255,122,47,.08),transparent 22%),#070b12;overflow:hidden}
+.pod-dot{position:absolute;left:28px;top:28px;width:14px;height:14px;border-radius:50%;border:1.5px solid rgba(255,122,47,.85);display:flex;align-items:center;justify-content:center;z-index:5}
+.pod-dot::after{content:"";width:6px;height:6px;border-radius:50%;background:#FF7A2F;box-shadow:0 0 12px rgba(255,122,47,.7)}
+.pod-svg{position:absolute;inset:0;width:100%;height:100%;z-index:1;pointer-events:none}
+.pod-center{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:148px;height:148px;border-radius:50%;display:flex;align-items:center;justify-content:center;text-align:center;padding:16px;background:radial-gradient(circle at 35% 28%,rgba(255,150,80,.45),rgba(28,14,8,.98) 60%);border:2px solid #FF7A2F;box-shadow:0 0 0 10px rgba(255,122,47,.06),0 0 50px rgba(255,106,61,.35),inset 0 0 30px rgba(255,106,61,.18);z-index:3}
+.pod-center b{font-size:14px;font-weight:900;letter-spacing:.12em;text-transform:uppercase;color:#FFD7C2;line-height:1.25}
+.pod-node{position:absolute;width:150px;height:150px;border-radius:50%;border:1.5px solid rgba(64,180,229,.7);background:radial-gradient(circle at 35% 30%,rgba(20,36,48,.95),rgba(6,10,16,.98) 70%);box-shadow:0 0 0 1px rgba(64,180,229,.08),0 16px 40px rgba(0,0,0,.4),inset 0 0 24px rgba(64,180,229,.08);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:16px 14px;z-index:4;backdrop-filter:blur(8px)}
+.pod-node b{font-size:12px;font-weight:850;letter-spacing:.08em;text-transform:uppercase;color:#5FD0F0;line-height:1.3;max-width:11ch}
+.pod-node span{display:block;margin-top:8px;font-size:12px;color:rgba(200,210,220,.72);font-weight:600}
+.pod-node.n1{left:8%;top:10%}
+.pod-node.n2{right:8%;top:10%}
+.pod-node.n3{left:8%;bottom:10%}
+.pod-node.n4{right:8%;bottom:10%}
 .cta-band{margin-top:34px;border:1px solid rgba(255,122,47,.28);border-radius:24px;padding:28px 24px;background:radial-gradient(circle at 12% 20%,rgba(255,106,61,.16),transparent 40%),radial-gradient(circle at 88% 30%,rgba(64,180,229,.14),transparent 42%),linear-gradient(180deg,rgba(18,14,12,.96),rgba(10,14,22,.98));display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap}
 .cta-band h4{font-size:clamp(1.5rem,2.6vw,2rem);letter-spacing:-.035em;font-weight:900;max-width:16ch;margin:0 0 8px}
 .cta-band p{color:var(--muted);max-width:36rem;margin:0;font-size:14px;line-height:1.6}
@@ -301,14 +300,16 @@ h1{font-size:clamp(2.5rem,5.4vw,4.2rem);line-height:1.02;letter-spacing:-.045em;
   .step-card span,.sys span,.case span,.audit-item span{font-size:11px}
   .case .stat{font-size:22px}
   .pod-stage{height:360px;border-radius:18px}
-  .pod-center{width:104px;height:104px}
-  .pod-center b{font-size:11px}
-  .pod-node{width:118px;min-height:72px;padding:10px 8px;border-radius:14px}
-  .pod-node b{font-size:10px}
-  .pod-node span{font-size:10px}
-  .pod-node.n2{right:10px}
-  .pod-node.n4{left:10px}
-  .pod-ring.r3{display:none}
+  .pod-center{width:96px;height:96px}
+  .pod-center b{font-size:10px;letter-spacing:.08em}
+  .pod-node{width:96px;height:96px;padding:10px 8px}
+  .pod-node b{font-size:9px;max-width:10ch}
+  .pod-node span{font-size:10px;margin-top:5px}
+  .pod-node.n1{left:2%;top:6%}
+  .pod-node.n2{right:2%;top:6%}
+  .pod-node.n3{left:2%;bottom:6%}
+  .pod-node.n4{right:2%;bottom:6%}
+  .pod-dot{left:14px;top:14px;width:12px;height:12px}
   .cta-band{padding:20px 16px;border-radius:18px}
   .cta-band .btn{width:100%;min-width:0}
 }
@@ -632,13 +633,28 @@ h1{font-size:clamp(2.5rem,5.4vw,4.2rem);line-height:1.02;letter-spacing:-.045em;
     <p class="copy">Every diagnostic is owned by a tight Costa Mesa pod — strategy, creative, ops, and channel specialists in the same room so the plan doesn’t die after the call.</p>
     <div class="pod-wrap">
       <div class="pod-stage" aria-label="Your Brandastic pod">
-        <div class="pod-ring r1"></div>
-        <div class="pod-ring r2"></div>
-        <div class="pod-ring r3"></div>
+        <div class="pod-dot" aria-hidden="true"></div>
+        <svg class="pod-svg" viewBox="0 0 1000 520" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+          <defs>
+            <radialGradient id="podGlow" cx="50%" cy="50%" r="50%">
+              <stop offset="0%" stop-color="rgba(255,122,47,.18)"/>
+              <stop offset="55%" stop-color="rgba(64,180,229,.05)"/>
+              <stop offset="100%" stop-color="rgba(0,0,0,0)"/>
+            </radialGradient>
+          </defs>
+          <circle cx="500" cy="260" r="210" fill="none" stroke="rgba(255,255,255,.06)" stroke-width="1" stroke-dasharray="3 8"/>
+          <circle cx="500" cy="260" r="155" fill="none" stroke="rgba(255,255,255,.05)" stroke-width="1" stroke-dasharray="2 10"/>
+          <circle cx="500" cy="260" r="95" fill="url(#podGlow)" stroke="rgba(255,122,47,.12)" stroke-width="1"/>
+          <!-- dashed spokes to corner nodes -->
+          <line x1="500" y1="260" x2="170" y2="110" stroke="rgba(160,175,190,.35)" stroke-width="1.5" stroke-dasharray="5 7"/>
+          <line x1="500" y1="260" x2="830" y2="110" stroke="rgba(160,175,190,.35)" stroke-width="1.5" stroke-dasharray="5 7"/>
+          <line x1="500" y1="260" x2="170" y2="410" stroke="rgba(160,175,190,.35)" stroke-width="1.5" stroke-dasharray="5 7"/>
+          <line x1="500" y1="260" x2="830" y2="410" stroke="rgba(160,175,190,.35)" stroke-width="1.5" stroke-dasharray="5 7"/>
+        </svg>
         <div class="pod-center"><b>Your<br>Brand</b></div>
         <div class="pod-node n1"><b>Growth Lead</b><span>Senior</span></div>
-        <div class="pod-node n2"><b>Creative</b><span>Senior</span></div>
-        <div class="pod-node n3"><b>Operations</b><span>Senior</span></div>
+        <div class="pod-node n2"><b>Creative Lead</b><span>Senior</span></div>
+        <div class="pod-node n3"><b>Media Buyer</b><span>Senior</span></div>
         <div class="pod-node n4"><b>Channel · AI</b><span>Specialist</span></div>
       </div>
     </div>
