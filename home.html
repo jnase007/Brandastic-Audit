@@ -1,338 +1,157 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- Google Tag Manager -->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-5C5RTG3');</script>
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-5C5RTG3');</script>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-TTZQH22P4G"></script>
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-TTZQH22P4G');</script>
 <script>!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');fbq('init','5495864097014192');fbq('track','PageView');</script>
-<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=5495864097014192&ev=PageView&noscript=1"/></noscript>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Growth Diagnostic — Brandastic</title>
-<meta name="description" content="Tell us about your business. We'll map where revenue is leaking and build a 90-day plan to fix it. Serving 450+ brands over 16 years.">
+<meta name="description" content="Tell us about your business. We'll map where revenue is leaking and build a 90-day plan. Serving 450+ brands over 16 years.">
 <meta name="robots" content="noindex,nofollow">
 <link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png">
-<link rel="icon" href="/favicon-192.png" sizes="192x192" type="image/png">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 :root{
-  --bg:#070A10;
-  --bg2:#0C111A;
-  --card:#101722;
-  --line:rgba(255,255,255,.08);
-  --text:#F4F7FB;
-  --muted:rgba(244,247,251,.62);
-  --soft:rgba(244,247,251,.42);
-  --accent:#40B4E5;
-  --purple:#CC22FF;
-  --green:#34D399;
+  --bg:#05070C;--panel:#0B1018;--card:#101722;--line:rgba(255,255,255,.08);
+  --text:#F5F7FB;--muted:rgba(245,247,251,.62);--soft:rgba(245,247,251,.4);
+  --cyan:#40B4E5;--purple:#CC22FF;--orange:#FF6A3D;--green:#22C55E;
 }
 html{scroll-behavior:smooth}
-body{
-  font-family:Inter,system-ui,sans-serif;
-  background:var(--bg);
-  color:var(--text);
-  line-height:1.55;
-  min-height:100vh;
-}
+body{font-family:Inter,system-ui,sans-serif;background:var(--bg);color:var(--text);line-height:1.55;overflow-x:hidden}
 a{color:inherit;text-decoration:none}
-.preview{
-  position:sticky;top:0;z-index:50;
-  background:rgba(15,23,42,.95);
-  border-bottom:1px solid var(--line);
-  text-align:center;
-  padding:9px 14px;
-  font-size:12px;
-  font-weight:600;
-  color:var(--muted);
-  backdrop-filter:blur(10px);
-}
+.preview{position:sticky;top:0;z-index:80;background:rgba(8,12,20,.94);border-bottom:1px solid var(--line);text-align:center;padding:9px 14px;font-size:12px;font-weight:600;color:var(--muted);backdrop-filter:blur(12px)}
 .preview a{color:#7DD3FC;text-decoration:underline}
-.wrap{max-width:1120px;margin:0 auto;padding:0 20px}
-.nav{
-  display:flex;align-items:center;justify-content:space-between;
-  padding:22px 0 8px;
-}
+.bg-stage{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden}
+.bg-stage img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.28;filter:saturate(1.05) contrast(1.05);transform:scale(1.04);animation:bgDrift 18s ease-in-out infinite alternate}
+.bg-stage::after{content:"";position:absolute;inset:0;background:
+  radial-gradient(circle at 18% 20%,rgba(64,180,229,.18),transparent 34%),
+  radial-gradient(circle at 82% 18%,rgba(204,34,255,.14),transparent 30%),
+  linear-gradient(180deg,rgba(5,7,12,.55) 0%,rgba(5,7,12,.82) 42%,rgba(5,7,12,.96) 100%)}
+.orb{position:absolute;border-radius:50%;filter:blur(50px);opacity:.45;animation:float 10s ease-in-out infinite}
+.orb.a{width:280px;height:280px;left:-40px;top:120px;background:rgba(64,180,229,.28)}
+.orb.b{width:340px;height:340px;right:-80px;top:40px;background:rgba(204,34,255,.22);animation-delay:-3s}
+.orb.c{width:220px;height:220px;left:40%;bottom:10%;background:rgba(255,106,61,.12);animation-delay:-6s}
+@keyframes bgDrift{from{transform:scale(1.04) translate3d(0,0,0)}to{transform:scale(1.1) translate3d(-1.5%,1%,0)}}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-18px)}}
+@keyframes rise{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(64,180,229,.25)}50%{box-shadow:0 0 0 10px rgba(64,180,229,0)}}
+.wrap{position:relative;z-index:2;max-width:1160px;margin:0 auto;padding:0 20px}
+.nav{display:flex;align-items:center;justify-content:space-between;padding:22px 0 10px}
 .nav img{height:22px;display:block}
-.nav-right{display:flex;gap:18px;align-items:center;font-size:13px;color:var(--muted);font-weight:500}
+.nav-right{display:flex;gap:16px;align-items:center;font-size:13px;color:var(--muted);font-weight:500}
 .nav-right a:hover{color:#fff}
-.nav-cta{
-  background:linear-gradient(135deg,var(--accent),var(--purple));
-  color:#fff!important;
-  padding:9px 14px;
-  border-radius:999px;
-  font-weight:700;
-  font-size:12px;
-}
-.hero{
-  padding:42px 0 28px;
-  display:grid;
-  grid-template-columns:1.05fr .95fr;
-  gap:42px;
-  align-items:start;
-}
-.eyebrow{
-  display:inline-flex;align-items:center;gap:8px;
-  font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;
-  color:var(--muted);
-  margin-bottom:18px;
-}
-.eyebrow i{
-  width:7px;height:7px;border-radius:50%;
-  background:linear-gradient(135deg,var(--accent),var(--purple));
-  display:inline-block;
-  box-shadow:0 0 0 4px rgba(64,180,229,.12);
-}
-h1{
-  font-size:clamp(2.4rem,5.2vw,4rem);
-  line-height:1.02;
-  letter-spacing:-.045em;
-  font-weight:800;
-  max-width:11.5ch;
-  margin-bottom:18px;
-}
-.lead{
-  font-size:17px;
-  color:var(--muted);
-  max-width:34rem;
-  margin-bottom:22px;
-  line-height:1.7;
-}
+.nav-cta{background:linear-gradient(135deg,var(--cyan),var(--purple));color:#fff!important;padding:9px 14px;border-radius:999px;font-weight:700;font-size:12px}
+.hero{display:grid;grid-template-columns:1.05fr .95fr;gap:40px;align-items:start;padding:28px 0 18px}
+.left{animation:rise .7s ease both}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:11px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin-bottom:16px}
+.eyebrow i{width:8px;height:8px;border-radius:50%;background:linear-gradient(135deg,var(--cyan),var(--purple));animation:pulse 2.4s infinite}
+h1{font-size:clamp(2.5rem,5.4vw,4.2rem);line-height:1.02;letter-spacing:-.045em;font-weight:850;max-width:11.5ch;margin-bottom:16px}
+.lead{font-size:17px;color:var(--muted);max-width:34rem;margin-bottom:20px;line-height:1.7}
 .lead strong{color:#fff;font-weight:650}
-.proof{
-  display:flex;flex-wrap:wrap;gap:8px;
-  margin:0 0 28px;
+.proof{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:22px}
+.chip{border:1px solid var(--line);background:rgba(255,255,255,.03);border-radius:999px;padding:8px 12px;font-size:12px;font-weight:600;color:var(--muted);backdrop-filter:blur(8px)}
+.metrics{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}
+.metric{border:1px solid var(--line);background:rgba(255,255,255,.03);border-radius:16px;padding:14px 12px;backdrop-filter:blur(10px);transition:transform .25s,border-color .25s}
+.metric:hover{transform:translateY(-3px);border-color:rgba(64,180,229,.35)}
+.metric b{display:block;font-size:22px;font-weight:900;letter-spacing:-.03em;background:linear-gradient(135deg,#7DD3FC,#E879F9);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.metric span{display:block;margin-top:4px;font-size:11px;color:var(--soft);font-weight:700;text-transform:uppercase;letter-spacing:.06em}
+.form-shell{position:sticky;top:58px;animation:rise .8s .08s ease both}
+.form-card{background:linear-gradient(180deg,rgba(16,23,34,.96),rgba(11,16,24,.98));border:1px solid rgba(255,255,255,.1);border-radius:24px;padding:22px;box-shadow:0 30px 90px rgba(0,0,0,.45), inset 0 1px 0 rgba(255,255,255,.04);overflow:hidden;position:relative}
+.form-card::before{content:"";position:absolute;inset:0 0 auto 0;height:2px;background:linear-gradient(90deg,var(--cyan),var(--purple),var(--orange))}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:18px}
+.step-pill{display:flex;align-items:center;gap:8px;min-height:42px;padding:8px 10px;border-radius:12px;border:1px solid var(--line);background:rgba(255,255,255,.02);font-size:11px;font-weight:700;color:var(--soft);transition:.25s}
+.step-pill .dot{width:18px;height:18px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;font-size:10px;border:1px solid rgba(255,255,255,.18);flex:0 0 auto}
+.step-pill.active{border-color:rgba(255,106,61,.55);background:rgba(255,106,61,.1);color:#fff}
+.step-pill.active .dot{background:var(--orange);border-color:var(--orange);color:#fff}
+.step-pill.done{border-color:rgba(34,197,94,.35);background:rgba(34,197,94,.08);color:#d1fae5}
+.step-pill.done .dot{background:var(--green);border-color:var(--green);color:#fff}
+.form-title{font-size:24px;font-weight:850;letter-spacing:-.03em;margin-bottom:6px}
+.form-sub{color:var(--muted);font-size:13px;margin-bottom:18px;line-height:1.55}
+.panel{display:none;animation:rise .35s ease both}
+.panel.active{display:block}
+.choice-grid{display:grid;gap:10px}
+.choice{
+  width:100%;text-align:left;cursor:pointer;border:1px solid var(--line);background:rgba(255,255,255,.025);
+  color:var(--text);border-radius:14px;padding:14px 14px;font:inherit;transition:.2s;
 }
-.chip{
-  border:1px solid var(--line);
-  background:rgba(255,255,255,.03);
-  border-radius:999px;
-  padding:8px 12px;
-  font-size:12px;
-  font-weight:600;
-  color:var(--muted);
-}
-.metrics{
-  display:grid;
-  grid-template-columns:repeat(4,minmax(0,1fr));
-  gap:10px;
-  margin-top:8px;
-}
-.metric{
-  border:1px solid var(--line);
-  background:linear-gradient(180deg,rgba(255,255,255,.03),rgba(255,255,255,.01));
-  border-radius:16px;
-  padding:14px 12px;
-}
-.metric b{
-  display:block;
-  font-size:22px;
-  font-weight:850;
-  letter-spacing:-.03em;
-  background:linear-gradient(135deg,#7DD3FC,#E879F9);
-  -webkit-background-clip:text;
-  -webkit-text-fill-color:transparent;
-}
-.metric span{
-  display:block;
-  margin-top:4px;
-  font-size:11px;
-  color:var(--soft);
-  font-weight:600;
-  text-transform:uppercase;
-  letter-spacing:.06em;
-}
-.form-card{
-  background:linear-gradient(180deg,rgba(255,255,255,.04),rgba(255,255,255,.015));
-  border:1px solid var(--line);
-  border-radius:22px;
-  padding:22px;
-  box-shadow:0 30px 80px rgba(0,0,0,.35);
-  position:sticky;
-  top:56px;
-}
-.form-card h2{
-  font-size:22px;
-  font-weight:800;
-  letter-spacing:-.03em;
-  margin-bottom:6px;
-}
-.form-card .sub{
-  color:var(--muted);
-  font-size:13px;
-  margin-bottom:18px;
-  line-height:1.55;
-}
+.choice:hover{border-color:rgba(64,180,229,.4);background:rgba(64,180,229,.06);transform:translateY(-1px)}
+.choice.selected{border-color:rgba(255,106,61,.7);background:rgba(255,106,61,.1);box-shadow:0 0 0 1px rgba(255,106,61,.25) inset}
+.choice b{display:block;font-size:14px;font-weight:750;margin-bottom:3px}
+.choice span{display:block;font-size:12px;color:var(--muted);line-height:1.45}
+.choice-grid.two{grid-template-columns:1fr 1fr}
 .form-group{margin-bottom:12px}
-.form-group label{
-  display:block;
-  font-size:11px;
-  font-weight:700;
-  letter-spacing:.06em;
-  text-transform:uppercase;
-  color:var(--soft);
-  margin-bottom:6px;
+.form-group label{display:block;font-size:11px;font-weight:750;letter-spacing:.06em;text-transform:uppercase;color:var(--soft);margin-bottom:6px}
+.form-group input,.form-group select,.form-group textarea{
+  width:100%;background:rgba(0,0,0,.28);border:1px solid var(--line);color:#fff;border-radius:12px;
+  padding:12px 13px;font:inherit;font-size:14px;outline:none
 }
-.form-group input,
-.form-group select,
-.form-group textarea{
-  width:100%;
-  background:rgba(0,0,0,.28);
-  border:1px solid var(--line);
-  color:#fff;
-  border-radius:12px;
-  padding:12px 13px;
-  font:inherit;
-  font-size:14px;
-  outline:none;
-}
-.form-group input:focus,
-.form-group select:focus,
-.form-group textarea:focus{border-color:rgba(64,180,229,.55)}
+.form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:rgba(64,180,229,.55)}
 .form-group select option{color:#111}
 .row2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-.form-submit{
-  width:100%;
-  margin-top:6px;
-  border:0;
-  border-radius:12px;
-  padding:14px 16px;
-  font:inherit;
-  font-size:15px;
-  font-weight:800;
-  color:#fff;
-  cursor:pointer;
-  background:linear-gradient(135deg,var(--accent),var(--purple));
-  box-shadow:0 10px 30px rgba(64,180,229,.22);
-}
-.form-submit:hover{filter:brightness(1.05)}
-.fine{
-  margin-top:12px;
-  text-align:center;
-  font-size:12px;
-  color:var(--soft);
-  line-height:1.5;
-}
-.section{padding:56px 0 8px;border-top:1px solid var(--line);margin-top:28px}
-.section h3{
-  font-size:13px;
-  letter-spacing:.14em;
-  text-transform:uppercase;
-  color:var(--soft);
-  font-weight:700;
-  margin-bottom:14px;
-}
-.section h4{
-  font-size:clamp(1.6rem,3vw,2.1rem);
-  letter-spacing:-.035em;
-  font-weight:800;
-  max-width:18ch;
-  margin-bottom:12px;
-}
-.section p.copy{
-  color:var(--muted);
-  max-width:40rem;
-  margin-bottom:22px;
-  font-size:15px;
-  line-height:1.7;
-}
-.grid4{
-  display:grid;
-  grid-template-columns:repeat(4,minmax(0,1fr));
-  gap:12px;
-}
-.card{
-  background:rgba(255,255,255,.025);
-  border:1px solid var(--line);
-  border-radius:18px;
-  padding:18px;
-  min-height:150px;
-}
-.card .n{
-  width:28px;height:28px;border-radius:8px;
-  display:flex;align-items:center;justify-content:center;
-  font-size:12px;font-weight:800;color:#fff;
-  background:linear-gradient(135deg,var(--accent),var(--purple));
-  margin-bottom:14px;
-}
-.card b{display:block;font-size:15px;margin-bottom:6px}
-.card span{display:block;font-size:13px;color:var(--muted);line-height:1.55}
-.logos{
-  display:flex;flex-wrap:wrap;gap:18px 28px;align-items:center;
-  opacity:.72;filter:grayscale(1) brightness(1.4);
-  margin-top:8px;
-}
-.logos img{height:34px;max-width:120px;object-fit:contain}
-.team{
-  display:grid;
-  grid-template-columns:repeat(4,minmax(0,1fr));
-  gap:12px;
-}
-.person{
-  border:1px solid var(--line);
-  border-radius:18px;
-  overflow:hidden;
-  background:rgba(255,255,255,.02);
-}
-.person img{
-  width:100%;
-  aspect-ratio:1/1;
-  object-fit:cover;
-  display:block;
-  filter:grayscale(1) contrast(1.05);
-}
-.person div{padding:12px 12px 14px}
+.actions{display:flex;gap:10px;margin-top:8px}
+.btn{flex:1;border:0;border-radius:12px;padding:13px 16px;font:inherit;font-size:14px;font-weight:800;cursor:pointer;transition:.2s}
+.btn-primary{background:linear-gradient(135deg,var(--orange),#ff8a3d);color:#fff;box-shadow:0 12px 30px rgba(255,106,61,.25)}
+.btn-primary:hover{filter:brightness(1.05);transform:translateY(-1px)}
+.btn-ghost{background:transparent;border:1px solid var(--line);color:var(--text)}
+.btn-ghost:hover{border-color:rgba(255,255,255,.22)}
+.fine{margin-top:12px;text-align:center;font-size:12px;color:var(--soft);line-height:1.5}
+.err{display:none;margin:0 0 10px;padding:10px 12px;border-radius:10px;background:rgba(239,68,68,.1);border:1px solid rgba(239,68,68,.25);color:#fecaca;font-size:12px;font-weight:600}
+.err.show{display:block}
+.section{position:relative;z-index:2;padding:54px 0 8px;border-top:1px solid var(--line);margin-top:34px}
+.section h3{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--soft);font-weight:800;margin-bottom:12px}
+.section h4{font-size:clamp(1.7rem,3vw,2.2rem);letter-spacing:-.035em;font-weight:850;max-width:16ch;margin-bottom:10px}
+.section p.copy{color:var(--muted);max-width:40rem;margin-bottom:20px;font-size:15px;line-height:1.7}
+.grid4{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.card{background:rgba(255,255,255,.03);border:1px solid var(--line);border-radius:18px;overflow:hidden;min-height:170px;transition:transform .25s,border-color .25s}
+.card:hover{transform:translateY(-4px);border-color:rgba(64,180,229,.3)}
+.card img{width:100%;height:110px;object-fit:cover;display:block}
+.card .body{padding:14px}
+.card b{display:block;font-size:14px;margin-bottom:5px}
+.card span{display:block;font-size:12px;color:var(--muted);line-height:1.5}
+.visual-row{display:grid;grid-template-columns:1.2fr .8fr;gap:12px;margin-top:14px}
+.visual-row img{width:100%;height:220px;object-fit:cover;border-radius:18px;border:1px solid var(--line);display:block}
+.team{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.person{border:1px solid var(--line);border-radius:18px;overflow:hidden;background:rgba(255,255,255,.02)}
+.person img{width:100%;aspect-ratio:1/1;object-fit:cover;display:block;filter:grayscale(1) contrast(1.05)}
+.person div{padding:12px}
 .person strong{display:block;font-size:14px}
-.person em{
-  display:block;
-  font-style:normal;
-  margin-top:3px;
-  font-size:11px;
-  color:var(--accent);
-  font-weight:700;
-  letter-spacing:.04em;
-  text-transform:uppercase;
-}
-.footer{
-  margin-top:64px;
-  padding:28px 0 40px;
-  border-top:1px solid var(--line);
-  color:var(--soft);
-  font-size:12px;
-  display:flex;
-  justify-content:space-between;
-  gap:16px;
-  flex-wrap:wrap;
-}
-.footer a{color:var(--muted)}
-.footer a:hover{color:#fff}
-#thankYou{display:none;text-align:center;padding:28px 8px}
-#thankYou h2{font-size:24px;margin-bottom:10px}
+.person em{display:block;font-style:normal;margin-top:3px;font-size:11px;color:var(--cyan);font-weight:750;letter-spacing:.04em;text-transform:uppercase}
+.logos{display:flex;flex-wrap:wrap;gap:18px 28px;align-items:center;opacity:.75;filter:grayscale(1) brightness(1.45);margin-top:8px}
+.logos img{height:34px;max-width:120px;object-fit:contain}
+.footer{margin-top:64px;padding:28px 0 40px;border-top:1px solid var(--line);color:var(--soft);font-size:12px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.footer a{color:var(--muted)}.footer a:hover{color:#fff}
+#thankYou{display:none;text-align:center;padding:34px 10px}
+#thankYou h2{font-size:28px;margin-bottom:10px}
 #thankYou p{color:var(--muted);line-height:1.7}
-@media (max-width:920px){
-  .hero{grid-template-columns:1fr;gap:28px}
-  .form-card{position:static}
+@media(max-width:960px){
+  .hero,.visual-row{grid-template-columns:1fr}
+  .form-shell{position:static}
   .metrics,.grid4,.team{grid-template-columns:1fr 1fr}
+  .choice-grid.two{grid-template-columns:1fr}
+  .steps{grid-template-columns:1fr 1fr}
   h1{max-width:none}
 }
-@media (max-width:560px){
+@media(max-width:560px){
   .metrics,.grid4,.team,.row2{grid-template-columns:1fr}
   .nav-right a:not(.nav-cta){display:none}
-  .form-card{padding:18px}
+  .step-pill span{display:none}
 }
 </style>
 </head>
 <body>
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5C5RTG3"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5C5RTG3" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
-<div class="preview">Team preview · Tiger-style rewrite · does not replace live homepage · <a href="/">current audit page</a> · <a href="/home">/home</a></div>
+<div class="preview">Team preview · multi-step Growth Diagnostic · not a Tiger clone · live root audit page untouched · <a href="/">current page</a> · <a href="/home">/home</a></div>
+
+<div class="bg-stage" aria-hidden="true">
+  <img src="/images/diag/hero.png" alt="">
+  <div class="orb a"></div>
+  <div class="orb b"></div>
+  <div class="orb c"></div>
+</div>
 
 <div class="wrap">
   <nav class="nav">
@@ -345,14 +164,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </nav>
 
   <section class="hero">
-    <div>
+    <div class="left">
       <div class="eyebrow"><i></i> Growth Diagnostic</div>
       <h1>Find where your revenue is leaking.</h1>
-      <p class="lead">
-        Tell us about your business. Our team will map exactly where growth is getting stuck —
-        across SEO, paid media, conversion, and AI visibility — then build the
-        <strong>90-day plan</strong> to fix it.
-      </p>
+      <p class="lead">Tell us about your business. Our team will map exactly where growth is getting stuck — across SEO, paid media, conversion, and AI visibility — then build the <strong>90-day plan</strong> to fix it.</p>
       <div class="proof">
         <span class="chip">Serving 450+ brands over 16 years</span>
         <span class="chip">Inc recognized</span>
@@ -367,74 +182,116 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </div>
     </div>
 
-    <div class="form-card" id="form">
-      <h2>Request your Growth Diagnostic</h2>
-      <p class="sub">Built for U.S. brands roughly $1M+ in revenue. Response within 1 business day.</p>
-      <form id="auditForm" name="audit-request" method="POST" data-netlify="true" netlify-honeypot="bot-field" onsubmit="submitAudit(event)">
-        <input type="hidden" name="form-name" value="audit-request">
-        <input type="hidden" name="utm_source" id="utm_source">
-        <input type="hidden" name="utm_medium" id="utm_medium">
-        <input type="hidden" name="utm_campaign" id="utm_campaign">
-        <input type="hidden" name="utm_term" id="utm_term">
-        <input type="hidden" name="utm_content" id="utm_content">
-        <input type="hidden" name="landing_page" id="landing_page">
-        <input type="hidden" name="referrer" id="referrer">
-        <input type="hidden" name="bot-field">
-        <input type="hidden" name="to" value="justin@brandastic.com">
+    <div class="form-shell" id="form">
+      <div class="form-card">
+        <div class="steps" id="stepPills">
+          <div class="step-pill active" data-step="0"><span class="dot">1</span><span>Your Goal</span></div>
+          <div class="step-pill" data-step="1"><span class="dot">2</span><span>Your Scale</span></div>
+          <div class="step-pill" data-step="2"><span class="dot">3</span><span>Channels</span></div>
+          <div class="step-pill" data-step="3"><span class="dot">4</span><span>Details</span></div>
+        </div>
 
-        <div class="row2">
-          <div class="form-group">
-            <label>Full name</label>
-            <input type="text" name="name" required placeholder="Jane Smith" autocomplete="name">
+        <form id="auditForm" name="audit-request" method="POST" data-netlify="true" netlify-honeypot="bot-field" onsubmit="return false;">
+          <input type="hidden" name="form-name" value="audit-request">
+          <input type="hidden" name="utm_source" id="utm_source">
+          <input type="hidden" name="utm_medium" id="utm_medium">
+          <input type="hidden" name="utm_campaign" id="utm_campaign">
+          <input type="hidden" name="utm_term" id="utm_term">
+          <input type="hidden" name="utm_content" id="utm_content">
+          <input type="hidden" name="landing_page" id="landing_page">
+          <input type="hidden" name="referrer" id="referrer">
+          <input type="hidden" name="bot-field">
+          <input type="hidden" name="to" value="justin@brandastic.com">
+          <input type="hidden" name="goal" id="field_goal">
+          <input type="hidden" name="budget" id="field_budget">
+          <input type="hidden" name="interest" id="field_interest">
+
+          <div id="formError" class="err"></div>
+
+          <!-- STEP 1 -->
+          <div class="panel active" data-panel="0">
+            <h2 class="form-title">What’s the goal?</h2>
+            <p class="form-sub">Pick the outcome you care about most. We’ll build the diagnostic around it.</p>
+            <div class="choice-grid" id="goalChoices">
+              <button type="button" class="choice" data-value="find-revenue-leaks"><b>Find where revenue is leaking</b><span>Not sure what’s broken — need the map first.</span></button>
+              <button type="button" class="choice" data-value="scale-efficiently"><b>Scale what’s already working</b><span>Growth is happening. Efficiency and upside matter more now.</span></button>
+              <button type="button" class="choice" data-value="fix-channels"><b>Fix underperforming channels</b><span>SEO, paid, or conversion feels expensive for the return.</span></button>
+              <button type="button" class="choice" data-value="ai-visibility"><b>Get recommended by AI</b><span>Show up when buyers ask ChatGPT / Perplexity who to hire.</span></button>
+            </div>
+            <div class="actions" style="margin-top:14px">
+              <button type="button" class="btn btn-primary" onclick="nextStep()">Continue →</button>
+            </div>
           </div>
-          <div class="form-group">
-            <label>Work email</label>
-            <input type="email" name="email" required placeholder="jane@company.com" autocomplete="email">
+
+          <!-- STEP 2 -->
+          <div class="panel" data-panel="1">
+            <h2 class="form-title">What’s your scale?</h2>
+            <p class="form-sub">Built for U.S. brands roughly $1M+. This helps us qualify and prioritize.</p>
+            <div class="choice-grid two" id="scaleChoices">
+              <button type="button" class="choice" data-value="<1M"><b>Under $1M</b><span>Annual revenue</span></button>
+              <button type="button" class="choice" data-value="1-5M"><b>$1M – $5M</b><span>Annual revenue</span></button>
+              <button type="button" class="choice" data-value="5-25M"><b>$5M – $25M</b><span>Annual revenue</span></button>
+              <button type="button" class="choice" data-value="25-100M"><b>$25M – $100M</b><span>Annual revenue</span></button>
+              <button type="button" class="choice" data-value="100M+"><b>$100M+</b><span>Annual revenue</span></button>
+              <button type="button" class="choice" data-value="unknown"><b>Prefer not to say</b><span>We’ll still review fit</span></button>
+            </div>
+            <div class="actions">
+              <button type="button" class="btn btn-ghost" onclick="prevStep()">Back</button>
+              <button type="button" class="btn btn-primary" onclick="nextStep()">Continue →</button>
+            </div>
           </div>
+
+          <!-- STEP 3 -->
+          <div class="panel" data-panel="2">
+            <h2 class="form-title">Where should we look first?</h2>
+            <p class="form-sub">Choose the channel or system that feels most stuck.</p>
+            <div class="choice-grid" id="channelChoices">
+              <button type="button" class="choice" data-value="seo"><b>SEO & organic growth</b><span>Rankings, content, competitor visibility.</span></button>
+              <button type="button" class="choice" data-value="ppc"><b>Paid media efficiency</b><span>Google / Meta spend, creative, query waste.</span></button>
+              <button type="button" class="choice" data-value="conversion"><b>Conversion & website</b><span>Traffic dies before lead or sale.</span></button>
+              <button type="button" class="choice" data-value="ai"><b>AI visibility</b><span>Can AI explain and recommend your brand?</span></button>
+              <button type="button" class="choice" data-value="full-funnel"><b>Full funnel</b><span>Look across all of it — I want the full diagnostic.</span></button>
+            </div>
+            <div class="actions">
+              <button type="button" class="btn btn-ghost" onclick="prevStep()">Back</button>
+              <button type="button" class="btn btn-primary" onclick="nextStep()">Continue →</button>
+            </div>
+          </div>
+
+          <!-- STEP 4 -->
+          <div class="panel" data-panel="3">
+            <h2 class="form-title">Almost there. Tell us about you.</h2>
+            <p class="form-sub">We’ll reach out within 1 business day.</p>
+            <div class="row2">
+              <div class="form-group">
+                <label>Full name *</label>
+                <input type="text" name="name" id="field_name" required placeholder="Jane Doe" autocomplete="name">
+              </div>
+              <div class="form-group">
+                <label>Work email *</label>
+                <input type="email" name="email" id="field_email" required placeholder="jane@company.com" autocomplete="email">
+              </div>
+            </div>
+            <div class="form-group">
+              <label>Company URL *</label>
+              <input type="text" name="website" id="field_website" required placeholder="https://company.com" autocomplete="url">
+            </div>
+            <div class="form-group">
+              <label>Anything else <span style="text-transform:none;letter-spacing:0;font-weight:500;opacity:.7">(optional)</span></label>
+              <textarea name="message" id="field_message" rows="3" placeholder="Goals, competitors, deadlines..."></textarea>
+            </div>
+            <div class="actions">
+              <button type="button" class="btn btn-ghost" onclick="prevStep()">Back</button>
+              <button type="button" class="btn btn-primary" id="submitBtn" onclick="submitDiagnostic()">Get My Growth Diagnostic →</button>
+            </div>
+            <p class="fine">Free for qualified brands. No spam. Keep the plan either way.</p>
+          </div>
+        </form>
+
+        <div id="thankYou">
+          <h2>You’re in.</h2>
+          <p>We’ll review your business and follow up within 1 business day to schedule the diagnostic walkthrough.</p>
         </div>
-
-        <div class="form-group">
-          <label>Website</label>
-          <input type="text" name="website" required placeholder="company.com" autocomplete="url">
-        </div>
-
-        <div class="form-group">
-          <label>Annual revenue</label>
-          <select name="budget" required>
-            <option value="">Select range</option>
-            <option value="<1M">Under $1M</option>
-            <option value="1-5M">$1M – $5M</option>
-            <option value="5-25M">$5M – $25M</option>
-            <option value="25-100M">$25M – $100M</option>
-            <option value="100M+">$100M+</option>
-          </select>
-        </div>
-
-        <div class="form-group">
-          <label>Biggest bottleneck</label>
-          <select name="interest" required>
-            <option value="">Select one</option>
-            <option value="revenue-leaks">Not sure where revenue is leaking</option>
-            <option value="seo">SEO / organic growth</option>
-            <option value="ppc">Paid media efficiency</option>
-            <option value="conversion">Conversion / website</option>
-            <option value="ai">AI visibility</option>
-            <option value="other">Other</option>
-          </select>
-        </div>
-
-        <div class="form-group">
-          <label>Anything else <span style="text-transform:none;letter-spacing:0;font-weight:500;opacity:.7">(optional)</span></label>
-          <textarea name="message" rows="3" placeholder="Goals, competitors, deadlines..."></textarea>
-        </div>
-
-        <button type="submit" class="form-submit">Get My Growth Diagnostic →</button>
-        <p class="fine">Free for qualified brands. No spam. Keep the plan either way.</p>
-      </form>
-
-      <div id="thankYou">
-        <h2>You’re in.</h2>
-        <p>We’ll review your business and follow up within 1 business day to schedule the diagnostic walkthrough.</p>
       </div>
     </div>
   </section>
@@ -442,36 +299,36 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <section class="section">
     <h3>What you get</h3>
     <h4>A senior diagnostic. Not a template PDF.</h4>
-    <p class="copy">Most “free audits” dump channel notes. This one is built to answer one question: where is money getting stuck, and what should change in the next 90 days?</p>
+    <p class="copy">Most free audits dump channel notes. This one answers one question: where is money getting stuck, and what should change in the next 90 days?</p>
     <div class="grid4">
       <div class="card">
-        <div class="n">01</div>
-        <b>Revenue leak map</b>
-        <span>Where demand, spend, and conversion are underperforming — ranked by impact.</span>
+        <img src="/images/diag/leak.png" alt="">
+        <div class="body"><b>Revenue leak map</b><span>Where demand, spend, and conversion underperform — ranked by impact.</span></div>
       </div>
       <div class="card">
-        <div class="n">02</div>
-        <b>Channel diagnosis</b>
-        <span>SEO, paid media, and website conversion reviewed against real growth targets.</span>
+        <img src="/images/diag/ops.png" alt="">
+        <div class="body"><b>Channel diagnosis</b><span>SEO, paid, and conversion reviewed against real growth targets.</span></div>
       </div>
       <div class="card">
-        <div class="n">03</div>
-        <b>AI visibility check</b>
-        <span>Can ChatGPT, Gemini, and Perplexity explain who you are and recommend you?</span>
+        <img src="/images/diag/ai.png" alt="">
+        <div class="body"><b>AI visibility check</b><span>Can ChatGPT, Gemini, and Perplexity explain and recommend you?</span></div>
       </div>
       <div class="card">
-        <div class="n">04</div>
-        <b>90-day plan</b>
-        <span>Clear priorities, owners, and sequence — usable with us or without us.</span>
+        <img src="/images/diag/streams.png" alt="">
+        <div class="body"><b>90-day plan</b><span>Clear priorities and sequence — usable with us or without us.</span></div>
       </div>
+    </div>
+    <div class="visual-row">
+      <img src="/images/diag/desk.png" alt="Operator systems">
+      <img src="/images/diag/glow.png" alt="Growth systems visual">
     </div>
   </section>
 
   <section class="section">
     <h3>Proof</h3>
     <h4>Hard numbers. Named brands.</h4>
-    <p class="copy">We diagnose with the same operator systems we use to run client accounts — including Brandastic’s review layer across Meta, Google, SEO, and AI visibility.</p>
-    <div class="metrics" style="margin-bottom:22px">
+    <p class="copy">Diagnosed with the same operator systems we use to run client accounts — Meta, Google, SEO, and AI visibility review.</p>
+    <div class="metrics" style="margin-bottom:18px">
       <div class="metric"><b>450+</b><span>Brands served</span></div>
       <div class="metric"><b>16 yrs</b><span>In market</span></div>
       <div class="metric"><b>5.0★</b><span>Google reviews</span></div>
@@ -489,51 +346,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
   <section class="section">
     <h3>Team</h3>
-    <h4>Operators in the room — not a black box.</h4>
+    <h4>Operators in the room.</h4>
     <p class="copy">Most of Brandastic works together in Costa Mesa. Strategy, creative, and ops stay tight so the diagnostic doesn’t die in handoffs.</p>
     <div class="team">
-      <div class="person">
-        <img src="https://brandastic.com/wp-content/uploads/2024/12/Justin-29_portraitBW-1@2x.png" alt="Justin Nase">
-        <div><strong>Justin Nase</strong><em>President · CEO</em></div>
-      </div>
-      <div class="person">
-        <img src="https://brandastic.com/wp-content/uploads/2024/12/Melissa-01_editedBW-1@2x.png" alt="Melissa Hatch">
-        <div><strong>Melissa Hatch</strong><em>Director of Marketing</em></div>
-      </div>
-      <div class="person">
-        <img src="https://brandastic.com/wp-content/uploads/2024/12/Sandy-28_portraitBW-2@2x.png" alt="Sandy Ortiz">
-        <div><strong>Sandy Ortiz</strong><em>Director of Operations</em></div>
-      </div>
-      <div class="person">
-        <img src="https://brandastic.com/wp-content/uploads/2024/12/Maxwell-Gilbert.png" alt="Maxwell Gilbert">
-        <div><strong>Maxwell Gilbert</strong><em>Creative Marketing</em></div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section" style="padding-bottom:8px">
-    <h3>Process</h3>
-    <div class="grid4">
-      <div class="card">
-        <div class="n">1</div>
-        <b>Submit</b>
-        <span>Share site, revenue band, and bottleneck.</span>
-      </div>
-      <div class="card">
-        <div class="n">2</div>
-        <b>Diagnose</b>
-        <span>We review SEO, paid, conversion, AI visibility.</span>
-      </div>
-      <div class="card">
-        <div class="n">3</div>
-        <b>Walkthrough</b>
-        <span>We show what’s leaking and why it matters.</span>
-      </div>
-      <div class="card">
-        <div class="n">4</div>
-        <b>90-day plan</b>
-        <span>Prioritized moves. Keep it either way.</span>
-      </div>
+      <div class="person"><img src="https://brandastic.com/wp-content/uploads/2024/12/Justin-29_portraitBW-1@2x.png" alt="Justin Nase"><div><strong>Justin Nase</strong><em>President · CEO</em></div></div>
+      <div class="person"><img src="https://brandastic.com/wp-content/uploads/2024/12/Melissa-01_editedBW-1@2x.png" alt="Melissa Hatch"><div><strong>Melissa Hatch</strong><em>Director of Marketing</em></div></div>
+      <div class="person"><img src="https://brandastic.com/wp-content/uploads/2024/12/Sandy-28_portraitBW-2@2x.png" alt="Sandy Ortiz"><div><strong>Sandy Ortiz</strong><em>Director of Operations</em></div></div>
+      <div class="person"><img src="https://brandastic.com/wp-content/uploads/2024/12/Maxwell-Gilbert.png" alt="Maxwell Gilbert"><div><strong>Maxwell Gilbert</strong><em>Creative Marketing</em></div></div>
     </div>
   </section>
 
@@ -558,16 +377,88 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   var ref=document.getElementById('referrer'); if(ref) ref.value=document.referrer||'direct';
 })();
 
-function submitAudit(e){
-  e.preventDefault();
+var step=0;
+var state={goal:'',budget:'',interest:''};
+
+function bindChoices(id, key){
+  var root=document.getElementById(id);
+  if(!root) return;
+  root.querySelectorAll('.choice').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      root.querySelectorAll('.choice').forEach(function(b){b.classList.remove('selected')});
+      btn.classList.add('selected');
+      state[key]=btn.getAttribute('data-value')||'';
+      hideErr();
+    });
+  });
+}
+bindChoices('goalChoices','goal');
+bindChoices('scaleChoices','budget');
+bindChoices('channelChoices','interest');
+
+function showErr(msg){
+  var el=document.getElementById('formError');
+  el.textContent=msg;
+  el.classList.add('show');
+}
+function hideErr(){
+  var el=document.getElementById('formError');
+  el.classList.remove('show');
+  el.textContent='';
+}
+function renderSteps(){
+  document.querySelectorAll('.panel').forEach(function(p){
+    p.classList.toggle('active', Number(p.getAttribute('data-panel'))===step);
+  });
+  document.querySelectorAll('.step-pill').forEach(function(pill){
+    var s=Number(pill.getAttribute('data-step'));
+    pill.classList.toggle('active', s===step);
+    pill.classList.toggle('done', s<step);
+    var dot=pill.querySelector('.dot');
+    if(dot) dot.textContent = s<step ? '✓' : String(s+1);
+  });
+  hideErr();
+  window.scrollTo({top: document.getElementById('form').offsetTop - 70, behavior:'smooth'});
+}
+function nextStep(){
+  if(step===0 && !state.goal){ showErr('Pick a goal to continue.'); return; }
+  if(step===1 && !state.budget){ showErr('Select your revenue range.'); return; }
+  if(step===2 && !state.interest){ showErr('Choose where we should look first.'); return; }
+  if(step<3){ step++; renderSteps(); }
+}
+function prevStep(){
+  if(step>0){ step--; renderSteps(); }
+}
+function submitDiagnostic(){
+  var name=(document.getElementById('field_name').value||'').trim();
+  var email=(document.getElementById('field_email').value||'').trim();
+  var website=(document.getElementById('field_website').value||'').trim();
+  if(!state.goal||!state.budget||!state.interest){ showErr('Complete the earlier steps first.'); step=0; renderSteps(); return; }
+  if(!name||!email||!website){ showErr('Name, work email, and company URL are required.'); return; }
+  if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){ showErr('Enter a valid work email.'); return; }
+
+  document.getElementById('field_goal').value=state.goal;
+  document.getElementById('field_budget').value=state.budget;
+  document.getElementById('field_interest').value=state.interest;
+
   var form=document.getElementById('auditForm');
   var formData=new FormData(form);
+  formData.set('message', [
+    (document.getElementById('field_message').value||'').trim(),
+    'Goal: '+state.goal,
+    'Scale: '+state.budget,
+    'Channel focus: '+state.interest
+  ].filter(Boolean).join(' | '));
+
+  var btn=document.getElementById('submitBtn');
+  btn.disabled=true; btn.textContent='Submitting...';
+
   try{
-    if(typeof gtag==='function') gtag('event','generate_lead',{event_category:'lead',event_label:'growth_diagnostic_request',value:1});
+    if(typeof gtag==='function') gtag('event','generate_lead',{event_category:'lead',event_label:'growth_diagnostic_multistep',value:1});
     if(typeof fbq==='function') fbq('track','Lead');
     window.dataLayer=window.dataLayer||[];
-    window.dataLayer.push({event:'generate_lead',event_label:'growth_diagnostic_request'});
-  }catch(err){}
+    window.dataLayer.push({event:'generate_lead',event_label:'growth_diagnostic_multistep'});
+  }catch(e){}
 
   fetch('/',{
     method:'POST',
@@ -575,38 +466,26 @@ function submitAudit(e){
     body:new URLSearchParams(formData).toString()
   }).then(function(){
     form.style.display='none';
+    document.getElementById('stepPills').style.display='none';
     document.getElementById('thankYou').style.display='block';
     var payload={
-      name:formData.get('name'),
-      email:formData.get('email'),
-      website:formData.get('website'),
-      interest:formData.get('interest'),
-      budget:formData.get('budget'),
+      name:name, email:email, website:website,
+      interest:state.interest, budget:state.budget, goal:state.goal,
       message:formData.get('message')||'',
       utm_source:formData.get('utm_source')||'',
       utm_medium:formData.get('utm_medium')||'',
       utm_campaign:formData.get('utm_campaign')||'',
       referrer:formData.get('referrer')||'',
       landing_page:formData.get('landing_page')||'',
-      _subject:'New Growth Diagnostic Request: '+formData.get('website')
+      _subject:'New Growth Diagnostic Request: '+website
     };
-    [
-      'justin@brandastic.com',
-      'info@brandastic.com',
-      'seo@brandastic.com',
-      'maxwell.gilbert@brandastic.com',
-      'samantha@brandastic.com',
-      'melissa@brandastic.com',
-      'leads@brandastic.com'
-    ].forEach(function(addr){
-      fetch('https://formsubmit.co/ajax/'+addr,{
-        method:'POST',
-        headers:{'Content-Type':'application/json'},
-        body:JSON.stringify(payload)
-      }).catch(function(){});
-    });
+    ['justin@brandastic.com','info@brandastic.com','seo@brandastic.com','maxwell.gilbert@brandastic.com','samantha@brandastic.com','melissa@brandastic.com','leads@brandastic.com']
+      .forEach(function(addr){
+        fetch('https://formsubmit.co/ajax/'+addr,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)}).catch(function(){});
+      });
   }).catch(function(){
     form.style.display='none';
+    document.getElementById('stepPills').style.display='none';
     document.getElementById('thankYou').style.display='block';
   });
 }
