@@ -507,36 +507,36 @@ function ensureDock(){
   document.body.appendChild(dock);
   return dock;
 }
+function restoreDockedActions(){
+  document.querySelectorAll('.actions[data-docked="1"]').forEach(function(a){
+    var homeId=a.dataset.home;
+    var home=homeId ? document.getElementById(homeId) : null;
+    if(home) home.appendChild(a);
+    a.dataset.docked='0';
+    a.style.display='';
+  });
+}
 function syncFormDock(){
   var mobile = window.matchMedia('(max-width:560px)').matches;
   document.body.classList.toggle('form-dock-pad', mobile);
   var dock=ensureDock();
   var active=document.querySelector('.panel.active');
-  var actions=active ? active.querySelector('.actions') : null;
-  // reset all inline panel actions first
-  document.querySelectorAll('.panel .actions').forEach(function(a){
-    if(a.dataset.docked==='1') return;
-    a.style.display = '';
-  });
+
   document.querySelectorAll('.panel .cta-hint').forEach(function(h){
     var panel = h.closest('.panel');
     var on = panel && panel.classList.contains('active');
     h.style.display = on ? 'block' : 'none';
   });
-  if(!mobile || !actions){
-    // restore any docked actions back into their panels
-    document.querySelectorAll('.panel .actions[data-docked="1"]').forEach(function(a){
-      var homeId=a.dataset.home;
-      var home=homeId ? document.getElementById(homeId) : null;
-      if(home){ home.appendChild(a); }
-      a.dataset.docked='0';
-      a.style.display='';
-    });
-    dock.style.display='none';
-    dock.innerHTML='';
-    return;
-  }
-  // mark home slot once
+
+  // Always restore first so active panel owns its actions node again
+  restoreDockedActions();
+  dock.style.display='none';
+
+  if(!mobile || !active) return;
+
+  var actions=active.querySelector('.actions');
+  if(!actions) return;
+
   if(!actions.dataset.home){
     var slot=document.createElement('div');
     slot.className='actions-home';
@@ -544,8 +544,8 @@ function syncFormDock(){
     actions.parentNode.insertBefore(slot, actions);
     actions.dataset.home=slot.id;
   }
+
   actions.dataset.docked='1';
-  dock.innerHTML='';
   dock.appendChild(actions);
   dock.style.display='block';
   actions.style.display='flex';
