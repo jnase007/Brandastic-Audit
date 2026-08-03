@@ -123,6 +123,27 @@ h1{font-size:clamp(2.5rem,5.4vw,4.2rem);line-height:1.02;letter-spacing:-.045em;
 .person div{padding:12px}
 .person strong{display:block;font-size:14px}
 .person em{display:block;font-style:normal;margin-top:3px;font-size:11px;color:var(--cyan);font-weight:750;letter-spacing:.04em;text-transform:uppercase}
+.team-scroll{overflow:hidden;width:100%;position:relative;margin-top:6px}
+.team-scroll::before,.team-scroll::after{content:"";position:absolute;top:0;bottom:0;width:56px;z-index:2;pointer-events:none}
+.team-scroll::before{left:0;background:linear-gradient(to right,var(--bg),transparent)}
+.team-scroll::after{right:0;background:linear-gradient(to left,var(--bg),transparent)}
+.team-track{display:flex;align-items:stretch;gap:14px;width:max-content;animation:scrollTeam 38s linear infinite}
+.team-track:hover{animation-play-state:paused}
+.team-card{width:168px;flex:0 0 auto;border:1px solid var(--line);border-radius:18px;overflow:hidden;background:rgba(255,255,255,.03);transition:transform .25s,border-color .25s}
+.team-card:hover{transform:translateY(-4px);border-color:rgba(64,180,229,.35)}
+.team-card img{width:100%;aspect-ratio:1/1;object-fit:cover;object-position:center top;display:block;filter:grayscale(1) contrast(1.08)}
+.team-card div{padding:12px 12px 14px}
+.team-card strong{display:block;font-size:13px;font-weight:800;letter-spacing:-.01em}
+.team-card em{display:block;font-style:normal;margin-top:4px;font-size:10px;color:var(--cyan);font-weight:750;letter-spacing:.05em;text-transform:uppercase;line-height:1.35}
+@keyframes scrollTeam{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+@media (prefers-reduced-motion:reduce){.team-track{animation:none}}
+.case{position:relative}
+.case .spark{margin-top:auto;width:100%;height:44px;display:block}
+.case .spark path.line{fill:none;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+.case .spark path.area{opacity:.22}
+.case:nth-child(1) .spark path{stroke:#FF7A2F;fill:#FF7A2F}
+.case:nth-child(2) .spark path{stroke:#40B4E5;fill:#40B4E5}
+.case:nth-child(3) .spark path{stroke:#E879F9;fill:#E879F9}
 .logo-scroll{overflow:hidden;width:100%;position:relative;height:100px;display:flex;align-items:center;margin-top:18px}
 .logo-scroll::before,.logo-scroll::after{content:"";position:absolute;top:0;bottom:0;width:64px;z-index:2;pointer-events:none}
 .logo-scroll::before{left:0;background:linear-gradient(to right,var(--bg),transparent)}
@@ -143,6 +164,15 @@ h1{font-size:clamp(2.5rem,5.4vw,4.2rem);line-height:1.02;letter-spacing:-.045em;
 .sys i{display:block;font-style:normal;font-size:11px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--cyan);margin-bottom:10px}
 .sys b{display:block;font-size:15px;font-weight:800;margin-bottom:8px;letter-spacing:-.02em}
 .sys span{display:block;font-size:12px;color:var(--muted);line-height:1.55}
+.sys .mini{margin-top:14px;height:42px;width:100%;display:block}
+.sys .mini path.line{fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.sys .mini path.area{opacity:.18}
+.sys:nth-child(1) .mini path{stroke:#FF7A2F;fill:#FF7A2F}
+.sys:nth-child(2) .mini path{stroke:#40B4E5;fill:#40B4E5}
+.sys:nth-child(3) .mini path{stroke:#E879F9;fill:#E879F9}
+.sys:nth-child(4) .mini path{stroke:#22C55E;fill:#22C55E}
+.sys .live{display:inline-flex;align-items:center;gap:6px;font-size:10px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:#7DD3FC;margin-bottom:8px}
+.sys .live::before{content:"";width:7px;height:7px;border-radius:50%;background:#22C55E;box-shadow:0 0 0 4px rgba(34,197,94,.15)}
 .cases{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
 .case{border:1px solid var(--line);background:rgba(255,255,255,.03);border-radius:18px;padding:18px 16px;min-height:180px;display:flex;flex-direction:column;gap:10px}
 .case .tag{display:inline-flex;align-self:flex-start;font-size:10px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--soft);border:1px solid var(--line);border-radius:999px;padding:5px 9px}
@@ -182,6 +212,8 @@ h1{font-size:clamp(2.5rem,5.4vw,4.2rem);line-height:1.02;letter-spacing:-.045em;
   .hero,.visual-row{grid-template-columns:1fr}
   .form-shell{position:static}
   .metrics,.grid4,.team,.steps3,.systems,.cases,.audit-grid{grid-template-columns:1fr 1fr}
+  .team-card{width:148px}
+  .team-scroll::before,.team-scroll::after{width:36px}
   .choice-grid.two{grid-template-columns:1fr}
   .steps{grid-template-columns:1fr 1fr}
   h1{max-width:none}
@@ -255,6 +287,13 @@ h1{font-size:clamp(2.5rem,5.4vw,4.2rem);line-height:1.02;letter-spacing:-.045em;
   .person div{padding:10px}
   .person strong{font-size:13px}
   .person em{font-size:10px}
+  .team-card{width:132px;border-radius:14px}
+  .team-card div{padding:10px}
+  .team-card strong{font-size:12px}
+  .team-card em{font-size:9px}
+  .team-track{gap:10px;animation-duration:32s}
+  .team-scroll::before,.team-scroll::after{width:24px}
+  .case .spark{height:36px}
   .footer{margin-top:40px;padding:22px 0 30px;gap:10px}
   .steps3,.systems,.cases,.audit-grid{grid-template-columns:1fr 1fr;gap:8px}
   .step-card,.sys,.case,.audit-item{min-height:0;padding:14px 12px;border-radius:14px}
@@ -499,10 +538,30 @@ h1{font-size:clamp(2.5rem,5.4vw,4.2rem);line-height:1.02;letter-spacing:-.045em;
     <h4>Same stack we use on live accounts.</h4>
     <p class="copy">Not a white-labeled PDF factory. Your diagnostic is pulled through the operator systems Brandastic already runs for client growth.</p>
     <div class="systems">
-      <div class="sys"><i>01</i><b>Growth Diagnostic</b><span>Goal → leak map → 90-day priorities. The conversion engine for this page.</span></div>
-      <div class="sys"><i>02</i><b>Brandastic Dash</b><span>Live Meta, Google Ads, and Semrush visibility in one operator board.</span></div>
-      <div class="sys"><i>03</i><b>AI Visibility Review</b><span>Mention + extractability check across ChatGPT, Gemini, and Perplexity.</span></div>
-      <div class="sys"><i>04</i><b>Channel Forensics</b><span>Paid waste, SEO gaps, and conversion friction ranked by revenue impact.</span></div>
+      <div class="sys">
+        <div class="live">Live</div>
+        <b>Growth Diagnostic</b>
+        <span>Goal → leak map → 90-day priorities. The conversion engine for this page.</span>
+        <svg class="mini" viewBox="0 0 160 42" preserveAspectRatio="none" aria-hidden="true"><path class="area" d="M0,30 L20,28 L40,29 L60,22 L80,18 L100,16 L120,12 L140,9 L160,6 L160,42 L0,42 Z"></path><path class="line" d="M0,30 L20,28 L40,29 L60,22 L80,18 L100,16 L120,12 L140,9 L160,6"></path></svg>
+      </div>
+      <div class="sys">
+        <div class="live">Platform</div>
+        <b>Brandastic Dash</b>
+        <span>Live Meta, Google Ads, and Semrush visibility in one operator board.</span>
+        <svg class="mini" viewBox="0 0 160 42" preserveAspectRatio="none" aria-hidden="true"><path class="area" d="M0,28 L18,26 L36,27 L54,21 L72,19 L90,14 L108,15 L126,10 L144,8 L160,5 L160,42 L0,42 Z"></path><path class="line" d="M0,28 L18,26 L36,27 L54,21 L72,19 L90,14 L108,15 L126,10 L144,8 L160,5"></path></svg>
+      </div>
+      <div class="sys">
+        <div class="live">AI</div>
+        <b>AI Visibility Review</b>
+        <span>Mention + extractability check across ChatGPT, Gemini, and Perplexity.</span>
+        <svg class="mini" viewBox="0 0 160 42" preserveAspectRatio="none" aria-hidden="true"><path class="area" d="M0,32 L20,30 L40,27 L60,28 L80,20 L100,17 L120,13 L140,11 L160,7 L160,42 L0,42 Z"></path><path class="line" d="M0,32 L20,30 L40,27 L60,28 L80,20 L100,17 L120,13 L140,11 L160,7"></path></svg>
+      </div>
+      <div class="sys">
+        <div class="live">Forensics</div>
+        <b>Channel Forensics</b>
+        <span>Paid waste, SEO gaps, and conversion friction ranked by revenue impact.</span>
+        <svg class="mini" viewBox="0 0 160 42" preserveAspectRatio="none" aria-hidden="true"><path class="area" d="M0,26 L20,24 L40,22 L60,18 L80,16 L100,12 L120,11 L140,8 L160,6 L160,42 L0,42 Z"></path><path class="line" d="M0,26 L20,24 L40,22 L60,18 L80,16 L100,12 L120,11 L140,8 L160,6"></path></svg>
+      </div>
     </div>
   </section>
 
@@ -544,22 +603,25 @@ h1{font-size:clamp(2.5rem,5.4vw,4.2rem);line-height:1.02;letter-spacing:-.045em;
     <p class="copy">Named outcomes from brands we’ve grown — the same operator standard behind the diagnostic.</p>
     <div class="cases">
       <div class="case">
-        <span class="tag">Paid media</span>
-        <div class="stat">120x</div>
-        <b>RICOH ROAS</b>
-        <span>Efficiency unlocked after channel structure, creative, and waste were rebuilt around revenue — not vanity spend.</span>
+        <span class="tag">Paid media · RICOH</span>
+        <div class="stat">120x ROAS</div>
+        <b>Revenue efficiency unlocked</b>
+        <span>Channel structure, creative, and waste rebuilt around revenue — not vanity spend.</span>
+        <svg class="spark" viewBox="0 0 160 44" preserveAspectRatio="none" aria-hidden="true"><path class="area" d="M0,36 L18,34 L36,30 L54,31 L72,24 L90,20 L108,16 L126,12 L144,8 L160,5 L160,44 L0,44 Z"></path><path class="line" d="M0,36 L18,34 L36,30 L54,31 L72,24 L90,20 L108,16 L126,12 L144,8 L160,5"></path></svg>
       </div>
       <div class="case">
         <span class="tag">Lead gen</span>
-        <div class="stat">800%</div>
-        <b>CPL decrease</b>
-        <span>Cost-per-lead compressed by fixing targeting, offer friction, and the pages demand was landing on.</span>
+        <div class="stat">800% CPL ↓</div>
+        <b>Cost-per-lead compressed</b>
+        <span>Targeting, offer friction, and landing pages fixed so demand stopped burning budget.</span>
+        <svg class="spark" viewBox="0 0 160 44" preserveAspectRatio="none" aria-hidden="true"><path class="area" d="M0,38 L20,35 L40,33 L60,28 L80,22 L100,18 L120,14 L140,10 L160,7 L160,44 L0,44 Z"></path><path class="line" d="M0,38 L20,35 L40,33 L60,28 L80,22 L100,18 L120,14 L140,10 L160,7"></path></svg>
       </div>
       <div class="case">
         <span class="tag">Organic</span>
-        <div class="stat">720%</div>
-        <b>Organic click lift</b>
-        <span>Search demand compounded after technical + content gaps were closed against real commercial intent.</span>
+        <div class="stat">720% clicks</div>
+        <b>Search demand compounded</b>
+        <span>Technical + content gaps closed against real commercial intent — not content volume theater.</span>
+        <svg class="spark" viewBox="0 0 160 44" preserveAspectRatio="none" aria-hidden="true"><path class="area" d="M0,34 L18,33 L36,31 L54,28 L72,26 L90,21 L108,17 L126,13 L144,9 L160,6 L160,44 L0,44 Z"></path><path class="line" d="M0,34 L18,33 L36,31 L54,28 L72,26 L90,21 L108,17 L126,13 L144,9 L160,6"></path></svg>
       </div>
     </div>
   </section>
@@ -586,11 +648,25 @@ h1{font-size:clamp(2.5rem,5.4vw,4.2rem);line-height:1.02;letter-spacing:-.045em;
     <h3>Team</h3>
     <h4>Operators in the room.</h4>
     <p class="copy">Most of Brandastic works together in Costa Mesa. Strategy, creative, and ops stay tight so the diagnostic doesn’t die in handoffs.</p>
-    <div class="team">
-      <div class="person"><img src="https://brandastic.com/wp-content/uploads/2024/12/Justin-29_portraitBW-1@2x.png" alt="Justin Nase"><div><strong>Justin Nase</strong><em>President · CEO</em></div></div>
-      <div class="person"><img src="https://brandastic.com/wp-content/uploads/2024/12/Melissa-01_editedBW-1@2x.png" alt="Melissa Hatch"><div><strong>Melissa Hatch</strong><em>Director of Marketing</em></div></div>
-      <div class="person"><img src="https://brandastic.com/wp-content/uploads/2024/12/Sandy-28_portraitBW-2@2x.png" alt="Sandy Ortiz"><div><strong>Sandy Ortiz</strong><em>Director of Operations</em></div></div>
-      <div class="person"><img src="https://brandastic.com/wp-content/uploads/2024/12/Maxwell-Gilbert.png" alt="Maxwell Gilbert"><div><strong>Maxwell Gilbert</strong><em>Creative Marketing</em></div></div>
+    <div class="team-scroll" aria-label="Brandastic team">
+      <div class="team-track">
+        <div class="team-card"><img src="https://brandastic.com/wp-content/uploads/2024/12/Justin-29_portraitBW-1@2x.png" alt="Justin Nase"><div><strong>Justin Nase</strong><em>President · CEO</em></div></div>
+        <div class="team-card"><img src="https://brandastic.com/wp-content/uploads/2024/12/Melissa-01_editedBW-1@2x.png" alt="Melissa Hatch"><div><strong>Melissa Hatch</strong><em>Director of Marketing</em></div></div>
+        <div class="team-card"><img src="https://brandastic.com/wp-content/uploads/2024/12/Sandy-28_portraitBW-2@2x.png" alt="Sandy Ortiz"><div><strong>Sandy Ortiz</strong><em>Director of Operations</em></div></div>
+        <div class="team-card"><img src="https://brandastic.com/wp-content/uploads/2024/12/Maxwell-Gilbert.png" alt="Maxwell Gilbert"><div><strong>Maxwell Gilbert</strong><em>Creative Marketing</em></div></div>
+        <div class="team-card"><img src="https://brandastic.com/wp-content/uploads/2024/12/Stacy-27_BW-1@2x.png" alt="Stacy"><div><strong>Stacy</strong><em>Creative Marketing Manager</em></div></div>
+        <div class="team-card"><img src="https://brandastic.com/wp-content/uploads/2024/12/Megan-Hahn.png" alt="Megan Hahn"><div><strong>Megan Hahn</strong><em>Lead Creative Manager</em></div></div>
+        <div class="team-card"><img src="https://brandastic.com/wp-content/uploads/2024/12/Aimee-03_portraitBW@2x.png" alt="Aimee"><div><strong>Aimee</strong><em>Marketing Account Specialist</em></div></div>
+        <div class="team-card"><img src="https://brandastic.com/wp-content/uploads/2024/12/Erin-Clancy.png" alt="Erin Clancy"><div><strong>Erin Clancy</strong><em>Executive Assistant</em></div></div>
+        <div class="team-card"><img src="https://brandastic.com/wp-content/uploads/2024/12/Justin-29_portraitBW-1@2x.png" alt="" aria-hidden="true"><div><strong>Justin Nase</strong><em>President · CEO</em></div></div>
+        <div class="team-card"><img src="https://brandastic.com/wp-content/uploads/2024/12/Melissa-01_editedBW-1@2x.png" alt="" aria-hidden="true"><div><strong>Melissa Hatch</strong><em>Director of Marketing</em></div></div>
+        <div class="team-card"><img src="https://brandastic.com/wp-content/uploads/2024/12/Sandy-28_portraitBW-2@2x.png" alt="" aria-hidden="true"><div><strong>Sandy Ortiz</strong><em>Director of Operations</em></div></div>
+        <div class="team-card"><img src="https://brandastic.com/wp-content/uploads/2024/12/Maxwell-Gilbert.png" alt="" aria-hidden="true"><div><strong>Maxwell Gilbert</strong><em>Creative Marketing</em></div></div>
+        <div class="team-card"><img src="https://brandastic.com/wp-content/uploads/2024/12/Stacy-27_BW-1@2x.png" alt="" aria-hidden="true"><div><strong>Stacy</strong><em>Creative Marketing Manager</em></div></div>
+        <div class="team-card"><img src="https://brandastic.com/wp-content/uploads/2024/12/Megan-Hahn.png" alt="" aria-hidden="true"><div><strong>Megan Hahn</strong><em>Lead Creative Manager</em></div></div>
+        <div class="team-card"><img src="https://brandastic.com/wp-content/uploads/2024/12/Aimee-03_portraitBW@2x.png" alt="" aria-hidden="true"><div><strong>Aimee</strong><em>Marketing Account Specialist</em></div></div>
+        <div class="team-card"><img src="https://brandastic.com/wp-content/uploads/2024/12/Erin-Clancy.png" alt="" aria-hidden="true"><div><strong>Erin Clancy</strong><em>Executive Assistant</em></div></div>
+      </div>
     </div>
   </section>
 
