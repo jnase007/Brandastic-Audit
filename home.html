@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<script>(function(){var t=localStorage.getItem('brandastic-theme');if(t==='dark'){document.documentElement.setAttribute('data-theme','dark');}else{document.documentElement.setAttribute('data-theme','light');}})();</script>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-5C5RTG3');</script>
+<!-- End Google Tag Manager -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-TTZQH22P4G"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-TTZQH22P4G');</script>
+<script>!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');fbq('init','5495864097014192');fbq('track','PageView');</script>
+<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=5495864097014192&ev=PageView&noscript=1"/></noscript>
+<meta charset="UTF-8">
+<link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="icon" href="/favicon-192.png" sizes="192x192" type="image/png">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Growth Diagnostic — Brandastic</title>
+<meta name="description" content="Brandastic Growth Diagnostic: find what's quietly costing you revenue across SEO, paid media, conversion, and AI visibility. Serving 450+ brands over 16 years.">
+<meta name="robots" content="noindex,nofollow">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--bg:#F5F3EF;--card:#ffffff;--card-border:rgba(25,31,36,0.1);--text:#191F24;--text2:rgba(25,31,36,0.72);--muted:rgba(25,31,36,0.42);--accent:#40B4E5;--purple:#CC22FF;--green:#22c55e}
+[data-theme="dark"]{--bg:#0a0e1a;--card:rgba(255,255,255,0.05);--card-border:rgba(255,255,255,0.08);--text:#fff;--text2:rgba(255,255,255,0.72);--muted:rgba(255,255,255,0.42)}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--text);line-height:1.6;overflow-x:hidden}
+a{color:var(--accent);text-decoration:none}
+.grad{background:linear-gradient(135deg,#40B4E5,#CC22FF);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;background:linear-gradient(135deg,#40B4E5,#CC22FF);color:#fff!important;padding:14px 28px;border-radius:12px;font-weight:700;font-size:.95rem;border:none;cursor:pointer;transition:transform .2s,box-shadow .2s}
+.btn:hover{transform:translateY(-2px);box-shadow:0 10px 36px rgba(64,180,229,.35)}
+.btn-ghost{background:transparent;border:1px solid var(--card-border);color:var(--text)!important;box-shadow:none}
+.btn-ghost:hover{border-color:rgba(64,180,229,.45);box-shadow:none}
+.nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:0 1.5rem;height:64px;display:flex;align-items:center;justify-content:space-between;transition:background .2s,border-color .2s,backdrop-filter .2s}
+.nav.scrolled{background:rgba(245,243,239,.94);backdrop-filter:blur(18px);border-bottom:1px solid rgba(25,31,36,.08)}
+[data-theme="dark"] .nav.scrolled{background:rgba(10,14,26,.92);border-bottom:1px solid rgba(255,255,255,.06)}
+.nav-brand img{height:22px;display:block}
+[data-theme="light"] .nav-brand img{filter:brightness(0)}
+.nav-links{display:flex;gap:1.25rem;align-items:center}
+.nav-links a{color:var(--text2);font-size:.85rem;font-weight:500}
+.nav-links a:hover{color:var(--text)}
+.nav-cta{background:linear-gradient(135deg,#40B4E5,#CC22FF);color:#fff!important;padding:8px 18px;border-radius:8px;font-weight:600;font-size:.85rem}
+.theme-toggle{width:36px;height:36px;border:none;background:transparent;cursor:pointer;font-size:1.2rem}
+.hero{min-height:100vh;display:flex;align-items:center;padding:7rem 1.5rem 4rem;position:relative;overflow:hidden}
+.hero-bg{position:absolute;inset:0;z-index:0;pointer-events:none}
+.hero-bg img{width:100%;height:100%;object-fit:cover;opacity:.18;filter:grayscale(15%)}
+.hero-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(245,243,239,.55) 0%,var(--bg) 88%),radial-gradient(circle at 18% 20%,rgba(64,180,229,.14),transparent 42%),radial-gradient(circle at 82% 30%,rgba(204,34,255,.1),transparent 40%)}
+[data-theme="dark"] .hero-bg::after{background:linear-gradient(180deg,rgba(10,14,26,.55) 0%,var(--bg) 88%),radial-gradient(circle at 18% 20%,rgba(64,180,229,.16),transparent 42%),radial-gradient(circle at 82% 30%,rgba(204,34,255,.12),transparent 40%)}
+.hero-inner{position:relative;z-index:2;max-width:1120px;margin:0 auto;width:100%;display:grid;grid-template-columns:1.15fr .85fr;gap:3rem;align-items:center}
+.badge{display:inline-flex;align-items:center;gap:8px;padding:8px 14px;border-radius:999px;border:1px solid var(--card-border);background:rgba(255,255,255,.55);font-size:.72rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--text2);margin-bottom:1.25rem}
+[data-theme="dark"] .badge{background:rgba(255,255,255,.04)}
+.badge .dot{width:8px;height:8px;border-radius:50%;background:linear-gradient(135deg,#40B4E5,#CC22FF)}
+.hero h1{font-size:clamp(2.4rem,5.4vw,4.2rem);font-weight:800;letter-spacing:-.04em;line-height:1.05;margin-bottom:1.1rem;max-width:14ch}
+.hero-lead{font-size:1.08rem;color:var(--text2);max-width:34rem;margin-bottom:1.5rem;line-height:1.7}
+.proof-row{display:flex;flex-wrap:wrap;gap:.6rem;margin:0 0 1.75rem}
+.chip{display:inline-flex;align-items:center;padding:8px 12px;border-radius:999px;border:1px solid var(--card-border);background:var(--card);font-size:.78rem;font-weight:600;color:var(--text2)}
+.hero-actions{display:flex;flex-wrap:wrap;gap:.75rem;margin-bottom:1rem}
+.hero-note{font-size:.85rem;color:var(--muted);font-weight:500}
+.hero-card{background:var(--card);border:1px solid var(--card-border);border-radius:22px;padding:1.4rem;box-shadow:0 24px 60px rgba(0,0,0,.08)}
+.hero-card h3{font-size:1rem;font-weight:800;margin-bottom:.85rem}
+.metric-grid{display:grid;grid-template-columns:1fr 1fr;gap:.75rem}
+.metric{border:1px solid var(--card-border);border-radius:14px;padding:1rem;background:rgba(64,180,229,.04)}
+.metric b{display:block;font-size:1.35rem;font-weight:900;letter-spacing:-.03em;background:linear-gradient(135deg,#40B4E5,#CC22FF);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.metric span{display:block;margin-top:.2rem;font-size:.72rem;color:var(--muted);font-weight:600;text-transform:uppercase;letter-spacing:.06em}
+.section{padding:5rem 1.5rem;position:relative;z-index:2}
+.section-inner{max-width:1120px;margin:0 auto}
+.section-badge{display:inline-flex;font-size:.75rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin-bottom:.75rem}
+.section h2{font-size:clamp(1.8rem,3.5vw,2.5rem);font-weight:900;letter-spacing:-.03em;margin-bottom:.6rem}
+.section .sub{color:var(--text2);max-width:38rem;margin-bottom:2rem}
+.features{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:1rem}
+.feature{background:var(--card);border:1px solid var(--card-border);border-radius:16px;padding:1.25rem;transition:transform .2s,border-color .2s,box-shadow .2s}
+.feature:hover{transform:translateY(-3px);border-color:rgba(64,180,229,.35);box-shadow:0 14px 36px rgba(0,0,0,.08)}
+.feature-icon{width:42px;height:42px;border-radius:12px;display:flex;align-items:center;justify-content:center;margin-bottom:.9rem;background:linear-gradient(135deg,rgba(64,180,229,.15),rgba(204,34,255,.15));font-size:1.1rem}
+.feature h3{font-size:.95rem;font-weight:750;margin-bottom:.4rem}
+.feature p{font-size:.82rem;color:var(--text2);line-height:1.55}
+.team-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1rem}
+.person{background:var(--card);border:1px solid var(--card-border);border-radius:18px;overflow:hidden;transition:transform .2s,box-shadow .2s}
+.person:hover{transform:translateY(-4px);box-shadow:0 16px 40px rgba(0,0,0,.1)}
+.person img{width:100%;aspect-ratio:1/1.05;object-fit:cover;display:block;background:#ddd}
+.person-body{padding:1rem 1rem 1.15rem}
+.person h3{font-size:.98rem;font-weight:800;margin-bottom:.15rem}
+.person .role{font-size:.75rem;font-weight:700;color:var(--accent);letter-spacing:.04em;text-transform:uppercase;margin-bottom:.45rem}
+.person p{font-size:.8rem;color:var(--text2);line-height:1.5}
+.cases{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1rem}
+.case{background:var(--card);border:1px solid var(--card-border);border-radius:18px;overflow:hidden}
+.case img{width:100%;height:160px;object-fit:cover;display:block}
+.case-body{padding:1.15rem}
+.case h3{font-size:1rem;font-weight:800;margin-bottom:.25rem;color:var(--text)}
+.case-tag{font-size:.68rem;font-weight:700;color:var(--accent);letter-spacing:.08em;text-transform:uppercase;margin-bottom:.85rem}
+.case-stats{display:flex;flex-wrap:wrap;gap:1rem}
+.case-stat{font-size:1.35rem;font-weight:900;background:linear-gradient(135deg,var(--green),#10b981);-webkit-background-clip:text;-webkit-text-fill-color:transparent;line-height:1}
+.case-stat-label{font-size:.68rem;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;margin-top:.2rem}
+.process{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem}
+.step{background:var(--card);border:1px solid var(--card-border);border-radius:16px;padding:1.25rem}
+.step-num{width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800;color:#fff;margin-bottom:.8rem;background:linear-gradient(135deg,#40B4E5,#CC22FF)}
+.step h3{font-size:.95rem;font-weight:750;margin-bottom:.3rem}
+.step p{font-size:.82rem;color:var(--text2)}
+.stats-bar{display:flex;justify-content:center;gap:3rem;flex-wrap:wrap;padding:2.5rem 1.5rem;border-top:1px solid var(--card-border);border-bottom:1px solid var(--card-border)}
+.stat{text-align:center}
+.stat-num{font-size:2.2rem;font-weight:900;background:linear-gradient(135deg,#40B4E5,#CC22FF);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.stat-label{font-size:.72rem;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;margin-top:.2rem}
+.logo-strip{overflow:hidden;padding:1.5rem 0 0}
+.logo-track{display:flex;gap:3rem;width:max-content;animation:scrollLogos 28s linear infinite;align-items:center}
+.logo-track img{height:54px;max-width:220px;object-fit:contain;opacity:.7;filter:grayscale(1)}
+[data-theme="dark"] .logo-track img{filter:brightness(0) invert(1);opacity:.65}
+@keyframes scrollLogos{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.form-section{padding:5rem 1.5rem;background:linear-gradient(135deg,rgba(64,180,229,.06),rgba(204,34,255,.06));border-top:1px solid var(--card-border);border-bottom:1px solid var(--card-border)}
+.form-wrap{max-width:1120px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:2.5rem;align-items:start}
+.form-copy h2{font-size:clamp(1.7rem,3vw,2.2rem);font-weight:900;letter-spacing:-.03em;margin-bottom:.75rem}
+.form-copy p{color:var(--text2);margin-bottom:1rem}
+.checklist{list-style:none;display:flex;flex-direction:column;gap:.55rem;margin:1.25rem 0 0}
+.checklist li{display:flex;gap:.6rem;align-items:flex-start;font-size:.9rem;color:var(--text2)}
+.checklist li::before{content:"✓";color:var(--green);font-weight:800}
+.form-card{background:var(--card);border:1px solid var(--card-border);border-radius:20px;padding:1.75rem;box-shadow:0 16px 40px rgba(0,0,0,.06)}
+.form-card h3{font-size:1.2rem;font-weight:850;margin-bottom:.35rem;text-align:center}
+.form-card .form-sub{text-align:center;color:var(--muted);font-size:.82rem;margin-bottom:1.25rem;line-height:1.55}
+.form-group{margin-bottom:1rem}
+.form-group label{display:block;font-size:.72rem;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.05em;margin-bottom:.35rem}
+.form-group input,.form-group select,.form-group textarea{width:100%;padding:12px 14px;border-radius:10px;border:1px solid var(--card-border);background:rgba(25,31,36,.03);color:var(--text);font:inherit;font-size:.9rem}
+[data-theme="dark"] .form-group input,[data-theme="dark"] .form-group select,[data-theme="dark"] .form-group textarea{background:rgba(255,255,255,.03)}
+.form-group input:focus,.form-group select:focus,.form-group textarea:focus{outline:none;border-color:var(--accent)}
+.form-submit{width:100%;padding:14px;border:none;border-radius:10px;background:linear-gradient(135deg,#40B4E5,#CC22FF);color:#fff;font:inherit;font-size:1rem;font-weight:700;cursor:pointer}
+.faq-item{border-bottom:1px solid var(--card-border);padding:1.1rem 0;cursor:pointer}
+.faq-q{font-weight:700;font-size:.95rem;display:flex;justify-content:space-between;gap:1rem}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .3s ease,padding .3s ease;color:var(--text2);font-size:.88rem;line-height:1.7}
+.faq-item.open .faq-a{max-height:220px;padding-top:.7rem}
+.faq-item .arrow{transition:transform .25s;color:var(--muted)}
+.faq-item.open .arrow{transform:rotate(180deg)}
+.footer{text-align:center;padding:3rem 1.5rem;color:var(--muted);font-size:.75rem;border-top:1px solid var(--card-border)}
+.footer img{height:28px;opacity:.7;margin-bottom:1rem}
+[data-theme="light"] .footer img{filter:brightness(0);opacity:.65}
+.footer-links{display:flex;justify-content:center;gap:1rem;flex-wrap:wrap;margin:1rem 0}
+.footer-links a{color:var(--muted);font-size:.8rem}
+.footer-links a:hover{color:var(--text)}
+.preview-banner{position:fixed;top:64px;left:0;right:0;z-index:999;background:linear-gradient(135deg,#191F24,#24303a);color:#fff;text-align:center;padding:8px 12px;font-size:.78rem;font-weight:600;letter-spacing:.02em}
+.preview-banner a{color:#7dd3fc;text-decoration:underline}
+#mobileCta{display:none;position:fixed;bottom:0;left:0;right:0;z-index:9999;background:linear-gradient(135deg,#40B4E5,#CC22FF);color:#fff;text-align:center;padding:16px;font-weight:700;font-size:1rem;text-decoration:none;box-shadow:0 -4px 20px rgba(0,0,0,.25)}
+@media(max-width:980px){
+  .hero-inner,.form-wrap{grid-template-columns:1fr}
+  .features{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .team-grid,.cases{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .process{grid-template-columns:1fr 1fr}
+}
+@media(max-width:768px){
+  .nav-links a:not(.nav-cta){display:none}
+  .hero{padding-top:8.5rem;min-height:auto}
+  .features,.team-grid,.cases,.process{grid-template-columns:1fr}
+  .stats-bar{gap:1.5rem}
+  #mobileCta{display:block}
+  .form-section{padding-bottom:6rem}
+  .preview-banner{font-size:.72rem;line-height:1.4}
+}
+</style>
+</head>
+<body>
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5C5RTG3" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+<div class="preview-banner">Team preview page · not the live homepage · <a href="/">current audit page</a> · share <a href="/home">/home</a> with the team</div>
+
+<nav class="nav">
+  <a href="/home" class="nav-brand"><img src="https://brandastic.com/wp-content/uploads/2026/03/BrandasticLogo-White-5.png" alt="Brandastic"></a>
+  <div class="nav-links">
+    <a href="#team">Team</a>
+    <a href="#results">Results</a>
+    <a href="#how">How it works</a>
+    <a href="#form" class="nav-cta">Request Diagnostic</a>
+    <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme"><span class="icon-sun">☀️</span><span class="icon-moon">🌙</span></button>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="hero-bg">
+    <img src="https://brandastic.com/wp-content/uploads/2026/05/C_DSC03021_Edited.jpg" alt="Brandastic team">
+  </div>
+  <div class="hero-inner">
+    <div>
+      <div class="badge"><span class="dot"></span> Growth Diagnostic</div>
+      <h1>Find what’s quietly <span class="grad">costing you revenue</span></h1>
+      <p class="hero-lead">We’ll review SEO, paid media, conversion paths, and AI visibility — then build a 90-day plan around the gaps that matter most. Built by the same team that runs growth for 450+ brands.</p>
+      <div class="proof-row">
+        <span class="chip">Serving 450+ brands over 16 years</span>
+        <span class="chip">Inc recognized</span>
+        <span class="chip">5.0★ Google reviews</span>
+        <span class="chip">AI visibility included</span>
+      </div>
+      <div class="hero-actions">
+        <a href="#form" class="btn hero-cta">Request Your Growth Diagnostic →</a>
+        <a href="#team" class="btn btn-ghost">Meet the team</a>
+      </div>
+      <p class="hero-note">Response within 1 business day. No obligation. Keep the plan either way.</p>
+    </div>
+    <div class="hero-card">
+      <h3>What brands unlock with Brandastic</h3>
+      <div class="metric-grid">
+        <div class="metric"><b>120x</b><span>RICOH ROAS</span></div>
+        <div class="metric"><b>800%</b><span>Orangetheory CPL drop</span></div>
+        <div class="metric"><b>720%</b><span>KIA organic clicks</span></div>
+        <div class="metric"><b>$100M</b><span>HyperX sales support</span></div>
+      </div>
+      <p style="margin-top:1rem;font-size:.82rem;color:var(--text2);line-height:1.55">Diagnosed the way we operate — across paid, SEO, conversion, and AI visibility — not a templated PDF dump.</p>
+    </div>
+  </div>
+</section>
+
+<div style="text-align:center;padding:0 1.5rem 1rem;position:relative;z-index:2">
+  <p style="font-size:.85rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:1rem">Trusted by brands with real stories</p>
+  <div class="logo-strip">
+    <div class="logo-track">
+      <img src="https://brandastic.com/wp-content/uploads/2026/05/ricoh-logo.svg" alt="RICOH">
+      <img src="https://brandastic.com/wp-content/uploads/2026/05/usc-logo.svg" alt="USC">
+      <img src="https://brandastic.com/wp-content/uploads/2026/05/ufc-gym-logo.svg" alt="UFC Gym">
+      <img src="https://brandastic.com/wp-content/uploads/2026/05/Orangetheory-Fitness-Logo-1.svg" alt="Orangetheory" style="height:90px">
+      <img src="https://brandastic.com/wp-content/uploads/2026/05/hyperx-logo.svg" alt="HyperX">
+      <img src="https://brandastic.com/wp-content/uploads/2026/05/fujifilm-seeklogo.svg" alt="Fujifilm">
+      <img src="https://brandastic.com/wp-content/uploads/2026/05/Pocky-Logo-1.svg" alt="Pocky">
+      <img src="https://brandastic.com/wp-content/uploads/2026/05/Kia-Logo-1.svg" alt="KIA">
+      <img src="https://brandastic.com/wp-content/uploads/2026/05/ricoh-logo.svg" alt="RICOH">
+      <img src="https://brandastic.com/wp-content/uploads/2026/05/usc-logo.svg" alt="USC">
+      <img src="https://brandastic.com/wp-content/uploads/2026/05/ufc-gym-logo.svg" alt="UFC Gym">
+      <img src="https://brandastic.com/wp-content/uploads/2026/05/Orangetheory-Fitness-Logo-1.svg" alt="Orangetheory" style="height:90px">
+      <img src="https://brandastic.com/wp-content/uploads/2026/05/hyperx-logo.svg" alt="HyperX">
+      <img src="https://brandastic.com/wp-content/uploads/2026/05/fujifilm-seeklogo.svg" alt="Fujifilm">
+      <img src="https://brandastic.com/wp-content/uploads/2026/05/Pocky-Logo-1.svg" alt="Pocky">
+      <img src="https://brandastic.com/wp-content/uploads/2026/05/Kia-Logo-1.svg" alt="KIA">
+    </div>
+  </div>
+</div>
+
+<div class="stats-bar">
+  <div class="stat"><div class="stat-num">16+</div><div class="stat-label">Years</div></div>
+  <div class="stat"><div class="stat-num">450+</div><div class="stat-label">Brands served</div></div>
+  <div class="stat"><div class="stat-num">Inc</div><div class="stat-label">Growth recognized</div></div>
+  <div class="stat"><div class="stat-num">5.0★</div><div class="stat-label">40+ Google reviews</div></div>
+</div>
+
+<section class="section" id="audit">
+  <div class="section-inner">
+    <div class="section-badge">What’s included</div>
+    <h2>A full-funnel Growth Diagnostic</h2>
+    <p class="sub">One senior review across the channels that move revenue — with a clear 90-day plan you can run with us or without us.</p>
+    <div class="features">
+      <div class="feature">
+        <div class="feature-icon">🔎</div>
+        <h3>Demand & SEO</h3>
+        <p>Rankings, gaps, competitor visibility, and where organic demand is leaking.</p>
+      </div>
+      <div class="feature">
+        <div class="feature-icon">📈</div>
+        <h3>Paid efficiency</h3>
+        <p>Waste, creative/RSA issues, query intent, and spend that isn’t working hard enough.</p>
+      </div>
+      <div class="feature">
+        <div class="feature-icon">🧭</div>
+        <h3>Conversion leaks</h3>
+        <p>Where traffic dies before lead or sale — and the fixes with the fastest payoff.</p>
+      </div>
+      <div class="feature">
+        <div class="feature-icon">🤖</div>
+        <h3>AI visibility</h3>
+        <p>Can ChatGPT, Gemini, and Perplexity explain who you are and why you should be shortlisted?</p>
+      </div>
+      <div class="feature">
+        <div class="feature-icon">🗓️</div>
+        <h3>90-day plan</h3>
+        <p>Prioritized moves by impact — not a 40-page dump of generic recommendations.</p>
+      </div>
+    </div>
+    <p style="margin-top:1.5rem;font-size:.9rem;color:var(--text2);max-width:46rem">Built on the same review systems we use inside Brandastic’s client command center — Meta, Google, SEO, and operator workflows.</p>
+  </div>
+</section>
+
+<section class="section" id="team" style="padding-top:2rem">
+  <div class="section-inner">
+    <div class="section-badge">The team behind the diagnostic</div>
+    <h2>Operators, not a black box</h2>
+    <p class="sub">Most of our team works together in Costa Mesa. You get strategy, creative, and execution people who actually talk to each other.</p>
+    <div class="team-grid">
+      <article class="person">
+        <img src="https://brandastic.com/wp-content/uploads/2024/12/Justin-29_portraitBW-1@2x.png" alt="Justin Nase">
+        <div class="person-body">
+          <h3>Justin Nase</h3>
+          <div class="role">President · CEO</div>
+          <p>Sets the growth standard. 16 years building Brandastic around brand story + measurable performance.</p>
+        </div>
+      </article>
+      <article class="person">
+        <img src="https://brandastic.com/wp-content/uploads/2024/12/Melissa-01_editedBW-1@2x.png" alt="Melissa Hatch">
+        <div class="person-body">
+          <h3>Melissa Hatch</h3>
+          <div class="role">Director of Marketing</div>
+          <p>Owns the marketing engine — messaging, campaigns, and how Brandastic shows up in market.</p>
+        </div>
+      </article>
+      <article class="person">
+        <img src="https://brandastic.com/wp-content/uploads/2024/12/Sandy-28_portraitBW-2@2x.png" alt="Sandy Ortiz">
+        <div class="person-body">
+          <h3>Sandy Ortiz</h3>
+          <div class="role">Director of Operations</div>
+          <p>Keeps delivery tight so strategy doesn’t die in handoffs, timelines, or process drift.</p>
+        </div>
+      </article>
+      <article class="person">
+        <img src="https://brandastic.com/wp-content/uploads/2024/12/Stacy-27_BW-1@2x.png" alt="Stacy">
+        <div class="person-body">
+          <h3>Stacy</h3>
+          <div class="role">Creative Marketing Manager</div>
+          <p>Turns strategy into creative that actually sells — ads, assets, and brand systems.</p>
+        </div>
+      </article>
+      <article class="person">
+        <img src="https://brandastic.com/wp-content/uploads/2024/12/Maxwell-Gilbert.png" alt="Maxwell Gilbert">
+        <div class="person-body">
+          <h3>Maxwell Gilbert</h3>
+          <div class="role">Creative Marketing Manager</div>
+          <p>Email, copy, and narrative systems that keep brands consistent after the audit.</p>
+        </div>
+      </article>
+      <article class="person">
+        <img src="https://brandastic.com/wp-content/uploads/2024/12/Aimee-03_portraitBW@2x.png" alt="Aimee">
+        <div class="person-body">
+          <h3>Aimee</h3>
+          <div class="role">Marketing Account Specialist</div>
+          <p>Day-to-day client pulse — the person making sure recommendations become action.</p>
+        </div>
+      </article>
+      <article class="person">
+        <img src="https://brandastic.com/wp-content/uploads/2024/12/Megan-Hahn.png" alt="Megan Hahn">
+        <div class="person-body">
+          <h3>Megan Hahn</h3>
+          <div class="role">Lead Creative Manager</div>
+          <p>Leads creative quality so brands look premium in every channel they show up in.</p>
+        </div>
+      </article>
+      <article class="person">
+        <img src="https://brandastic.com/wp-content/uploads/2024/12/Erin-Clancy.png" alt="Erin Clancy">
+        <div class="person-body">
+          <h3>Erin Clancy</h3>
+          <div class="role">Executive Assistant</div>
+          <p>Keeps the machine moving — scheduling, coordination, and client experience details.</p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="results" style="padding-top:2rem">
+  <div class="section-inner">
+    <div class="section-badge">Proven results</div>
+    <h2>Hard numbers. Named brands.</h2>
+    <p class="sub">This is the proof stack the Growth Diagnostic is built on — not theory.</p>
+    <div class="cases">
+      <article class="case">
+        <img src="https://brandastic.com/wp-content/uploads/2026/03/product_03.jpg" alt="RICOH">
+        <div class="case-body">
+          <a href="https://brandastic.com/portfolio/ricoh/" target="_blank" rel="noopener"><h3>RICOH</h3></a>
+          <div class="case-tag">Search engine marketing</div>
+          <div class="case-stats">
+            <div><div class="case-stat">120x</div><div class="case-stat-label">ROAS</div></div>
+            <div><div class="case-stat">3,550</div><div class="case-stat-label">Leads / 30 days</div></div>
+          </div>
+        </div>
+      </article>
+      <article class="case">
+        <img src="https://brandastic.com/wp-content/uploads/2026/03/orange-theory-finess-review.jpg" alt="Orangetheory">
+        <div class="case-body">
+          <a href="https://brandastic.com/portfolio/orangetheory-fitness/" target="_blank" rel="noopener"><h3>Orangetheory</h3></a>
+          <div class="case-tag">Social media</div>
+          <div class="case-stats">
+            <div><div class="case-stat">800%</div><div class="case-stat-label">CPL decrease</div></div>
+            <div><div class="case-stat">50</div><div class="case-stat-label">Locations</div></div>
+          </div>
+        </div>
+      </article>
+      <article class="case">
+        <img src="https://brandastic.com/wp-content/uploads/2026/03/Screenshot-2026-03-07-at-7.37.58-AM.jpg" alt="HyperX">
+        <div class="case-body">
+          <a href="https://brandastic.com/portfolio/kingston-hyperx/" target="_blank" rel="noopener"><h3>HyperX</h3></a>
+          <div class="case-tag">Conversion rate optimization</div>
+          <div class="case-stats">
+            <div><div class="case-stat">$100M</div><div class="case-stat-label">Annual sales</div></div>
+            <div><div class="case-stat">10+</div><div class="case-stat-label">LP A/B tests</div></div>
+          </div>
+        </div>
+      </article>
+      <article class="case">
+        <img src="https://brandastic.com/wp-content/uploads/2026/03/Screenshot-2026-03-07-at-7.36.04-AM.jpg" alt="KIA">
+        <div class="case-body">
+          <a href="https://brandastic.com/portfolio/kia/" target="_blank" rel="noopener"><h3>KIA Motors</h3></a>
+          <div class="case-tag">Search engine optimization</div>
+          <div class="case-stats">
+            <div><div class="case-stat">720%</div><div class="case-stat-label">Organic clicks</div></div>
+            <div><div class="case-stat">3,590%</div><div class="case-stat-label">Dealer requests</div></div>
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="how" style="padding-top:2rem">
+  <div class="section-inner">
+    <div class="section-badge">How it works</div>
+    <h2>From request to 90-day plan</h2>
+    <p class="sub">Simple process. Senior eyes. Clear next moves.</p>
+    <div class="process">
+      <div class="step">
+        <div class="step-num">1</div>
+        <h3>Submit</h3>
+        <p>Share your site, goals, and biggest bottleneck.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <h3>Diagnose</h3>
+        <p>We review SEO, paid, conversion, and AI visibility.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <h3>Walkthrough</h3>
+        <p>We walk you through what’s leaking and why.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">4</div>
+        <h3>90-day plan</h3>
+        <p>Prioritized actions you can keep — hire us optional.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="form-section" id="form">
+  <div class="form-wrap">
+    <div class="form-copy">
+      <div class="section-badge">Request access</div>
+      <h2>Get your Growth Diagnostic</h2>
+      <p>Designed for U.S. businesses generating roughly $1M+ in annual revenue. We’ll respond within 1 business day.</p>
+      <ul class="checklist">
+        <li>SEO, paid, conversion, and AI visibility review</li>
+        <li>Clear revenue-leak findings, not fluff</li>
+        <li>90-day plan you can keep either way</li>
+        <li>No obligation after delivery</li>
+      </ul>
+      <p style="margin-top:1.25rem;font-size:.85rem;color:var(--muted)">Inc recognized · Serving 450+ brands over 16 years · 5.0★ Google reviews</p>
+    </div>
+    <div class="form-card">
+      <h3>Request Your Growth Diagnostic</h3>
+      <p class="form-sub">Tell us where growth feels stuck. We’ll take it from there.</p>
+      <form id="auditForm" name="audit-request" method="POST" data-netlify="true" netlify-honeypot="bot-field" onsubmit="submitAudit(event)">
+        <input type="hidden" name="form-name" value="audit-request">
+        <input type="hidden" name="utm_source" id="utm_source">
+        <input type="hidden" name="utm_medium" id="utm_medium">
+        <input type="hidden" name="utm_campaign" id="utm_campaign">
+        <input type="hidden" name="utm_term" id="utm_term">
+        <input type="hidden" name="utm_content" id="utm_content">
+        <input type="hidden" name="landing_page" id="landing_page">
+        <input type="hidden" name="referrer" id="referrer">
+        <input type="hidden" name="bot-field">
+        <input type="hidden" name="to" value="justin@brandastic.com">
+        <div class="form-group">
+          <label>Your Name</label>
+          <input type="text" name="name" required placeholder="Jane Smith">
+        </div>
+        <div class="form-group">
+          <label>Email</label>
+          <input type="email" name="email" required placeholder="jane@company.com">
+        </div>
+        <div class="form-group">
+          <label>Website URL</label>
+          <input type="text" name="website" required placeholder="yourcompany.com">
+        </div>
+        <div class="form-group">
+          <label>Biggest growth bottleneck</label>
+          <select name="interest" required onchange="document.getElementById('otherField').style.display=this.value==='other'?'block':'none'">
+            <option value="">Select one...</option>
+            <option value="seo">SEO & organic growth</option>
+            <option value="ppc">Google Ads / PPC</option>
+            <option value="social">Social / Meta Ads</option>
+            <option value="ecommerce">E-commerce / shopping</option>
+            <option value="ai">AI visibility</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
+        <div class="form-group" id="otherField" style="display:none">
+          <label>Tell us more</label>
+          <textarea name="other_detail" rows="3" placeholder="Describe the bottleneck..."></textarea>
+        </div>
+        <div class="form-group">
+          <label>Approx. annual revenue</label>
+          <select name="budget">
+            <option value="">- Please select -</option>
+            <option value="<1M">Under $1M</option>
+            <option value="1-5M">$1M – $5M</option>
+            <option value="5-25M">$5M – $25M</option>
+            <option value="25M+">$25M+</option>
+            <option value="unknown">Not sure / prefer not to say</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Anything else? <span style="font-weight:500;text-transform:none;letter-spacing:0;opacity:.75">(optional)</span></label>
+          <textarea name="message" rows="3" placeholder="Goals, competitors, deadlines..."></textarea>
+        </div>
+        <button type="submit" class="form-submit">Request My Growth Diagnostic →</button>
+      </form>
+      <div id="thankYou" style="display:none;text-align:center;padding:2rem 1rem">
+        <h3 style="font-size:1.3rem;font-weight:800;margin-bottom:.75rem">Thank you</h3>
+        <p style="color:var(--text2);line-height:1.7">Our team will review your info and start your Growth Diagnostic. We’ll reach out within 1 business day.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="section-inner" style="max-width:720px">
+    <h2 style="text-align:center">FAQ</h2>
+    <div style="margin-top:1.5rem">
+      <div class="faq-item" onclick="this.classList.toggle('open')">
+        <div class="faq-q">What’s included in the Growth Diagnostic?<span class="arrow">▾</span></div>
+        <div class="faq-a">A senior review of SEO, paid media, conversion paths, and AI visibility — plus a prioritized 90-day plan. Not a template dump.</div>
+      </div>
+      <div class="faq-item" onclick="this.classList.toggle('open')">
+        <div class="faq-q">How fast do you respond?<span class="arrow">▾</span></div>
+        <div class="faq-a">We aim to respond within 1 business day, then move into the diagnostic and walkthrough.</div>
+      </div>
+      <div class="faq-item" onclick="this.classList.toggle('open')">
+        <div class="faq-q">Is there any obligation afterward?<span class="arrow">▾</span></div>
+        <div class="faq-a">None. The plan is yours. If you want help executing, we’re here. If not, no hard feelings.</div>
+      </div>
+      <div class="faq-item" onclick="this.classList.toggle('open')">
+        <div class="faq-q">Who is this best for?<span class="arrow">▾</span></div>
+        <div class="faq-a">U.S. brands roughly $1M+ in revenue that want clearer growth priorities across paid, organic, conversion, and AI visibility.</div>
+      </div>
+      <div class="faq-item" onclick="this.classList.toggle('open')">
+        <div class="faq-q">Will we work with real people on your team?<span class="arrow">▾</span></div>
+        <div class="faq-a">Yes. Brandastic is an in-office Southern California team. Strategy, creative, and ops collaborate together — not a faceless offshore black box.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="footer">
+  <img src="https://brandastic.com/wp-content/uploads/2026/03/BrandasticLogo-White-5.png" alt="Brandastic">
+  <p style="max-width:460px;margin:0 auto 1rem;line-height:1.7;color:var(--muted)">Data-driven strategies. Impactful creative. Real results. Serving 450+ brands over 16 years.</p>
+  <div class="footer-links">
+    <a href="/">Current audit page</a>
+    <a href="https://brandastic.com/work/" target="_blank" rel="noopener">Work</a>
+    <a href="https://brandastic.com/about/" target="_blank" rel="noopener">About</a>
+    <a href="https://www.inc.com/profile/brandastic" target="_blank" rel="noopener">Inc profile</a>
+    <a href="/portal">Client portal</a>
+    <a href="tel:9498928944">(949) 892-8944</a>
+  </div>
+  <p style="margin-top:1.25rem">© 2026 Brandastic · Costa Mesa, CA · Team preview at /home</p>
+</div>
+
+<a href="#form" id="mobileCta">Request Growth Diagnostic →</a>
+
+<script>
+function toggleTheme(){
+  var html=document.documentElement;
+  var next=html.getAttribute('data-theme')==='dark'?'light':'dark';
+  html.setAttribute('data-theme',next);
+  localStorage.setItem('brandastic-theme',next);
+}
+window.addEventListener('scroll',function(){
+  document.querySelector('.nav').classList.toggle('scrolled', window.scrollY>40);
+});
+(function(){
+  var p=new URLSearchParams(window.location.search);
+  ['utm_source','utm_medium','utm_campaign','utm_term','utm_content'].forEach(function(k){
+    var el=document.getElementById(k); if(el) el.value=p.get(k)||'';
+  });
+  var lp=document.getElementById('landing_page'); if(lp) lp.value=window.location.href;
+  var ref=document.getElementById('referrer'); if(ref) ref.value=document.referrer||'direct';
+})();
+function submitAudit(e){
+  e.preventDefault();
+  var form=document.getElementById('auditForm');
+  var formData=new FormData(form);
+  fetch('/',{
+    method:'POST',
+    headers:{'Content-Type':'application/x-www-form-urlencoded'},
+    body:new URLSearchParams(formData).toString()
+  }).then(function(){
+    form.style.display='none';
+    document.getElementById('thankYou').style.display='block';
+    var payload={
+      name:formData.get('name'),
+      email:formData.get('email'),
+      website:formData.get('website'),
+      interest:formData.get('interest'),
+      budget:formData.get('budget'),
+      utm_source:formData.get('utm_source')||'',
+      utm_medium:formData.get('utm_medium')||'',
+      utm_campaign:formData.get('utm_campaign')||'',
+      referrer:formData.get('referrer')||'',
+      landing_page:formData.get('landing_page')||'',
+      _subject:'New Growth Diagnostic Request: '+formData.get('website')
+    };
+    [
+      'justin@brandastic.com',
+      'info@brandastic.com',
+      'seo@brandastic.com',
+      'maxwell.gilbert@brandastic.com',
+      'samantha@brandastic.com',
+      'melissa@brandastic.com',
+      'leads@brandastic.com'
+    ].forEach(function(addr){
+      fetch('https://formsubmit.co/ajax/'+addr,{
+        method:'POST',
+        headers:{'Content-Type':'application/json'},
+        body:JSON.stringify(payload)
+      }).catch(function(){});
+    });
+  }).catch(function(){
+    form.style.display='none';
+    document.getElementById('thankYou').style.display='block';
+  });
+}
+(function(){
+  window.dataLayer=window.dataLayer||[];
+  function track(eventName,params){
+    params=params||{};
+    params.page_location=window.location.href;
+    params.page_hostname=window.location.hostname;
+    try{if(typeof gtag==='function') gtag('event',eventName,params);}catch(e){}
+    try{window.dataLayer.push(Object.assign({event:eventName},params));}catch(e){}
+    try{if(typeof fbq==='function'){if(eventName==='generate_lead') fbq('track','Lead',params); else if(eventName==='cta_click') fbq('trackCustom','CTAClick',params);}}catch(e){}
+  }
+  document.addEventListener('click',function(e){
+    var a=e.target&&e.target.closest?e.target.closest('a,button'):null;
+    if(!a) return;
+    var href=(a.getAttribute('href')||'').trim();
+    var cls=a.className||'';
+    var id=a.id||'';
+    var text=((a.getAttribute('aria-label')||a.textContent||'').replace(/\s+/g,' ').trim()).slice(0,100);
+    if(a.matches('button.form-submit')){
+      track('cta_click',{event_category:'cta',event_label:text||'Request Growth Diagnostic',cta_name:'audit_form_submit_click',cta_location:'form'});
+      return;
+    }
+    if(id==='mobileCta'||/\bnav-cta\b|\bhero-cta\b/.test(cls)||href==='#form'){
+      track('cta_click',{event_category:'cta',event_label:text||'Request Diagnostic',cta_name:'start_audit',cta_location:id==='mobileCta'?'mobile_sticky':(/\bnav-cta\b/.test(cls)?'nav':(/\bhero-cta\b/.test(cls)?'hero':'other')),link_url:href||'#form'});
+    }
+  },true);
+  var _orig=window.submitAudit;
+  window.submitAudit=function(e){
+    try{track('generate_lead',{event_category:'lead',event_label:'growth_diagnostic_request',cta_name:'audit_form_success',value:1});}catch(err){}
+    if(typeof _orig==='function') return _orig(e);
+  };
+})();
+</script>
+</body>
+</html>
