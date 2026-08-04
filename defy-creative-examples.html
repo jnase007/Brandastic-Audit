@@ -65,6 +65,49 @@ nav.toc{position:sticky;top:0;z-index:50;background:rgba(14,19,25,.92);backdrop-
 .hero-banner{margin:18px 0 8px;border-radius:16px;overflow:hidden;border:1px solid rgba(64,180,229,.35)}
 .hero-banner img{display:block;width:100%;height:auto;max-height:360px;object-fit:cover}
 
+
+.email-client{margin-top:12px;border-radius:16px;overflow:hidden;border:1px solid var(--line);background:#0b1016}
+.ec-chrome{display:flex;gap:12px;align-items:flex-start;padding:12px 14px;background:#121820;border-bottom:1px solid var(--line)}
+.ec-dots{display:flex;gap:6px;padding-top:6px}
+.ec-dots span{width:10px;height:10px;border-radius:50%}
+.ec-dots span:nth-child(1){background:#ff5f57}
+.ec-dots span:nth-child(2){background:#febc2e}
+.ec-dots span:nth-child(3){background:#28c840}
+.ec-meta{min-width:0;flex:1}
+.ec-from{font-size:12px;color:var(--muted)}
+.ec-from strong{color:#fff;font-weight:700}
+.ec-subj{font-size:14px;font-weight:700;color:#fff;margin-top:2px;line-height:1.3}
+.ec-pre{font-size:12px;color:var(--muted);margin-top:2px}
+.ec-scroll{overflow-y:auto;overflow-x:hidden;-webkit-overflow-scrolling:touch;background:#e8eaed;scroll-behavior:smooth}
+.ec-scroll::-webkit-scrollbar{width:10px}
+.ec-scroll::-webkit-scrollbar-thumb{background:rgba(0,0,0,.28);border-radius:99px;border:2px solid #e8eaed}
+.ec-mail{max-width:560px;margin:18px auto;background:#fff;color:#1a1f24;border-radius:8px;overflow:hidden;box-shadow:0 8px 28px rgba(0,0,0,.12);font-family:Inter,system-ui,sans-serif}
+.ec-hero{display:block;width:100%;height:auto}
+.ec-pad{padding:22px 22px 26px}
+.ec-kicker{font-size:11px;letter-spacing:.14em;font-weight:800;color:#0b6bcb;margin:0 0 8px}
+.ec-h{font-size:24px;line-height:1.15;letter-spacing:-.02em;margin:0 0 14px;color:#111}
+.ec-mail p{font-size:14.5px;line-height:1.55;color:#2a3138;margin:0 0 12px}
+.ec-ol,.ec-ul{margin:0 0 16px 18px;padding:0;display:grid;gap:8px}
+.ec-ol li,.ec-ul li{font-size:14.5px;line-height:1.45;color:#2a3138}
+.ec-cta-row{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin:8px 0 16px}
+.ec-btn{display:inline-block;background:#111827;color:#fff!important;text-decoration:none;font-weight:700;font-size:13.5px;padding:12px 16px;border-radius:8px}
+.ec-link{color:#0644ED;font-weight:600;font-size:13.5px;text-decoration:none}
+.ec-sign{margin-top:8px!important;color:#444!important}
+.ec-ps{font-size:13px!important;color:#666!important}
+.ec-trust{margin-top:16px;padding-top:14px;border-top:1px solid #e6e8eb;font-size:12px;color:#667;font-weight:600}
+.ec-hint{font-size:11px;color:var(--muted);padding:8px 12px;border-top:1px solid var(--line);letter-spacing:.04em}
+.ec-frames{display:grid;grid-template-columns:1fr 1fr;gap:10px;padding:0 16px 8px}
+.ec-frame{display:block;text-decoration:none;background:#f4f5f7;border-radius:10px;overflow:hidden;border:1px solid #e5e7eb;color:inherit}
+.ec-frame img{display:block;width:100%;aspect-ratio:1;object-fit:cover}
+.ec-frame div{padding:10px}
+.ec-frame strong{display:block;font-size:14px;color:#111}
+.ec-frame span{display:block;font-size:12px;color:#667;margin-top:2px}
+details.copy-source{margin-top:12px;border:1px solid var(--line);border-radius:12px;background:#0b1016}
+details.copy-source summary{cursor:pointer;padding:10px 12px;color:var(--muted);font-size:12px;font-weight:700;letter-spacing:.04em;list-style:none}
+details.copy-source summary::-webkit-details-marker{display:none}
+details.copy-source[open] summary{border-bottom:1px solid var(--line);color:var(--cyan)}
+details.copy-source .email{margin:0;border:0;border-radius:0 0 12px 12px}
+
 </style>
 </head>
 <body>
@@ -542,13 +585,50 @@ Premium outdoor sunglasses without the luxury markup. Shop DEFY today.</div>
 
 <section id="email">
   <h2><span class="sec-num">6</span>Email & SMS</h2>
-  <p class="lead">Flows first, campaigns second. From: DEFY · weardefy.com. Mock + full copy for each.</p>
+  <p class="lead">Flows first, campaigns second. From: DEFY · weardefy.com. Scroll each email comp below — real product imagery, not a flat screenshot.</p>
 
   <h3>Flow 1 — Welcome (email 1 of 3)</h3>
   <p class="meta">Audience: new subscribers · Message house: brand → product → offer</p>
   <div class="card hot">
-    <div class="email-mock"><img src="assets/defy-mockups/composed-real/mock-email-welcome.jpg" alt="Welcome email mock"/></div>
-    <div class="email"><span class="k">Subject:</span> Welcome to DEFY — your adventure pair starts here
+    <div class="email-client" id="ec-welcome">
+  <div class="ec-chrome">
+    <div class="ec-dots"><span></span><span></span><span></span></div>
+    <div class="ec-meta">
+      <div class="ec-from">From: <strong>DEFY <hello@weardefy.com></strong></div>
+      <div class="ec-subj">Welcome to DEFY — your adventure pair starts here</div>
+      <div class="ec-pre">30-day trial · lifetime warranty · frames from $50</div>
+    </div>
+  </div>
+  <div class="ec-scroll" style="max-height:560px">
+    <div class="ec-mail">
+
+      <img class="ec-hero" src="assets/defy-mockups/email-assets/hero-welcome.jpg" alt="DEFY outdoor lifestyle"/>
+      <div class="ec-pad">
+        <p class="ec-kicker">WELCOME TO DEFY</p>
+        <h2 class="ec-h">Your adventure pair starts here</h2>
+        <p>Hey adventurer,</p>
+        <p>You’re in.</p>
+        <p>DEFY builds outdoor eyewear for people who actually leave the pavement — polarized clarity, durable bio-based frames, and backup for life.</p>
+        <p><strong>Here’s how to start:</strong></p>
+        <ol class="ec-ol">
+          <li>Take the 60-second frame finder (Summit / Mesa / Aspen / Sequoia)</li>
+          <li>Remember: <strong>30 days risk-free</strong></li>
+          <li><strong>Lifetime warranty</strong> if life happens on trail</li>
+        </ol>
+        <div class="ec-cta-row">
+          <a class="ec-btn" href="https://www.weardefy.com/collections/all-eyewear" target="_blank" rel="noopener">Shop the collection →</a>
+          <a class="ec-link" href="https://www.weardefy.com/products/de104-black" target="_blank" rel="noopener">Meet Aspen (flagship)</a>
+        </div>
+        <p class="ec-sign">See you outside,<br/>Team DEFY</p>
+        <p class="ec-ps">P.S. Free shipping over $55.</p>
+        <div class="ec-trust">30-day trial · Lifetime warranty · Ships ~2 business days</div>
+      </div>
+    </div>
+  </div>
+  <div class="ec-hint">Scroll inside the email ↓</div>
+</div>
+    <details class="copy-source"><summary>Copy source / merge tags</summary>
+<div class="email"><span class="k">Subject:</span> Welcome to DEFY — your adventure pair starts here
 <span class="k">Preheader:</span> 30-day trial · lifetime warranty · frames from $50
 
 <span class="k">Body:</span>
@@ -570,14 +650,52 @@ See you outside,
 Team DEFY
 
 P.S. Free shipping over $55.</div>
+</details>
     <p class="meta">Email 2 (day 2): Materials + polarization education · Email 3 (day 4): Social proof + soft offer if needed · SMS welcome optional: “DEFY here. 30-day trial on every pair. Shop {{link}}”</p>
   </div>
 
   <h3>Flow 2 — Cart abandon</h3>
   <p class="meta">Audience: <strong>A5</strong> · Message: trust stack + trial</p>
   <div class="card">
-    <div class="email-mock"><img src="assets/defy-mockups/composed-real/mock-email-cart.jpg" alt="Cart email mock"/></div>
-    <div class="email"><span class="k">Subject:</span> Your DEFY pair is still in the cart
+    <div class="email-client" id="ec-cart">
+  <div class="ec-chrome">
+    <div class="ec-dots"><span></span><span></span><span></span></div>
+    <div class="ec-meta">
+      <div class="ec-from">From: <strong>DEFY <hello@weardefy.com></strong></div>
+      <div class="ec-subj">Your DEFY pair is still in the cart</div>
+      <div class="ec-pre">30 days to live in them risk-free</div>
+    </div>
+  </div>
+  <div class="ec-scroll" style="max-height:560px">
+    <div class="ec-mail">
+
+      <div class="ec-pad" style="padding-bottom:8px">
+        <p class="ec-kicker">STILL IN YOUR CART</p>
+        <h2 class="ec-h">Your DEFY pair is waiting</h2>
+      </div>
+      <img class="ec-hero" src="assets/defy-mockups/email-assets/pack-aspen.jpg" alt="Aspen packshot" style="max-height:340px;object-fit:contain;background:#12161c"/>
+      <div class="ec-pad">
+        <p>Still thinking it over?</p>
+        <p>A quick reminder of what’s waiting in your cart:</p>
+        <ul class="ec-ul">
+          <li>HD polarized lenses</li>
+          <li>Durable bio-based frames</li>
+          <li>30-day risk-free trial</li>
+          <li>Lifetime warranty / replacement</li>
+          <li>Ships in about 2 business days</li>
+        </ul>
+        <div class="ec-cta-row">
+          <a class="ec-btn" href="https://www.weardefy.com/cart" target="_blank" rel="noopener">Return to cart →</a>
+        </div>
+        <p>If fit or lens questions are blocking you, just reply to this email — we’re real people.</p>
+        <p class="ec-sign">— DEFY</p>
+      </div>
+    </div>
+  </div>
+  <div class="ec-hint">Scroll inside the email ↓</div>
+</div>
+    <details class="copy-source"><summary>Copy source / merge tags</summary>
+<div class="email"><span class="k">Subject:</span> Your DEFY pair is still in the cart
 <span class="k">Preheader:</span> 30 days to live in them risk-free
 
 Still thinking it over?
@@ -594,14 +712,48 @@ A quick reminder of what’s waiting in your cart:
 If fit or lens questions are blocking you, just reply to this email — we’re real people.
 
 — DEFY</div>
+</details>
     <p class="meta">T+1h browse, T+4h cart, T+24h cart with FAQ, T+48h final + SMS if consented</p>
   </div>
 
   <h3>Flow 3 — Post-purchase</h3>
   <p class="meta">Audience: <strong>A6</strong> · Message: warranty + UGC flywheel</p>
   <div class="card">
-    <div class="email-mock"><img src="assets/defy-mockups/composed-real/mock-email-postpurchase.jpg" alt="Post-purchase email mock"/></div>
-    <div class="email"><span class="k">Subject:</span> You’re DEFY officially — here’s what’s next
+    <div class="email-client" id="ec-post">
+  <div class="ec-chrome">
+    <div class="ec-dots"><span></span><span></span><span></span></div>
+    <div class="ec-meta">
+      <div class="ec-from">From: <strong>DEFY <hello@weardefy.com></strong></div>
+      <div class="ec-subj">You’re DEFY officially — here’s what’s next</div>
+      <div class="ec-pre">Care tips · warranty · share your first adventure</div>
+    </div>
+  </div>
+  <div class="ec-scroll" style="max-height:560px">
+    <div class="ec-mail">
+
+      <img class="ec-hero" src="assets/defy-mockups/email-assets/hero-postpurchase.jpg" alt="DEFY on adventure"/>
+      <div class="ec-pad">
+        <p class="ec-kicker">ORDER CONFIRMED</p>
+        <h2 class="ec-h">You’re DEFY officially</h2>
+        <p>You’re in the wild now.</p>
+        <p>Order <strong>{{order_name}}</strong> is confirmed. While you wait:</p>
+        <ol class="ec-ol">
+          <li>Save your warranty info (lifetime coverage)</li>
+          <li>Know your 30-day trial window starts on delivery</li>
+          <li>When they arrive — stress-test them. That’s the point.</li>
+        </ol>
+        <div class="ec-cta-row">
+          <a class="ec-btn" href="https://www.weardefy.com/" target="_blank" rel="noopener">Track package →</a>
+        </div>
+        <p>After first adventure, reply with a photo — we feature the best ones.</p>
+        <p class="ec-sign">See you on the trail,<br/>DEFY</p>
+      </div>
+    </div>
+  </div>
+  <div class="ec-hint">Scroll inside the email ↓</div>
+</div>
+    <details class="copy-source"><summary>Copy source / merge tags</summary>
+<div class="email"><span class="k">Subject:</span> You’re DEFY officially — here’s what’s next
 <span class="k">Preheader:</span> Care tips · warranty · share your first adventure
 
 You’re in the wild now.
@@ -618,13 +770,56 @@ After first adventure, reply with a photo — we feature the best ones.
 
 See you on the trail,
 DEFY</div>
+</details>
   </div>
 
   <h3>Campaign — “Find your frame” (month 1–2)</h3>
   <p class="meta">Audience: engaged list / non-buyers · Message: product ladder</p>
   <div class="card">
-    <div class="email-mock"><img src="assets/defy-mockups/composed-real/mock-email-find-frame.jpg" alt="Find frame email mock"/></div>
-    <div class="email"><span class="k">Subject A:</span> Which DEFY is yours — Summit, Mesa, Aspen, or Sequoia?
+    <div class="email-client" id="ec-find">
+  <div class="ec-chrome">
+    <div class="ec-dots"><span></span><span></span><span></span></div>
+    <div class="ec-meta">
+      <div class="ec-from">From: <strong>DEFY <hello@weardefy.com></strong></div>
+      <div class="ec-subj">Which DEFY is yours — Summit, Mesa, Aspen, or Sequoia?</div>
+      <div class="ec-pre">Outdoor performance, $50–70, risk-free for 30 days</div>
+    </div>
+  </div>
+  <div class="ec-scroll" style="max-height:620px">
+    <div class="ec-mail">
+
+      <div class="ec-pad" style="padding-bottom:4px">
+        <p class="ec-kicker">FIND YOUR FRAME</p>
+        <h2 class="ec-h">Which DEFY is yours?</h2>
+        <p>The wrong sunglasses ruin good light. Pick your lane:</p>
+      </div>
+      <div class="ec-frames">
+        <a class="ec-frame" href="https://www.weardefy.com/products/de100" target="_blank" rel="noopener">
+          <img src="assets/defy-mockups/email-assets/pack-summit.jpg" alt="Summit"/><div><strong>Summit</strong><span>Everyday adventure · $49.99</span></div>
+        </a>
+        <a class="ec-frame" href="https://www.weardefy.com/products/de102-black-crystal" target="_blank" rel="noopener">
+          <img src="assets/defy-mockups/email-assets/pack-mesa.jpg" alt="Mesa"/><div><strong>Mesa</strong><span>Broader coverage · $59.99</span></div>
+        </a>
+        <a class="ec-frame" href="https://www.weardefy.com/products/de104-black" target="_blank" rel="noopener">
+          <img src="assets/defy-mockups/email-assets/pack-aspen.jpg" alt="Aspen"/><div><strong>Aspen</strong><span>Flagship outdoor · $69.99</span></div>
+        </a>
+        <a class="ec-frame" href="https://www.weardefy.com/products/de106-matte-black" target="_blank" rel="noopener">
+          <img src="assets/defy-mockups/email-assets/pack-sequoia.jpg" alt="Sequoia"/><div><strong>Sequoia</strong><span>Bold frame · $69.99</span></div>
+        </a>
+      </div>
+      <div class="ec-pad">
+        <p>Every pair includes polarized HD lenses + lifetime warranty + 30-day trial.</p>
+        <div class="ec-cta-row">
+          <a class="ec-btn" href="https://www.weardefy.com/collections/all-eyewear" target="_blank" rel="noopener">Shop all frames →</a>
+        </div>
+        <p class="ec-sign">— Team DEFY</p>
+      </div>
+    </div>
+  </div>
+  <div class="ec-hint">Scroll inside the email ↓</div>
+</div>
+    <details class="copy-source"><summary>Copy source / merge tags</summary>
+<div class="email"><span class="k">Subject A:</span> Which DEFY is yours — Summit, Mesa, Aspen, or Sequoia?
 <span class="k">Subject B:</span> A 60-second shortcut to your next pair
 <span class="k">Preheader:</span> Outdoor performance, $50–70, risk-free for 30 days
 
@@ -642,6 +837,7 @@ Every pair includes polarized HD lenses + lifetime warranty + 30-day trial.
 → Read: How to choose lenses for trail vs drive
 
 — Team DEFY</div>
+</details>
   </div>
 
   <h3>SMS snippets</h3>
