@@ -470,19 +470,25 @@
       min-height: 100%;
     }
     .how-tabs {
+      position: relative;
       display: flex;
       flex-direction: column;
-      gap: 8px;
+      gap: 0;
       flex: 0 0 auto;
+      /* continuous dim vertical track */
+      border-left: 2px solid #d1d5db;
+      padding-left: 0;
+      background: none;
+      box-shadow: none;
     }
     .how-photo {
       position: relative;
       flex: 1 1 auto;
       min-height: 200px;
-      border-radius: var(--radius-lg);
+      border-radius: 0;
       overflow: hidden;
-      border: 1px solid var(--border);
-      box-shadow: var(--shadow-card);
+      border: 0;
+      box-shadow: none;
       background: #111;
     }
     .how-photo img {
@@ -493,50 +499,68 @@
       display: block;
     }
     .how-tab {
+      position: relative;
       width: 100%;
       text-align: left;
       cursor: pointer;
-      border: 1px solid var(--border);
-      background: #fff;
-      border-radius: 14px;
-      padding: 16px 18px;
+      border: 0;
+      background: transparent;
+      border-radius: 0;
+      box-shadow: none;
+      padding: 16px 8px 16px 22px;
       display: flex;
       align-items: center;
       gap: 14px;
-      transition: border-color 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
       font: inherit;
-      color: var(--text);
+      color: var(--text-dim);
+      transition: color 0.2s ease;
     }
     .how-tab:hover {
-      border-color: var(--border-gold);
+      color: var(--text);
+      background: transparent;
     }
+    /* active segment of the left track in gold (2-3px) */
     .how-tab.active {
-      border-color: var(--border-gold);
-      background: rgba(185,138,25,0.08);
-      box-shadow: var(--shadow-card);
+      color: var(--text);
+      background: transparent;
+      box-shadow: none;
+      border: 0;
+    }
+    .how-tab.active::before {
+      content: '';
+      position: absolute;
+      left: -2px;
+      top: 0;
+      bottom: 0;
+      width: 3px;
+      background: var(--gold);
+      border-radius: 0;
     }
     .how-tab .step-num {
       font-family: "forma-djr-text", "Forma DJR Text", 'Inter', system-ui, sans-serif;
       font-size: 13px;
       font-weight: 700;
       letter-spacing: 0.08em;
-      color: var(--gold);
+      color: #9ca3af;
       flex-shrink: 0;
       min-width: 2ch;
     }
+    .how-tab.active .step-num { color: var(--gold); }
     .how-tab .step-label {
       font-family: "forma-djr-text", "Forma DJR Text", 'Inter', system-ui, sans-serif;
       font-size: 16px;
-      font-weight: 600;
+      font-weight: 500;
       letter-spacing: -0.015em;
       line-height: 1.3;
     }
+    .how-tab.active .step-label { font-weight: 600; color: var(--text); }
+    /* right content: no card chrome */
     .how-panel {
-      background: #fff;
-      border: 1px solid var(--border-gold);
-      border-radius: var(--radius-lg);
-      padding: 36px 32px;
-      box-shadow: var(--shadow-card);
+      background: transparent;
+      border: 0;
+      border-radius: 0;
+      padding: 8px 0 8px 8px;
+      box-shadow: none;
       min-height: 280px;
       display: flex;
       flex-direction: column;
@@ -560,7 +584,7 @@
       color: var(--text);
     }
     .how-panel p {
-      font-size: 16px;
+      font-size: 17px;
       color: var(--text-dim);
       line-height: 1.75;
       max-width: 42rem;
@@ -574,8 +598,17 @@
     }
     #team .section-header { margin-bottom: 28px; }
     /* Comments #13-16: services merged under team as bold pipe list */
+    .service-intro {
+      margin: 28px auto 12px;
+      text-align: center;
+      font-size: 17px;
+      line-height: 1.7;
+      color: var(--text-dim);
+      font-weight: 400;
+      max-width: 640px;
+    }
     .service-pipes {
-      margin-top: 28px;
+      margin-top: 0;
       text-align: center;
       font-size: 15px;
       line-height: 1.85;
@@ -1101,6 +1134,7 @@
           <div class="team-card" aria-hidden="true"><img src="https://brandastic.com/wp-content/uploads/2024/12/Erin-Clancy.png" alt="" loading="lazy"><div><strong>Erin Clancy</strong><em>Executive Assistant</em></div></div>
         </div>
       </div>
+      <p class="service-intro fade-up delay-2">The strategy and roadmap your Fractional CMO builds is completely bespoke to your business.<br />Depending on your goals, it could pull from any of these:</p>
       <p class="service-pipes fade-up delay-2">
         <strong>Paid Media</strong><span class="pipe">|</span><strong>SEO</strong><span class="pipe">|</span><strong>AEO</strong><span class="pipe">|</span><strong>Design</strong><span class="pipe">|</span><strong>Development</strong><span class="pipe">|</span><strong>Copywriting</strong><span class="pipe">|</span><strong>Branding</strong><span class="pipe">|</span><strong>Analytics</strong><span class="pipe">|</span><strong>Website Development</strong><span class="pipe">|</span><strong>Email Marketing</strong><span class="pipe">|</span><strong>Organic Social</strong><span class="pipe">|</span><strong>AI Advertising</strong>
       </p>
