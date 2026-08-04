@@ -1,0 +1,823 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fractional CMO Services | Brandastic</title>
+  <meta name="description" content="Get executive marketing leadership without a salaried CMO. One dedicated Fractional CMO plus 15 specialists — starting at $5,000/month." />
+  <link rel="icon" type="image/png" href="https://brandastic.com/wp-content/uploads/2026/03/BrandasticLogo-White-5.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #ffffff;
+      --bg-alt: #f4f5f7;
+      --bg-card: #f8f9fa;
+      --gold: #B98A19;
+      --gold-light: #d4a82a;
+      --gold-pale: rgba(185,138,25,0.12);
+      --text: #111111;
+      --text-dim: #6b7280;
+      --border: #e5e7eb;
+      --border-gold: rgba(185,138,25,0.28);
+      --radius: 12px;
+      --radius-lg: 16px;
+      --transition: 0.35s ease;
+      --shadow-card: 0 8px 32px rgba(0,0,0,0.06);
+      --shadow-hover: 0 20px 60px rgba(0,0,0,0.1);
+    }
+
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: var(--gold); text-decoration: none; transition: color var(--transition); }
+    a:hover { color: var(--gold-light); }
+    img { max-width: 100%; display: block; }
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+
+    @keyframes shimmer {
+      0% { background-position: 200% center; }
+      100% { background-position: -200% center; }
+    }
+    @keyframes pulse-gold {
+      0%, 100% { box-shadow: 0 4px 20px rgba(185,138,25,0.3), 0 0 0 0 rgba(185,138,25,0); }
+      50% { box-shadow: 0 8px 30px rgba(185,138,25,0.45), 0 0 0 6px rgba(185,138,25,0.08); }
+    }
+    @keyframes marquee {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(28px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .fade-up {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.7s cubic-bezier(0.22,1,0.36,1), transform 0.7s cubic-bezier(0.22,1,0.36,1);
+    }
+    .fade-up.visible { opacity: 1; transform: translateY(0); }
+    .fade-up.delay-1 { transition-delay: 0.08s; }
+    .fade-up.delay-2 { transition-delay: 0.16s; }
+    .fade-up.delay-3 { transition-delay: 0.24s; }
+    .fade-up.delay-4 { transition-delay: 0.32s; }
+
+    .section-divider {
+      width: 100%;
+      height: 1px;
+      background: linear-gradient(90deg, transparent 0%, rgba(185,138,25,0.35) 30%, rgba(185,138,25,0.55) 50%, rgba(185,138,25,0.35) 70%, transparent 100%);
+    }
+
+    /* NAV */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      padding: 14px 0;
+      background: rgba(255,255,255,0.9);
+      backdrop-filter: blur(20px) saturate(1.8);
+      -webkit-backdrop-filter: blur(20px) saturate(1.8);
+      border-bottom: 1px solid rgba(229,231,235,0.85);
+    }
+    .nav-inner {
+      max-width: 1100px; margin: 0 auto; padding: 0 24px;
+      display: flex; align-items: center; justify-content: space-between; gap: 16px;
+    }
+    .nav-brand {
+      display: flex; align-items: center; gap: 14px;
+    }
+    .nav-brand img { height: 28px; width: auto; }
+    .nav-brand-text {
+      font-size: 13px; font-weight: 700; letter-spacing: 0.12em;
+      text-transform: uppercase; color: var(--text);
+    }
+    .nav-brand-text span { color: var(--gold); }
+    .nav-right { display: flex; align-items: center; gap: 18px; }
+    .nav-phone {
+      font-size: 14px; font-weight: 600; color: var(--text);
+    }
+    .nav-phone:hover { color: var(--gold); }
+    .nav-cta {
+      background: var(--gold); color: #fff !important; font-weight: 600; font-size: 13px;
+      padding: 10px 18px; border-radius: 8px;
+      box-shadow: 0 2px 12px rgba(185,138,25,0.3);
+      transition: background var(--transition), transform var(--transition), box-shadow var(--transition);
+    }
+    .nav-cta:hover {
+      background: var(--gold-light); transform: translateY(-1px);
+      box-shadow: 0 6px 20px rgba(185,138,25,0.4);
+    }
+
+    /* BUTTONS */
+    .btn-primary {
+      display: inline-block;
+      background: linear-gradient(135deg, #B98A19, #c9a03a, #B98A19);
+      background-size: 200% auto;
+      color: #fff !important; font-weight: 700; font-size: 15px;
+      padding: 15px 32px; border-radius: 9px; letter-spacing: 0.02em;
+      transition: transform var(--transition), box-shadow var(--transition);
+      animation: pulse-gold 3s ease-in-out infinite;
+    }
+    .btn-primary:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 36px rgba(185,138,25,0.45);
+      background-position: right center;
+      animation: none;
+    }
+    .btn-secondary {
+      display: inline-block;
+      background: transparent; color: var(--text) !important; font-weight: 600; font-size: 15px;
+      padding: 14px 28px; border-radius: 9px; border: 1.5px solid var(--border);
+      transition: border-color var(--transition), color var(--transition), background var(--transition), transform var(--transition);
+    }
+    .btn-secondary:hover {
+      border-color: var(--gold); color: var(--gold) !important;
+      background: rgba(185,138,25,0.04); transform: translateY(-2px);
+    }
+
+    /* HERO */
+    #hero {
+      padding: 140px 0 90px;
+      position: relative;
+      background:
+        radial-gradient(ellipse at 15% 60%, rgba(185,138,25,0.07) 0%, transparent 45%),
+        radial-gradient(ellipse at 85% 15%, rgba(120,170,255,0.05) 0%, transparent 40%),
+        radial-gradient(ellipse at 50% 50%, rgba(248,249,255,0.9) 0%, transparent 70%),
+        #ffffff;
+    }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.15fr) minmax(320px, 0.85fr);
+      gap: 48px;
+      align-items: center;
+    }
+    .hero-eyebrow {
+      display: inline-flex; align-items: center; gap: 10px;
+      font-size: 11px; font-weight: 700; letter-spacing: 0.14em;
+      text-transform: uppercase; color: var(--gold); margin-bottom: 20px;
+    }
+    .hero-eyebrow::before {
+      content: ''; width: 28px; height: 1px;
+      background: linear-gradient(90deg, var(--gold), var(--gold-light));
+    }
+    .hero-title {
+      font-size: clamp(36px, 5.2vw, 58px);
+      font-weight: 900; letter-spacing: -0.03em; line-height: 1.05;
+      margin-bottom: 14px; color: var(--text);
+    }
+    .hero-title em {
+      font-style: normal;
+      background: linear-gradient(135deg, #111 0%, #3a3a3a 35%, #B98A19 75%, #d4a82a 100%);
+      background-size: 300% auto;
+      -webkit-background-clip: text; background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: shimmer 6s linear infinite;
+    }
+    .hero-sub {
+      font-size: 18px; color: var(--text-dim); max-width: 540px;
+      line-height: 1.7; margin-bottom: 28px;
+    }
+    .hero-price {
+      display: inline-flex; align-items: baseline; gap: 8px;
+      background: rgba(185,138,25,0.08);
+      border: 1px solid rgba(185,138,25,0.2);
+      border-radius: 999px; padding: 10px 18px;
+      margin-bottom: 22px;
+    }
+    .hero-price strong {
+      font-size: 20px; font-weight: 800; color: var(--text);
+    }
+    .hero-price span { font-size: 14px; color: var(--text-dim); font-weight: 500; }
+    .hero-checks {
+      list-style: none; display: grid; gap: 10px; margin-bottom: 28px;
+    }
+    .hero-checks li {
+      display: flex; align-items: flex-start; gap: 10px;
+      font-size: 15px; font-weight: 500; color: var(--text);
+    }
+    .hero-checks li::before {
+      content: '✓';
+      color: var(--gold); font-weight: 800; flex-shrink: 0;
+    }
+    .hero-note {
+      margin-top: 14px; font-size: 13px; color: var(--text-dim);
+    }
+    .hero-visual {
+      position: relative;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: 0 24px 80px rgba(0,0,0,0.14), 0 8px 32px rgba(185,138,25,0.12);
+      border: 1px solid rgba(185,138,25,0.18);
+    }
+    .hero-visual img {
+      width: 100%; aspect-ratio: 4/5; object-fit: cover; object-position: center top;
+    }
+    .hero-visual-caption {
+      position: absolute; left: 14px; right: 14px; bottom: 14px;
+      background: rgba(17,17,17,0.74); color: #fff;
+      backdrop-filter: blur(8px); border-radius: 10px;
+      padding: 12px 14px; font-size: 13px; line-height: 1.35;
+    }
+    .hero-visual-caption strong { display: block; font-size: 14px; margin-bottom: 2px; }
+    .hero-visual-caption span { color: rgba(255,255,255,0.82); }
+
+    /* LOGO MARQUEE */
+    .logo-marquee-section {
+      background: #f0f1f3;
+      border-top: 1px solid #e5e7eb;
+      border-bottom: 1px solid #e5e7eb;
+      padding: 28px 0 22px;
+      overflow: hidden;
+      position: relative;
+    }
+    .logo-label {
+      text-align: center; font-size: 12px; font-weight: 700;
+      letter-spacing: 0.14em; text-transform: uppercase;
+      color: var(--text-dim); margin-bottom: 18px;
+    }
+    .logo-marquee-section::before,
+    .logo-marquee-section::after {
+      content: ''; position: absolute; top: 0; bottom: 0; width: 80px; z-index: 2; pointer-events: none;
+    }
+    .logo-marquee-section::before { left: 0; background: linear-gradient(to right, #f0f1f3, transparent); }
+    .logo-marquee-section::after { right: 0; background: linear-gradient(to left, #f0f1f3, transparent); }
+    .logos-track {
+      display: flex; align-items: center; gap: 72px; width: max-content;
+      animation: marquee 32s linear infinite;
+    }
+    .logos-track img {
+      height: 36px; width: auto; flex-shrink: 0; object-fit: contain;
+      filter: brightness(0) opacity(0.55);
+    }
+
+    /* SECTION HEADERS */
+    .section-header { text-align: center; margin-bottom: 56px; }
+    .section-eyebrow {
+      display: inline-flex; align-items: center; gap: 10px;
+      font-size: 11px; font-weight: 700; letter-spacing: 0.14em;
+      text-transform: uppercase; color: var(--gold); margin-bottom: 14px;
+    }
+    .section-eyebrow::before,
+    .section-eyebrow::after {
+      content: ''; width: 20px; height: 1px;
+      background: linear-gradient(90deg, transparent, var(--gold));
+    }
+    .section-eyebrow::after { background: linear-gradient(90deg, var(--gold), transparent); }
+    .section-title {
+      font-size: clamp(28px, 4vw, 44px);
+      font-weight: 900; letter-spacing: -0.025em; line-height: 1.12; color: var(--text);
+    }
+    .section-subtitle {
+      font-size: 17px; color: var(--text-dim); max-width: 560px;
+      margin: 14px auto 0; line-height: 1.7;
+    }
+
+    /* FIT */
+    #fit {
+      padding: 100px 0;
+      background: var(--bg-alt);
+    }
+    .fit-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
+    }
+    .fit-card {
+      background: rgba(255,255,255,0.9);
+      border: 1px solid rgba(255,255,255,0.6);
+      border-radius: var(--radius-lg);
+      padding: 28px 26px;
+      box-shadow: var(--shadow-card);
+      transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
+    }
+    .fit-card:hover {
+      transform: translateY(-6px);
+      border-color: var(--border-gold);
+      box-shadow: var(--shadow-hover);
+    }
+    .fit-card h3 {
+      font-size: 18px; font-weight: 750; letter-spacing: -0.015em;
+      margin-bottom: 10px; color: var(--text);
+    }
+    .fit-card p { font-size: 15px; color: var(--text-dim); line-height: 1.7; }
+
+    /* HOW IT WORKS */
+    #how {
+      padding: 100px 0;
+      background: var(--bg);
+    }
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 16px;
+      counter-reset: step;
+    }
+    .step {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 26px 18px;
+      position: relative;
+      transition: border-color var(--transition), transform var(--transition), box-shadow var(--transition);
+    }
+    .step:hover {
+      border-color: var(--border-gold);
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-card);
+    }
+    .step-num {
+      font-size: 12px; font-weight: 800; letter-spacing: 0.12em;
+      color: var(--gold); margin-bottom: 14px;
+    }
+    .step h3 {
+      font-size: 16px; font-weight: 750; margin-bottom: 10px;
+      letter-spacing: -0.015em; line-height: 1.3;
+    }
+    .step p { font-size: 13.5px; color: var(--text-dim); line-height: 1.65; }
+
+    /* BUILT AROUND YOU */
+    #services {
+      padding: 100px 0;
+      background: var(--bg-alt);
+    }
+    .service-pills {
+      display: flex; flex-wrap: wrap; justify-content: center; gap: 10px;
+      max-width: 860px; margin: 0 auto;
+    }
+    .pill {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 11px 18px;
+      font-size: 14px; font-weight: 600; color: var(--text);
+      box-shadow: 0 2px 10px rgba(0,0,0,0.03);
+      transition: border-color var(--transition), color var(--transition), transform var(--transition);
+    }
+    .pill:hover {
+      border-color: var(--gold);
+      color: var(--gold);
+      transform: translateY(-2px);
+    }
+
+    /* RESULTS */
+    #results {
+      padding: 100px 0;
+      background: var(--bg);
+    }
+    .results-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+    .result-card {
+      background: rgba(255,255,255,0.9);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 32px 26px;
+      box-shadow: var(--shadow-card);
+      transition: transform 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    .result-card::before {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0; height: 3px;
+      background: linear-gradient(90deg, var(--gold), var(--gold-light));
+      opacity: 0; transition: opacity var(--transition);
+    }
+    .result-card:hover {
+      transform: translateY(-6px);
+      border-color: var(--border-gold);
+      box-shadow: var(--shadow-hover);
+    }
+    .result-card:hover::before { opacity: 1; }
+    .result-client {
+      font-size: 13px; font-weight: 700; letter-spacing: 0.06em;
+      text-transform: uppercase; color: var(--gold); margin-bottom: 14px;
+    }
+    .result-metric {
+      font-size: clamp(28px, 3vw, 36px);
+      font-weight: 900; letter-spacing: -0.03em; line-height: 1;
+      margin-bottom: 6px; color: var(--text);
+    }
+    .result-label {
+      font-size: 14px; font-weight: 600; color: var(--text-dim); margin-bottom: 14px;
+    }
+    .result-body { font-size: 14.5px; color: var(--text-dim); line-height: 1.7; }
+    .results-cta { display: flex; justify-content: center; margin-top: 36px; }
+
+    /* FAQ */
+    #faq {
+      padding: 100px 0;
+      background: var(--bg-alt);
+    }
+    .faq-list {
+      max-width: 780px; margin: 0 auto;
+      display: grid; gap: 12px;
+    }
+    details.faq-item {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 0 22px;
+      transition: border-color var(--transition), box-shadow var(--transition);
+    }
+    details.faq-item[open] {
+      border-color: var(--border-gold);
+      box-shadow: var(--shadow-card);
+    }
+    details.faq-item summary {
+      cursor: pointer;
+      list-style: none;
+      font-size: 16px; font-weight: 700;
+      padding: 20px 0;
+      display: flex; align-items: center; justify-content: space-between; gap: 16px;
+      color: var(--text);
+    }
+    details.faq-item summary::-webkit-details-marker { display: none; }
+    details.faq-item summary::after {
+      content: '+';
+      font-size: 22px; font-weight: 400; color: var(--gold); flex-shrink: 0;
+      transition: transform 0.25s ease;
+    }
+    details.faq-item[open] summary::after {
+      content: '−';
+    }
+    .faq-answer {
+      padding: 0 0 20px;
+      font-size: 15px; color: var(--text-dim); line-height: 1.75;
+    }
+
+    /* CTA */
+    #cta {
+      padding: 110px 0;
+      background:
+        radial-gradient(ellipse at 50% 0%, rgba(185,138,25,0.12) 0%, transparent 55%),
+        #111;
+      color: #fff;
+      text-align: center;
+    }
+    #cta .section-eyebrow { color: var(--gold-light); }
+    #cta .section-eyebrow::before,
+    #cta .section-eyebrow::after {
+      background: linear-gradient(90deg, transparent, var(--gold-light));
+    }
+    #cta .section-eyebrow::after {
+      background: linear-gradient(90deg, var(--gold-light), transparent);
+    }
+    #cta .section-title { color: #fff; }
+    #cta .section-subtitle { color: rgba(255,255,255,0.72); }
+    .cta-actions {
+      display: flex; flex-wrap: wrap; gap: 14px; justify-content: center;
+      margin-top: 32px; align-items: center;
+    }
+    .cta-phone {
+      color: rgba(255,255,255,0.85) !important;
+      font-weight: 600; font-size: 15px;
+    }
+    .cta-phone:hover { color: var(--gold-light) !important; }
+
+    /* FOOTER */
+    footer {
+      background: #0c0c0c;
+      border-top: 1px solid rgba(255,255,255,0.06);
+      padding: 36px 0;
+      color: rgba(255,255,255,0.55);
+    }
+    .footer-inner {
+      display: flex; flex-wrap: wrap; align-items: center;
+      justify-content: space-between; gap: 16px;
+    }
+    .footer-brand {
+      display: flex; align-items: center; gap: 12px;
+      font-size: 14px; font-weight: 600; color: rgba(255,255,255,0.75);
+    }
+    .footer-brand img { height: 22px; width: auto; opacity: 0.9; }
+    .footer-links { display: flex; flex-wrap: wrap; gap: 8px 20px; }
+    .footer-links a { color: rgba(255,255,255,0.55); font-size: 13px; }
+    .footer-links a:hover { color: var(--gold-light); }
+    .footer-copy {
+      width: 100%; text-align: center; margin-top: 18px; padding-top: 18px;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      font-size: 12px; color: rgba(255,255,255,0.35);
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 980px) {
+      .hero-grid { grid-template-columns: 1fr; gap: 40px; }
+      .hero-visual { max-width: 420px; margin: 0 auto; order: -1; }
+      .steps { grid-template-columns: repeat(2, 1fr); }
+      .results-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 700px) {
+      #hero { padding: 120px 0 70px; }
+      .fit-grid { grid-template-columns: 1fr; }
+      .steps { grid-template-columns: 1fr; }
+      .nav-phone { display: none; }
+      .hero-title { font-size: 34px; }
+      .section-header { margin-bottom: 40px; }
+      #fit, #how, #services, #results, #faq { padding: 72px 0; }
+      #cta { padding: 80px 0; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="nav-inner">
+      <a href="https://brandastic.com" class="nav-brand" aria-label="Brandastic home">
+        <img src="https://brandastic.com/wp-content/uploads/2026/03/BrandasticLogo-White-5.png" alt="Brandastic" style="filter: brightness(0);" />
+        <div class="nav-brand-text">Fractional <span>CMO</span></div>
+      </a>
+      <div class="nav-right">
+        <a class="nav-phone" href="tel:9496172731">949-617-2731</a>
+        <a class="nav-cta" href="https://calendar.app.google/CPAPTM86YQ7KH6UNA" target="_blank" rel="noopener">Book Strategy Call</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section id="hero">
+    <div class="container">
+      <div class="hero-grid">
+        <div>
+          <div class="hero-eyebrow fade-up">Fractional CMO Services</div>
+          <h1 class="hero-title fade-up delay-1">
+            Get Executive Marketing Leadership<br />
+            <em>Without a salaried CMO</em>
+          </h1>
+          <p class="hero-sub fade-up delay-2">
+            Executive direction and a full-service team of specialists, aligned under one roof for one monthly investment.
+          </p>
+          <div class="hero-price fade-up delay-2">
+            <strong>Starting at $5,000</strong>
+            <span>/ month</span>
+          </div>
+          <ul class="hero-checks fade-up delay-3">
+            <li>1 dedicated Fractional CMO</li>
+            <li>15 specialists executing the plan</li>
+            <li>One monthly investment, no headcount</li>
+          </ul>
+          <div class="fade-up delay-4">
+            <a class="btn-primary" href="https://calendar.app.google/CPAPTM86YQ7KH6UNA" target="_blank" rel="noopener">Book Your Free 30-Minute Strategy Call</a>
+            <p class="hero-note">Engagements can start in as little as a week.</p>
+          </div>
+        </div>
+        <div class="hero-visual fade-up delay-2">
+          <img src="justin-headshot.jpg" alt="Justin Nassie, Fractional CMO at Brandastic" />
+          <div class="hero-visual-caption">
+            <strong>Justin Nassie</strong>
+            <span>Founder & Fractional CMO · Brandastic</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRUSTED BY -->
+  <div class="logo-marquee-section">
+    <div class="logo-label">Trusted by</div>
+    <div class="logos-track">
+      <img src="https://brandastic.com/wp-content/uploads/2026/05/ricoh-logo.svg" style="width:100px;" alt="RICOH" />
+      <img src="https://brandastic.com/wp-content/uploads/2026/05/usc-logo.svg" style="width:70px;" alt="USC" />
+      <img src="https://brandastic.com/wp-content/uploads/2026/05/ufc-gym-logo.svg" style="width:120px;" alt="UFC Gym" />
+      <img src="https://brandastic.com/wp-content/uploads/2026/05/Orangetheory-Fitness-Logo-1.svg" style="width:160px;" alt="Orangetheory" />
+      <img src="https://brandastic.com/wp-content/uploads/2026/05/hyperx-logo.svg" style="width:120px;" alt="HyperX" />
+      <img src="https://brandastic.com/wp-content/uploads/2026/05/fujifilm-seeklogo.svg" style="width:100px;" alt="Fujifilm" />
+      <img src="https://brandastic.com/wp-content/uploads/2026/05/Pocky-Logo-1.svg" style="width:70px;" alt="Pocky" />
+      <img src="https://brandastic.com/wp-content/uploads/2026/05/Kia-Logo-1.svg" style="width:60px;" alt="KIA" />
+      <img src="https://brandastic.com/wp-content/uploads/2026/05/ricoh-logo.svg" style="width:100px;" alt="" aria-hidden="true" />
+      <img src="https://brandastic.com/wp-content/uploads/2026/05/usc-logo.svg" style="width:70px;" alt="" aria-hidden="true" />
+      <img src="https://brandastic.com/wp-content/uploads/2026/05/ufc-gym-logo.svg" style="width:120px;" alt="" aria-hidden="true" />
+      <img src="https://brandastic.com/wp-content/uploads/2026/05/Orangetheory-Fitness-Logo-1.svg" style="width:160px;" alt="" aria-hidden="true" />
+      <img src="https://brandastic.com/wp-content/uploads/2026/05/hyperx-logo.svg" style="width:120px;" alt="" aria-hidden="true" />
+      <img src="https://brandastic.com/wp-content/uploads/2026/05/fujifilm-seeklogo.svg" style="width:100px;" alt="" aria-hidden="true" />
+      <img src="https://brandastic.com/wp-content/uploads/2026/05/Pocky-Logo-1.svg" style="width:70px;" alt="" aria-hidden="true" />
+      <img src="https://brandastic.com/wp-content/uploads/2026/05/Kia-Logo-1.svg" style="width:60px;" alt="" aria-hidden="true" />
+    </div>
+  </div>
+
+  <!-- FIT -->
+  <section id="fit">
+    <div class="container">
+      <div class="section-header fade-up">
+        <span class="section-eyebrow">Is this for you?</span>
+        <h2 class="section-title">Our fractional CMO is a good fit if:</h2>
+      </div>
+      <div class="fit-grid">
+        <div class="fit-card fade-up delay-1">
+          <h3>You're the one making the marketing calls</h3>
+          <p>Strategy keeps landing on your plate while you're trying to run the business.</p>
+        </div>
+        <div class="fit-card fade-up delay-2">
+          <h3>You have people doing the work, but no one owning the strategy</h3>
+          <p>Execution is happening. Direction, priorities, and accountability aren't.</p>
+        </div>
+        <div class="fit-card fade-up delay-3">
+          <h3>You're growing fast and marketing needs to keep pace</h3>
+          <p>The next stage of growth needs a leader steering it, not just more activity.</p>
+        </div>
+        <div class="fit-card fade-up delay-4">
+          <h3>A full-time CMO is more than you're ready for</h3>
+          <p>The right hire is a six-figure commitment and a months-long search.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <!-- HOW IT WORKS -->
+  <section id="how">
+    <div class="container">
+      <div class="section-header fade-up">
+        <span class="section-eyebrow">How It Works</span>
+        <h2 class="section-title">From first conversation to compounding growth.</h2>
+      </div>
+      <div class="steps">
+        <div class="step fade-up delay-1">
+          <div class="step-num">01</div>
+          <h3>Learn Your Business</h3>
+          <p>Your Fractional CMO gets close to how you operate, joining key planning conversations to understand your goals, your customers, and your growth priorities.</p>
+        </div>
+        <div class="step fade-up delay-2">
+          <div class="step-num">02</div>
+          <h3>Build Your Roadmap</h3>
+          <p>Together, you'll shape a marketing strategy tied to your business objectives with clear priorities and a defined roadmap for execution — not a generic playbook.</p>
+        </div>
+        <div class="step fade-up delay-3">
+          <div class="step-num">03</div>
+          <h3>Lead Execution</h3>
+          <p>Your CMO brings that roadmap to Brandastic's designers, developers, strategists, copywriters, and digital marketers, who do the work.</p>
+        </div>
+        <div class="step fade-up delay-4">
+          <div class="step-num">04</div>
+          <h3>Measure Performance</h3>
+          <p>Campaigns are monitored, reviewed, and optimized continuously. You get regular updates, strategic recommendations, and full visibility into what's driving results.</p>
+        </div>
+        <div class="step fade-up delay-4">
+          <div class="step-num">05</div>
+          <h3>Evolve and Grow</h3>
+          <p>As your business changes, your strategy evolves with it. Your CMO keeps working alongside your leadership to find new opportunities and keep marketing aligned with where you're headed.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <!-- BUILT AROUND YOU -->
+  <section id="services">
+    <div class="container">
+      <div class="section-header fade-up">
+        <span class="section-eyebrow">Built around you</span>
+        <h2 class="section-title">What it could look like.</h2>
+        <p class="section-subtitle">
+          The strategy and roadmap your Fractional CMO builds is completely bespoke to your business.
+          Depending on your goals, it could pull from any of these:
+        </p>
+      </div>
+      <div class="service-pills fade-up delay-1">
+        <span class="pill">Paid Media</span>
+        <span class="pill">SEO</span>
+        <span class="pill">AEO</span>
+        <span class="pill">Design</span>
+        <span class="pill">Development</span>
+        <span class="pill">Copywriting</span>
+        <span class="pill">Branding</span>
+        <span class="pill">Analytics</span>
+        <span class="pill">Website Development</span>
+        <span class="pill">Email Marketing</span>
+        <span class="pill">Organic Social</span>
+        <span class="pill">AI Advertising</span>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <!-- RESULTS -->
+  <section id="results">
+    <div class="container">
+      <div class="section-header fade-up">
+        <span class="section-eyebrow">Proven Results</span>
+        <h2 class="section-title">Real Brands. Real Growth.</h2>
+        <p class="section-subtitle">A sample of what we've built for clients across industries.</p>
+      </div>
+      <div class="results-grid">
+        <div class="result-card fade-up delay-1">
+          <div class="result-client">Meathead Movers</div>
+          <div class="result-metric">$15M</div>
+          <div class="result-label">Targeting revenue run-rate</div>
+          <p class="result-body">Drove aggressive growth through a full-funnel paid media strategy and CRM overhaul, building a predictable revenue engine from the ground up.</p>
+        </div>
+        <div class="result-card fade-up delay-2">
+          <div class="result-client">California Online Public Schools</div>
+          <div class="result-metric">10,000</div>
+          <div class="result-label">Students enrollment</div>
+          <p class="result-body">A complete brand identity system and website redesign, combined with targeted acquisition campaigns across digital channels to support enrollment growth.</p>
+        </div>
+        <div class="result-card fade-up delay-3">
+          <div class="result-client">DESS-USA</div>
+          <div class="result-metric">33x ROAS</div>
+          <div class="result-label">DTC e-commerce</div>
+          <p class="result-body">Built and scaled a high-performance DTC channel through precision PPC and Google Shopping, turning ad spend into compounding returns.</p>
+        </div>
+      </div>
+      <div class="results-cta fade-up">
+        <a class="btn-secondary" href="https://brandastic.com/portfolio/" target="_blank" rel="noopener">View More Work</a>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <!-- FAQ -->
+  <section id="faq">
+    <div class="container">
+      <div class="section-header fade-up">
+        <span class="section-eyebrow">FAQ</span>
+        <h2 class="section-title">Questions We Hear Often</h2>
+      </div>
+      <div class="faq-list">
+        <details class="faq-item fade-up delay-1">
+          <summary>Will a Fractional CMO really understand our business?</summary>
+          <div class="faq-answer">Yes. Your Fractional CMO works alongside your leadership team, participates in planning discussions, and develops strategies based on your business goals — not a generic marketing playbook.</div>
+        </details>
+        <details class="faq-item fade-up delay-2">
+          <summary>Who actually does the marketing work?</summary>
+          <div class="faq-answer">Your Fractional CMO leads strategy and oversees execution while Brandastic's specialists handle design, development, paid media, SEO, content, branding, and more.</div>
+        </details>
+        <details class="faq-item fade-up delay-3">
+          <summary>What if we already have a marketing team?</summary>
+          <div class="faq-answer">That's often the best scenario. Your Fractional CMO provides strategic leadership, mentorship, and direction while empowering your existing team to execute more effectively.</div>
+        </details>
+        <details class="faq-item fade-up">
+          <summary>What if we eventually hire a full-time CMO?</summary>
+          <div class="faq-answer">That's a natural next step for many growing companies. When the time comes, your relationship with Brandastic doesn't have to end. As your business grows, your new CMO can take ownership of internal marketing leadership while our team continues providing the specialized expertise and execution needed to support their strategy.</div>
+        </details>
+        <details class="faq-item fade-up">
+          <summary>How quickly can we get started?</summary>
+          <div class="faq-answer">Unlike an executive search that can take months, many engagements begin within days.</div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- FINAL CTA -->
+  <section id="cta">
+    <div class="container">
+      <div class="section-header fade-up" style="margin-bottom:0;">
+        <span class="section-eyebrow">Get started</span>
+        <h2 class="section-title">Put a marketing leader in place this week.</h2>
+        <p class="section-subtitle">
+          Book a free 30-minute strategy call. We'll talk through your goals and show you exactly what the fractional model would look like for your business.
+        </p>
+        <div class="cta-actions fade-up delay-1">
+          <a class="btn-primary" href="https://calendar.app.google/CPAPTM86YQ7KH6UNA" target="_blank" rel="noopener">Book your free 30-minute strategy call</a>
+          <a class="cta-phone" href="tel:9496172731">or call 949-617-2731</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <img src="https://brandastic.com/wp-content/uploads/2026/03/BrandasticLogo-White-5.png" alt="Brandastic" />
+          <span>Fractional CMO Services</span>
+        </div>
+        <div class="footer-links">
+          <a href="https://brandastic.com">Brandastic.com</a>
+          <a href="https://brandastic.com/portfolio/">Portfolio</a>
+          <a href="https://justin.brandastic.com">Justin Nassie</a>
+          <a href="tel:9496172731">949-617-2731</a>
+        </div>
+        <div class="footer-copy">© <span id="y"></span> Brandastic Inc. All rights reserved. · Preview staging page</div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('y').textContent = new Date().getFullYear();
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((e) => {
+        if (e.isIntersecting) {
+          e.target.classList.add('visible');
+          observer.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+    document.querySelectorAll('.fade-up').forEach((el) => observer.observe(el));
+  </script>
+</body>
+</html>
