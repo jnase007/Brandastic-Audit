@@ -395,6 +395,23 @@
       content: ''; width: 28px; height: 1px;
       background: linear-gradient(90deg, var(--gold), transparent);
     }
+    /* Conference photo under Fit left title — balances accordion column */
+    .fit-photo {
+      margin-top: 28px;
+      width: 100%;
+      aspect-ratio: 4 / 5;
+      max-height: 360px;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      background: #111;
+    }
+    .fit-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center center;
+      display: block;
+    }
     .fit-acc {
       display: flex;
       flex-direction: column;
@@ -457,36 +474,12 @@
       padding: 100px 0;
       background: var(--bg);
     }
-    /* Photo left | tabs + content right — balanced two-column */
+    /* Tabs left + content right */
     .how-layout {
       display: grid;
-      grid-template-columns: minmax(280px, 0.95fr) minmax(0, 1.25fr);
-      gap: 36px 48px;
+      grid-template-columns: minmax(240px, 0.9fr) minmax(0, 1.4fr);
+      gap: 28px 48px;
       align-items: start;
-    }
-    .how-photo {
-      position: relative;
-      width: 100%;
-      aspect-ratio: 4 / 5;
-      max-height: 520px;
-      border-radius: var(--radius-lg);
-      overflow: hidden;
-      border: 0;
-      box-shadow: none;
-      background: #111;
-    }
-    .how-photo img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: center center;
-      display: block;
-    }
-    .how-right {
-      display: flex;
-      flex-direction: column;
-      gap: 28px;
-      min-width: 0;
     }
     .how-tabs {
       position: relative;
@@ -927,9 +920,9 @@
         height: 100%;
         object-fit: cover;
       }
-      .how-layout { grid-template-columns: 1fr; gap: 24px; }
-      .how-photo { aspect-ratio: 16 / 10; max-height: 320px; }
+      .how-layout { grid-template-columns: 1fr; gap: 20px; }
       .how-panel { padding: 4px 0 0 22px; }
+      .fit-photo { margin-top: 22px; max-height: 280px; }
       .results-grid { grid-template-columns: 1fr; }
       .faq-list { grid-template-columns: 1fr; max-width: 780px; }
       .result-card { min-height: 0; }
@@ -1043,6 +1036,9 @@
             <span class="section-eyebrow">Is This For You?</span>
             <h2 class="section-title">Our Fractional CMO Is a Good<br /><span class="nb">Fit If</span></h2>
           </div>
+          <div class="fit-photo">
+            <img src="images/team/Post2-conference.jpg" alt="Brandastic conference room collaboration" loading="lazy" />
+          </div>
         </div>
         <div class="fit-acc">
           <details class="fit-item" open>
@@ -1076,32 +1072,27 @@
         <h2 class="section-title">From First Conversation to Compounding Growth</h2>
       </div>
       <div class="how-layout fade-up delay-1">
-        <div class="how-photo">
-          <img src="images/team/Post2-conference.jpg" alt="Brandastic conference room collaboration" loading="lazy" />
+        <div class="how-tabs" role="tablist" aria-label="How it works steps">
+          <button type="button" class="how-tab active" role="tab" aria-selected="true" data-step="0">
+            <span class="step-num">01</span><span class="step-label">Learn Your Business</span>
+          </button>
+          <button type="button" class="how-tab" role="tab" aria-selected="false" data-step="1">
+            <span class="step-num">02</span><span class="step-label">Build Your Roadmap</span>
+          </button>
+          <button type="button" class="how-tab" role="tab" aria-selected="false" data-step="2">
+            <span class="step-num">03</span><span class="step-label">Lead Execution</span>
+          </button>
+          <button type="button" class="how-tab" role="tab" aria-selected="false" data-step="3">
+            <span class="step-num">04</span><span class="step-label">Measure Performance</span>
+          </button>
+          <button type="button" class="how-tab" role="tab" aria-selected="false" data-step="4">
+            <span class="step-num">05</span><span class="step-label">Evolve and Grow</span>
+          </button>
         </div>
-        <div class="how-right">
-          <div class="how-tabs" role="tablist" aria-label="How it works steps">
-            <button type="button" class="how-tab active" role="tab" aria-selected="true" data-step="0">
-              <span class="step-num">01</span><span class="step-label">Learn Your Business</span>
-            </button>
-            <button type="button" class="how-tab" role="tab" aria-selected="false" data-step="1">
-              <span class="step-num">02</span><span class="step-label">Build Your Roadmap</span>
-            </button>
-            <button type="button" class="how-tab" role="tab" aria-selected="false" data-step="2">
-              <span class="step-num">03</span><span class="step-label">Lead Execution</span>
-            </button>
-            <button type="button" class="how-tab" role="tab" aria-selected="false" data-step="3">
-              <span class="step-num">04</span><span class="step-label">Measure Performance</span>
-            </button>
-            <button type="button" class="how-tab" role="tab" aria-selected="false" data-step="4">
-              <span class="step-num">05</span><span class="step-label">Evolve and Grow</span>
-            </button>
-          </div>
-          <div class="how-panel" role="tabpanel" id="howPanel">
-            <div class="panel-num" id="howPanelNum">01</div>
-            <h3 id="howPanelTitle">Learn Your Business</h3>
-            <p id="howPanelBody">Your Fractional CMO gets close to how you operate, joining key planning conversations to understand your goals, your customers, and your growth priorities.</p>
-          </div>
+        <div class="how-panel" role="tabpanel" id="howPanel">
+          <div class="panel-num" id="howPanelNum">01</div>
+          <h3 id="howPanelTitle">Learn Your Business</h3>
+          <p id="howPanelBody">Your Fractional CMO gets close to how you operate, joining key planning conversations to understand your goals, your customers, and your growth priorities.</p>
         </div>
       </div>
     </div>
