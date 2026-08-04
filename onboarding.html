@@ -70,6 +70,11 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       'gmc': 14,
       'google-merchant': 14,
       'google-merchant-center': 14,
+      'local-services': 15,
+      'local-services-ads': 15,
+      'lsa': 15,
+      'google-lsa': 15,
+      'localservices': 15,
     };
 
     // Check URL on load
@@ -89,7 +94,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
     // Update URL when tab is clicked
     var origShowStep = window.showStep;
-    var slugs = ['google-ads','google-tag-manager','google-analytics','google-search-console','meta','instagram','tiktok','linkedin','yelp','website','doordash','instacart','bing','mailchimp','merchant-center'];
+    var slugs = ['google-ads','google-tag-manager','google-analytics','google-search-console','meta','instagram','tiktok','linkedin','yelp','website','doordash','instacart','bing','mailchimp','merchant-center','local-services'];
   </script>
 </head>
 <body class="bg-gray-50 text-gray-900 min-h-screen">
@@ -210,6 +215,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       <button onclick="showStep(14)" id="tab-14" class="tab-btn flex items-center gap-2 px-4 py-2.5 rounded-xl text-sm font-semibold border border-gray-200 bg-white whitespace-nowrap transition-all">
         <span class="w-6 h-6 rounded-full bg-lime-100 text-lime-700 flex items-center justify-center text-xs font-bold" id="num-14">15</span>
         Merchant Center
+      </button>
+      <button onclick="showStep(15)" id="tab-15" class="tab-btn flex items-center gap-2 px-4 py-2.5 rounded-xl text-sm font-semibold border border-gray-200 bg-white whitespace-nowrap transition-all">
+        <span class="w-6 h-6 rounded-full bg-blue-100 text-blue-700 flex items-center justify-center text-xs font-bold" id="num-15">16</span>
+        Local Services Ads
       </button>
     </div>
 
@@ -972,7 +981,80 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         </div>
         <div class="flex items-center justify-between">
           <button onclick="markDone(14)" id="done-14" class="px-6 py-2.5 bg-gray-900 text-white rounded-full text-sm font-semibold hover:bg-gray-700 transition">Mark as Done ✓</button>
-          <button onclick="showStep(13)" class="text-sm text-gray-400 hover:text-gray-900 font-medium transition">← Back</button>
+          <div class="flex items-center gap-4">
+            <button onclick="showStep(13)" class="text-sm text-gray-400 hover:text-gray-900 font-medium transition">← Back</button>
+            <button onclick="showStep(15)" class="text-sm text-gray-400 hover:text-gray-900 font-medium transition">Next: Local Services Ads →</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Step 16: Google Local Services Ads -->
+    <div class="step-panel" id="panel-15">
+      <div class="bg-white rounded-2xl border border-gray-200 p-8">
+        <div class="flex items-center gap-3 mb-6">
+          <div class="w-10 h-10 rounded-xl bg-blue-50 flex items-center justify-center">
+            <span class="text-lg font-bold text-blue-600">16</span>
+          </div>
+          <div>
+            <h2 class="text-xl font-bold">Google Local Services Ads</h2>
+            <p class="text-sm text-gray-400">Share LSA access so we can manage leads, budget, and Google Guaranteed campaigns</p>
+          </div>
+        </div>
+        <div class="space-y-4 mb-8">
+          <div class="flex items-start gap-3 p-4 bg-gray-50 rounded-xl">
+            <span class="w-7 h-7 rounded-full bg-blue-100 text-blue-700 flex items-center justify-center text-xs font-bold flex-shrink-0 mt-0.5">a</span>
+            <div>
+              <p class="text-sm font-medium text-gray-900">Open Local Services Ads</p>
+              <p class="text-xs text-gray-500 mt-0.5">Go to <a href="https://ads.google.com/localservices/accountpicker" target="_blank" class="text-blue-600 underline">ads.google.com/localservices</a>, sign in, and select the correct LSA business profile</p>
+            </div>
+          </div>
+          <div class="flex items-start gap-3 p-4 bg-gray-50 rounded-xl">
+            <span class="w-7 h-7 rounded-full bg-blue-100 text-blue-700 flex items-center justify-center text-xs font-bold flex-shrink-0 mt-0.5">b</span>
+            <div>
+              <p class="text-sm font-medium text-gray-900">Open Access and security</p>
+              <p class="text-xs text-gray-500 mt-0.5">In the left menu go to <strong>Admin → Access and security</strong> (or open <a href="https://ads.google.com/aw/accountaccess/users" target="_blank" class="text-blue-600 underline">Access and security</a>)</p>
+            </div>
+          </div>
+          <div class="flex items-start gap-3 p-4 bg-gray-50 rounded-xl">
+            <span class="w-7 h-7 rounded-full bg-blue-100 text-blue-700 flex items-center justify-center text-xs font-bold flex-shrink-0 mt-0.5">c</span>
+            <div>
+              <p class="text-sm font-medium text-gray-900">Invite Brandastic with Administrative access</p>
+              <p class="text-xs text-gray-500 mt-0.5">Click the <strong>+</strong> button → enter <strong>seo@brandastic.com</strong> → set access level to <strong>Administrative</strong> (needed for budget, bidding, users, and lead management) → <strong>Send invitation</strong></p>
+            </div>
+          </div>
+          <div class="flex items-start gap-3 p-4 bg-gray-50 rounded-xl">
+            <span class="w-7 h-7 rounded-full bg-blue-100 text-blue-700 flex items-center justify-center text-xs font-bold flex-shrink-0 mt-0.5">d</span>
+            <div>
+              <p class="text-sm font-medium text-gray-900">Link our Google Ads manager account (recommended)</p>
+              <p class="text-xs text-gray-500 mt-0.5">LSA manager linking runs through Google Ads. Complete the <button type="button" onclick="showStep(0)" class="text-blue-600 underline font-semibold">Google Ads</button> step and accept any manager-link request from Brandastic under <strong>Admin → Access and security → Managers</strong></p>
+            </div>
+          </div>
+          <div class="flex items-start gap-3 p-4 bg-gray-50 rounded-xl">
+            <span class="w-7 h-7 rounded-full bg-blue-100 text-blue-700 flex items-center justify-center text-xs font-bold flex-shrink-0 mt-0.5">e</span>
+            <div>
+              <p class="text-sm font-medium text-gray-900">Confirm Google Business Profile is connected</p>
+              <p class="text-xs text-gray-500 mt-0.5">Your LSA profile should be tied to the correct GBP location. If you haven't already, also complete the <button type="button" onclick="showStep(8)" class="text-blue-600 underline font-semibold">Yelp / GBP</button> step and add <strong>seo@brandastic.com</strong> as a GBP Manager</p>
+            </div>
+          </div>
+          <div class="flex items-start gap-3 p-4 bg-gray-50 rounded-xl">
+            <span class="w-7 h-7 rounded-full bg-blue-100 text-blue-700 flex items-center justify-center text-xs font-bold flex-shrink-0 mt-0.5">f</span>
+            <div>
+              <p class="text-sm font-medium text-gray-900">Send us your LSA account details</p>
+              <p class="text-xs text-gray-500 mt-0.5">Email <strong>seo@brandastic.com</strong> your business name as shown in LSA, service area / locations, and the Customer ID if shown (often the same Google Ads-style ###-###-#### ID). Tell us if Google Guaranteed / Screened is already approved</p>
+            </div>
+          </div>
+          <div class="flex items-start gap-3 p-4 bg-amber-50 border border-amber-100 rounded-xl">
+            <span class="w-7 h-7 rounded-full bg-amber-100 text-amber-700 flex items-center justify-center text-xs font-bold flex-shrink-0 mt-0.5">!</span>
+            <div>
+              <p class="text-sm font-medium text-gray-900">No LSA account yet?</p>
+              <p class="text-xs text-gray-500 mt-0.5">Reply to your Brandastic contact and we'll help create / claim the Local Services Ads profile. Don't create a second account if one already exists for your business.</p>
+            </div>
+          </div>
+        </div>
+        <div class="flex items-center justify-between">
+          <button onclick="markDone(15)" id="done-15" class="px-6 py-2.5 bg-gray-900 text-white rounded-full text-sm font-semibold hover:bg-gray-700 transition">Mark as Done ✓</button>
+          <button onclick="showStep(14)" class="text-sm text-gray-400 hover:text-gray-900 font-medium transition">← Back</button>
         </div>
       </div>
     </div>
@@ -1001,7 +1083,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   </footer>
 
   <script>
-    const completed = [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false];
+    const completed = [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false];
     let currentStep = 0;
 
     function showStep(index) {
@@ -1011,7 +1093,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       document.getElementById('panel-' + index).classList.add('active');
       document.getElementById('tab-' + index).classList.add('active');
       // Update URL with channel slug
-      var slugs = ['google-ads','tag-manager','analytics','search-console','meta','instagram','tiktok','linkedin','yelp','website','doordash','instacart','bing','mailchimp','merchant-center'];
+      var slugs = ['google-ads','tag-manager','analytics','search-console','meta','instagram','tiktok','linkedin','yelp','website','doordash','instacart','bing','mailchimp','merchant-center','local-services'];
       if (slugs[index]) history.replaceState(null, '', '/onboarding#' + slugs[index]);
     }
 
@@ -1032,10 +1114,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
       // Update progress
       const doneCount = completed.filter(Boolean).length;
-      document.getElementById('progress').style.width = (doneCount / 15 * 100) + '%';
+      document.getElementById('progress').style.width = (doneCount / 16 * 100) + '%';
 
       // If all done, show completion
-      if (doneCount === 15) {
+      if (doneCount === 16) {
         setTimeout(() => {
           document.querySelectorAll('.step-panel').forEach(p => p.classList.remove('active'));
           document.getElementById('panel-done').classList.add('active');
