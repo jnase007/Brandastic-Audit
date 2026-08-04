@@ -613,7 +613,7 @@
     #team {
       padding: 72px 0 64px;
       background: var(--bg-alt);
-      overflow: hidden;
+      overflow: visible; /* do not clip service copy on mobile */
     }
     #team .section-header { margin-bottom: 28px; }
     /* Comments #13-16: services merged under team as bold pipe list */
@@ -625,9 +625,12 @@
       color: var(--text-dim);
       font-weight: 400;
       max-width: 720px; /* wide enough for 2 lines, not 3 */
+      overflow-wrap: anywhere;
+      padding: 0 8px;
+      box-sizing: border-box;
     }
     .service-intro .line { display: block; white-space: nowrap; }
-    @media (max-width: 700px) {
+    @media (max-width: 900px) {
       .service-intro .line { white-space: normal; }
     }
     .service-pipes {
@@ -640,15 +643,23 @@
       max-width: 920px;
       margin-left: auto;
       margin-right: auto;
+      padding: 0 12px;
+      box-sizing: border-box;
+      white-space: normal;
+      overflow-wrap: break-word;
+      word-break: normal;
     }
     .service-pipes strong {
       font-weight: 700;
       color: var(--text);
+      white-space: nowrap; /* keep each service name intact */
+      display: inline;
     }
     .service-pipes .pipe {
       color: var(--text-dim);
       font-weight: 400;
       padding: 0 0.35em;
+      white-space: normal;
     }
     .team-scroll {
       position: relative;
