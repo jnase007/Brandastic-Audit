@@ -340,75 +340,190 @@
     .section-eyebrow::after { background: linear-gradient(90deg, var(--gold), transparent); }
     .section-title {
       font-size: clamp(28px, 4vw, 44px);
-      font-weight: 900; letter-spacing: -0.025em; line-height: 1.12; color: var(--text);
+      font-weight: 400; /* Sandy: section titles weight 400 */
+      letter-spacing: -0.025em; line-height: 1.12; color: var(--text);
     }
     .section-subtitle {
       font-size: 17px; color: var(--text-dim); max-width: 560px;
       margin: 14px auto 0; line-height: 1.7;
     }
 
-    /* FIT */
+    /* FIT — Comment #9: 1/3 titles left + 2/3 open accordions right */
     #fit {
       padding: 100px 0;
       background: var(--bg-alt);
     }
-    .fit-grid {
+    .fit-layout {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 18px;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 2fr);
+      gap: 48px 56px;
+      align-items: start;
     }
-    .fit-card {
-      background: rgba(255,255,255,0.9);
-      border: 1px solid rgba(255,255,255,0.6);
+    .fit-intro {
+      position: sticky;
+      top: 96px;
+    }
+    .fit-intro .section-header {
+      text-align: left;
+      margin-bottom: 0;
+    }
+    .fit-intro .section-title {
+      max-width: 14ch;
+    }
+    .fit-intro .section-eyebrow {
+      justify-content: flex-start;
+    }
+    .fit-intro .section-eyebrow::before { display: none; }
+    .fit-intro .section-eyebrow::after {
+      content: ''; width: 28px; height: 1px;
+      background: linear-gradient(90deg, var(--gold), transparent);
+    }
+    .fit-acc {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .fit-item {
+      background: rgba(255,255,255,0.95);
+      border: 1px solid rgba(185,138,25,0.18);
       border-radius: var(--radius-lg);
-      padding: 28px 26px;
       box-shadow: var(--shadow-card);
-      transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
+      overflow: hidden;
     }
-    .fit-card:hover {
-      transform: translateY(-6px);
+    .fit-item[open] {
       border-color: var(--border-gold);
       box-shadow: var(--shadow-hover);
     }
-    .fit-card h3 {
-      font-size: 18px; font-weight: 750; letter-spacing: -0.015em;
-      margin-bottom: 10px; color: var(--text);
+    .fit-item summary {
+      list-style: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 20px 22px;
+      font-family: "forma-djr-text", "Forma DJR Text", 'Inter', system-ui, sans-serif;
+      font-size: 17px;
+      font-weight: 600;
+      letter-spacing: -0.015em;
+      line-height: 1.35;
+      color: var(--text);
     }
-    .fit-card p { font-size: 15px; color: var(--text-dim); line-height: 1.7; }
+    .fit-item summary::-webkit-details-marker { display: none; }
+    .fit-item summary::after {
+      content: '−';
+      flex-shrink: 0;
+      width: 28px; height: 28px;
+      border-radius: 50%;
+      border: 1px solid var(--border-gold);
+      color: var(--gold);
+      font-size: 18px;
+      font-weight: 500;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      line-height: 1;
+      transition: transform 0.2s ease, background 0.2s ease;
+    }
+    .fit-item:not([open]) summary::after {
+      content: '+';
+    }
+    .fit-item .fit-body {
+      padding: 0 22px 20px;
+      font-size: 15px;
+      color: var(--text-dim);
+      line-height: 1.7;
+    }
 
-    /* HOW IT WORKS */
+    /* HOW IT WORKS — Comment #11: left tabs + one right panel */
     #how {
       padding: 100px 0;
       background: var(--bg);
     }
-    .steps {
+    .how-layout {
       display: grid;
-      grid-template-columns: repeat(5, 1fr);
-      gap: 16px;
-      counter-reset: step;
+      grid-template-columns: minmax(220px, 0.9fr) minmax(0, 1.4fr);
+      gap: 28px 40px;
+      align-items: stretch;
     }
-    .step {
-      background: #fff;
+    .how-tabs {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .how-tab {
+      width: 100%;
+      text-align: left;
+      cursor: pointer;
       border: 1px solid var(--border);
-      border-radius: var(--radius-lg);
-      padding: 26px 18px;
-      position: relative;
-      transition: border-color var(--transition), transform var(--transition), box-shadow var(--transition);
+      background: #fff;
+      border-radius: 14px;
+      padding: 16px 18px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      transition: border-color 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+      font: inherit;
+      color: var(--text);
     }
-    .step:hover {
+    .how-tab:hover {
       border-color: var(--border-gold);
-      transform: translateY(-4px);
+    }
+    .how-tab.active {
+      border-color: var(--border-gold);
+      background: rgba(185,138,25,0.08);
       box-shadow: var(--shadow-card);
     }
-    .step-num {
-      font-size: 12px; font-weight: 800; letter-spacing: 0.12em;
-      color: var(--gold); margin-bottom: 14px;
+    .how-tab .step-num {
+      font-family: "forma-djr-text", "Forma DJR Text", 'Inter', system-ui, sans-serif;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      color: var(--gold);
+      flex-shrink: 0;
+      min-width: 2ch;
     }
-    .step h3 {
-      font-size: 16px; font-weight: 750; margin-bottom: 10px;
-      letter-spacing: -0.015em; line-height: 1.3;
+    .how-tab .step-label {
+      font-family: "forma-djr-text", "Forma DJR Text", 'Inter', system-ui, sans-serif;
+      font-size: 16px;
+      font-weight: 600;
+      letter-spacing: -0.015em;
+      line-height: 1.3;
     }
-    .step p { font-size: 13.5px; color: var(--text-dim); line-height: 1.65; }
+    .how-panel {
+      background: #fff;
+      border: 1px solid var(--border-gold);
+      border-radius: var(--radius-lg);
+      padding: 36px 32px;
+      box-shadow: var(--shadow-card);
+      min-height: 280px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .how-panel .panel-num {
+      font-family: "forma-djr-text", "Forma DJR Text", 'Inter', system-ui, sans-serif;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      color: var(--gold);
+      margin-bottom: 14px;
+    }
+    .how-panel h3 {
+      font-family: "forma-djr-text", "Forma DJR Text", 'Inter', system-ui, sans-serif;
+      font-size: clamp(24px, 3vw, 32px);
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      line-height: 1.15;
+      margin-bottom: 14px;
+      color: var(--text);
+    }
+    .how-panel p {
+      font-size: 16px;
+      color: var(--text-dim);
+      line-height: 1.75;
+      max-width: 42rem;
+    }
 
     /* YOUR EXECUTION TEAM — matched to /home people scroller */
     #team {
@@ -417,6 +532,27 @@
       overflow: hidden;
     }
     #team .section-header { margin-bottom: 28px; }
+    /* Comments #13-16: services merged under team as bold pipe list */
+    .service-pipes {
+      margin-top: 28px;
+      text-align: center;
+      font-size: 15px;
+      line-height: 1.85;
+      color: var(--text);
+      font-weight: 400;
+      max-width: 920px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .service-pipes strong {
+      font-weight: 700;
+      color: var(--text);
+    }
+    .service-pipes .pipe {
+      color: var(--text-dim);
+      font-weight: 400;
+      padding: 0 0.35em;
+    }
     .team-scroll {
       position: relative;
       overflow: hidden;
@@ -523,7 +659,7 @@
       transform: translateY(-2px);
     }
 
-    /* RESULTS */
+    /* RESULTS — Comment #17: taller cards, brand photo top 1/3 + name overlay */
     #results {
       padding: 100px 0;
       background: var(--bg);
@@ -534,50 +670,80 @@
       gap: 20px;
     }
     .result-card {
-      background: rgba(255,255,255,0.9);
+      background: #fff;
       border: 1px solid var(--border);
       border-radius: var(--radius-lg);
-      padding: 32px 26px;
+      padding: 0;
       box-shadow: var(--shadow-card);
       transition: transform 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease;
       position: relative;
       overflow: hidden;
-    }
-    .result-card::before {
-      content: '';
-      position: absolute; top: 0; left: 0; right: 0; height: 3px;
-      background: linear-gradient(90deg, var(--gold), var(--gold-light));
-      opacity: 0; transition: opacity var(--transition);
+      display: flex;
+      flex-direction: column;
+      min-height: 460px;
     }
     .result-card:hover {
       transform: translateY(-6px);
       border-color: var(--border-gold);
       box-shadow: var(--shadow-hover);
     }
-    .result-card:hover::before { opacity: 1; }
+    .result-media {
+      position: relative;
+      flex: 0 0 34%;
+      min-height: 160px;
+      overflow: hidden;
+      background: #111;
+    }
+    .result-media img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center center;
+      display: block;
+    }
+    .result-media::after {
+      content: '';
+      position: absolute; inset: 0;
+      background: linear-gradient(180deg, rgba(0,0,0,0.15) 0%, rgba(0,0,0,0.55) 100%);
+    }
     .result-client {
+      position: absolute;
+      left: 16px; right: 16px; bottom: 14px;
+      z-index: 2;
       font-size: 13px; font-weight: 700; letter-spacing: 0.06em;
-      text-transform: uppercase; color: var(--gold); margin-bottom: 14px;
+      text-transform: uppercase; color: #fff;
+      margin: 0;
+      text-shadow: 0 1px 8px rgba(0,0,0,0.45);
+    }
+    .result-body-wrap {
+      padding: 24px 24px 28px;
+      display: flex;
+      flex-direction: column;
+      flex: 1 1 auto;
     }
     .result-metric {
       font-size: clamp(28px, 3vw, 36px);
-      font-weight: 900; letter-spacing: -0.03em; line-height: 1;
+      font-weight: 600; letter-spacing: -0.03em; line-height: 1;
       margin-bottom: 6px; color: var(--text);
     }
     .result-label {
       font-size: 14px; font-weight: 600; color: var(--text-dim); margin-bottom: 14px;
     }
-    .result-body { font-size: 14.5px; color: var(--text-dim); line-height: 1.7; }
+    .result-body { font-size: 14.5px; color: var(--text-dim); line-height: 1.7; margin: 0; }
     .results-cta { display: flex; justify-content: center; margin-top: 36px; }
 
-    /* FAQ */
+    /* FAQ — Comment #18: 2-column stack to reduce height */
     #faq {
       padding: 100px 0;
       background: var(--bg-alt);
     }
     .faq-list {
-      max-width: 780px; margin: 0 auto;
-      display: grid; gap: 12px;
+      max-width: 980px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px 16px;
+      align-items: start;
     }
     details.faq-item {
       background: #fff;
@@ -684,18 +850,23 @@
         height: 100%;
         object-fit: cover;
       }
-      .steps { grid-template-columns: repeat(2, 1fr); }
+      .how-layout { grid-template-columns: 1fr; gap: 20px; }
+      .how-panel { min-height: 0; padding: 28px 22px; }
       .results-grid { grid-template-columns: 1fr; }
+      .faq-list { grid-template-columns: 1fr; max-width: 780px; }
+      .result-card { min-height: 0; }
+      .result-media { min-height: 140px; flex-basis: 150px; }
     }
     @media (max-width: 700px) {
       #hero { padding: 84px 0 24px; }
-      .fit-grid { grid-template-columns: 1fr; }
-      .steps { grid-template-columns: 1fr; }
+      .fit-layout { grid-template-columns: 1fr; gap: 28px; }
+      .fit-intro { position: static; }
+      .fit-intro .section-title { max-width: none; }
       .nav-phone { display: none; }
       .hero-title { font-size: 32px; }
       .hero-sub { font-size: 15px; }
       .section-header { margin-bottom: 40px; }
-      #fit, #how, #services, #results, #faq { padding: 72px 0; }
+      #fit, #how, #results, #faq { padding: 72px 0; }
       #team { padding: 48px 0 40px; }
       #cta { padding: 80px 0; }
       .logo-marquee-section { padding: 20px 0 22px; }
@@ -734,7 +905,7 @@
           <div class="hero-eyebrow fade-up">Fractional CMO Services</div>
           <h1 class="hero-title fade-up delay-1">
             Get Executive Marketing Leadership<br />
-            <em>Without a salaried CMO</em>
+            <em>Without a Salaried CMO</em>
           </h1>
           <p class="hero-sub fade-up delay-2">
             Executive direction and a full-service team of specialists, aligned under one roof for one monthly investment.
@@ -789,26 +960,30 @@
   <!-- FIT -->
   <section id="fit">
     <div class="container">
-      <div class="section-header fade-up">
-        <span class="section-eyebrow">Is this for you?</span>
-        <h2 class="section-title">Our fractional CMO is a good fit if:</h2>
-      </div>
-      <div class="fit-grid">
-        <div class="fit-card fade-up delay-1">
-          <h3>You're the one making the marketing calls</h3>
-          <p>Strategy keeps landing on your plate while you're trying to run the business.</p>
+      <div class="fit-layout fade-up">
+        <div class="fit-intro">
+          <div class="section-header">
+            <span class="section-eyebrow">Is This For You?</span>
+            <h2 class="section-title">Our Fractional CMO Is a Good Fit If</h2>
+          </div>
         </div>
-        <div class="fit-card fade-up delay-2">
-          <h3>You have people doing the work, but no one owning the strategy</h3>
-          <p>Execution is happening. Direction, priorities, and accountability aren't.</p>
-        </div>
-        <div class="fit-card fade-up delay-3">
-          <h3>You're growing fast and marketing needs to keep pace</h3>
-          <p>The next stage of growth needs a leader steering it, not just more activity.</p>
-        </div>
-        <div class="fit-card fade-up delay-4">
-          <h3>A full-time CMO is more than you're ready for</h3>
-          <p>The right hire is a six-figure commitment and a months-long search.</p>
+        <div class="fit-acc">
+          <details class="fit-item" open>
+            <summary>You're the one making the marketing calls</summary>
+            <div class="fit-body">Strategy keeps landing on your plate while you're trying to run the business.</div>
+          </details>
+          <details class="fit-item" open>
+            <summary>You have people doing the work, but no one owning the strategy</summary>
+            <div class="fit-body">Execution is happening. Direction, priorities, and accountability aren't.</div>
+          </details>
+          <details class="fit-item" open>
+            <summary>You're growing fast and marketing needs to keep pace</summary>
+            <div class="fit-body">The next stage of growth needs a leader steering it, not just more activity.</div>
+          </details>
+          <details class="fit-item" open>
+            <summary>A full-time CMO is more than you're ready for</summary>
+            <div class="fit-body">The right hire is a six-figure commitment and a months-long search.</div>
+          </details>
         </div>
       </div>
     </div>
@@ -821,33 +996,30 @@
     <div class="container">
       <div class="section-header fade-up">
         <span class="section-eyebrow">How It Works</span>
-        <h2 class="section-title">From first conversation to compounding growth.</h2>
+        <h2 class="section-title">From First Conversation to Compounding Growth</h2>
       </div>
-      <div class="steps">
-        <div class="step fade-up delay-1">
-          <div class="step-num">01</div>
-          <h3>Learn Your Business</h3>
-          <p>Your Fractional CMO gets close to how you operate, joining key planning conversations to understand your goals, your customers, and your growth priorities.</p>
+      <div class="how-layout fade-up delay-1">
+        <div class="how-tabs" role="tablist" aria-label="How it works steps">
+          <button type="button" class="how-tab active" role="tab" aria-selected="true" data-step="0">
+            <span class="step-num">01</span><span class="step-label">Learn Your Business</span>
+          </button>
+          <button type="button" class="how-tab" role="tab" aria-selected="false" data-step="1">
+            <span class="step-num">02</span><span class="step-label">Build Your Roadmap</span>
+          </button>
+          <button type="button" class="how-tab" role="tab" aria-selected="false" data-step="2">
+            <span class="step-num">03</span><span class="step-label">Lead Execution</span>
+          </button>
+          <button type="button" class="how-tab" role="tab" aria-selected="false" data-step="3">
+            <span class="step-num">04</span><span class="step-label">Measure Performance</span>
+          </button>
+          <button type="button" class="how-tab" role="tab" aria-selected="false" data-step="4">
+            <span class="step-num">05</span><span class="step-label">Evolve and Grow</span>
+          </button>
         </div>
-        <div class="step fade-up delay-2">
-          <div class="step-num">02</div>
-          <h3>Build Your Roadmap</h3>
-          <p>Together, you'll shape a marketing strategy tied to your business objectives with clear priorities and a defined roadmap for execution — not a generic playbook.</p>
-        </div>
-        <div class="step fade-up delay-3">
-          <div class="step-num">03</div>
-          <h3>Lead Execution</h3>
-          <p>Your CMO brings that roadmap to Brandastic's designers, developers, strategists, copywriters, and digital marketers, who do the work.</p>
-        </div>
-        <div class="step fade-up delay-4">
-          <div class="step-num">04</div>
-          <h3>Measure Performance</h3>
-          <p>Campaigns are monitored, reviewed, and optimized continuously. You get regular updates, strategic recommendations, and full visibility into what's driving results.</p>
-        </div>
-        <div class="step fade-up delay-4">
-          <div class="step-num">05</div>
-          <h3>Evolve and Grow</h3>
-          <p>As your business changes, your strategy evolves with it. Your CMO keeps working alongside your leadership to find new opportunities and keep marketing aligned with where you're headed.</p>
+        <div class="how-panel" role="tabpanel" id="howPanel">
+          <div class="panel-num" id="howPanelNum">01</div>
+          <h3 id="howPanelTitle">Learn Your Business</h3>
+          <p id="howPanelBody">Your Fractional CMO gets close to how you operate, joining key planning conversations to understand your goals, your customers, and your growth priorities.</p>
         </div>
       </div>
     </div>
@@ -860,7 +1032,7 @@
     <div class="container">
       <div class="section-header fade-up">
         <span class="section-eyebrow">Your Execution Team</span>
-        <h2 class="section-title">Operators in the room.</h2>
+        <h2 class="section-title">Operators in the Room</h2>
         <p class="section-subtitle">Your Fractional CMO leads the strategy. Brandastic's specialists handle paid media, creative, web, SEO, and analytics — most of us work together in Costa Mesa so nothing dies in handoffs.</p>
       </div>
       <div class="team-scroll fade-up delay-1" id="team-scroll" aria-label="Brandastic execution team">
@@ -883,36 +1055,9 @@
           <div class="team-card" aria-hidden="true"><img src="https://brandastic.com/wp-content/uploads/2024/12/Erin-Clancy.png" alt="" loading="lazy"><div><strong>Erin Clancy</strong><em>Executive Assistant</em></div></div>
         </div>
       </div>
-    </div>
-  </section>
-
-  <div class="section-divider"></div>
-
-  <!-- BUILT AROUND YOU -->
-  <section id="services">
-    <div class="container">
-      <div class="section-header fade-up">
-        <span class="section-eyebrow">Built around you</span>
-        <h2 class="section-title">What it could look like.</h2>
-        <p class="section-subtitle">
-          The strategy and roadmap your Fractional CMO builds is completely bespoke to your business.
-          Depending on your goals, it could pull from any of these:
-        </p>
-      </div>
-      <div class="service-pills fade-up delay-1">
-        <span class="pill">Paid Media</span>
-        <span class="pill">SEO</span>
-        <span class="pill">AEO</span>
-        <span class="pill">Design</span>
-        <span class="pill">Development</span>
-        <span class="pill">Copywriting</span>
-        <span class="pill">Branding</span>
-        <span class="pill">Analytics</span>
-        <span class="pill">Website Development</span>
-        <span class="pill">Email Marketing</span>
-        <span class="pill">Organic Social</span>
-        <span class="pill">AI Advertising</span>
-      </div>
+      <p class="service-pipes fade-up delay-2">
+        <strong>Paid Media</strong><span class="pipe">|</span><strong>SEO</strong><span class="pipe">|</span><strong>AEO</strong><span class="pipe">|</span><strong>Design</strong><span class="pipe">|</span><strong>Development</strong><span class="pipe">|</span><strong>Copywriting</strong><span class="pipe">|</span><strong>Branding</strong><span class="pipe">|</span><strong>Analytics</strong><span class="pipe">|</span><strong>Website Development</strong><span class="pipe">|</span><strong>Email Marketing</strong><span class="pipe">|</span><strong>Organic Social</strong><span class="pipe">|</span><strong>AI Advertising</strong>
+      </p>
     </div>
   </section>
 
@@ -923,27 +1068,42 @@
     <div class="container">
       <div class="section-header fade-up">
         <span class="section-eyebrow">Proven Results</span>
-        <h2 class="section-title">Real Brands. Real Growth.</h2>
+        <h2 class="section-title">Real Brands. Real Growth</h2>
         <p class="section-subtitle">A sample of what we've built for clients across industries.</p>
       </div>
       <div class="results-grid">
         <div class="result-card fade-up delay-1">
-          <div class="result-client">Meathead Movers</div>
-          <div class="result-metric">$15M</div>
-          <div class="result-label">Targeting revenue run-rate</div>
-          <p class="result-body">Drove aggressive growth through a full-funnel paid media strategy and CRM overhaul, building a predictable revenue engine from the ground up.</p>
+          <div class="result-media">
+            <img src="https://brandastic.com/wp-content/uploads/2020/04/MeatheadMovers-1.png" alt="Meathead Movers project" loading="lazy" />
+            <div class="result-client">Meathead Movers</div>
+          </div>
+          <div class="result-body-wrap">
+            <div class="result-metric">$15M</div>
+            <div class="result-label">Targeting revenue run-rate</div>
+            <p class="result-body">Drove aggressive growth through a full-funnel paid media strategy and CRM overhaul, building a predictable revenue engine from the ground up.</p>
+          </div>
         </div>
         <div class="result-card fade-up delay-2">
-          <div class="result-client">California Online Public Schools</div>
-          <div class="result-metric">9,500+</div>
-          <div class="result-label">Students enrollment</div>
-          <p class="result-body">A complete brand identity system and website redesign, combined with targeted acquisition campaigns across digital channels to support enrollment growth.</p>
+          <div class="result-media">
+            <img src="https://brandastic.com/wp-content/uploads/2024/06/CalOPS-1.png" alt="California Online Public Schools project" loading="lazy" />
+            <div class="result-client">California Online Public Schools</div>
+          </div>
+          <div class="result-body-wrap">
+            <div class="result-metric">9,500+</div>
+            <div class="result-label">Students enrollment</div>
+            <p class="result-body">A complete brand identity system and website redesign, combined with targeted acquisition campaigns across digital channels to support enrollment growth.</p>
+          </div>
         </div>
         <div class="result-card fade-up delay-3">
-          <div class="result-client">DESS-USA</div>
-          <div class="result-metric">33x ROAS</div>
-          <div class="result-label">DTC e-commerce</div>
-          <p class="result-body">Built and scaled a high-performance DTC channel through precision PPC and Google Shopping, turning ad spend into compounding returns.</p>
+          <div class="result-media">
+            <img src="https://brandastic.com/wp-content/uploads/2024/08/DESS.png" alt="DESS-USA project" loading="lazy" />
+            <div class="result-client">DESS-USA</div>
+          </div>
+          <div class="result-body-wrap">
+            <div class="result-metric">33x ROAS</div>
+            <div class="result-label">DTC e-commerce</div>
+            <p class="result-body">Built and scaled a high-performance DTC channel through precision PPC and Google Shopping, turning ad spend into compounding returns.</p>
+          </div>
         </div>
       </div>
       <div class="results-cta fade-up">
@@ -991,7 +1151,7 @@
     <div class="container">
       <div class="section-header fade-up" style="margin-bottom:0;">
         <span class="section-eyebrow">Get started</span>
-        <h2 class="section-title">Put a marketing leader in place this week.</h2>
+        <h2 class="section-title">Put a Marketing Leader in Place This Week</h2>
         <p class="section-subtitle">
           Book a free 30-minute strategy call. We'll talk through your goals and show you exactly what the fractional model would look like for your business.
         </p>
@@ -1040,6 +1200,54 @@
       marqueeSection.addEventListener('mouseenter', () => { track.style.animationPlayState = 'paused'; });
       marqueeSection.addEventListener('mouseleave', () => { track.style.animationPlayState = 'running'; });
     }
+
+    // How It Works tabs (comment #11)
+    const howSteps = [
+      {
+        num: '01',
+        title: 'Learn Your Business',
+        body: 'Your Fractional CMO gets close to how you operate, joining key planning conversations to understand your goals, your customers, and your growth priorities.'
+      },
+      {
+        num: '02',
+        title: 'Build Your Roadmap',
+        body: "Together, you'll shape a marketing strategy tied to your business objectives with clear priorities and a defined roadmap for execution — not a generic playbook."
+      },
+      {
+        num: '03',
+        title: 'Lead Execution',
+        body: "Your CMO brings that roadmap to Brandastic's designers, developers, strategists, copywriters, and digital marketers, who do the work."
+      },
+      {
+        num: '04',
+        title: 'Measure Performance',
+        body: "Campaigns are monitored, reviewed, and optimized continuously. You get regular updates, strategic recommendations, and full visibility into what's driving results."
+      },
+      {
+        num: '05',
+        title: 'Evolve and Grow',
+        body: "As your business changes, your strategy evolves with it. Your CMO keeps working alongside your leadership to find new opportunities and keep marketing aligned with where you're headed."
+      }
+    ];
+    const howTabs = document.querySelectorAll('.how-tab');
+    const howNum = document.getElementById('howPanelNum');
+    const howTitle = document.getElementById('howPanelTitle');
+    const howBody = document.getElementById('howPanelBody');
+    howTabs.forEach((tab) => {
+      tab.addEventListener('click', () => {
+        const i = Number(tab.getAttribute('data-step') || 0);
+        const step = howSteps[i];
+        if (!step) return;
+        howTabs.forEach((t) => {
+          const on = t === tab;
+          t.classList.toggle('active', on);
+          t.setAttribute('aria-selected', on ? 'true' : 'false');
+        });
+        howNum.textContent = step.num;
+        howTitle.textContent = step.title;
+        howBody.textContent = step.body;
+      });
+    });
   </script>
 </body>
 </html>
