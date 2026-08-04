@@ -9,68 +9,97 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
 <style>
+
 :root{
   --black:#191F24; --fog:#F5F3EF; --white:#fff;
   --blue:#0644ED; --cyan:#40B4E5; --purple:#CC22FF;
   --muted:rgba(255,255,255,.62); --line:rgba(255,255,255,.12);
   --good:#22c55e; --warn:#f59e0b; --bad:#ef4444;
+  --pad-x: clamp(16px, 4vw, 64px);
+  --pad-y: clamp(16px, 3vh, 48px);
+  --footer-h: 56px;
 }
 *{box-sizing:border-box;margin:0;padding:0}
-html,body{height:100%;background:#0b0f14;color:var(--white);font-family:Inter,system-ui,sans-serif;overflow:hidden}
-.deck{height:100%;width:100%;position:relative}
+html,body{
+  height:100%;
+  height:100dvh;
+  background:#0b0f14;color:var(--white);
+  font-family:Inter,system-ui,sans-serif;
+  overflow:hidden;
+  -webkit-text-size-adjust:100%;
+  touch-action:pan-y;
+}
+.deck{height:100%;width:100%;position:relative;overflow:hidden}
 .slide{
-  position:absolute;inset:0;display:none;padding:48px 64px 72px;
+  position:absolute;inset:0;display:none;
+  padding: var(--pad-y) var(--pad-x) calc(var(--footer-h) + 12px);
   background:
     radial-gradient(1200px 600px at 85% -10%, rgba(6,68,237,.35), transparent 55%),
     radial-gradient(900px 500px at -10% 110%, rgba(204,34,255,.18), transparent 50%),
     linear-gradient(160deg,#10161d 0%, #191F24 45%, #0d1218 100%);
-  overflow:hidden;
+  overflow-x:hidden;
+  overflow-y:auto;
+  -webkit-overflow-scrolling:touch;
+  overscroll-behavior:contain;
 }
 .slide.on{display:flex;flex-direction:column}
 .slide::before{
   content:"";position:absolute;inset:0;pointer-events:none;opacity:.35;
   background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.08'/%3E%3C/svg%3E");
 }
-.top{display:flex;justify-content:space-between;align-items:center;position:relative;z-index:2;margin-bottom:28px}
+.top{display:flex;justify-content:space-between;align-items:center;position:relative;z-index:2;margin-bottom:clamp(12px,2vh,28px);gap:12px;flex-wrap:wrap}
 .brand{display:flex;align-items:center;gap:14px}
-.brand img{height:28px;width:auto}
-.eyebrow{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--cyan);font-weight:700}
-.kicker{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);font-weight:600}
-h1{font-size:clamp(36px,5vw,64px);line-height:1.02;font-weight:900;letter-spacing:-.03em;max-width:15ch}
-h2{font-size:clamp(28px,3.6vw,44px);line-height:1.08;font-weight:800;letter-spacing:-.025em;margin-bottom:10px}
-h3{font-size:18px;font-weight:700;margin-bottom:8px}
-.sub{font-size:18px;line-height:1.45;color:var(--muted);max-width:52ch;margin-top:14px}
-.row{display:grid;gap:18px;position:relative;z-index:2;flex:1;align-content:start}
+.brand img{height:24px;width:auto}
+.eyebrow{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--cyan);font-weight:700}
+.kicker{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);font-weight:600}
+h1{font-size:clamp(28px,6.5vw,64px);line-height:1.05;font-weight:900;letter-spacing:-.03em;max-width:16ch}
+h2{font-size:clamp(22px,4.5vw,44px);line-height:1.1;font-weight:800;letter-spacing:-.025em;margin-bottom:8px}
+h3{font-size:clamp(15px,2.2vw,18px);font-weight:700;margin-bottom:8px}
+.sub{font-size:clamp(14px,2.2vw,18px);line-height:1.45;color:var(--muted);max-width:52ch;margin-top:12px}
+.row{display:grid;gap:12px;position:relative;z-index:2;flex:1;align-content:start;min-width:0}
 .row-2{grid-template-columns:1.1fr .9fr}
 .row-3{grid-template-columns:repeat(3,1fr)}
 .row-4{grid-template-columns:repeat(4,1fr)}
 .row-5{grid-template-columns:repeat(5,1fr)}
 .card{
   background:rgba(255,255,255,.04);border:1px solid var(--line);
-  border-radius:18px;padding:20px 22px;backdrop-filter:blur(8px);
+  border-radius:16px;padding:14px 16px;backdrop-filter:blur(8px);
+  min-width:0;
 }
 .card.hot{border-color:rgba(64,180,229,.45);box-shadow:0 0 0 1px rgba(64,180,229,.08) inset}
 .card.accent{background:linear-gradient(145deg,rgba(6,68,237,.22),rgba(204,34,255,.12));border-color:rgba(64,180,229,.35)}
-.stat{font-size:42px;font-weight:900;letter-spacing:-.03em;line-height:1}
-.stat.sm{font-size:28px}
+.stat{font-size:clamp(28px,6vw,42px);font-weight:900;letter-spacing:-.03em;line-height:1}
+.stat.sm{font-size:clamp(22px,4vw,28px)}
 .stat.bad{color:#ff7b7b}.stat.good{color:#4ade80}.stat.cyan{color:var(--cyan)}
-.label{font-size:12px;text-transform:uppercase;letter-spacing:.12em;color:var(--muted);margin-top:6px;font-weight:600}
-.p{font-size:16px;line-height:1.5;color:rgba(255,255,255,.86)}
+.label{font-size:11px;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);margin-top:6px;font-weight:600}
+.p{font-size:clamp(13px,1.8vw,16px);line-height:1.5;color:rgba(255,255,255,.86)}
 .muted{color:var(--muted)}
-ul.clean{list-style:none;display:grid;gap:10px}
-ul.clean li{padding-left:18px;position:relative;font-size:16px;line-height:1.4;color:rgba(255,255,255,.88)}
-ul.clean li::before{content:"";position:absolute;left:0;top:.55em;width:8px;height:8px;border-radius:99px;background:linear-gradient(135deg,var(--cyan),var(--purple))}
-table{width:100%;border-collapse:collapse;font-size:15px}
-th,td{padding:12px 10px;border-bottom:1px solid var(--line);text-align:left}
-th{color:var(--muted);font-size:11px;letter-spacing:.12em;text-transform:uppercase;font-weight:700}
+ul.clean{list-style:none;display:grid;gap:8px}
+ul.clean li{padding-left:16px;position:relative;font-size:clamp(13px,1.8vw,16px);line-height:1.4;color:rgba(255,255,255,.88)}
+ul.clean li::before{content:"";position:absolute;left:0;top:.55em;width:7px;height:7px;border-radius:99px;background:linear-gradient(135deg,var(--cyan),var(--purple))}
+.table-wrap{width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch;margin:0 -2px;border-radius:12px}
+table{width:100%;border-collapse:collapse;font-size:clamp(12px,1.6vw,15px);min-width:520px}
+th,td{padding:10px 8px;border-bottom:1px solid var(--line);text-align:left}
+th{color:var(--muted);font-size:10px;letter-spacing:.1em;text-transform:uppercase;font-weight:700}
 td.num,th.num{text-align:right;font-variant-numeric:tabular-nums}
-.badge{display:inline-flex;align-items:center;gap:8px;padding:6px 12px;border-radius:999px;background:rgba(64,180,229,.12);border:1px solid rgba(64,180,229,.3);color:var(--cyan);font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase}
+.badge{display:inline-flex;align-items:center;gap:8px;padding:6px 12px;border-radius:999px;background:rgba(64,180,229,.12);border:1px solid rgba(64,180,229,.3);color:var(--cyan);font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase}
 .footer{
-  position:absolute;left:64px;right:64px;bottom:22px;z-index:5;
-  display:flex;justify-content:space-between;align-items:center;
-  font-size:12px;color:var(--muted);letter-spacing:.04em;
+  position:fixed;left:0;right:0;bottom:0;z-index:20;
+  display:flex;justify-content:space-between;align-items:center;gap:8px;
+  padding:10px var(--pad-x) calc(10px + env(safe-area-inset-bottom));
+  font-size:11px;color:var(--muted);letter-spacing:.03em;
+  background:linear-gradient(180deg, transparent, rgba(8,12,18,.94) 35%);
+  backdrop-filter:blur(8px);
+  pointer-events:none;
 }
-.progress{position:absolute;left:0;right:0;bottom:0;height:4px;background:rgba(255,255,255,.06);z-index:6}
+.footer .navbtns{display:flex;gap:8px;pointer-events:auto}
+.footer button{
+  appearance:none;border:1px solid var(--line);background:rgba(255,255,255,.06);
+  color:#fff;border-radius:999px;padding:8px 12px;font-size:12px;font-weight:700;
+  font-family:inherit;cursor:pointer;min-width:44px;min-height:40px;
+}
+.footer button:active{transform:scale(.98)}
+.progress{position:fixed;left:0;right:0;bottom:0;height:3px;background:rgba(255,255,255,.06);z-index:21;pointer-events:none}
 .progress>i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--blue),var(--cyan),var(--purple));transition:width .25s ease}
 .navhint{opacity:.75}
 .hero-bg{
@@ -78,30 +107,48 @@ td.num,th.num{text-align:right;font-variant-numeric:tabular-nums}
     linear-gradient(105deg, rgba(10,14,20,.92) 0%, rgba(10,14,20,.72) 42%, rgba(10,14,20,.35) 100%),
     url('assets/defy-hero-ai-current.jpg') center/cover no-repeat;
 }
-.quote{font-size:28px;line-height:1.25;font-weight:700;max-width:22ch;letter-spacing:-.02em}
-.tiny{font-size:13px;color:var(--muted);line-height:1.4}
-.pillrow{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
-.pill{padding:8px 12px;border-radius:999px;border:1px solid var(--line);background:rgba(255,255,255,.04);font-size:13px;font-weight:600}
-.phase{display:grid;grid-template-columns:80px 1fr;gap:14px;align-items:start}
-.phase .n{font-size:28px;font-weight:900;color:var(--cyan)}
-.bigline{font-size:clamp(26px,3.2vw,40px);font-weight:800;letter-spacing:-.025em;line-height:1.15;max-width:22ch}
+.quote{font-size:clamp(20px,4vw,28px);line-height:1.25;font-weight:700;max-width:24ch;letter-spacing:-.02em}
+.tiny{font-size:12px;color:var(--muted);line-height:1.4}
+.pillrow{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.pill{padding:7px 11px;border-radius:999px;border:1px solid var(--line);background:rgba(255,255,255,.04);font-size:12px;font-weight:600}
+.phase{display:grid;grid-template-columns:64px 1fr;gap:12px;align-items:start}
+.phase .n{font-size:clamp(22px,4vw,28px);font-weight:900;color:var(--cyan)}
+.bigline{font-size:clamp(22px,5vw,40px);font-weight:800;letter-spacing:-.025em;line-height:1.15;max-width:24ch}
 .compare td:first-child{font-weight:700}
 .barwrap{display:flex;align-items:center;gap:10px}
 .bar{height:10px;border-radius:99px;background:rgba(255,255,255,.08);flex:1;overflow:hidden}
 .bar>span{display:block;height:100%;background:linear-gradient(90deg,var(--cyan),var(--blue))}
 .bar.zero>span{width:2%;background:#ff7b7b}
-.grid-main{position:relative;z-index:2;flex:1;display:flex;flex-direction:column;justify-content:center}
+.grid-main{position:relative;z-index:2;flex:1;display:flex;flex-direction:column;justify-content:center;min-height:0}
+.desktop-only{display:inline}
+.mobile-only{display:none}
+
+@media (max-width:900px){
+  .row-2,.row-3,.row-4,.row-5{grid-template-columns:1fr}
+  .desktop-only{display:none}
+  .mobile-only{display:inline}
+  .grid-main{justify-content:flex-start;padding-top:8px}
+  .hero-bg{background:
+    linear-gradient(180deg, rgba(10,14,20,.88) 0%, rgba(10,14,20,.78) 55%, rgba(10,14,20,.92) 100%),
+    url('assets/defy-hero-ai-current.jpg') center/cover no-repeat;
+  }
+  table{min-width:480px}
+  .phase{grid-template-columns:48px 1fr}
+  .card[style*="min-height:320px"]{min-height:180px !important}
+}
+@media (max-width:480px){
+  h1{max-width:none}
+  .bigline{max-width:none}
+  .quote{max-width:none}
+  .brand img{height:20px}
+  .navhint{display:none}
+}
 @media print{
   html,body{overflow:visible;height:auto;background:#fff}
-  .slide{position:relative;display:flex !important;page-break-after:always;min-height:100vh;padding:36px}
-  .footer,.progress,.navhint{display:none}
+  .slide{position:relative;display:flex !important;page-break-after:always;min-height:100vh;padding:36px;overflow:visible}
+  .footer,.progress{display:none}
 }
-@media (max-width:900px){
-  .slide{padding:28px 22px 64px}
-  .row-2,.row-3,.row-4,.row-5{grid-template-columns:1fr}
-  .footer{left:22px;right:22px}
-  h1{font-size:34px}
-}
+
 </style>
 </head>
 <body>
@@ -163,7 +210,7 @@ td.num,th.num{text-align:right;font-variant-numeric:tabular-nums}
   <div class="top"><div class="eyebrow">Live diagnosis · Aug 2026</div><div class="kicker">We already did the homework</div></div>
   <h2>The gap is discovery — not product</h2>
   <div class="row" style="margin-top:18px">
-    <div class="card hot">
+    <div class="card hot"><div class="table-wrap">
       <table>
         <thead><tr><th>Brand</th><th class="num">Organic KWs</th><th class="num">Est. organic traffic</th><th>Demand engine</th></tr></thead>
         <tbody>
@@ -254,7 +301,7 @@ td.num,th.num{text-align:right;font-variant-numeric:tabular-nums}
   <h2>Sequenced for learning speed</h2>
   <div class="row" style="margin-top:14px">
     <div class="card">
-      <table>
+      <div class="table-wrap"><table>
         <thead><tr><th>Channel</th><th>Role in first 90 days</th></tr></thead>
         <tbody>
           <tr><td><strong>Meta / paid social</strong></td><td>Primary demand creation + creative learning</td></tr>
@@ -265,7 +312,7 @@ td.num,th.num{text-align:right;font-variant-numeric:tabular-nums}
           <tr><td><strong>SEO / AEO</strong></td><td>Compounding asset from ~0 baseline</td></tr>
           <tr><td><strong>Amazon</strong></td><td>Readiness → launch when unit economics clear</td></tr>
         </tbody>
-      </table>
+      </table></div>
     </div>
   </div>
 </section>
@@ -411,9 +458,13 @@ td.num,th.num{text-align:right;font-variant-numeric:tabular-nums}
 
 </div>
 
+
 <div class="footer">
-  <span>Brandastic × SRP / DEFY · Confidential</span>
-  <span class="navhint">← → or space · F fullscreen · P print/PDF</span>
+  <span>Brandastic × SRP / DEFY</span>
+  <span class="navbtns">
+    <button type="button" id="prevBtn" aria-label="Previous">←</button>
+    <button type="button" id="nextBtn" aria-label="Next">→</button>
+  </span>
   <span id="pg">1 / 15</span>
 </div>
 <div class="progress"><i id="bar"></i></div>
@@ -429,11 +480,18 @@ td.num,th.num{text-align:right;font-variant-numeric:tabular-nums}
     slides.forEach((s,idx)=>s.classList.toggle('on',idx===i));
     pg.textContent=(i+1)+' / '+slides.length;
     bar.style.width=((i+1)/slides.length*100)+'%';
-    location.hash = String(i+1);
+    history.replaceState(null,'','#'+(i+1));
+    // reset scroll on new slide
+    const on=slides[i];
+    if(on) on.scrollTop=0;
   }
+  function next(){show(i+1)}
+  function prev(){show(i-1)}
+  document.getElementById('nextBtn').addEventListener('click',e=>{e.stopPropagation();next()});
+  document.getElementById('prevBtn').addEventListener('click',e=>{e.stopPropagation();prev()});
   window.addEventListener('keydown',e=>{
-    if(['ArrowRight','PageDown',' '].includes(e.key)){e.preventDefault();show(i+1)}
-    if(['ArrowLeft','PageUp'].includes(e.key)){e.preventDefault();show(i-1)}
+    if(['ArrowRight','PageDown',' '].includes(e.key)){e.preventDefault();next()}
+    if(['ArrowLeft','PageUp'].includes(e.key)){e.preventDefault();prev()}
     if(e.key==='Home')show(0);
     if(e.key==='End')show(slides.length-1);
     if(e.key==='f'||e.key==='F'){
@@ -442,10 +500,35 @@ td.num,th.num{text-align:right;font-variant-numeric:tabular-nums}
     }
     if(e.key==='p'||e.key==='P') window.print();
   });
+
+  // Swipe navigation (ignore mostly-vertical scrolls)
+  let tx=0, ty=0, tracking=false;
+  const threshold=48;
+  document.addEventListener('touchstart',e=>{
+    if(e.touches.length!==1) return;
+    tracking=true;
+    tx=e.touches[0].clientX; ty=e.touches[0].clientY;
+  },{passive:true});
+  document.addEventListener('touchend',e=>{
+    if(!tracking) return;
+    tracking=false;
+    const t=e.changedTouches[0];
+    const dx=t.clientX-tx, dy=t.clientY-ty;
+    if(Math.abs(dx)<threshold || Math.abs(dx)<Math.abs(dy)*1.2) return;
+    // don't hijack if user was scrolling a slide that can scroll
+    const on=slides[i];
+    if(on && on.scrollHeight>on.clientHeight+8 && Math.abs(dy)>20) return;
+    if(dx<0) next(); else prev();
+  },{passive:true});
+
+  // Desktop click zones only on wide screens and not on interactive UI
   document.addEventListener('click',e=>{
-    if(e.target.closest('a,button'))return;
-    if(e.clientX>innerWidth*0.55) show(i+1); else show(i-1);
+    if(window.innerWidth<900) return;
+    if(e.target.closest('a,button,.navbtns,.footer')) return;
+    if(e.clientX>innerWidth*0.6) next();
+    else if(e.clientX<innerWidth*0.4) prev();
   });
+
   const h=parseInt((location.hash||'#1').slice(1),10);
   show(isFinite(h)&&h>=1&&h<=slides.length?h-1:0);
 })();
