@@ -118,7 +118,10 @@
     /* Comment #2: removed "Fractional CMO" text lockup next to logo */
     .nav-right { display: flex; align-items: center; gap: 18px; }
     .nav-phone {
-      font-size: 14px; font-weight: 600; color: var(--text);
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--text-dim);
+      letter-spacing: -0.01em;
     }
     .nav-phone:hover { color: var(--gold); }
     .nav-cta {
@@ -949,28 +952,68 @@
       }
       .how-layout { grid-template-columns: 1fr; gap: 16px; max-width: none; }
       .how-panel { padding: 8px 0 0 0; min-height: 0; }
-      .fit-intro { position: static; height: auto; }
-      .fit-photo { margin-top: 22px; min-height: 220px; max-height: 280px; flex: 0 0 auto; }
-      .results-grid { grid-template-columns: 1fr; }
+      .fit-layout { align-items: start; }
+      .fit-intro { position: static; height: auto; min-height: 0; }
+      .fit-photo {
+        margin-top: 22px;
+        min-height: 200px;
+        max-height: 260px;
+        height: 220px !important; /* override desktop JS sync */
+        flex: 0 0 auto;
+      }
+      .results-grid { grid-template-columns: 1fr; gap: 16px; }
       .faq-list { grid-template-columns: 1fr; max-width: 780px; }
       .result-card { min-height: 0; }
-      .result-media { min-height: 140px; flex-basis: 150px; }
+      .result-media { height: 150px; min-height: 150px; }
+      .cta-actions { width: 100%; }
+      .cta-actions .btn-primary { width: 100%; max-width: 420px; }
     }
     @media (max-width: 700px) {
+      .container { padding: 0 18px; }
+      .nav-inner { padding: 0 18px; }
       #hero { padding: 84px 0 24px; }
-      .fit-layout { grid-template-columns: 1fr; gap: 28px; }
+      .fit-layout { grid-template-columns: 1fr; gap: 24px; }
       .fit-intro { position: static; }
       .fit-intro .section-title { max-width: none; }
-      .nav-phone { display: none; }
-      .hero-title { font-size: 32px; }
+      /* keep phone reachable on mobile — secondary to Book CTA */
+      .nav-phone {
+        display: inline-flex;
+        font-size: 12px;
+        white-space: nowrap;
+      }
+      .nav-right { gap: 10px; }
+      .nav-cta {
+        padding: 9px 12px;
+        font-size: 12px;
+        white-space: nowrap;
+      }
+      .hero-title { font-size: 30px; }
       .hero-sub { font-size: 15px; }
-      .section-header { margin-bottom: 40px; }
-      #fit, #how, #results, #faq { padding: 72px 0; }
-      #team { padding: 48px 0 40px; }
-      #cta { padding: 80px 0; }
-      .logo-marquee-section { padding: 20px 0 22px; }
+      .hero-checks { font-size: 14px; }
+      .section-header { margin-bottom: 36px; }
+      .section-title { font-size: clamp(26px, 7vw, 34px); }
+      #fit, #how, #results, #faq { padding: 64px 0; }
+      #team { padding: 44px 0 36px; }
+      #cta { padding: 72px 0; }
+      .logo-marquee-section { padding: 18px 0 20px; }
       .logos-track img { height: 30px; }
       .logos-track { gap: 48px; }
+      .service-intro {
+        max-width: none;
+        font-size: 15px;
+        padding: 0 4px;
+      }
+      .service-intro .line { white-space: normal; }
+      .service-pipes {
+        font-size: 13px;
+        line-height: 1.75;
+        padding: 0 4px;
+      }
+      .how-tab { padding: 14px 6px 14px 18px; }
+      .how-tab .step-label { font-size: 15px; }
+      .how-panel h3 { font-size: 24px; }
+      .how-panel p { font-size: 16px; }
+      .fit-item summary { font-size: 16px; padding: 16px 18px; }
       .team-card { width: 132px; border-radius: 14px; }
       .team-card div { padding: 10px; }
       .team-card strong { font-size: 12px; }
@@ -978,6 +1021,12 @@
       .team-scroll::before,
       .team-scroll::after { width: 24px; }
       .team-track { gap: 10px; animation-duration: 32s; }
+      .result-body-wrap { padding: 16px 16px 18px; }
+      .footer-inner { flex-direction: column; align-items: flex-start; gap: 14px; }
+    }
+    @media (max-width: 380px) {
+      .nav-phone { display: none; } /* very narrow: keep Book CTA only */
+      .nav-cta { padding: 9px 10px; font-size: 11.5px; }
     }
   </style>
 </head>
@@ -989,7 +1038,7 @@
         <img src="https://brandastic.com/wp-content/uploads/2026/03/BrandasticLogo-White-5.png" alt="Brandastic" style="filter: brightness(0);" />
       </a>
       <div class="nav-right">
-        <a class="nav-phone" href="tel:9496172731">949-617-2731</a>
+        <a class="nav-phone" href="tel:9496172731" aria-label="Call 949-617-2731">or call 949-617-2731</a>
         <a class="nav-cta" href="https://calendar.app.google/CPAPTM86YQ7KH6UNA" target="_blank" rel="noopener">Book Strategy Call</a>
       </div>
     </div>
