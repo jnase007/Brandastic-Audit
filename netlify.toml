@@ -254,3 +254,13 @@
   from = "/defy-finalist"
   to = "/defy-growth-plan.html"
   status = 200
+
+[[redirects]]
+  from = "/defy-creative-examples"
+  to = "/defy-creative-examples.html"
+  status = 200
+
+[[redirects]]
+  from = "/defy-creative"
+  to = "/defy-creative-examples.html"
+  status = 200
