@@ -196,11 +196,13 @@
     }
     .hero-title {
       font-size: clamp(32px, 4.4vw, 50px);
-      font-weight: 900; letter-spacing: -0.03em; line-height: 1.06;
+      font-weight: 600; /* Comment #5: main line Forma DJR 600 */
+      letter-spacing: -0.03em; line-height: 1.06;
       margin-bottom: 14px; color: var(--text);
     }
     .hero-title em {
       font-style: normal;
+      font-weight: 400; /* Comment #5: accent line Forma DJR 400 */
       background: linear-gradient(135deg, #111 0%, #3a3a3a 35%, #B98A19 75%, #d4a82a 100%);
       background-size: 300% auto;
       -webkit-background-clip: text; background-clip: text;
@@ -268,10 +270,27 @@
       overflow: hidden;
       position: relative;
     }
+    /* Comment #7: Trusted By matches section-eyebrow (gold + dashes) */
     .logo-label {
-      text-align: center; font-size: 12px; font-weight: 700;
+      display: flex; align-items: center; justify-content: center; gap: 10px;
+      text-align: center; font-size: 11px; font-weight: 700;
       letter-spacing: 0.14em; text-transform: uppercase;
-      color: var(--text-dim); margin-bottom: 14px;
+      color: var(--gold); margin-bottom: 10px;
+    }
+    .logo-label::before,
+    .logo-label::after {
+      content: ''; width: 20px; height: 1px;
+      background: linear-gradient(90deg, transparent, var(--gold));
+    }
+    .logo-label::after { background: linear-gradient(90deg, var(--gold), transparent); }
+    /* Comment #6 */
+    .logo-proof {
+      text-align: center;
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--text-dim);
+      margin: 0 0 16px;
+      line-height: 1.5;
     }
     .logo-marquee-section::before,
     .logo-marquee-section::after {
@@ -744,7 +763,8 @@
   <!-- TRUSTED BY -->
   <!-- TRUSTED BY -->
   <div class="logo-marquee-section" id="logo-marquee">
-    <div class="logo-label">Trusted by</div>
+    <div class="logo-label">Trusted By</div>
+    <p class="logo-proof">Serving 450+ brands over 16 years</p>
     <div class="logos-track">
       <img src="https://brandastic.com/wp-content/uploads/2026/05/ricoh-logo.svg" style="width:100px; height:auto; flex-shrink:0;" alt="RICOH" />
       <img src="https://brandastic.com/wp-content/uploads/2026/05/usc-logo.svg" style="width:70px; height:auto; flex-shrink:0;" alt="USC" />
