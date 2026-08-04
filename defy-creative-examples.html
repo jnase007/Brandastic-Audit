@@ -39,7 +39,19 @@ ul{padding-left:18px;display:grid;gap:6px;margin-top:8px}
 table{width:100%;border-collapse:collapse;font-size:13.5px}
 th,td{padding:10px 8px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
 th{color:var(--muted);font-size:11px;letter-spacing:.1em;text-transform:uppercase}
-.email,.ad,.post{white-space:pre-wrap;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:12.5px;line-height:1.45;background:#0b1016;border:1px solid var(--line);border-radius:12px;padding:14px;color:#d7e0ea;margin-top:8px}
+/* merge-tag source only — never use mono for room-facing copy */
+details.copy-source .email{
+  white-space:pre-wrap;
+  font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-size:14px;
+  line-height:1.5;
+  background:#0b1016;
+  border:0;
+  border-radius:0 0 12px 12px;
+  padding:14px;
+  color:#d7e0ea;
+  margin-top:0;
+}
 .k{color:#7dd3fc}.v{color:#f9a8d4}
 .note{font-size:13px;color:var(--muted);border-left:3px solid var(--cyan);padding-left:12px;margin:12px 0}
 footer{margin-top:60px;padding-top:20px;border-top:1px solid var(--line);color:var(--muted);font-size:12px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
@@ -131,7 +143,17 @@ td{color:rgba(255,255,255,.9);font-weight:500}
 .say-this{margin:0 0 18px;padding:14px 16px;border-radius:12px;background:rgba(64,180,229,.08);border:1px solid rgba(64,180,229,.28);font-size:15px;line-height:1.45;color:rgba(255,255,255,.92);font-weight:500}
 .say-this strong{color:var(--cyan)}
 nav.toc a.active{border-color:var(--cyan);color:var(--cyan);background:rgba(64,180,229,.12)}
-details.copy-source .email{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:12.5px}
+details.copy-source .email{font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;font-size:14px;line-height:1.5}
+
+
+/* no typewriter */
+body, p, li, td, th, .lead, .meta, .note, .sub, .badge, .tag, .copy-block, .copy-block p, .hook-list, .hook-list li, .ad-readable, .ad-readable .v2, .say-this, .card, h1, h2, h3, nav.toc a, summary {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif !important;
+}
+code, pre {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif !important;
+  font-size: 0.95em;
+}
 
 </style>
 </head>
@@ -141,7 +163,7 @@ details.copy-source .email{font-family:ui-monospace,SFMono-Regular,Menlo,monospa
   <div>
     <div class="badge">One walkthrough URL · Social · Ads · Email</div>
     <h1>DEFY content strategy + mockups</h1>
-    <p class="sub">The page to run with the team: audiences & messaging → pillars → calendar → social → ads → email. Room walkthrough: audiences, pillars, calendar, social, ads, email. Real weardefy.com product imagery. Helvetica for easy reading on laptop or TV.</p>
+    <p class="sub">Room walkthrough: audiences → pillars → calendar → social → ads → email. Real weardefy.com product imagery. Clean Helvetica type for laptop/TV reading.</p>
     <div class="walk">
       <span class="step">Walk order</span>
       <a class="chip" href="#audience"><span>1</span> Audience</a>
