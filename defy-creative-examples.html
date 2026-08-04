@@ -5,11 +5,11 @@
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
 <title>DEFY Content Strategy + Mockups — Social · Ads · Email | Brandastic</title>
 <meta name="robots" content="noindex,nofollow"/>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+<!-- Helvetica system stack for room readability -->
 <style>
 :root{--bg:#0e1319;--card:#161d26;--line:rgba(255,255,255,.1);--text:#fff;--muted:rgba(255,255,255,.62);--cyan:#40B4E5;--blue:#0644ED;--purple:#CC22FF;--fog:#F5F3EF;--good:#4ade80}
 *{box-sizing:border-box;margin:0;padding:0}
-body{font-family:Inter,system-ui,sans-serif;background:var(--bg);color:var(--text);line-height:1.5}
+body{font-family:"Helvetica Neue",Helvetica,Arial,ui-sans-serif,system-ui,sans-serif;background:var(--bg);color:var(--text);line-height:1.55;-webkit-font-smoothing:antialiased}
 .wrap{max-width:1100px;margin:0 auto;padding:40px 24px 80px}
 header{display:flex;justify-content:space-between;align-items:flex-start;gap:16px;margin-bottom:36px;padding-bottom:24px;border-bottom:1px solid var(--line)}
 .logo{height:26px}
@@ -81,7 +81,7 @@ nav.toc{position:sticky;top:0;z-index:50;background:rgba(14,19,25,.92);backdrop-
 .ec-scroll{overflow-y:auto;overflow-x:hidden;-webkit-overflow-scrolling:touch;background:#e8eaed;scroll-behavior:smooth}
 .ec-scroll::-webkit-scrollbar{width:10px}
 .ec-scroll::-webkit-scrollbar-thumb{background:rgba(0,0,0,.28);border-radius:99px;border:2px solid #e8eaed}
-.ec-mail{max-width:560px;margin:18px auto;background:#fff;color:#1a1f24;border-radius:8px;overflow:hidden;box-shadow:0 8px 28px rgba(0,0,0,.12);font-family:Inter,system-ui,sans-serif}
+.ec-mail{max-width:560px;margin:18px auto;background:#fff;color:#1a1f24;border-radius:8px;overflow:hidden;box-shadow:0 8px 28px rgba(0,0,0,.12);font-family:"Helvetica Neue",Helvetica,Arial,sans-serif}
 .ec-hero{display:block;width:100%;height:auto}
 .ec-pad{padding:22px 22px 26px}
 .ec-kicker{font-size:11px;letter-spacing:.14em;font-weight:800;color:#0b6bcb;margin:0 0 8px}
@@ -108,6 +108,31 @@ details.copy-source summary::-webkit-details-marker{display:none}
 details.copy-source[open] summary{border-bottom:1px solid var(--line);color:var(--cyan)}
 details.copy-source .email{margin:0;border:0;border-radius:0 0 12px 12px}
 
+
+/* readability pass */
+h1,h2,h3,nav.toc a{font-family:"Helvetica Neue",Helvetica,Arial,sans-serif}
+.hook-list{list-style:none;padding:0;margin:12px 0 0;display:grid;gap:10px}
+.hook-list li{position:relative;padding:14px 16px 14px 44px;background:rgba(255,255,255,.045);border:1px solid var(--line);border-radius:12px;font-size:15.5px;line-height:1.45;color:rgba(255,255,255,.94);font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;font-weight:500}
+.hook-list li::before{content:attr(data-n);position:absolute;left:12px;top:14px;width:22px;height:22px;border-radius:7px;background:rgba(64,180,229,.16);color:var(--cyan);font-size:11px;font-weight:800;text-align:center;line-height:22px}
+.copy-block{margin-top:12px;padding:16px;background:rgba(255,255,255,.04);border:1px solid var(--line);border-radius:14px;font-family:"Helvetica Neue",Helvetica,Arial,sans-serif}
+.copy-block .label{font-size:11px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:10px}
+.copy-block p{font-size:15.5px;line-height:1.5;color:rgba(255,255,255,.93);margin:0 0 10px;font-weight:500}
+.copy-block p:last-child{margin-bottom:0}
+.ad-readable .row{margin:0 0 14px}
+.ad-readable .row:last-child{margin-bottom:0}
+.ad-readable .k2{display:block;font-size:11px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--cyan);margin-bottom:5px}
+.ad-readable .v2{font-size:15.5px;line-height:1.5;color:rgba(255,255,255,.93);font-weight:500;white-space:pre-wrap}
+.card p{font-size:15px;line-height:1.5;margin:0 0 8px}
+.lead{font-size:16.5px;line-height:1.55}
+.meta{font-size:13px;line-height:1.45}
+table{font-size:14.5px}
+th,td{padding:12px 10px;line-height:1.45}
+td{color:rgba(255,255,255,.9);font-weight:500}
+.say-this{margin:0 0 18px;padding:14px 16px;border-radius:12px;background:rgba(64,180,229,.08);border:1px solid rgba(64,180,229,.28);font-size:15px;line-height:1.45;color:rgba(255,255,255,.92);font-weight:500}
+.say-this strong{color:var(--cyan)}
+nav.toc a.active{border-color:var(--cyan);color:var(--cyan);background:rgba(64,180,229,.12)}
+details.copy-source .email{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:12.5px}
+
 </style>
 </head>
 <body>
@@ -116,7 +141,7 @@ details.copy-source .email{margin:0;border:0;border-radius:0 0 12px 12px}
   <div>
     <div class="badge">One walkthrough URL · Social · Ads · Email</div>
     <h1>DEFY content strategy + mockups</h1>
-    <p class="sub">The page to run with the team: audiences & messaging → pillars → calendar → social → ads → email. Mockups use real weardefy.com product + lifestyle assets (Imagen comps retired for accuracy). Growth plan is separate for system/KPIs/investment.</p>
+    <p class="sub">The page to run with the team: audiences & messaging → pillars → calendar → social → ads → email. Room walkthrough: audiences, pillars, calendar, social, ads, email. Real weardefy.com product imagery. Helvetica for easy reading on laptop or TV.</p>
     <div class="walk">
       <span class="step">Walk order</span>
       <a class="chip" href="#audience"><span>1</span> Audience</a>
@@ -165,7 +190,8 @@ details.copy-source .email{margin:0;border:0;border-radius:0 0 12px 12px}
   <h2><span class="sec-num">1</span>Targeted audiences & messaging</h2>
   <p class="lead">Who we talk to, what they care about, and the message each channel leads with. Same brand world — different entry points.</p>
 
-  <div class="grid g2">
+  <p class="say-this"><strong>Say this:</strong> Same brand. Six doors in. Here is who we talk to and what we say first.</p>
+<div class="grid g2">
     <div class="card hot">
       <div class="tag">A1 · Primary</div>
       <h3 style="margin-top:0;color:#fff">Outdoor regulars (trail / hike / camp)</h3>
@@ -262,31 +288,39 @@ details.copy-source .email{margin:0;border:0;border-radius:0 0 12px 12px}
   <div class="grid g2">
     <div class="card hot">
       <div class="tag">A1 / A3 · Price-performance</div>
-      <div class="post">• Premium trail shades. Without the $250 ego tax.
-• $250 sunglasses energy. $70 reality.
-• Most “adventure” shades charge you for the logo.
-• Stop paying designer prices for trail sunglasses that still feel disposable.</div>
+      <ul class="hook-list">
+<li data-n="1">Premium trail shades. Without the $250 ego tax.</li>
+<li data-n="2">$250 sunglasses energy. $70 reality.</li>
+<li data-n="3">Most “adventure” shades charge you for the logo.</li>
+<li data-n="4">Stop paying designer prices for trail sunglasses that still feel disposable.</li>
+</ul>
     </div>
     <div class="card">
       <div class="tag">A5 · Risk reversal</div>
-      <div class="post">• The only thing worse than bad sunglasses is being stuck with them.
-• 30 days. No commitment energy.
-• Try them on trail, water, highway glare — keep them only if they earn it.
-• Your DEFY pair is still in the cart.</div>
+      <ul class="hook-list">
+<li data-n="1">The only thing worse than bad sunglasses is being stuck with them.</li>
+<li data-n="2">30 days. No commitment energy.</li>
+<li data-n="3">Try them on trail, water, highway glare — keep them only if they earn it.</li>
+<li data-n="4">Your DEFY pair is still in the cart.</li>
+</ul>
     </div>
     <div class="card">
       <div class="tag">A4 · Materials</div>
-      <div class="post">• “Sustainable” shouldn’t mean fragile.
-• 58% bio-based. Built for outdoor abuse.
-• Planet-minded materials. Real-world durability.
-• Adventure eyewear, built cleaner.</div>
+      <ul class="hook-list">
+<li data-n="1">“Sustainable” shouldn’t mean fragile.</li>
+<li data-n="2">58% bio-based. Built for outdoor abuse.</li>
+<li data-n="3">Planet-minded materials. Real-world durability.</li>
+<li data-n="4">Adventure eyewear, built cleaner.</li>
+</ul>
     </div>
     <div class="card">
       <div class="tag">A2 · Use-case</div>
-      <div class="post">• Glare doesn’t care about your brand loyalty.
-• Trail, water, drive — one polarized standard.
-• Hard light. Clear decision.
-• Built for the elements — not costume outdoor.</div>
+      <ul class="hook-list">
+<li data-n="1">Glare doesn’t care about your brand loyalty.</li>
+<li data-n="2">Trail, water, drive — one polarized standard.</li>
+<li data-n="3">Hard light. Clear decision.</li>
+<li data-n="4">Built for the elements — not costume outdoor.</li>
+</ul>
     </div>
   </div>
 
@@ -296,7 +330,8 @@ details.copy-source .email{margin:0;border:0;border-radius:0 0 12px 12px}
 <section id="pillars">
   <h2><span class="sec-num">2</span>Content pillars</h2>
   <p class="lead">Five territories we rotate across organic, paid, and email. Pressure-test these; industrialize winners.</p>
-  <div class="grid g3">
+  <p class="say-this"><strong>Say this:</strong> Five territories. Everything we make maps to one of these.</p>
+<div class="grid g3">
     <div class="card hot"><div class="tag">01</div><h3 style="margin-top:0;color:#fff">Performance without the luxury tax</h3><p>Premium optics + real-world price ($50–70). Vs $200+ outdoor brands.</p></div>
     <div class="card"><div class="tag">02</div><h3 style="margin-top:0;color:#fff">Built for the elements</h3><p>Trail, water, drive, all-day wear. Rugged without looking costume.</p></div>
     <div class="card"><div class="tag">03</div><h3 style="margin-top:0;color:#fff">Sustainable, serious</h3><p>58% bio-based Grivory. Strength story — not soft greenwashing.</p></div>
@@ -309,7 +344,8 @@ details.copy-source .email{margin:0;border:0;border-radius:0 0 12px 12px}
 <section id="calendar">
   <h2><span class="sec-num">3</span>90-day calendar</h2>
   <p class="lead">High-level operating calendar. Organic social 4–6×/week + Stories daily once engine is live. Paid always-on with weekly creative tests.</p>
-  <div class="card" style="overflow-x:auto">
+  <p class="say-this"><strong>Say this:</strong> 90 days: foundation to proof to scale. Not random posts.</p>
+<div class="card" style="overflow-x:auto">
     <table>
       <thead>
         <tr><th>Week</th><th>Theme</th><th>Organic social</th><th>Email / SMS</th><th>Paid focus</th><th>Site / other</th></tr>
@@ -338,7 +374,8 @@ details.copy-source .email{margin:0;border:0;border-radius:0 0 12px 12px}
 
 <section id="social">
   <h2><span class="sec-num">4</span>Organic social</h2>
-  <div class="card hot" style="margin-bottom:14px">
+  <p class="say-this"><strong>Say this:</strong> Here is what organic looks like with real product.</p>
+<div class="card hot" style="margin-bottom:14px">
     <div class="tag purple">Veo 3.1 · sample motion</div>
     <h3 style="margin-top:0;color:#fff">Reel plate (trail → on-face)</h3>
     <div class="video-wrap">
@@ -358,18 +395,12 @@ details.copy-source .email{margin:0;border:0;border-radius:0 0 12px 12px}
       <p class="meta">Audience: <strong>A1 + A3</strong> · Message: performance without luxury tax</p>
       <p><strong>Visual:</strong> AI mountain trail cold open → quick cut to Aspen on face → polarized POV of ridge → price tag smash → warranty end card.</p>
       <div class="mock-row"><div class="mock"><img src="assets/defy-mockups/composed-real/mock-social-01-reel.jpg" alt=""/></div><div class="mock"><img src="assets/defy-mockups/composed-real/mock-social-01-endcard.jpg" alt=""/></div></div>
-      <div class="post">Hook text on screen:
-Premium trail shades.
-Without the $250 ego tax.
-
-Caption:
-Most “adventure” sunglasses make you pay for the logo.
-DEFY is built for the trail — HD polarized, bio-based frames, lifetime warranty — from $50–70.
-
-30-day risk-free. If they don’t earn a permanent spot in your kit, send them back.
-
-Shop the Aspen → link in bio
-#DEFYEyewear #TrailReady #Polarized</div>
+      <div class="copy-block"><div class="label">Caption</div>
+<p>Hook text on screen: Premium trail shades. Without the $250 ego tax.</p>
+<p>Caption: Most “adventure” sunglasses make you pay for the logo. DEFY is built for the trail — HD polarized, bio-based frames, lifetime warranty — from $50–70.</p>
+<p>30-day risk-free. If they don’t earn a permanent spot in your kit, send them back.</p>
+<p>Shop the Aspen → link in bio #DEFYEyewear #TrailReady #Polarized</p>
+</div>
       <p class="meta">CTA: Shop Aspen · Goal: prospecting thumb-stop</p>
     </div>
 
@@ -379,19 +410,18 @@ Shop the Aspen → link in bio
       <p class="meta">Audience: <strong>all / education</strong> · Message: product ladder + trial</p>
       <p><strong>Visual:</strong> 5 cards — Summit / Mesa / Aspen / Sequoia + “Not sure? 30-day trial.”</p>
       <div class="mock"><img src="assets/defy-mockups/composed-real/mock-social-02-carousel.jpg" alt="Find your frame carousel"/></div>
-      <div class="post">Caption:
-Your next pair shouldn’t be a guess.
-
-→ Summit — light, clean, everyday adventure
-→ Mesa — bold coverage, all-day wear
-→ Aspen — flagship outdoor performance
-→ Sequoia — statement frame, same armor
-
-Every pair: polarized HD lenses · durable bio-based materials · lifetime warranty · 30-day trial.
-
-Which one’s your daily? Comment and we’ll point you.
-
-Shop all frames → link in bio</div>
+      <div class="copy-block"><div class="label">Caption</div>
+<p>Your next pair shouldn’t be a guess.</p>
+<ul class="hook-list">
+<li data-n="1">Summit — light, clean, everyday adventure</li>
+<li data-n="2">Mesa — bold coverage, all-day wear</li>
+<li data-n="3">Aspen — flagship outdoor performance</li>
+<li data-n="4">Sequoia — statement frame, same armor</li>
+</ul>
+<p>Every pair: polarized HD lenses · durable bio-based materials · lifetime warranty · 30-day trial.</p>
+<p>Which one’s your daily? Comment and we’ll point you.</p>
+<p>Shop all frames → link in bio</p>
+</div>
       <p class="meta">CTA: Collection · Goal: education + engagement</p>
     </div>
 
@@ -401,16 +431,12 @@ Shop all frames → link in bio</div>
       <p class="meta">Audience: <strong>A4</strong> · Message: sustainable ≠ fragile</p>
       <p><strong>Visual:</strong> Macro of frame material · “58% bio-based” kinetic type · flex/durability demo · on-face lifestyle.</p>
       <div class="mock-row"><div class="mock"><img src="assets/defy-mockups/composed-real/mock-social-03-materials.jpg" alt=""/></div><div class="mock"><img src="assets/defy-mockups/composed-real/mock-social-03-durability.jpg" alt=""/></div></div>
-      <div class="post">VO / text:
-“Sustainable” shouldn’t mean fragile.
-
-DEFY frames use EMS Grivory Greenline — about 58% bio-based — and they’re built to take a beating on trail and water.
-
-Planet-minded materials.
-Real-world durability.
-Lifetime warranty if life happens.
-
-That’s the standard.</div>
+      <div class="copy-block"><div class="label">Caption</div>
+<p>VO / text: “Sustainable” shouldn’t mean fragile.</p>
+<p>DEFY frames use EMS Grivory Greenline — about 58% bio-based — and they’re built to take a beating on trail and water.</p>
+<p>Planet-minded materials. Real-world durability. Lifetime warranty if life happens.</p>
+<p>That’s the standard.</p>
+</div>
       <p class="meta">CTA: Learn the materials · Goal: brand differentiation</p>
     </div>
 
@@ -420,13 +446,11 @@ That’s the standard.</div>
       <p class="meta">Audience: <strong>A6 → A1</strong> · Message: real adventure proof</p>
       <p><strong>Visual:</strong> Creator/customer face-cam or trail clip wearing DEFY. White sticker caption.</p>
       <div class="mock"><img src="assets/defy-mockups/composed-real/mock-social-04-ugc.jpg" alt="UGC mock"/></div>
-      <div class="post">Caption:
-Real adventure. Real pair.
-
-“Wore these from trailhead to golden hour — no slip, no fog drama, and I didn’t baby them.”
-
-Got a DEFY moment? Tag @weardefy for a repost.
-(And yes — lifetime warranty still stands when the trail doesn’t play nice.)</div>
+      <div class="copy-block"><div class="label">Caption</div>
+<p>Real adventure. Real pair.</p>
+<p>“Wore these from trailhead to golden hour — no slip, no fog drama, and I didn’t baby them.”</p>
+<p>Got a DEFY moment? Tag @weardefy for a repost. (And yes — lifetime warranty still stands when the trail doesn’t play nice.)</p>
+</div>
       <p class="meta">CTA: Tag us · Goal: social proof flywheel</p>
     </div>
 
@@ -448,15 +472,12 @@ Got a DEFY moment? Tag @weardefy for a repost.
       <div class="tag warn">Promo post</div>
       <h3 style="margin-top:0;color:#fff">6 · Offer without desperation</h3>
       <div class="mock"><img src="assets/defy-mockups/composed-real/mock-social-06-bundle.jpg?v=3" alt="Bundle mock"/></div>
-      <div class="post">Caption:
-Different light. Different pair.
-
-Aspen for trail days. Mesa when you want more coverage.
-Build your kit — second pair, same warranty stack.
-
-30 days risk-free · lifetime warranty on every frame.
-
-Shop both → link in bio</div>
+      <div class="copy-block"><div class="label">Caption</div>
+<p>Different light. Different pair.</p>
+<p>Aspen for trail days. Mesa when you want more coverage. Build your kit — second pair, same warranty stack.</p>
+<p>30 days risk-free · lifetime warranty on every frame.</p>
+<p>Shop both → link in bio</p>
+</div>
       <p class="meta">Only after baseline creative is working · Goal: AOV</p>
     </div>
   </div>
@@ -465,7 +486,8 @@ Shop both → link in bio</div>
 <section id="ads">
   <h2><span class="sec-num">5</span>Paid ads</h2>
   <p class="lead">Meta primary. Test hook + territory first; kill losers weekly. Pixel/CAPI healthy before scale.</p>
-  <div class="grid g2" style="margin-bottom:14px">
+  <p class="say-this"><strong>Say this:</strong> Paid learns hooks. Kill losers weekly. Scale only on repeat signal.</p>
+<div class="grid g2" style="margin-bottom:14px">
     <div class="card hot">
       <div class="tag">Mock · Meta/TikTok</div>
       <h3 style="margin-top:0;color:#fff">Ad A · Performance without luxury tax</h3>
@@ -484,7 +506,10 @@ Shop both → link in bio</div>
       <div class="tag purple">Ad A · Prospecting</div>
       <h3 style="margin-top:0;color:#fff">Performance without luxury tax</h3>
       <p class="meta">Audience: <strong>A1 + A3</strong> · Prospecting</p>
-      <div class="ad"><span class="k">Primary text:</span>
+      <div class="copy-block ad-readable">
+<div class="row">
+<span class="k2">Copy</span>
+<div class="v2"><span class="k">Primary text:</span>
 Stop paying designer prices for trail sunglasses that still feel disposable.
 
 DEFY outdoor eyewear: HD polarized lenses, durable bio-based frames, and a lifetime warranty — from $50–70.
@@ -496,13 +521,18 @@ DEFY outdoor eyewear: HD polarized lenses, durable bio-based frames, and a lifet
 <span class="k">CTA:</span> Shop Now
 
 <span class="k">Visual:</span> 6–9s vertical. Hook in 1s (“$250 sunglasses energy. $70 reality.”) → product on-face → landscape POV → offer end card.</div>
+</div>
+</div>
     </div>
 
     <div class="card">
       <div class="tag purple">Ad B · Prospecting</div>
       <h3 style="margin-top:0;color:#fff">Risk reversal</h3>
       <p class="meta">Audience: <strong>A5 + hesitant A1</strong> · Prospect or retarget</p>
-      <div class="ad"><span class="k">Primary text:</span>
+      <div class="copy-block ad-readable">
+<div class="row">
+<span class="k2">Copy</span>
+<div class="v2"><span class="k">Primary text:</span>
 The only thing worse than bad sunglasses is being stuck with them.
 
 DEFY comes with a 30-day risk-free trial and a lifetime warranty/replacement promise. Wear them on trail, water, and highway glare — keep them only if they earn it.
@@ -512,13 +542,18 @@ DEFY comes with a 30-day risk-free trial and a lifetime warranty/replacement pro
 <span class="k">CTA:</span> Learn More
 
 <span class="k">Visual:</span> UGC-style face cam + quick cuts of use cases. Big text: “30 days. No commitment energy.”</div>
+</div>
+</div>
     </div>
 
     <div class="card">
       <div class="tag purple">Ad C · Prospecting</div>
       <h3 style="margin-top:0;color:#fff">Sustainable strength</h3>
       <p class="meta">Audience: <strong>A4</strong> · Prospecting</p>
-      <div class="ad"><span class="k">Primary text:</span>
+      <div class="copy-block ad-readable">
+<div class="row">
+<span class="k2">Copy</span>
+<div class="v2"><span class="k">Primary text:</span>
 Sustainable materials. Uncompromised strength.
 
 DEFY frames use advanced bio-based Grivory (58%) engineered for outdoor abuse — lightweight, tough, and ready for the long haul. Polarized HD optics standard.
@@ -528,13 +563,18 @@ DEFY frames use advanced bio-based Grivory (58%) engineered for outdoor abuse �
 <span class="k">CTA:</span> Shop Now
 
 <span class="k">Visual:</span> AI macro materials → durability moments → on-face lifestyle. Avoid soft cliché “leaf only” green ads.</div>
+</div>
+</div>
     </div>
 
     <div class="card">
       <div class="tag purple">Ad D · Retargeting</div>
       <h3 style="margin-top:0;color:#fff">ATC / view content</h3>
       <p class="meta">Audience: <strong>A5</strong> · Retargeting</p>
-      <div class="ad"><span class="k">Primary text:</span>
+      <div class="copy-block ad-readable">
+<div class="row">
+<span class="k2">Copy</span>
+<div class="v2"><span class="k">Primary text:</span>
 Still thinking it over?
 
 A few things worth knowing before you bounce:
@@ -550,12 +590,17 @@ Your next adventure pair is one click away.
 <span class="k">CTA:</span> Complete Purchase
 
 <span class="k">Visual:</span> Static or short — product hero of viewed style + trust icons row.</div>
+</div>
+</div>
     </div>
 
     <div class="card">
       <div class="tag">Google RSA sketch</div>
       <h3 style="margin-top:0;color:#fff">Brand + high intent</h3>
-      <div class="ad"><span class="k">Headlines (pin mix):</span>
+      <div class="copy-block ad-readable">
+<div class="row">
+<span class="k2">Copy</span>
+<div class="v2"><span class="k">Headlines (pin mix):</span>
 DEFY Outdoor Eyewear
 Polarized Adventure Sunglasses
 Lifetime Warranty Sunglasses
@@ -566,6 +611,8 @@ Bio-Based Performance Frames
 <span class="k">Descriptions:</span>
 HD polarized lenses for trail, water, and highway glare. Free shipping over $55.
 Premium outdoor sunglasses without the luxury markup. Shop DEFY today.</div>
+</div>
+</div>
     </div>
 
     <div class="card">
@@ -585,7 +632,8 @@ Premium outdoor sunglasses without the luxury markup. Shop DEFY today.</div>
   <h2><span class="sec-num">6</span>Email & SMS</h2>
   <p class="lead">Flows first, campaigns second. From: DEFY · weardefy.com. Scroll each email comp below — real product imagery, not a flat screenshot.</p>
 
-  <h3>Flow 1 — Welcome (email 1 of 3)</h3>
+  <p class="say-this"><strong>Say this:</strong> Flows first. Scroll the emails. This is the customer journey.</p>
+<h3>Flow 1 — Welcome (email 1 of 3)</h3>
   <p class="meta">Audience: new subscribers · Message house: brand → product → offer</p>
   <div class="card hot">
     <div class="email-client" id="ec-welcome">
@@ -841,10 +889,10 @@ Every pair includes polarized HD lenses + lifetime warranty + 30-day trial.
   <h3>SMS snippets</h3>
   <div class="grid g2">
     <div class="card">
-      <div class="post">DEFY: Your cart’s holding a trail-ready pair. 30-day trial + lifetime warranty. Finish checkout: {{link}}</div>
+      <div class="copy-block"><div class="label">SMS</div><p>DEFY: Your cart’s holding a trail-ready pair. 30-day trial + lifetime warranty. Finish checkout: {{link}}</p></div>
     </div>
     <div class="card">
-      <div class="post">DEFY: New drop energy without the hype tax. Explore Aspen + friends: {{link}} Stop to opt out</div>
+      <div class="copy-block"><div class="label">SMS</div><p>DEFY: New drop energy without the hype tax. Explore Aspen + friends: {{link}} Stop to opt out</p></div>
     </div>
   </div>
 </section>
@@ -907,5 +955,23 @@ Every pair includes polarized HD lenses + lifetime warranty + 30-day trial.
   <span>justin@brandastic.com · brandastic.com</span>
 </footer>
 </div>
+
+<script>
+(() => {
+  const links = [...document.querySelectorAll('nav.toc a[href^="#"]')];
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach((e) => {
+      if (!e.isIntersecting) return;
+      const id = e.target.id;
+      links.forEach((a) => a.classList.toggle('active', a.getAttribute('href') === '#' + id));
+    });
+  }, { rootMargin: '-28% 0px -55% 0px', threshold: 0.01 });
+  links.forEach((a) => {
+    const el = document.getElementById(a.getAttribute('href').slice(1));
+    if (el) io.observe(el);
+  });
+})();
+</script>
+
 </body>
 </html>
