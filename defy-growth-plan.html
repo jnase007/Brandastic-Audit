@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>DEFY Growth Plan — Brandastic × SRP</title>
+<meta name="robots" content="noindex,nofollow" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+<style>
+:root{
+  --black:#191F24; --fog:#F5F3EF; --white:#fff;
+  --blue:#0644ED; --cyan:#40B4E5; --purple:#CC22FF;
+  --muted:rgba(255,255,255,.62); --line:rgba(255,255,255,.12);
+  --good:#22c55e; --warn:#f59e0b; --bad:#ef4444;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%;background:#0b0f14;color:var(--white);font-family:Inter,system-ui,sans-serif;overflow:hidden}
+.deck{height:100%;width:100%;position:relative}
+.slide{
+  position:absolute;inset:0;display:none;padding:48px 64px 72px;
+  background:
+    radial-gradient(1200px 600px at 85% -10%, rgba(6,68,237,.35), transparent 55%),
+    radial-gradient(900px 500px at -10% 110%, rgba(204,34,255,.18), transparent 50%),
+    linear-gradient(160deg,#10161d 0%, #191F24 45%, #0d1218 100%);
+  overflow:hidden;
+}
+.slide.on{display:flex;flex-direction:column}
+.slide::before{
+  content:"";position:absolute;inset:0;pointer-events:none;opacity:.35;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.08'/%3E%3C/svg%3E");
+}
+.top{display:flex;justify-content:space-between;align-items:center;position:relative;z-index:2;margin-bottom:28px}
+.brand{display:flex;align-items:center;gap:14px}
+.brand img{height:28px;width:auto}
+.eyebrow{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--cyan);font-weight:700}
+.kicker{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);font-weight:600}
+h1{font-size:clamp(36px,5vw,64px);line-height:1.02;font-weight:900;letter-spacing:-.03em;max-width:15ch}
+h2{font-size:clamp(28px,3.6vw,44px);line-height:1.08;font-weight:800;letter-spacing:-.025em;margin-bottom:10px}
+h3{font-size:18px;font-weight:700;margin-bottom:8px}
+.sub{font-size:18px;line-height:1.45;color:var(--muted);max-width:52ch;margin-top:14px}
+.row{display:grid;gap:18px;position:relative;z-index:2;flex:1;align-content:start}
+.row-2{grid-template-columns:1.1fr .9fr}
+.row-3{grid-template-columns:repeat(3,1fr)}
+.row-4{grid-template-columns:repeat(4,1fr)}
+.row-5{grid-template-columns:repeat(5,1fr)}
+.card{
+  background:rgba(255,255,255,.04);border:1px solid var(--line);
+  border-radius:18px;padding:20px 22px;backdrop-filter:blur(8px);
+}
+.card.hot{border-color:rgba(64,180,229,.45);box-shadow:0 0 0 1px rgba(64,180,229,.08) inset}
+.card.accent{background:linear-gradient(145deg,rgba(6,68,237,.22),rgba(204,34,255,.12));border-color:rgba(64,180,229,.35)}
+.stat{font-size:42px;font-weight:900;letter-spacing:-.03em;line-height:1}
+.stat.sm{font-size:28px}
+.stat.bad{color:#ff7b7b}.stat.good{color:#4ade80}.stat.cyan{color:var(--cyan)}
+.label{font-size:12px;text-transform:uppercase;letter-spacing:.12em;color:var(--muted);margin-top:6px;font-weight:600}
+.p{font-size:16px;line-height:1.5;color:rgba(255,255,255,.86)}
+.muted{color:var(--muted)}
+ul.clean{list-style:none;display:grid;gap:10px}
+ul.clean li{padding-left:18px;position:relative;font-size:16px;line-height:1.4;color:rgba(255,255,255,.88)}
+ul.clean li::before{content:"";position:absolute;left:0;top:.55em;width:8px;height:8px;border-radius:99px;background:linear-gradient(135deg,var(--cyan),var(--purple))}
+table{width:100%;border-collapse:collapse;font-size:15px}
+th,td{padding:12px 10px;border-bottom:1px solid var(--line);text-align:left}
+th{color:var(--muted);font-size:11px;letter-spacing:.12em;text-transform:uppercase;font-weight:700}
+td.num,th.num{text-align:right;font-variant-numeric:tabular-nums}
+.badge{display:inline-flex;align-items:center;gap:8px;padding:6px 12px;border-radius:999px;background:rgba(64,180,229,.12);border:1px solid rgba(64,180,229,.3);color:var(--cyan);font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase}
+.footer{
+  position:absolute;left:64px;right:64px;bottom:22px;z-index:5;
+  display:flex;justify-content:space-between;align-items:center;
+  font-size:12px;color:var(--muted);letter-spacing:.04em;
+}
+.progress{position:absolute;left:0;right:0;bottom:0;height:4px;background:rgba(255,255,255,.06);z-index:6}
+.progress>i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--blue),var(--cyan),var(--purple));transition:width .25s ease}
+.navhint{opacity:.75}
+.hero-bg{
+  position:absolute;inset:0;background:
+    linear-gradient(105deg, rgba(10,14,20,.92) 0%, rgba(10,14,20,.72) 42%, rgba(10,14,20,.35) 100%),
+    url('assets/defy-hero-ai-current.jpg') center/cover no-repeat;
+}
+.quote{font-size:28px;line-height:1.25;font-weight:700;max-width:22ch;letter-spacing:-.02em}
+.tiny{font-size:13px;color:var(--muted);line-height:1.4}
+.pillrow{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
+.pill{padding:8px 12px;border-radius:999px;border:1px solid var(--line);background:rgba(255,255,255,.04);font-size:13px;font-weight:600}
+.phase{display:grid;grid-template-columns:80px 1fr;gap:14px;align-items:start}
+.phase .n{font-size:28px;font-weight:900;color:var(--cyan)}
+.bigline{font-size:clamp(26px,3.2vw,40px);font-weight:800;letter-spacing:-.025em;line-height:1.15;max-width:22ch}
+.compare td:first-child{font-weight:700}
+.barwrap{display:flex;align-items:center;gap:10px}
+.bar{height:10px;border-radius:99px;background:rgba(255,255,255,.08);flex:1;overflow:hidden}
+.bar>span{display:block;height:100%;background:linear-gradient(90deg,var(--cyan),var(--blue))}
+.bar.zero>span{width:2%;background:#ff7b7b}
+.grid-main{position:relative;z-index:2;flex:1;display:flex;flex-direction:column;justify-content:center}
+@media print{
+  html,body{overflow:visible;height:auto;background:#fff}
+  .slide{position:relative;display:flex !important;page-break-after:always;min-height:100vh;padding:36px}
+  .footer,.progress,.navhint{display:none}
+}
+@media (max-width:900px){
+  .slide{padding:28px 22px 64px}
+  .row-2,.row-3,.row-4,.row-5{grid-template-columns:1fr}
+  .footer{left:22px;right:22px}
+  h1{font-size:34px}
+}
+</style>
+</head>
+<body>
+<div class="deck" id="deck">
+
+<!-- 0 TITLE -->
+<section class="slide on" data-title="Title">
+  <div class="hero-bg"></div>
+  <div class="top"><div class="brand"><img alt="Brandastic" src="data:image/png;base64,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"/></div><div class="kicker">Finalist Presentation · Confidential</div></div>
+  <div class="grid-main">
+    <div class="badge">Strategic Retail Partners · DEFY Eyewear</div>
+    <h1 style="margin-top:18px">Build the demand engine.<br/>Then scale the portfolio.</h1>
+    <p class="sub">A growth operating plan for weardefy.com — and the playbook for SRP’s next brands online.</p>
+    <div class="pillrow">
+      <span class="pill">Michael Crouch · David Foster</span>
+      <span class="pill">Denver HQ</span>
+      <span class="pill">Web + Ecom Marketing Partner</span>
+    </div>
+  </div>
+</section>
+
+<!-- 1 AGENDA -->
+<section class="slide" data-title="Agenda">
+  <div class="top"><div class="eyebrow">Agenda</div><div class="kicker">Mapped to your brief</div></div>
+  <h2>Exactly what you asked for</h2>
+  <div class="row row-2" style="margin-top:22px">
+    <div class="card">
+      <ul class="clean">
+        <li><strong>Approach</strong> for awareness, traffic, acquisition, ecom growth</li>
+        <li><strong>First-phase priorities</strong> — what we do first</li>
+        <li><strong>Portfolio scale</strong> across SRP brands + 50k+ retail outlets</li>
+        <li><strong>Team, RACI, cadence</strong> — how we work together</li>
+        <li><strong>KPIs, milestones, investment</strong></li>
+      </ul>
+    </div>
+    <div class="card accent">
+      <div class="quote">Not a capabilities brochure. A plan of action for DEFY.</div>
+      <p class="p" style="margin-top:16px">You’ll leave knowing what happens in week one — not just what we “can” do.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 2 THESIS -->
+<section class="slide" data-title="Thesis">
+  <div class="top"><div class="eyebrow">Thesis</div><div class="kicker">The room in one line</div></div>
+  <div class="grid-main">
+    <div class="bigline">DEFY has product, offer, and brand story.<br/><span style="color:var(--cyan)">It does not yet have a digital demand engine.</span></div>
+    <div class="row row-3" style="margin-top:28px">
+      <div class="card"><div class="stat cyan">$50–70</div><div class="label">ASP · Summit to Sequoia</div></div>
+      <div class="card"><div class="stat cyan">30-day</div><div class="label">Trial + lifetime warranty</div></div>
+      <div class="card"><div class="stat cyan">58%</div><div class="label">Bio-based Grivory frames</div></div>
+    </div>
+    <p class="sub" style="margin-top:18px">SRP already wins shelf. Online is the missing growth system — for DEFY first, then the portfolio.</p>
+  </div>
+</section>
+
+<!-- 3 DIAGNOSIS -->
+<section class="slide" data-title="Diagnosis">
+  <div class="top"><div class="eyebrow">Live diagnosis · Aug 2026</div><div class="kicker">We already did the homework</div></div>
+  <h2>The gap is discovery — not product</h2>
+  <div class="row" style="margin-top:18px">
+    <div class="card hot">
+      <table>
+        <thead><tr><th>Brand</th><th class="num">Organic KWs</th><th class="num">Est. organic traffic</th><th>Demand engine</th></tr></thead>
+        <tbody>
+          <tr><td><strong>weardefy.com</strong></td><td class="num"><strong>13</strong></td><td class="num"><strong>~0</strong></td><td><span style="color:#ff7b7b">Not installed</span></td></tr>
+          <tr><td>goodr.com</td><td class="num">15,192</td><td class="num">~276,000</td><td>Mature</td></tr>
+          <tr><td>blenderseyewear.com</td><td class="num">17,811</td><td class="num">~202,500</td><td>Mature</td></tr>
+          <tr><td>shadyrays.com</td><td class="num">19,082</td><td class="num">~161,500</td><td>Mature</td></tr>
+          <tr><td>pitviper.com</td><td class="num">9,280</td><td class="num">~171,500</td><td>Mature</td></tr>
+        </tbody>
+      </table>
+      <p class="tiny" style="margin-top:12px">Source: Semrush US · Aug 3, 2026 · public data. On-site title/meta still generic (“weardefy”). Paid footprint ~$0.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 4 SRP ADVANTAGE -->
+<section class="slide" data-title="SRP Advantage">
+  <div class="top"><div class="eyebrow">Why this is bigger than one brand</div><div class="kicker">Strategic Retail Partners</div></div>
+  <h2>Win DEFY DTC. Unlock SRP online.</h2>
+  <div class="row row-2" style="margin-top:20px">
+    <div class="card accent">
+      <div class="stat">50,000+</div>
+      <div class="label">Retail outlets already in the SRP network</div>
+      <p class="p" style="margin-top:14px">Convenience, grocery, travel, amusement — coast to coast. You’ve mastered source-to-shelf. Digital is the next distribution system.</p>
+    </div>
+    <div class="card">
+      <h3>What online marketing unlocks</h3>
+      <ul class="clean">
+        <li>National brand demand that supports every retail door</li>
+        <li>Owned customer data (email/SMS) retail alone can’t give you</li>
+        <li>A repeatable playbook for more SRP proprietary brands</li>
+        <li>Margin-rich DTC alongside wholesale strength</li>
+      </ul>
+      <p class="tiny" style="margin-top:14px">You’ve told us online marketing is early. That’s advantage — no legacy mess to unwind. We install the system clean.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 5 SYSTEM -->
+<section class="slide" data-title="Growth System">
+  <div class="top"><div class="eyebrow">Recommended approach</div><div class="kicker">One loop. Five engines.</div></div>
+  <h2>The DEFY Growth System</h2>
+  <div class="row row-5" style="margin-top:18px">
+    <div class="card hot"><h3>1. Creative</h3><p class="p">AI + UGC + lifestyle territories. Hooks, proof, offers.</p></div>
+    <div class="card hot"><h3>2. Acquisition</h3><p class="p">Meta · Google · TikTok with kill/keep discipline.</p></div>
+    <div class="card hot"><h3>3. Conversion</h3><p class="p">Shopify CRO, PDP trust, trial/warranty stack.</p></div>
+    <div class="card hot"><h3>4. Lifecycle</h3><p class="p">Email/SMS flows that own the customer.</p></div>
+    <div class="card hot"><h3>5. Measurement</h3><p class="p">Revenue, ROAS, CAC, LTV — weekly decisions.</p></div>
+  </div>
+  <div class="card" style="margin-top:16px;position:relative;z-index:2">
+    <p class="p"><strong>Plus channel expansion:</strong> SEO/AEO compounding · Influencer/UGC engine · TikTok Shop · Amazon readiness — sequenced, not boiled ocean.</p>
+  </div>
+</section>
+
+<!-- 6 AI CREATIVE -->
+<section class="slide" data-title="AI Creative">
+  <div class="top"><div class="eyebrow">Creative advantage</div><div class="kicker">You’re already ahead</div></div>
+  <div class="row row-2">
+    <div>
+      <h2>AI-native creative is a weapon</h2>
+      <p class="sub">You’re already producing on-brand AI imagery. You said video + product imagery are fair game. Most DTC brands are still stuck in slow photo shoots.</p>
+      <ul class="clean" style="margin-top:18px">
+        <li>Faster concept testing (hooks in days, not weeks)</li>
+        <li>Product-in-environment at scale without location costs</li>
+        <li>Pair AI plates with real UGC for trust</li>
+        <li>Always-on creative refresh → lower CPM fatigue</li>
+      </ul>
+    </div>
+    <div class="card" style="padding:0;overflow:hidden;min-height:320px;background:url('assets/defy-hero-ai-current.jpg') center/cover"></div>
+  </div>
+  <p class="tiny" style="margin-top:14px;position:relative;z-index:2">We industrialize what you’re already doing: territories → variants → winners → scale.</p>
+</section>
+
+<!-- 7 90 DAY -->
+<section class="slide" data-title="90 Days">
+  <div class="top"><div class="eyebrow">Initial priorities</div><div class="kicker">First 90 days</div></div>
+  <h2>Proof before scale</h2>
+  <div class="row" style="margin-top:16px;gap:14px">
+    <div class="card phase"><div class="n">01</div><div><h3>Days 1–30 · Foundation</h3><p class="p">Access + tracking · baselines · SEO/meta quick wins · pixels/CAPI · Klaviyo flows start · creative territories · controlled paid tests</p></div></div>
+    <div class="card phase hot"><div class="n">02</div><div><h3>Days 31–60 · Signal</h3><p class="p">Full engine in market · Meta/Google/TikTok tests · creator seeding · CRO experiments · double down winners · kill losers fast</p></div></div>
+    <div class="card phase"><div class="n">03</div><div><h3>Days 61–90 · Scale + systemize</h3><p class="p">Budget to winners · retargeting depth · AOV/LTV plays · TikTok Shop/Amazon readiness · <strong>SRP Brand Growth Playbook v1</strong></p></div></div>
+  </div>
+</section>
+
+<!-- 8 CHANNELS -->
+<section class="slide" data-title="Channels">
+  <div class="top"><div class="eyebrow">Channel roles</div><div class="kicker">What we pull first</div></div>
+  <h2>Sequenced for learning speed</h2>
+  <div class="row" style="margin-top:14px">
+    <div class="card">
+      <table>
+        <thead><tr><th>Channel</th><th>Role in first 90 days</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Meta / paid social</strong></td><td>Primary demand creation + creative learning</td></tr>
+          <tr><td><strong>Google</strong></td><td>Brand protection + high-intent / Shopping</td></tr>
+          <tr><td><strong>TikTok</strong></td><td>Reach + Spark/UGC testing · Shop readiness</td></tr>
+          <tr><td><strong>Influencer / UGC</strong></td><td>Proof engine + paid creative fuel</td></tr>
+          <tr><td><strong>Email / SMS</strong></td><td>Own the customer · warranty/trial advantage</td></tr>
+          <tr><td><strong>SEO / AEO</strong></td><td>Compounding asset from ~0 baseline</td></tr>
+          <tr><td><strong>Amazon</strong></td><td>Readiness → launch when unit economics clear</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- 9 PORTFOLIO -->
+<section class="slide" data-title="Portfolio">
+  <div class="top"><div class="eyebrow">Scale across SRP</div><div class="kicker">CEO slide</div></div>
+  <h2>DEFY is the pilot. The system is the asset.</h2>
+  <div class="row row-3" style="margin-top:22px">
+    <div class="card accent"><div class="stat sm">1</div><div class="label">Install on DEFY</div><p class="p" style="margin-top:10px">Prove acquisition, creative, CRO, lifecycle, reporting.</p></div>
+    <div class="card accent"><div class="stat sm">2</div><div class="label">Productize</div><p class="p" style="margin-top:10px">Brand Growth Playbook — process, dashboards, RACI, tests.</p></div>
+    <div class="card accent"><div class="stat sm">3</div><div class="label">Clone to brand #2</div><p class="p" style="margin-top:10px">Solaray heritage, accessories, next proprietary lines — faster each time.</p></div>
+  </div>
+  <div class="card" style="margin-top:16px;position:relative;z-index:2">
+    <p class="p"><strong>Retail + digital together:</strong> online demand raises branded search and in-store pull across 50k+ doors. We don’t pretend C-store dynamics don’t matter — we build DTC that can support them.</p>
+  </div>
+</section>
+
+<!-- 10 TEAM -->
+<section class="slide" data-title="Team">
+  <div class="top"><div class="eyebrow">Resources & collaboration</div><div class="kicker">One throat to choke</div></div>
+  <h2>How we work with Michael’s team</h2>
+  <div class="row row-2" style="margin-top:16px">
+    <div class="card">
+      <h3>Dedicated pod</h3>
+      <ul class="clean">
+        <li><strong>Aimee</strong> — Account / process / communication</li>
+        <li><strong>Maxwell</strong> — Marketing manager / execution</li>
+        <li><strong>Stacy</strong> — Senior marketing manager</li>
+        <li><strong>Melissa</strong> — Director-level account direction</li>
+        <li><strong>Samantha</strong> — Lead digital / data strategy</li>
+      </ul>
+    </div>
+    <div class="card hot">
+      <h3>Cadence</h3>
+      <ul class="clean">
+        <li><strong>Weekly</strong> working session (priorities, tests, blockers)</li>
+        <li><strong>Async</strong> shared dashboard + task board</li>
+        <li><strong>Monthly</strong> reporting + 30-min strategy call</li>
+        <li><strong>Day 90</strong> QBR + portfolio roadmap</li>
+      </ul>
+      <p class="tiny" style="margin-top:14px">Brandastic owns plan + execution quality. SRP owns brand/offer approvals, access, and guardrails.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 11 KPIs -->
+<section class="slide" data-title="KPIs">
+  <div class="top"><div class="eyebrow">KPIs & milestones</div><div class="kicker">Transparent scorecard</div></div>
+  <h2>What we manage to</h2>
+  <div class="row row-2" style="margin-top:16px">
+    <div class="card">
+      <h3>Weekly (leading)</h3>
+      <ul class="clean">
+        <li>Creative CTR / hook rate</li>
+        <li>CVR · ATC · AOV</li>
+        <li>Blended CAC / MER</li>
+        <li>Email/SMS capture + flow revenue</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>Monthly (business)</h3>
+      <ul class="clean">
+        <li>New customer revenue & orders</li>
+        <li>ROAS by channel</li>
+        <li>Repeat rate / LTV trend</li>
+        <li>Branded search growth</li>
+      </ul>
+    </div>
+  </div>
+  <div class="card" style="margin-top:14px;position:relative;z-index:2">
+    <p class="p"><strong>Gates:</strong> Day 14 tracking trusted · Day 30 engine live · Day 45–60 winners named · Day 90 playbook + next-quarter plan. No fake ROAS theater without baselines.</p>
+  </div>
+</section>
+
+<!-- 12 INVESTMENT -->
+<section class="slide" data-title="Investment">
+  <div class="top"><div class="eyebrow">Investment</div><div class="kicker">From your proposal — two paths</div></div>
+  <h2>Choose depth. Same system.</h2>
+  <div class="row row-2" style="margin-top:16px">
+    <div class="card">
+      <div class="badge">Option 1</div>
+      <div class="stat" style="margin-top:10px">$7,000<span style="font-size:18px;color:var(--muted)">/mo</span></div>
+      <div class="label">Agency fee</div>
+      <ul class="clean" style="margin-top:14px">
+        <li>Meta · TikTok · Google (focused builds)</li>
+        <li>Light creator seeding + limited paid UGC</li>
+        <li>Up to 4 organic posts/mo</li>
+        <li>TikTok Shop + Amazon guidance</li>
+        <li>Up to 2 email/SMS foundational flows</li>
+        <li>Basic Shopify SEO implementation</li>
+      </ul>
+      <p class="tiny" style="margin-top:12px">Ads $4–5k/mo · UGC/influencer $1–1.5k/mo (recommended)</p>
+    </div>
+    <div class="card hot">
+      <div class="badge">Option 2 · Recommended for speed</div>
+      <div class="stat" style="margin-top:10px">$8,750<span style="font-size:18px;color:var(--muted)">/mo</span></div>
+      <div class="label">Agency fee</div>
+      <ul class="clean" style="margin-top:14px">
+        <li>Deeper creative testing + retargeting</li>
+        <li>Ongoing creator sourcing + UGC coordination</li>
+        <li>Up to 8 organic posts/mo</li>
+        <li>TikTok Shop + Amazon setup support</li>
+        <li>Up to 4 flows + monthly campaign support</li>
+        <li>Foundational SEO copy on priority pages</li>
+      </ul>
+      <p class="tiny" style="margin-top:12px">Ads $5.5–6.5k/mo · UGC/influencer $1.5–2.5k/mo (recommended)</p>
+    </div>
+  </div>
+</section>
+
+<!-- 13 PROOF -->
+<section class="slide" data-title="Proof">
+  <div class="top"><div class="eyebrow">Why Brandastic</div><div class="kicker">Operator results</div></div>
+  <h2>Strategy + execution under one roof</h2>
+  <div class="row row-3" style="margin-top:18px">
+    <div class="card"><div class="stat good">33×</div><div class="label">DESS ROAS</div><p class="tiny" style="margin-top:8px">Rebuilt PPC + Shopping · 18% CVR</p></div>
+    <div class="card"><div class="stat good">25×</div><div class="label">Young Surgical ROAS</div><p class="tiny" style="margin-top:8px">Brand + site + performance</p></div>
+    <div class="card"><div class="stat good">120×</div><div class="label">Ricoh DTG ROAS</div><p class="tiny" style="margin-top:8px">3,550 leads / 30 days</p></div>
+  </div>
+  <div class="row row-3" style="margin-top:14px">
+    <div class="card"><div class="stat cyan sm">140%+</div><div class="label">Kia organic users</div></div>
+    <div class="card"><div class="stat cyan sm">HyperX</div><div class="label">CRO · 10+ LP tests · $100M brand</div></div>
+    <div class="card"><div class="stat cyan sm">15 yrs</div><div class="label">450+ clients · DTC + multi-location</div></div>
+  </div>
+</section>
+
+<!-- 14 CLOSE -->
+<section class="slide" data-title="Close">
+  <div class="hero-bg" style="opacity:.85"></div>
+  <div class="top"><div class="brand"><img alt="Brandastic" src="data:image/png;base64,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"/></div><div class="kicker">Next step</div></div>
+  <div class="grid-main">
+    <h1>Let’s install the engine.</h1>
+    <p class="sub">Select Brandastic → kickoff within a week → 90-day DEFY growth system live → portfolio playbook for SRP.</p>
+    <div class="row row-3" style="margin-top:24px;max-width:900px">
+      <div class="card"><h3>1. Align</h3><p class="p">Option 1 or 2 · access · guardrails</p></div>
+      <div class="card"><h3>2. Build</h3><p class="p">Tracking · creative · campaigns · flows</p></div>
+      <div class="card"><h3>3. Scale</h3><p class="p">Winners · playbook · brand #2 path</p></div>
+    </div>
+    <p class="p" style="margin-top:22px;position:relative;z-index:2"><strong>brandastic.com</strong> · justin@brandastic.com · Prepared for Strategic Retail Partners / DEFY Eyewear</p>
+  </div>
+</section>
+
+</div>
+
+<div class="footer">
+  <span>Brandastic × SRP / DEFY · Confidential</span>
+  <span class="navhint">← → or space · F fullscreen · P print/PDF</span>
+  <span id="pg">1 / 15</span>
+</div>
+<div class="progress"><i id="bar"></i></div>
+
+<script>
+(function(){
+  const slides=[...document.querySelectorAll('.slide')];
+  let i=0;
+  const pg=document.getElementById('pg');
+  const bar=document.getElementById('bar');
+  function show(n){
+    i=(n+slides.length)%slides.length;
+    slides.forEach((s,idx)=>s.classList.toggle('on',idx===i));
+    pg.textContent=(i+1)+' / '+slides.length;
+    bar.style.width=((i+1)/slides.length*100)+'%';
+    location.hash = String(i+1);
+  }
+  window.addEventListener('keydown',e=>{
+    if(['ArrowRight','PageDown',' '].includes(e.key)){e.preventDefault();show(i+1)}
+    if(['ArrowLeft','PageUp'].includes(e.key)){e.preventDefault();show(i-1)}
+    if(e.key==='Home')show(0);
+    if(e.key==='End')show(slides.length-1);
+    if(e.key==='f'||e.key==='F'){
+      if(!document.fullscreenElement) document.documentElement.requestFullscreen().catch(()=>{});
+      else document.exitFullscreen().catch(()=>{});
+    }
+    if(e.key==='p'||e.key==='P') window.print();
+  });
+  document.addEventListener('click',e=>{
+    if(e.target.closest('a,button'))return;
+    if(e.clientX>innerWidth*0.55) show(i+1); else show(i-1);
+  });
+  const h=parseInt((location.hash||'#1').slice(1),10);
+  show(isFinite(h)&&h>=1&&h<=slides.length?h-1:0);
+})();
+</script>
+</body>
+</html>
