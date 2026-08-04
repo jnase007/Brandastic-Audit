@@ -214,17 +214,29 @@
       font-size: 17px; color: var(--text-dim); max-width: 540px;
       line-height: 1.65; margin-bottom: 18px;
     }
+    /* Comment #4: price as paragraph, not pill */
     .hero-price {
-      display: inline-flex; align-items: baseline; gap: 8px;
-      background: rgba(185,138,25,0.08);
-      border: 1px solid rgba(185,138,25,0.2);
-      border-radius: 999px; padding: 9px 16px;
-      margin-bottom: 16px;
+      display: block;
+      margin: 0 0 16px;
+      padding: 0;
+      border: 0;
+      background: none;
+      border-radius: 0;
+      font-size: 17px;
+      line-height: 1.55;
+      color: var(--text-dim);
+      font-weight: 400;
     }
     .hero-price strong {
-      font-size: 18px; font-weight: 800; color: var(--text);
+      font-size: inherit;
+      font-weight: 700;
+      color: var(--text);
     }
-    .hero-price span { font-size: 14px; color: var(--text-dim); font-weight: 500; }
+    .hero-price span {
+      font-size: inherit;
+      color: var(--text-dim);
+      font-weight: 400;
+    }
     .hero-checks {
       list-style: none; display: grid; gap: 9px; margin-bottom: 20px;
     }
@@ -287,11 +299,11 @@
     /* Comment #6 */
     .logo-proof {
       text-align: center;
-      font-size: 14px;
-      font-weight: 500;
+      font-size: 17px; /* Comment #2: paragraph 17px */
+      font-weight: 400;
       color: var(--text-dim);
       margin: 0 0 16px;
-      line-height: 1.5;
+      line-height: 1.55;
     }
     .logo-marquee-section::before,
     .logo-marquee-section::after {
@@ -915,10 +927,9 @@
           <p class="hero-sub fade-up delay-2">
             Executive direction and a full-service team of specialists, aligned under one roof for one monthly investment.
           </p>
-          <div class="hero-price fade-up delay-2">
-            <strong>Starting at $5,000</strong>
-            <span>/ month</span>
-          </div>
+          <p class="hero-price fade-up delay-2">
+            <strong>Starting at $5,000</strong><span> / month</span>
+          </p>
           <ul class="hero-checks fade-up delay-3">
             <li>1 dedicated Fractional CMO</li>
             <li>15 specialists executing the plan</li>
