@@ -749,7 +749,8 @@
       overflow: hidden;
       display: flex;
       flex-direction: column;
-      min-height: 460px;
+      min-height: 0; /* no forced tall cards / dead white under copy */
+      height: 100%;
     }
     .result-card:hover {
       transform: translateY(-6px);
@@ -758,7 +759,8 @@
     }
     .result-media {
       position: relative;
-      flex: 0 0 34%;
+      flex: 0 0 auto;
+      height: 160px;
       min-height: 160px;
       overflow: hidden;
       background: #111;
@@ -786,20 +788,20 @@
       text-shadow: 0 1px 8px rgba(0,0,0,0.45);
     }
     .result-body-wrap {
-      padding: 24px 24px 28px;
+      padding: 18px 20px 20px;
       display: flex;
       flex-direction: column;
-      flex: 1 1 auto;
+      flex: 0 0 auto; /* hug content — no stretch empty zone under text */
     }
     .result-metric {
-      font-size: clamp(28px, 3vw, 36px);
+      font-size: clamp(26px, 2.8vw, 34px);
       font-weight: 600; letter-spacing: -0.03em; line-height: 1;
-      margin-bottom: 6px; color: var(--text);
+      margin-bottom: 4px; color: var(--text);
     }
     .result-label {
-      font-size: 14px; font-weight: 600; color: var(--text-dim); margin-bottom: 14px;
+      font-size: 14px; font-weight: 600; color: var(--text-dim); margin-bottom: 10px;
     }
-    .result-body { font-size: 14.5px; color: var(--text-dim); line-height: 1.7; margin: 0; }
+    .result-body { font-size: 14.5px; color: var(--text-dim); line-height: 1.6; margin: 0; }
     .results-cta { display: flex; justify-content: center; margin-top: 36px; }
 
     /* FAQ — Comment #18: 2-column stack to reduce height */
