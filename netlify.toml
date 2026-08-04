@@ -2,6 +2,16 @@
   publish = "."
 
 [[redirects]]
+  from = "/cmo"
+  to = "/cmo.html"
+  status = 200
+
+[[redirects]]
+  from = "/cmo/"
+  to = "/cmo.html"
+  status = 200
+
+[[redirects]]
   from = "/onpoint"
   to = "/onpoint.html"
   status = 200
