@@ -459,14 +459,38 @@
     }
     .how-layout {
       display: grid;
-      grid-template-columns: minmax(220px, 0.9fr) minmax(0, 1.4fr);
+      grid-template-columns: minmax(240px, 0.95fr) minmax(0, 1.35fr);
       gap: 28px 40px;
       align-items: stretch;
+    }
+    .how-left {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      min-height: 100%;
     }
     .how-tabs {
       display: flex;
       flex-direction: column;
       gap: 8px;
+      flex: 0 0 auto;
+    }
+    .how-photo {
+      position: relative;
+      flex: 1 1 auto;
+      min-height: 200px;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow-card);
+      background: #111;
+    }
+    .how-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center center;
+      display: block;
     }
     .how-tab {
       width: 100%;
@@ -869,6 +893,7 @@
       }
       .how-layout { grid-template-columns: 1fr; gap: 20px; }
       .how-panel { min-height: 0; padding: 28px 22px; }
+      .how-photo { min-height: 220px; max-height: 280px; }
       .results-grid { grid-template-columns: 1fr; }
       .faq-list { grid-template-columns: 1fr; max-width: 780px; }
       .result-card { min-height: 0; }
@@ -1015,22 +1040,27 @@
         <h2 class="section-title">From First Conversation to Compounding Growth</h2>
       </div>
       <div class="how-layout fade-up delay-1">
-        <div class="how-tabs" role="tablist" aria-label="How it works steps">
-          <button type="button" class="how-tab active" role="tab" aria-selected="true" data-step="0">
-            <span class="step-num">01</span><span class="step-label">Learn Your Business</span>
-          </button>
-          <button type="button" class="how-tab" role="tab" aria-selected="false" data-step="1">
-            <span class="step-num">02</span><span class="step-label">Build Your Roadmap</span>
-          </button>
-          <button type="button" class="how-tab" role="tab" aria-selected="false" data-step="2">
-            <span class="step-num">03</span><span class="step-label">Lead Execution</span>
-          </button>
-          <button type="button" class="how-tab" role="tab" aria-selected="false" data-step="3">
-            <span class="step-num">04</span><span class="step-label">Measure Performance</span>
-          </button>
-          <button type="button" class="how-tab" role="tab" aria-selected="false" data-step="4">
-            <span class="step-num">05</span><span class="step-label">Evolve and Grow</span>
-          </button>
+        <div class="how-left">
+          <div class="how-tabs" role="tablist" aria-label="How it works steps">
+            <button type="button" class="how-tab active" role="tab" aria-selected="true" data-step="0">
+              <span class="step-num">01</span><span class="step-label">Learn Your Business</span>
+            </button>
+            <button type="button" class="how-tab" role="tab" aria-selected="false" data-step="1">
+              <span class="step-num">02</span><span class="step-label">Build Your Roadmap</span>
+            </button>
+            <button type="button" class="how-tab" role="tab" aria-selected="false" data-step="2">
+              <span class="step-num">03</span><span class="step-label">Lead Execution</span>
+            </button>
+            <button type="button" class="how-tab" role="tab" aria-selected="false" data-step="3">
+              <span class="step-num">04</span><span class="step-label">Measure Performance</span>
+            </button>
+            <button type="button" class="how-tab" role="tab" aria-selected="false" data-step="4">
+              <span class="step-num">05</span><span class="step-label">Evolve and Grow</span>
+            </button>
+          </div>
+          <div class="how-photo">
+            <img src="images/team/Post2-conference.jpg" alt="Brandastic conference room collaboration" loading="lazy" />
+          </div>
         </div>
         <div class="how-panel" role="tabpanel" id="howPanel">
           <div class="panel-num" id="howPanelNum">01</div>
