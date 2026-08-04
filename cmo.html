@@ -8,7 +8,9 @@
   <link rel="icon" type="image/png" href="https://brandastic.com/wp-content/uploads/2026/03/BrandasticLogo-White-5.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preconnect" href="https://use.typekit.net" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://use.typekit.net/wzt2wtc.css" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -38,6 +40,19 @@
       font-size: 16px;
       line-height: 1.6;
       -webkit-font-smoothing: antialiased;
+    }
+    /* Comment #3: Forma DJR Text headlines + Inter body (matches brandastic.com) */
+    h1, h2, h3,
+    .hero-title,
+    .section-title,
+    .fit-card h3,
+    .step h3,
+    .result-metric,
+    .faq details summary,
+    .btn-primary,
+    .nav-cta {
+      font-family: "forma-djr-text", "Forma DJR Text", 'Inter', system-ui, sans-serif;
+      letter-spacing: -0.02em;
     }
     a { color: var(--gold); text-decoration: none; transition: color var(--transition); }
     a:hover { color: var(--gold-light); }
@@ -98,12 +113,8 @@
     .nav-brand {
       display: flex; align-items: center; gap: 14px;
     }
-    .nav-brand img { height: 24px; width: auto; }
-    .nav-brand-text {
-      font-size: 13px; font-weight: 700; letter-spacing: 0.12em;
-      text-transform: uppercase; color: var(--text);
-    }
-    .nav-brand-text span { color: var(--gold); }
+    .nav-brand img { height: 28px; width: auto; }
+    /* Comment #2: removed "Fractional CMO" text lockup next to logo */
     .nav-right { display: flex; align-items: center; gap: 18px; }
     .nav-phone {
       font-size: 14px; font-weight: 600; color: var(--text);
@@ -245,14 +256,7 @@
       object-position: center center;
       display: block;
     }
-    .hero-visual-caption {
-      position: absolute; left: 14px; right: 14px; bottom: 14px;
-      background: rgba(17,17,17,0.74); color: #fff;
-      backdrop-filter: blur(8px); border-radius: 10px;
-      padding: 12px 14px; font-size: 13px; line-height: 1.35;
-    }
-    .hero-visual-caption strong { display: block; font-size: 14px; margin-bottom: 2px; }
-    .hero-visual-caption span { color: rgba(255,255,255,0.82); }
+    /* Comment #1: hero caption removed completely */
 
     /* LOGO MARQUEE — matched to justin.brandastic.com */
     .logo-marquee-section {
@@ -694,7 +698,6 @@
     <div class="nav-inner">
       <a href="https://brandastic.com" class="nav-brand" aria-label="Brandastic home">
         <img src="https://brandastic.com/wp-content/uploads/2026/03/BrandasticLogo-White-5.png" alt="Brandastic" style="filter: brightness(0);" />
-        <div class="nav-brand-text">Fractional <span>CMO</span></div>
       </a>
       <div class="nav-right">
         <a class="nav-phone" href="tel:9496172731">949-617-2731</a>
@@ -732,11 +735,7 @@
           </div>
         </div>
         <div class="hero-visual fade-up delay-2">
-          <img src="images/team/DSC02924.jpg" alt="Brandastic team — extension of your team" />
-          <div class="hero-visual-caption">
-            <strong>Extension of Your Team</strong>
-            <span>Fractional CMO leadership + specialist bench</span>
-          </div>
+          <img src="images/team/DSC02924.jpg" alt="Brandastic team collaborating in Costa Mesa" />
         </div>
       </div>
     </div>
