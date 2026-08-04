@@ -44,6 +44,20 @@ th{color:var(--muted);font-size:11px;letter-spacing:.1em;text-transform:uppercas
 .note{font-size:13px;color:var(--muted);border-left:3px solid var(--cyan);padding-left:12px;margin:12px 0}
 footer{margin-top:60px;padding-top:20px;border-top:1px solid var(--line);color:var(--muted);font-size:12px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
 a.link{color:var(--cyan)}
+.mock{margin-top:12px;border-radius:14px;overflow:hidden;border:1px solid var(--line);background:#0b1016}
+.mock img{display:block;width:100%;height:auto}
+.mock-row{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:12px}
+@media(max-width:800px){.mock-row{grid-template-columns:1fr}}
+.mock-label{font-size:11px;color:var(--muted);margin-top:6px;letter-spacing:.04em}
+.section-note{font-size:13px;color:var(--muted);margin:8px 0 16px}
+.visual-strip{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:10px 0 4px}
+@media(max-width:800px){.visual-strip{grid-template-columns:repeat(2,1fr)}}
+.visual-strip img{width:100%;aspect-ratio:1;object-fit:cover;border-radius:10px;border:1px solid var(--line)}
+.email-mock{margin-top:12px;border-radius:14px;overflow:hidden;border:1px solid var(--line)}
+.email-mock img{display:block;width:100%;height:auto}
+.hero-banner{margin:18px 0 8px;border-radius:16px;overflow:hidden;border:1px solid rgba(64,180,229,.35)}
+.hero-banner img{display:block;width:100%;height:auto;max-height:360px;object-fit:cover}
+
 </style>
 </head>
 <body>
@@ -60,6 +74,7 @@ a.link{color:var(--cyan)}
 <nav class="toc">
   <a href="#calendar">90-day calendar</a>
   <a href="#pillars">Content pillars</a>
+  <a href="#mockups">Visual mockups</a>
   <a href="#social">Social posts</a>
   <a href="#ads">Paid ads</a>
   <a href="#email">Email / SMS</a>
@@ -104,6 +119,115 @@ a.link{color:var(--cyan)}
   <p class="note">Cadence target once live: IG/TikTok 4–6 posts/week · Stories/day · 1–2 email campaigns/mo after flows · paid creative refresh weekly.</p>
 </section>
 
+
+<section id="mockups">
+  <h2>Visual mockups · Imagen 4</h2>
+  <p class="lead">Phone + email comps generated for the finalist room. AI lifestyle plates (not final SKU photography) — swap in real product/UGC when available. Pair with captions below.</p>
+  <p class="section-note">Model: <strong>imagen-4.0-generate-001</strong> · Brand world matches weardefy mountain aesthetic · No on-image claims that product can’t prove.</p>
+
+  <div class="hero-banner">
+    <img src="assets/defy-mockups/email-welcome-hero.jpg" alt="DEFY adventure hero banner"/>
+  </div>
+
+  <h3 style="color:#fff;margin-top:28px">Social · phone comps</h3>
+  <div class="grid g2">
+    <div class="card hot">
+      <div class="tag">1 · Reel</div>
+      <h3 style="margin-top:0;color:#fff">Price vs performance</h3>
+      <div class="mock-row">
+        <div>
+          <div class="mock"><img src="assets/defy-mockups/composed/mock-social-01-reel.jpg" alt="Reel mock - trail hero"/></div>
+          <div class="mock-label">Cold open / on-face</div>
+        </div>
+        <div>
+          <div class="mock"><img src="assets/defy-mockups/composed/mock-social-01-endcard.jpg" alt="Reel mock - product endcard"/></div>
+          <div class="mock-label">Product end card</div>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="tag">2 · Carousel</div>
+      <h3 style="margin-top:0;color:#fff">Find your frame</h3>
+      <div class="mock"><img src="assets/defy-mockups/composed/mock-social-02-carousel.jpg" alt="Carousel mock - four frames"/></div>
+      <div class="mock-label">Summit · Mesa · Aspen · Sequoia + trial closer</div>
+      <div class="visual-strip">
+        <img src="assets/defy-mockups/social-02-summit.jpg" alt="Summit"/>
+        <img src="assets/defy-mockups/social-02-mesa.jpg" alt="Mesa"/>
+        <img src="assets/defy-mockups/social-02-aspen.jpg" alt="Aspen"/>
+        <img src="assets/defy-mockups/social-02-sequoia.jpg" alt="Sequoia"/>
+      </div>
+    </div>
+    <div class="card">
+      <div class="tag">3 · Sustainability</div>
+      <h3 style="margin-top:0;color:#fff">Materials without soft green</h3>
+      <div class="mock-row">
+        <div>
+          <div class="mock"><img src="assets/defy-mockups/composed/mock-social-03-materials.jpg" alt="Materials macro mock"/></div>
+          <div class="mock-label">Macro / Grivory texture</div>
+        </div>
+        <div>
+          <div class="mock"><img src="assets/defy-mockups/composed/mock-social-03-durability.jpg" alt="Durability lifestyle mock"/></div>
+          <div class="mock-label">Durability lifestyle</div>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="tag green">4 · UGC</div>
+      <h3 style="margin-top:0;color:#fff">Customer proof</h3>
+      <div class="mock"><img src="assets/defy-mockups/composed/mock-social-04-ugc.jpg" alt="UGC repost mock"/></div>
+      <div class="mock-label">Face-cam / trailhead energy · replace with real customer when live</div>
+    </div>
+    <div class="card">
+      <div class="tag">5 · Stories</div>
+      <h3 style="margin-top:0;color:#fff">Daily framework</h3>
+      <div class="mock"><img src="assets/defy-mockups/composed/mock-social-05-stories.jpg" alt="Stories poll mock"/></div>
+      <div class="mock-label">Mon poll sticker example</div>
+    </div>
+    <div class="card">
+      <div class="tag warn">6 · Promo</div>
+      <h3 style="margin-top:0;color:#fff">Second-pair / bundle</h3>
+      <div class="mock"><img src="assets/defy-mockups/composed/mock-social-06-bundle.jpg" alt="Bundle promo mock"/></div>
+      <div class="mock-label">Only after baseline creative works</div>
+    </div>
+  </div>
+
+  <h3 style="color:#fff;margin-top:32px">Paid · prospecting still</h3>
+  <div class="grid g2">
+    <div class="card hot">
+      <div class="tag purple">Meta / TikTok</div>
+      <h3 style="margin-top:0;color:#fff">Ad A · Performance without luxury tax</h3>
+      <div class="mock"><img src="assets/defy-mockups/composed/mock-ad-prospect.jpg" alt="Paid ad mock"/></div>
+    </div>
+    <div class="card">
+      <div class="tag">Raw plate</div>
+      <h3 style="margin-top:0;color:#fff">Vertical master</h3>
+      <div class="mock"><img src="assets/defy-mockups/ad-prospect-vertical.jpg" alt="Ad vertical raw"/></div>
+      <div class="mock-label">Use as paid base · add hook text in-editor</div>
+    </div>
+  </div>
+
+  <h3 style="color:#fff;margin-top:32px">Email · client comps</h3>
+  <div class="grid g2">
+    <div class="card hot">
+      <div class="tag">Welcome</div>
+      <div class="email-mock"><img src="assets/defy-mockups/composed/mock-email-welcome.jpg" alt="Welcome email mock"/></div>
+    </div>
+    <div class="card">
+      <div class="tag">Cart abandon</div>
+      <div class="email-mock"><img src="assets/defy-mockups/composed/mock-email-cart.jpg" alt="Cart email mock"/></div>
+    </div>
+    <div class="card">
+      <div class="tag">Post-purchase</div>
+      <div class="email-mock"><img src="assets/defy-mockups/composed/mock-email-postpurchase.jpg" alt="Post-purchase email mock"/></div>
+    </div>
+    <div class="card">
+      <div class="tag">Campaign</div>
+      <div class="email-mock"><img src="assets/defy-mockups/composed/mock-email-find-frame.jpg" alt="Find your frame email mock"/></div>
+    </div>
+  </div>
+  <p class="note" style="margin-top:16px">Room tip: open this section on a laptop, swipe social comps first, then one email. Full captions stay in <a class="link" href="#social">Social posts</a> and <a class="link" href="#email">Email / SMS</a>.</p>
+</section>
+
 <section id="social">
   <h2>Social post examples</h2>
   <p class="lead">Captions + visual direction. Platform-native: short hooks first, proof second, soft CTA.</p>
@@ -113,6 +237,7 @@ a.link{color:var(--cyan)}
       <div class="tag">IG / TikTok Reel</div>
       <h3 style="margin-top:0;color:#fff">1 · Hook: price vs performance</h3>
       <p><strong>Visual:</strong> AI mountain trail cold open → quick cut to Aspen on face → polarized POV of ridge → price tag smash → warranty end card.</p>
+      <div class="mock-row"><div class="mock"><img src="assets/defy-mockups/composed/mock-social-01-reel.jpg" alt=""/></div><div class="mock"><img src="assets/defy-mockups/composed/mock-social-01-endcard.jpg" alt=""/></div></div>
       <div class="post">Hook text on screen:
 Premium trail shades.
 Without the $250 ego tax.
@@ -132,6 +257,7 @@ Shop the Aspen → link in bio
       <div class="tag">IG Carousel</div>
       <h3 style="margin-top:0;color:#fff">2 · Find your frame</h3>
       <p><strong>Visual:</strong> 5 cards — Summit / Mesa / Aspen / Sequoia + “Not sure? 30-day trial.”</p>
+      <div class="mock"><img src="assets/defy-mockups/composed/mock-social-02-carousel.jpg" alt="Find your frame carousel"/></div>
       <div class="post">Caption:
 Your next pair shouldn’t be a guess.
 
@@ -152,6 +278,7 @@ Shop all frames → link in bio</div>
       <div class="tag">TikTok / Reels</div>
       <h3 style="margin-top:0;color:#fff">3 · Sustainability without soft</h3>
       <p><strong>Visual:</strong> Macro of frame material · “58% bio-based” kinetic type · flex/durability demo · on-face lifestyle.</p>
+      <div class="mock-row"><div class="mock"><img src="assets/defy-mockups/composed/mock-social-03-materials.jpg" alt=""/></div><div class="mock"><img src="assets/defy-mockups/composed/mock-social-03-durability.jpg" alt=""/></div></div>
       <div class="post">VO / text:
 “Sustainable” shouldn’t mean fragile.
 
@@ -169,6 +296,7 @@ That’s the standard.</div>
       <div class="tag green">UGC repost</div>
       <h3 style="margin-top:0;color:#fff">4 · Customer proof</h3>
       <p><strong>Visual:</strong> Creator/customer face-cam or trail clip wearing DEFY. White sticker caption.</p>
+      <div class="mock"><img src="assets/defy-mockups/composed/mock-social-04-ugc.jpg" alt="UGC mock"/></div>
       <div class="post">Caption:
 Real adventure. Real pair.
 
@@ -190,11 +318,13 @@ Got a DEFY moment? Tag @weardefy for a repost.
         <li><strong>Fri:</strong> Behind the brand / materials</li>
         <li><strong>Sat–Sun:</strong> Lifestyle + countdown to offer if live</li>
       </ul>
+      <div class="mock" style="margin-top:12px"><img src="assets/defy-mockups/composed/mock-social-05-stories.jpg" alt="Stories mock"/></div>
     </div>
 
     <div class="card">
       <div class="tag warn">Promo post</div>
       <h3 style="margin-top:0;color:#fff">6 · Offer without desperation</h3>
+      <div class="mock"><img src="assets/defy-mockups/composed/mock-social-06-bundle.jpg" alt="Bundle mock"/></div>
       <div class="post">Caption:
 Adventure doesn’t wait for a sale tab.
 
@@ -319,6 +449,7 @@ Premium outdoor sunglasses without the luxury markup. Shop DEFY today.</div>
 
   <h3>Flow 1 — Welcome (email 1 of 3)</h3>
   <div class="card hot">
+    <div class="email-mock"><img src="assets/defy-mockups/composed/mock-email-welcome.jpg" alt="Welcome email mock"/></div>
     <div class="email"><span class="k">Subject:</span> Welcome to DEFY — your adventure pair starts here
 <span class="k">Preheader:</span> 30-day trial · lifetime warranty · frames from $50
 
@@ -346,6 +477,7 @@ P.S. Free shipping over $55.</div>
 
   <h3>Flow 2 — Cart abandon</h3>
   <div class="card">
+    <div class="email-mock"><img src="assets/defy-mockups/composed/mock-email-cart.jpg" alt="Cart email mock"/></div>
     <div class="email"><span class="k">Subject:</span> Your DEFY pair is still in the cart
 <span class="k">Preheader:</span> 30 days to live in them risk-free
 
@@ -368,6 +500,7 @@ If fit or lens questions are blocking you, just reply to this email — we’re 
 
   <h3>Flow 3 — Post-purchase</h3>
   <div class="card">
+    <div class="email-mock"><img src="assets/defy-mockups/composed/mock-email-postpurchase.jpg" alt="Post-purchase email mock"/></div>
     <div class="email"><span class="k">Subject:</span> You’re DEFY officially — here’s what’s next
 <span class="k">Preheader:</span> Care tips · warranty · share your first adventure
 
@@ -389,6 +522,7 @@ DEFY</div>
 
   <h3>Campaign — “Find your frame” (month 1–2)</h3>
   <div class="card">
+    <div class="email-mock"><img src="assets/defy-mockups/composed/mock-email-find-frame.jpg" alt="Find frame email mock"/></div>
     <div class="email"><span class="k">Subject A:</span> Which DEFY is yours — Summit, Mesa, Aspen, or Sequoia?
 <span class="k">Subject B:</span> A 60-second shortcut to your next pair
 <span class="k">Preheader:</span> Outdoor performance, $50–70, risk-free for 30 days
