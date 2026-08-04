@@ -56,6 +56,10 @@
       0% { transform: translateX(0); }
       100% { transform: translateX(-50%); }
     }
+    @keyframes teamScroll {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
     @keyframes fadeUp {
       from { opacity: 0; transform: translateY(28px); }
       to { opacity: 1; transform: translateY(0); }
@@ -81,7 +85,7 @@
     /* NAV */
     nav {
       position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-      padding: 14px 0;
+      padding: 10px 0;
       background: rgba(255,255,255,0.9);
       backdrop-filter: blur(20px) saturate(1.8);
       -webkit-backdrop-filter: blur(20px) saturate(1.8);
@@ -94,7 +98,7 @@
     .nav-brand {
       display: flex; align-items: center; gap: 14px;
     }
-    .nav-brand img { height: 28px; width: auto; }
+    .nav-brand img { height: 24px; width: auto; }
     .nav-brand-text {
       font-size: 13px; font-weight: 700; letter-spacing: 0.12em;
       text-transform: uppercase; color: var(--text);
@@ -121,8 +125,8 @@
       display: inline-block;
       background: linear-gradient(135deg, #B98A19, #c9a03a, #B98A19);
       background-size: 200% auto;
-      color: #fff !important; font-weight: 700; font-size: 15px;
-      padding: 15px 32px; border-radius: 9px; letter-spacing: 0.02em;
+      color: #fff !important; font-weight: 700; font-size: 14px;
+      padding: 12px 24px; border-radius: 9px; letter-spacing: 0.02em;
       transition: transform var(--transition), box-shadow var(--transition);
       animation: pulse-gold 3s ease-in-out infinite;
     }
@@ -143,9 +147,19 @@
       background: rgba(185,138,25,0.04); transform: translateY(-2px);
     }
 
+    /* ABOVE-THE-FOLD: hero + logos fill first viewport */
+    .fold {
+      min-height: 100svh;
+      display: flex;
+      flex-direction: column;
+      background: #ffffff;
+    }
     /* HERO */
     #hero {
-      padding: 140px 0 90px;
+      flex: 1 1 auto;
+      display: flex;
+      align-items: center;
+      padding: 78px 0 18px;
       position: relative;
       background:
         radial-gradient(ellipse at 15% 60%, rgba(185,138,25,0.07) 0%, transparent 45%),
@@ -155,23 +169,24 @@
     }
     .hero-grid {
       display: grid;
-      grid-template-columns: minmax(0, 1.15fr) minmax(320px, 0.85fr);
-      gap: 48px;
+      grid-template-columns: minmax(0, 1.15fr) minmax(280px, 0.85fr);
+      gap: 28px;
       align-items: center;
+      width: 100%;
     }
     .hero-eyebrow {
       display: inline-flex; align-items: center; gap: 10px;
-      font-size: 11px; font-weight: 700; letter-spacing: 0.14em;
-      text-transform: uppercase; color: var(--gold); margin-bottom: 20px;
+      font-size: 10px; font-weight: 700; letter-spacing: 0.14em;
+      text-transform: uppercase; color: var(--gold); margin-bottom: 10px;
     }
     .hero-eyebrow::before {
       content: ''; width: 28px; height: 1px;
       background: linear-gradient(90deg, var(--gold), var(--gold-light));
     }
     .hero-title {
-      font-size: clamp(36px, 5.2vw, 58px);
+      font-size: clamp(28px, 3.8vw, 44px);
       font-weight: 900; letter-spacing: -0.03em; line-height: 1.05;
-      margin-bottom: 14px; color: var(--text);
+      margin-bottom: 10px; color: var(--text);
     }
     .hero-title em {
       font-style: normal;
@@ -182,66 +197,73 @@
       animation: shimmer 6s linear infinite;
     }
     .hero-sub {
-      font-size: 18px; color: var(--text-dim); max-width: 540px;
-      line-height: 1.7; margin-bottom: 28px;
+      font-size: 15px; color: var(--text-dim); max-width: 520px;
+      line-height: 1.55; margin-bottom: 14px;
     }
     .hero-price {
       display: inline-flex; align-items: baseline; gap: 8px;
       background: rgba(185,138,25,0.08);
       border: 1px solid rgba(185,138,25,0.2);
-      border-radius: 999px; padding: 10px 18px;
-      margin-bottom: 22px;
+      border-radius: 999px; padding: 7px 14px;
+      margin-bottom: 12px;
     }
     .hero-price strong {
-      font-size: 20px; font-weight: 800; color: var(--text);
+      font-size: 16px; font-weight: 800; color: var(--text);
     }
-    .hero-price span { font-size: 14px; color: var(--text-dim); font-weight: 500; }
+    .hero-price span { font-size: 13px; color: var(--text-dim); font-weight: 500; }
     .hero-checks {
-      list-style: none; display: grid; gap: 10px; margin-bottom: 28px;
+      list-style: none; display: grid; gap: 6px; margin-bottom: 14px;
     }
     .hero-checks li {
-      display: flex; align-items: flex-start; gap: 10px;
-      font-size: 15px; font-weight: 500; color: var(--text);
+      display: flex; align-items: flex-start; gap: 8px;
+      font-size: 13.5px; font-weight: 500; color: var(--text);
     }
     .hero-checks li::before {
       content: '✓';
       color: var(--gold); font-weight: 800; flex-shrink: 0;
     }
     .hero-note {
-      margin-top: 14px; font-size: 13px; color: var(--text-dim);
+      margin-top: 8px; font-size: 12px; color: var(--text-dim);
     }
     .hero-visual {
       position: relative;
       border-radius: var(--radius-lg);
       overflow: hidden;
-      box-shadow: 0 24px 80px rgba(0,0,0,0.14), 0 8px 32px rgba(185,138,25,0.12);
+      box-shadow: 0 16px 48px rgba(0,0,0,0.12), 0 6px 20px rgba(185,138,25,0.1);
       border: 1px solid rgba(185,138,25,0.18);
+      max-height: min(42vh, 360px);
     }
     .hero-visual img {
-      width: 100%; aspect-ratio: 4/3; object-fit: cover; object-position: center center;
+      width: 100%;
+      height: min(42vh, 360px);
+      aspect-ratio: auto;
+      object-fit: cover;
+      object-position: center center;
+      display: block;
     }
     .hero-visual-caption {
-      position: absolute; left: 14px; right: 14px; bottom: 14px;
+      position: absolute; left: 12px; right: 12px; bottom: 12px;
       background: rgba(17,17,17,0.74); color: #fff;
       backdrop-filter: blur(8px); border-radius: 10px;
-      padding: 12px 14px; font-size: 13px; line-height: 1.35;
+      padding: 10px 12px; font-size: 12px; line-height: 1.3;
     }
-    .hero-visual-caption strong { display: block; font-size: 14px; margin-bottom: 2px; }
+    .hero-visual-caption strong { display: block; font-size: 13px; margin-bottom: 2px; }
     .hero-visual-caption span { color: rgba(255,255,255,0.82); }
 
-    /* LOGO MARQUEE — matched to justin.brandastic.com */
+    /* LOGO MARQUEE — matched to justin.brandastic.com, compressed for fold */
     .logo-marquee-section {
+      flex: 0 0 auto;
       background: #f0f1f3;
       border-top: 1px solid #e5e7eb;
       border-bottom: 1px solid #e5e7eb;
-      padding: 36px 0;
+      padding: 16px 0 18px;
       overflow: hidden;
       position: relative;
     }
     .logo-label {
-      text-align: center; font-size: 12px; font-weight: 700;
+      text-align: center; font-size: 11px; font-weight: 700;
       letter-spacing: 0.14em; text-transform: uppercase;
-      color: var(--text-dim); margin-bottom: 18px;
+      color: var(--text-dim); margin-bottom: 10px;
     }
     .logo-marquee-section::before,
     .logo-marquee-section::after {
@@ -257,12 +279,12 @@
     .logos-track {
       display: flex;
       align-items: center;
-      gap: 80px;
+      gap: 56px;
       width: max-content;
       animation: marquee 32s linear infinite;
     }
     .logos-track img {
-      height: 40px;
+      height: 32px;
       width: auto;
       flex-shrink: 0;
       object-fit: contain;
@@ -361,68 +383,94 @@
     }
     .step p { font-size: 13.5px; color: var(--text-dim); line-height: 1.65; }
 
-    /* TEAM GALLERY */
+    /* YOUR EXECUTION TEAM — matched to /home people scroller */
     #team {
-      padding: 100px 0;
+      padding: 72px 0 64px;
       background: var(--bg-alt);
-    }
-    .team-gallery {
-      display: grid;
-      grid-template-columns: repeat(12, 1fr);
-      gap: 14px;
-    }
-    .team-shot {
-      position: relative;
-      border-radius: var(--radius-lg);
       overflow: hidden;
-      border: 1px solid var(--border);
-      box-shadow: var(--shadow-card);
-      background: #ddd;
-      min-height: 240px;
-      grid-column: span 4;
     }
-    .team-shot img {
+    #team .section-header { margin-bottom: 28px; }
+    .team-scroll {
+      position: relative;
+      overflow: hidden;
       width: 100%;
-      height: 100%;
-      min-height: 240px;
-      object-fit: cover;
-      object-position: center center;
-      display: block;
-      transition: transform 0.5s ease;
+      margin-top: 6px;
     }
-    .team-shot:hover img { transform: scale(1.04); }
-    .team-shot-lg {
-      grid-column: span 8;
-      min-height: 420px;
-    }
-    .team-shot-lg img { min-height: 420px; }
-    .team-shot-tall {
-      grid-column: span 4;
-      min-height: 420px;
-    }
-    .team-shot-tall img { min-height: 420px; object-position: center top; }
-    .team-shot-wide {
-      grid-column: span 8;
-      min-height: 260px;
-    }
-    .team-shot-wide img { min-height: 260px; }
-    .team-shot-caption {
+    .team-scroll::before,
+    .team-scroll::after {
+      content: '';
       position: absolute;
-      left: 12px; right: 12px; bottom: 12px;
-      background: rgba(17,17,17,0.72);
-      color: #fff;
-      backdrop-filter: blur(8px);
-      border-radius: 10px;
-      padding: 10px 12px;
-      font-size: 12px;
-      line-height: 1.35;
+      top: 0; bottom: 0;
+      width: 56px;
+      z-index: 2;
+      pointer-events: none;
     }
-    .team-shot-caption strong {
+    .team-scroll::before {
+      left: 0;
+      background: linear-gradient(to right, var(--bg-alt), transparent);
+    }
+    .team-scroll::after {
+      right: 0;
+      background: linear-gradient(to left, var(--bg-alt), transparent);
+    }
+    .team-track {
+      display: flex;
+      align-items: stretch;
+      gap: 14px;
+      width: max-content;
+      animation: teamScroll 38s linear infinite;
+      padding: 4px 2px 8px;
+    }
+    .team-scroll:hover .team-track,
+    .team-track:hover { animation-play-state: paused; }
+    .team-card {
+      width: 168px;
+      flex: 0 0 auto;
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      overflow: hidden;
+      background: #fff;
+      box-shadow: var(--shadow-card);
+      transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+    }
+    .team-card:hover {
+      transform: translateY(-4px);
+      border-color: var(--border-gold);
+      box-shadow: var(--shadow-hover);
+    }
+    .team-card img {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
+      filter: grayscale(1) contrast(1.08);
+    }
+    .team-card div {
+      padding: 12px 12px 14px;
+      background: #fff;
+    }
+    .team-card strong {
       display: block;
       font-size: 13px;
-      margin-bottom: 2px;
+      font-weight: 800;
+      letter-spacing: -0.01em;
+      color: var(--text);
     }
-    .team-shot-caption span { color: rgba(255,255,255,0.8); }
+    .team-card em {
+      display: block;
+      font-style: normal;
+      margin-top: 4px;
+      font-size: 10px;
+      color: var(--gold);
+      font-weight: 750;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      line-height: 1.35;
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .team-track { animation: none; }
+    }
 
     /* BUILT AROUND YOU */
     #services {
@@ -593,37 +641,38 @@
 
     /* RESPONSIVE */
     @media (max-width: 980px) {
-      .hero-grid { grid-template-columns: 1fr; gap: 40px; }
-      .hero-visual { max-width: 420px; margin: 0 auto; order: -1; }
+      .fold { min-height: auto; }
+      .hero-grid { grid-template-columns: 1fr; gap: 22px; }
+      .hero-visual {
+        max-width: 420px;
+        margin: 0 auto;
+        order: -1;
+        max-height: 240px;
+      }
+      .hero-visual img { height: 240px; }
       .steps { grid-template-columns: repeat(2, 1fr); }
       .results-grid { grid-template-columns: 1fr; }
-      .team-gallery { grid-template-columns: repeat(6, 1fr); }
-      .team-shot { grid-column: span 3; }
-      .team-shot-lg,
-      .team-shot-wide { grid-column: span 6; min-height: 280px; }
-      .team-shot-lg img,
-      .team-shot-wide img { min-height: 280px; }
-      .team-shot-tall { grid-column: span 3; min-height: 280px; }
-      .team-shot-tall img { min-height: 280px; }
     }
     @media (max-width: 700px) {
-      #hero { padding: 120px 0 70px; }
+      #hero { padding: 72px 0 14px; }
       .fit-grid { grid-template-columns: 1fr; }
       .steps { grid-template-columns: 1fr; }
       .nav-phone { display: none; }
-      .hero-title { font-size: 34px; }
+      .hero-title { font-size: 28px; }
+      .hero-sub { font-size: 14px; }
       .section-header { margin-bottom: 40px; }
-      #fit, #how, #team, #services, #results, #faq { padding: 72px 0; }
+      #fit, #how, #services, #results, #faq { padding: 72px 0; }
+      #team { padding: 48px 0 40px; }
       #cta { padding: 80px 0; }
-      .team-gallery { grid-template-columns: 1fr; }
-      .team-shot,
-      .team-shot-lg,
-      .team-shot-tall,
-      .team-shot-wide { grid-column: auto; min-height: 240px; }
-      .team-shot img,
-      .team-shot-lg img,
-      .team-shot-tall img,
-      .team-shot-wide img { min-height: 240px; }
+      .logo-marquee-section { padding: 14px 0 16px; }
+      .logos-track img { height: 28px; }
+      .team-card { width: 132px; border-radius: 14px; }
+      .team-card div { padding: 10px; }
+      .team-card strong { font-size: 12px; }
+      .team-card em { font-size: 9px; }
+      .team-scroll::before,
+      .team-scroll::after { width: 24px; }
+      .team-track { gap: 10px; animation-duration: 32s; }
     }
   </style>
 </head>
@@ -642,6 +691,7 @@
     </div>
   </nav>
 
+  <div class="fold">
   <!-- HERO -->
   <section id="hero">
     <div class="container">
@@ -681,6 +731,7 @@
   </section>
 
   <!-- TRUSTED BY -->
+  <!-- TRUSTED BY -->
   <div class="logo-marquee-section" id="logo-marquee">
     <div class="logo-label">Trusted by</div>
     <div class="logos-track">
@@ -702,6 +753,7 @@
       <img src="https://brandastic.com/wp-content/uploads/2026/05/Kia-Logo-1.svg" style="width:60px; height:auto; flex-shrink:0;" alt="KIA" aria-hidden="true" />
     </div>
   </div>
+  </div><!-- /.fold -->
 
   <!-- FIT -->
   <section id="fit">
@@ -772,70 +824,32 @@
 
   <div class="section-divider"></div>
 
-  <!-- TEAM -->
+  <!-- YOUR EXECUTION TEAM -->
   <section id="team">
     <div class="container">
       <div class="section-header fade-up">
-        <span class="section-eyebrow">The Team Behind It</span>
-        <h2 class="section-title">Not one hire. A full marketing bench.</h2>
-        <p class="section-subtitle">Your Fractional CMO leads the strategy. Brandastic's specialists handle the work across paid media, creative, web, SEO, and analytics.</p>
+        <span class="section-eyebrow">Your Execution Team</span>
+        <h2 class="section-title">Operators in the room.</h2>
+        <p class="section-subtitle">Your Fractional CMO leads the strategy. Brandastic's specialists handle paid media, creative, web, SEO, and analytics — most of us work together in Costa Mesa so nothing dies in handoffs.</p>
       </div>
-      <div class="team-gallery">
-        <div class="team-shot team-shot-lg fade-up delay-1">
-          <img src="images/team/C_DSC03021_Edited.jpg" alt="Brandastic team collaborating in the office" loading="lazy" />
-          <div class="team-shot-caption">
-            <strong>Full-team collaboration</strong>
-            <span>Strategy, creative, and execution working side by side</span>
-          </div>
-        </div>
-        <div class="team-shot team-shot-tall fade-up delay-2">
-          <img src="cmo-meeting.jpg" alt="Brandastic team meeting in the conference room" loading="lazy" />
-          <div class="team-shot-caption">
-            <strong>Weekly planning</strong>
-            <span>Priorities, campaigns, and accountability</span>
-          </div>
-        </div>
-        <div class="team-shot fade-up delay-2">
-          <img src="images/team/DSC02924.jpg" alt="Brandastic specialists working together" loading="lazy" />
-          <div class="team-shot-caption">
-            <strong>Specialist bench</strong>
-            <span>Paid, SEO, creative, and web under one roof</span>
-          </div>
-        </div>
-        <div class="team-shot fade-up delay-3">
-          <img src="images/team/DSC02928.jpg" alt="Brandastic team working across desks" loading="lazy" />
-          <div class="team-shot-caption">
-            <strong>In-house execution</strong>
-            <span>Designers, developers, and marketers on deck</span>
-          </div>
-        </div>
-        <div class="team-shot fade-up delay-3">
-          <img src="images/team/DSC02965.jpg" alt="Brandastic team collaboration" loading="lazy" />
-          <div class="team-shot-caption">
-            <strong>Always-on support</strong>
-            <span>A real team behind every Fractional CMO engagement</span>
-          </div>
-        </div>
-        <div class="team-shot team-shot-wide fade-up delay-4">
-          <img src="cmo-team.jpg" alt="Brandastic leadership team" loading="lazy" />
-          <div class="team-shot-caption">
-            <strong>Leadership + strategy</strong>
-            <span>Senior operators steering the roadmap</span>
-          </div>
-        </div>
-        <div class="team-shot fade-up delay-4">
-          <img src="images/team-meeting.jpg" alt="Brandastic strategy session at the whiteboard" loading="lazy" />
-          <div class="team-shot-caption">
-            <strong>Strategy that ships</strong>
-            <span>Roadmaps, creative direction, and channel plans</span>
-          </div>
-        </div>
-        <div class="team-shot team-shot-wide fade-up delay-4">
-          <img src="images/office.jpg" alt="Brandastic office culture" loading="lazy" />
-          <div class="team-shot-caption">
-            <strong>Built for momentum</strong>
-            <span>One roof. One plan. Full-service delivery.</span>
-          </div>
+      <div class="team-scroll fade-up delay-1" id="team-scroll" aria-label="Brandastic execution team">
+        <div class="team-track">
+          <div class="team-card"><img src="https://brandastic.com/wp-content/uploads/2024/12/Melissa-01_editedBW-1@2x.png" alt="Melissa Hatch" loading="lazy"><div><strong>Melissa Hatch</strong><em>Director of Marketing</em></div></div>
+          <div class="team-card"><img src="https://brandastic.com/wp-content/uploads/2024/12/Sandy-28_portraitBW-2@2x.png" alt="Sandy Ortiz" loading="lazy"><div><strong>Sandy Ortiz</strong><em>Director of Operations</em></div></div>
+          <div class="team-card"><img src="https://brandastic.com/wp-content/uploads/2024/12/Maxwell-Gilbert.png" alt="Maxwell Gilbert" loading="lazy"><div><strong>Maxwell Gilbert</strong><em>Creative Marketing</em></div></div>
+          <div class="team-card"><img src="https://brandastic.com/wp-content/uploads/2024/12/Stacy-27_BW-1@2x.png" alt="Stacy" loading="lazy"><div><strong>Stacy</strong><em>Creative Marketing Manager</em></div></div>
+          <div class="team-card"><img src="https://brandastic.com/wp-content/uploads/2024/12/Megan-Hahn.png" alt="Megan Hahn" loading="lazy"><div><strong>Megan Hahn</strong><em>Lead Creative Manager</em></div></div>
+          <div class="team-card"><img src="https://brandastic.com/wp-content/uploads/2024/12/Aimee-03_portraitBW@2x.png" alt="Aimee" loading="lazy"><div><strong>Aimee</strong><em>Marketing Account Specialist</em></div></div>
+          <div class="team-card"><img src="https://brandastic.com/wp-content/uploads/2024/12/Erin-Clancy.png" alt="Erin Clancy" loading="lazy"><div><strong>Erin Clancy</strong><em>Executive Assistant</em></div></div>
+
+          <!-- duplicate set for seamless loop -->
+          <div class="team-card" aria-hidden="true"><img src="https://brandastic.com/wp-content/uploads/2024/12/Melissa-01_editedBW-1@2x.png" alt="" loading="lazy"><div><strong>Melissa Hatch</strong><em>Director of Marketing</em></div></div>
+          <div class="team-card" aria-hidden="true"><img src="https://brandastic.com/wp-content/uploads/2024/12/Sandy-28_portraitBW-2@2x.png" alt="" loading="lazy"><div><strong>Sandy Ortiz</strong><em>Director of Operations</em></div></div>
+          <div class="team-card" aria-hidden="true"><img src="https://brandastic.com/wp-content/uploads/2024/12/Maxwell-Gilbert.png" alt="" loading="lazy"><div><strong>Maxwell Gilbert</strong><em>Creative Marketing</em></div></div>
+          <div class="team-card" aria-hidden="true"><img src="https://brandastic.com/wp-content/uploads/2024/12/Stacy-27_BW-1@2x.png" alt="" loading="lazy"><div><strong>Stacy</strong><em>Creative Marketing Manager</em></div></div>
+          <div class="team-card" aria-hidden="true"><img src="https://brandastic.com/wp-content/uploads/2024/12/Megan-Hahn.png" alt="" loading="lazy"><div><strong>Megan Hahn</strong><em>Lead Creative Manager</em></div></div>
+          <div class="team-card" aria-hidden="true"><img src="https://brandastic.com/wp-content/uploads/2024/12/Aimee-03_portraitBW@2x.png" alt="" loading="lazy"><div><strong>Aimee</strong><em>Marketing Account Specialist</em></div></div>
+          <div class="team-card" aria-hidden="true"><img src="https://brandastic.com/wp-content/uploads/2024/12/Erin-Clancy.png" alt="" loading="lazy"><div><strong>Erin Clancy</strong><em>Executive Assistant</em></div></div>
         </div>
       </div>
     </div>
