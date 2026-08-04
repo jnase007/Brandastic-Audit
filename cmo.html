@@ -370,15 +370,21 @@
       display: grid;
       grid-template-columns: minmax(0, 1fr) minmax(0, 2fr);
       gap: 48px 56px;
-      align-items: start;
+      align-items: stretch; /* left photo bottom aligns with right accordion */
     }
     .fit-intro {
       position: sticky;
       top: 96px;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      min-height: 100%;
+      align-self: stretch;
     }
     .fit-intro .section-header {
       text-align: left;
       margin-bottom: 0;
+      flex: 0 0 auto;
     }
     .fit-intro .section-title {
       max-width: 11.5ch; /* keep "Fit If" together — avoid orphaned If */
@@ -395,12 +401,13 @@
       content: ''; width: 28px; height: 1px;
       background: linear-gradient(90deg, var(--gold), transparent);
     }
-    /* Conference photo under Fit left title — balances accordion column */
+    /* Conference photo fills remaining left height so bottom matches right column */
     .fit-photo {
       margin-top: 28px;
       width: 100%;
-      aspect-ratio: 4 / 5;
-      max-height: 360px;
+      flex: 1 1 auto;
+      min-height: 220px;
+      /* no fixed aspect — stretch to match accordion bottom */
       border-radius: var(--radius-lg);
       overflow: hidden;
       background: #111;
@@ -416,6 +423,8 @@
       display: flex;
       flex-direction: column;
       gap: 12px;
+      align-self: stretch;
+      height: 100%;
     }
     .fit-item {
       background: rgba(255,255,255,0.95);
@@ -474,13 +483,15 @@
       padding: 100px 0;
       background: var(--bg);
     }
-    /* Tabs left + content right */
+    /* Tabs left + content right — tight gap, no dead middle */
     .how-layout {
       display: grid;
-      grid-template-columns: minmax(240px, 0.9fr) minmax(0, 1.4fr);
-      gap: 28px 48px;
+      grid-template-columns: minmax(200px, 260px) minmax(0, 1fr);
+      gap: 12px 28px;
       align-items: start;
+      max-width: 920px;
     }
+    #how .section-header { max-width: 920px; }
     .how-tabs {
       position: relative;
       display: flex;
@@ -554,12 +565,22 @@
       background: transparent;
       border: 0;
       border-radius: 0;
-      padding: 4px 0 0 24px;
+      padding: 12px 0 0 8px;
       box-shadow: none;
-      min-height: 0;
+      min-height: 140px;
       display: flex;
       flex-direction: column;
       justify-content: flex-start;
+    }
+    .how-panel.is-fading {
+      opacity: 0;
+      transform: translateY(6px);
+      transition: opacity 0.18s ease, transform 0.18s ease;
+    }
+    .how-panel.is-shown {
+      opacity: 1;
+      transform: translateY(0);
+      transition: opacity 0.22s ease, transform 0.22s ease;
     }
     .how-panel .panel-num {
       font-family: "forma-djr-text", "Forma DJR Text", 'Inter', system-ui, sans-serif;
@@ -597,10 +618,14 @@
       margin: 28px auto 12px;
       text-align: center;
       font-size: 17px;
-      line-height: 1.7;
+      line-height: 1.55;
       color: var(--text-dim);
       font-weight: 400;
-      max-width: 640px;
+      max-width: 720px; /* wide enough for 2 lines, not 3 */
+    }
+    .service-intro .line { display: block; white-space: nowrap; }
+    @media (max-width: 700px) {
+      .service-intro .line { white-space: normal; }
     }
     .service-pipes {
       margin-top: 0;
@@ -922,9 +947,10 @@
         height: 100%;
         object-fit: cover;
       }
-      .how-layout { grid-template-columns: 1fr; gap: 20px; }
-      .how-panel { padding: 4px 0 0 22px; }
-      .fit-photo { margin-top: 22px; max-height: 280px; }
+      .how-layout { grid-template-columns: 1fr; gap: 16px; max-width: none; }
+      .how-panel { padding: 8px 0 0 0; min-height: 0; }
+      .fit-intro { position: static; height: auto; }
+      .fit-photo { margin-top: 22px; min-height: 220px; max-height: 280px; flex: 0 0 auto; }
       .results-grid { grid-template-columns: 1fr; }
       .faq-list { grid-template-columns: 1fr; max-width: 780px; }
       .result-card { min-height: 0; }
@@ -1130,7 +1156,7 @@
           <div class="team-card" aria-hidden="true"><img src="https://brandastic.com/wp-content/uploads/2024/12/Erin-Clancy.png" alt="" loading="lazy"><div><strong>Erin Clancy</strong><em>Executive Assistant</em></div></div>
         </div>
       </div>
-      <p class="service-intro fade-up delay-2">The strategy and roadmap your Fractional CMO builds is completely bespoke to your business.<br />Depending on your goals, it could pull from any of these:</p>
+      <p class="service-intro fade-up delay-2"><span class="line">The strategy and roadmap your Fractional CMO builds is completely bespoke to your business.</span><span class="line">Depending on your goals, it could pull from any of these:</span></p>
       <p class="service-pipes fade-up delay-2">
         <strong>Paid Media</strong><span class="pipe">|</span><strong>SEO</strong><span class="pipe">|</span><strong>AEO</strong><span class="pipe">|</span><strong>Design</strong><span class="pipe">|</span><strong>Development</strong><span class="pipe">|</span><strong>Copywriting</strong><span class="pipe">|</span><strong>Branding</strong><span class="pipe">|</span><strong>Analytics</strong><span class="pipe">|</span><strong>Website Development</strong><span class="pipe">|</span><strong>Email Marketing</strong><span class="pipe">|</span><strong>Organic Social</strong><span class="pipe">|</span><strong>AI Advertising</strong>
       </p>
@@ -1259,6 +1285,37 @@
 
   <script>
     document.getElementById('y').textContent = new Date().getFullYear();
+
+    // Fit photo bottom-aligns with right accordion column
+    (function syncFitPhoto() {
+      const layout = document.querySelector('.fit-layout');
+      const intro = document.querySelector('.fit-intro');
+      const photo = document.querySelector('.fit-photo');
+      const acc = document.querySelector('.fit-acc');
+      if (!layout || !intro || !photo || !acc) return;
+      const run = () => {
+        if (window.matchMedia('(max-width: 700px)').matches) {
+          photo.style.height = '';
+          return;
+        }
+        const header = intro.querySelector('.section-header');
+        const headerH = header ? header.getBoundingClientRect().height : 0;
+        const styles = getComputedStyle(photo);
+        const mt = parseFloat(styles.marginTop) || 0;
+        const accH = acc.getBoundingClientRect().height;
+        const h = Math.max(180, Math.round(accH - headerH - mt));
+        photo.style.height = h + 'px';
+      };
+      run();
+      window.addEventListener('resize', run);
+      if (window.ResizeObserver) {
+        const ro = new ResizeObserver(run);
+        ro.observe(acc);
+        ro.observe(intro);
+      }
+      // accordion open/close can change height
+      acc.querySelectorAll('details').forEach((d) => d.addEventListener('toggle', run));
+    })();
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((e) => {
         if (e.isIntersecting) {
@@ -1309,21 +1366,72 @@
     const howNum = document.getElementById('howPanelNum');
     const howTitle = document.getElementById('howPanelTitle');
     const howBody = document.getElementById('howPanelBody');
-    howTabs.forEach((tab) => {
-      tab.addEventListener('click', () => {
-        const i = Number(tab.getAttribute('data-step') || 0);
-        const step = howSteps[i];
-        if (!step) return;
-        howTabs.forEach((t) => {
-          const on = t === tab;
-          t.classList.toggle('active', on);
-          t.setAttribute('aria-selected', on ? 'true' : 'false');
-        });
+    const howPanel = document.getElementById('howPanel');
+    const howSection = document.getElementById('how');
+    let howActive = 0;
+    let howScrollLock = false;
+
+    function setHowStep(i, { fromScroll = false } = {}) {
+      const step = howSteps[i];
+      if (!step || !howNum || !howTitle || !howBody) return;
+      if (i === howActive && howPanel && howPanel.dataset.ready === '1') return;
+      howActive = i;
+      howTabs.forEach((t) => {
+        const on = Number(t.getAttribute('data-step') || 0) === i;
+        t.classList.toggle('active', on);
+        t.setAttribute('aria-selected', on ? 'true' : 'false');
+      });
+      const apply = () => {
         howNum.textContent = step.num;
         howTitle.textContent = step.title;
         howBody.textContent = step.body;
+        if (howPanel) {
+          howPanel.classList.remove('is-fading');
+          howPanel.classList.add('is-shown');
+          howPanel.dataset.ready = '1';
+        }
+      };
+      if (howPanel && howPanel.dataset.ready === '1') {
+        howPanel.classList.add('is-fading');
+        howPanel.classList.remove('is-shown');
+        window.setTimeout(apply, 160);
+      } else {
+        apply();
+      }
+      if (!fromScroll) howScrollLock = true;
+    }
+
+    howTabs.forEach((tab) => {
+      tab.addEventListener('click', () => {
+        const i = Number(tab.getAttribute('data-step') || 0);
+        setHowStep(i);
       });
     });
+
+    // Scroll-driven step progression through How It Works
+    function updateHowFromScroll() {
+      if (!howSection || howScrollLock) return;
+      const rect = howSection.getBoundingClientRect();
+      const vh = window.innerHeight || 800;
+      // progress 0→1 while section travels through viewport
+      const start = vh * 0.35;
+      const end = -rect.height + vh * 0.45;
+      const raw = (start - rect.top) / (start - end || 1);
+      const p = Math.max(0, Math.min(1, raw));
+      const i = Math.min(howSteps.length - 1, Math.floor(p * howSteps.length));
+      setHowStep(i, { fromScroll: true });
+    }
+    let howRaf = 0;
+    window.addEventListener('scroll', () => {
+      if (howRaf) return;
+      howRaf = requestAnimationFrame(() => {
+        howRaf = 0;
+        // release click lock after user scrolls again
+        if (howScrollLock) howScrollLock = false;
+        updateHowFromScroll();
+      });
+    }, { passive: true });
+    updateHowFromScroll();
   </script>
 </body>
 </html>
