@@ -368,7 +368,11 @@
       margin-bottom: 0;
     }
     .fit-intro .section-title {
-      max-width: 14ch;
+      max-width: 11.5ch; /* keep "Fit If" together — avoid orphaned If */
+      white-space: normal;
+    }
+    .fit-intro .section-title .nb {
+      white-space: nowrap;
     }
     .fit-intro .section-eyebrow {
       justify-content: flex-start;
@@ -964,7 +968,7 @@
         <div class="fit-intro">
           <div class="section-header">
             <span class="section-eyebrow">Is This For You?</span>
-            <h2 class="section-title">Our Fractional CMO Is a Good Fit If</h2>
+            <h2 class="section-title">Our Fractional CMO Is a Good<br /><span class="nb">Fit If</span></h2>
           </div>
         </div>
         <div class="fit-acc">
