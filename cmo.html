@@ -218,7 +218,7 @@
       border: 1px solid rgba(185,138,25,0.18);
     }
     .hero-visual img {
-      width: 100%; aspect-ratio: 4/5; object-fit: cover; object-position: center top;
+      width: 100%; aspect-ratio: 4/3; object-fit: cover; object-position: center center;
     }
     .hero-visual-caption {
       position: absolute; left: 14px; right: 14px; bottom: 14px;
@@ -229,12 +229,12 @@
     .hero-visual-caption strong { display: block; font-size: 14px; margin-bottom: 2px; }
     .hero-visual-caption span { color: rgba(255,255,255,0.82); }
 
-    /* LOGO MARQUEE */
+    /* LOGO MARQUEE — matched to justin.brandastic.com */
     .logo-marquee-section {
       background: #f0f1f3;
       border-top: 1px solid #e5e7eb;
       border-bottom: 1px solid #e5e7eb;
-      padding: 28px 0 22px;
+      padding: 36px 0;
       overflow: hidden;
       position: relative;
     }
@@ -245,17 +245,35 @@
     }
     .logo-marquee-section::before,
     .logo-marquee-section::after {
-      content: ''; position: absolute; top: 0; bottom: 0; width: 80px; z-index: 2; pointer-events: none;
+      content: '';
+      position: absolute;
+      top: 0; bottom: 0;
+      width: 100px;
+      z-index: 2;
+      pointer-events: none;
     }
     .logo-marquee-section::before { left: 0; background: linear-gradient(to right, #f0f1f3, transparent); }
     .logo-marquee-section::after { right: 0; background: linear-gradient(to left, #f0f1f3, transparent); }
     .logos-track {
-      display: flex; align-items: center; gap: 72px; width: max-content;
+      display: flex;
+      align-items: center;
+      gap: 80px;
+      width: max-content;
       animation: marquee 32s linear infinite;
     }
     .logos-track img {
-      height: 36px; width: auto; flex-shrink: 0; object-fit: contain;
+      height: 40px;
+      width: auto;
+      flex-shrink: 0;
+      object-fit: contain;
+      /* Force dark monochrome so light/white logos stay visible on light bg */
       filter: brightness(0) opacity(0.55);
+      transition: filter 0.3s ease, transform 0.3s ease;
+      display: block;
+    }
+    .logos-track img:hover {
+      filter: brightness(0) opacity(0.8);
+      transform: scale(1.04);
     }
 
     /* SECTION HEADERS */
@@ -342,6 +360,69 @@
       letter-spacing: -0.015em; line-height: 1.3;
     }
     .step p { font-size: 13.5px; color: var(--text-dim); line-height: 1.65; }
+
+    /* TEAM GALLERY */
+    #team {
+      padding: 100px 0;
+      background: var(--bg-alt);
+    }
+    .team-gallery {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 14px;
+    }
+    .team-shot {
+      position: relative;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow-card);
+      background: #ddd;
+      min-height: 240px;
+      grid-column: span 4;
+    }
+    .team-shot img {
+      width: 100%;
+      height: 100%;
+      min-height: 240px;
+      object-fit: cover;
+      object-position: center center;
+      display: block;
+      transition: transform 0.5s ease;
+    }
+    .team-shot:hover img { transform: scale(1.04); }
+    .team-shot-lg {
+      grid-column: span 8;
+      min-height: 420px;
+    }
+    .team-shot-lg img { min-height: 420px; }
+    .team-shot-tall {
+      grid-column: span 4;
+      min-height: 420px;
+    }
+    .team-shot-tall img { min-height: 420px; object-position: center top; }
+    .team-shot-wide {
+      grid-column: span 8;
+      min-height: 260px;
+    }
+    .team-shot-wide img { min-height: 260px; }
+    .team-shot-caption {
+      position: absolute;
+      left: 12px; right: 12px; bottom: 12px;
+      background: rgba(17,17,17,0.72);
+      color: #fff;
+      backdrop-filter: blur(8px);
+      border-radius: 10px;
+      padding: 10px 12px;
+      font-size: 12px;
+      line-height: 1.35;
+    }
+    .team-shot-caption strong {
+      display: block;
+      font-size: 13px;
+      margin-bottom: 2px;
+    }
+    .team-shot-caption span { color: rgba(255,255,255,0.8); }
 
     /* BUILT AROUND YOU */
     #services {
@@ -516,6 +597,14 @@
       .hero-visual { max-width: 420px; margin: 0 auto; order: -1; }
       .steps { grid-template-columns: repeat(2, 1fr); }
       .results-grid { grid-template-columns: 1fr; }
+      .team-gallery { grid-template-columns: repeat(6, 1fr); }
+      .team-shot { grid-column: span 3; }
+      .team-shot-lg,
+      .team-shot-wide { grid-column: span 6; min-height: 280px; }
+      .team-shot-lg img,
+      .team-shot-wide img { min-height: 280px; }
+      .team-shot-tall { grid-column: span 3; min-height: 280px; }
+      .team-shot-tall img { min-height: 280px; }
     }
     @media (max-width: 700px) {
       #hero { padding: 120px 0 70px; }
@@ -524,8 +613,17 @@
       .nav-phone { display: none; }
       .hero-title { font-size: 34px; }
       .section-header { margin-bottom: 40px; }
-      #fit, #how, #services, #results, #faq { padding: 72px 0; }
+      #fit, #how, #team, #services, #results, #faq { padding: 72px 0; }
       #cta { padding: 80px 0; }
+      .team-gallery { grid-template-columns: 1fr; }
+      .team-shot,
+      .team-shot-lg,
+      .team-shot-tall,
+      .team-shot-wide { grid-column: auto; min-height: 240px; }
+      .team-shot img,
+      .team-shot-lg img,
+      .team-shot-tall img,
+      .team-shot-wide img { min-height: 240px; }
     }
   </style>
 </head>
@@ -572,10 +670,10 @@
           </div>
         </div>
         <div class="hero-visual fade-up delay-2">
-          <img src="justin-headshot.jpg" alt="Justin Nassie, Fractional CMO at Brandastic" />
+          <img src="images/team/C_DSC03021_Edited.jpg" alt="Brandastic fractional CMO team at work" />
           <div class="hero-visual-caption">
-            <strong>Justin Nassie</strong>
-            <span>Founder & Fractional CMO · Brandastic</span>
+            <strong>Brandastic Team</strong>
+            <span>Fractional CMO leadership + specialist bench</span>
           </div>
         </div>
       </div>
@@ -583,25 +681,25 @@
   </section>
 
   <!-- TRUSTED BY -->
-  <div class="logo-marquee-section">
+  <div class="logo-marquee-section" id="logo-marquee">
     <div class="logo-label">Trusted by</div>
     <div class="logos-track">
-      <img src="https://brandastic.com/wp-content/uploads/2026/05/ricoh-logo.svg" style="width:100px;" alt="RICOH" />
-      <img src="https://brandastic.com/wp-content/uploads/2026/05/usc-logo.svg" style="width:70px;" alt="USC" />
-      <img src="https://brandastic.com/wp-content/uploads/2026/05/ufc-gym-logo.svg" style="width:120px;" alt="UFC Gym" />
-      <img src="https://brandastic.com/wp-content/uploads/2026/05/Orangetheory-Fitness-Logo-1.svg" style="width:160px;" alt="Orangetheory" />
-      <img src="https://brandastic.com/wp-content/uploads/2026/05/hyperx-logo.svg" style="width:120px;" alt="HyperX" />
-      <img src="https://brandastic.com/wp-content/uploads/2026/05/fujifilm-seeklogo.svg" style="width:100px;" alt="Fujifilm" />
-      <img src="https://brandastic.com/wp-content/uploads/2026/05/Pocky-Logo-1.svg" style="width:70px;" alt="Pocky" />
-      <img src="https://brandastic.com/wp-content/uploads/2026/05/Kia-Logo-1.svg" style="width:60px;" alt="KIA" />
-      <img src="https://brandastic.com/wp-content/uploads/2026/05/ricoh-logo.svg" style="width:100px;" alt="" aria-hidden="true" />
-      <img src="https://brandastic.com/wp-content/uploads/2026/05/usc-logo.svg" style="width:70px;" alt="" aria-hidden="true" />
-      <img src="https://brandastic.com/wp-content/uploads/2026/05/ufc-gym-logo.svg" style="width:120px;" alt="" aria-hidden="true" />
-      <img src="https://brandastic.com/wp-content/uploads/2026/05/Orangetheory-Fitness-Logo-1.svg" style="width:160px;" alt="" aria-hidden="true" />
-      <img src="https://brandastic.com/wp-content/uploads/2026/05/hyperx-logo.svg" style="width:120px;" alt="" aria-hidden="true" />
-      <img src="https://brandastic.com/wp-content/uploads/2026/05/fujifilm-seeklogo.svg" style="width:100px;" alt="" aria-hidden="true" />
-      <img src="https://brandastic.com/wp-content/uploads/2026/05/Pocky-Logo-1.svg" style="width:70px;" alt="" aria-hidden="true" />
-      <img src="https://brandastic.com/wp-content/uploads/2026/05/Kia-Logo-1.svg" style="width:60px;" alt="" aria-hidden="true" />
+      <img src="https://brandastic.com/wp-content/uploads/2026/05/ricoh-logo.svg" style="width:100px; height:auto; flex-shrink:0;" alt="RICOH" />
+      <img src="https://brandastic.com/wp-content/uploads/2026/05/usc-logo.svg" style="width:70px; height:auto; flex-shrink:0;" alt="USC" />
+      <img src="https://brandastic.com/wp-content/uploads/2026/05/ufc-gym-logo.svg" style="width:120px; height:auto; flex-shrink:0;" alt="UFC Gym" />
+      <img src="https://brandastic.com/wp-content/uploads/2026/05/Orangetheory-Fitness-Logo-1.svg" style="width:160px; height:auto; flex-shrink:0;" alt="Orangetheory" />
+      <img src="https://brandastic.com/wp-content/uploads/2026/05/hyperx-logo.svg" style="width:120px; height:auto; flex-shrink:0;" alt="HyperX" />
+      <img src="https://brandastic.com/wp-content/uploads/2026/05/fujifilm-seeklogo.svg" style="width:100px; height:auto; flex-shrink:0;" alt="Fujifilm" />
+      <img src="https://brandastic.com/wp-content/uploads/2026/05/Pocky-Logo-1.svg" style="width:70px; height:auto; flex-shrink:0;" alt="Pocky" />
+      <img src="https://brandastic.com/wp-content/uploads/2026/05/Kia-Logo-1.svg" style="width:60px; height:auto; flex-shrink:0;" alt="KIA" />
+      <img src="https://brandastic.com/wp-content/uploads/2026/05/ricoh-logo.svg" style="width:100px; height:auto; flex-shrink:0;" alt="RICOH" aria-hidden="true" />
+      <img src="https://brandastic.com/wp-content/uploads/2026/05/usc-logo.svg" style="width:70px; height:auto; flex-shrink:0;" alt="USC" aria-hidden="true" />
+      <img src="https://brandastic.com/wp-content/uploads/2026/05/ufc-gym-logo.svg" style="width:120px; height:auto; flex-shrink:0;" alt="UFC Gym" aria-hidden="true" />
+      <img src="https://brandastic.com/wp-content/uploads/2026/05/Orangetheory-Fitness-Logo-1.svg" style="width:160px; height:auto; flex-shrink:0;" alt="Orangetheory" aria-hidden="true" />
+      <img src="https://brandastic.com/wp-content/uploads/2026/05/hyperx-logo.svg" style="width:120px; height:auto; flex-shrink:0;" alt="HyperX" aria-hidden="true" />
+      <img src="https://brandastic.com/wp-content/uploads/2026/05/fujifilm-seeklogo.svg" style="width:100px; height:auto; flex-shrink:0;" alt="Fujifilm" aria-hidden="true" />
+      <img src="https://brandastic.com/wp-content/uploads/2026/05/Pocky-Logo-1.svg" style="width:70px; height:auto; flex-shrink:0;" alt="Pocky" aria-hidden="true" />
+      <img src="https://brandastic.com/wp-content/uploads/2026/05/Kia-Logo-1.svg" style="width:60px; height:auto; flex-shrink:0;" alt="KIA" aria-hidden="true" />
     </div>
   </div>
 
@@ -667,6 +765,77 @@
           <div class="step-num">05</div>
           <h3>Evolve and Grow</h3>
           <p>As your business changes, your strategy evolves with it. Your CMO keeps working alongside your leadership to find new opportunities and keep marketing aligned with where you're headed.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <!-- TEAM -->
+  <section id="team">
+    <div class="container">
+      <div class="section-header fade-up">
+        <span class="section-eyebrow">The Team Behind It</span>
+        <h2 class="section-title">Not one hire. A full marketing bench.</h2>
+        <p class="section-subtitle">Your Fractional CMO leads the strategy. Brandastic's specialists handle the work across paid media, creative, web, SEO, and analytics.</p>
+      </div>
+      <div class="team-gallery">
+        <div class="team-shot team-shot-lg fade-up delay-1">
+          <img src="images/team/C_DSC03021_Edited.jpg" alt="Brandastic team collaborating in the office" loading="lazy" />
+          <div class="team-shot-caption">
+            <strong>Full-team collaboration</strong>
+            <span>Strategy, creative, and execution working side by side</span>
+          </div>
+        </div>
+        <div class="team-shot team-shot-tall fade-up delay-2">
+          <img src="cmo-meeting.jpg" alt="Brandastic team meeting in the conference room" loading="lazy" />
+          <div class="team-shot-caption">
+            <strong>Weekly planning</strong>
+            <span>Priorities, campaigns, and accountability</span>
+          </div>
+        </div>
+        <div class="team-shot fade-up delay-2">
+          <img src="images/team/DSC02924.jpg" alt="Brandastic specialists working together" loading="lazy" />
+          <div class="team-shot-caption">
+            <strong>Specialist bench</strong>
+            <span>Paid, SEO, creative, and web under one roof</span>
+          </div>
+        </div>
+        <div class="team-shot fade-up delay-3">
+          <img src="images/team/DSC02928.jpg" alt="Brandastic team working across desks" loading="lazy" />
+          <div class="team-shot-caption">
+            <strong>In-house execution</strong>
+            <span>Designers, developers, and marketers on deck</span>
+          </div>
+        </div>
+        <div class="team-shot fade-up delay-3">
+          <img src="images/team/DSC02965.jpg" alt="Brandastic team collaboration" loading="lazy" />
+          <div class="team-shot-caption">
+            <strong>Always-on support</strong>
+            <span>A real team behind every Fractional CMO engagement</span>
+          </div>
+        </div>
+        <div class="team-shot team-shot-wide fade-up delay-4">
+          <img src="cmo-team.jpg" alt="Brandastic leadership team" loading="lazy" />
+          <div class="team-shot-caption">
+            <strong>Leadership + strategy</strong>
+            <span>Senior operators steering the roadmap</span>
+          </div>
+        </div>
+        <div class="team-shot fade-up delay-4">
+          <img src="images/team-meeting.jpg" alt="Brandastic strategy session at the whiteboard" loading="lazy" />
+          <div class="team-shot-caption">
+            <strong>Strategy that ships</strong>
+            <span>Roadmaps, creative direction, and channel plans</span>
+          </div>
+        </div>
+        <div class="team-shot team-shot-wide fade-up delay-4">
+          <img src="images/office.jpg" alt="Brandastic office culture" loading="lazy" />
+          <div class="team-shot-caption">
+            <strong>Built for momentum</strong>
+            <span>One roof. One plan. Full-service delivery.</span>
+          </div>
         </div>
       </div>
     </div>
@@ -799,7 +968,7 @@
         <div class="footer-links">
           <a href="https://brandastic.com">Brandastic.com</a>
           <a href="https://brandastic.com/portfolio/">Portfolio</a>
-          <a href="https://justin.brandastic.com">Justin Nassie</a>
+          <a href="https://brandastic.com/contact/">Contact</a>
           <a href="tel:9496172731">949-617-2731</a>
         </div>
         <div class="footer-copy">© <span id="y"></span> Brandastic Inc. All rights reserved. · Preview staging page</div>
@@ -818,6 +987,14 @@
       });
     }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
     document.querySelectorAll('.fade-up').forEach((el) => observer.observe(el));
+
+    // Pause logo marquee on hover (same behavior as justin.brandastic.com)
+    const marqueeSection = document.getElementById('logo-marquee');
+    const track = marqueeSection ? marqueeSection.querySelector('.logos-track') : null;
+    if (track && marqueeSection) {
+      marqueeSection.addEventListener('mouseenter', () => { track.style.animationPlayState = 'paused'; });
+      marqueeSection.addEventListener('mouseleave', () => { track.style.animationPlayState = 'running'; });
+    }
   </script>
 </body>
 </html>
