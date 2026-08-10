@@ -664,32 +664,64 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           </div>
         </div>
         <div class="space-y-4 mb-8">
+          <div class="p-4 bg-teal-50 border border-teal-100 rounded-xl">
+            <p class="text-sm font-semibold text-teal-900">WordPress (most common)</p>
+            <p class="text-xs text-teal-800/80 mt-1">Create a real admin user for Brandastic — don't share your personal login.</p>
+          </div>
           <div class="flex items-start gap-3 p-4 bg-gray-50 rounded-xl">
             <span class="w-7 h-7 rounded-full bg-teal-100 text-teal-700 flex items-center justify-center text-xs font-bold flex-shrink-0 mt-0.5">a</span>
             <div>
-              <p class="text-sm font-medium text-gray-900">WordPress</p>
-              <p class="text-xs text-gray-500 mt-0.5">Create an <strong>Administrator</strong> account for <strong>seo@brandastic.com</strong> under Users → Add New</p>
+              <p class="text-sm font-medium text-gray-900">Log in to WordPress admin</p>
+              <p class="text-xs text-gray-500 mt-0.5">Go to <strong>yoursite.com/wp-admin</strong> (or your custom admin URL) and sign in with an account that can manage users</p>
             </div>
           </div>
           <div class="flex items-start gap-3 p-4 bg-gray-50 rounded-xl">
             <span class="w-7 h-7 rounded-full bg-teal-100 text-teal-700 flex items-center justify-center text-xs font-bold flex-shrink-0 mt-0.5">b</span>
             <div>
-              <p class="text-sm font-medium text-gray-900">Shopify</p>
-              <p class="text-xs text-gray-500 mt-0.5">Go to <strong>Settings → Users and Permissions → Add Staff</strong> → enter <strong>seo@brandastic.com</strong></p>
+              <p class="text-sm font-medium text-gray-900">Open Users → Add New</p>
+              <p class="text-xs text-gray-500 mt-0.5">In the left menu click <strong>Users</strong> → <strong>Add New User</strong> (or <strong>Add New</strong>)</p>
             </div>
           </div>
           <div class="flex items-start gap-3 p-4 bg-gray-50 rounded-xl">
             <span class="w-7 h-7 rounded-full bg-teal-100 text-teal-700 flex items-center justify-center text-xs font-bold flex-shrink-0 mt-0.5">c</span>
             <div>
-              <p class="text-sm font-medium text-gray-900">Other CMS (Wix, Squarespace, Webflow)</p>
-              <p class="text-xs text-gray-500 mt-0.5">Email us your platform and we'll send specific instructions</p>
+              <p class="text-sm font-medium text-gray-900">Create the Brandastic user</p>
+              <p class="text-xs text-gray-500 mt-0.5">Use these details:</p>
+              <ul class="text-xs text-gray-500 mt-2 space-y-1 list-disc pl-4">
+                <li><strong>Username:</strong> brandastic (or brandastic-seo)</li>
+                <li><strong>Email:</strong> <strong>seo@brandastic.com</strong></li>
+                <li><strong>Role:</strong> <strong>Administrator</strong></li>
+                <li>Check <strong>Send the new user an email about their account</strong> so we get the invite / password reset</li>
+              </ul>
+              <p class="text-xs text-gray-500 mt-2">Click <strong>Add New User</strong> / <strong>Add User</strong></p>
             </div>
           </div>
           <div class="flex items-start gap-3 p-4 bg-gray-50 rounded-xl">
             <span class="w-7 h-7 rounded-full bg-teal-100 text-teal-700 flex items-center justify-center text-xs font-bold flex-shrink-0 mt-0.5">d</span>
             <div>
+              <p class="text-sm font-medium text-gray-900">Confirm we can log in</p>
+              <p class="text-xs text-gray-500 mt-0.5">If your host uses extra security (Wordfence, 2FA, IP allowlists, custom login URL), whitelist <strong>seo@brandastic.com</strong> or email us the login URL + any extra steps so we can actually access the dashboard</p>
+            </div>
+          </div>
+          <div class="flex items-start gap-3 p-4 bg-gray-50 rounded-xl">
+            <span class="w-7 h-7 rounded-full bg-teal-100 text-teal-700 flex items-center justify-center text-xs font-bold flex-shrink-0 mt-0.5">e</span>
+            <div>
+              <p class="text-sm font-medium text-gray-900">Shopify (if not WordPress)</p>
+              <p class="text-xs text-gray-500 mt-0.5">Go to <strong>Settings → Users and permissions → Add staff</strong> → enter <strong>seo@brandastic.com</strong> → grant store permissions needed for theme / pages / apps / tracking</p>
+            </div>
+          </div>
+          <div class="flex items-start gap-3 p-4 bg-gray-50 rounded-xl">
+            <span class="w-7 h-7 rounded-full bg-teal-100 text-teal-700 flex items-center justify-center text-xs font-bold flex-shrink-0 mt-0.5">f</span>
+            <div>
+              <p class="text-sm font-medium text-gray-900">Other CMS (Wix, Squarespace, Webflow, custom)</p>
+              <p class="text-xs text-gray-500 mt-0.5">Email <strong>seo@brandastic.com</strong> your platform name and we'll send exact invite steps. Or invite <strong>seo@brandastic.com</strong> as an admin/editor from your site settings if the option is obvious</p>
+            </div>
+          </div>
+          <div class="flex items-start gap-3 p-4 bg-gray-50 rounded-xl">
+            <span class="w-7 h-7 rounded-full bg-teal-100 text-teal-700 flex items-center justify-center text-xs font-bold flex-shrink-0 mt-0.5">g</span>
+            <div>
               <p class="text-sm font-medium text-gray-900">Domain / DNS access (optional)</p>
-              <p class="text-xs text-gray-500 mt-0.5">Share domain registrar access (GoDaddy, Namecheap, Cloudflare) if we need to set up subdomains or verify ownership</p>
+              <p class="text-xs text-gray-500 mt-0.5">Share domain registrar access (GoDaddy, Namecheap, Cloudflare) only if we need subdomains, DNS records, or ownership verification</p>
             </div>
           </div>
         </div>
