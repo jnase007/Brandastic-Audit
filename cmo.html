@@ -69,8 +69,8 @@
       50% { box-shadow: 0 8px 30px rgba(185,138,25,0.45), 0 0 0 6px rgba(185,138,25,0.08); }
     }
     @keyframes marquee {
-      0% { transform: translateX(0); }
-      100% { transform: translateX(-50%); }
+      0% { transform: translate3d(0, 0, 0); }
+      100% { transform: translate3d(-50%, 0, 0); }
     }
     @keyframes teamScroll {
       0% { transform: translateX(0); }
@@ -342,7 +342,13 @@
       align-items: center;
       gap: 64px;
       width: max-content;
-      animation: marquee 32s linear infinite;
+      will-change: transform;
+      backface-visibility: hidden;
+      -webkit-backface-visibility: hidden;
+      animation: marquee 28s linear infinite;
+      -webkit-animation: marquee 28s linear infinite;
+      animation-play-state: running;
+      -webkit-animation-play-state: running;
     }
     .logos-track img {
       height: 36px;
@@ -759,6 +765,11 @@
     }
     @media (prefers-reduced-motion: reduce) {
       .team-track { animation: none; }
+      /* Keep logo strip moving lightly unless OS fully blocks animation */
+      .logos-track {
+        animation-duration: 48s !important;
+        -webkit-animation-duration: 48s !important;
+      }
     }
 
     /* BUILT AROUND YOU */
@@ -1026,7 +1037,14 @@
       #cta { padding: 72px 0; }
       .logo-marquee-section { padding: 18px 0 20px; }
       .logos-track img { height: 30px; }
-      .logos-track { gap: 48px; }
+      /* Mobile: keep scrolling — touch can sticky-pause hover handlers */
+      .logos-track {
+        gap: 48px;
+        animation: marquee 22s linear infinite !important;
+        -webkit-animation: marquee 22s linear infinite !important;
+        animation-play-state: running !important;
+        -webkit-animation-play-state: running !important;
+      }
       .service-intro {
         max-width: none;
         font-size: 15px;
@@ -1404,12 +1422,33 @@
     }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
     document.querySelectorAll('.fade-up').forEach((el) => observer.observe(el));
 
-    // Pause logo marquee on hover (same behavior as justin.brandastic.com)
+    // Pause logo marquee on true hover only (not touch — iOS sticky mouseenter freezes it)
     const marqueeSection = document.getElementById('logo-marquee');
     const track = marqueeSection ? marqueeSection.querySelector('.logos-track') : null;
     if (track && marqueeSection) {
-      marqueeSection.addEventListener('mouseenter', () => { track.style.animationPlayState = 'paused'; });
-      marqueeSection.addEventListener('mouseleave', () => { track.style.animationPlayState = 'running'; });
+      const canHover = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+      const setRunning = () => {
+        track.style.animationPlayState = 'running';
+        track.style.webkitAnimationPlayState = 'running';
+      };
+      setRunning();
+      if (canHover) {
+        marqueeSection.addEventListener('mouseenter', () => {
+          track.style.animationPlayState = 'paused';
+          track.style.webkitAnimationPlayState = 'paused';
+        });
+        marqueeSection.addEventListener('mouseleave', setRunning);
+      }
+      // If a prior touch left it paused, kick it whenever the strip is visible
+      document.addEventListener('visibilitychange', () => {
+        if (!document.hidden) setRunning();
+      });
+      window.addEventListener('pageshow', setRunning);
+      // Safety nudge for flaky mobile animation compositing
+      if (!canHover) {
+        setTimeout(setRunning, 250);
+        setTimeout(setRunning, 1200);
+      }
     }
 
     // How It Works tabs (comment #11)
