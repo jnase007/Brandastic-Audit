@@ -117,12 +117,11 @@
       flex: 0 1 auto;
       min-width: 0;
     }
-    /* Official Brandastic SVG wordmark (viewBox 240x21.74 ≈ 11:1 — correct proportions) */
-    .nav-brand img,
-    .nav-brand svg {
-      height: 22px;
+    /* Official Brandastic black wordmark (~10.8:1 — correct proportions on light nav) */
+    .nav-brand img {
+      height: 24px;
       width: auto;
-      max-width: min(168px, 42vw);
+      max-width: min(190px, 48vw);
       object-fit: contain;
       object-position: left center;
       display: block;
@@ -1008,8 +1007,7 @@
       /* Mobile nav = logo + Book only (phone was pushing CTA off-screen) */
       .nav-phone { display: none !important; }
       .nav-right { gap: 0; }
-      .nav-brand img,
-      .nav-brand svg {
+      .nav-brand img {
         height: 18px;
         max-width: min(140px, 48vw);
       }
@@ -1057,8 +1055,7 @@
     }
     @media (max-width: 380px) {
       .nav-cta { padding: 9px 12px; font-size: 12px; }
-      .nav-brand img,
-      .nav-brand svg { height: 16px; max-width: min(120px, 44vw); }
+      .nav-brand img { height: 16px; max-width: min(120px, 44vw); }
     }
   </style>
 </head>
@@ -1067,7 +1064,7 @@
   <nav>
     <div class="nav-inner">
       <a href="https://brandastic.com" class="nav-brand" aria-label="Brandastic home" target="_blank" rel="noopener noreferrer">
-        <img src="/assets/brandastic-logo.svg?v=3" alt="Brandastic" width="240" height="22" />
+        <img src="/assets/brandastic-logo-black.png?v=4" alt="Brandastic" width="908" height="84" />
       </a>
       <div class="nav-right">
         <a class="nav-phone" href="tel:9496172731" aria-label="Call 949-617-2731">Call 949-617-2731</a>
