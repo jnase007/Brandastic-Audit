@@ -274,3 +274,8 @@
   from = "/defy-creative"
   to = "/defy-creative-examples.html"
   status = 200
+
+[[redirects]]
+  from = "/comply-pitch-scripts"
+  to = "/comply-pitch-scripts.html"
+  status = 200
