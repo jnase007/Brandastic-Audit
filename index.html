@@ -62,7 +62,7 @@ a{color:var(--accent);text-decoration:none}
 .hero-copy h1{text-align:left;margin:0 0 1.5rem;max-width:none;font-size:clamp(3.1rem,5.8vw,5.1rem);margin-left:0;margin-right:0;line-height:1.02}
 .hero-copy .hero-lead{font-size:1.28rem;color:var(--text2);max-width:40rem;margin:0 0 1.5rem;line-height:1.7}
 .hero-copy .hero-proof{margin:0;font-size:1.14rem;color:var(--text2);font-weight:700;text-align:left;letter-spacing:0.02em}
-.hero-form{width:100%}
+.hero-form{width:100%;scroll-margin-top:84px}
 .hero-form .form-card{margin:0;max-width:none;height:100%;padding:1.55rem 1.6rem 1.45rem;text-align:left;display:flex;flex-direction:column;justify-content:space-between}
 .hero-form .form-card h2{font-size:1.38rem;text-align:left;margin-bottom:0.35rem}
 .hero-form .form-card > p{text-align:left;margin-bottom:0.9rem;font-size:0.8rem;line-height:1.5}
@@ -177,8 +177,15 @@ a{color:var(--accent);text-decoration:none}
   .nav-links{display:none}
   .nav-brand img{height:20px!important;display:block}
   .hero{padding:5rem 1.5rem 1.5rem;min-height:auto;justify-content:flex-start}
-  .hero-grid{grid-template-columns:1fr;gap:1.35rem}
+  .hero-grid{grid-template-columns:1fr;gap:1.35rem;align-items:start}
   .hero-copy h1{font-size:2.15rem}
+  html{scroll-padding-top:64px}
+  .hero-form{scroll-margin-top:72px;padding-bottom:96px}
+  .hero-form .form-card{height:auto;justify-content:flex-start}
+  .hero-form #auditForm{flex:none}
+  .hero-form .notes-field{flex:none}
+  .hero-form .notes-field textarea{min-height:88px;height:auto}
+  .hero-form .form-submit{margin-top:0.5rem}
   .hero-form .form-row{grid-template-columns:1fr}
   .hero iframe{width:400vw!important;height:200vh!important}
   .hero p{font-size:1rem}
@@ -1213,8 +1220,22 @@ window.addEventListener('scroll', function() {
 <style>
 #mobileCta{display:none;position:fixed;bottom:0;left:0;right:0;z-index:9999;background:linear-gradient(135deg,#40B4E5,#CC22FF);color:#fff;text-align:center;padding:16px;font-weight:700;font-size:1rem;font-family:'Inter',sans-serif;text-decoration:none;box-shadow:0 -4px 20px rgba(0,0,0,0.3)}
 @media(max-width:768px){#mobileCta{display:block}}
+#mobileCta.is-hidden{display:none!important}
 </style>
 <a href="#form" id="mobileCta">Start Your Audit →</a>
+<script>
+(function(){
+  var cta=document.getElementById('mobileCta');
+  var form=document.getElementById('form');
+  if(!cta||!form||!('IntersectionObserver' in window)) return;
+  var io=new IntersectionObserver(function(entries){
+    var e=entries[0];
+    if(e && e.isIntersecting && e.intersectionRatio>0.12){cta.classList.add('is-hidden');}
+    else {cta.classList.remove('is-hidden');}
+  },{threshold:[0,0.12,0.25,0.5]});
+  io.observe(form);
+})();
+</script>
 
 
 
