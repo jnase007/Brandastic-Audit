@@ -56,7 +56,7 @@ a{color:var(--accent);text-decoration:none}
 @keyframes pulse{0%,100%{opacity:1}50%{opacity:0.5}}
 .hero h1{font-size:clamp(2.5rem,7vw,5rem);font-weight:700;letter-spacing:-0.04em;line-height:1.05;margin-bottom:1.5rem;max-width:800px;text-align:center;margin-left:auto;margin-right:auto}
 
-.hero p{font-size:1.15rem;color:var(--text2);max-width:600px;margin-bottom:3rem;line-height:1.7}
+.hero p{font-size:1.15rem;color:var(--text2);max-width:600px;margin-bottom:0.8rem;line-height:1.7}
 .hero-grid{position:relative;z-index:2;width:100%;max-width:1180px;margin:0 auto;display:grid;grid-template-columns:minmax(0,1.08fr) minmax(340px,.9fr);gap:1.5rem 2.25rem;align-items:start}
 .hero-copy{text-align:left;padding-top:0.15rem}
 .hero-copy h1{text-align:left;margin:0 0 0.8rem;max-width:none;font-size:clamp(2.15rem,4.2vw,3.7rem);margin-left:0;margin-right:0;line-height:1.05}
@@ -74,6 +74,13 @@ a{color:var(--accent);text-decoration:none}
 .hero-form textarea{min-height:38px}
 .hero-form .form-submit{padding:10px;font-size:0.9rem;margin-top:0.15rem}
 .hero-form .notes-field{display:none}
+.hero-score{position:relative;z-index:2;width:100%;max-width:none;margin:1rem 0 0}
+.hero-score .score-card{margin:0 auto;padding:1.15rem 1.4rem 1.05rem;max-width:none;box-shadow:0 12px 32px rgba(0,0,0,0.12)}
+.hero-score .score-tabs{margin-bottom:0.85rem}
+.hero-score .score-number{font-size:3.1rem;margin:0.15rem 0}
+.hero-score .score-label{margin-bottom:0.7rem}
+.hero-score .score-bars{margin-top:0.7rem}
+.hero-score .score-items{margin-top:0.85rem;padding-top:0.85rem}
 @media(min-height:920px){
   .hero-form .notes-field{display:block}
 }
@@ -442,6 +449,21 @@ a{color:var(--accent);text-decoration:none}
       <h1>Uncover What's<br><span class="gradient">Costing You <span id="rotatingWord" style="display:inline-block;min-width:7.5ch;text-align:left;background:linear-gradient(135deg,#40B4E5,#CC22FF);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;color:transparent;border-bottom:4px solid #CC22FF;padding-bottom:2px;box-sizing:content-box">Profit</span></span></h1>
       <p class="hero-lead">Premium digital marketing audits. Deep analysis. Actionable strategy. Real results. Get a personalized audit and see exactly where your growth opportunities are.</p>
       <p class="hero-proof">Powering growth for 450+ brands since 2010</p>
+      <div class="hero-score">
+        <div class="score-card">
+          <div class="score-tabs">
+            <div class="score-tab" onclick="switchTab(0)">SEO Health</div>
+            <div class="score-tab" onclick="switchTab(1)">Paid Media</div>
+            <div class="score-tab active" onclick="switchTab(2)">Competitive</div>
+            <div class="score-tab" onclick="switchTab(3)">Conversions</div>
+            <div class="score-tab" onclick="switchTab(4)">Action Plan</div>
+          </div>
+          <div id="tabContent">
+            <div id="tabChart"></div>
+            <div id="tabDetails" style="margin-top:1.25rem"></div>
+          </div>
+        </div>
+      </div>
     </div>
     <div class="hero-form" id="form">
       <div class="form-card">
@@ -511,24 +533,6 @@ a{color:var(--accent);text-decoration:none}
           <p style="color:var(--text2);font-size:0.95rem;line-height:1.7;max-width:450px;margin:1rem auto 0">We will reach out within a few business days to schedule a call, ask any follow-up questions, and review the audit.</p>
           <p style="color:var(--muted);font-size:0.85rem;margin-top:1.25rem">We look forward to connecting with you soon.</p>
         </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="section" style="padding-top:2rem;padding-bottom:2rem">
-  <div class="section-inner">
-    <div class="score-card" style="margin:0 auto">
-      <div class="score-tabs">
-        <div class="score-tab" onclick="switchTab(0)">SEO Health</div>
-        <div class="score-tab" onclick="switchTab(1)">Paid Media</div>
-        <div class="score-tab active" onclick="switchTab(2)">Competitive</div>
-        <div class="score-tab" onclick="switchTab(3)">Conversions</div>
-        <div class="score-tab" onclick="switchTab(4)">Action Plan</div>
-      </div>
-      <div id="tabContent">
-        <div id="tabChart"></div>
-        <div id="tabDetails" style="margin-top:1.25rem"></div>
       </div>
     </div>
   </div>
