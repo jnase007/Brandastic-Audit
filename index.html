@@ -48,7 +48,7 @@ a{color:var(--accent);text-decoration:none}
 .nav-cta:hover{transform:translateY(-1px)}
 
 /* HERO */
-.hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;text-align:center;padding:5.35rem 2rem 1.1rem;position:relative;overflow:hidden}
+.hero{min-height:0;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;text-align:center;padding:5.35rem 2rem 0.35rem;position:relative;overflow:hidden}
 .hero::before{content:'';position:absolute;top:-50%;left:-50%;width:200%;height:200%;background:radial-gradient(circle at 30% 40%,rgba(64,180,229,0.08) 0%,transparent 50%),radial-gradient(circle at 70% 60%,rgba(204,34,255,0.06) 0%,transparent 50%);animation:drift 20s ease-in-out infinite}
 @keyframes drift{0%,100%{transform:translate(0,0)}50%{transform:translate(-3%,2%)}}
 .hero-badge{display:inline-flex;align-items:center;gap:8px;padding:8px 20px;border-radius:50px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);font-size:0.75rem;font-weight:600;letter-spacing:0.15em;text-transform:uppercase;color:var(--text2);margin-bottom:2rem}
@@ -58,7 +58,7 @@ a{color:var(--accent);text-decoration:none}
 
 .hero p{font-size:1.15rem;color:var(--text2);max-width:600px;margin-bottom:3rem;line-height:1.7}
 .hero-grid{position:relative;z-index:2;width:100%;max-width:1180px;margin:0 auto;display:grid;grid-template-columns:minmax(0,1.08fr) minmax(340px,.9fr);gap:1.5rem 2.25rem;align-items:start}
-.hero-copy{text-align:left;padding-top:1.4rem}
+.hero-copy{text-align:left;padding-top:0.15rem}
 .hero-copy h1{text-align:left;margin:0 0 0.8rem;max-width:none;font-size:clamp(2.15rem,4.2vw,3.7rem);margin-left:0;margin-right:0;line-height:1.05}
 .hero-copy .hero-lead{font-size:1.02rem;color:var(--text2);max-width:34rem;margin:0 0 0.8rem;line-height:1.55}
 .hero-copy .hero-proof{margin:0;font-size:0.88rem;color:var(--text2);font-weight:700;text-align:left;letter-spacing:0.02em}
@@ -78,7 +78,7 @@ a{color:var(--accent);text-decoration:none}
   .hero-form .notes-field{display:block}
 }
 @media(max-height:860px){
-  .hero{padding:4.4rem 1.5rem 0.55rem}
+  .hero{padding:4.4rem 1.5rem 0.25rem}
   .hero-copy{padding-top:0.35rem}
   .hero-copy h1{font-size:clamp(1.9rem,3.6vw,3.05rem);margin-bottom:0.6rem}
   .hero-copy .hero-lead{font-size:0.92rem;margin-bottom:0.6rem}
