@@ -48,7 +48,7 @@ a{color:var(--accent);text-decoration:none}
 .nav-cta:hover{transform:translateY(-1px)}
 
 /* HERO */
-.hero{min-height:0;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;text-align:center;padding:5.35rem 2rem 0.35rem;position:relative;overflow:hidden}
+.hero{min-height:0;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;text-align:center;padding:5.35rem 2rem 0.35rem;position:relative;overflow:visible}
 .hero::before{content:'';position:absolute;top:-50%;left:-50%;width:200%;height:200%;background:radial-gradient(circle at 30% 40%,rgba(64,180,229,0.08) 0%,transparent 50%),radial-gradient(circle at 70% 60%,rgba(204,34,255,0.06) 0%,transparent 50%);animation:drift 20s ease-in-out infinite}
 @keyframes drift{0%,100%{transform:translate(0,0)}50%{transform:translate(-3%,2%)}}
 .hero-badge{display:inline-flex;align-items:center;gap:8px;padding:8px 20px;border-radius:50px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);font-size:0.75rem;font-weight:600;letter-spacing:0.15em;text-transform:uppercase;color:var(--text2);margin-bottom:2rem}
