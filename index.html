@@ -60,7 +60,7 @@ a{color:var(--accent);text-decoration:none}
 .hero-grid{position:relative;z-index:2;width:100%;max-width:1180px;margin:0 auto;display:grid;grid-template-columns:minmax(0,1.08fr) minmax(340px,.9fr);gap:1.5rem 2.25rem;align-items:start}
 .hero-copy{text-align:left;padding-top:0.15rem}
 .hero-copy h1{text-align:left;margin:0 0 0.8rem;max-width:none;font-size:clamp(2.15rem,4.2vw,3.7rem);margin-left:0;margin-right:0;line-height:1.05}
-.hero-copy .hero-lead{font-size:1.02rem;color:var(--text2);max-width:34rem;margin:0 0 0.8rem;line-height:1.55}
+.hero-copy .hero-lead{font-size:0.98rem;color:var(--text2);max-width:34rem;margin:0 0 0.55rem;line-height:1.5}
 .hero-copy .hero-proof{margin:0;font-size:0.88rem;color:var(--text2);font-weight:700;text-align:left;letter-spacing:0.02em}
 .hero-form{width:100%}
 .hero-form .form-card{margin:0;max-width:none;padding:0.85rem 1rem 0.8rem;text-align:left;display:flex;flex-direction:column}
@@ -74,13 +74,16 @@ a{color:var(--accent);text-decoration:none}
 .hero-form textarea{min-height:38px}
 .hero-form .form-submit{padding:10px;font-size:0.9rem;margin-top:0.15rem}
 .hero-form .notes-field{display:none}
-.hero-score{position:relative;z-index:2;width:100%;max-width:none;margin:1rem 0 0}
-.hero-score .score-card{margin:0 auto;padding:1.15rem 1.4rem 1.05rem;max-width:none;box-shadow:0 12px 32px rgba(0,0,0,0.12)}
-.hero-score .score-tabs{margin-bottom:0.85rem}
-.hero-score .score-number{font-size:3.1rem;margin:0.15rem 0}
-.hero-score .score-label{margin-bottom:0.7rem}
-.hero-score .score-bars{margin-top:0.7rem}
-.hero-score .score-items{margin-top:0.85rem;padding-top:0.85rem}
+.hero-score{position:relative;z-index:2;width:100%;max-width:none;margin:0.85rem 0 0}
+.hero-score .score-card{margin:0;padding:0.85rem 1rem 0.8rem;max-width:none;min-height:240px;background:var(--card);border:1px solid var(--card-border);box-shadow:0 10px 28px rgba(0,0,0,0.08)}
+.hero-score .score-tabs{margin-bottom:0.55rem}
+.hero-score .score-tab{padding:8px 6px;font-size:0.58rem}
+.hero-score .score-number{font-size:2.4rem;margin:0.1rem 0}
+.hero-score .score-label{margin-bottom:0.45rem}
+.hero-score .score-bars{margin-top:0.45rem}
+.hero-score .score-items{margin-top:0.55rem;padding-top:0.55rem}
+.hero-score #tabDetails{margin-top:0.7rem!important}
+#audit{padding-top:2.4rem}
 @media(min-height:920px){
   .hero-form .notes-field{display:block}
 }
