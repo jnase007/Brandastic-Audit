@@ -22,6 +22,16 @@
   status = 200
 
 [[redirects]]
+  from = "/p/northline-industrial"
+  to = "/p/northline-industrial.html"
+  status = 200
+
+[[redirects]]
+  from = "/p/northline-industrial/"
+  to = "/p/northline-industrial.html"
+  status = 200
+
+[[redirects]]
   from = "/onpoint"
   to = "/onpoint.html"
   status = 200

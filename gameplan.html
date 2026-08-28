@@ -71,6 +71,14 @@ td b{color:#fff;font-weight:700}
 .guard strong{color:#fff}
 .cta{margin:36px 0 64px;border:1px solid rgba(64,180,229,.28);background:linear-gradient(180deg,rgba(64,180,229,.08),rgba(204,34,255,.05));border-radius:22px;padding:28px}
 .cta p{color:var(--muted);max-width:42rem;margin:8px 0 0}
+.email{border:1px solid var(--line);background:rgba(255,255,255,.03);border-radius:18px;padding:18px 18px 16px;margin:0 0 12px}
+.email .k{margin-bottom:6px}
+.email h3{font-size:16px;margin-bottom:6px}
+.email .meta{font-size:12px;color:var(--soft);margin-bottom:12px;line-height:1.55}
+.email pre{white-space:pre-wrap;font-family:Inter,system-ui,sans-serif;font-size:14px;line-height:1.65;color:var(--muted);background:rgba(0,0,0,.25);border:1px solid var(--line);border-radius:12px;padding:14px 16px}
+.sample{border:1px solid rgba(64,180,229,.28);border-radius:20px;padding:20px;background:linear-gradient(180deg,rgba(64,180,229,.07),rgba(204,34,255,.04));margin-bottom:14px}
+.sample a.btn{display:inline-block;margin-top:12px;background:linear-gradient(135deg,#40B4E5,#CC22FF);color:#fff;padding:11px 16px;border-radius:999px;font-weight:800;font-size:13px;text-decoration:none}
+.sample a.btn:hover{text-decoration:none}
 @media(max-width:900px){
   .loop,.seq,.need,.grid-2{grid-template-columns:1fr}
   .step{min-height:0}
@@ -205,12 +213,95 @@ td b{color:#fff;font-weight:700}
   </section>
 
   <section class="section">
-    <h2>The three emails</h2>
-    <p class="sub">Subject can be human. Body stays merge-tag clean. The click is always the audit.</p>
-    <div class="seq">
-      <div class="card"><div class="k">Email 1</div><h3>Here is the audit</h3><p style="color:var(--muted);font-size:14px">We already ran it on {{company_name}}. Link. One specific gap. No calendar ask.</p></div>
-      <div class="card"><div class="k">Email 2</div><h3>Second gap</h3><p style="color:var(--muted);font-size:14px">What it costs them in traffic, keywords, or AI extractability. Same URL again.</p></div>
-      <div class="card"><div class="k">Email 3</div><h3>Short close</h3><p style="color:var(--muted);font-size:14px">If you want the 90-day fix, I will walk it. Still the same URL.</p></div>
+    <h2>Sample audit they click</h2>
+    <p class="sub">This is the cold page. SEO + AEO only. Fictional company so the team can review the format. Live sends use that domain's real Semrush + crawl. No PPC.</p>
+    <div class="sample">
+      <div class="k">Example URL</div>
+      <h3>Northline Industrial · SEO + AEO scorecard</h3>
+      <p style="color:var(--muted);font-size:14px;margin-top:8px">SEO 62 · AEO 41 · 4.8K organic visits / mo · down 31% · 86 keywords on page 2 · no Organization schema · slogan H1 · no llms.txt</p>
+      <a class="btn" href="/p/northline-industrial">Open the sample audit</a>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>The emails Instantly sends</h2>
+    <p class="sub">Instantly, not Apollo sequences. Merge tags in the campaign. Example filled for Northline so the team can read it like a prospect.</p>
+
+    <div class="email">
+      <div class="k">Email 1 · day 0 · no calendar ask</div>
+      <h3>Subject: {{company_name}} SEO + AEO scorecard</h3>
+      <div class="meta">From: Justin / Brandastic · To: {{first_name}} at {{company_name}}</div>
+      <pre>{{first_name}},
+
+We ran an SEO + AEO scorecard on {{domain}}. Not a pitch deck. Their numbers.
+
+Biggest gap: {{gap_1}}
+
+Full scorecard:
+{{audit_url}}
+
+If the page is wrong, ignore this. If it is right, that is the work.</pre>
+    </div>
+    <div class="email">
+      <div class="k">Email 1 filled · Northline example</div>
+      <h3>Subject: Northline Industrial SEO + AEO scorecard</h3>
+      <div class="meta">What the founder actually sees</div>
+      <pre>David,
+
+We ran an SEO + AEO scorecard on northlineindustrial.com. Not a pitch deck. Your numbers.
+
+Biggest gap: organic traffic is down 31% with 86 terms stuck on page 2.
+
+Full scorecard:
+https://audit.brandastic.com/p/northline-industrial
+
+If the page is wrong, ignore this. If it is right, that is the work.</pre>
+    </div>
+
+    <div class="email">
+      <div class="k">Email 2 · day 3 · same URL</div>
+      <h3>Subject: {{company_name}} is hard for AI to read</h3>
+      <pre>{{first_name}},
+
+Second gap from the same scorecard: {{gap_2}}
+
+Search can still find you. AI systems have to guess who you are.
+
+{{audit_url}}</pre>
+    </div>
+    <div class="email">
+      <div class="k">Email 2 filled · Northline example</div>
+      <h3>Subject: Northline Industrial is hard for AI to read</h3>
+      <pre>David,
+
+Second gap from the same scorecard: no Organization schema, slogan H1, no llms.txt. Models cannot cleanly extract who you are.
+
+Search can still find you. AI systems have to guess who you are.
+
+https://audit.brandastic.com/p/northline-industrial</pre>
+    </div>
+
+    <div class="email">
+      <div class="k">Email 3 · day 7 · short close</div>
+      <h3>Subject: 90 days on {{company_name}}</h3>
+      <pre>{{first_name}},
+
+If you want the 90-day SEO + AEO fix, I will walk the scorecard.
+
+{{audit_url}}
+
+If not, no follow-up after this.</pre>
+    </div>
+    <div class="email">
+      <div class="k">Email 3 filled · Northline example</div>
+      <h3>Subject: 90 days on Northline Industrial</h3>
+      <pre>David,
+
+If you want the 90-day SEO + AEO fix, I will walk the scorecard.
+
+https://audit.brandastic.com/p/northline-industrial
+
+If not, no follow-up after this.</pre>
     </div>
   </section>
 
