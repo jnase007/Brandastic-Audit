@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script>(function(){var t=localStorage.getItem('brandastic-theme');if(t==='dark'){document.documentElement.setAttribute('data-theme','dark');}})();</script>
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-5C5RTG3');</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-TTZQH22P4G"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-TTZQH22P4G');</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Audit Outreach Gameplan — Brandastic</title>
+<meta name="description" content="Internal operating plan: Apollo list in, live SEO + AEO audit URL out, Instantly sends the link.">
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="icon" href="/favicon-192.png" sizes="192x192" type="image/png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes="180x180">
+<meta property="og:image" content="https://audit.brandastic.com/assets/brandastic-mark-512.png">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --bg:#05070C;--panel:#0B1018;--card:#101722;--line:rgba(255,255,255,.08);
+  --text:#F5F7FB;--muted:rgba(245,247,251,.62);--soft:rgba(245,247,251,.42);
+  --cyan:#40B4E5;--purple:#CC22FF;--green:#22C55E;--yellow:#F59E0B;--red:#EF4444;
+}
+html{scroll-behavior:smooth}
+body{font-family:Inter,system-ui,sans-serif;background:var(--bg);color:var(--text);line-height:1.55;overflow-x:hidden}
+a{color:#7DD3FC;text-decoration:none}
+a:hover{text-decoration:underline}
+.bg{position:fixed;inset:0;z-index:0;pointer-events:none;background:
+  radial-gradient(circle at 12% 8%,rgba(64,180,229,.16),transparent 32%),
+  radial-gradient(circle at 88% 12%,rgba(204,34,255,.12),transparent 28%),
+  linear-gradient(180deg,#05070C 0%,#070A12 100%)}
+.wrap{position:relative;z-index:2;max-width:1120px;margin:0 auto;padding:0 22px}
+.nav{display:flex;align-items:center;justify-content:space-between;padding:22px 0 8px}
+.nav b{letter-spacing:.12em;font-size:13px;font-weight:800}
+.nav span{font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--soft);border:1px solid var(--line);padding:6px 10px;border-radius:999px}
+.hero{padding:42px 0 18px}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:11px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--soft);margin-bottom:16px}
+.eyebrow i{width:8px;height:8px;border-radius:50%;background:linear-gradient(135deg,var(--cyan),var(--purple))}
+h1{font-size:clamp(2.4rem,5.4vw,4.4rem);line-height:1.02;letter-spacing:-.045em;font-weight:850;max-width:16ch;margin-bottom:16px}
+.lead{font-size:18px;color:var(--muted);max-width:40rem;margin-bottom:22px}
+.lead strong{color:#fff;font-weight:650}
+.proof{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:8px}
+.chip{border:1px solid var(--line);background:rgba(255,255,255,.03);border-radius:999px;padding:8px 12px;font-size:12px;font-weight:600;color:var(--muted)}
+.section{padding:28px 0 8px}
+h2{font-size:clamp(1.4rem,2.4vw,1.9rem);letter-spacing:-.03em;margin-bottom:8px}
+.sub{color:var(--muted);max-width:40rem;margin-bottom:18px}
+.loop{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:10px;margin:18px 0 8px}
+.step{border:1px solid var(--line);background:rgba(255,255,255,.03);border-radius:16px;padding:14px 12px;min-height:132px}
+.step b{display:block;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--cyan);margin-bottom:8px}
+.step p{font-size:13px;color:var(--muted);font-weight:600;line-height:1.45}
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.card{border:1px solid var(--line);background:linear-gradient(180deg,rgba(16,23,34,.96),rgba(11,16,24,.98));border-radius:18px;padding:20px}
+.card h3{font-size:15px;margin-bottom:10px}
+.card ul,.card ol{padding-left:18px;color:var(--muted);font-size:14px}
+.card li{margin:7px 0}
+.mono{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:12.5px;color:#C4B5FD;background:rgba(204,34,255,.08);border:1px solid rgba(204,34,255,.16);padding:2px 7px;border-radius:6px}
+table{width:100%;border-collapse:collapse;font-size:14px}
+th,td{text-align:left;padding:10px 8px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--soft);font-weight:700}
+td b{color:#fff;font-weight:700}
+.who td:first-child{width:34%}
+.seq{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.seq .card{min-height:180px}
+.k{font-size:11px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--cyan);margin-bottom:8px}
+.need{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.need .n{font-size:28px;font-weight:900;background:linear-gradient(135deg,#7DD3FC,#E879F9);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.guard{display:flex;flex-direction:column;gap:8px}
+.guard div{border:1px solid var(--line);border-radius:12px;padding:12px 14px;color:var(--muted);font-size:14px}
+.guard strong{color:#fff}
+.cta{margin:36px 0 64px;border:1px solid rgba(64,180,229,.28);background:linear-gradient(180deg,rgba(64,180,229,.08),rgba(204,34,255,.05));border-radius:22px;padding:28px}
+.cta p{color:var(--muted);max-width:42rem;margin:8px 0 0}
+@media(max-width:900px){
+  .loop,.seq,.need,.grid-2{grid-template-columns:1fr}
+  .step{min-height:0}
+  h1{max-width:none}
+}
+</style>
+</head>
+<body>
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5C5RTG3" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<div class="bg"></div>
+<div class="wrap">
+  <div class="nav">
+    <b>BRANDASTIC</b>
+    <span>Internal · noindex</span>
+  </div>
+
+  <section class="hero">
+    <div class="eyebrow"><i></i> Gameplan · Aug 28, 2026</div>
+    <h1>Send the audit. Do not invite them to request one.</h1>
+    <p class="lead">Apollo finds the companies. Semrush plus a site crawl writes the scorecard. Chip ships a live URL on audit.brandastic.com. Instantly emails that URL. The link is the pitch.</p>
+    <div class="proof">
+      <span class="chip">One audit per company</span>
+      <span class="chip">URL, not PDF</span>
+      <span class="chip">Chip runs the hopper</span>
+      <span class="chip">Justin GO on send</span>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>The loop</h2>
+    <p class="sub">People come in from Apollo. Work happens at the domain. Everyone at that company gets the same link.</p>
+    <div class="loop">
+      <div class="step"><b>01 Apollo</b><p>ICP list. Founder, Owner, CEO, then Marketing Director / Head / VP.</p></div>
+      <div class="step"><b>02 Domain</b><p>Collapse people to one live site. Skip junk, staffing, mega, already-audited.</p></div>
+      <div class="step"><b>03 Data</b><p>Semrush SEO + homepage AEO crawl. Real numbers only.</p></div>
+      <div class="step"><b>04 Page</b><p>Ship <span class="mono">/p/{slug}</span> as a 60-second scorecard.</p></div>
+      <div class="step"><b>05 Instantly</b><p>Lead gets <span class="mono">{{audit_url}}</span> plus 3 gaps.</p></div>
+      <div class="step"><b>06 Send</b><p>Instantly sequence emails the URL. Replies come back to us.</p></div>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>What they click</h2>
+    <p class="sub">Not Elevate. Not Fountain Life. Those are sales-room builds. Cold gets a private scorecard they can read in a minute.</p>
+    <div class="grid-2">
+      <div class="card">
+        <h3>On the page</h3>
+        <ol>
+          <li>SEO health from Semrush: traffic, keywords, rank, top terms, competitors, referring domains</li>
+          <li>AEO / extractability from the site: schema, FAQPage, Organization NAP, H1, llms.txt, indexability</li>
+          <li>Three failures, with their numbers</li>
+          <li>Three moves</li>
+          <li>CTA to talk, not “book a free audit”</li>
+        </ol>
+      </div>
+      <div class="card">
+        <h3>URL rules</h3>
+        <ul>
+          <li>Live path: <span class="mono">https://audit.brandastic.com/p/{slug}</span></li>
+          <li><span class="mono">noindex, nofollow</span>. Not in sitemap. Not on /portal. Not on the homepage.</li>
+          <li>Same URL for every contact at that company</li>
+          <li>UTM: <span class="mono">utm_source=instantly&utm_campaign=seo-aeo-audit&utm_content={slug}</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>Who runs what</h2>
+    <p class="sub">Chip can run this. Instantly still owns warmup and delivery. Justin still owns send.</p>
+    <div class="card">
+      <table class="who">
+        <thead>
+          <tr><th>Lane</th><th>Owner</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><b>Every batch</b></td><td>Chip: take list, find site, pull Semrush, crawl AEO, write 3 gaps, deploy page, load Instantly with the live URL</td></tr>
+          <tr><td><b>Once</b></td><td>Justin: Instantly campaign + 3-step copy, sending inboxes, API key or CSV, GO on first batch</td></tr>
+          <tr><td><b>Not every time</b></td><td>Nobody hand-builds pages or pastes links into Instantly</td></tr>
+          <tr><td><b>Never auto</b></td><td>Chip does not hit send. After GO, Instantly sends on its own. Chip keeps the hopper full.</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>Instantly wiring</h2>
+    <p class="sub">API exists. We do not have a key yet. Use the API to load leads. Do not use Instantly AI to invent findings.</p>
+    <div class="grid-2">
+      <div class="card">
+        <h3>Custom fields</h3>
+        <ul>
+          <li><span class="mono">audit_url</span></li>
+          <li><span class="mono">company_name</span> · <span class="mono">domain</span></li>
+          <li><span class="mono">seo_score</span> · <span class="mono">aeo_score</span></li>
+          <li><span class="mono">gap_1</span> · <span class="mono">gap_2</span> · <span class="mono">gap_3</span></li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>CSV Chip returns</h3>
+        <p style="color:var(--muted);font-size:13px;line-height:1.7"><span class="mono">email, first_name, last_name, company_name, domain, title, audit_url, seo_score, aeo_score, gap_1, gap_2, gap_3</span></p>
+        <p style="color:var(--muted);font-size:14px;margin-top:12px">If Justin gives an Instantly API key with leads:create, Chip pushes this instead of a CSV. Campaign still stays paused until GO.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>The three emails</h2>
+    <p class="sub">Subject can be human. Body stays merge-tag clean. The click is always the audit.</p>
+    <div class="seq">
+      <div class="card"><div class="k">Email 1</div><h3>Here is the audit</h3><p style="color:var(--muted);font-size:14px">We already ran it on {{company_name}}. Link. One specific gap. No calendar ask.</p></div>
+      <div class="card"><div class="k">Email 2</div><h3>Second gap</h3><p style="color:var(--muted);font-size:14px">What it costs them in traffic, keywords, or AI extractability. Same URL again.</p></div>
+      <div class="card"><div class="k">Email 3</div><h3>Short close</h3><p style="color:var(--muted);font-size:14px">If you want the 90-day fix, I will walk it. Still the same URL.</p></div>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>Guardrails</h2>
+    <div class="guard">
+      <div><strong>ICP lock.</strong> $3–20M. Retain $5–20k/mo. Advertise / close only $10k+/mo. Founder, Owner, CEO first. Then Marketing Director / Head of Marketing / VP Marketing. Skip CMO, creatives, specialists, coordinators.</div>
+      <div><strong>No fake ad spend.</strong> Semrush sees about 6.7% of our real book. Do not print a tool spend number on a founder who actually runs ads.</div>
+      <div><strong>AEO is extractability, not ChatGPT rank.</strong> We cannot score AI mentions cheaply at scale. We can score whether a model can read who they are from the site.</div>
+      <div><strong>Quality over volume.</strong> First batch 10–25. Then 50/week. A thin audit is worse than “book a call.”</div>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>To turn it on</h2>
+    <p class="sub">Three things. Then Chip starts the first 10 pages.</p>
+    <div class="need">
+      <div class="card"><div class="n">1</div><h3>Instantly key or CSV</h3><p style="color:var(--muted);font-size:14px;margin-top:8px">API key with leads:create, or “CSV is fine.”</p></div>
+      <div class="card"><div class="n">2</div><h3>Campaign</h3><p style="color:var(--muted);font-size:14px;margin-top:8px">Name or ID once the 3-step sequence exists.</p></div>
+      <div class="card"><div class="n">3</div><h3>The list</h3><p style="color:var(--muted);font-size:14px;margin-top:8px">Drop a CSV, or say pull from Apollo on the ICP lock.</p></div>
+    </div>
+  </section>
+
+  <section class="cta">
+    <div class="eyebrow"><i></i> After the first batch looks right</div>
+    <h2>Then Chip crons it.</h2>
+    <p>Weekly hopper. Skip domains we already audited. Campaign stays on. Justin only touches replies and the occasional QA. Apollo and Semrush are already in the stack. Instantly is the last wire.</p>
+  </section>
+</div>
+</body>
+</html>

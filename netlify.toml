@@ -12,6 +12,16 @@
   status = 200
 
 [[redirects]]
+  from = "/gameplan"
+  to = "/gameplan.html"
+  status = 200
+
+[[redirects]]
+  from = "/gameplan/"
+  to = "/gameplan.html"
+  status = 200
+
+[[redirects]]
   from = "/onpoint"
   to = "/onpoint.html"
   status = 200
