@@ -7,97 +7,211 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Northline Industrial — SEO + AEO Scorecard — Brandastic</title>
-<meta name="description" content="Sample SEO + AEO scorecard for team review. Not a live send.">
+<meta name="description" content="SEO + AEO scorecard for northlineindustrial.com. Organic visibility and AI extractability only. No PPC.">
 <meta name="robots" content="noindex, nofollow">
+<link rel="icon" href="/favicon.ico" sizes="any">
 <link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png">
-<link rel="icon" href="/favicon-192.png" sizes="192x192" type="image/png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes="180x180">
+<meta property="og:title" content="Northline Industrial — SEO + AEO Scorecard">
+<meta property="og:description" content="Organic traffic is down 31%. 86 keywords sit on page 2. AI systems cannot cleanly extract who you are.">
 <meta property="og:image" content="https://audit.brandastic.com/assets/brandastic-mark-512.png">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-:root{--bg:#05070C;--card:#101722;--line:rgba(255,255,255,.08);--text:#F5F7FB;--muted:rgba(245,247,251,.62);--soft:rgba(245,247,251,.42);--cyan:#40B4E5;--purple:#CC22FF;--green:#22C55E;--yellow:#F59E0B;--red:#EF4444}
-body{font-family:Inter,system-ui,sans-serif;background:var(--bg);color:var(--text);line-height:1.55}
+:root{
+  --bg:#05070C;--card:#101722;--line:rgba(255,255,255,.08);
+  --text:#F5F7FB;--muted:rgba(245,247,251,.64);--soft:rgba(245,247,251,.42);
+  --cyan:#40B4E5;--purple:#CC22FF;--green:#22C55E;--yellow:#F59E0B;--red:#EF4444;
+}
+html{scroll-behavior:smooth}
+body{font-family:Inter,system-ui,sans-serif;background:var(--bg);color:var(--text);line-height:1.55;overflow-x:hidden}
 a{color:#7DD3FC;text-decoration:none}
-.wrap{max-width:920px;margin:0 auto;padding:0 22px 72px}
-.banner{margin:18px 0 8px;border:1px solid rgba(245,158,11,.35);background:rgba(245,158,11,.1);color:#FDE68A;border-radius:12px;padding:10px 14px;font-size:13px;font-weight:700}
-.nav{display:flex;align-items:center;justify-content:space-between;padding:18px 0 6px;font-size:12px;font-weight:800;letter-spacing:.12em}
-.nav span{color:var(--soft);border:1px solid var(--line);padding:6px 10px;border-radius:999px;letter-spacing:.14em;text-transform:uppercase;font-size:11px}
-h1{font-size:clamp(2rem,5vw,3.4rem);letter-spacing:-.04em;line-height:1.05;margin:18px 0 8px}
-.lead{color:var(--muted);max-width:40rem;margin-bottom:22px}
-.scores{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin:18px 0 28px}
-.score{border:1px solid var(--line);background:rgba(255,255,255,.03);border-radius:16px;padding:16px}
-.score b{display:block;font-size:28px;font-weight:900;letter-spacing:-.03em}
-.score span{display:block;margin-top:4px;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--soft)}
+.bg{position:fixed;inset:0;z-index:0;pointer-events:none;background:
+  radial-gradient(circle at 12% 0%,rgba(64,180,229,.16),transparent 34%),
+  radial-gradient(circle at 90% 8%,rgba(204,34,255,.12),transparent 28%),
+  linear-gradient(180deg,#05070C,#070A12)}
+.wrap{position:relative;z-index:2;max-width:980px;margin:0 auto;padding:0 22px 80px}
+.sample{margin:16px 0 0;border:1px solid rgba(245,158,11,.32);background:rgba(245,158,11,.1);color:#FDE68A;border-radius:12px;padding:10px 14px;font-size:12.5px;font-weight:700}
+.nav{display:flex;align-items:center;justify-content:space-between;padding:20px 0 8px}
+.nav img{height:22px;display:block}
+.nav-tag{font-size:11px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--soft);border:1px solid var(--line);padding:6px 10px;border-radius:999px}
+.hero{padding:28px 0 8px}
+.kicker{font-size:11px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--soft);margin-bottom:12px}
+h1{font-size:clamp(2.2rem,5.4vw,3.8rem);letter-spacing:-.045em;line-height:1.02;font-weight:850;margin-bottom:10px}
+.lead{font-size:17px;color:var(--muted);max-width:40rem;margin-bottom:18px}
+.source{font-size:12px;color:var(--soft);font-weight:600}
+.rings{display:grid;grid-template-columns:160px 160px 1fr;gap:16px;align-items:center;margin:26px 0 8px}
+.ring{width:160px;height:160px;border-radius:50%;display:grid;place-items:center;position:relative;background:
+  radial-gradient(circle at center,rgba(16,23,34,.95) 0 58%,transparent 59%),
+  conic-gradient(var(--ring) calc(var(--p)*1%), rgba(255,255,255,.08) 0);
+}
+.ring strong{font-size:42px;font-weight:900;letter-spacing:-.04em;line-height:1}
+.ring em{display:block;font-style:normal;font-size:11px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--soft);text-align:center;margin-top:4px}
+.metrics{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}
+.metric{border:1px solid var(--line);background:rgba(255,255,255,.03);border-radius:16px;padding:14px}
+.metric b{display:block;font-size:22px;font-weight:900;letter-spacing:-.03em}
+.metric span{display:block;margin-top:4px;font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--soft)}
 .down{color:#FCA5A5}
-.ok{color:#86EFAC}
 .mid{color:#FDE68A}
-.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:12px 0 28px}
+.ok{color:#86EFAC}
+h2{font-size:1.35rem;letter-spacing:-.03em;margin:34px 0 12px}
+.sub{color:var(--muted);font-size:14px;margin:-4px 0 14px;max-width:40rem}
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
 .card{border:1px solid var(--line);background:linear-gradient(180deg,rgba(16,23,34,.96),rgba(11,16,24,.98));border-radius:18px;padding:18px}
-h2{font-size:1.25rem;letter-spacing:-.03em;margin:28px 0 10px}
-h3{font-size:15px;margin-bottom:8px}
-ul,ol{padding-left:18px;color:var(--muted);font-size:14px}
-li{margin:7px 0}
-.fail{border-left:3px solid var(--red);padding-left:14px;margin:12px 0}
-.move{border-left:3px solid var(--cyan);padding-left:14px;margin:12px 0}
-.cta{margin-top:36px;border:1px solid rgba(64,180,229,.28);border-radius:20px;padding:22px;background:linear-gradient(180deg,rgba(64,180,229,.08),rgba(204,34,255,.05))}
-.cta a.btn{display:inline-block;margin-top:12px;background:linear-gradient(135deg,#40B4E5,#CC22FF);color:#fff;padding:12px 18px;border-radius:999px;font-weight:800;font-size:14px}
-.note{margin-top:10px;font-size:13px;color:var(--soft)}
-@media(max-width:800px){.scores,.grid{grid-template-columns:1fr 1fr}.scores{grid-template-columns:1fr 1fr}}
+.card h3{font-size:15px;margin-bottom:10px}
+table{width:100%;border-collapse:collapse;font-size:13.5px}
+th,td{text-align:left;padding:10px 8px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--soft);font-weight:700}
+.pos{font-weight:800}
+.check{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:9px 0;border-bottom:1px solid var(--line);font-size:14px;color:var(--muted)}
+.check:last-child{border-bottom:0}
+.pill{font-size:10px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;border-radius:999px;padding:4px 8px;flex:0 0 auto}
+.fail-pill{background:rgba(239,68,68,.14);color:#FCA5A5}
+.pass-pill{background:rgba(34,197,94,.14);color:#86EFAC}
+.bars{display:flex;align-items:flex-end;gap:6px;height:92px;margin-top:8px}
+.bars i{flex:1;border-radius:5px 5px 2px 2px;background:linear-gradient(180deg,#40B4E5,#1d4ed8);opacity:.9;display:block}
+.fail,.move{border:1px solid var(--line);border-radius:16px;padding:16px 16px 14px;margin:0 0 10px;background:rgba(255,255,255,.02)}
+.fail{border-left:3px solid var(--red)}
+.move{border-left:3px solid var(--cyan)}
+.fail h3,.move h3{font-size:15px;margin-bottom:6px}
+.fail p,.move p{color:var(--muted);font-size:14px}
+.plan{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.plan .card b{display:block;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--cyan);margin-bottom:8px}
+.cta{margin-top:36px;border:1px solid rgba(64,180,229,.28);border-radius:22px;padding:24px;background:linear-gradient(180deg,rgba(64,180,229,.08),rgba(204,34,255,.05))}
+.cta h2{margin:0 0 8px}
+.proof{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0 4px}
+.chip{border:1px solid var(--line);border-radius:999px;padding:7px 11px;font-size:12px;font-weight:600;color:var(--muted)}
+.note{margin-top:12px;font-size:13px;color:var(--soft)}
+.foot{margin-top:28px;color:var(--soft);font-size:12px}
+@media(max-width:800px){
+  .rings,.metrics,.grid-2,.plan{grid-template-columns:1fr}
+  .rings{grid-template-columns:1fr 1fr}
+  .metrics{grid-template-columns:1fr 1fr}
+}
 </style>
 </head>
 <body>
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5C5RTG3" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<div class="bg"></div>
 <div class="wrap">
-  <div class="banner">SAMPLE for team review. Fictional company. Live sends use that domain's real Semrush + crawl. SEO + AEO only. No PPC.</div>
-  <div class="nav"><b>BRANDASTIC</b><span>SEO + AEO scorecard</span></div>
-  <h1>Northline Industrial</h1>
-  <p class="lead">northlineindustrial.com · Aug 2026 · Organic is slipping, and the site is hard for AI systems to extract. Foundation is real. Visibility is not compounding.</p>
-
-  <div class="scores">
-    <div class="score"><b class="mid">62</b><span>SEO score</span></div>
-    <div class="score"><b class="down">41</b><span>AEO score</span></div>
-    <div class="score"><b class="down">4.8K</b><span>Org. traffic / mo</span></div>
-    <div class="score"><b>1,240</b><span>Organic keywords</span></div>
+  <div class="sample">SAMPLE template · fictional company for team review. Live pages use that domain’s real Semrush + crawl. SEO + AEO only. No PPC.</div>
+  <div class="nav">
+    <img src="/assets/brandastic-logo-white.png" alt="Brandastic">
+    <span class="nav-tag">SEO + AEO scorecard</span>
   </div>
 
-  <div class="grid">
+  <section class="hero">
+    <div class="kicker">Prepared for the founder · Aug 2026</div>
+    <h1>Northline Industrial</h1>
+    <p class="lead">Organic traffic is down 31%. Eighty-six keywords sit on page 2. AI systems still cannot cleanly extract who you are, what you make, or where you operate.</p>
+    <p class="source">northlineindustrial.com · Semrush organic + homepage crawl · SEO + AEO only · no paid media on this page</p>
+  </section>
+
+  <div class="rings">
+    <div class="ring" style="--p:62;--ring:#F59E0B"><div><strong class="mid">62</strong><em>SEO</em></div></div>
+    <div class="ring" style="--p:41;--ring:#EF4444"><div><strong class="down">41</strong><em>AEO</em></div></div>
+    <div class="metrics">
+      <div class="metric"><b class="down">4.8K</b><span>Org. visits / mo</span></div>
+      <div class="metric"><b>1,240</b><span>Organic keywords</span></div>
+      <div class="metric"><b>28</b><span>Authority score</span></div>
+      <div class="metric"><b>214</b><span>Referring domains</span></div>
+    </div>
+  </div>
+
+  <h2>12-month organic trend</h2>
+  <p class="sub">Traffic fell from 7.0K to 4.8K. The domain still ranks. It is not compounding.</p>
+  <div class="card">
+    <div class="bars" aria-hidden="true">
+      <i style="height:100%"></i><i style="height:94%"></i><i style="height:91%"></i><i style="height:88%"></i>
+      <i style="height:84%"></i><i style="height:80%"></i><i style="height:78%"></i><i style="height:74%"></i>
+      <i style="height:72%"></i><i style="height:70%"></i><i style="height:69%"></i><i style="height:68%"></i>
+    </div>
+    <p class="note" style="margin-top:10px">Sep 2025 → Aug 2026 · source: Semrush organic traffic</p>
+  </div>
+
+  <h2>Where the money terms sit</h2>
+  <p class="sub">These are commercial queries, not brand vanity. Page 2 is unpaid demand sitting one click away.</p>
+  <div class="card" style="overflow-x:auto">
+    <table>
+      <thead>
+        <tr><th>Keyword</th><th>Pos</th><th>Vol</th><th>Intent</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>industrial conveyor systems</td><td class="pos down">12</td><td>1,300</td><td>Commercial</td></tr>
+        <tr><td>stainless steel conveyor manufacturer</td><td class="pos down">9</td><td>480</td><td>Commercial</td></tr>
+        <tr><td>food grade conveyor systems</td><td class="pos mid">8</td><td>390</td><td>Commercial</td></tr>
+        <tr><td>pallet conveyor systems</td><td class="pos down">14</td><td>720</td><td>Commercial</td></tr>
+        <tr><td>sanitary conveyor belt manufacturer</td><td class="pos down">18</td><td>210</td><td>Commercial</td></tr>
+        <tr><td>northline industrial</td><td class="pos ok">1</td><td>170</td><td>Brand</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="grid-2" style="margin-top:12px">
     <div class="card">
       <h3>SEO snapshot</h3>
-      <ul>
-        <li>Authority Score 28</li>
-        <li>Organic traffic 4,800 / mo · down 31% in 12 months</li>
-        <li>1,240 keywords · 86 on page 2</li>
-        <li>Referring domains 214 · thin industry coverage</li>
-        <li>Top competitors outrank on “industrial [category] manufacturer” terms</li>
-      </ul>
+      <div class="check"><span>Organic traffic vs 12 months ago</span><span class="pill fail-pill">−31%</span></div>
+      <div class="check"><span>Keywords on page 2</span><span class="pill fail-pill">86</span></div>
+      <div class="check"><span>Brand query coverage</span><span class="pill pass-pill">Strong</span></div>
+      <div class="check"><span>Category / manufacturer pages</span><span class="pill fail-pill">Thin</span></div>
+      <div class="check"><span>Referring domains in-industry</span><span class="pill fail-pill">Light</span></div>
     </div>
     <div class="card">
       <h3>AEO / extractability</h3>
-      <ul>
-        <li>No Organization schema</li>
-        <li>No FAQPage</li>
-        <li>H1 is a slogan, not the entity</li>
-        <li>No llms.txt</li>
-        <li>NAP not consistent in footer vs about</li>
-      </ul>
+      <div class="check"><span>Organization schema</span><span class="pill fail-pill">Missing</span></div>
+      <div class="check"><span>FAQPage schema</span><span class="pill fail-pill">Missing</span></div>
+      <div class="check"><span>Entity H1 (not a slogan)</span><span class="pill fail-pill">Fail</span></div>
+      <div class="check"><span>llms.txt</span><span class="pill fail-pill">Missing</span></div>
+      <div class="check"><span>NAP consistent footer / about</span><span class="pill fail-pill">Mismatch</span></div>
     </div>
   </div>
 
-  <h2>Where they are failing</h2>
-  <div class="fail"><h3>1. Traffic is down 31% with 86 terms stuck on page 2</h3><p style="color:var(--muted);font-size:14px">The domain still ranks. It is not winning the commercial queries that sit one page away.</p></div>
-  <div class="fail"><h3>2. AI systems cannot cleanly extract who they are</h3><p style="color:var(--muted);font-size:14px">No Organization or FAQ schema, slogan H1, no llms.txt. Models have to guess the company, category, and location.</p></div>
-  <div class="fail"><h3>3. Category pages are thin against stronger competitors</h3><p style="color:var(--muted);font-size:14px">Money pages are short product dumps. Competitors own the “manufacturer / supplier / industrial” intent.</p></div>
+  <h2>Where you are failing</h2>
+  <div class="fail">
+    <h3>1. Traffic is down 31% with 86 terms stuck on page 2</h3>
+    <p>Google still knows the domain. It is not awarding the manufacturer / supplier queries that sit one page away. Brand is fine. Category is not.</p>
+  </div>
+  <div class="fail">
+    <h3>2. AI systems cannot extract who you are</h3>
+    <p>No Organization or FAQ schema. H1 is a slogan. No llms.txt. Footer NAP does not match About. Models have to guess the company, category, and location.</p>
+  </div>
+  <div class="fail">
+    <h3>3. Category pages lose to thinner, clearer competitors</h3>
+    <p>Money pages read like product dumps. Competitors own “industrial conveyor manufacturer” intent with entity-clear titles and FAQs.</p>
+  </div>
 
   <h2>What to do</h2>
-  <div class="move"><h3>1. Recover the page-2 cluster</h3><p style="color:var(--muted);font-size:14px">Rewrite the 8 highest-intent category pages around buyer language, not slogans.</p></div>
-  <div class="move"><h3>2. Make the company extractable</h3><p style="color:var(--muted);font-size:14px">Organization + FAQ schema, entity H1, consistent NAP, llms.txt. So Google and AI systems can name them.</p></div>
-  <div class="move"><h3>3. 90-day SEO + AEO plan</h3><p style="color:var(--muted);font-size:14px">Stabilize the decline, then grow the commercial terms. Paid media is a later conversation, not this scorecard.</p></div>
+  <div class="move">
+    <h3>1. Recover the page-2 cluster</h3>
+    <p>Rewrite the 8 highest-intent category pages around buyer language: manufacturer, food-grade, stainless, pallet. Not slogans.</p>
+  </div>
+  <div class="move">
+    <h3>2. Make the company extractable</h3>
+    <p>Organization + FAQ schema, entity H1, matching NAP, llms.txt. So Google and AI systems can name Northline without guessing.</p>
+  </div>
+  <div class="move">
+    <h3>3. Run a 90-day SEO + AEO plan</h3>
+    <p>Stabilize the decline, then grow commercial terms. Paid media is a call question. It is not on this scorecard because Semrush is not the source of truth for Google Ads.</p>
+  </div>
+
+  <h2>90 days</h2>
+  <div class="plan">
+    <div class="card"><b>Days 1–30</b><h3>Make it readable</h3><p style="color:var(--muted);font-size:14px">Schema, H1, NAP, llms.txt, title cleanup on the 8 money pages.</p></div>
+    <div class="card"><b>Days 31–60</b><h3>Win page 2</h3><p style="color:var(--muted);font-size:14px">Category rewrites + FAQ blocks on conveyor / manufacturer intent.</p></div>
+    <div class="card"><b>Days 61–90</b><h3>Compound</h3><p style="color:var(--muted);font-size:14px">Internal links, supporting articles, re-crawl. Then talk paid if it belongs.</p></div>
+  </div>
 
   <div class="cta">
-    <h2 style="margin:0 0 8px">Want the 90-day fix?</h2>
-    <p style="color:var(--muted)">This is the scorecard. The work is recovering page-2 terms and making the company readable to search and AI systems.</p>
-    <a class="btn" href="https://brandastic.com/contact/">Talk with Brandastic</a>
-    <p class="note">SEO + AEO only. We ask about paid media on the call. We do not guess Google Ads from Semrush.</p>
+    <h2>Reply to the email this came from.</h2>
+    <p style="color:var(--muted)">This is the scorecard. If you want the 90-day SEO + AEO fix, we will walk it. No form. No “book a free audit.”</p>
+    <div class="proof">
+      <span class="chip">Serving 450+ brands over 16 years</span>
+      <span class="chip">SEO + AEO only on this page</span>
+      <span class="chip">Paid media after the call</span>
+    </div>
+    <p class="note">Brandastic · Costa Mesa, CA · We do not guess Google Ads from Semrush.</p>
   </div>
+  <p class="foot">Private scorecard. noindex. Not a public case study.</p>
 </div>
 </body>
 </html>
