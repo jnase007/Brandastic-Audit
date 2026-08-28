@@ -79,12 +79,26 @@ td b{color:var(--text);font-weight:700}
 .sample{border:1px solid rgba(64,180,229,.28);border-radius:20px;padding:20px;background:linear-gradient(180deg,#fff,#F0F9FF);margin-bottom:14px}
 .sample a.btn{display:inline-block;margin-top:12px;background:linear-gradient(135deg,#40B4E5,#CC22FF);color:#fff;padding:11px 16px;border-radius:999px;font-weight:800;font-size:13px;text-decoration:none}
 .sample a.btn:hover{text-decoration:none}
+.funnel{display:flex;flex-direction:column;align-items:center;gap:8px;margin:8px 0 18px}
+.funnel .bar{color:#fff;font-weight:800;text-align:center;padding:14px 12px;border-radius:14px;line-height:1.3}
+.funnel .bar small{display:block;font-weight:600;opacity:.9;font-size:12px;margin-top:4px}
+.funnel .b1{width:100%;background:#191F24}
+.funnel .b2{width:82%;background:#0284C7}
+.funnel .b3{width:58%;background:#0369A1}
+.funnel .b4{width:36%;background:#0F766E}
+.funnel .b5{width:22%;background:#16A34A}
+.paths{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:8px}
+.path{border:1px solid var(--line);background:#fff;border-radius:18px;padding:18px;text-align:center;box-shadow:0 8px 24px rgba(25,31,36,.04)}
+.path .big{font-size:2.2rem;font-weight:900;letter-spacing:-.04em;line-height:1;margin:8px 0 6px}
+.path .k{margin-bottom:0}
+.path p{color:var(--muted);font-size:13px;font-weight:600}
 .video{margin:8px 0 0;border:1px solid var(--line);border-radius:18px;overflow:hidden;background:#000;aspect-ratio:16/9}
 .video iframe{width:100%;height:100%;border:0;display:block}
 @media(max-width:900px){
-  .loop,.seq,.need,.grid-2{grid-template-columns:1fr}
+  .loop,.seq,.need,.grid-2,.paths{grid-template-columns:1fr}
   .step{min-height:0}
   h1{max-width:none}
+  .funnel .b2,.funnel .b3,.funnel .b4,.funnel .b5{width:100%}
 }
 </style>
 </head>
@@ -410,7 +424,14 @@ Justin
 
   <section class="section">
     <h2>Replies, leads, closes</h2>
-    <p class="sub">Model only. Not a promise. Average retainer <b>$5.5k/mo</b>. One scorecard per company. First 25 is a quality test, not a close test.</p>
+    <p class="sub">Model only. Not a promise. Average retainer <b>$5.5k/mo</b>. Extra cash to ship 1,000 is ~$50–400. One scorecard per company. First 25 is a quality test, not a close test.</p>
+    <div class="funnel" aria-label="Spend to close funnel">
+      <div class="bar b1">Spend ~$50–400<small>Apollo + Instantly + Semrush seats already paid. Grok writes the pages.</small></div>
+      <div class="bar b2">Ship 1,000 scorecards<small>One live URL per company. Instantly sends it.</small></div>
+      <div class="bar b3">~10–30 replies<small>~1–3% of companies</small></div>
+      <div class="bar b4">~4–15 conversations<small>Justin on the replies</small></div>
+      <div class="bar b5">1–4 closes<small>$5.5k–$22k month 1 · $66k–$264k if they stay a year</small></div>
+    </div>
     <div class="card" style="overflow-x:auto">
       <table>
         <thead>
@@ -433,7 +454,24 @@ Justin
   <section class="section">
     <h2>How many we ship to get one client a month</h2>
     <p class="sub">Same $5.5k retainer. Close rate is the unknown. 50/week (~200/month) is the quality ramp, not the 1-a-month machine.</p>
-    <div class="card" style="overflow-x:auto">
+    <div class="paths">
+      <div class="path">
+        <div class="k">Conservative</div>
+        <div class="big">1,000</div>
+        <p>companies / month<br>~250 a week<br>if 1,000 produces 1 close</p>
+      </div>
+      <div class="path">
+        <div class="k">If it works</div>
+        <div class="big">500</div>
+        <p>companies / month<br>~125 a week<br>if 1,000 produces 2 closes</p>
+      </div>
+      <div class="path">
+        <div class="k">Strong</div>
+        <div class="big">250</div>
+        <p>companies / month<br>~60 a week<br>if 1,000 produces 4 closes</p>
+      </div>
+    </div>
+    <div class="card" style="overflow-x:auto;margin-top:14px">
       <table>
         <thead>
           <tr><th>If 1,000 companies produce</th><th>Ship per month for 1 close</th><th>That is</th></tr>
