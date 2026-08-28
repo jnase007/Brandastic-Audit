@@ -32,9 +32,11 @@ a{color:#0284C7;text-decoration:none}
   linear-gradient(180deg,#F5F3EF,#EEF2F6)}
 .wrap{position:relative;z-index:2;max-width:980px;margin:0 auto;padding:0 22px 80px}
 .sample{margin:16px 0 0;border:1px solid rgba(217,119,6,.28);background:#FFF7ED;color:#9A3412;border-radius:12px;padding:10px 14px;font-size:12.5px;font-weight:700}
-.nav{display:flex;align-items:center;justify-content:space-between;padding:20px 0 8px}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:20px 0 8px}
 .nav img{height:22px;display:block}
+.nav-right{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
 .nav-tag{font-size:11px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--soft);border:1px solid var(--line);padding:6px 10px;border-radius:999px}
+.print-btn{font-size:12px;font-weight:800;border:1px solid var(--line);background:#fff;color:var(--text);padding:8px 12px;border-radius:999px;cursor:pointer;font-family:inherit}
 .hero{padding:28px 0 8px}
 .kicker{font-size:11px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--soft);margin-bottom:12px}
 h1{font-size:clamp(2.2rem,5.4vw,3.8rem);letter-spacing:-.045em;line-height:1.02;font-weight:850;margin-bottom:10px}
@@ -98,6 +100,16 @@ th{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--soft)
   .metrics{grid-template-columns:1fr 1fr}
   .cta-btn{white-space:normal;margin-left:0}
 }
+@media print{
+  .bg,.sample,.print-btn,.nav-tag{display:none !important}
+  body{-webkit-print-color-adjust:exact;print-color-adjust:exact;background:#fff;color:#111;overflow:visible}
+  .wrap{max-width:none;padding:0;margin:0}
+  .nav{padding:0 0 12px}
+  a{color:#111;text-decoration:none}
+  .card,.metric,.fail,.move,.cta,.contact{box-shadow:none;break-inside:avoid}
+  .cta-btn{box-shadow:none;border:1px solid #111;background:#fff;color:#111}
+  h2,.fail,.move,.cta,.plan{break-inside:avoid}
+}
 </style>
 </head>
 <body>
@@ -107,7 +119,10 @@ th{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--soft)
   <div class="sample">SAMPLE template · fictional company for team review. Live pages use that domain’s real Semrush + crawl. SEO + AEO only. No PPC.</div>
   <div class="nav">
     <img src="/assets/brandastic-logo-black.png" alt="Brandastic">
-    <span class="nav-tag">SEO + AEO scorecard</span>
+    <div class="nav-right">
+      <span class="nav-tag">SEO + AEO scorecard</span>
+      <button class="print-btn" type="button" onclick="window.print()">Print / Save PDF</button>
+    </div>
   </div>
 
   <section class="hero">
