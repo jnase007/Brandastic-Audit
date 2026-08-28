@@ -147,14 +147,14 @@ td b{color:var(--text);font-weight:700}
 
   <section class="section">
     <h2>The loop</h2>
-    <p class="sub">People come in from Apollo. Work happens at the domain. Everyone at that company gets the same link.</p>
+    <p class="sub">People come in from Apollo. Work happens at the domain. Everyone at that company gets the same link. This is also what the hopper does, in order.</p>
     <div class="loop">
-      <div class="step"><b>01 Apollo</b><p>ICP list. Founder, Owner, CEO, then Marketing Director / Head / VP.</p></div>
-      <div class="step"><b>02 Domain</b><p>Collapse people to one live site. Skip junk, staffing, mega, already-audited.</p></div>
-      <div class="step"><b>03 Data</b><p>Semrush SEO + homepage AEO crawl. No Google Ads. No tool spend numbers.</p></div>
-      <div class="step"><b>04 Page</b><p>Ship <span class="mono">/p/{slug}</span> as a 60-second scorecard.</p></div>
-      <div class="step"><b>05 Instantly</b><p>Lead gets <span class="mono">{{audit_url}}</span> plus 3 gaps.</p></div>
-      <div class="step"><b>06 Send</b><p>Instantly sequence emails the URL. Replies come back to us.</p></div>
+      <div class="step"><b>01 Apollo</b><p>Pull the ICP list. Founder, Owner, CEO first, then Marketing Director / Head / VP.</p></div>
+      <div class="step"><b>02 Domain</b><p>One live website per company. Skip junk, staffing, mega brands, and anyone we already audited.</p></div>
+      <div class="step"><b>03 Semrush</b><p>Pull their real organic data: traffic, keywords, positions, authority. No Google Ads numbers.</p></div>
+      <div class="step"><b>04 Crawl</b><p>Read the homepage: schema, H1, NAP, llms.txt. That is the AEO check.</p></div>
+      <div class="step"><b>05 Page</b><p>Fill the Northline template with those numbers and ship <span class="mono">/p/{slug}</span>.</p></div>
+      <div class="step"><b>06 Instantly</b><p>Load the live URL + 3 gaps. Instantly emails it after Justin says GO.</p></div>
     </div>
   </section>
 
@@ -356,20 +356,34 @@ Justin
   </section>
 
   <section class="section">
-    <h2>What 1,000 pages costs in xAI</h2>
-    <p class="sub">This is Grok only. Semrush, Instantly, Apollo, and Netlify are extra. Semrush will cost more than Grok.</p>
-    <div class="card" style="overflow-x:auto">
-      <table>
-        <thead>
-          <tr><th>What it means</th><th>1,000 pages</th></tr>
-        </thead>
-        <tbody>
-          <tr><td><b>The hopper (the plan).</b> A script pulls Semrush + crawls the site. Grok fills the template with those numbers and ships the page. Chip checks quality. Nobody hand-builds 1,000 pages.</td><td><b>$40–80</b></td></tr>
-          <tr><td><b>Chip does each one.</b> Same Semrush + crawl, but Chip runs tools company by company. Use this for the first 10–25. Do not use this for 1,000.</td><td>$120–300</td></tr>
-          <tr><td><b>Chat with Chip 1,000 times.</b> Waste. Do not do this.</td><td>$500–2,000+</td></tr>
-        </tbody>
-      </table>
-      <p style="color:var(--muted);font-size:14px;margin-top:12px">First 10–25: Chip. If they look right: hopper. 1,000 of Grok write cost is a rounding error next to Semrush.</p>
+    <h2>What the hopper does</h2>
+    <p class="sub">A script. Not 1,000 chats with Chip. Grok does not invent numbers. It fills the template from Semrush + the crawl.</p>
+    <div class="grid-2">
+      <div class="card">
+        <h3>Each company, in order</h3>
+        <ol>
+          <li>Pull Semrush: traffic, keywords, positions, authority</li>
+          <li>Crawl the homepage: schema, H1, NAP, llms.txt</li>
+          <li>Write 3 gaps as full sentences</li>
+          <li>Fill the Northline template</li>
+          <li>Ship the live page at /p/{slug}</li>
+          <li>Load Instantly with the URL + gaps</li>
+        </ol>
+      </div>
+      <div class="card">
+        <h3>What 1,000 pages costs in Grok</h3>
+        <p style="color:var(--muted);font-size:14px;margin-bottom:12px">Grok only. Semrush, Instantly, Apollo, and Netlify are extra. Semrush will cost more than Grok.</p>
+        <table>
+          <thead>
+            <tr><th>Who builds the pages</th><th>1,000</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><b>Hopper.</b> Script does the 6 steps. Chip checks quality.</td><td><b>$40–80</b></td></tr>
+            <tr><td><b>Chip, one by one.</b> Same 6 steps, by hand. First 10–25 only.</td><td>$120–300</td></tr>
+            <tr><td><b>Chat 1,000 times.</b> Waste.</td><td>$500–2,000+</td></tr>
+          </tbody>
+        </table>
+      </div>
     </div>
   </section>
 
