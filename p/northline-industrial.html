@@ -83,19 +83,20 @@ th{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--soft)
 .chip{border:1px solid var(--line);border-radius:999px;padding:7px 11px;font-size:12px;font-weight:600;color:var(--muted)}
 .note{margin-top:12px;font-size:13px;color:var(--soft)}
 .foot{margin-top:28px;color:var(--soft);font-size:12px}
-.contact{display:flex;align-items:center;gap:22px;flex-wrap:wrap;padding:22px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);margin:8px 0 22px}
+.contact{display:flex;align-items:center;justify-content:space-between;gap:22px;flex-wrap:wrap;padding:22px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);margin:8px 0 8px}
+.contact-left{display:flex;align-items:center;gap:22px;flex-wrap:wrap;min-width:0}
 .contact img{width:112px;height:112px;object-fit:cover;object-position:top;border-radius:50%;flex-shrink:0}
 .contact .who{font-weight:800;font-size:1.35rem;letter-spacing:-.03em;line-height:1.15}
 .contact .role{color:var(--soft);font-size:15px;margin:4px 0 10px}
 .contact .links{display:flex;flex-wrap:wrap;gap:16px;font-size:15px;font-weight:700}
 .contact .links a{color:#2E9BF5;text-decoration:none}
-.cta-btn{display:inline-block;background:linear-gradient(135deg,#40B4E5,#CC22FF);color:#fff;padding:16px 28px;border-radius:16px;font-weight:800;font-size:16px;text-decoration:none;box-shadow:0 10px 24px rgba(64,180,229,.22)}
+.cta-btn{display:inline-block;background:linear-gradient(135deg,#40B4E5,#CC22FF);color:#fff;padding:16px 22px;border-radius:16px;font-weight:800;font-size:15px;text-decoration:none;box-shadow:0 10px 24px rgba(64,180,229,.22);white-space:nowrap;margin-left:auto}
 .cta-btn:hover{text-decoration:none;filter:brightness(1.05)}
-.cta-wrap{text-align:center}
 @media(max-width:800px){
   .rings,.metrics,.grid-2,.plan{grid-template-columns:1fr}
   .rings{grid-template-columns:1fr 1fr}
   .metrics{grid-template-columns:1fr 1fr}
+  .cta-btn{white-space:normal;margin-left:0}
 }
 </style>
 </head>
@@ -219,17 +220,17 @@ th{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--soft)
       <span class="chip">Paid media after the call</span>
     </div>
     <div class="contact">
-      <img src="https://brandastic.com/wp-content/uploads/2024/10/justin-evil-laugh.png" alt="Justin Nassie" loading="lazy">
-      <div>
-        <div class="who">Justin Nassie</div>
-        <div class="role">President, Brandastic</div>
-        <div class="links">
-          <a href="tel:9498928944">📱 (949) 892-8944</a>
-          <a href="mailto:justin@brandastic.com">✉️ justin@brandastic.com</a>
+      <div class="contact-left">
+        <img src="https://brandastic.com/wp-content/uploads/2024/10/justin-evil-laugh.png" alt="Justin Nassie" loading="lazy">
+        <div>
+          <div class="who">Justin Nassie</div>
+          <div class="role">President, Brandastic</div>
+          <div class="links">
+            <a href="tel:9498928944">📱 (949) 892-8944</a>
+            <a href="mailto:justin@brandastic.com">✉️ justin@brandastic.com</a>
+          </div>
         </div>
       </div>
-    </div>
-    <div class="cta-wrap">
       <a class="cta-btn" href="mailto:justin@brandastic.com?subject=Northline%20Industrial%20SEO%20%2B%20AEO%20scorecard">Let's Execute This Plan →</a>
     </div>
     <p class="note">Brandastic · Costa Mesa, CA · We do not guess Google Ads from Semrush.</p>
