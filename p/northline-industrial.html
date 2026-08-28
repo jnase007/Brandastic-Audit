@@ -19,19 +19,19 @@
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 :root{
-  --bg:#05070C;--card:#101722;--line:rgba(255,255,255,.08);
-  --text:#F5F7FB;--muted:rgba(245,247,251,.64);--soft:rgba(245,247,251,.42);
-  --cyan:#40B4E5;--purple:#CC22FF;--green:#22C55E;--yellow:#F59E0B;--red:#EF4444;
+  --bg:#F5F3EF;--card:#ffffff;--line:rgba(25,31,36,.1);
+  --text:#191F24;--muted:rgba(25,31,36,.7);--soft:rgba(25,31,36,.42);
+  --cyan:#40B4E5;--purple:#CC22FF;--green:#16A34A;--yellow:#D97706;--red:#DC2626;
 }
 html{scroll-behavior:smooth}
 body{font-family:Inter,system-ui,sans-serif;background:var(--bg);color:var(--text);line-height:1.55;overflow-x:hidden}
-a{color:#7DD3FC;text-decoration:none}
+a{color:#0284C7;text-decoration:none}
 .bg{position:fixed;inset:0;z-index:0;pointer-events:none;background:
-  radial-gradient(circle at 12% 0%,rgba(64,180,229,.16),transparent 34%),
-  radial-gradient(circle at 90% 8%,rgba(204,34,255,.12),transparent 28%),
-  linear-gradient(180deg,#05070C,#070A12)}
+  radial-gradient(circle at 12% 0%,rgba(64,180,229,.12),transparent 34%),
+  radial-gradient(circle at 90% 8%,rgba(204,34,255,.08),transparent 28%),
+  linear-gradient(180deg,#F5F3EF,#EEF2F6)}
 .wrap{position:relative;z-index:2;max-width:980px;margin:0 auto;padding:0 22px 80px}
-.sample{margin:16px 0 0;border:1px solid rgba(245,158,11,.32);background:rgba(245,158,11,.1);color:#FDE68A;border-radius:12px;padding:10px 14px;font-size:12.5px;font-weight:700}
+.sample{margin:16px 0 0;border:1px solid rgba(217,119,6,.28);background:#FFF7ED;color:#9A3412;border-radius:12px;padding:10px 14px;font-size:12.5px;font-weight:700}
 .nav{display:flex;align-items:center;justify-content:space-between;padding:20px 0 8px}
 .nav img{height:22px;display:block}
 .nav-tag{font-size:11px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--soft);border:1px solid var(--line);padding:6px 10px;border-radius:999px}
@@ -42,22 +42,22 @@ h1{font-size:clamp(2.2rem,5.4vw,3.8rem);letter-spacing:-.045em;line-height:1.02;
 .source{font-size:12px;color:var(--soft);font-weight:600}
 .rings{display:grid;grid-template-columns:160px 160px 1fr;gap:16px;align-items:center;margin:26px 0 8px}
 .ring{width:160px;height:160px;border-radius:50%;display:grid;place-items:center;position:relative;background:
-  radial-gradient(circle at center,rgba(16,23,34,.95) 0 58%,transparent 59%),
-  conic-gradient(var(--ring) calc(var(--p)*1%), rgba(255,255,255,.08) 0);
+  radial-gradient(circle at center,#ffffff 0 58%,transparent 59%),
+  conic-gradient(var(--ring) calc(var(--p)*1%), rgba(25,31,36,.1) 0);
 }
 .ring strong{font-size:42px;font-weight:900;letter-spacing:-.04em;line-height:1}
 .ring em{display:block;font-style:normal;font-size:11px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--soft);text-align:center;margin-top:4px}
 .metrics{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}
-.metric{border:1px solid var(--line);background:rgba(255,255,255,.03);border-radius:16px;padding:14px}
+.metric{border:1px solid var(--line);background:#fff;border-radius:16px;padding:14px;box-shadow:0 8px 24px rgba(25,31,36,.04)}
 .metric b{display:block;font-size:22px;font-weight:900;letter-spacing:-.03em}
 .metric span{display:block;margin-top:4px;font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--soft)}
-.down{color:#FCA5A5}
-.mid{color:#FDE68A}
-.ok{color:#86EFAC}
+.down{color:#DC2626}
+.mid{color:#D97706}
+.ok{color:#16A34A}
 h2{font-size:1.35rem;letter-spacing:-.03em;margin:34px 0 12px}
 .sub{color:var(--muted);font-size:14px;margin:-4px 0 14px;max-width:40rem}
 .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-.card{border:1px solid var(--line);background:linear-gradient(180deg,rgba(16,23,34,.96),rgba(11,16,24,.98));border-radius:18px;padding:18px}
+.card{border:1px solid var(--line);background:#fff;border-radius:18px;padding:18px;box-shadow:0 10px 30px rgba(25,31,36,.05)}
 .card h3{font-size:15px;margin-bottom:10px}
 table{width:100%;border-collapse:collapse;font-size:13.5px}
 th,td{text-align:left;padding:10px 8px;border-bottom:1px solid var(--line);vertical-align:top}
@@ -66,18 +66,18 @@ th{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--soft)
 .check{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:9px 0;border-bottom:1px solid var(--line);font-size:14px;color:var(--muted)}
 .check:last-child{border-bottom:0}
 .pill{font-size:10px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;border-radius:999px;padding:4px 8px;flex:0 0 auto}
-.fail-pill{background:rgba(239,68,68,.14);color:#FCA5A5}
-.pass-pill{background:rgba(34,197,94,.14);color:#86EFAC}
+.fail-pill{background:#FEE2E2;color:#B91C1C}
+.pass-pill{background:#DCFCE7;color:#15803D}
 .bars{display:flex;align-items:flex-end;gap:6px;height:92px;margin-top:8px}
 .bars i{flex:1;border-radius:5px 5px 2px 2px;background:linear-gradient(180deg,#40B4E5,#1d4ed8);opacity:.9;display:block}
-.fail,.move{border:1px solid var(--line);border-radius:16px;padding:16px 16px 14px;margin:0 0 10px;background:rgba(255,255,255,.02)}
+.fail,.move{border:1px solid var(--line);border-radius:16px;padding:16px 16px 14px;margin:0 0 10px;background:#fff}
 .fail{border-left:3px solid var(--red)}
 .move{border-left:3px solid var(--cyan)}
 .fail h3,.move h3{font-size:15px;margin-bottom:6px}
 .fail p,.move p{color:var(--muted);font-size:14px}
 .plan{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
 .plan .card b{display:block;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--cyan);margin-bottom:8px}
-.cta{margin-top:36px;border:1px solid rgba(64,180,229,.28);border-radius:22px;padding:24px;background:linear-gradient(180deg,rgba(64,180,229,.08),rgba(204,34,255,.05))}
+.cta{margin-top:36px;border:1px solid rgba(64,180,229,.28);border-radius:22px;padding:24px;background:linear-gradient(180deg,#fff,#F0F9FF)}
 .cta h2{margin:0 0 8px}
 .proof{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0 4px}
 .chip{border:1px solid var(--line);border-radius:999px;padding:7px 11px;font-size:12px;font-weight:600;color:var(--muted)}
@@ -96,7 +96,7 @@ th{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--soft)
 <div class="wrap">
   <div class="sample">SAMPLE template · fictional company for team review. Live pages use that domain’s real Semrush + crawl. SEO + AEO only. No PPC.</div>
   <div class="nav">
-    <img src="/assets/brandastic-logo-white.png" alt="Brandastic">
+    <img src="/assets/brandastic-logo-black.png" alt="Brandastic">
     <span class="nav-tag">SEO + AEO scorecard</span>
   </div>
 
