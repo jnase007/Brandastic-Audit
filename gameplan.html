@@ -107,6 +107,7 @@ td b{color:var(--text);font-weight:700}
       <span class="chip">One audit per company</span>
       <span class="chip">URL, not PDF</span>
       <span class="chip">Chip runs the hopper</span>
+      <span class="chip">1,000 audits ≈ $50–80 xAI</span>
       <span class="chip">Justin GO on send</span>
     </div>
   </section>
@@ -322,6 +323,24 @@ If not, no follow-up after this.</pre>
       <div><strong>SEO + AEO only.</strong> Semrush is accurate enough on organic. It is not the source of truth for Google Ads. No PPC audit, no tool ad-spend number, no “you are wasting $X on paid.” Paid media comes up after they are on a call.</div>
       <div><strong>AEO is extractability, not ChatGPT rank.</strong> We cannot score AI mentions cheaply at scale. We can score whether a model can read who they are from the site.</div>
       <div><strong>Quality over volume.</strong> First batch 10–25. Then 50/week. A thin audit is worse than “book a call.”</div>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>xAI cost for 1,000</h2>
+    <p class="sub">Grok 4.6 through Chip. List price $2 / 1M input, $0.50 / 1M cached, $6 / 1M output. A scorecard fill is ~8–15k in and 4–6k out. Semrush, Instantly, Apollo, and Netlify are not in this number.</p>
+    <div class="card" style="overflow-x:auto">
+      <table>
+        <thead>
+          <tr><th>How we run it</th><th>Per audit</th><th>1,000</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><b>Hopper script</b> · template cached, Grok fills numbers</td><td>~$0.04–0.08</td><td><b>$40–80</b></td></tr>
+          <tr><td><b>Through Chip, one pass</b> · tools, write, ship</td><td>~$0.12–0.30</td><td>$120–300</td></tr>
+          <tr><td><b>Chat sessions</b> · do not do this</td><td>$0.50–2+</td><td>$500–2,000+</td></tr>
+        </tbody>
+      </table>
+      <p style="color:var(--muted);font-size:14px;margin-top:12px">The plan is the hopper. Chip locks the template once. Grok only writes the per-domain fill. That is the $50–80 job. First 10–25 is the real test. If those look right, 1,000 of AI write cost is a rounding error.</p>
     </div>
   </section>
 
