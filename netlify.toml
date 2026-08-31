@@ -271,6 +271,11 @@
   status = 200
 
 [[redirects]]
+  from = "/calops-seo-monthly"
+  to = "/calops-seo-monthly.html"
+  status = 200
+
+[[redirects]]
   from = "/defy-growth-plan"
   to = "/defy-growth-plan.html"
   status = 200
