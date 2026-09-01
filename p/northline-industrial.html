@@ -119,7 +119,7 @@ th{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--soft)
 <div class="wrap">
   <div class="sample">SAMPLE template · fictional company for team review. Live pages use that domain’s real Semrush + crawl. SEO + AEO only. No PPC.</div>
   <div class="nav">
-    <img src="/assets/brandastic-logo-black.png" alt="Brandastic">
+    <a href="https://brandastic.com/?utm_source=audit.brandastic.com&utm_medium=referral&utm_campaign=audit-site&utm_content=p-northline-industrial" target="_blank" rel="noopener" aria-label="Brandastic.com"><img src="/assets/brandastic-logo-black.png" alt="Brandastic"></a>
     <div class="nav-right">
       <span class="nav-tag">SEO + AEO scorecard</span>
       <button class="print-btn" type="button" onclick="window.print()">Print</button>
@@ -276,5 +276,6 @@ function downloadScorecardPdf(){
   }).from(clone).save().then(function(){ holder.remove(); }).catch(function(){ holder.remove(); window.print(); });
 }
 </script>
+<script src="/assets/brandastic-utm-passthrough.js"></script>
 </body>
 </html>
