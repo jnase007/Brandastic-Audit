@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>JB White, DDS — SEO Performance Report — August 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+<style>
+:root{
+  --black:#191F24; --fog:#F5F3EF; --white:#FFFFFF;
+  --blue:#0644ED; --light:#40B4E5; --purple:#CC22FF;
+  --text:#191F24; --muted:rgba(25,31,36,0.55); --soft:rgba(25,31,36,0.72);
+  --card:#FFFFFF; --border:rgba(25,31,36,0.10);
+  --red:#ef4444; --green:#16a34a; --amber:#f59e0b;
+  --grad:linear-gradient(135deg,#40B4E5,#CC22FF);
+  --shadow:0 8px 32px rgba(0,0,0,0.06);
+}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',system-ui,-apple-system,sans-serif;background:var(--fog);
+  color:var(--text);line-height:1.6;-webkit-font-smoothing:antialiased}
+h1,h2,h3,.headline{font-family:'Forma DJR Text','Inter',system-ui,sans-serif;letter-spacing:-0.02em}
+.gradient{background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.subhead{font-size:0.72rem;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:var(--muted)}
+a{color:var(--blue);text-decoration:none}
+.wrap{max-width:1080px;margin:0 auto;padding:0 2rem}
+section{padding:3.5rem 0;border-bottom:1px solid var(--border)}
+
+/* nav */
+.topbar{position:sticky;top:0;z-index:50;background:rgba(245,243,239,0.9);backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--border);height:60px;display:flex;align-items:center}
+.topbar .wrap{display:flex;align-items:center;justify-content:space-between;width:100%}
+.brand{display:flex;align-items:center;gap:10px;font-weight:800;font-size:1.05rem;letter-spacing:0.02em}
+.brand .dot{width:11px;height:11px;border-radius:50%;background:var(--grad)}
+.pdf-btn{padding:8px 18px;border-radius:10px;border:none;cursor:pointer;background:var(--grad);
+  color:#fff;font-family:inherit;font-size:0.75rem;font-weight:700;letter-spacing:0.04em}
+
+/* cover */
+.cover{min-height:52vh;display:flex;flex-direction:column;justify-content:center;align-items:center;
+  text-align:center;background:linear-gradient(180deg,#fff,var(--fog));border-bottom:1px solid var(--border)}
+.cover .logo{display:flex;align-items:center;gap:12px;margin-bottom:2.5rem}
+.cover .logo .dot{width:14px;height:14px;border-radius:50%;background:var(--grad)}
+.cover .logo span{font-weight:800;font-size:1.3rem;letter-spacing:0.04em}
+.cover h1{font-size:clamp(2.4rem,6vw,4.2rem);font-weight:800;line-height:1.05;margin-bottom:1rem}
+.cover .sub{font-size:1.1rem;color:var(--soft);max-width:560px;margin-bottom:2rem}
+.cover .meta{display:flex;gap:1rem;flex-wrap:wrap;justify-content:center}
+.cover .meta span{padding:8px 20px;border-radius:50px;background:#fff;border:1px solid var(--border);
+  font-size:0.82rem;font-weight:600;color:var(--soft)}
+
+/* toc */
+.toc-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem;margin-top:1.5rem}
+.toc-item{display:flex;gap:1rem;align-items:center;padding:1.25rem 1.5rem;background:var(--card);
+  border:1px solid var(--border);border-radius:14px;transition:.2s}
+.toc-item:hover{box-shadow:var(--shadow);border-color:rgba(64,180,229,0.3)}
+.toc-item .n{width:36px;height:36px;border-radius:9px;background:var(--grad);color:#fff;font-weight:800;
+  display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.toc-item .t{font-weight:700;font-size:0.95rem}
+.toc-item .d{font-size:0.78rem;color:var(--muted)}
+
+/* section head */
+.sec-badge{display:inline-block;padding:6px 16px;border-radius:50px;background:#fff;border:1px solid var(--border);
+  font-size:0.68rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:var(--muted);margin-bottom:1rem}
+.sec-title{font-size:clamp(1.7rem,3.5vw,2.5rem);font-weight:800;line-height:1.15;margin-bottom:.6rem}
+.sec-sub{color:var(--soft);font-size:1rem;max-width:680px;margin-bottom:2rem}
+
+/* scorecards */
+.cards{display:grid;grid-template-columns:repeat(4,1fr);gap:1.25rem;margin-bottom:2rem}
+.cards.c3{grid-template-columns:repeat(3,1fr)}
+.metric{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:1.8rem 1.4rem;text-align:center}
+.metric .value{font-size:2.1rem;font-weight:800;letter-spacing:-0.03em}
+.metric .value.grad{background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.metric .label{font-size:0.7rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--muted);margin-top:.5rem}
+.metric .change{font-size:0.78rem;font-weight:700;margin-top:.35rem}
+.change.up{color:var(--green)} .change.down{color:var(--red)} .change.flat{color:var(--muted)}
+
+/* movement strip */
+.move-strip{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;margin-bottom:2rem}
+.move-cell{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:1rem;text-align:center}
+.move-cell .num{font-size:1.5rem;font-weight:800}
+.move-cell .lbl{font-size:0.68rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);margin-top:.2rem}
+.move-cell.imp .num{color:var(--green)} .move-cell.dec .num{color:var(--red)}
+.move-cell.ent .num{color:var(--light)} .move-cell.lft .num{color:var(--amber)}
+
+/* tables */
+.table-wrap{background:var(--card);border:1px solid var(--border);border-radius:16px;overflow:hidden;margin-bottom:2rem}
+table{width:100%;border-collapse:collapse;font-size:0.88rem}
+th{text-align:left;padding:.95rem 1rem;font-size:0.66rem;font-weight:700;letter-spacing:0.1em;
+  text-transform:uppercase;color:var(--muted);border-bottom:1px solid var(--border);background:rgba(245,243,239,0.6)}
+td{padding:.8rem 1rem;border-bottom:1px solid var(--border);color:var(--soft)}
+tr:last-child td{border-bottom:none}
+tr:hover td{color:var(--text)}
+.pos{font-weight:800;color:var(--text)}
+.chg{font-weight:700;font-size:0.82rem}
+.chg.up{color:var(--green)} .chg.down{color:var(--red)} .chg.flat{color:var(--muted)}
+.num-r{text-align:right}
+.kt{display:inline-block;font-size:0.68rem;font-weight:700;letter-spacing:0.03em;padding:3px 9px;border-radius:6px;white-space:nowrap}
+.kt-ai{background:linear-gradient(135deg,rgba(204,34,255,0.12),rgba(64,180,229,0.12));color:#8b18c9;border:1px solid rgba(204,34,255,0.25)}
+.kt-org{background:rgba(6,68,237,0.07);color:var(--blue);border:1px solid rgba(6,68,237,0.15)}
+.kt-none{color:var(--muted)}
+.ai-overview-note{background:linear-gradient(135deg,rgba(64,180,229,0.06),rgba(204,34,255,0.06));border:1px solid rgba(204,34,255,0.2);border-radius:14px;padding:1.4rem 1.6rem;margin:0 0 1.6rem}
+.aon-head{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:6px}
+.aon-badge{font-size:0.64rem;font-weight:800;letter-spacing:0.12em;padding:4px 10px;border-radius:50px;background:var(--grad);color:#fff}
+.aon-title{font-weight:800;font-size:1.02rem;letter-spacing:-0.01em}
+.aon-sub{font-size:0.85rem;color:var(--soft);margin-bottom:0.9rem;max-width:680px}
+.ai-chips{display:flex;flex-wrap:wrap;gap:8px}
+.ai-chip{font-size:0.76rem;font-weight:600;padding:5px 12px;border-radius:50px;background:#fff;border:1px solid rgba(204,34,255,0.2);color:var(--text)}
+
+/* placeholder block */
+.placeholder{background:linear-gradient(135deg,rgba(64,180,229,0.06),rgba(204,34,255,0.05));
+  border:1px dashed rgba(64,180,229,0.4);border-radius:16px;padding:2.2rem;text-align:center}
+.placeholder .pico{font-size:2rem;margin-bottom:.6rem}
+.placeholder .ptitle{font-weight:800;font-size:1.15rem;margin-bottom:.5rem}
+.placeholder .ptext{color:var(--soft);font-size:0.92rem;max-width:560px;margin:0 auto}
+.placeholder .ptag{display:inline-block;margin-top:1rem;padding:5px 14px;border-radius:50px;
+  background:rgba(245,158,11,0.15);color:#b45309;font-size:0.7rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase}
+
+/* SOV horizontal bars */
+.sov-wrap{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:1.6rem 1.8rem;margin-bottom:1rem}
+.sovrow{display:grid;grid-template-columns:170px 1fr 56px;align-items:center;gap:1rem;padding:.4rem 0}
+.sovname{font-size:0.88rem}
+.sovtrack{height:14px;background:rgba(25,31,36,0.06);border-radius:50px;overflow:hidden}
+.sovfill{height:100%;border-radius:50px;min-width:3px}
+.sovval{font-size:0.85rem;text-align:right}
+
+/* priorities */
+.pri-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-bottom:2rem}
+.pri{display:flex;gap:.9rem;background:var(--card);border:1px solid var(--border);border-radius:14px;padding:1.3rem}
+.prinum{width:30px;height:30px;border-radius:8px;background:var(--grad);color:#fff;font-weight:800;font-size:0.9rem;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.prit{font-weight:800;font-size:0.92rem;margin-bottom:.3rem}
+.prid{font-size:0.82rem;color:var(--soft);line-height:1.5}
+
+/* opportunity */
+.opp{background:linear-gradient(135deg,rgba(64,180,229,0.05),rgba(204,34,255,0.04));border:1px solid var(--border);border-radius:16px;padding:1.8rem;margin-bottom:1rem}
+.recs{margin:0;padding-left:1.1rem;color:var(--soft);font-size:0.92rem}
+.recs li{margin-bottom:.6rem;line-height:1.55}
+
+.chart-wrap{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:1.8rem;margin-bottom:2rem;position:relative}
+.chart-wrap h3{font-size:1.05rem;margin-bottom:1rem}
+.chart-box{position:relative;height:300px;width:100%}
+.chart-grid2{display:grid;grid-template-columns:1fr 1fr;gap:1.4rem;margin-bottom:2rem}
+.chart-grid2 .chart-wrap{margin-bottom:0}
+.chart-sub{font-size:0.78rem;color:var(--muted);margin-top:.6rem}
+@media(max-width:860px){.chart-grid2{grid-template-columns:1fr}}
+
+.footer{text-align:center;padding:2.5rem 0;color:var(--muted);font-size:0.8rem}
+.footer .dot{display:inline-block;width:9px;height:9px;border-radius:50%;background:var(--grad);vertical-align:middle;margin-right:6px}
+
+@media(max-width:900px){.cards,.move-strip{grid-template-columns:repeat(2,1fr)}.cards.c3{grid-template-columns:repeat(2,1fr)}.pri-grid{grid-template-columns:1fr}.sovrow{grid-template-columns:120px 1fr 50px}}
+@media(max-width:560px){.cards,.cards.c3,.move-strip{grid-template-columns:1fr}}
+
+/* ---- PRINT / PDF ---- */
+@media print{
+  @page{margin:14mm}
+  body{background:#fff}
+  .topbar,.pdf-btn{display:none!important}
+  section{padding:1.4rem 0;border-bottom:none;page-break-inside:avoid;break-inside:avoid}
+  .cover{min-height:auto;padding:2rem 0;page-break-after:always}
+  .sec-block{page-break-before:always}
+  .sec-block:first-of-type{page-break-before:avoid}
+  .table-wrap,.metric,.chart-wrap,.placeholder,.move-cell,.toc-item{box-shadow:none!important;break-inside:avoid}
+  .chart-box{height:260px}
+  .chart-grid2{grid-template-columns:1fr 1fr}
+  a{color:var(--text)}
+}
+</style>
+</head>
+<body>
+<div class="topbar"><div class="wrap">
+  <div class="brand"><span class="dot"></span>JB WHITE, DDS</div>
+  <button class="pdf-btn" onclick="window.print()">Export PDF</button>
+</div></div>
+
+<section class="cover" id="cover">
+  <div class="logo"><span class="dot"></span><span>JB WHITE, DDS</span></div>
+  <h1>SEO Performance<br><span class="gradient">Monthly Report</span></h1>
+  <p class="sub">Organic search visibility, keyword movement, and AI search presence for jbwhitedds.com</p>
+  <div class="meta">
+    <span>jbwhitedds.com</span>
+    <span>August 2026</span>
+    <span>Prepared by Brandastic</span>  <!-- agency attribution stays Brandastic -->
+  </div>
+</section>
+
+<section id="toc">
+  <div class="wrap">
+    <span class="sec-badge">Contents</span>
+    <h2 class="sec-title">What's <span class="gradient">inside</span></h2>
+    <div class="toc-grid"><a class="toc-item" href="#sec01"><div class="n">01</div><div><div class="t">AI Search Visibility</div><div class="d">Share of voice, mentions &amp; citations</div></div></a><a class="toc-item" href="#sec02"><div class="n">02</div><div><div class="t">Semrush Position Tracking</div><div class="d">Visibility, SOV &amp; keyword movement</div></div></a><a class="toc-item" href="#sec03"><div class="n">03</div><div><div class="t">Google Search Console</div><div class="d">Clicks, impressions, CTR &amp; top pages</div></div></a></div>
+  </div>
+</section>
+
+<section id="sec1" class="sec-block">
+  <div class="wrap">
+    <span class="sec-badge">Section 01 · AI Search</span>
+    <h2 class="sec-title">AI Search Visibility</h2>
+    <p class="sec-sub">How jbwhitedds.com shows up across AI answer engines (Google AI Mode). Currently 0.2% share of voice — this is the lead growth lever.</p>
+    
+    <div class="cards">
+      <div class="metric"><div class="value grad">0.2%</div>
+        <div class="label">AI Share of Voice</div><div class="change flat">Google AI Mode</div></div>
+      <div class="metric"><div class="value grad">2</div>
+        <div class="label">Mentions</div><div class="change flat">0.7% share</div></div>
+      <div class="metric"><div class="value grad">2</div>
+        <div class="label">Domain Citations</div><div class="change down">jbwhitedds.com citations</div></div>
+      <div class="metric"><div class="value grad">3.0</div>
+        <div class="label">Avg Position</div><div class="change flat">when surfaced</div></div>
+    </div>
+    <h3 style="margin:1.5rem 0 .8rem;font-size:1.05rem">Share of Voice — Google AI Mode</h3>
+    <div class="sov-wrap"><div class="sovrow"><div class="sovname" style="font-weight:800">JB White, DDS</div><div class="sovtrack"><div class="sovfill" style="width:0.3%;background:var(--grad)"></div></div><div class="sovval" style="font-weight:800">0.2%</div></div><div class="sovrow"><div class="sovname" style="font-weight:600">Smile Oasis</div><div class="sovtrack"><div class="sovfill" style="width:16.3%;background:rgba(25,31,36,0.30)"></div></div><div class="sovval" style="font-weight:600">10.8%</div></div><div class="sovrow"><div class="sovname" style="font-weight:600">Sierra Smiles</div><div class="sovtrack"><div class="sovfill" style="width:13.3%;background:rgba(25,31,36,0.30)"></div></div><div class="sovval" style="font-weight:600">8.8%</div></div><div class="sovrow"><div class="sovname" style="font-weight:600">Summerlin Dental Solutions</div><div class="sovtrack"><div class="sovfill" style="width:10.3%;background:rgba(25,31,36,0.30)"></div></div><div class="sovval" style="font-weight:600">6.8%</div></div><div class="sovrow"><div class="sovname" style="font-weight:600">Vegas Choice Dental</div><div class="sovtrack"><div class="sovfill" style="width:10.3%;background:rgba(25,31,36,0.30)"></div></div><div class="sovval" style="font-weight:600">6.8%</div></div><div class="sovrow"><div class="sovname" style="font-weight:600">Other</div><div class="sovtrack"><div class="sovfill" style="width:100.0%;background:rgba(25,31,36,0.30)"></div></div><div class="sovval" style="font-weight:600">66.2%</div></div></div>
+    <p style="font-size:0.78rem;color:var(--muted);margin-bottom:1.5rem">JB White, DDS holds 0.2% AI share of voice — the rest of the visible market is led by Smile Oasis, Sierra Smiles, Summerlin Dental Solutions, Vegas Choice Dental. 66.2% sits in the long tail.</p>
+    <h3 style="margin:1rem 0 .8rem;font-size:1.05rem">Competitor benchmark</h3>
+    <div class="table-wrap"><table><thead><tr><th>Brand</th><th class="num-r">AI SOV</th>
+      <th class="num-r">Mentions</th><th class="num-r">Avg Pos</th><th class="num-r">Favorable</th></tr></thead>
+      <tbody><tr><td>Smile Oasis</td><td class="num-r pos">10.8%</td><td class="num-r">59</td><td class="num-r">1.9</td><td class="num-r">n/a</td></tr><tr><td>Sierra Smiles</td><td class="num-r pos">8.8%</td><td class="num-r">48</td><td class="num-r">4.18</td><td class="num-r">n/a</td></tr><tr><td>Summerlin Dental Solutions</td><td class="num-r pos">6.8%</td><td class="num-r">32</td><td class="num-r">1.9</td><td class="num-r">n/a</td></tr><tr><td>Vegas Choice Dental</td><td class="num-r pos">6.8%</td><td class="num-r">33</td><td class="num-r">3.19</td><td class="num-r">n/a</td></tr><tr><td><strong>JB White, DDS</strong></td><td class="num-r pos">0.2%</td><td class="num-r">2</td><td class="num-r">3.0</td><td class="num-r">100.0%</td></tr></tbody></table></div>
+    <h3 style="margin:1rem 0 .8rem;font-size:1.05rem">Top cited domains in AI answers</h3>
+    <div class="table-wrap"><table><thead><tr><th>Domain</th><th class="num-r">Citation Share</th>
+      <th class="num-r">Citations</th></tr></thead>
+      <tbody><tr><td>google.com</td><td class="num-r">45.0%</td><td class="num-r pos">398</td></tr><tr><td>book.modento.io</td><td class="num-r">12.0%</td><td class="num-r pos">102</td></tr><tr><td>booking.adit.com</td><td class="num-r">9.2%</td><td class="num-r pos">87</td></tr><tr><td>vegaschoicedental.com</td><td class="num-r">4.9%</td><td class="num-r pos">43</td></tr><tr><td>drpalluck.com</td><td class="num-r">3.6%</td><td class="num-r pos">33</td></tr><tr><td>jbwhitedds.com</td><td class="num-r">0.2%</td><td class="num-r pos">2</td></tr></tbody></table></div>
+    <p style="font-size:0.78rem;color:var(--muted);margin-bottom:1.5rem">jbwhitedds.com earns only <strong>2 citations</strong> — AI answers lean on directories and competitor-owned content instead. Earning citations on these source pages is the fastest lever to enter the recommendation set.</p>
+    <h3 style="margin:1.5rem 0 .8rem;font-size:1.05rem">Urgent strategic priorities</h3>
+    <div class="pri-grid"><div class="pri"><div class="prinum">1</div><div><div class="prit">Conservative Care As Savings</div><div class="prid">Turn function-first, tooth-preserving planning into proof that JB White prevents costly overtreatment competitors recommend.</div></div></div><div class="pri"><div class="prinum">2</div><div><div class="prit">Build An AI-Ready Library</div><div class="prid">Create 4–6 deep-dive resource pages answering recurring AI questions competitors currently monopolize (redo veneers, complex reconstruction, implants-plus-veneers, natural bridges).</div></div></div><div class="pri"><div class="prinum">3</div><div><div class="prit">From 5-Star To Standout</div><div class="prid">Leverage 100% positivity with 3–5 complex redo stories that beat ‘all-good’ competitor narratives.</div></div></div><div class="pri"><div class="prinum">4</div><div><div class="prit">Launch Destination Visibility</div><div class="prid">Develop a Fly-In Program page so AI cites JB White alongside Vegas Choice and Nevada Dental Esthetics for destination patients.</div></div></div></div>
+    <div class="opp">
+      <div class="subhead" style="margin-bottom:.6rem">Opportunity</div>
+      <p style="color:var(--soft);font-size:0.95rem;margin-bottom:1rem">JB White, DDS holds 0.2% Google AI Mode share of voice (Nevada locale) with 2 mentions, 2 own-domain citations (0.2%), 100% favorable sentiment, and average answer position 3.0. Smile Oasis leads at 10.8% SOV; Sierra Smiles, Summerlin Dental Solutions, and Vegas Choice Dental fill the next tier. AI already respects clinical quality and natural aesthetics, but almost never recommends JB White on high-intent cosmetic and implant queries — presence is mostly by-name, not category. Weekday-only / single-location constraints read as a gap unless reframed as boutique focus. Citation weight sits with Google, Modento, Adit, and competitor booking sites — not jbwhitedds.com.</p>
+      <div class="subhead" style="margin-bottom:.6rem">Recommendations</div>
+      <ul class="recs"><li>Own the boutique model explicitly: fewer patients, more focus, protected complex-reconstruction blocks — schedule and setting as design choices, not weaknesses.</li><li>Publish Doctor &amp; Philosophy, Complex Case Center, Natural Aesthetic Makeovers, and Fly-In Program pages AI can cite for redo veneers, full-mouth work, and destination patients.</li><li>Bring finance into the clinical narrative with phased treatment pathways and a clear ‘Your Options at a Glance’ visual so premium pricing feels controlled, not upsold.</li><li>Seed Q&amp;A-style guides and case stories that mirror Google AI Mode questions so JB White moves from name-search only into category recommendations.</li></ul>
+    </div>
+  </div>
+</section>
+
+<section id="sec2" class="sec-block">
+  <div class="wrap">
+    <span class="sec-badge">Section 02 · Organic Search</span>
+    <h2 class="sec-title">Semrush Organic Rankings</h2>
+    <p class="sec-sub">61 ranking organic keywords for jbwhitedds.com — 1 in the top 3, 2 in the top 10.</p>
+    
+    <div class="cards">
+      <div class="metric"><div class="value grad">58</div><div class="label">Est. Organic Traffic / mo</div><div class="change flat">Semrush estimate</div></div>
+      <div class="metric"><div class="value grad">61</div><div class="label">Ranking Keywords</div><div class="change flat">organic, US</div></div>
+      <div class="metric"><div class="value grad">2</div>
+        <div class="label">Top 10 Keywords</div><div class="change flat">tracked, page-one</div></div>
+      <div class="metric"><div class="value grad">1</div>
+        <div class="label">Top 3 Keywords</div><div class="change flat">incl. AI Overview #1s</div></div>
+    </div><div class="move-strip"><div class="move-cell imp"><div class="num">1</div><div class="lbl">Improved</div></div><div class="move-cell dec"><div class="num">0</div><div class="lbl">Declined</div></div></div>
+    <div class="chart-wrap">
+      <h3>Ranking distribution by position bucket</h3>
+      <div class="chart-box"><canvas id="posChart"></canvas></div>
+    </div>
+    <h3 style="margin:1rem 0 .8rem;font-size:1.05rem">Keyword rankings &amp; movement (top 40)</h3>
+    <div class="table-wrap"><table><thead><tr><th>Keyword</th><th class="num-r">Volume</th>
+      <th class="num-r">Position</th><th class="num-r">Movement</th></tr></thead>
+      <tbody><tr><td>jb white dds</td><td class="num-r">70</td><td class="num-r pos">1</td><td class="num-r chg flat">0</td></tr><tr><td>jb dentistry</td><td class="num-r">40</td><td class="num-r pos">9</td><td class="num-r chg flat">0</td></tr><tr><td>aesthetic dentistry las vegas nv</td><td class="num-r">70</td><td class="num-r pos">13</td><td class="num-r chg flat">0</td></tr><tr><td>aesthetic dentistry las vegas</td><td class="num-r">90</td><td class="num-r pos">16</td><td class="num-r chg up">▲ 3</td></tr><tr><td>drwhite</td><td class="num-r">30</td><td class="num-r pos">22</td><td class="num-r chg flat">0</td></tr><tr><td>composite veneers las vegas</td><td class="num-r">90</td><td class="num-r pos">25</td><td class="num-r chg flat">0</td></tr><tr><td>jb dental care</td><td class="num-r">90</td><td class="num-r pos">27</td><td class="num-r chg flat">0</td></tr><tr><td>john white dds</td><td class="num-r">110</td><td class="num-r pos">30</td><td class="num-r chg flat">0</td></tr><tr><td>las vegas institute for advanced dental studies</td><td class="num-r">50</td><td class="num-r pos">30</td><td class="num-r chg flat">0</td></tr><tr><td>jb dental</td><td class="num-r">720</td><td class="num-r pos">30</td><td class="num-r chg flat">0</td></tr><tr><td>guided tissue regeneration las vegas nevada</td><td class="num-r">110</td><td class="num-r pos">30</td><td class="num-r chg flat">0</td></tr><tr><td>dr jonathan white</td><td class="num-r">210</td><td class="num-r pos">31</td><td class="num-r chg flat">0</td></tr><tr><td>dr dustin white</td><td class="num-r">50</td><td class="num-r pos">33</td><td class="num-r chg flat">0</td></tr><tr><td>smiles by jb</td><td class="num-r">390</td><td class="num-r pos">35</td><td class="num-r chg flat">0</td></tr><tr><td>teeth whitening in las vegas</td><td class="num-r">110</td><td class="num-r pos">38</td><td class="num-r chg flat">0</td></tr><tr><td>dental photography classes</td><td class="num-r">50</td><td class="num-r pos">38</td><td class="num-r chg flat">0</td></tr><tr><td>teeth whitening las vegas nv</td><td class="num-r">170</td><td class="num-r pos">39</td><td class="num-r chg flat">0</td></tr><tr><td>bdg think tank</td><td class="num-r">70</td><td class="num-r pos">39</td><td class="num-r chg flat">0</td></tr><tr><td>dental ce las vegas</td><td class="num-r">40</td><td class="num-r pos">42</td><td class="num-r chg flat">0</td></tr><tr><td>jb dental clinic</td><td class="num-r">260</td><td class="num-r pos">42</td><td class="num-r chg flat">0</td></tr><tr><td>dental photography courses</td><td class="num-r">90</td><td class="num-r pos">42</td><td class="num-r chg flat">0</td></tr><tr><td>dr white orthodontics</td><td class="num-r">210</td><td class="num-r pos">43</td><td class="num-r chg flat">0</td></tr><tr><td>dental jb</td><td class="num-r">30</td><td class="num-r pos">44</td><td class="num-r chg flat">0</td></tr><tr><td>gum tissue regeneration las vegas</td><td class="num-r">90</td><td class="num-r pos">46</td><td class="num-r chg flat">0</td></tr><tr><td>teeth bleaching las vegas</td><td class="num-r">590</td><td class="num-r pos">46</td><td class="num-r chg flat">0</td></tr><tr><td>professional teeth whitening las vegas</td><td class="num-r">110</td><td class="num-r pos">48</td><td class="num-r chg flat">0</td></tr><tr><td>periodontal disease las vegas nevada</td><td class="num-r">90</td><td class="num-r pos">48</td><td class="num-r chg flat">0</td></tr><tr><td>composite bonding las vegas</td><td class="num-r">170</td><td class="num-r pos">50</td><td class="num-r chg flat">0</td></tr><tr><td>las vegas gum regeneration</td><td class="num-r">90</td><td class="num-r pos">51</td><td class="num-r chg flat">0</td></tr><tr><td>jbdental</td><td class="num-r">260</td><td class="num-r pos">51</td><td class="num-r chg flat">0</td></tr><tr><td>white implant</td><td class="num-r">40</td><td class="num-r pos">51</td><td class="num-r chg flat">0</td></tr><tr><td>drwhite</td><td class="num-r">30</td><td class="num-r pos">52</td><td class="num-r chg flat">0</td></tr><tr><td>dental ce courses las vegas</td><td class="num-r">70</td><td class="num-r pos">52</td><td class="num-r chg flat">0</td></tr><tr><td>white dental studio</td><td class="num-r">50</td><td class="num-r pos">53</td><td class="num-r chg flat">0</td></tr><tr><td>whiting orthodontics</td><td class="num-r">110</td><td class="num-r pos">53</td><td class="num-r chg flat">0</td></tr><tr><td>dental crowns and bridges las vegas</td><td class="num-r">110</td><td class="num-r pos">55</td><td class="num-r chg flat">0</td></tr><tr><td>periodontal surgery las vegas nv</td><td class="num-r">90</td><td class="num-r pos">56</td><td class="num-r chg flat">0</td></tr><tr><td>periodontal therapy in albion</td><td class="num-r">40</td><td class="num-r pos">56</td><td class="num-r chg flat">0</td></tr><tr><td>las vegas tooth implant</td><td class="num-r">40</td><td class="num-r pos">57</td><td class="num-r chg flat">0</td></tr><tr><td>gum regeneration las vegas</td><td class="num-r">90</td><td class="num-r pos">57</td><td class="num-r chg flat">0</td></tr></tbody></table></div>
+    <p style="font-size:0.78rem;color:var(--muted)">Semrush Organic Research — 61 ranking keywords, US database. Movement = Semrush position delta over the period — a positive (▲) value means the keyword moved up. Sorted by current position.</p>
+  </div>
+</section>
+
+<section id="sec3" class="sec-block">
+  <div class="wrap">
+    <span class="sec-badge">Section 03 · Organic Search</span>
+    <h2 class="sec-title">Google Search Console</h2>
+    <p class="sec-sub">Organic clicks, impressions, CTR and position — August 2026 vs July 2026.</p>
+    
+    <div style="display:inline-block;margin-bottom:1.2rem;padding:6px 16px;border-radius:50px;background:rgba(6,68,237,0.08);color:var(--blue);font-size:0.78rem;font-weight:700">📅 August 2026 vs July 2026</div>
+    <div class="ai-overview-note" style="margin:0 0 1.2rem"><div class="aon-head"><span class="aon-badge">NOTE</span><span class="aon-title">GSC caveat</span></div><div class="aon-sub">GSC compare is full calendar months (Aug 1-31 vs Jul 1-31). AI Visibility updated from Semrush Brand Performance export generated September 14, 2026.</div></div>
+    <div class="cards"><div class="metric"><div class="value grad">33</div><div class="label">Clicks</div><div class="change down">▼ 45%</div><div class="change flat" style="font-size:0.7rem">July 2026: 60</div></div><div class="metric"><div class="value grad">2K</div><div class="label">Impressions</div><div class="change up">▲ 4.7%</div><div class="change flat" style="font-size:0.7rem">July 2026: 2K</div></div><div class="metric"><div class="value grad">37.7</div><div class="label">Avg Position</div><div class="change down">▼ 4.4</div><div class="change flat" style="font-size:0.7rem">July 2026: 33.3</div></div><div class="metric"><div class="value grad">1.6%</div><div class="label">CTR</div><div class="change down">▼ 1.5pt</div><div class="change flat" style="font-size:0.7rem">July 2026: 3.1%</div></div></div>
+    
+    <div class="chart-grid2">
+      <div class="chart-wrap">
+        <h3>Clicks — monthly trend by year</h3>
+        <div class="chart-box"><canvas id="gscYoyChart"></canvas></div>
+        <div class="chart-sub">Organic clicks by month YoY (Google Search Console).</div>
+      </div>
+      <div class="chart-wrap">
+        <h3>Clicks — month over month</h3>
+        <div class="chart-box"><canvas id="gscMomChart"></canvas></div>
+        <div class="chart-sub">Organic clicks per month (Google Search Console).</div>
+      </div>
+    </div>
+    <h3 style="margin:1.5rem 0 .8rem;font-size:1.05rem">Top Queries — month over month</h3>
+    <div class="table-wrap"><table><thead><tr><th>Query</th>
+      <th class="num-r">Clicks (August 2026)</th><th class="num-r">Clicks (July 2026)</th>
+      <th class="num-r">Δ Clicks</th><th class="num-r">Impr (August 2026)</th><th class="num-r">Impr (July 2026)</th></tr></thead>
+      <tbody><tr><td>jb white dds</td><td class="num-r pos">3</td><td class="num-r">7</td><td class="num-r chg down">▼ 4</td><td class="num-r">26</td><td class="num-r">63</td></tr><tr><td>jb white</td><td class="num-r pos">2</td><td class="num-r">6</td><td class="num-r chg down">▼ 4</td><td class="num-r">10</td><td class="num-r">14</td></tr><tr><td>dr white dentist</td><td class="num-r pos">1</td><td class="num-r">0</td><td class="num-r chg up">▲ 1</td><td class="num-r">8</td><td class="num-r">9</td></tr><tr><td>jonathan white dds</td><td class="num-r pos">1</td><td class="num-r">0</td><td class="num-r chg up">▲ 1</td><td class="num-r">1</td><td class="num-r">0</td></tr><tr><td>dr jonathan white</td><td class="num-r pos">0</td><td class="num-r">2</td><td class="num-r chg down">▼ 2</td><td class="num-r">4</td><td class="num-r">5</td></tr><tr><td>jb dental</td><td class="num-r pos">0</td><td class="num-r">1</td><td class="num-r chg down">▼ 1</td><td class="num-r">38</td><td class="num-r">39</td></tr><tr><td>whitening treatment las vegas nv</td><td class="num-r pos">0</td><td class="num-r">0</td><td class="num-r chg flat">0</td><td class="num-r">31</td><td class="num-r">56</td></tr><tr><td>composite fillings las vegas nv</td><td class="num-r pos">0</td><td class="num-r">0</td><td class="num-r chg flat">0</td><td class="num-r">7</td><td class="num-r">55</td></tr><tr><td>stained teeth whitening las vegas nv</td><td class="num-r pos">0</td><td class="num-r">0</td><td class="num-r chg flat">0</td><td class="num-r">40</td><td class="num-r">37</td></tr><tr><td>chipped tooth filling las vegas nv</td><td class="num-r pos">0</td><td class="num-r">0</td><td class="num-r chg flat">0</td><td class="num-r">32</td><td class="num-r">37</td></tr><tr><td>safe teeth whitening las vegas nv</td><td class="num-r pos">0</td><td class="num-r">0</td><td class="num-r chg flat">0</td><td class="num-r">32</td><td class="num-r">37</td></tr><tr><td>dental implants las vegas</td><td class="num-r pos">0</td><td class="num-r">0</td><td class="num-r chg flat">0</td><td class="num-r">251</td><td class="num-r">37</td></tr><tr><td>dental ce courses in las vegas</td><td class="num-r pos">0</td><td class="num-r">0</td><td class="num-r chg flat">0</td><td class="num-r">32</td><td class="num-r">36</td></tr><tr><td>dr white las vegas</td><td class="num-r pos">0</td><td class="num-r">0</td><td class="num-r chg flat">0</td><td class="num-r">28</td><td class="num-r">32</td></tr><tr><td>composite resin filling las vegas nv</td><td class="num-r pos">0</td><td class="num-r">0</td><td class="num-r chg flat">0</td><td class="num-r">10</td><td class="num-r">32</td></tr></tbody></table></div>
+    <h3 style="margin:1.5rem 0 .8rem;font-size:1.05rem">Top Pages</h3>
+    <div class="table-wrap"><table><thead><tr><th>Page</th><th class="num-r">Clicks (August 2026)</th><th class="num-r">Clicks (July 2026)</th><th class="num-r">Δ Clicks</th><th class="num-r">Impr (August 2026)</th><th class="num-r">Impr (July 2026)</th></tr></thead><tbody><tr><td>www.jbwhitedds.com/</td><td class="num-r pos">22</td><td class="num-r">48</td><td class="num-r chg down">▼ 26</td><td class="num-r">596</td><td class="num-r">700</td></tr><tr><td>www.jbwhitedds.com/about-jb-white-dds/</td><td class="num-r pos">3</td><td class="num-r">2</td><td class="num-r chg up">▲ 1</td><td class="num-r">243</td><td class="num-r">274</td></tr><tr><td>www.jbwhitedds.com/dental-photography/</td><td class="num-r pos">3</td><td class="num-r">2</td><td class="num-r chg up">▲ 1</td><td class="num-r">57</td><td class="num-r">45</td></tr><tr><td>www.jbwhitedds.com/contact-us/</td><td class="num-r pos">2</td><td class="num-r">0</td><td class="num-r chg up">▲ 2</td><td class="num-r">188</td><td class="num-r">179</td></tr><tr><td>www.jbwhitedds.com/advanced-dental-education-las-vegas/</td><td class="num-r pos">1</td><td class="num-r">2</td><td class="num-r chg down">▼ 1</td><td class="num-r">217</td><td class="num-r">257</td></tr><tr><td>www.jbwhitedds.com/composite-veneers-las-vegas-nv/</td><td class="num-r pos">1</td><td class="num-r">1</td><td class="num-r chg flat">0</td><td class="num-r">96</td><td class="num-r">179</td></tr><tr><td>www.jbwhitedds.com/full-mouth-dental-implants/</td><td class="num-r pos">1</td><td class="num-r">0</td><td class="num-r chg up">▲ 1</td><td class="num-r">89</td><td class="num-r">132</td></tr><tr><td>www.jbwhitedds.com/lifestyle-and-legacy-course/</td><td class="num-r pos">1</td><td class="num-r">0</td><td class="num-r chg up">▲ 1</td><td class="num-r">22</td><td class="num-r">2</td></tr><tr><td>www.jbwhitedds.com/our-team/</td><td class="num-r pos">0</td><td class="num-r">2</td><td class="num-r chg down">▼ 2</td><td class="num-r">54</td><td class="num-r">74</td></tr><tr><td>www.jbwhitedds.com/smile-design-las-vegas-nv/</td><td class="num-r pos">0</td><td class="num-r">1</td><td class="num-r chg down">▼ 1</td><td class="num-r">20</td><td class="num-r">44</td></tr><tr><td>www.jbwhitedds.com/implant-dentistry/</td><td class="num-r pos">0</td><td class="num-r">1</td><td class="num-r chg down">▼ 1</td><td class="num-r">19</td><td class="num-r">27</td></tr><tr><td>www.jbwhitedds.com/how-strong-is-dental-crown-and-bridge/</td><td class="num-r pos">0</td><td class="num-r">1</td><td class="num-r chg down">▼ 1</td><td class="num-r">9</td><td class="num-r">4</td></tr></tbody></table></div>
+  </div>
+</section>
+<div class="footer"><span class="dot"></span>JB White, DDS SEO Performance Report · August 2026 · jbwhitedds.com · Prepared by Brandastic · Data: Semrush + Google Search Console + Semrush AI Visibility</div>
+
+<script>
+(function(){
+  var rendered=false;
+  function draw(){
+    if(rendered) return;
+    if(typeof Chart==='undefined') return;
+    var cv=document.getElementById('posChart');
+    if(!cv) return;
+    var box=cv.parentElement;
+    // render-offscreen / zero-size guard (Chart.js + flex/print infinite-height bug)
+    if(!box || box.clientHeight===0 || box.clientWidth===0) return;
+    rendered=true;
+    new Chart(cv.getContext('2d'),{
+      type:'bar',
+      data:{
+        labels:['Top 3','4–10','11–20','21–100'],
+        datasets:[{
+          label:'Keywords',
+          data:[1,1,2,56],
+          backgroundColor:['#CC22FF','#40B4E5','#0644ED','rgba(25,31,36,0.35)'],
+          borderRadius:8,maxBarThickness:90
+        }]
+      },
+      options:{
+        responsive:true,maintainAspectRatio:false,animation:false,
+        plugins:{legend:{display:false}},
+        scales:{
+          y:{beginAtZero:true,ticks:{precision:0},grid:{color:'rgba(25,31,36,0.06)'}},
+          x:{grid:{display:false}}
+        }
+      }
+    });
+  }
+  if(document.readyState!=='loading') draw();
+  else document.addEventListener('DOMContentLoaded',draw);
+  // setTimeout fallback in case CDN/layout is late
+  setTimeout(draw,400);
+  setTimeout(draw,1500);
+  window.addEventListener('beforeprint',draw);
+})();
+</script>
+
+<script>
+(function(){
+  var done=false;
+  function draw(){
+    if(done) return;
+    if(typeof Chart==='undefined') return;
+    var yc=document.getElementById('gscYoyChart');
+    var mc=document.getElementById('gscMomChart');
+    if(!yc&&!mc) return;
+    var ready=false;
+    [yc,mc].forEach(function(cv){ if(cv){var b=cv.parentElement; if(b&&b.clientHeight>0&&b.clientWidth>0) ready=true;} });
+    if(!ready) return;
+    done=true;
+    if(yc){
+      new Chart(yc.getContext('2d'),{
+        type:'bar',
+        data:{labels:["Jul '26", "Aug '26"],datasets:[{"label": "2026", "data": [60, 33], "backgroundColor": "#0644ED"}].map(function(d){d.borderRadius=6;d.maxBarThickness=26;return d;})},
+        options:{responsive:true,maintainAspectRatio:false,animation:false,
+          plugins:{legend:{display:true,position:'bottom',labels:{boxWidth:12,font:{size:11}}}},
+          scales:{y:{stacked:true,beginAtZero:true,ticks:{precision:0},grid:{color:'rgba(25,31,36,0.06)'}},x:{stacked:true,grid:{display:false},ticks:{autoSkip:false,maxRotation:60,minRotation:60,font:{size:9}}}}
+        }
+      });
+    }
+    if(mc){
+      new Chart(mc.getContext('2d'),{
+        type:'line',
+        data:{labels:["Jul 2026", "Aug 2026"],datasets:[
+          {label:'Clicks',data:[60, 33],borderColor:'#CC22FF',
+            backgroundColor:'rgba(204,34,255,0.10)',fill:true,tension:0.32,
+            pointRadius:3,pointBackgroundColor:'#CC22FF',borderWidth:2.5}
+        ]},
+        options:{responsive:true,maintainAspectRatio:false,animation:false,
+          plugins:{legend:{display:false}},
+          scales:{y:{beginAtZero:true,ticks:{precision:0},grid:{color:'rgba(25,31,36,0.06)'}},x:{grid:{display:false},ticks:{maxRotation:0,font:{size:10}}}}
+        }
+      });
+    }
+  }
+  if(document.readyState!=='loading') draw();
+  else document.addEventListener('DOMContentLoaded',draw);
+  setTimeout(draw,400);
+  setTimeout(draw,1500);
+  window.addEventListener('beforeprint',draw);
+})();
+</script>
+
+</body>
+</html>
