@@ -261,6 +261,16 @@
   status = 200
 
 [[redirects]]
+  from = "/jb-white-monthly-seo-report"
+  to = "/jb-white-monthly-seo-report.html"
+  status = 200
+
+[[redirects]]
+  from = "/jb-white-seo-monthly"
+  to = "/jb-white-monthly-seo-report.html"
+  status = 200
+
+[[redirects]]
   from = "/calops-seo-strategic-growth"
   to = "/calops-seo-strategic-growth.html"
   status = 200
