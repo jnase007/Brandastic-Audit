@@ -75,6 +75,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       'lsa': 15,
       'google-lsa': 15,
       'localservices': 15,
+      'amazon': 16,
+      'amazon-seller': 16,
+      'amazon-ads': 16,
+      'seller-central': 16,
     };
 
     // Check URL on load
@@ -94,7 +98,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
     // Update URL when tab is clicked
     var origShowStep = window.showStep;
-    var slugs = ['google-ads','google-tag-manager','google-analytics','google-search-console','meta','instagram','tiktok','linkedin','yelp','website','doordash','instacart','bing','mailchimp','merchant-center','local-services'];
+    var slugs = ['google-ads','google-tag-manager','google-analytics','google-search-console','meta','instagram','tiktok','linkedin','yelp','website','doordash','instacart','bing','mailchimp','merchant-center','local-services','amazon'];
   </script>
 </head>
 <body class="bg-gray-50 text-gray-900 min-h-screen">
@@ -219,6 +223,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       <button onclick="showStep(15)" id="tab-15" class="tab-btn flex items-center gap-2 px-4 py-2.5 rounded-xl text-sm font-semibold border border-gray-200 bg-white whitespace-nowrap transition-all">
         <span class="w-6 h-6 rounded-full bg-blue-100 text-blue-700 flex items-center justify-center text-xs font-bold" id="num-15">16</span>
         Local Services Ads
+      </button>
+      <button onclick="showStep(16)" id="tab-16" class="tab-btn flex items-center gap-2 px-4 py-2.5 rounded-xl text-sm font-semibold border border-gray-200 bg-white whitespace-nowrap transition-all">
+        <span class="w-6 h-6 rounded-full bg-amber-100 text-amber-800 flex items-center justify-center text-xs font-bold" id="num-16">17</span>
+        Amazon
       </button>
     </div>
 
@@ -626,11 +634,15 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           </div>
         </div>
         <div class="space-y-4 mb-8">
+          <div class="p-4 bg-orange-50 border border-orange-100 rounded-xl">
+            <p class="text-sm font-semibold text-orange-900">Add Brandastic on both listings</p>
+            <p class="text-xs text-orange-800/80 mt-1">Use <strong>seo@brandastic.com</strong>. For Google, choose <strong>Manager</strong> (not Owner unless we ask).</p>
+          </div>
           <div class="flex items-start gap-3 p-4 bg-gray-50 rounded-xl">
             <span class="w-7 h-7 rounded-full bg-orange-100 text-orange-700 flex items-center justify-center text-xs font-bold flex-shrink-0 mt-0.5">a</span>
             <div>
-              <p class="text-sm font-medium text-gray-900">Google Business Profile</p>
-              <p class="text-xs text-gray-500 mt-0.5">Go to <a href="https://business.google.com/" target="_blank" class="text-blue-600 underline">business.google.com</a> → select your business → <strong>Users</strong> → <strong>Add User</strong> → enter <strong>seo@brandastic.com</strong> as <strong>Manager</strong></p>
+              <p class="text-sm font-medium text-gray-900">Google Business Profile (formerly Google My Business)</p>
+              <p class="text-xs text-gray-500 mt-0.5">Go to <a href="https://business.google.com/" target="_blank" class="text-blue-600 underline">business.google.com</a> → sign in as the owner → select your business → <strong>Users</strong> (or <strong>People and access</strong>) → <strong>Add users</strong> → enter <strong>seo@brandastic.com</strong> → role <strong>Manager</strong> → send invite. If you have multiple locations, add us on each one we manage.</p>
             </div>
           </div>
           <div class="flex items-start gap-3 p-4 bg-gray-50 rounded-xl">
@@ -1086,7 +1098,85 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         </div>
         <div class="flex items-center justify-between">
           <button onclick="markDone(15)" id="done-15" class="px-6 py-2.5 bg-gray-900 text-white rounded-full text-sm font-semibold hover:bg-gray-700 transition">Mark as Done ✓</button>
-          <button onclick="showStep(14)" class="text-sm text-gray-400 hover:text-gray-900 font-medium transition">← Back</button>
+          <div class="flex items-center gap-4">
+            <button onclick="showStep(14)" class="text-sm text-gray-400 hover:text-gray-900 font-medium transition">← Back</button>
+            <button onclick="showStep(16)" class="text-sm text-gray-400 hover:text-gray-900 font-medium transition">Next: Amazon →</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Step 17: Amazon Seller Central / Amazon Ads -->
+    <div class="step-panel" id="panel-16">
+      <div class="bg-white rounded-2xl border border-gray-200 p-8">
+        <div class="flex items-center gap-3 mb-6">
+          <div class="w-10 h-10 rounded-xl bg-amber-50 flex items-center justify-center">
+            <span class="text-lg font-bold text-amber-700">17</span>
+          </div>
+          <div>
+            <h2 class="text-xl font-bold">Amazon Store</h2>
+            <p class="text-sm text-gray-400">Share Seller Central + Amazon Ads access so our team can help manage your store</p>
+          </div>
+        </div>
+        <div class="space-y-4 mb-8">
+          <div class="flex items-start gap-3 p-4 bg-gray-50 rounded-xl">
+            <span class="w-7 h-7 rounded-full bg-amber-100 text-amber-800 flex items-center justify-center text-xs font-bold flex-shrink-0 mt-0.5">a</span>
+            <div>
+              <p class="text-sm font-medium text-gray-900">Open Seller Central</p>
+              <p class="text-xs text-gray-500 mt-0.5">Go to <a href="https://sellercentral.amazon.com/" target="_blank" class="text-blue-600 underline">sellercentral.amazon.com</a> and sign in as the account owner (or someone who can manage users)</p>
+            </div>
+          </div>
+          <div class="flex items-start gap-3 p-4 bg-gray-50 rounded-xl">
+            <span class="w-7 h-7 rounded-full bg-amber-100 text-amber-800 flex items-center justify-center text-xs font-bold flex-shrink-0 mt-0.5">b</span>
+            <div>
+              <p class="text-sm font-medium text-gray-900">Invite Brandastic as a user</p>
+              <p class="text-xs text-gray-500 mt-0.5">Go to <strong>Settings → User Permissions</strong> (or <strong>Account → User Permissions</strong>) → <strong>Add User</strong> → enter <strong>seo@brandastic.com</strong> → send the invite</p>
+            </div>
+          </div>
+          <div class="flex items-start gap-3 p-4 bg-gray-50 rounded-xl">
+            <span class="w-7 h-7 rounded-full bg-amber-100 text-amber-800 flex items-center justify-center text-xs font-bold flex-shrink-0 mt-0.5">c</span>
+            <div>
+              <p class="text-sm font-medium text-gray-900">Set the right permissions</p>
+              <p class="text-xs text-gray-500 mt-0.5">After the invite, open <strong>Manage Permissions</strong> for seo@brandastic.com and grant at least:
+                <br>• <strong>Inventory</strong> — View & Edit (listings, A+ / content as needed)
+                <br>• <strong>Advertising</strong> — View & Edit (Sponsored Products / Brands / Display)
+                <br>• <strong>Reports & Analytics</strong> — View (Business Reports, Brand Analytics if available)
+                <br>• <strong>Orders</strong> — View only unless we need more for ops support
+                <br>Do <strong>not</strong> give primary account / banking / tax settings unless your Brandastic contact asks.</p>
+            </div>
+          </div>
+          <div class="flex items-start gap-3 p-4 bg-gray-50 rounded-xl">
+            <span class="w-7 h-7 rounded-full bg-amber-100 text-amber-800 flex items-center justify-center text-xs font-bold flex-shrink-0 mt-0.5">d</span>
+            <div>
+              <p class="text-sm font-medium text-gray-900">Amazon Ads Console (if separate)</p>
+              <p class="text-xs text-gray-500 mt-0.5">Go to <a href="https://advertising.amazon.com/" target="_blank" class="text-blue-600 underline">advertising.amazon.com</a> → <strong>Access and settings</strong> (or Administration) → invite <strong>seo@brandastic.com</strong> with campaign manager access on the correct ad profile / marketplace</p>
+            </div>
+          </div>
+          <div class="flex items-start gap-3 p-4 bg-gray-50 rounded-xl">
+            <span class="w-7 h-7 rounded-full bg-amber-100 text-amber-800 flex items-center justify-center text-xs font-bold flex-shrink-0 mt-0.5">e</span>
+            <div>
+              <p class="text-sm font-medium text-gray-900">Brand Registry (if you have a brand)</p>
+              <p class="text-xs text-gray-500 mt-0.5">In Brand Registry, add <strong>seo@brandastic.com</strong> with a role that can manage brand content / A+ as needed. Skip if you are not brand-registered yet.</p>
+            </div>
+          </div>
+          <div class="flex items-start gap-3 p-4 bg-gray-50 rounded-xl">
+            <span class="w-7 h-7 rounded-full bg-amber-100 text-amber-800 flex items-center justify-center text-xs font-bold flex-shrink-0 mt-0.5">f</span>
+            <div>
+              <p class="text-sm font-medium text-gray-900">Send us store details</p>
+              <p class="text-xs text-gray-500 mt-0.5">Email <strong>seo@brandastic.com</strong> your seller name, marketplace(s) (e.g. Amazon.com), main ASINs or storefront URL, and whether you need ads, listing/content, or full store help. Tell us once the invite is sent so we can accept it.</p>
+            </div>
+          </div>
+          <div class="flex items-start gap-3 p-4 bg-amber-50 border border-amber-100 rounded-xl">
+            <span class="w-7 h-7 rounded-full bg-amber-100 text-amber-700 flex items-center justify-center text-xs font-bold flex-shrink-0 mt-0.5">!</span>
+            <div>
+              <p class="text-sm font-medium text-gray-900">Security note</p>
+              <p class="text-xs text-gray-500 mt-0.5">Invite a Brandastic user — don’t share your personal Amazon password or primary 2FA device. If Amazon asks for identity verification on the invite, complete it on your side, then tell us.</p>
+            </div>
+          </div>
+        </div>
+        <div class="flex items-center justify-between">
+          <button onclick="markDone(16)" id="done-16" class="px-6 py-2.5 bg-gray-900 text-white rounded-full text-sm font-semibold hover:bg-gray-700 transition">Mark as Done ✓</button>
+          <button onclick="showStep(15)" class="text-sm text-gray-400 hover:text-gray-900 font-medium transition">← Back</button>
         </div>
       </div>
     </div>
@@ -1115,7 +1205,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   </footer>
 
   <script>
-    const completed = [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false];
+    const completed = [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false];
     let currentStep = 0;
 
     function showStep(index) {
@@ -1125,7 +1215,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       document.getElementById('panel-' + index).classList.add('active');
       document.getElementById('tab-' + index).classList.add('active');
       // Update URL with channel slug
-      var slugs = ['google-ads','tag-manager','analytics','search-console','meta','instagram','tiktok','linkedin','yelp','website','doordash','instacart','bing','mailchimp','merchant-center','local-services'];
+      var slugs = ['google-ads','tag-manager','analytics','search-console','meta','instagram','tiktok','linkedin','yelp','website','doordash','instacart','bing','mailchimp','merchant-center','local-services','amazon'];
       if (slugs[index]) history.replaceState(null, '', '/onboarding#' + slugs[index]);
     }
 
@@ -1146,10 +1236,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
       // Update progress
       const doneCount = completed.filter(Boolean).length;
-      document.getElementById('progress').style.width = (doneCount / 16 * 100) + '%';
+      document.getElementById('progress').style.width = (doneCount / 17 * 100) + '%';
 
       // If all done, show completion
-      if (doneCount === 16) {
+      if (doneCount === 17) {
         setTimeout(() => {
           document.querySelectorAll('.step-panel').forEach(p => p.classList.remove('active'));
           document.getElementById('panel-done').classList.add('active');
