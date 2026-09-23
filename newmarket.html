@@ -83,6 +83,15 @@ td b{color:var(--text);font-weight:700}
 .step b{display:block;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--cyan);margin-bottom:8px}
 .step p{font-size:13px;color:var(--muted);font-weight:600;line-height:1.45}
 .note{font-size:12px;color:var(--soft);margin-top:10px}
+.charts{display:grid;grid-template-columns:1.15fr .85fr;gap:14px;margin:16px 0}
+.chart-svg{width:100%;height:auto;display:block}
+.chart-svg text{font-family:Inter,system-ui,sans-serif}
+.split{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:12px}
+.split .big{font-size:28px;font-weight:900;letter-spacing:-.04em;line-height:1.1}
+.split .big span{display:block;font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--soft);margin-bottom:4px}
+@media(max-width:980px){
+  .charts,.split{grid-template-columns:1fr}
+}
 @media(max-width:980px){
   .toc,.loop,.need,.grid-2,.grid-3{grid-template-columns:1fr}
   .step{min-height:0}
@@ -134,6 +143,87 @@ td b{color:var(--text);font-weight:700}
       <div class="card"><div class="k">Who can pay</div><div class="n">80–150</div><p>Shops that can hold a $5–8k retainer. First-year target: 3 logos.</p></div>
     </div>
     <p class="note">AIA: aia-aerospace.org industry-impact / California state data. Apollo pulled 09-23-2026. Do not sell the $1T number. Sell the 80–150.</p>
+
+    <div class="card" style="margin:16px 0" id="trend">
+      <h3>The trend: money at the primes, bottleneck at the shops</h3>
+      <p style="margin-bottom:12px">Anduril and SpaceX are not the client. They are why the little manufacturers have work they cannot get found for. US aerospace and defense is already ~$1T. Almost half of that, and more than half the jobs, sit in the supply chain. The new money is hitting a capacity wall. That is the manufacturer hunt.</p>
+      <div class="charts">
+        <div>
+          <div class="k">US A&D total sales · AIA</div>
+          <svg class="chart-svg" viewBox="0 0 640 280" role="img" aria-label="US aerospace and defense sales from 2020 to 2025, rising from about 874 billion to 989 billion dollars">
+            <rect x="0" y="0" width="640" height="280" fill="#ffffff"/>
+            <line x1="56" y1="40" x2="612" y2="40" stroke="rgba(25,31,36,.08)"/>
+            <line x1="56" y1="92" x2="612" y2="92" stroke="rgba(25,31,36,.08)"/>
+            <line x1="56" y1="144" x2="612" y2="144" stroke="rgba(25,31,36,.08)"/>
+            <line x1="56" y1="196" x2="612" y2="196" stroke="rgba(25,31,36,.08)"/>
+            <text x="8" y="44" font-size="11" fill="rgba(25,31,36,.42)">$1.0T</text>
+            <text x="8" y="96" font-size="11" fill="rgba(25,31,36,.42)">$0.95T</text>
+            <text x="8" y="148" font-size="11" fill="rgba(25,31,36,.42)">$0.90T</text>
+            <text x="8" y="200" font-size="11" fill="rgba(25,31,36,.42)">$0.85T</text>
+            <polyline fill="none" stroke="#0284C7" stroke-width="3.5" stroke-linejoin="round" stroke-linecap="round" points="56,171 167,152 278,90 389,86 500,45 611,51"/>
+            <circle cx="56" cy="171" r="4.5" fill="#0284C7"/>
+            <circle cx="167" cy="152" r="4.5" fill="#0284C7"/>
+            <circle cx="278" cy="90" r="4.5" fill="#0284C7"/>
+            <circle cx="389" cy="86" r="4.5" fill="#0284C7"/>
+            <circle cx="500" cy="45" r="4.5" fill="#0284C7"/>
+            <circle cx="611" cy="51" r="4.5" fill="#0284C7"/>
+            <text x="56" y="230" font-size="11" fill="rgba(25,31,36,.55)" text-anchor="middle">2020</text>
+            <text x="167" y="230" font-size="11" fill="rgba(25,31,36,.55)" text-anchor="middle">2021</text>
+            <text x="278" y="230" font-size="11" fill="rgba(25,31,36,.55)" text-anchor="middle">2022</text>
+            <text x="389" y="230" font-size="11" fill="rgba(25,31,36,.55)" text-anchor="middle">2023</text>
+            <text x="500" y="230" font-size="11" fill="rgba(25,31,36,.55)" text-anchor="middle">2024</text>
+            <text x="611" y="230" font-size="11" fill="rgba(25,31,36,.55)" text-anchor="middle">2025</text>
+            <text x="56" y="258" font-size="11" fill="#191F24" text-anchor="middle">$874B</text>
+            <text x="167" y="258" font-size="11" fill="#191F24" text-anchor="middle">$892B</text>
+            <text x="278" y="258" font-size="11" fill="#191F24" text-anchor="middle">$952B</text>
+            <text x="389" y="258" font-size="11" fill="#191F24" text-anchor="middle">$955B</text>
+            <text x="500" y="258" font-size="11" fill="#191F24" text-anchor="middle">$995B</text>
+            <text x="611" y="258" font-size="11" fill="#191F24" text-anchor="middle">$989B</text>
+          </svg>
+        </div>
+        <div>
+          <div class="k">Space Force budget · $B</div>
+          <svg class="chart-svg" viewBox="0 0 420 280" role="img" aria-label="US Space Force budget rising from 15 billion in 2021 to about 40 billion in 2026">
+            <rect x="0" y="0" width="420" height="280" fill="#ffffff"/>
+            <rect x="28" y="163" width="48" height="61" fill="#7DD3FC"/>
+            <rect x="92" y="150" width="48" height="74" fill="#38BDF8"/>
+            <rect x="156" y="117" width="48" height="107" fill="#0EA5E9"/>
+            <rect x="220" y="105" width="48" height="119" fill="#0284C7"/>
+            <rect x="284" y="105" width="48" height="119" fill="#0369A1"/>
+            <rect x="348" y="60" width="48" height="164" fill="#CC22FF"/>
+            <text x="52" y="248" font-size="10" fill="rgba(25,31,36,.55)" text-anchor="middle">21</text>
+            <text x="116" y="248" font-size="10" fill="rgba(25,31,36,.55)" text-anchor="middle">22</text>
+            <text x="180" y="248" font-size="10" fill="rgba(25,31,36,.55)" text-anchor="middle">23</text>
+            <text x="244" y="248" font-size="10" fill="rgba(25,31,36,.55)" text-anchor="middle">24</text>
+            <text x="308" y="248" font-size="10" fill="rgba(25,31,36,.55)" text-anchor="middle">25</text>
+            <text x="372" y="248" font-size="10" fill="rgba(25,31,36,.55)" text-anchor="middle">26</text>
+            <text x="52" y="157" font-size="10" fill="#191F24" text-anchor="middle">15</text>
+            <text x="116" y="144" font-size="10" fill="#191F24" text-anchor="middle">18</text>
+            <text x="180" y="111" font-size="10" fill="#191F24" text-anchor="middle">26</text>
+            <text x="244" y="99" font-size="10" fill="#191F24" text-anchor="middle">29</text>
+            <text x="308" y="99" font-size="10" fill="#191F24" text-anchor="middle">29</text>
+            <text x="372" y="54" font-size="10" fill="#191F24" text-anchor="middle">~40</text>
+          </svg>
+        </div>
+      </div>
+      <div class="split">
+        <div class="card" style="box-shadow:none;padding:16px">
+          <div class="big"><span>2025 direct / primes</span>$506B</div>
+          <p style="margin-top:8px">End-use companies. 930,000 jobs. This is Anduril, SpaceX, Boeing. Not who we sell.</p>
+        </div>
+        <div class="card" style="box-shadow:none;padding:16px;border-color:rgba(2,132,199,.28);background:#F0F9FF">
+          <div class="big"><span>2025 supply chain</span>$483B</div>
+          <p style="margin-top:8px">1.1 million jobs — more than half the workforce. California: $171B, 273,830 jobs, 1,458 facilities. This is the shop floor.</p>
+        </div>
+      </div>
+      <ul style="margin:14px 0 0;padding-left:18px;color:var(--muted);font-size:14px">
+        <li>AIA 2026 Facts & Figures (2025 data): $988.6B total sales. Supply chain is $483B of that. Exports +25% to $172.7B. Capex $45B, up 13%.</li>
+        <li>The bottleneck is real: commercial aircraft backlog is still years of capacity. AIA/PwC 2026 found nine space parts with three or fewer qualified US shops. Honeywell and others are capping output because suppliers cannot keep up.</li>
+        <li>Space Force went from ~$15B (FY21) to ~$40B (FY26, with reconciliation). FY27 request is ~$71B. That money does not turn into hardware until a supplier can make the part.</li>
+        <li>We do not sell “we will clear Anduril’s backlog.” We help the shop look findable so they can take the work that is already stuck behind them.</li>
+      </ul>
+      <p class="note">Sources: AIA Facts & Figures 2026; AIA California state data; Space Force budget reporting (FY21–FY26). FY27 $71B is a request, not enacted — do not put it in a pitch as fact. 2020 AIA sales ~$874B is inferred from the 2021 growth print.</p>
+    </div>
 
     <div class="card" style="margin:16px 0">
       <h3>Apollo, live today</h3>
