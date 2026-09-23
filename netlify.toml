@@ -22,6 +22,26 @@
   status = 200
 
 [[redirects]]
+  from = "/NewMarket"
+  to = "/newmarket.html"
+  status = 200
+
+[[redirects]]
+  from = "/NewMarket/"
+  to = "/newmarket.html"
+  status = 200
+
+[[redirects]]
+  from = "/newmarket"
+  to = "/newmarket.html"
+  status = 200
+
+[[redirects]]
+  from = "/newmarket/"
+  to = "/newmarket.html"
+  status = 200
+
+[[redirects]]
   from = "/p/northline-industrial"
   to = "/p/northline-industrial.html"
   status = 200
