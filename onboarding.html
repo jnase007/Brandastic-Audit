@@ -79,6 +79,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       'amazon-seller': 16,
       'amazon-ads': 16,
       'seller-central': 16,
+      'klaviyo': 17,
+      'email': 17,
+      'esp': 17,
     };
 
     // Check URL on load
@@ -98,7 +101,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
     // Update URL when tab is clicked
     var origShowStep = window.showStep;
-    var slugs = ['google-ads','google-tag-manager','google-analytics','google-search-console','meta','instagram','tiktok','linkedin','yelp','website','doordash','instacart','bing','mailchimp','merchant-center','local-services','amazon'];
+    var slugs = ['google-ads','google-tag-manager','google-analytics','google-search-console','meta','instagram','tiktok','linkedin','yelp','website','doordash','instacart','bing','mailchimp','merchant-center','local-services','amazon','klaviyo'];
   </script>
 </head>
 <body class="bg-gray-50 text-gray-900 min-h-screen">
@@ -227,6 +230,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       <button onclick="showStep(16)" id="tab-16" class="tab-btn flex items-center gap-2 px-4 py-2.5 rounded-xl text-sm font-semibold border border-gray-200 bg-white whitespace-nowrap transition-all">
         <span class="w-6 h-6 rounded-full bg-amber-100 text-amber-800 flex items-center justify-center text-xs font-bold" id="num-16">17</span>
         Amazon
+      </button>
+      <button onclick="showStep(17)" id="tab-17" class="tab-btn flex items-center gap-2 px-4 py-2.5 rounded-xl text-sm font-semibold border border-gray-200 bg-white whitespace-nowrap transition-all">
+        <span class="w-6 h-6 rounded-full bg-fuchsia-100 text-fuchsia-700 flex items-center justify-center text-xs font-bold" id="num-17">18</span>
+        Klaviyo
       </button>
     </div>
 
@@ -910,7 +917,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           </div>
           <div>
             <h2 class="text-xl font-bold">Mailchimp</h2>
-            <p class="text-sm text-gray-400">Invite Brandastic as a user to your Mailchimp account</p>
+            <p class="text-sm text-gray-400">Invite Brandastic as a user to your Mailchimp account. Using Klaviyo? See the <button type="button" onclick="showStep(17)" class="text-blue-600 underline font-semibold">Klaviyo</button> step.</p>
           </div>
         </div>
         <div class="space-y-4 mb-8">
@@ -1176,7 +1183,80 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         </div>
         <div class="flex items-center justify-between">
           <button onclick="markDone(16)" id="done-16" class="px-6 py-2.5 bg-gray-900 text-white rounded-full text-sm font-semibold hover:bg-gray-700 transition">Mark as Done ✓</button>
-          <button onclick="showStep(15)" class="text-sm text-gray-400 hover:text-gray-900 font-medium transition">← Back</button>
+          <div class="flex items-center gap-4">
+            <button onclick="showStep(15)" class="text-sm text-gray-400 hover:text-gray-900 font-medium transition">← Back</button>
+            <button onclick="showStep(17)" class="text-sm text-gray-400 hover:text-gray-900 font-medium transition">Next: Klaviyo →</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Step 18: Klaviyo -->
+    <div class="step-panel" id="panel-17">
+      <div class="bg-white rounded-2xl border border-gray-200 p-8">
+        <div class="flex items-center gap-3 mb-6">
+          <div class="w-10 h-10 rounded-xl bg-fuchsia-50 flex items-center justify-center">
+            <span class="text-lg font-bold text-fuchsia-700">18</span>
+          </div>
+          <div>
+            <h2 class="text-xl font-bold">Klaviyo</h2>
+            <p class="text-sm text-gray-400">Share email & SMS access for flows, campaigns, and list growth</p>
+          </div>
+        </div>
+        <div class="space-y-4 mb-8">
+          <div class="flex items-start gap-3 p-4 bg-gray-50 rounded-xl">
+            <span class="w-7 h-7 rounded-full bg-fuchsia-100 text-fuchsia-700 flex items-center justify-center text-xs font-bold flex-shrink-0 mt-0.5">a</span>
+            <div>
+              <p class="text-sm font-medium text-gray-900">Log in to Klaviyo</p>
+              <p class="text-xs text-gray-500 mt-0.5">Go to <a href="https://www.klaviyo.com/login" target="_blank" class="text-blue-600 underline">klaviyo.com/login</a> and sign in to the account that owns your email/SMS</p>
+            </div>
+          </div>
+          <div class="flex items-start gap-3 p-4 bg-gray-50 rounded-xl">
+            <span class="w-7 h-7 rounded-full bg-fuchsia-100 text-fuchsia-700 flex items-center justify-center text-xs font-bold flex-shrink-0 mt-0.5">b</span>
+            <div>
+              <p class="text-sm font-medium text-gray-900">Open Settings → Users</p>
+              <p class="text-xs text-gray-500 mt-0.5">Click your organization name (bottom left) → <strong>Settings</strong> → <strong>Users</strong> (under Account)</p>
+            </div>
+          </div>
+          <div class="flex items-start gap-3 p-4 bg-gray-50 rounded-xl">
+            <span class="w-7 h-7 rounded-full bg-fuchsia-100 text-fuchsia-700 flex items-center justify-center text-xs font-bold flex-shrink-0 mt-0.5">c</span>
+            <div>
+              <p class="text-sm font-medium text-gray-900">Add a new user</p>
+              <p class="text-xs text-gray-500 mt-0.5">Click <strong>Add user</strong> (or Invite) → enter <strong>seo@brandastic.com</strong></p>
+            </div>
+          </div>
+          <div class="flex items-start gap-3 p-4 bg-gray-50 rounded-xl">
+            <span class="w-7 h-7 rounded-full bg-fuchsia-100 text-fuchsia-700 flex items-center justify-center text-xs font-bold flex-shrink-0 mt-0.5">d</span>
+            <div>
+              <p class="text-sm font-medium text-gray-900">Set the right role</p>
+              <p class="text-xs text-gray-500 mt-0.5">Choose <strong>Manager</strong> or <strong>Admin</strong> so we can manage campaigns, flows, lists/segments, templates, and reporting. Do not use a view-only role.</p>
+            </div>
+          </div>
+          <div class="flex items-start gap-3 p-4 bg-gray-50 rounded-xl">
+            <span class="w-7 h-7 rounded-full bg-fuchsia-100 text-fuchsia-700 flex items-center justify-center text-xs font-bold flex-shrink-0 mt-0.5">e</span>
+            <div>
+              <p class="text-sm font-medium text-gray-900">Send the invite</p>
+              <p class="text-xs text-gray-500 mt-0.5">Send the invitation — we’ll accept it on our end. Reply to your Brandastic contact once it’s sent.</p>
+            </div>
+          </div>
+          <div class="flex items-start gap-3 p-4 bg-gray-50 rounded-xl">
+            <span class="w-7 h-7 rounded-full bg-fuchsia-100 text-fuchsia-700 flex items-center justify-center text-xs font-bold flex-shrink-0 mt-0.5">f</span>
+            <div>
+              <p class="text-sm font-medium text-gray-900">SMS (if you use it)</p>
+              <p class="text-xs text-gray-500 mt-0.5">If Klaviyo SMS is on, confirm our user can view and edit SMS flows/campaigns. If SMS lives in Attentive, Postscript, or another tool, invite <strong>seo@brandastic.com</strong> there too and tell us which platform.</p>
+            </div>
+          </div>
+          <div class="flex items-start gap-3 p-4 bg-amber-50 border border-amber-100 rounded-xl">
+            <span class="w-7 h-7 rounded-full bg-amber-100 text-amber-700 flex items-center justify-center text-xs font-bold flex-shrink-0 mt-0.5">!</span>
+            <div>
+              <p class="text-sm font-medium text-gray-900">Using Mailchimp instead?</p>
+              <p class="text-xs text-gray-500 mt-0.5">Complete the <button type="button" onclick="showStep(13)" class="text-blue-600 underline font-semibold">Mailchimp</button> step instead (or in addition if you use both).</p>
+            </div>
+          </div>
+        </div>
+        <div class="flex items-center justify-between">
+          <button onclick="markDone(17)" id="done-17" class="px-6 py-2.5 bg-gray-900 text-white rounded-full text-sm font-semibold hover:bg-gray-700 transition">Mark as Done ✓</button>
+          <button onclick="showStep(16)" class="text-sm text-gray-400 hover:text-gray-900 font-medium transition">← Back</button>
         </div>
       </div>
     </div>
@@ -1205,7 +1285,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   </footer>
 
   <script>
-    const completed = [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false];
+    const completed = [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false];
     let currentStep = 0;
 
     function showStep(index) {
@@ -1215,7 +1295,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       document.getElementById('panel-' + index).classList.add('active');
       document.getElementById('tab-' + index).classList.add('active');
       // Update URL with channel slug
-      var slugs = ['google-ads','tag-manager','analytics','search-console','meta','instagram','tiktok','linkedin','yelp','website','doordash','instacart','bing','mailchimp','merchant-center','local-services','amazon'];
+      var slugs = ['google-ads','tag-manager','analytics','search-console','meta','instagram','tiktok','linkedin','yelp','website','doordash','instacart','bing','mailchimp','merchant-center','local-services','amazon','klaviyo'];
       if (slugs[index]) history.replaceState(null, '', '/onboarding#' + slugs[index]);
     }
 
@@ -1236,10 +1316,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
       // Update progress
       const doneCount = completed.filter(Boolean).length;
-      document.getElementById('progress').style.width = (doneCount / 17 * 100) + '%';
+      document.getElementById('progress').style.width = (doneCount / 18 * 100) + '%';
 
       // If all done, show completion
-      if (doneCount === 17) {
+      if (doneCount === 18) {
         setTimeout(() => {
           document.querySelectorAll('.step-panel').forEach(p => p.classList.remove('active'));
           document.getElementById('panel-done').classList.add('active');
