@@ -1,19 +1,21 @@
 (function () {
-  var KEYS = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content'];
+  var UTM_KEYS = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content'];
+  var CLICK_KEYS = ['gclid', 'gbraid', 'wbraid', 'fbclid', 'fclid', 'msclkid', 'ttclid'];
+  var ALL_KEYS = UTM_KEYS.concat(CLICK_KEYS);
   var incoming = new URLSearchParams(window.location.search);
   var stored = {};
   try { stored = JSON.parse(sessionStorage.getItem('brd_audit_utms') || '{}') || {}; } catch (e) { stored = {}; }
-  KEYS.forEach(function (k) {
+  ALL_KEYS.forEach(function (k) {
     var v = incoming.get(k);
     if (v) stored[k] = v;
   });
   try {
-    if (KEYS.some(function (k) { return stored[k]; })) {
+    if (ALL_KEYS.some(function (k) { return stored[k]; })) {
       sessionStorage.setItem('brd_audit_utms', JSON.stringify(stored));
     }
   } catch (e) {}
 
-  var hasIncoming = KEYS.some(function (k) { return stored[k]; });
+  var hasIncomingUtm = UTM_KEYS.some(function (k) { return stored[k]; });
   var path = (window.location.pathname || '/').replace(/\/+$/, '') || '/';
   var pageContent = path === '/' ? 'home' : path.replace(/^\//, '').replace(/\//g, '-');
   var defaults = {
@@ -33,15 +35,18 @@
     try { url = new URL(href, window.location.href); } catch (e) { return href; }
     if (url.protocol !== 'http:' && url.protocol !== 'https:') return href;
     if (!isMainBrandastic(url.hostname)) return href;
-    if (hasIncoming) {
-      KEYS.forEach(function (k) {
+    if (hasIncomingUtm) {
+      UTM_KEYS.forEach(function (k) {
         if (stored[k]) url.searchParams.set(k, stored[k]);
       });
     } else {
-      KEYS.forEach(function (k) {
+      UTM_KEYS.forEach(function (k) {
         if (!url.searchParams.get(k) && defaults[k]) url.searchParams.set(k, defaults[k]);
       });
     }
+    CLICK_KEYS.forEach(function (k) {
+      if (stored[k]) url.searchParams.set(k, stored[k]);
+    });
     return url.toString();
   }
 
