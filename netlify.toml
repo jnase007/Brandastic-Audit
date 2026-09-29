@@ -200,6 +200,17 @@
   to = "/elevate-auto-haus-audit.html"
   status = 200
 
+
+[[redirects]]
+  from = "/shopify"
+  to = "/shopify.html"
+  status = 200
+
+[[redirects]]
+  from = "/shopify/"
+  to = "/shopify.html"
+  status = 200
+
 [[redirects]]
   from = "/onboarding/*"
   to = "/onboarding.html?channel=:splat"
