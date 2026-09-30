@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="robots" content="noindex, nofollow" />
+<title>CCA Card — SMM Bot Trend Audit | Brandastic</title>
+<link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png" />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+<style>
+:root {
+  --bg: #f4f1ec;
+  --card: #ffffff;
+  --ink: #141820;
+  --muted: #5c6670;
+  --line: rgba(20,24,32,.1);
+  --blue: #0644ED;
+  --sky: #0a7bb5;
+  --ok: #0f9f6e;
+  --warn: #c2410c;
+  --bad: #dc2626;
+  --soft: #eef2ff;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: Inter, system-ui, -apple-system, sans-serif;
+  background:
+    radial-gradient(900px 420px at 0% 0%, #e8eeff 0%, transparent 55%),
+    radial-gradient(700px 380px at 100% 10%, #f3ebe0 0%, transparent 50%),
+    var(--bg);
+  color: var(--ink);
+  line-height: 1.55;
+}
+a { color: var(--blue); }
+.nav {
+  position: sticky; top: 0; z-index: 20;
+  display: flex; justify-content: space-between; align-items: center;
+  gap: 12px; flex-wrap: wrap;
+  padding: 14px 20px;
+  background: rgba(255,255,255,.9);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--line);
+}
+.nav-brand { font-weight: 800; letter-spacing: .04em; }
+.nav-brand span { color: var(--blue); }
+.pill {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 6px 12px; border-radius: 999px;
+  background: var(--soft); color: var(--blue);
+  font-size: 12px; font-weight: 700; letter-spacing: .04em; text-transform: uppercase;
+}
+.wrap { width: min(980px, calc(100% - 32px)); margin: 0 auto; padding: 28px 0 64px; }
+.hero {
+  background: linear-gradient(145deg, #0b1220 0%, #142033 55%, #0f2740 100%);
+  color: #fff; border-radius: 24px; padding: 28px 24px 26px;
+  box-shadow: 0 18px 50px rgba(15, 23, 42, .18);
+  margin-bottom: 22px;
+}
+.hero h1 {
+  font-size: clamp(1.8rem, 4vw, 2.6rem);
+  line-height: 1.1; letter-spacing: -.03em; margin: 10px 0 8px;
+}
+.hero p { color: rgba(255,255,255,.78); max-width: 58ch; }
+.hero-meta {
+  display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px;
+}
+.hero-meta .tag {
+  background: rgba(255,255,255,.1); border: 1px solid rgba(255,255,255,.14);
+  color: #fff; border-radius: 999px; padding: 6px 12px; font-size: 12px; font-weight: 600;
+}
+.grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+.grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+@media (max-width: 760px) {
+  .grid-3, .grid-2 { grid-template-columns: 1fr; }
+}
+.card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 16px 18px;
+}
+.card h3 { font-size: 15px; margin-bottom: 6px; }
+.card p, .card li { font-size: 14px; color: var(--muted); }
+.card strong.k { display: block; font-size: 28px; color: var(--ink); letter-spacing: -.02em; margin: 4px 0; }
+.section { margin-top: 22px; }
+.section h2 {
+  font-size: 1.25rem; letter-spacing: -.02em; margin-bottom: 10px;
+}
+.section > p.lead { color: var(--muted); margin-bottom: 12px; max-width: 70ch; }
+.list { margin: 8px 0 0 18px; }
+.list li { margin: 6px 0; color: var(--muted); font-size: 14px; }
+.score {
+  display: flex; align-items: center; justify-content: space-between; gap: 10px;
+  padding: 10px 0; border-bottom: 1px solid var(--line);
+}
+.score:last-child { border-bottom: 0; }
+.score .label { font-weight: 600; font-size: 14px; }
+.badge {
+  font-size: 11px; font-weight: 800; letter-spacing: .04em; text-transform: uppercase;
+  padding: 4px 10px; border-radius: 999px;
+}
+.badge.wait { background: #fff7ed; color: var(--warn); }
+.badge.ok { background: #ecfdf5; color: var(--ok); }
+.badge.mid { background: #eff6ff; color: var(--blue); }
+.badge.bad { background: #fef2f2; color: var(--bad); }
+table { width: 100%; border-collapse: collapse; font-size: 13.5px; }
+th, td { border: 1px solid var(--line); padding: 10px 12px; text-align: left; vertical-align: top; }
+th { background: #f8fafc; font-size: 12px; text-transform: uppercase; letter-spacing: .04em; }
+.callout {
+  border-left: 4px solid var(--blue);
+  background: #f4f7ff;
+  border-radius: 0 12px 12px 0;
+  padding: 12px 14px;
+  margin: 12px 0;
+  color: var(--muted);
+  font-size: 14px;
+}
+.callout.warn { border-left-color: var(--warn); background: #fff7ed; }
+.callout.ok { border-left-color: var(--ok); background: #ecfdf5; }
+.footer {
+  margin-top: 28px; padding-top: 14px; border-top: 1px solid var(--line);
+  color: var(--muted); font-size: 12px;
+}
+.mono { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 12.5px; }
+.btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: var(--blue); color: #fff !important; text-decoration: none;
+  padding: 10px 14px; border-radius: 999px; font-weight: 700; font-size: 13px;
+}
+.btn.ghost {
+  background: transparent; color: var(--ink) !important;
+  border: 1px solid var(--line);
+}
+.actions { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px; }
+</style>
+</head>
+<body>
+  <div class="nav">
+    <div class="nav-brand">BRANDASTIC <span>·</span> Audit</div>
+    <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center;">
+      <span class="pill">Client workspace</span>
+      <a class="btn ghost" href="https://ccacard.com" target="_blank" rel="noopener">ccacard.com</a>
+    </div>
+  </div>
+
+  <main class="wrap">
+    <section class="hero">
+      <div class="pill" style="background:rgba(255,255,255,.12);color:#c7d2fe;">SMM · Bot trend audit</div>
+      <h1>CCA Card</h1>
+      <p>
+        Social media marketing review with a bot-integrity lens for Shane Elmer / CCA Card —
+        trading-card grading (Pokémon, TCG, sports), positioned as a faster/cheaper alternative to PSA/CGC with AI-assisted grading and UV slabs from about $8/card.
+      </p>
+      <div class="hero-meta">
+        <span class="tag">Status: workspace live</span>
+        <span class="tag">Mode: public baseline + access-ready</span>
+        <span class="tag">Updated: Sep 30, 2026</span>
+      </div>
+      <div class="actions">
+        <a class="btn" href="#findings">Jump to findings</a>
+        <a class="btn ghost" href="#access" style="color:#fff !important;border-color:rgba(255,255,255,.25);">What we still need</a>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Snapshot</h2>
+      <p class="lead">Working page for the CCA Card bot-focused SMM audit. Public handles mapped; deep bot scoring needs analytics access and a short sample window.</p>
+      <div class="grid-3">
+        <div class="card">
+          <h3>Company</h3>
+          <strong class="k" style="font-size:18px;">CCA Card</strong>
+          <p>Card grading · AI-assisted · UV slabs · hobby / TCG / sports</p>
+        </div>
+        <div class="card">
+          <h3>Primary ask</h3>
+          <strong class="k" style="font-size:18px;">Bot trends</strong>
+          <p>How bots affect followers, engagement, amplification, and metric trust</p>
+        </div>
+        <div class="card">
+          <h3>Brandastic lead</h3>
+          <strong class="k" style="font-size:18px;">SMM integrity</strong>
+          <p>Organic vs inorganic scorecard + cleanup / monitor plan</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Mapped social accounts</h2>
+      <p class="lead">Confirmed from site / public discovery. Counts below are provisional until analytics access is connected.</p>
+      <div class="card" style="overflow:auto;">
+        <table>
+          <thead>
+            <tr>
+              <th>Channel</th>
+              <th>Handle / URL</th>
+              <th>Public status</th>
+              <th>Bot watch priority</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Instagram</strong></td>
+              <td class="mono"><a href="https://instagram.com/ccacard" target="_blank" rel="noopener">instagram.com/ccacard</a></td>
+              <td>Live profile found</td>
+              <td><span class="badge mid">High</span></td>
+            </tr>
+            <tr>
+              <td><strong>TikTok</strong></td>
+              <td class="mono"><a href="https://www.tiktok.com/@ccacard" target="_blank" rel="noopener">tiktok.com/@ccacard</a></td>
+              <td>Live profile found</td>
+              <td><span class="badge mid">High</span></td>
+            </tr>
+            <tr>
+              <td><strong>X (Twitter)</strong></td>
+              <td class="mono"><a href="https://x.com/ccacard" target="_blank" rel="noopener">x.com/ccacard</a></td>
+              <td>Live profile found</td>
+              <td><span class="badge wait">Medium</span></td>
+            </tr>
+            <tr>
+              <td><strong>Website</strong></td>
+              <td class="mono"><a href="https://ccacard.com" target="_blank" rel="noopener">ccacard.com</a></td>
+              <td>Grading offer + content hub</td>
+              <td><span class="badge ok">Support</span></td>
+            </tr>
+            <tr>
+              <td><strong>YouTube</strong></td>
+              <td class="mono">@ccacard not confirmed</td>
+              <td>No clear match yet</td>
+              <td><span class="badge wait">Confirm</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="section" id="findings">
+      <h2>Preliminary findings (public baseline)</h2>
+      <p class="lead">Honest first pass. Deep bot classification is blocked without native analytics + a comment/follower sample export. Here’s what’s already useful for Shane.</p>
+
+      <div class="grid-2">
+        <div class="card">
+          <h3>What we can already say</h3>
+          <ul class="list">
+            <li>Official handles exist on <strong>IG, TikTok, and X</strong> under <span class="mono">ccacard</span>.</li>
+            <li>Category risk is high: TCG / grading niches attract promo bots, fake giveaway traffic, scraper comments, and “send cards / DM for grade” spam.</li>
+            <li>Brand promise (speed + lower price + AI grading) will pull comparison traffic against PSA/CGC — including inorganic amplification if ads or viral clips kick off.</li>
+            <li>Site content engine is active (blog/news). Social and site should be checked for the same spam patterns and UTM junk.</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>What we will not fake</h3>
+          <ul class="list">
+            <li>No invented follower authenticity % without sample data.</li>
+            <li>No “bots are X% of engagement” claim until we score a real cohort of followers/comments.</li>
+            <li>Platform login walls limit public scraping — native exports beat guesses.</li>
+            <li>Competitor bot activity needs a defined watchlist (PSA/CGC fan pages, grading spam accounts, clip pages).</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="callout warn">
+        <strong>Working status:</strong> Audit workspace is live. Quantitative bot scores are <em>pending access</em>. This page is the client home for scope, channels, scorecard, and next actions.
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Bot integrity scorecard</h2>
+      <p class="lead">We’ll fill these once analytics + samples are in. Traffic-light for client readability.</p>
+      <div class="card">
+        <div class="score"><span class="label">Follower quality</span><span class="badge wait">Pending</span></div>
+        <div class="score"><span class="label">Like authenticity</span><span class="badge wait">Pending</span></div>
+        <div class="score"><span class="label">Comment quality / spam rate</span><span class="badge wait">Pending</span></div>
+        <div class="score"><span class="label">Growth spike trust</span><span class="badge wait">Pending</span></div>
+        <div class="score"><span class="label">Giveaway / promo bot pressure</span><span class="badge wait">Pending</span></div>
+        <div class="score"><span class="label">Ad-driven junk engagement</span><span class="badge wait">Pending</span></div>
+        <div class="score"><span class="label">Overall metric trust</span><span class="badge wait">Pending</span></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>What “bot trends” means on this audit</h2>
+      <div class="grid-2">
+        <div class="card">
+          <h3>We measure</h3>
+          <ul class="list">
+            <li>Fake or low-quality followers</li>
+            <li>Inorganic likes / comments / saves patterns</li>
+            <li>Sudden spikes that don’t match content quality</li>
+            <li>Spam, scraper, and “grading DM” bot behavior</li>
+            <li>Whether bots are inflating vanity metrics</li>
+            <li>Hobby-wide bot waves that hit card accounts</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>We deliver</h3>
+          <ul class="list">
+            <li>Channel-by-channel snapshot</li>
+            <li>Organic vs suspicious engagement view</li>
+            <li>Timeline of notable spikes / dips</li>
+            <li>Cleanup list (block, delete, ignore, change)</li>
+            <li>30-day monitor plan</li>
+            <li>Optional monthly bot watch</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Method (how Brandastic will run it)</h2>
+      <div class="card">
+        <ol class="list" style="margin-left:18px;">
+          <li><strong>Account map</strong> — confirm every official CCA property (including Discord/FB if any).</li>
+          <li><strong>Baseline pull</strong> — 90-day posting, growth, and engagement shape.</li>
+          <li><strong>Bot signals</strong> — follower cohorts, comment samples, spike anomaly checks.</li>
+          <li><strong>Hobby context</strong> — TCG/grading spam patterns vs real collector engagement.</li>
+          <li><strong>Score + fixes</strong> — plain-English scorecard and prioritized actions.</li>
+          <li><strong>Monitor</strong> — optional weekly/monthly bot watch so metrics stay honest.</li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="section" id="access">
+      <h2>Access checklist (to finish scoring)</h2>
+      <p class="lead">Public handles are mapped. These unlock real bot percentages and trend charts.</p>
+      <div class="grid-2">
+        <div class="card">
+          <h3>Best access</h3>
+          <ul class="list">
+            <li>Meta Business Suite / IG professional (view)</li>
+            <li>TikTok analytics export or access</li>
+            <li>X analytics if available</li>
+            <li>Any paid social accounts running to CCA</li>
+            <li>Confirm extra handles (FB, Discord, YT, Reddit)</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Minimum to start deep pass</h3>
+          <ul class="list">
+            <li>Official handle list confirmed by Shane</li>
+            <li>Date range: last 90 days (default)</li>
+            <li>2–3 example posts they think look “off”</li>
+            <li>Whether giveaways/contests ran recently</li>
+          </ul>
+        </div>
+      </div>
+      <div class="callout ok">
+        Share access to <strong>seo@brandastic.com</strong> (or the email Shane already uses with Brandastic). When access lands, this page gets live scores, spike charts, and a cleanup list.
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Suggested engagement options</h2>
+      <div class="grid-3">
+        <div class="card">
+          <h3>Light pass</h3>
+          <strong class="k" style="font-size:20px;">Public only</strong>
+          <p>~2–3 days · channel map, visible risk flags, scorecard framework, quick fixes</p>
+        </div>
+        <div class="card">
+          <h3>Full bot SMM audit</h3>
+          <strong class="k" style="font-size:20px;">With analytics</strong>
+          <p>~5–7 days · cohort scoring, spike timeline, cleanup plan, 30-day monitor</p>
+        </div>
+        <div class="card">
+          <h3>Monthly bot watch</h3>
+          <strong class="k" style="font-size:20px;">Retainer add-on</strong>
+          <p>Spike alerts, spam sweeps, metric trust check so growth stays real</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Next actions</h2>
+      <div class="card">
+        <ul class="list">
+          <li>Shane confirms handles + whether any secondary brand accounts exist.</li>
+          <li>Brandastic connects analytics access.</li>
+          <li>Run 90-day bot integrity pass.</li>
+          <li>Update this page with scores, examples, and fix list.</li>
+          <li>Optional: stand up monthly bot watch after cleanup.</li>
+        </ul>
+      </div>
+    </section>
+
+    <p class="footer">
+      Brandastic · CCA Card SMM Bot Trend Audit workspace · audit.brandastic.com/ccacard<br />
+      Internal/client workspace. Not a public case study. Findings marked pending until analytics access is provided.<br />
+      Contact path: seo@brandastic.com
+    </p>
+  </main>
+</body>
+</html>

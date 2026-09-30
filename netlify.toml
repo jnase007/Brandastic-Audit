@@ -340,3 +340,14 @@
   from = "/defy-creative"
   to = "/defy-creative-examples.html"
   status = 200
+
+[[redirects]]
+  from = "/ccacard"
+  to = "/ccacard.html"
+  status = 200
+
+[[redirects]]
+  from = "/ccacard/"
+  to = "/ccacard.html"
+  status = 200
+
