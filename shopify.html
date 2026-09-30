@@ -15,43 +15,92 @@
       <p class="text-xs font-bold tracking-widest uppercase text-green-700 mb-2">Brandastic · Client access</p>
       <h1 class="text-3xl font-extrabold tracking-tight mb-2">Shopify access</h1>
       <p class="text-gray-500 text-sm leading-relaxed">
-        This page is for Shopify store access so our team can help with the store.
+        Give Brandastic collaborator access with a 4-digit code. This is the preferred Partner flow (not a shared password).
       </p>
     </div>
 
     <div class="bg-white border border-gray-200 rounded-2xl p-6 mb-6">
-      <p class="text-sm font-semibold text-gray-900 mb-1">Invite this email</p>
+      <p class="text-sm font-semibold text-gray-900 mb-1">Brandastic Partner email</p>
       <div class="flex items-center gap-3 flex-wrap">
         <code class="text-base font-bold bg-gray-100 px-3 py-2 rounded-lg">info@brandastic.com</code>
         <button onclick="navigator.clipboard.writeText('info@brandastic.com'); this.textContent='Copied'; setTimeout(()=>this.textContent='Copy',1500)" class="text-xs bg-gray-900 text-white px-3 py-2 rounded-full">Copy</button>
       </div>
-      <p class="text-xs text-gray-500 mt-3">Share this page with the store owner if needed:<br/>
-        <strong>https://audit.brandastic.com/shopify</strong>
+      <p class="text-xs text-gray-500 mt-3">
+        Share this page if needed: <strong>https://audit.brandastic.com/shopify</strong>
+      </p>
+    </div>
+
+    <div class="mb-4 p-4 rounded-xl bg-green-50 border border-green-100">
+      <p class="text-sm font-semibold text-green-900">Preferred method: Collaborator access code</p>
+      <p class="text-xs text-green-800/80 mt-1">
+        Per Shopify: you assign a 4-digit code under Users → Security. We enter that code when we request collaborator access from the Partner side. Only people with the code can request access.
+        <a href="https://help.shopify.com/en/manual/your-account/users/security/collaborator-accounts" target="_blank" rel="noopener" class="underline font-medium">Shopify help</a>
       </p>
     </div>
 
     <div class="space-y-3 mb-8">
       <div class="bg-white border border-gray-200 rounded-xl p-4">
-        <p class="text-sm font-semibold">1. Open Shopify admin</p>
-        <p class="text-xs text-gray-500 mt-1">Sign in at your store admin (usually <span class="font-mono">your-store.myshopify.com/admin</span>) as the owner or someone who can add staff.</p>
+        <p class="text-sm font-semibold">1. Open Users in Shopify admin</p>
+        <p class="text-xs text-gray-500 mt-1">
+          Sign in as the store owner (or someone who can manage users). Go to
+          <strong>Settings → Users</strong>
+          (on some stores this shows as <strong>Users & permissions</strong>).
+        </p>
       </div>
+
       <div class="bg-white border border-gray-200 rounded-xl p-4">
-        <p class="text-sm font-semibold">2. Add Brandastic as staff</p>
-        <p class="text-xs text-gray-500 mt-1">Go to <strong>Settings → Users and permissions → Add staff</strong> → enter <strong>info@brandastic.com</strong> → send invite.</p>
+        <p class="text-sm font-semibold">2. Copy your collaborator access code</p>
+        <p class="text-xs text-gray-500 mt-1">
+          Click <strong>Security</strong>. In the collaborators section, click the <strong>4-digit code</strong> to copy it.
+          (You can also click <strong>Generate new code</strong> anytime — old codes stop working.)
+        </p>
       </div>
+
       <div class="bg-white border border-gray-200 rounded-xl p-4">
-        <p class="text-sm font-semibold">3. Turn on the right permissions</p>
-        <p class="text-xs text-gray-500 mt-1">At minimum for SEO / CRO / tracking work: Themes; Pages / Products / Collections / Navigation as needed; Apps; any Settings needed for domains, pixels, or customer events.</p>
+        <p class="text-sm font-semibold">3. Send Brandastic two things</p>
+        <p class="text-xs text-gray-500 mt-1">
+          Email or text us:
+        </p>
+        <ul class="text-xs text-gray-500 mt-2 list-disc pl-5 space-y-1">
+          <li>Your <strong>store URL</strong> (example: <span class="font-mono">your-store.myshopify.com</span>)</li>
+          <li>The <strong>4-digit collaborator access code</strong></li>
+        </ul>
+        <p class="text-xs text-gray-500 mt-2">
+          Send to <strong>info@brandastic.com</strong> (or your Brandastic contact). We’ll request access from our Shopify Partner account.
+        </p>
       </div>
+
       <div class="bg-white border border-gray-200 rounded-xl p-4">
-        <p class="text-sm font-semibold">4. Approve if Shopify asks</p>
-        <p class="text-xs text-gray-500 mt-1">We’ll accept from info@brandastic.com. If Shopify asks you to approve the new staff member or finish a security check, complete that and tell us.</p>
+        <p class="text-sm font-semibold">4. Approve our collaborator request</p>
+        <p class="text-xs text-gray-500 mt-1">
+          After we submit the request, you’ll get an email and a notification in Shopify Home.
+          Go to <strong>Settings → Users</strong>, open the request, review permissions, then <strong>Accept</strong>.
+        </p>
+        <p class="text-xs text-gray-500 mt-2">
+          Give us what we need for the job (typical SEO / CRO / tracking work):
+          themes, pages/products/collections/navigation as needed, apps, and relevant settings for domains/pixels.
+        </p>
       </div>
+
       <div class="bg-white border border-gray-200 rounded-xl p-4">
-        <p class="text-sm font-semibold">Optional: collaborator access</p>
-        <p class="text-xs text-gray-500 mt-1">If you use collaborator requests instead of staff, approve Brandastic under Settings → Users and permissions.</p>
+        <p class="text-sm font-semibold">5. Security notes (Shopify rules)</p>
+        <ul class="text-xs text-gray-500 mt-1 list-disc pl-5 space-y-1">
+          <li>Partners must use <strong>two-step authentication</strong> or collaborator login won’t work.</li>
+          <li>Don’t share your owner password — code + approve is enough.</li>
+          <li>Collaborator access can expire after <strong>90 days</strong> of inactivity; you can reactivate us later if needed.</li>
+          <li>You can reject a request or remove a collaborator anytime under Users.</li>
+        </ul>
       </div>
-</div>
+
+      <div class="bg-gray-100 border border-gray-200 rounded-xl p-4">
+        <p class="text-sm font-semibold text-gray-800">Alternate: staff invite</p>
+        <p class="text-xs text-gray-500 mt-1">
+          If you prefer not to use collaborator codes:
+          <strong>Settings → Users and permissions → Add staff</strong> → invite <strong>info@brandastic.com</strong> → grant theme / content / apps permissions → we accept the invite.
+          Collaborator access is still preferred for Partner work.
+        </p>
+      </div>
+    </div>
 
     <div class="flex flex-wrap gap-3 text-sm">
       <a href="/onboarding/shopify" class="px-4 py-2 rounded-full bg-gray-900 text-white font-semibold">Open inside full onboarding</a>
