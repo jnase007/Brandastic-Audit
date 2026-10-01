@@ -482,21 +482,27 @@ a{color:var(--accent);text-decoration:none}
           <div class="form-row">
             <div class="form-group">
               <label>Your Name</label>
-              <input type="text" name="name" required placeholder="John Smith">
+              <input type="text" name="name" required placeholder="John Smith" autocomplete="name">
             </div>
             <div class="form-group">
               <label>Email</label>
-              <input type="email" name="email" required placeholder="john@company.com">
+              <input type="email" name="email" required placeholder="john@company.com" autocomplete="email">
             </div>
           </div>
           <div class="form-row">
             <div class="form-group">
-              <label>Website URL</label>
-              <input type="text" name="website" required placeholder="yourcompany.com">
+              <label>Phone</label>
+              <input type="tel" name="phone" required placeholder="(949) 555-0100" autocomplete="tel">
             </div>
             <div class="form-group">
-              <label>Monthly Budget (optional)</label>
-              <select name="budget">
+              <label>Company website URL</label>
+              <input type="text" name="website" required placeholder="yourcompany.com">
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label>Monthly Budget</label>
+              <select name="budget" required>
                 <option value="">- Please Select -</option>
                 <option value="<3k">Less than $3k per month</option>
                 <option value="3-10k">$3k - $10k per month</option>
@@ -1075,6 +1081,7 @@ function submitAudit(e) {
     // Also send email notification via mailto as backup
     var name = formData.get("name");
     var email = formData.get("email");
+    var phone = formData.get("phone");
     var website = formData.get("website");
     var interest = formData.get("interest");
     var budget = formData.get("budget");
@@ -1092,7 +1099,7 @@ function submitAudit(e) {
       fetch("https://formsubmit.co/ajax/" + addr, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ name: name, email: email, website: website, interest: interest, budget: budget, utm_source: formData.get("utm_source")||"", utm_medium: formData.get("utm_medium")||"", utm_campaign: formData.get("utm_campaign")||"", referrer: formData.get("referrer")||"", landing_page: formData.get("landing_page")||"", _subject: "New Audit Request: " + website })
+        body: JSON.stringify({ name: name, email: email, phone: phone, website: website, interest: interest, budget: budget, utm_source: formData.get("utm_source")||"", utm_medium: formData.get("utm_medium")||"", utm_campaign: formData.get("utm_campaign")||"", referrer: formData.get("referrer")||"", landing_page: formData.get("landing_page")||"", _subject: "New Audit Request: " + website })
       }).catch(function(){});
     });
   }).catch(function() {
