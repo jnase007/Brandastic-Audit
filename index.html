@@ -481,27 +481,27 @@ a{color:var(--accent);text-decoration:none}
           <input type="hidden" name="to" value="justin@brandastic.com">
           <div class="form-row">
             <div class="form-group">
-              <label>Your Name</label>
+              <label>Your Name *</label>
               <input type="text" name="name" required placeholder="John Smith" autocomplete="name">
             </div>
             <div class="form-group">
-              <label>Email</label>
+              <label>Email *</label>
               <input type="email" name="email" required placeholder="john@company.com" autocomplete="email">
             </div>
           </div>
           <div class="form-row">
             <div class="form-group">
-              <label>Phone</label>
+              <label>Phone *</label>
               <input type="tel" name="phone" required placeholder="(949) 555-0100" autocomplete="tel">
             </div>
             <div class="form-group">
-              <label>Company website URL</label>
+              <label>Company website URL *</label>
               <input type="text" name="website" required placeholder="yourcompany.com">
             </div>
           </div>
           <div class="form-row">
             <div class="form-group">
-              <label>Monthly Budget</label>
+              <label>Monthly Budget *</label>
               <select name="budget" required>
                 <option value="">- Please Select -</option>
                 <option value="<3k">Less than $3k per month</option>
@@ -510,10 +510,9 @@ a{color:var(--accent);text-decoration:none}
                 <option value="25-100k">$25k - $100k per month</option>
               </select>
             </div>
-          </div>
-          <div class="form-group">
-            <label>What is your biggest marketing pain point?</label>
-            <select name="interest" required onchange="document.getElementById('otherField').style.display=this.value==='other'?'block':'none'">
+            <div class="form-group">
+              <label>Biggest marketing pain point *</label>
+              <select name="interest" required onchange="document.getElementById('otherField').style.display=this.value==='other'?'block':'none'">
               <option value="">Select one...</option>
               <option value="seo">SEO & Organic Growth</option>
               <option value="ppc">Google Ads / PPC</option>
@@ -521,6 +520,7 @@ a{color:var(--accent);text-decoration:none}
               <option value="ecommerce">E-Commerce / Shopping</option>
               <option value="other">Other</option>
             </select>
+            </div>
           </div>
           <div class="form-group" id="otherField" style="display:none">
             <label>Tell us more</label>
