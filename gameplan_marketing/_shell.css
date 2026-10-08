@@ -110,3 +110,42 @@ h3{font-size:1rem; margin:1rem 0 .4rem}
 .brand-lockup img{height:28px;width:auto;display:block;flex-shrink:0}
 .brand-lockup .brand-text{font-weight:800;font-size:.92rem;letter-spacing:.02em;line-height:1.15}
 .brand-lockup .brand-text small{display:block;font-weight:500;font-size:.65rem;color:var(--muted);letter-spacing:.04em}
+
+/* STRATEGIES label white */
+nav .brand{
+  color:#fff !important;
+  font-weight:800;
+  font-size:.95rem;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  margin:.15rem 0 .35rem;
+}
+
+/* Print / PDF toolbar */
+.print-bar{
+  display:flex; flex-wrap:wrap; gap:.5rem; align-items:center;
+  margin:0 0 1rem; padding:.65rem .75rem;
+  border:1px solid var(--line); border-radius:10px; background:var(--panel2);
+}
+.print-bar .hint{color:var(--muted); font-size:.78rem; margin-right:auto}
+
+@media print{
+  @page{ margin:14mm; }
+  html,body{ background:#fff !important; color:#111 !important; }
+  .layout{ display:block !important; }
+  nav, .print-bar, .nav-home, .foot{ display:none !important; }
+  main{ max-width:100% !important; padding:0 !important; }
+  a{ color:#111 !important; text-decoration:none !important; }
+  .card, .vid, .step, .callout, .ex, .pre{
+    break-inside:avoid; background:#fff !important; border:1px solid #ccc !important; color:#111 !important;
+  }
+  .badge, .tag, .st, .pill, .who{ border-color:#999 !important; color:#333 !important; background:#f3f3f3 !important; }
+  h1,h2,h3{ color:#000 !important; }
+  .lead, .k, p, li, td, th{ color:#222 !important; }
+  .table th{ color:#444 !important; }
+  .step:before{ background:#333 !important; color:#fff !important; }
+  .brand-lockup img{
+    /* browser may still print white logo on white — hide, show text */
+    filter: invert(1);
+  }
+}
