@@ -3,13 +3,15 @@
 
 [[redirects]]
   from = "/gameplan_marketing"
-  to = "/gameplan_marketing.html"
-  status = 200
+  to = "/gameplan_marketing/"
+  status = 301
 
 [[redirects]]
-  from = "/gameplan_marketing/"
-  to = "/gameplan_marketing.html"
-  status = 200
+  from = "/gameplan_marketing.html"
+  to = "/gameplan_marketing/"
+  status = 301
+
+
 
 [[redirects]]
   from = "/waterchef"
