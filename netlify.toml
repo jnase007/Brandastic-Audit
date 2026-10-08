@@ -4,14 +4,15 @@
 [[redirects]]
   from = "/gameplan_marketing"
   to = "/gameplan_marketing/index.html"
-  status = 200
+  status = 301
   force = true
 
 [[redirects]]
   from = "/gameplan_marketing/"
   to = "/gameplan_marketing/index.html"
-  status = 200
+  status = 301
   force = true
+
 
 
 
