@@ -231,3 +231,16 @@ nav .brand{
   .brand-lockup img,.topbar img{filter:none!important}
   .foot{border-top:1px solid #ccc!important;color:#555!important}
 }
+
+/* Keep current video section visually sticky/highlighted */
+.nav-video.nav-video-active{
+  outline:1px solid rgba(255,255,255,.18);
+  box-shadow:0 0 0 1px rgba(255,255,255,.06) inset;
+}
+nav a.on{
+  font-weight:700 !important;
+}
+nav a.item.on,
+nav a.nav-video-title.on{
+  background:rgba(255,255,255,.10) !important;
+}
