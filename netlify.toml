@@ -2,14 +2,10 @@
   publish = "."
 
 [[redirects]]
-  from = "/gameplan_marketing"
-  to = "/gameplan_marketing/"
-  status = 301
-
-[[redirects]]
   from = "/gameplan_marketing.html"
   to = "/gameplan_marketing/"
   status = 301
+
 
 
 
