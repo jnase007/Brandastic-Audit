@@ -103,3 +103,10 @@ h3{font-size:1rem; margin:1rem 0 .4rem}
   .grid2,.grid3{grid-template-columns:1fr}
   main{padding:1.1rem 1rem 2.5rem}
 }
+
+/* Brand mark */
+.brand-lockup{display:flex;align-items:center;gap:.65rem;margin:0 0 .35rem;text-decoration:none;color:var(--text)}
+.brand-lockup:hover{text-decoration:none;opacity:.92}
+.brand-lockup img{height:28px;width:auto;display:block;flex-shrink:0}
+.brand-lockup .brand-text{font-weight:800;font-size:.92rem;letter-spacing:.02em;line-height:1.15}
+.brand-lockup .brand-text small{display:block;font-weight:500;font-size:.65rem;color:var(--muted);letter-spacing:.04em}
