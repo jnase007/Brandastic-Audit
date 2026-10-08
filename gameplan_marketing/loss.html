@@ -2,63 +2,69 @@
 <html lang="en"><head>
 <meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
 <meta name="robots" content="noindex,nofollow"/>
-<title>When we lose / miss a deal · Brandastic GTM</title>
+<title>When we lose work · Brandastic GTM</title>
 <link rel="stylesheet" href="/gameplan_marketing/_shell.css"/>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+.stepbox{counter-reset:step}
+.step{display:flex;gap:.9rem;margin:0 0 1rem;padding:1rem;border:1px solid var(--line);border-radius:12px;background:#12171f}
+.step:before{counter-increment:step;content:counter(step);flex:0 0 2rem;height:2rem;border-radius:999px;display:flex;align-items:center;justify-content:center;font-weight:800;background:linear-gradient(135deg,#3db8e8,#b56cff);color:#fff;font-size:.9rem}
+.step h3{margin:.1rem 0 .35rem;font-size:1rem}
+.step p{margin:0 0 .45rem;color:var(--muted)}
+.who{display:inline-block;font-size:.72rem;padding:.15rem .45rem;border-radius:6px;background:rgba(61,184,232,.12);color:#7dd3fc;margin-right:.35rem}
+.ex{background:#0b0e13;border:1px solid var(--line);border-radius:10px;padding:.9rem 1rem;color:#d7dde4;font-size:.9rem;white-space:pre-wrap;margin:.5rem 0}
+.callout{border-left:3px solid #3db8e8;padding:.75rem 1rem;margin:1rem 0;background:rgba(61,184,232,.06);border-radius:0 10px 10px 0}
+</style>
 </head><body><div class="layout">
-<nav>
-<div class="brand">Brandastic GTM</div>
-<div class="sub">Simple plan for the team</div>
+<nav><div class="brand">Brandastic GTM</div><div class="sub">Real runbooks for the team</div>
 <div class="g ">Start</div>
 <a class="" href="/gameplan_marketing/index.html">Home</a>
-<a class="" href="/gameplan_marketing/how-to-use.html">How to use</a>
-<a class="" href="/gameplan_marketing/plays.html">All plays</a>
+<a class="" href="/gameplan_marketing/how-to-use.html">How this works</a>
 <div class="g rev">Revenue drivers</div>
-<a class="" href="/gameplan_marketing/revenue.html">What this means</a>
-<a class="" href="/gameplan_marketing/events.html">Client events</a>
-<a class="" href="/gameplan_marketing/gifting.html">Client gifts</a>
-<a class="" href="/gameplan_marketing/customer.html">Stay in touch / reopen</a>
-<a class="" href="/gameplan_marketing/seo.html">Website content (SEO)</a>
-<a class="" href="/gameplan_marketing/paid.html">Ads (support only)</a>
-<div class="g ops">Internal processes</div>
-<a class="" href="/gameplan_marketing/internal.html">What this means</a>
-<a class="" href="/gameplan_marketing/team.html">Weekly team rhythm</a>
-<a class="on" href="/gameplan_marketing/loss.html">When we lose / miss a deal</a>
-<a class="" href="/gameplan_marketing/whitespace.html">What else each client might buy</a>
+<a class="" href="/gameplan_marketing/events.html">1. Client nights</a>
+<a class="" href="/gameplan_marketing/gifting.html">2. Client gifts</a>
+<a class="" href="/gameplan_marketing/customer.html">3. Stay close to people</a>
+<a class="" href="/gameplan_marketing/seo.html">4. Website that brings leads</a>
+<a class="" href="/gameplan_marketing/paid.html">5. Ads only as backup</a>
+<div class="g ops">How we work inside</div>
+<a class="" href="/gameplan_marketing/team.html">Thursday updates</a>
+<a class="on" href="/gameplan_marketing/loss.html">When we lose work</a>
+<a class="" href="/gameplan_marketing/whitespace.html">What else to sell clients</a>
 <div class="g ">Plan</div>
-<a class="" href="/gameplan_marketing/90-day.html">90-day plan</a>
-<a class="" href="/gameplan_marketing/invite.html">Invite email example</a>
-<a class="" href="/gameplan_marketing/this-week.html">Do this week</a>
+<a class="" href="/gameplan_marketing/90-day.html">Next 90 days</a>
+<a class="" href="/gameplan_marketing/invite.html">Invite email to copy</a>
+<a class="" href="/gameplan_marketing/this-week.html">Start this week</a>
+<a class="" href="/gameplan_marketing/plays.html">All jobs at a glance</a>
 </nav>
 <main>
-<div class="crumb">Brandastic GTM / When we lose / miss a deal</div>
+<div class="crumb">Brandastic GTM / When we lose work</div>
 
-<span class="badge ops">Internal process</span>
+<span class="badge ops">How we work inside</span>
 <h1>When we lose a client or miss a deal</h1>
-<p class="lead">We tell ourselves the truth. Sugarcoating lost work is how agencies repeat mistakes.</p>
+<p class="lead">We write down the real reason. Soft stories feel nice and keep us stuck.</p>
 
 <div class="card ops">
-<h3>Lost client</h3>
+<h3>Lost client — exact process</h3>
 <ol>
-<li>Create Slack channel <code>#client-offboarding</code>.</li>
-<li>Within 5 days of notice, post a clear write-up of what happened.</li>
-<li>Use a fixed AI prompt on the notes/emails/calls to list root causes (so it’s not only feelings).</li>
-<li>People can add context. They can’t delete the hard findings.</li>
-<li>Assign one fix with an owner and a date.</li>
+<li>Use Slack channel <code>#client-offboarding</code>.</li>
+<li>Within 5 days of notice, AM posts what happened.</li>
+<li>Run a fixed AI prompt on emails/call notes to list root causes.</li>
+<li>Post the prompt and the output. People may add context. Nobody deletes the hard parts.</li>
+<li>Pick one fix. Give it an owner and a date.</li>
 </ol>
 </div>
 
 <div class="card ops">
-<h3>After a sales call (Justin or Melissa on the call)</h3>
-<p>Stay 5–10 minutes after and ask:</p>
+<h3>After a sales call Justin or Melissa joined</h3>
+<p>Stay 5–10 minutes and answer:</p>
 <ul>
-<li>Did we rush?</li>
-<li>Did we get to pricing cleanly?</li>
-<li>Were the right decision-makers there?</li>
-<li>What one slide or line should change?</li>
+<li>Did we rush or ramble?</li>
+<li>Did pricing feel clean?</li>
+<li>Were the decision-makers in the room?</li>
+<li>What one line or slide changes before next time?</li>
 </ul>
-<p>Write down one improvement the same day.</p>
+<p>Write the one change down the same day.</p>
 </div>
 
-<div class="foot">Plain-English GTM hub for Brandastic. Built from Video 1 of the friend-agency masterclass. More videos will add more pages the same way.</div>
+<div class="foot">This is a working handbook. Each page should be clear enough that someone can do the job without a meeting.</div>
 </main></div></body></html>
