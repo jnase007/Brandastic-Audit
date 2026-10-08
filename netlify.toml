@@ -2,6 +2,16 @@
   publish = "."
 
 [[redirects]]
+  from = "/gameplan_marketing"
+  to = "/gameplan_marketing.html"
+  status = 200
+
+[[redirects]]
+  from = "/gameplan_marketing/"
+  to = "/gameplan_marketing.html"
+  status = 200
+
+[[redirects]]
   from = "/waterchef"
   to = "/waterchef.html"
   status = 200
