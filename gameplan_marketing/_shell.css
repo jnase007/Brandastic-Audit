@@ -529,3 +529,73 @@ nav .brand{
   letter-spacing: 0.14em !important;
   margin: 0.25rem 0 0.15rem !important;
 }
+
+/* ===== LIGHT CONTRAST FIX (never white-on-white) ===== */
+html:not([data-theme="dark"]) .detail h3,
+html:not([data-theme="dark"]) h3 {
+  color: #0f172a !important;
+}
+html:not([data-theme="dark"]) .num,
+html:not([data-theme="dark"]) .num * {
+  color: #0f172a !important;
+  -webkit-text-fill-color: #0f172a !important;
+  font-weight: 800 !important;
+}
+html:not([data-theme="dark"]) .tool {
+  color: #0369a1 !important;
+  background: rgba(2,132,199,.1) !important;
+  border-color: rgba(2,132,199,.3) !important;
+}
+html:not([data-theme="dark"]) .who {
+  color: #0369a1 !important;
+  background: rgba(2,132,199,.1) !important;
+}
+html:not([data-theme="dark"]) .tag:not(.v1):not(.v2):not(.v3):not(.v4):not(.c1):not(.c2):not(.c3):not(.c4):not(.c5):not(.c6) {
+  color: #0369a1 !important;
+}
+html:not([data-theme="dark"]) .video-source {
+  color: #0f172a !important;
+  background: #f1f5f9 !important;
+}
+html:not([data-theme="dark"]) .video-source strong {
+  color: #0284c7 !important;
+}
+html:not([data-theme="dark"]) .lead {
+  color: #475569 !important;
+}
+html:not([data-theme="dark"]) .k,
+html:not([data-theme="dark"]) .crumb,
+html:not([data-theme="dark"]) .hint,
+html:not([data-theme="dark"]) .foot {
+  color: #64748b !important;
+}
+html:not([data-theme="dark"]) .card,
+html:not([data-theme="dark"]) .card p,
+html:not([data-theme="dark"]) .card li,
+html:not([data-theme="dark"]) main li,
+html:not([data-theme="dark"]) main p {
+  color: #0f172a;
+}
+html:not([data-theme="dark"]) .card .k {
+  color: #0284c7 !important;
+}
+/* keep white text ONLY on dark filled chips/buttons */
+html:not([data-theme="dark"]) .btn:not(.g):not(.ghost),
+html:not([data-theme="dark"]) .step:before,
+html:not([data-theme="dark"]) .ceo,
+html:not([data-theme="dark"]) .org-panel h2 .n {
+  color: #ffffff !important;
+  -webkit-text-fill-color: #ffffff !important;
+}
+/* dark theme readable accents */
+html[data-theme="dark"] .num {
+  color: #7dd3fc !important;
+  -webkit-text-fill-color: #7dd3fc !important;
+}
+html[data-theme="dark"] .detail h3 {
+  color: #7dd3fc !important;
+}
+html[data-theme="dark"] .tool,
+html[data-theme="dark"] .who {
+  color: #7dd3fc !important;
+}
