@@ -1,6 +1,6 @@
 /* Shared ICP page template — print-comparable */
 .icp-page { max-width: 1000px; }
-.icp-switch { display:flex; flex-wrap:wrap; gap:.45rem; margin:0 0 1rem; padding-bottom:.75rem; border-bottom:1px solid var(--line); }
+.icp-switch{display:none!important}
 .icp-hero { margin:0 0 1.25rem; }
 .icp-hero h1 { font-size: clamp(1.6rem, 3vw, 2.2rem); letter-spacing:-.03em; margin:.35rem 0 .5rem; }
 .icp-hero .lead { max-width: 52ch; }

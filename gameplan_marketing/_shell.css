@@ -599,3 +599,76 @@ html[data-theme="dark"] .tool,
 html[data-theme="dark"] .who {
   color: #7dd3fc !important;
 }
+
+
+/* ===== NAV SCROLL FIX ===== */
+html { scroll-behavior: auto; } /* avoid janky smooth on long pages */
+body { overflow-x: hidden; }
+
+.layout {
+  display: flex;
+  min-height: 100vh;
+  align-items: stretch;
+}
+
+/* Sidebar: independent scroll, no page jump */
+nav#side-nav,
+nav {
+  position: sticky !important;
+  top: 0 !important;
+  height: 100vh !important;
+  max-height: 100vh !important;
+  overflow-y: auto !important;
+  overflow-x: hidden !important;
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
+  flex-shrink: 0;
+}
+
+/* Main content scrolls with page normally */
+main {
+  flex: 1;
+  min-width: 0;
+  overflow: visible;
+}
+
+/* Kill double ICP switcher forever */
+.icp-switch { display: none !important; }
+
+/* In-page TOC: simple, no overflow clip */
+.icp-toc, .icp-jump {
+  display: grid !important;
+  grid-template-columns: repeat(auto-fit, minmax(148px, 1fr)) !important;
+  gap: 0.5rem !important;
+  margin: 0.75rem 0 1.25rem !important;
+}
+.icp-toc a, .icp-jump a {
+  overflow: visible !important;
+  white-space: normal !important;
+  min-height: 0 !important;
+  height: auto !important;
+}
+.icp-toc b, .icp-toc span, .icp-jump b, .icp-jump span {
+  white-space: normal !important;
+  overflow: visible !important;
+  text-overflow: clip !important;
+}
+
+/* Section anchors: account for sticky nothing in main */
+.icp-sec, .icp-section, [id^="sec-"], #geo, #market, #profile, #titles, #offer, #copy, #motion, #apollo {
+  scroll-margin-top: 1rem;
+}
+
+/* details open without layout thrash */
+nav details.nav-fold { overflow: visible; }
+
+@media (max-width: 920px) {
+  .layout { display: block; }
+  nav#side-nav, nav {
+    position: relative !important;
+    height: auto !important;
+    max-height: none !important;
+    overflow: visible !important;
+    width: 100% !important;
+  }
+}
