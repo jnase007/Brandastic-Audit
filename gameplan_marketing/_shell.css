@@ -360,3 +360,151 @@ nav .sub{ color:var(--muted) !important; }
 .vid.v1,.vid.v2,.vid.v3,.vid.v4{ background:var(--panel) !important; }
 .table th{ color:var(--muted); }
 /* optional dark toggle later via [data-theme=dark] */
+
+
+/* ===== FINAL LIGHT/DARK + BUTTON QA ===== */
+:root{
+  --bg:#f4f6f8;
+  --panel:#ffffff;
+  --panel2:#f8fafc;
+  --line:rgba(15,23,42,.14);
+  --text:#0f172a;
+  --muted:#64748b;
+  --accent:#0284c7;
+  --purple:#7c3aed;
+  --ok:#059669;
+  --warn:#d97706;
+  --btn-fg:#ffffff;
+  --v1:#0284c7; --v1b:#e0f2fe; --v1l:#38bdf8;
+  --v2:#7c3aed; --v2b:#ede9fe; --v2l:#a78bfa;
+  --v3:#d97706; --v3b:#ffedd5; --v3l:#fb923c;
+  --v4:#059669; --v4b:#d1fae5; --v4l:#34d399;
+}
+
+/* Buttons — never white-on-white */
+.btn,
+a.btn,
+button.btn{
+  display:inline-block !important;
+  padding:.55rem .9rem !important;
+  border-radius:9px !important;
+  font-weight:800 !important;
+  font-size:.84rem !important;
+  line-height:1.2 !important;
+  text-decoration:none !important;
+  border:1px solid transparent !important;
+  background:linear-gradient(135deg,#0284c7,#7c3aed) !important;
+  color:#ffffff !important;
+  -webkit-text-fill-color:#ffffff !important;
+}
+.btn:hover, a.btn:hover, button.btn:hover{
+  filter:brightness(1.05);
+  color:#ffffff !important;
+  -webkit-text-fill-color:#ffffff !important;
+  text-decoration:none !important;
+}
+.btn.g, a.btn.g, button.btn.g,
+.btn.ghost, a.btn.ghost{
+  background:#ffffff !important;
+  color:#0f172a !important;
+  -webkit-text-fill-color:#0f172a !important;
+  border:1px solid rgba(15,23,42,.22) !important;
+  box-shadow:0 1px 2px rgba(15,23,42,.04);
+}
+.btn.g:hover, a.btn.g:hover,
+.btn.ghost:hover, a.btn.ghost:hover{
+  background:#f1f5f9 !important;
+  color:#0f172a !important;
+  -webkit-text-fill-color:#0f172a !important;
+  border-color:rgba(15,23,42,.35) !important;
+}
+
+/* Logo size */
+.brand-lockup img{
+  height:16px !important;
+  width:auto !important;
+  max-width:90px !important;
+  display:block !important;
+}
+html:not([data-theme="dark"]) .brand-lockup img{
+  filter:brightness(0) saturate(100%) !important;
+  opacity:.88;
+}
+nav .brand{
+  font-size:.7rem !important;
+  letter-spacing:.14em !important;
+  margin:.3rem 0 .2rem !important;
+  color:#0f172a !important;
+}
+
+/* Theme toggle */
+.theme-toggle{
+  display:inline-flex; gap:.25rem; margin:.35rem 0 .8rem; padding:.28rem;
+  border:1px solid var(--line); border-radius:999px; background:#fff;
+}
+.theme-toggle button{
+  border:0; cursor:pointer; font:inherit; font-size:.68rem; font-weight:800;
+  padding:.3rem .58rem; border-radius:999px; background:transparent; color:var(--muted);
+}
+.theme-toggle button.on{
+  background:#0f172a; color:#fff;
+}
+
+/* Category colors */
+.nav-sec.v1{color:var(--v1)!important;font-weight:800}
+.nav-sec.v2{color:var(--v2)!important;font-weight:800}
+.nav-sec.v3{color:var(--v3)!important;font-weight:800}
+.nav-sec.v4{color:var(--v4)!important;font-weight:800}
+.nav-video.v1{background:var(--v1b)!important;border:1px solid var(--v1l)!important;border-left:4px solid var(--v1)!important}
+.nav-video.v2{background:var(--v2b)!important;border:1px solid var(--v2l)!important;border-left:4px solid var(--v2)!important}
+.nav-video.v3{background:var(--v3b)!important;border:1px solid var(--v3l)!important;border-left:4px solid var(--v3)!important}
+.nav-video.v4{background:var(--v4b)!important;border:1px solid var(--v4l)!important;border-left:4px solid var(--v4)!important}
+.nav-video::before,.vid::before{display:none!important}
+.vid{background:#fff!important}
+.vid.v1{border:1px solid var(--v1l)!important;border-left:5px solid var(--v1)!important}
+.vid.v2{border:1px solid var(--v2l)!important;border-left:5px solid var(--v2)!important}
+.vid.v3{border:1px solid var(--v3l)!important;border-left:5px solid var(--v3)!important}
+.vid.v4{border:1px solid var(--v4l)!important;border-left:5px solid var(--v4)!important}
+.tag.v1,.badge.v1{color:var(--v1)!important;background:var(--v1b)!important;border-color:var(--v1l)!important;font-weight:800}
+.tag.v2,.badge.v2{color:var(--v2)!important;background:var(--v2b)!important;border-color:var(--v2l)!important;font-weight:800}
+.tag.v3,.badge.v3{color:#b45309!important;background:var(--v3b)!important;border-color:var(--v3l)!important;font-weight:800}
+.tag.v4,.badge.v4{color:var(--v4)!important;background:var(--v4b)!important;border-color:var(--v4l)!important;font-weight:800}
+.swatch i{width:12px;height:12px;border-radius:3px;display:inline-block;margin-right:.35rem;vertical-align:middle}
+.swatch.v1 i{background:var(--v1)!important}
+.swatch.v2 i{background:var(--v2)!important}
+.swatch.v3 i{background:var(--v3)!important}
+.swatch.v4 i{background:var(--v4)!important}
+.color-legend{background:#fff!important;border:1px solid var(--line)!important;padding:.65rem .8rem;border-radius:12px;margin:0 0 1rem}
+
+/* DARK */
+html[data-theme="dark"]{
+  --bg:#0b0e12; --panel:#12171f; --panel2:#171d27; --line:rgba(255,255,255,.1);
+  --text:#eef2f6; --muted:#93a0ae; --accent:#3db8e8; --purple:#b56cff;
+  --ok:#34d399; --warn:#fbbf24;
+  --v1:#3db8e8; --v1b:rgba(61,184,232,.16); --v1l:rgba(61,184,232,.4);
+  --v2:#c084fc; --v2b:rgba(192,132,252,.16); --v2l:rgba(192,132,252,.4);
+  --v3:#fbbf24; --v3b:rgba(251,191,36,.14); --v3l:rgba(251,191,36,.4);
+  --v4:#34d399; --v4b:rgba(52,211,153,.14); --v4l:rgba(52,211,153,.4);
+}
+html[data-theme="dark"] .brand-lockup img{filter:none!important;opacity:1}
+html[data-theme="dark"] nav .brand{color:#fff!important}
+html[data-theme="dark"] .btn, html[data-theme="dark"] a.btn{
+  background:linear-gradient(135deg,#3db8e8,#b56cff)!important;
+  color:#fff!important; -webkit-text-fill-color:#fff!important;
+}
+html[data-theme="dark"] .btn.g, html[data-theme="dark"] a.btn.g,
+html[data-theme="dark"] .btn.ghost, html[data-theme="dark"] a.btn.ghost{
+  background:rgba(255,255,255,.06)!important;
+  color:#eef2f6!important; -webkit-text-fill-color:#eef2f6!important;
+  border:1px solid rgba(255,255,255,.18)!important;
+}
+html[data-theme="dark"] .theme-toggle{background:var(--panel2)}
+html[data-theme="dark"] .theme-toggle button.on{background:#eef2f6;color:#0b0e12}
+html[data-theme="dark"] .card,
+html[data-theme="dark"] .vid,
+html[data-theme="dark"] .path-card,
+html[data-theme="dark"] .ref-card,
+html[data-theme="dark"] .callout,
+html[data-theme="dark"] .nav-video,
+html[data-theme="dark"] .color-legend{background:var(--panel2)!important;color:var(--text)!important}
+html[data-theme="dark"] .ex,html[data-theme="dark"] .pre{background:#0f141c!important;color:var(--text)!important}

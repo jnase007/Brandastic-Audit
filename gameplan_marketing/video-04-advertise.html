@@ -1,5 +1,7 @@
 <!DOCTYPE html>
 <html lang="en"><head>
+<script>(function(){try{var t=localStorage.getItem('ba_strategies_theme');document.documentElement.setAttribute('data-theme', t==='dark'?'dark':'light');}catch(e){document.documentElement.setAttribute('data-theme','light');}})();</script>
+
 <meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
 <meta name="robots" content="noindex,nofollow"/>
 <title>Video 04 FULL · Advertise Your Agency</title>
@@ -16,9 +18,14 @@ main { max-width: 980px; }
 </style>
 </head><body><div class="layout">
 <nav id="side-nav">
-<a class="brand-lockup" href="/gameplan_marketing/index.html"><img src="/assets/brandastic-logo-black.png" alt="Brandastic" width="120" height="28"/></a>
+<a class="brand-lockup" href="/gameplan_marketing/index.html"><img src="/assets/brandastic-logo-black.png" alt="Brandastic" width="88" height="18"/></a>
 <div class="brand">STRATEGIES</div>
 <div class="sub">Directive playbooks → Brandastic plan</div>
+<div class="theme-toggle" role="group" aria-label="Color mode">
+  <button type="button" id="theme-light" data-theme-set="light">Light</button>
+  <button type="button" id="theme-dark" data-theme-set="dark">Dark</button>
+</div>
+
 <a class="nav-home" href="/gameplan_marketing/index.html">🏠 Home</a>
 <div class="nav-sec" style="color:#7dd3fc">Do this at Brandastic</div>
 <a class="item" href="/gameplan_marketing/strategic-plan.html">1. Strategic plan</a>
@@ -252,4 +259,27 @@ main { max-width: 980px; }
 </div>
 </main></div>
 <script>(function(){var a=document.querySelector('nav a.on');if(a){try{a.scrollIntoView({block:'nearest'});}catch(e){}var b=a.closest('.nav-video');if(b)b.classList.add('nav-video-active');}})();</script>
+
+<script>
+(function(){
+  var KEY='ba_strategies_theme';
+  function apply(t){
+    if(t!=='dark') t='light';
+    document.documentElement.setAttribute('data-theme', t);
+    try{localStorage.setItem(KEY,t);}catch(e){}
+    var L=document.getElementById('theme-light'), D=document.getElementById('theme-dark');
+    if(L&&D){ L.classList.toggle('on', t==='light'); D.classList.toggle('on', t==='dark'); }
+    document.querySelectorAll('.brand-lockup img').forEach(function(img){
+      var s=img.getAttribute('src')||'';
+      img.src = t==='dark' ? s.replace('logo-black','logo-white') : s.replace('logo-white','logo-black');
+    });
+  }
+  var saved=null; try{saved=localStorage.getItem(KEY);}catch(e){}
+  apply(saved==='dark'?'dark':'light');
+  document.addEventListener('click', function(e){
+    var b=e.target.closest('[data-theme-set]');
+    if(b) apply(b.getAttribute('data-theme-set'));
+  });
+})();
+</script>
 </body></html>
