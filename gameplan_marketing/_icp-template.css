@@ -1,0 +1,122 @@
+/* Shared ICP page template — print-comparable */
+.icp-page { max-width: 1000px; }
+.icp-switch { display:flex; flex-wrap:wrap; gap:.45rem; margin:0 0 1rem; padding-bottom:.75rem; border-bottom:1px solid var(--line); }
+.icp-hero { margin:0 0 1.25rem; }
+.icp-hero h1 { font-size: clamp(1.6rem, 3vw, 2.2rem); letter-spacing:-.03em; margin:.35rem 0 .5rem; }
+.icp-hero .lead { max-width: 52ch; }
+.icp-meta { display:flex; flex-wrap:wrap; gap:.35rem; margin:.5rem 0 1rem; }
+.icp-meta span {
+  font-size:.72rem; font-weight:800; padding:.28rem .55rem; border-radius:999px;
+  border:1px solid var(--line); background:#fff; color:var(--text);
+}
+html[data-theme="dark"] .icp-meta span { background:var(--panel2); }
+.icp-meta .pri { background:rgba(5,150,105,.12); border-color:rgba(5,150,105,.35); color:#047857; }
+.icp-meta .sec { background:rgba(2,132,199,.12); border-color:rgba(2,132,199,.35); color:#0369a1; }
+.icp-meta .ter { background:rgba(124,58,237,.12); border-color:rgba(124,58,237,.35); color:#6d28d9; }
+
+/* Local vs National comparison */
+.geo-compare {
+  display:grid; gap:1rem; margin:1rem 0 1.5rem;
+}
+@media(min-width:800px){ .geo-compare { grid-template-columns: 1fr 1fr; } }
+.geo-card {
+  border:1px solid var(--line); border-radius:16px; padding:1.1rem 1.15rem;
+  background:#fff; box-shadow:0 6px 20px rgba(15,23,42,.05);
+}
+html[data-theme="dark"] .geo-card { background:var(--panel2); }
+.geo-card.local { border-top:4px solid #0284c7; }
+.geo-card.national { border-top:4px solid #7c3aed; }
+.geo-card h3 { margin:0 0 .35rem; font-size:1rem; border:0; padding:0; }
+.geo-card .tagline { font-size:.8rem; color:var(--muted); margin:0 0 .85rem; }
+.geo-stat {
+  display:grid; grid-template-columns:1fr 1fr; gap:.5rem; margin:.5rem 0 .85rem;
+}
+.geo-stat div {
+  background:var(--panel2,#f8fafc); border-radius:10px; padding:.55rem .6rem;
+  border:1px solid var(--line);
+}
+.geo-stat strong { display:block; font-size:1.05rem; letter-spacing:-.02em; color:var(--text); }
+.geo-stat span { font-size:.68rem; color:var(--muted); font-weight:600; }
+.geo-card ul { margin:.25rem 0 0 1.05rem; font-size:.86rem; color:var(--text); }
+.geo-card li { margin:.25rem 0; }
+.verdict {
+  margin-top:.85rem; padding:.65rem .75rem; border-radius:10px;
+  font-size:.84rem; font-weight:700; line-height:1.4;
+}
+.verdict.go-local { background:#e0f2fe; color:#0c4a6e; border:1px solid #7dd3fc; }
+.verdict.go-national { background:#f3e8ff; color:#5b21b6; border:1px solid #c4b5fd; }
+.verdict.hybrid { background:#ecfdf5; color:#065f46; border:1px solid #6ee7b7; }
+html[data-theme="dark"] .verdict.go-local { background:rgba(2,132,199,.15); color:#7dd3fc; }
+html[data-theme="dark"] .verdict.go-national { background:rgba(124,58,237,.15); color:#c4b5fd; }
+html[data-theme="dark"] .verdict.hybrid { background:rgba(5,150,105,.15); color:#6ee7b7; }
+
+/* Chart cards */
+.chart-row { display:grid; gap:1rem; margin:1rem 0; }
+@media(min-width:800px){ .chart-row { grid-template-columns: 1.1fr .9fr; } }
+.chart-card {
+  border:1px solid var(--line); border-radius:16px; padding:1rem 1.05rem 1.1rem;
+  background:#fff; box-shadow:0 6px 20px rgba(15,23,42,.05);
+}
+html[data-theme="dark"] .chart-card { background:var(--panel2); }
+.chart-card h3 { margin:0 0 .15rem; font-size:.95rem; border:0; padding:0; }
+.chart-card .subk { font-size:.72rem; color:var(--muted); margin:0 0 .65rem; font-weight:600; }
+.chart-svg { width:100%; height:auto; display:block; }
+.chart-svg text { font-family: Inter, system-ui, sans-serif; }
+
+/* Standard section blocks — same on every ICP */
+.icp-section { margin:1.5rem 0; }
+.icp-section > h2 {
+  font-size:1.15rem; margin:0 0 .5rem; padding-top:1rem;
+  border-top:1px solid var(--line); letter-spacing:-.02em;
+}
+.icp-section .sec-num {
+  display:inline-block; font-size:.68rem; font-weight:800; letter-spacing:.12em;
+  text-transform:uppercase; color:var(--accent); margin-bottom:.25rem;
+}
+.profile-grid { display:grid; gap:.65rem; }
+@media(min-width:720px){ .profile-grid { grid-template-columns:1fr 1fr; } }
+.profile-grid .cell {
+  border:1px solid var(--line); border-radius:12px; padding:.75rem .85rem; background:#fff;
+}
+html[data-theme="dark"] .profile-grid .cell { background:var(--panel2); }
+.profile-grid .cell b { display:block; font-size:.68rem; letter-spacing:.08em; text-transform:uppercase; color:var(--muted); margin-bottom:.3rem; }
+.profile-grid .cell span { font-size:.9rem; font-weight:700; color:var(--text); line-height:1.35; }
+
+.titles-cols { display:grid; gap:.75rem; }
+@media(min-width:720px){ .titles-cols { grid-template-columns:1fr 1fr 1fr; } }
+.titles-cols .col {
+  border:1px solid var(--line); border-radius:12px; padding:.75rem .85rem; background:#fff;
+}
+html[data-theme="dark"] .titles-cols .col { background:var(--panel2); }
+.titles-cols h4 { margin:0 0 .45rem; font-size:.8rem; color:var(--accent); border:0; padding:0; text-transform:uppercase; letter-spacing:.06em; }
+.titles-cols ul { margin:0; padding-left:1.05rem; font-size:.84rem; }
+.titles-cols.exclude h4 { color:#b91c1c; }
+
+.bar-list { display:flex; flex-direction:column; gap:.45rem; margin:.5rem 0; }
+.bar-row { display:grid; grid-template-columns: 120px 1fr 48px; gap:.5rem; align-items:center; font-size:.78rem; }
+.bar-row .label { font-weight:700; color:var(--text); }
+.bar-track { height:10px; border-radius:999px; background:#e2e8f0; overflow:hidden; }
+html[data-theme="dark"] .bar-track { background:rgba(255,255,255,.1); }
+.bar-fill { height:100%; border-radius:999px; }
+.bar-row .val { font-weight:800; text-align:right; color:var(--muted); }
+
+.timeline { display:grid; gap:.5rem; margin:.75rem 0; }
+@media(min-width:800px){ .timeline { grid-template-columns:repeat(4,1fr); } }
+.tl {
+  border:1px solid var(--line); border-radius:12px; padding:.7rem .75rem; background:#fff;
+  min-height:100px;
+}
+html[data-theme="dark"] .tl { background:var(--panel2); }
+.tl b { display:block; font-size:.68rem; letter-spacing:.1em; text-transform:uppercase; color:var(--accent); margin-bottom:.35rem; }
+.tl p { margin:0; font-size:.8rem; color:var(--muted); font-weight:600; line-height:1.4; }
+
+.print-compare-note {
+  font-size:.8rem; color:var(--muted); padding:.65rem .75rem; border-radius:10px;
+  border:1px dashed var(--line); margin:0 0 1rem; background:var(--panel2);
+}
+@media print {
+  nav, .theme-toggle, .print-bar, .icp-switch, .hub-top { display:none !important; }
+  .layout { display:block !important; }
+  main { max-width:100% !important; padding:0 !important; }
+  .geo-compare, .chart-row, .profile-grid, .titles-cols, .timeline { break-inside: avoid; }
+}
