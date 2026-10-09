@@ -672,3 +672,20 @@ nav details.nav-fold { overflow: visible; }
     width: 100% !important;
   }
 }
+
+
+/* ===== ICP CONTENT VISIBLE ===== */
+main.icp-full, main.icp-page {
+  display: block !important;
+  max-width: 920px !important;
+}
+main.icp-full .icp-toc,
+main.icp-page .icp-toc,
+main.icp-full .icp-jump,
+main.icp-page .icp-jump {
+  position: static !important;
+  width: 100% !important;
+  display: flex !important;
+  flex-wrap: wrap !important;
+  gap: 0.4rem !important;
+}
