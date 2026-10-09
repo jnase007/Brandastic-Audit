@@ -116,11 +116,11 @@ h3{font-size:1rem; margin:1rem 0 .4rem}
 }
 
 /* Brand mark */
-.brand-lockup{display:flex;align-items:center;gap:.65rem;margin:0 0 .35rem;text-decoration:none;color:var(--text)}
-.brand-lockup:hover{text-decoration:none;opacity:.92}
-.brand-lockup img{height:28px;width:auto;display:block;flex-shrink:0}
-.brand-lockup .brand-text{font-weight:800;font-size:.92rem;letter-spacing:.02em;line-height:1.15}
-.brand-lockup .brand-text small{display:block;font-weight:500;font-size:.65rem;color:var(--muted);letter-spacing:.04em}
+
+
+
+
+
 
 /* STRATEGIES label white */
 nav .brand{
@@ -149,8 +149,8 @@ nav .brand{
   text-transform:uppercase;
   margin:0.2rem 0 0.4rem;
 }
-.brand-lockup{display:flex;align-items:center;gap:.65rem;margin:0 0 .15rem;text-decoration:none}
-.brand-lockup img{height:28px;width:auto;display:block}
+
+
 
 /* Video colors */
 :root{
@@ -239,7 +239,7 @@ nav .brand{
   .ex,.pre{background:#fafafa!important;border:1px solid #ccc!important;color:#111!important}
   .step:before{background:#333!important;color:#fff!important}
   .print-section{page-break-after:always;background:#fff!important}
-  .brand-lockup img,.topbar img{filter:none!important}
+
   .foot{border-top:1px solid #ccc!important;color:#555!important}
 }
 
@@ -295,12 +295,7 @@ nav .nav-fold .nav-video{margin-top:.35rem}
 }
 
 /* Light-theme logo: invert white asset so it reads dark */
-.brand-lockup img{
-  height:26px;
-  width:auto;
-  filter: brightness(0) saturate(100%);
-  opacity:.92;
-}
+
 nav{
   background:var(--panel);
   box-shadow:1px 0 0 var(--line);
@@ -420,16 +415,8 @@ button.btn{
 }
 
 /* Logo size */
-.brand-lockup img{
-  height:16px !important;
-  width:auto !important;
-  max-width:90px !important;
-  display:block !important;
-}
-html:not([data-theme="dark"]) .brand-lockup img{
-  filter:brightness(0) saturate(100%) !important;
-  opacity:.88;
-}
+
+
 nav .brand{
   font-size:.7rem !important;
   letter-spacing:.14em !important;
@@ -486,7 +473,7 @@ html[data-theme="dark"]{
   --v3:#fbbf24; --v3b:rgba(251,191,36,.14); --v3l:rgba(251,191,36,.4);
   --v4:#34d399; --v4b:rgba(52,211,153,.14); --v4l:rgba(52,211,153,.4);
 }
-html[data-theme="dark"] .brand-lockup img{filter:none!important;opacity:1}
+
 html[data-theme="dark"] nav .brand{color:#fff!important}
 html[data-theme="dark"] .btn, html[data-theme="dark"] a.btn{
   background:linear-gradient(135deg,#3db8e8,#b56cff)!important;
@@ -508,3 +495,37 @@ html[data-theme="dark"] .callout,
 html[data-theme="dark"] .nav-video,
 html[data-theme="dark"] .color-legend{background:var(--panel2)!important;color:var(--text)!important}
 html[data-theme="dark"] .ex,html[data-theme="dark"] .pre{background:#0f141c!important;color:var(--text)!important}
+
+
+/* Brandastic wordmark — natural aspect only */
+a.brand-lockup{
+  display: block !important;
+  width: fit-content !important;
+  max-width: 140px !important;
+  line-height: 0 !important;
+  margin: 0 0 0.35rem 0 !important;
+  padding: 0 !important;
+}
+a.brand-lockup img,
+img.brand-logo{
+  display: block !important;
+  height: 24px !important;
+  width: auto !important;
+  max-width: 140px !important;
+  max-height: 24px !important;
+  object-fit: contain !important;
+  object-position: left center !important;
+  border: 0 !important;
+  /* NEVER stretch */
+  aspect-ratio: auto !important;
+  transform: none !important;
+  filter: none !important;
+  opacity: 1 !important;
+}
+/* light mode: use black file (no CSS filter ink) */
+/* dark mode: white file swapped via JS */
+nav .brand{
+  font-size: 0.7rem !important;
+  letter-spacing: 0.14em !important;
+  margin: 0.25rem 0 0.15rem !important;
+}
