@@ -244,3 +244,41 @@ nav a.item.on,
 nav a.nav-video-title.on{
   background:rgba(255,255,255,.10) !important;
 }
+
+/* ===== Hub UX polish 2026-10-09 ===== */
+.hero-paths{display:grid;gap:1rem;margin:1rem 0 1.5rem}
+@media(min-width:800px){.hero-paths{grid-template-columns:repeat(3,1fr)}}
+.path-card{
+  border:1px solid var(--line);border-radius:14px;padding:1.1rem 1.15rem;
+  background:var(--panel2);display:flex;flex-direction:column;gap:.55rem;min-height:100%
+}
+.path-card h3{margin:0;font-size:1.05rem}
+.path-card p{margin:0;color:var(--muted);font-size:.9rem;flex:1}
+.path-card .path-num{
+  font-size:.72rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)
+}
+.path-card.primary{border-color:rgba(61,184,232,.45);background:linear-gradient(160deg,rgba(61,184,232,.14),#12171f 55%)}
+.path-card .btn{align-self:flex-start;margin-top:.25rem}
+.section-label{
+  font-size:.75rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--muted);margin:1.75rem 0 .65rem
+}
+nav details.nav-fold{margin:0 0 .5rem}
+nav details.nav-fold > summary{
+  list-style:none;cursor:pointer;font-size:.72rem;font-weight:800;letter-spacing:.08em;
+  text-transform:uppercase;color:var(--muted);padding:.35rem 0;user-select:none
+}
+nav details.nav-fold > summary::-webkit-details-marker{display:none}
+nav details.nav-fold > summary:after{content:" ▾";opacity:.6}
+nav details.nav-fold:not([open]) > summary:after{content:" ▸"}
+nav .nav-fold .nav-video{margin-top:.35rem}
+@media(max-width:900px){
+  .layout{display:block}
+  nav{
+    position:relative;width:100%;height:auto;max-height:none;
+    border-right:0;border-bottom:1px solid var(--line);
+    padding:1rem 1rem .75rem
+  }
+  main{padding:1rem 1.1rem 2rem}
+  .print-bar{flex-direction:column;align-items:stretch}
+}
