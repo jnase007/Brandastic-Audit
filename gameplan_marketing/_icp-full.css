@@ -289,3 +289,84 @@ html[data-theme="dark"] .icp-jump a {
 .icp-full aside, .icp-page aside, main aside {
   display: none !important;
 }
+
+
+/* ===== TITLES + CARD SPACING FIX ===== */
+.titles,
+.titles-cols {
+  display: grid !important;
+  grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  gap: 0.75rem !important;
+  align-items: start !important; /* cards hug content, no stretch to tallest */
+  margin: 0.75rem 0 1rem !important;
+}
+@media (max-width: 800px) {
+  .titles, .titles-cols {
+    grid-template-columns: 1fr !important;
+  }
+}
+.titles .col,
+.titles-cols .col {
+  display: block !important;
+  height: auto !important;
+  min-height: 0 !important;
+  align-self: start !important;
+  padding: 0.85rem 1rem !important;
+  margin: 0 !important;
+}
+.titles .col h4,
+.titles-cols .col h4,
+.titles .col h3,
+.titles-cols h4 {
+  margin: 0 0 0.5rem 0 !important;
+  padding: 0 !important;
+}
+.titles ul,
+.titles-cols ul,
+.titles .col ul,
+.titles-cols .col ul {
+  margin: 0 !important;
+  padding-left: 1.1rem !important;
+  list-style: disc !important;
+}
+.titles li,
+.titles-cols li,
+.titles .col li,
+.titles-cols .col li {
+  margin: 0.2rem 0 !important;
+  padding: 0 !important;
+  line-height: 1.35 !important;
+}
+/* kill accidental large paragraph/br spacing inside title cards */
+.titles .col p,
+.titles-cols .col p {
+  margin: 0.25rem 0 !important;
+}
+.titles .col br + br,
+.titles-cols .col br + br {
+  display: none !important;
+}
+
+/* general ICP card sections - start alignment */
+.grid2, .grid3, .profile-grid, .geo-compare, .values {
+  align-items: start !important;
+}
+.grid2 > *, .grid3 > *, .profile-grid .cell, .geo-card, .cardx, .val {
+  height: auto !important;
+  min-height: 0 !important;
+  align-self: start !important;
+}
+.cardx ul, .cardx ol, .geo-card ul {
+  margin: 0.25rem 0 0 1.05rem !important;
+}
+.cardx li, .geo-card li {
+  margin: 0.25rem 0 !important;
+  line-height: 1.4 !important;
+}
+.icp-sec, .icp-section {
+  margin: 1.25rem 0 !important;
+  padding-top: 0.85rem !important;
+}
+.icp-sec > h2, .icp-section > h2 {
+  margin: 0 0 0.5rem 0 !important;
+}
