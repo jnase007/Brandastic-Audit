@@ -770,3 +770,72 @@ main.icp-page .icp-jump {
 .icp-sec > h2, .icp-section > h2 {
   margin: 0 0 0.5rem 0 !important;
 }
+
+
+/* ===== TITLES SPACING NUCLEAR ===== */
+main .titles,
+main .titles-cols,
+.icp-full .titles,
+.icp-page .titles {
+  display: grid !important;
+  grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  gap: 0.75rem !important;
+  align-items: start !important;
+  justify-items: stretch !important;
+}
+@media (max-width: 800px) {
+  main .titles, .icp-full .titles { grid-template-columns: 1fr !important; }
+}
+main .titles > .col,
+.icp-full .titles > .col {
+  display: block !important;
+  height: fit-content !important;
+  max-height: none !important;
+  min-height: 0 !important;
+  align-self: start !important;
+  justify-self: stretch !important;
+  padding: 0.75rem 0.9rem !important;
+  margin: 0 !important;
+  flex: none !important;
+}
+main .titles > .col h4,
+.icp-full .titles > .col h4 {
+  margin: 0 0 0.4rem 0 !important;
+  padding: 0 !important;
+  line-height: 1.25 !important;
+}
+main .titles > .col ul,
+.icp-full .titles > .col ul {
+  display: block !important;
+  margin: 0 !important;
+  padding: 0 0 0 1.15rem !important;
+  list-style: disc !important;
+  height: auto !important;
+  min-height: 0 !important;
+  gap: 0 !important;
+  flex: none !important;
+}
+main .titles > .col li,
+.icp-full .titles > .col li,
+main .titles li,
+.icp-full .titles li {
+  display: list-item !important;
+  margin: 0 !important;
+  margin-block: 0.15rem !important;
+  padding: 0 !important;
+  padding-block: 0 !important;
+  line-height: 1.35 !important;
+  height: auto !important;
+  min-height: 0 !important;
+  flex: none !important;
+  float: none !important;
+}
+/* override any main li / detail li bloat */
+main.icp-full li,
+main.icp-page li {
+  margin-top: 0.15rem !important;
+  margin-bottom: 0.15rem !important;
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+  line-height: 1.35 !important;
+}
