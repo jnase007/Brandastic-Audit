@@ -839,3 +839,53 @@ main.icp-page li {
   padding-bottom: 0 !important;
   line-height: 1.35 !important;
 }
+
+
+/* ===== MAIN SECTION ACCORDIONS (Plan / ICPs / Masterclass / Courses) ===== */
+:root{
+  --sec-plan:#0284c7;
+  --sec-icp:#059669;
+  --sec-mc:#7c3aed;
+  --sec-course:#c2410c;
+}
+nav details.nav-fold.sec-plan > summary{color:var(--sec-plan)!important}
+nav details.nav-fold.sec-icp > summary{color:var(--sec-icp)!important}
+nav details.nav-fold.sec-mc > summary{color:var(--sec-mc)!important}
+nav details.nav-fold.sec-course > summary{color:var(--sec-course)!important}
+nav details.nav-fold.sec-plan,
+nav details.nav-fold.sec-icp,
+nav details.nav-fold.sec-mc,
+nav details.nav-fold.sec-course{
+  border:1px solid var(--line);
+  border-radius:12px;
+  padding:.25rem .45rem .45rem;
+  margin:0 0 .55rem;
+  background:var(--panel2, transparent);
+}
+nav details.nav-fold.sec-plan{border-left:4px solid var(--sec-plan)}
+nav details.nav-fold.sec-icp{border-left:4px solid var(--sec-icp)}
+nav details.nav-fold.sec-mc{border-left:4px solid var(--sec-mc)}
+nav details.nav-fold.sec-course{border-left:4px solid var(--sec-course)}
+nav details.nav-fold > summary{
+  font-size:.78rem!important;
+  letter-spacing:.06em!important;
+  padding:.5rem .35rem!important;
+}
+nav .nav-sublabel{
+  font-size:.62rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--muted);margin:.55rem .35rem .25rem;
+}
+main.sec-plan{box-shadow:inset 4px 0 0 var(--sec-plan)}
+main.sec-icp{box-shadow:inset 4px 0 0 var(--sec-icp)}
+main.sec-mc{box-shadow:inset 4px 0 0 var(--sec-mc)}
+main.sec-course{box-shadow:inset 4px 0 0 var(--sec-course)}
+main.sec-v1{box-shadow:inset 4px 0 0 var(--v1, #3db8e8)}
+main.sec-v2{box-shadow:inset 4px 0 0 var(--v2, #c084fc)}
+main.sec-v3{box-shadow:inset 4px 0 0 var(--v3, #f59e0b)}
+main.sec-v4{box-shadow:inset 4px 0 0 var(--v4, #10b981)}
+html[data-theme="light"] nav details.nav-fold.sec-plan,
+html[data-theme="light"] nav details.nav-fold.sec-icp,
+html[data-theme="light"] nav details.nav-fold.sec-mc,
+html[data-theme="light"] nav details.nav-fold.sec-course{
+  background:#fff;
+}
