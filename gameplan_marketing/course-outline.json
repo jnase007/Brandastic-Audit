@@ -1,0 +1,203 @@
+{
+  "title": "Agency Academy Course",
+  "source": "https://agencyacademy.mykajabi.com/products/agency-academy",
+  "founder": "Garrett Mehrguth / Directive (~$27M+)",
+  "sections": [
+    {
+      "id": "intro",
+      "name": "Introduction",
+      "lessons": [
+        {
+          "slug": "course-intro",
+          "title": "Intro to Agency Academy",
+          "status": "queued"
+        }
+      ]
+    },
+    {
+      "id": "sales",
+      "name": "Sales",
+      "lessons": [
+        {
+          "slug": "course-sales-process",
+          "title": "How to Build a Sales Process",
+          "status": "queued"
+        },
+        {
+          "slug": "course-sales-team",
+          "title": "How to Build a Sales Team",
+          "status": "queued"
+        },
+        {
+          "slug": "course-sales-comp",
+          "title": "How to Set Quotas and Compensation Plans",
+          "status": "queued"
+        },
+        {
+          "slug": "course-sales-pitch",
+          "title": "How to Build Proposals, Pitch, and Win Business",
+          "status": "queued"
+        },
+        {
+          "slug": "course-sales-pricing",
+          "title": "How to Price Your Services",
+          "status": "queued"
+        },
+        {
+          "slug": "course-sales-contracts",
+          "title": "How to Write Contracts",
+          "status": "queued"
+        }
+      ]
+    },
+    {
+      "id": "marketing",
+      "name": "Marketing",
+      "lessons": [
+        {
+          "slug": "course-mkt-position",
+          "title": "How to Position Your Marketing Agency",
+          "status": "queued"
+        },
+        {
+          "slug": "course-mkt-brand",
+          "title": "The Power of Branding",
+          "status": "queued"
+        },
+        {
+          "slug": "course-mkt-channels",
+          "title": "Choosing the Best Channels to Market and Advertise On",
+          "status": "queued"
+        },
+        {
+          "slug": "course-mkt-budget",
+          "title": "How to Set a Marketing Budget",
+          "status": "queued"
+        }
+      ]
+    },
+    {
+      "id": "finance",
+      "name": "Finance",
+      "lessons": [
+        {
+          "slug": "course-fin-dept",
+          "title": "How to Build the Finance Department",
+          "status": "queued"
+        },
+        {
+          "slug": "course-fin-pl",
+          "title": "How to Design and Read Your Profit & Loss Statement",
+          "status": "queued"
+        },
+        {
+          "slug": "course-fin-monthend",
+          "title": "The Definitive Guide to Month End Close",
+          "status": "queued"
+        },
+        {
+          "slug": "course-fin-kpis",
+          "title": "Financial KPIs to Track + Benchmarks",
+          "status": "queued"
+        },
+        {
+          "slug": "course-fin-model",
+          "title": "How to Build a Financial Model",
+          "status": "queued"
+        },
+        {
+          "slug": "course-fin-reporting",
+          "title": "How to Set Expectations for Reporting from Your Finance Department",
+          "status": "queued"
+        }
+      ]
+    },
+    {
+      "id": "ops",
+      "name": "Operations",
+      "lessons": [
+        {
+          "slug": "course-ops-jit",
+          "title": "The Power of Just In Time Labor for Capacity Planning",
+          "status": "queued"
+        },
+        {
+          "slug": "course-ops-global",
+          "title": "How to Take Your Marketing Agency Global",
+          "status": "queued"
+        },
+        {
+          "slug": "course-ops-talent-gate",
+          "title": "Why You Need a Singular Person Who Signs Off on New Talent Before Getting Accounts",
+          "status": "queued"
+        },
+        {
+          "slug": "course-ops-kpis",
+          "title": "Marketing Agency KPIs to Benchmark Operations",
+          "status": "queued"
+        },
+        {
+          "slug": "course-ops-reporting",
+          "title": "How to Do Client Reporting and Communication",
+          "status": "queued"
+        },
+        {
+          "slug": "course-ops-referrals",
+          "title": "How to Earn Referrals and Integrate Them into Your Culture",
+          "status": "queued"
+        }
+      ]
+    },
+    {
+      "id": "people",
+      "name": "People Operations",
+      "lessons": [
+        {
+          "slug": "course-people-hiring",
+          "title": "How to Build a Hiring Process",
+          "status": "queued"
+        },
+        {
+          "slug": "course-people-jd",
+          "title": "How to Write Job Descriptions",
+          "status": "queued"
+        },
+        {
+          "slug": "course-people-onboard",
+          "title": "How to Onboard New Hires",
+          "status": "queued"
+        },
+        {
+          "slug": "course-people-1on1",
+          "title": "How to Run 1:1s",
+          "status": "queued"
+        },
+        {
+          "slug": "course-people-benefits",
+          "title": "How to Choose Benefits That Move the Needle",
+          "status": "queued"
+        },
+        {
+          "slug": "course-people-perf",
+          "title": "How to Have Difficult Conversations and Document Performance",
+          "status": "queued"
+        },
+        {
+          "slug": "course-people-bonus",
+          "title": "How to Create an Annual Bonus Program",
+          "status": "queued"
+        },
+        {
+          "slug": "course-people-allhands",
+          "title": "The Importance of an All-Hands Meeting",
+          "status": "queued"
+        },
+        {
+          "slug": "course-people-retreats",
+          "title": "How to Run In-Person Company Retreats in a Fully Remote Marketing Agency",
+          "status": "queued"
+        }
+      ]
+    }
+  ]
+}
