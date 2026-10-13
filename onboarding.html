@@ -38,6 +38,14 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     @keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
     .tab-btn.active { background: #111; color: #fff; }
     .tab-btn.completed { background: #10b981; color: #fff; }
+    @media print {
+      body { background: #fff !important; }
+      header, .no-print { display: none !important; }
+      .flex.gap-2.mb-8.overflow-x-auto { display: none !important; }
+      .step-panel { display: block !important; animation: none !important; break-inside: avoid; page-break-inside: avoid; margin-bottom: 28px !important; }
+      main { max-width: 100% !important; padding: 0 !important; }
+      a { color: #111 !important; text-decoration: none !important; }
+    }
   </style>
 
   <script>
@@ -118,12 +126,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       <a href="/" class="flex items-center gap-2">
         <img src="https://brandastic.com/wp-content/uploads/2025/10/Brandastic_black_logo-5.png" alt="Brandastic" style="height:14px">
       </a>
-      <div class="flex items-center gap-3">
-        <span class="text-xs text-gray-400 hidden sm:inline">Share access to:</span>
-        <button onclick="navigator.clipboard.writeText(window.location.href);this.textContent='✓ Copied!';setTimeout(()=>this.textContent='📋 Copy Page Link',2000)" class="text-xs font-bold text-white bg-gray-900 px-3 py-1.5 rounded-full hover:bg-gray-700 transition cursor-pointer">📋 Copy Page Link</button>
-        <span class="text-xs font-bold text-gray-900 bg-gray-100 px-3 py-1.5 rounded-full">seo@brandastic.com
-          <button onclick="copyEmail()" id="copyBtn" class="ml-1.5 text-[10px] bg-gray-900 text-white px-2 py-0.5 rounded-full hover:bg-gray-700 transition">Copy</button>
-        </span>
+      <div class="flex items-center gap-3 no-print">
+        <button type="button" onclick="downloadOnboardingPdf()" class="text-xs font-bold text-gray-900 bg-white border border-gray-300 px-3 py-1.5 rounded-full hover:bg-gray-50 transition cursor-pointer">Download PDF</button>
+        <button type="button" onclick="navigator.clipboard.writeText(window.location.href); var b=this; var old=b.textContent; b.textContent='Copied'; setTimeout(function(){b.textContent=old},2000)" class="text-xs font-bold text-white bg-gray-900 px-3 py-1.5 rounded-full hover:bg-gray-700 transition cursor-pointer">Copy link</button>
       </div>
     </div>
   </header>
@@ -1413,6 +1418,37 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         const next = completed.findIndex((c, i) => !c && i > index);
         if (next !== -1) setTimeout(() => showStep(next), 600);
       }
+    }
+
+    
+    function downloadOnboardingPdf() {
+      var panels = document.querySelectorAll('.step-panel');
+      var prev = [];
+      panels.forEach(function(el, i){
+        prev[i] = el.classList.contains('active');
+        el.classList.add('active');
+        el.style.display = 'block';
+      });
+      var restored = false;
+      function restore() {
+        if (restored) return;
+        restored = true;
+        panels.forEach(function(el, i){
+          if (prev[i]) {
+            el.classList.add('active');
+            el.style.display = 'block';
+          } else {
+            el.classList.remove('active');
+            el.style.display = '';
+          }
+        });
+        window.removeEventListener('afterprint', restore);
+      }
+      window.addEventListener('afterprint', restore);
+      setTimeout(function(){
+        window.print();
+        setTimeout(restore, 1200);
+      }, 50);
     }
 
     function copyEmail() {
