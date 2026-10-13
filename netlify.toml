@@ -48,6 +48,16 @@
   status = 200
 
 [[redirects]]
+  from = "/connect"
+  to = "/connect.html"
+  status = 200
+
+[[redirects]]
+  from = "/connect/"
+  to = "/connect.html"
+  status = 200
+
+[[redirects]]
   from = "/NewMarket"
   to = "/newmarket.html"
   status = 200

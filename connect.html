@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script>(function(){var t=localStorage.getItem('brandastic-theme');if(t==='dark'){document.documentElement.setAttribute('data-theme','dark');}})();</script>
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-5C5RTG3');</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-TTZQH22P4G"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-TTZQH22P4G');</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Connect your accounts — Brandastic Audit</title>
+<meta name="description" content="Skip the access request. Connect Google, add Ads and Search Console, enter your site, and get SEO plus PPC KPIs the same day.">
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes="180x180">
+<meta property="og:image" content="https://audit.brandastic.com/assets/brandastic-mark-512.png">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--bg:#F5F3EF;--card:#fff;--line:rgba(25,31,36,.1);--text:#191F24;--muted:rgba(25,31,36,.68);--soft:rgba(25,31,36,.4);--cyan:#40B4E5;--purple:#CC22FF}
+body{font-family:Inter,system-ui,sans-serif;background:var(--bg);color:var(--text);line-height:1.55}
+a{color:#0284C7;text-decoration:none}
+.wrap{max-width:1080px;margin:0 auto;padding:0 22px}
+.nav{display:flex;align-items:center;justify-content:space-between;padding:22px 0}
+.nav b{letter-spacing:.12em;font-size:13px;font-weight:800}
+.nav span{font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--soft);border:1px solid var(--line);padding:6px 10px;border-radius:999px}
+.hero{padding:12px 0 8px}
+h1{font-size:clamp(2.1rem,4.8vw,3.6rem);letter-spacing:-.04em;line-height:1.05;max-width:16ch;margin:10px 0 14px}
+.lead{font-size:18px;color:var(--muted);max-width:40rem;margin-bottom:22px}
+.grid{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:18px;align-items:start;padding-bottom:64px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:22px;box-shadow:0 10px 30px rgba(25,31,36,.05)}
+.card h2{font-size:1.05rem;margin-bottom:8px}
+.card p.note{font-size:13px;color:var(--muted);margin-bottom:16px}
+label{display:block;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--soft);margin:12px 0 6px}
+input{width:100%;padding:12px 14px;border:1px solid var(--line);border-radius:10px;font:inherit;background:#F8FAFC}
+.row{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
+button,.btn{border:0;border-radius:10px;padding:12px 16px;font-weight:800;font-size:14px;cursor:pointer;font-family:inherit}
+.gbtn{background:#fff;color:#191F24;border:1px solid var(--line);display:inline-flex;align-items:center;gap:8px}
+.primary{background:linear-gradient(135deg,var(--cyan),var(--purple));color:#fff}
+.ghost{background:#fff;border:1px solid var(--line);color:var(--text)}
+.ok{color:#15803d;font-size:13px;font-weight:700;margin-top:8px}
+.warn{background:#FFF7ED;border:1px solid #FED7AA;border-radius:12px;padding:12px 14px;font-size:13px;color:#9A3412;margin-bottom:14px}
+.kpis{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:8px}
+.kpi{border:1px solid var(--line);border-radius:12px;padding:12px}
+.kpi span{display:block;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--soft)}
+.kpi b{font-size:1.25rem;letter-spacing:-.03em}
+.hidden{display:none}
+.list{margin:8px 0 0 18px;color:var(--muted);font-size:14px}
+.list li{margin:6px 0}
+@media(max-width:860px){.grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="nav">
+    <b><a href="/" style="color:inherit">BRANDASTIC AUDIT</a></b>
+    <span>Team demo · noindex</span>
+  </div>
+  <div class="hero">
+    <h1>Don’t request access. Set it up.</h1>
+    <p class="lead">Prospects connect Google, add Ads and Search Console, and drop in the site. We pull SEO + PPC KPIs the same day. This page is the idea for the team — Google login here is a walkthrough, not live OAuth yet.</p>
+  </div>
+  <div class="grid">
+    <div class="card">
+      <div class="warn">Demo only. Nothing writes to dash.brandastic.com or a live Google account.</div>
+      <h2>1. Google login</h2>
+      <p class="note">Same Google that owns Ads and Search Console. No screenshots. No “please add our MCC.”</p>
+      <button type="button" class="gbtn" id="googleBtn">
+        <svg width="18" height="18" viewBox="0 0 48 48" aria-hidden="true"><path fill="#FFC107" d="M43.6 20.5H42V20H24v8h11.3C33.7 32.7 29.3 36 24 36c-6.6 0-12-5.4-12-12s5.4-12 12-12c3.1 0 5.8 1.1 8 3l5.7-5.7C34.2 6.1 29.4 4 24 4 12.9 4 4 12.9 4 24s8.9 20 20 20 20-8.9 20-20c0-1.2-.1-2.3-.4-3.5z"/><path fill="#FF3D00" d="M6.3 14.7l6.6 4.8C14.7 16 19 12 24 12c3.1 0 5.8 1.1 8 3l5.7-5.7C34.2 6.1 29.4 4 24 4 16.3 4 9.6 8.3 6.3 14.7z"/><path fill="#4CAF50" d="M24 44c5.2 0 10-2 13.6-5.2l-6.3-5.2C29.3 35.9 26.8 37 24 37c-5.3 0-9.7-3.3-11.3-8l-6.5 5C9.5 39.6 16.2 44 24 44z"/><path fill="#1976D2" d="M43.6 20.5H42V20H24v8h11.3c-1.1 3.2-3.5 5.8-6.6 7.3l6.3 5.2C37.3 38.3 44 34 44 24c0-1.2-.1-2.3-.4-3.5z"/></svg>
+        Continue with Google
+      </button>
+      <div class="ok hidden" id="googleOk">Connected as owner@example.com (demo)</div>
+
+      <h2 style="margin-top:22px">2. Website</h2>
+      <label for="site">Site URL</label>
+      <input id="site" type="url" placeholder="https://yourcompany.com" autocomplete="url">
+
+      <h2 style="margin-top:22px">3. Accounts</h2>
+      <p class="note">Read-only. Ads for PPC. Search Console for SEO. Site URL fills the crawl gap if GSC is missing a property.</p>
+      <div class="row">
+        <button type="button" class="ghost" id="adsBtn">Connect Google Ads</button>
+        <button type="button" class="ghost" id="gscBtn">Connect Search Console</button>
+      </div>
+      <div class="ok hidden" id="adsOk">Google Ads connected (read-only, demo)</div>
+      <div class="ok hidden" id="gscOk">Search Console connected (read-only, demo)</div>
+
+      <div class="row">
+        <button type="button" class="primary" id="runBtn">Build draft audit</button>
+      </div>
+      <p class="note" style="margin-top:10px">Live product next: real Google OAuth, then a draft report. A person still reads it before it is a Brandastic audit.</p>
+    </div>
+    <div class="card" id="report">
+      <h2>Draft report</h2>
+      <p class="note" id="reportNote">Connect Google and add a URL. Sample numbers appear so the team can see the shape — not a real client.</p>
+      <div id="reportBody" class="hidden">
+        <p class="note" id="reportSite"></p>
+        <h2>PPC (Google Ads)</h2>
+        <div class="kpis">
+          <div class="kpi"><span>Spend 30d</span><b>$12,480</b></div>
+          <div class="kpi"><span>Conv.</span><b>86</b></div>
+          <div class="kpi"><span>CPA</span><b>$145</b></div>
+          <div class="kpi"><span>Search waste</span><b>18%</b></div>
+        </div>
+        <h2 style="margin-top:18px">SEO (Search Console + site)</h2>
+        <div class="kpis">
+          <div class="kpi"><span>Clicks 28d</span><b>4,210</b></div>
+          <div class="kpi"><span>Impr.</span><b>96k</b></div>
+          <div class="kpi"><span>Top queries</span><b>Brand-heavy</b></div>
+          <div class="kpi"><span>Index gaps</span><b>12 URLs</b></div>
+        </div>
+        <ul class="list">
+          <li>This is their account, not a Semrush guess.</li>
+          <li>Same-day draft. Brandastic still reviews before it is the audit we stand behind.</li>
+          <li>Does not live on the PIN client dash.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+const g=document.getElementById('googleBtn');
+const ads=document.getElementById('adsBtn');
+const gsc=document.getElementById('gscBtn');
+const run=document.getElementById('runBtn');
+let googleOn=false, adsOn=false, gscOn=false;
+g.onclick=()=>{googleOn=true; document.getElementById('googleOk').classList.remove('hidden');};
+ads.onclick=()=>{adsOn=true; document.getElementById('adsOk').classList.remove('hidden');};
+gsc.onclick=()=>{gscOn=true; document.getElementById('gscOk').classList.remove('hidden');};
+run.onclick=()=>{
+  const url=(document.getElementById('site').value||'').trim()||'https://yourcompany.com';
+  if(!googleOn){alert('Connect Google first (demo).'); return;}
+  if(!adsOn && !gscOn){alert('Connect Ads or Search Console (demo).'); return;}
+  document.getElementById('reportNote').textContent='Draft from connected accounts. Sample KPIs for the walkthrough.';
+  document.getElementById('reportSite').textContent='Site: '+url+(adsOn?' · Ads':'')+(gscOn?' · GSC':'');
+  document.getElementById('reportBody').classList.remove('hidden');
+  document.getElementById('report').scrollIntoView({behavior:'smooth',block:'start'});
+};
+</script>
+</body>
+</html>
