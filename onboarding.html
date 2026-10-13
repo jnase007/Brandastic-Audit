@@ -140,16 +140,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       <h1 class="text-3xl sm:text-4xl font-extrabold text-gray-900 mb-3">Client Onboarding</h1>
       <p class="text-gray-500 max-w-lg mx-auto">Complete each step to share access to your marketing platforms. Click each tab, follow the instructions, and mark it done.</p>
     </div>
-
-    <!-- Brandastic IDs Quick Reference -->
-    <div class="bg-white rounded-2xl border border-gray-200 p-5 mb-8">
-      <p class="text-xs font-bold text-gray-400 uppercase tracking-widest mb-3">Brandastic IDs — Copy & Paste</p>
-      <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
-        <div class="flex items-center justify-between bg-gray-50 rounded-xl px-4 py-3">
-          <div>
-            <p class="text-[10px] text-gray-400 uppercase font-semibold">Email</p>
-            <p class="text-sm font-bold text-gray-900">seo@brandastic.com</p>
-          </div>
           <button onclick="navigator.clipboard.writeText('seo@brandastic.com'); this.textContent='✓'; setTimeout(()=>this.textContent='Copy',2000)" class="text-xs bg-gray-900 text-white px-3 py-1 rounded-full hover:bg-gray-700 transition">Copy</button>
         </div>
         <div class="flex items-center justify-between bg-gray-50 rounded-xl px-4 py-3">
@@ -264,6 +254,13 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           <div>
             <h2 class="text-xl font-bold">Google Ads</h2>
             <p class="text-sm text-gray-400">Share your Ads account for campaign management</p>
+          <div data-step-id-box class="mt-4 mb-2 p-4 bg-gray-50 border border-gray-200 rounded-xl flex flex-wrap items-center justify-between gap-3">
+            <div>
+              <p class="text-[10px] text-gray-400 uppercase font-semibold tracking-wide">Invite email for this step</p>
+              <p class="text-sm font-bold text-gray-900">seo@brandastic.com</p>
+            </div>
+            <button type="button" onclick="navigator.clipboard.writeText('seo@brandastic.com'); this.textContent='Copied'; setTimeout(()=>this.textContent='Copy',2000)" class="text-xs font-semibold bg-gray-900 text-white px-3 py-1.5 rounded-full">Copy</button>
+          </div>
           </div>
         </div>
         <div class="space-y-4 mb-8">
@@ -313,6 +310,13 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           <div>
             <h2 class="text-xl font-bold">Google Tag Manager</h2>
             <p class="text-sm text-gray-400">Share container access for tracking management</p>
+          <div data-step-id-box class="mt-4 mb-2 p-4 bg-gray-50 border border-gray-200 rounded-xl flex flex-wrap items-center justify-between gap-3">
+            <div>
+              <p class="text-[10px] text-gray-400 uppercase font-semibold tracking-wide">Invite email for this step</p>
+              <p class="text-sm font-bold text-gray-900">seo@brandastic.com</p>
+            </div>
+            <button type="button" onclick="navigator.clipboard.writeText('seo@brandastic.com'); this.textContent='Copied'; setTimeout(()=>this.textContent='Copy',2000)" class="text-xs font-semibold bg-gray-900 text-white px-3 py-1.5 rounded-full">Copy</button>
+          </div>
           </div>
         </div>
         <div class="space-y-4 mb-8">
@@ -358,6 +362,13 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           <div>
             <h2 class="text-xl font-bold">Google Analytics</h2>
             <p class="text-sm text-gray-400">Share analytics for performance tracking</p>
+          <div data-step-id-box class="mt-4 mb-2 p-4 bg-gray-50 border border-gray-200 rounded-xl flex flex-wrap items-center justify-between gap-3">
+            <div>
+              <p class="text-[10px] text-gray-400 uppercase font-semibold tracking-wide">Invite email for this step</p>
+              <p class="text-sm font-bold text-gray-900">seo@brandastic.com</p>
+            </div>
+            <button type="button" onclick="navigator.clipboard.writeText('seo@brandastic.com'); this.textContent='Copied'; setTimeout(()=>this.textContent='Copy',2000)" class="text-xs font-semibold bg-gray-900 text-white px-3 py-1.5 rounded-full">Copy</button>
+          </div>
           </div>
         </div>
         <div class="space-y-4 mb-8">
@@ -403,6 +414,13 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           <div>
             <h2 class="text-xl font-bold">Google Search Console</h2>
             <p class="text-sm text-gray-400">Share search data for SEO optimization</p>
+          <div data-step-id-box class="mt-4 mb-2 p-4 bg-gray-50 border border-gray-200 rounded-xl flex flex-wrap items-center justify-between gap-3">
+            <div>
+              <p class="text-[10px] text-gray-400 uppercase font-semibold tracking-wide">Invite email for this step</p>
+              <p class="text-sm font-bold text-gray-900">seo@brandastic.com</p>
+            </div>
+            <button type="button" onclick="navigator.clipboard.writeText('seo@brandastic.com'); this.textContent='Copied'; setTimeout(()=>this.textContent='Copy',2000)" class="text-xs font-semibold bg-gray-900 text-white px-3 py-1.5 rounded-full">Copy</button>
+          </div>
           </div>
         </div>
         <div class="space-y-4 mb-8">
@@ -447,6 +465,22 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           <div>
             <h2 class="text-xl font-bold">Meta Business Suite / Facebook Ads</h2>
             <p class="text-sm text-gray-400">Share ad account access for Facebook & Instagram campaigns</p>
+          <div data-step-id-box class="mt-4 mb-2 p-4 bg-gray-50 border border-gray-200 rounded-xl">
+            <div class="flex flex-wrap items-center justify-between gap-3">
+              <div>
+                <p class="text-[10px] text-gray-400 uppercase font-semibold tracking-wide">Partner email</p>
+                <p class="text-sm font-bold text-gray-900">seo@brandastic.com</p>
+              </div>
+              <button type="button" onclick="navigator.clipboard.writeText('seo@brandastic.com'); this.textContent='Copied'; setTimeout(()=>this.textContent='Copy email',2000)" class="text-xs font-semibold bg-gray-900 text-white px-3 py-1.5 rounded-full">Copy email</button>
+            </div>
+            <div class="flex flex-wrap items-center justify-between gap-3 mt-3 pt-3 border-t border-gray-200">
+              <div>
+                <p class="text-[10px] text-gray-400 uppercase font-semibold tracking-wide">Meta Business ID</p>
+                <p class="text-sm font-bold text-gray-900">815447868632897</p>
+              </div>
+              <button type="button" onclick="navigator.clipboard.writeText('815447868632897'); this.textContent='Copied'; setTimeout(()=>this.textContent='Copy ID',2000)" class="text-xs font-semibold bg-white border border-gray-300 text-gray-900 px-3 py-1.5 rounded-full">Copy ID</button>
+            </div>
+          </div>
           </div>
         </div>
         <div class="space-y-4 mb-8">
@@ -510,6 +544,13 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           <div>
             <h2 class="text-xl font-bold">Instagram Business</h2>
             <p class="text-sm text-gray-400">Connect Instagram for social media management</p>
+          <div data-step-id-box class="mt-4 mb-2 p-4 bg-gray-50 border border-gray-200 rounded-xl flex flex-wrap items-center justify-between gap-3">
+            <div>
+              <p class="text-[10px] text-gray-400 uppercase font-semibold tracking-wide">Invite email for this step</p>
+              <p class="text-sm font-bold text-gray-900">seo@brandastic.com</p>
+            </div>
+            <button type="button" onclick="navigator.clipboard.writeText('seo@brandastic.com'); this.textContent='Copied'; setTimeout(()=>this.textContent='Copy',2000)" class="text-xs font-semibold bg-gray-900 text-white px-3 py-1.5 rounded-full">Copy</button>
+          </div>
           </div>
         </div>
         <div class="space-y-4 mb-8">
@@ -555,6 +596,22 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           <div>
             <h2 class="text-xl font-bold">TikTok Business</h2>
             <p class="text-sm text-gray-400">Share TikTok Ads & Business Center access</p>
+          <div data-step-id-box class="mt-4 mb-2 p-4 bg-gray-50 border border-gray-200 rounded-xl">
+            <div class="flex flex-wrap items-center justify-between gap-3">
+              <div>
+                <p class="text-[10px] text-gray-400 uppercase font-semibold tracking-wide">Partner email</p>
+                <p class="text-sm font-bold text-gray-900">seo@brandastic.com</p>
+              </div>
+              <button type="button" onclick="navigator.clipboard.writeText('seo@brandastic.com'); this.textContent='Copied'; setTimeout(()=>this.textContent='Copy email',2000)" class="text-xs font-semibold bg-gray-900 text-white px-3 py-1.5 rounded-full">Copy email</button>
+            </div>
+            <div class="flex flex-wrap items-center justify-between gap-3 mt-3 pt-3 border-t border-gray-200">
+              <div>
+                <p class="text-[10px] text-gray-400 uppercase font-semibold tracking-wide">TikTok Business ID</p>
+                <p class="text-sm font-bold text-gray-900">7026042071072915458</p>
+              </div>
+              <button type="button" onclick="navigator.clipboard.writeText('7026042071072915458'); this.textContent='Copied'; setTimeout(()=>this.textContent='Copy ID',2000)" class="text-xs font-semibold bg-white border border-gray-300 text-gray-900 px-3 py-1.5 rounded-full">Copy ID</button>
+            </div>
+          </div>
           </div>
         </div>
         <div class="space-y-4 mb-8">
@@ -612,6 +669,13 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           <div>
             <h2 class="text-xl font-bold">LinkedIn</h2>
             <p class="text-sm text-gray-400">Share Company Page & Campaign Manager access</p>
+          <div data-step-id-box class="mt-4 mb-2 p-4 bg-gray-50 border border-gray-200 rounded-xl flex flex-wrap items-center justify-between gap-3">
+            <div>
+              <p class="text-[10px] text-gray-400 uppercase font-semibold tracking-wide">Invite email for this step</p>
+              <p class="text-sm font-bold text-gray-900">justin@brandastic.com</p>
+            </div>
+            <button type="button" onclick="navigator.clipboard.writeText('justin@brandastic.com'); this.textContent='Copied'; setTimeout(()=>this.textContent='Copy',2000)" class="text-xs font-semibold bg-gray-900 text-white px-3 py-1.5 rounded-full">Copy</button>
+          </div>
           </div>
         </div>
         <div class="space-y-4 mb-8">
@@ -650,6 +714,13 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           <div>
             <h2 class="text-xl font-bold">Yelp & Google Business Profile</h2>
             <p class="text-sm text-gray-400">Share local listing access for reputation management</p>
+          <div data-step-id-box class="mt-4 mb-2 p-4 bg-gray-50 border border-gray-200 rounded-xl flex flex-wrap items-center justify-between gap-3">
+            <div>
+              <p class="text-[10px] text-gray-400 uppercase font-semibold tracking-wide">Invite email for this step</p>
+              <p class="text-sm font-bold text-gray-900">seo@brandastic.com</p>
+            </div>
+            <button type="button" onclick="navigator.clipboard.writeText('seo@brandastic.com'); this.textContent='Copied'; setTimeout(()=>this.textContent='Copy',2000)" class="text-xs font-semibold bg-gray-900 text-white px-3 py-1.5 rounded-full">Copy</button>
+          </div>
           </div>
         </div>
         <div class="space-y-4 mb-8">
@@ -692,6 +763,13 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           <div>
             <h2 class="text-xl font-bold">Website Access</h2>
             <p class="text-sm text-gray-400">Share CMS or hosting access for landing pages and tracking</p>
+          <div data-step-id-box class="mt-4 mb-2 p-4 bg-gray-50 border border-gray-200 rounded-xl flex flex-wrap items-center justify-between gap-3">
+            <div>
+              <p class="text-[10px] text-gray-400 uppercase font-semibold tracking-wide">Invite email for this step</p>
+              <p class="text-sm font-bold text-gray-900">seo@brandastic.com</p>
+            </div>
+            <button type="button" onclick="navigator.clipboard.writeText('seo@brandastic.com'); this.textContent='Copied'; setTimeout(()=>this.textContent='Copy',2000)" class="text-xs font-semibold bg-gray-900 text-white px-3 py-1.5 rounded-full">Copy</button>
+          </div>
           </div>
         </div>
         <div class="space-y-4 mb-8">
@@ -773,6 +851,13 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           <div>
             <h2 class="text-xl font-bold">DoorDash Ads</h2>
             <p class="text-sm text-gray-400">Share DoorDash Merchant or Ads Manager access</p>
+          <div data-step-id-box class="mt-4 mb-2 p-4 bg-gray-50 border border-gray-200 rounded-xl flex flex-wrap items-center justify-between gap-3">
+            <div>
+              <p class="text-[10px] text-gray-400 uppercase font-semibold tracking-wide">Invite email for this step</p>
+              <p class="text-sm font-bold text-gray-900">seo@brandastic.com</p>
+            </div>
+            <button type="button" onclick="navigator.clipboard.writeText('seo@brandastic.com'); this.textContent='Copied'; setTimeout(()=>this.textContent='Copy',2000)" class="text-xs font-semibold bg-gray-900 text-white px-3 py-1.5 rounded-full">Copy</button>
+          </div>
           </div>
         </div>
         <div class="space-y-4 mb-8">
@@ -825,6 +910,13 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           <div>
             <h2 class="text-xl font-bold">Instacart Ads</h2>
             <p class="text-sm text-gray-400">Share Instacart Ads Portal access for sponsored product campaigns</p>
+          <div data-step-id-box class="mt-4 mb-2 p-4 bg-gray-50 border border-gray-200 rounded-xl flex flex-wrap items-center justify-between gap-3">
+            <div>
+              <p class="text-[10px] text-gray-400 uppercase font-semibold tracking-wide">Invite email for this step</p>
+              <p class="text-sm font-bold text-gray-900">seo@brandastic.com</p>
+            </div>
+            <button type="button" onclick="navigator.clipboard.writeText('seo@brandastic.com'); this.textContent='Copied'; setTimeout(()=>this.textContent='Copy',2000)" class="text-xs font-semibold bg-gray-900 text-white px-3 py-1.5 rounded-full">Copy</button>
+          </div>
           </div>
         </div>
         <div class="space-y-4 mb-8">
@@ -874,6 +966,13 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           <div>
             <h2 class="text-xl font-bold">Microsoft / Bing Ads</h2>
             <p class="text-sm text-gray-400">Share Microsoft Advertising account access</p>
+          <div data-step-id-box class="mt-4 mb-2 p-4 bg-gray-50 border border-gray-200 rounded-xl flex flex-wrap items-center justify-between gap-3">
+            <div>
+              <p class="text-[10px] text-gray-400 uppercase font-semibold tracking-wide">Invite email for this step</p>
+              <p class="text-sm font-bold text-gray-900">seo@brandastic.com</p>
+            </div>
+            <button type="button" onclick="navigator.clipboard.writeText('seo@brandastic.com'); this.textContent='Copied'; setTimeout(()=>this.textContent='Copy',2000)" class="text-xs font-semibold bg-gray-900 text-white px-3 py-1.5 rounded-full">Copy</button>
+          </div>
           </div>
         </div>
         <div class="space-y-4 mb-8">
@@ -930,6 +1029,13 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           <div>
             <h2 class="text-xl font-bold">Mailchimp</h2>
             <p class="text-sm text-gray-400">Invite Brandastic as a user to your Mailchimp account. Using Klaviyo? See the <button type="button" onclick="showStep(17)" class="text-blue-600 underline font-semibold">Klaviyo</button> step.</p>
+          <div data-step-id-box class="mt-4 mb-2 p-4 bg-gray-50 border border-gray-200 rounded-xl flex flex-wrap items-center justify-between gap-3">
+            <div>
+              <p class="text-[10px] text-gray-400 uppercase font-semibold tracking-wide">Invite email for this step</p>
+              <p class="text-sm font-bold text-gray-900">seo@brandastic.com</p>
+            </div>
+            <button type="button" onclick="navigator.clipboard.writeText('seo@brandastic.com'); this.textContent='Copied'; setTimeout(()=>this.textContent='Copy',2000)" class="text-xs font-semibold bg-gray-900 text-white px-3 py-1.5 rounded-full">Copy</button>
+          </div>
           </div>
         </div>
         <div class="space-y-4 mb-8">
@@ -996,6 +1102,13 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           <div>
             <h2 class="text-xl font-bold">Google Merchant Center</h2>
             <p class="text-sm text-gray-400">Share product feed access for Shopping & Performance Max</p>
+          <div data-step-id-box class="mt-4 mb-2 p-4 bg-gray-50 border border-gray-200 rounded-xl flex flex-wrap items-center justify-between gap-3">
+            <div>
+              <p class="text-[10px] text-gray-400 uppercase font-semibold tracking-wide">Invite email for this step</p>
+              <p class="text-sm font-bold text-gray-900">seo@brandastic.com</p>
+            </div>
+            <button type="button" onclick="navigator.clipboard.writeText('seo@brandastic.com'); this.textContent='Copied'; setTimeout(()=>this.textContent='Copy',2000)" class="text-xs font-semibold bg-gray-900 text-white px-3 py-1.5 rounded-full">Copy</button>
+          </div>
           </div>
         </div>
         <div class="space-y-4 mb-8">
@@ -1062,6 +1175,13 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           <div>
             <h2 class="text-xl font-bold">Google Local Services Ads</h2>
             <p class="text-sm text-gray-400">Share LSA access so we can manage leads, budget, and Google Guaranteed campaigns</p>
+          <div data-step-id-box class="mt-4 mb-2 p-4 bg-gray-50 border border-gray-200 rounded-xl flex flex-wrap items-center justify-between gap-3">
+            <div>
+              <p class="text-[10px] text-gray-400 uppercase font-semibold tracking-wide">Invite email for this step</p>
+              <p class="text-sm font-bold text-gray-900">seo@brandastic.com</p>
+            </div>
+            <button type="button" onclick="navigator.clipboard.writeText('seo@brandastic.com'); this.textContent='Copied'; setTimeout(()=>this.textContent='Copy',2000)" class="text-xs font-semibold bg-gray-900 text-white px-3 py-1.5 rounded-full">Copy</button>
+          </div>
           </div>
         </div>
         <div class="space-y-4 mb-8">
@@ -1135,6 +1255,13 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           <div>
             <h2 class="text-xl font-bold">Amazon Store</h2>
             <p class="text-sm text-gray-400">Share Seller Central + Amazon Ads access so our team can help manage your store</p>
+          <div data-step-id-box class="mt-4 mb-2 p-4 bg-gray-50 border border-gray-200 rounded-xl flex flex-wrap items-center justify-between gap-3">
+            <div>
+              <p class="text-[10px] text-gray-400 uppercase font-semibold tracking-wide">Invite email for this step</p>
+              <p class="text-sm font-bold text-gray-900">seo@brandastic.com</p>
+            </div>
+            <button type="button" onclick="navigator.clipboard.writeText('seo@brandastic.com'); this.textContent='Copied'; setTimeout(()=>this.textContent='Copy',2000)" class="text-xs font-semibold bg-gray-900 text-white px-3 py-1.5 rounded-full">Copy</button>
+          </div>
           </div>
         </div>
         <div class="space-y-4 mb-8">
@@ -1213,6 +1340,13 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           <div>
             <h2 class="text-xl font-bold">Klaviyo</h2>
             <p class="text-sm text-gray-400">Share email & SMS access for flows, campaigns, and list growth</p>
+          <div data-step-id-box class="mt-4 mb-2 p-4 bg-gray-50 border border-gray-200 rounded-xl flex flex-wrap items-center justify-between gap-3">
+            <div>
+              <p class="text-[10px] text-gray-400 uppercase font-semibold tracking-wide">Invite email for this step</p>
+              <p class="text-sm font-bold text-gray-900">seo@brandastic.com</p>
+            </div>
+            <button type="button" onclick="navigator.clipboard.writeText('seo@brandastic.com'); this.textContent='Copied'; setTimeout(()=>this.textContent='Copy',2000)" class="text-xs font-semibold bg-gray-900 text-white px-3 py-1.5 rounded-full">Copy</button>
+          </div>
           </div>
         </div>
         <div class="space-y-4 mb-8">
@@ -1285,6 +1419,13 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           <div>
             <h2 class="text-xl font-bold">Shopify</h2>
             <p class="text-sm text-gray-400">Preferred: collaborator access code (Partner flow). Email us the 4-digit code + store URL.</p>
+          <div data-step-id-box class="mt-4 mb-2 p-4 bg-gray-50 border border-gray-200 rounded-xl flex flex-wrap items-center justify-between gap-3">
+            <div>
+              <p class="text-[10px] text-gray-400 uppercase font-semibold tracking-wide">Invite email for this step</p>
+              <p class="text-sm font-bold text-gray-900">seo@brandastic.com</p>
+            </div>
+            <button type="button" onclick="navigator.clipboard.writeText('seo@brandastic.com'); this.textContent='Copied'; setTimeout(()=>this.textContent='Copy',2000)" class="text-xs font-semibold bg-gray-900 text-white px-3 py-1.5 rounded-full">Copy</button>
+          </div>
           </div>
         </div>
 
