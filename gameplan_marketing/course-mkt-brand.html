@@ -5,7 +5,16 @@
 <title>The Power of Branding</title>
 <link rel="stylesheet" href="/gameplan_marketing/_shell.css"/>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
-<script>(function(){try{var t=localStorage.getItem("ba_strategies_theme");document.documentElement.setAttribute("data-theme",t==="dark"?"dark":"light");}catch(e){document.documentElement.setAttribute("data-theme","light");}})();</script></head><body><div class="layout">
+<script>(function(){try{var t=localStorage.getItem("ba_strategies_theme");document.documentElement.setAttribute("data-theme",t==="dark"?"dark":"light");}catch(e){document.documentElement.setAttribute("data-theme","light");}})();</script><style>
+.dl-list{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:.55rem}
+.dl-row{display:flex;align-items:center;justify-content:space-between;gap:.75rem;padding:.65rem .8rem;border:1px solid var(--line,#e5e7eb);border-radius:12px;background:#fff}
+.dl-meta{display:flex;flex-direction:column;gap:.15rem;min-width:0}
+.dl-meta strong{font-size:.95rem;line-height:1.25;word-break:break-word}
+.dl-size{color:var(--muted,#6b7280);font-size:.8rem}
+.dl-row .btn{flex:0 0 auto;white-space:nowrap}
+@media (max-width:640px){.dl-row{flex-direction:column;align-items:flex-start}.dl-row .btn{width:100%;text-align:center}}
+</style>
+</head><body><div class="layout">
 <nav id="side-nav">
 <a class="brand-lockup" href="/gameplan_marketing/index.html" title="Brandastic"><img class="brand-logo" src="/assets/brandastic-logo-black.png" alt="Brandastic"/></a>
 <div class="brand">STRATEGIES</div>
@@ -160,5 +169,6 @@ if(!anyOpen){
 </div>
 
 <div class="foot">From Agency Academy files · Brandastic internal playbook</div>
+<div class="card rev course-downloads-block" id="section-downloads"><h3>Marketing downloads</h3><p style="margin:.25rem 0 .75rem;color:var(--muted,#64748b);font-size:.92rem">Files for this module. Same files as the downloads hub.</p><ul class="dl-list"><li class="dl-row"><div class="dl-meta"><strong>DG V3 2023 Marketing LTV CAC Analysis NSM Setting ROI Forecast 01.23.2022 Directive.xlsx</strong><span class="dl-size">1.1 MB</span></div><a class="btn" href="/gameplan_marketing/course-downloads/02-Marketing/Copy_of_DG_V3_2023_Marketing_LTV_CAC_Analysis_NSM_Setting_ROI_Forecast_01.23.2022_Directive_.xlsx" download>Download</a></li><li class="dl-row"><div class="dl-meta"><strong>Directive Brand Guidelines.pdf</strong><span class="dl-size">531 KB</span></div><a class="btn" href="/gameplan_marketing/course-downloads/02-Marketing/Copy_of_Directive_Brand_Guidelines.pdf" download>Download</a></li><li class="dl-row"><div class="dl-meta"><strong>Customer Generation 2.0 Directive Customer Event Final.pdf</strong><span class="dl-size">14.1 MB</span></div><a class="btn" href="/gameplan_marketing/course-downloads/02-Marketing/Customer_Generation_2.0_Directive_Customer_Event_Final.pdf" download>Download</a></li><li class="dl-row"><div class="dl-meta"><strong>LTV CAC Budgeting Sheet for Agency Course.pdf</strong><span class="dl-size">267 KB</span></div><a class="btn" href="/gameplan_marketing/course-downloads/02-Marketing/LTV_CAC_Budgeting_Sheet_for_Agency_Course.pdf" download>Download</a></li></ul><p class="foot" style="margin-top:.8rem"><a href="/gameplan_marketing/course-downloads.html">All course downloads</a></p></div>
 </main></div>
 <script>(function(){var KEY="***";function apply(t){if(t!=="dark")t="light";document.documentElement.setAttribute("data-theme",t);try{localStorage.setItem(KEY,t)}catch(e){}var L=document.getElementById("theme-light"),D=document.getElementById("theme-dark");if(L&&D){L.classList.toggle("on",t==="light");D.classList.toggle("on",t==="dark")}document.querySelectorAll("img.brand-logo,a.brand-lockup img").forEach(function(img){img.style.height="24px";img.style.width="auto";var s=img.getAttribute("src")||"";img.setAttribute("src",t==="dark"?s.replace("logo-black","logo-white"):s.replace("logo-white","logo-black"))})}var s=null;try{s=localStorage.getItem(KEY)}catch(e){}apply(s==="dark"?"dark":"light");document.addEventListener("click",function(e){var b=e.target.closest("[data-theme-set]");if(b)apply(b.getAttribute("data-theme-set"))})})();</script></body></html>
