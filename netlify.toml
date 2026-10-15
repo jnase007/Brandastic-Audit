@@ -167,6 +167,16 @@
   status = 200
 
 [[redirects]]
+  from = "/reports"
+  to = "/reports.html"
+  status = 200
+
+[[redirects]]
+  from = "/reports/"
+  to = "/reports.html"
+  status = 200
+
+[[redirects]]
   from = "/brandastic-seo"
   to = "/brandastic-seo-report.html"
   status = 200

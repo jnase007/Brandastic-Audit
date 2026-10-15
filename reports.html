@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-5C5RTG3');</script>
+<!-- End Google Tag Manager -->
+<!-- GA4 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-TTZQH22P4G"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-TTZQH22P4G');</script>
+<!-- End GA4 -->
+<!-- Meta Pixel -->
+<script>!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');fbq('init','5495864097014192');fbq('track','PageView');</script>
+<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=5495864097014192&ev=PageView&noscript=1"/></noscript>
+<!-- End Meta Pixel -->
+<meta name="robots" content="noindex, nofollow">
+<meta charset="UTF-8">
+<link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="icon" href="/favicon-192.png" sizes="192x192" type="image/png">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Monthly Brandastic Reports</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg-primary: #191F24;
+  --bg-secondary: #0d1117;
+  --bg-card: rgba(255,255,255,0.05);
+  --bg-card-border: rgba(255,255,255,0.08);
+  --text-primary: #ffffff;
+  --text-secondary: rgba(255,255,255,0.7);
+  --text-muted: rgba(255,255,255,0.4);
+  --accent-blue: #0644ED;
+  --accent-light: #40B4E5;
+  --accent-purple: #CC22FF;
+  --glass-bg: rgba(255,255,255,0.05);
+  --glass-border: rgba(255,255,255,0.1);
+  --shadow: 0 8px 32px rgba(0,0,0,0.3);
+  --transition: 0.3s ease;
+}
+[data-theme="light"] {
+  --bg-primary: #F5F3EF;
+  --bg-secondary: #ffffff;
+  --bg-card: rgba(255,255,255,0.8);
+  --bg-card-border: rgba(0,0,0,0.08);
+  --text-primary: #191F24;
+  --text-secondary: rgba(25,31,36,0.7);
+  --text-muted: rgba(25,31,36,0.4);
+  --glass-bg: rgba(255,255,255,0.8);
+  --glass-border: rgba(0,0,0,0.08);
+  --shadow: 0 8px 32px rgba(0,0,0,0.08);
+}
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+body {
+  font-family:'Inter',system-ui,-apple-system,sans-serif;
+  background:var(--bg-primary);
+  color:var(--text-primary);
+  min-height:100vh;
+  transition: background-color var(--transition), color var(--transition);
+  overflow-x:hidden;
+}
+a { color:inherit; }
+.theme-toggle {
+  position:fixed; top:24px; right:24px; z-index:1000;
+  width:56px; height:30px; border-radius:15px; border:none; cursor:pointer;
+  background:linear-gradient(135deg,#40B4E5,#CC22FF);
+  padding:2px; display:flex; align-items:center;
+}
+.theme-toggle .knob {
+  width:26px; height:26px; border-radius:50%;
+  background:var(--bg-primary);
+  display:flex; align-items:center; justify-content:center;
+  font-size:14px;
+  transition: transform var(--transition), background-color var(--transition);
+  transform:translateX(0);
+}
+[data-theme="light"] .theme-toggle .knob { transform:translateX(26px); }
+.top-nav {
+  position:fixed; top:0; left:0; right:0; z-index:900;
+  display:flex; align-items:center; justify-content:space-between;
+  padding:18px 24px;
+  pointer-events:none;
+}
+.top-nav a {
+  pointer-events:auto;
+  font-size:0.8rem; font-weight:700; letter-spacing:0.08em; text-transform:uppercase;
+  color:var(--text-secondary); text-decoration:none;
+}
+.top-nav a:hover { color:var(--text-primary); }
+.hero {
+  min-height:42vh;
+  display:flex; flex-direction:column; align-items:center; justify-content:center;
+  text-align:center;
+  position:relative;
+  padding:6.5rem 2rem 3rem;
+  background:linear-gradient(rgba(25,31,36,0.82), rgba(25,31,36,0.88)), url('images/office.jpg') center/cover no-repeat;
+}
+[data-theme="light"] .hero {
+  background:linear-gradient(rgba(245,243,239,0.82), rgba(245,243,239,0.88)), url('images/office.jpg') center/cover no-repeat;
+}
+.hero::before {
+  content:'';
+  position:absolute; inset:0;
+  background:radial-gradient(ellipse at 30% 20%, rgba(64,180,229,0.15) 0%, transparent 50%),
+             radial-gradient(ellipse at 70% 80%, rgba(204,34,255,0.1) 0%, transparent 50%);
+  pointer-events:none;
+}
+.hero-badge {
+  display:inline-flex; align-items:center; gap:8px;
+  padding:8px 20px;
+  border-radius:50px;
+  background:var(--glass-bg);
+  border:1px solid var(--glass-border);
+  backdrop-filter:blur(10px);
+  font-size:0.8rem;
+  font-weight:600;
+  letter-spacing:0.15em;
+  text-transform:uppercase;
+  color:var(--text-secondary);
+  margin-bottom:2rem;
+}
+.hero-badge .dot {
+  width:8px; height:8px; border-radius:50%;
+  background:linear-gradient(135deg,#40B4E5,#CC22FF);
+}
+h1 {
+  font-size:clamp(2rem,5vw,3.5rem);
+  font-weight:900;
+  letter-spacing:-0.03em;
+  line-height:1.05;
+  margin-bottom:1rem;
+  position:relative;
+}
+h1 .gradient-text {
+  background:linear-gradient(135deg,#40B4E5,#CC22FF,#40B4E5);
+  background-size:200% auto;
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  background-clip:text;
+}
+.hero-sub {
+  font-size:clamp(1rem,2vw,1.2rem);
+  color:var(--text-secondary);
+  max-width:540px;
+  position:relative;
+}
+.page {
+  max-width:1200px;
+  margin:-2vh auto 4rem;
+  padding:0 2rem;
+  position:relative;
+  z-index:1;
+}
+.toolbar {
+  display:flex; flex-wrap:wrap; gap:12px; align-items:center;
+  margin-bottom:1.5rem;
+}
+.search-wrap { position:relative; flex:1; min-width:240px; }
+.search-wrap .search-icon {
+  position:absolute; left:16px; top:50%; transform:translateY(-50%);
+  color:var(--text-muted); pointer-events:none;
+}
+.search-bar {
+  width:100%;
+  padding:1rem 1.5rem 1rem 3rem;
+  border-radius:16px;
+  border:1px solid var(--glass-border);
+  background:var(--glass-bg);
+  backdrop-filter:blur(10px);
+  color:var(--text-primary);
+  font-family:inherit;
+  font-size:1rem;
+  outline:none;
+}
+.search-bar:focus { border-color:var(--accent-light); box-shadow:0 0 0 3px rgba(64,180,229,0.15); }
+.search-count {
+  font-size:0.75rem;
+  font-weight:600;
+  letter-spacing:0.1em;
+  text-transform:uppercase;
+  color:var(--text-muted);
+  margin:0 0 1.5rem;
+}
+.filters { display:flex; flex-wrap:wrap; gap:8px; }
+.filter-chip {
+  border:1px solid var(--glass-border);
+  background:var(--glass-bg);
+  color:var(--text-secondary);
+  border-radius:999px;
+  padding:8px 14px;
+  font:inherit;
+  font-size:0.75rem;
+  font-weight:700;
+  letter-spacing:0.06em;
+  text-transform:uppercase;
+  cursor:pointer;
+}
+.filter-chip.active {
+  color:#fff;
+  border-color:transparent;
+  background:linear-gradient(135deg,#40B4E5,#CC22FF);
+}
+.cards-grid {
+  display:grid;
+  grid-template-columns:repeat(auto-fit, minmax(320px, 1fr));
+  gap:1.5rem;
+}
+.report-card {
+  background:var(--bg-card);
+  border:1px solid var(--bg-card-border);
+  border-radius:20px;
+  padding:2rem;
+  backdrop-filter:blur(10px);
+  display:flex; flex-direction:column; gap:0.85rem;
+}
+.report-card.hidden { display:none; }
+.card-kicker {
+  font-size:0.7rem; font-weight:800; letter-spacing:0.14em; text-transform:uppercase;
+  color:var(--accent-light);
+}
+.card-title { font-size:1.35rem; font-weight:700; letter-spacing:-0.02em; }
+.card-url { font-size:0.75rem; color:var(--accent-light); opacity:0.75; }
+.card-url:hover { opacity:1; }
+.card-desc { color:var(--text-secondary); font-size:0.92rem; line-height:1.6; }
+.months { display:flex; flex-wrap:wrap; gap:8px; margin-top:auto; padding-top:1rem; border-top:1px solid var(--bg-card-border); }
+.month-link {
+  display:inline-flex; align-items:center;
+  padding:7px 12px;
+  border-radius:10px;
+  border:1px solid var(--glass-border);
+  background:rgba(64,180,229,0.08);
+  color:var(--text-primary);
+  text-decoration:none;
+  font-size:0.78rem;
+  font-weight:700;
+}
+.month-link:hover {
+  border-color:rgba(64,180,229,0.45);
+  background:linear-gradient(135deg,rgba(64,180,229,0.18),rgba(204,34,255,0.16));
+}
+.month-link.latest { border-color:transparent; background:linear-gradient(135deg,#40B4E5,#CC22FF); color:#fff; }
+.no-results {
+  grid-column:1/-1;
+  text-align:center;
+  padding:3rem;
+  color:var(--text-muted);
+  display:none;
+}
+footer {
+  text-align:center;
+  padding:3rem 2rem;
+  color:var(--text-muted);
+  font-size:0.85rem;
+}
+footer a { color:var(--accent-light); text-decoration:none; }
+.passcode-overlay {
+  position: fixed; inset: 0; z-index: 99999;
+  background: #0d1117;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center; gap: 1.5rem;
+}
+[data-theme="light"] .passcode-overlay { background: #f5f3ef; }
+.passcode-overlay .lock-title { font-size: 1.4rem; font-weight: 700; }
+.passcode-overlay .lock-sub { font-size: 0.85rem; color: var(--text-muted); margin-top: -0.5rem; }
+.passcode-overlay .lock-input {
+  background: var(--glass-bg);
+  border: 2px solid var(--glass-border);
+  border-radius: 12px;
+  padding: 0.85rem 1.2rem;
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: 0.5em;
+  text-align: center;
+  width: 200px;
+  color: var(--text-primary);
+  outline: none;
+  -webkit-text-security: disc;
+}
+.passcode-overlay .lock-input:focus { border-color: var(--accent-light); }
+.passcode-overlay .lock-input.shake { animation: shake 0.4s ease; }
+.passcode-overlay .lock-error { font-size: 0.8rem; color: #ef4444; min-height: 1.2em; }
+.passcode-overlay .lock-brand { position:absolute; bottom:2rem; font-size:0.75rem; color:var(--text-muted); letter-spacing:0.15em; }
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-8px); }
+  50% { transform: translateX(8px); }
+  75% { transform: translateX(-4px); }
+}
+@media(max-width:768px) {
+  .cards-grid { grid-template-columns:1fr; }
+  .theme-toggle { top:72px; }
+}
+</style>
+</head>
+<body>
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5C5RTG3" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<div id="passcodeOverlay" class="passcode-overlay">
+  <div style="font-size:3rem">🔒</div>
+  <div class="lock-title">Protected Reports</div>
+  <div class="lock-sub">Enter access code to continue</div>
+  <input type="password" class="lock-input" id="passcodeInput" maxlength="4" inputmode="numeric" pattern="[0-9]*" autofocus placeholder="····">
+  <div class="lock-error" id="passcodeError"></div>
+  <div class="lock-brand">BRANDASTIC</div>
+</div>
+
+<div class="top-nav">
+  <a href="/portal">← Portal</a>
+</div>
+<button class="theme-toggle" aria-label="Toggle theme" onclick="toggleTheme()"><div class="knob"><img src="images/icons/night.svg" class="theme-icon-dark" style="width:18px;height:18px;" alt=""><img src="images/icons/day.svg" class="theme-icon-light" style="width:18px;height:18px;display:none;" alt=""></div></button>
+
+<section class="hero">
+  <div class="hero-badge"><span class="dot"></span> Brandastic Intelligence</div>
+  <h1>Monthly Brandastic <span class="gradient-text">Reports</span></h1>
+  <p class="hero-sub">Client SEO performance reports — latest month plus the archive, in one place.</p>
+</section>
+
+<section class="page">
+  <div class="toolbar">
+    <div class="search-wrap">
+      <span class="search-icon">🔍</span>
+      <input type="search" class="search-bar" id="searchBar" placeholder="Search by client, site, or month..." autocomplete="off">
+    </div>
+    <div class="filters" id="filters"></div>
+  </div>
+  <div class="search-count" id="searchCount"></div>
+  <div class="cards-grid" id="cardsGrid"></div>
+</section>
+
+<footer>
+  <p>© 2026 <a href="https://brandastic.com" target="_blank">Brandastic</a> · info@brandastic.com · All reports confidential</p>
+</footer>
+
+<script>
+const REPORTS = [
+  {
+    name: "Crummack Huseby",
+    url: "https://ch-pm.com",
+    host: "ch-pm.com",
+    desc: "Organic search visibility, keyword movement, and AI search presence.",
+    latest: { href: "chpm-seo-monthly.html", label: "Latest" },
+    months: [
+      { href: "chpm-seo-monthly-2026-09.html", label: "Sep 2026" },
+      { href: "chpm-seo-monthly-2026-08.html", label: "Aug 2026" },
+      { href: "chpm-seo-monthly-2026-07.html", label: "Jul 2026" },
+      { href: "chpm-seo-monthly-2026-06.html", label: "Jun 2026" }
+    ]
+  },
+  {
+    name: "American Tri-Star Insurance",
+    url: "https://americantristarinsurance.com",
+    host: "americantristarinsurance.com",
+    desc: "Monthly SEO performance for organic visibility and keyword movement.",
+    latest: { href: "american-tristar-monthly-seo-report.html", label: "Latest" },
+    months: [
+      { href: "american-tristar-monthly-seo-report-2026-09.html", label: "Sep 2026" },
+      { href: "american-tristar-monthly-seo-report-2026-08.html", label: "Aug 2026" },
+      { href: "american-tristar-monthly-seo-report-2026-07.html", label: "Jul 2026" },
+      { href: "american-tristar-monthly-seo-report-2026-06.html", label: "Jun 2026" }
+    ]
+  },
+  {
+    name: "Nordic Sauna",
+    url: "https://nordicsauna.com",
+    host: "nordicsauna.com",
+    desc: "Monthly SEO performance for organic visibility and keyword movement.",
+    latest: { href: "nordic-sauna-monthly-seo-report.html", label: "Latest" },
+    months: [
+      { href: "nordic-sauna-monthly-seo-report-2026-09.html", label: "Sep 2026" },
+      { href: "nordic-sauna-monthly-seo-report-2026-08.html", label: "Aug 2026" },
+      { href: "nordic-sauna-monthly-seo-report-2026-07.html", label: "Jul 2026" },
+      { href: "nordic-sauna-monthly-seo-report-2026-06.html", label: "Jun 2026" }
+    ]
+  },
+  {
+    name: "Rogers | Beltran LLP",
+    url: "https://rogersbeltran.com",
+    host: "rogersbeltran.com",
+    desc: "Monthly SEO performance for organic visibility and keyword movement.",
+    latest: { href: "rogers-beltran-monthly-seo-report.html", label: "Latest" },
+    months: [
+      { href: "rogers-beltran-monthly-seo-report-2026-09.html", label: "Sep 2026" },
+      { href: "rogers-beltran-monthly-seo-report-2026-08.html", label: "Aug 2026" },
+      { href: "rogers-beltran-monthly-seo-report-2026-07.html", label: "Jul 2026" },
+      { href: "rogers-beltran-monthly-seo-report-2026-06.html", label: "Jun 2026" }
+    ]
+  },
+  {
+    name: "LabTech Supply Company",
+    url: "https://labtechsupplyco.com",
+    host: "labtechsupplyco.com",
+    desc: "Monthly SEO performance for organic visibility and keyword movement.",
+    latest: { href: "labtech-supply-seo-monthly.html", label: "Latest" },
+    months: [
+      { href: "labtech-supply-seo-monthly-2026-09.html", label: "Sep 2026" },
+      { href: "labtech-supply-seo-monthly-2026-08.html", label: "Aug 2026" },
+      { href: "labtech-supply-seo-monthly-2026-07.html", label: "Jul 2026" },
+      { href: "labtech-supply-seo-monthly-2026-06.html", label: "Jun 2026" }
+    ]
+  },
+  {
+    name: "IPA 1031 Group",
+    url: "https://ipa1031group.com",
+    host: "ipa1031group.com",
+    desc: "Monthly SEO performance for organic visibility and keyword movement.",
+    latest: { href: "ipa-1031-group-monthly-seo-report.html", label: "Latest" },
+    months: [
+      { href: "ipa-1031-group-monthly-seo-report-2026-09.html", label: "Sep 2026" },
+      { href: "ipa-1031-group-monthly-seo-report-2026-08.html", label: "Aug 2026" },
+      { href: "ipa-1031-group-monthly-seo-report-2026-06.html", label: "Jun 2026" }
+    ]
+  },
+  {
+    name: "JB White DDS",
+    url: "https://jbwhitedds.com",
+    host: "jbwhitedds.com",
+    desc: "Monthly SEO performance for organic visibility and keyword movement.",
+    latest: { href: "jb-white-monthly-seo-report.html", label: "Latest" },
+    months: [
+      { href: "jb-white-monthly-seo-report-2026-09.html", label: "Sep 2026" },
+      { href: "jb-white-monthly-seo-report-2026-08.html", label: "Aug 2026" }
+    ]
+  },
+  {
+    name: "California Online Public Schools",
+    url: "https://californiaops.org",
+    host: "californiaops.org",
+    desc: "Monthly SEO performance plus the strategic growth plan.",
+    extra: { href: "calops-seo-strategic-growth.html", label: "Growth Plan" },
+    latest: { href: "calops-seo-monthly.html", label: "Latest" },
+    months: [
+      { href: "calops-seo-monthly-2026-09.html", label: "Sep 2026" },
+      { href: "calops-seo-monthly-2026-08.html", label: "Aug 2026" }
+    ]
+  },
+  {
+    name: "Brandastic SEO Report",
+    url: "https://brandastic.com",
+    host: "brandastic.com",
+    desc: "Internal organic search visibility, keyword movement, and AI search presence.",
+    latest: { href: "brandastic-seo-report.html", label: "Latest" },
+    months: [
+      { href: "brandastic-seo-report-2026-09.html", label: "Sep 2026" },
+      { href: "brandastic-seo-report-2026-08.html", label: "Aug 2026" },
+      { href: "brandastic-seo-report-2026-07.html", label: "Jul 2026" },
+      { href: "brandastic-seo-report-2026-06.html", label: "Jun 2026" }
+    ]
+  }
+];
+
+const MONTH_FILTERS = ["All", "Sep 2026", "Aug 2026", "Jul 2026", "Jun 2026"];
+
+function getPreferredTheme(){
+  const s=localStorage.getItem('brandastic-theme');
+  if(s)return s;
+  return window.matchMedia('(prefers-color-scheme:light)').matches?'light':'dark';
+}
+function applyTheme(t){
+  document.documentElement.setAttribute('data-theme',t);
+  localStorage.setItem('brandastic-theme',t);
+  const dark=document.querySelector('.theme-icon-dark');
+  const light=document.querySelector('.theme-icon-light');
+  if(dark) dark.style.display=t==='dark'?'block':'none';
+  if(light) light.style.display=t==='light'?'block':'none';
+}
+function toggleTheme(){
+  const c=document.documentElement.getAttribute('data-theme');
+  applyTheme(c==='dark'?'light':'dark');
+}
+applyTheme(getPreferredTheme());
+
+const grid=document.getElementById('cardsGrid');
+const filtersEl=document.getElementById('filters');
+const search=document.getElementById('searchBar');
+const countEl=document.getElementById('searchCount');
+let monthFilter='All';
+
+MONTH_FILTERS.forEach((label,i)=>{
+  const btn=document.createElement('button');
+  btn.className='filter-chip'+(i===0?' active':'');
+  btn.type='button';
+  btn.textContent=label;
+  btn.addEventListener('click',()=>{
+    monthFilter=label;
+    document.querySelectorAll('.filter-chip').forEach(c=>c.classList.toggle('active',c===btn));
+    render();
+  });
+  filtersEl.appendChild(btn);
+});
+
+function cardMatches(report,q,month){
+  const hay=[report.name,report.host,report.desc,report.latest.label,...report.months.map(m=>m.label)].join(' ').toLowerCase();
+  if(q && !hay.includes(q)) return false;
+  if(month!=='All' && !report.months.some(m=>m.label===month)) return false;
+  return true;
+}
+
+function render(){
+  const q=search.value.toLowerCase().trim();
+  const visible=REPORTS.filter(r=>cardMatches(r,q,monthFilter));
+  grid.innerHTML=visible.map(r=>{
+    const months=[r.latest,...(r.extra?[r.extra]:[]),...r.months].map((m,i)=>
+      `<a class="month-link${i===0?' latest':''}" href="${m.href}">${m.label}</a>`
+    ).join('');
+    return `<article class="report-card">
+      <div class="card-kicker">Monthly SEO Report</div>
+      <div class="card-title">${r.name}</div>
+      <a class="card-url" href="${r.url}" target="_blank" rel="noopener">${r.host} ↗</a>
+      <p class="card-desc">${r.desc}</p>
+      <div class="months">${months}</div>
+    </article>`;
+  }).join('') + `<div class="no-results" id="noResults">No reports match your filters.</div>`;
+  const none=document.getElementById('noResults');
+  none.style.display=visible.length? 'none':'block';
+  countEl.textContent=visible.length+' of '+REPORTS.length+' clients';
+}
+
+search.addEventListener('input',render);
+render();
+
+(function(){
+  const CODE='3121';
+  const STORAGE_KEY='brandastic_audit_unlocked';
+  if(sessionStorage.getItem(STORAGE_KEY)==='true'){
+    const ov=document.getElementById('passcodeOverlay');
+    if(ov) ov.remove();
+    return;
+  }
+  document.body.style.overflow='hidden';
+  const input=document.getElementById('passcodeInput');
+  const error=document.getElementById('passcodeError');
+  if(!input) return;
+  input.addEventListener('input',function(){
+    error.textContent='';
+    input.classList.remove('shake');
+    if(this.value.length===4){
+      if(this.value===CODE){
+        sessionStorage.setItem(STORAGE_KEY,'true');
+        const ov=document.getElementById('passcodeOverlay');
+        ov.style.transition='opacity 0.3s';
+        ov.style.opacity='0';
+        setTimeout(()=>{ ov.remove(); document.body.style.overflow=''; },300);
+      } else {
+        input.classList.add('shake');
+        error.textContent='Incorrect code';
+        setTimeout(()=>{ this.value=''; input.classList.remove('shake'); },500);
+      }
+    }
+  });
+  document.getElementById('passcodeOverlay').addEventListener('click',()=>input.focus());
+})();
+</script>
+</body>
+</html>
