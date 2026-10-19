@@ -407,3 +407,8 @@
   from = "/comply/"
   to = "/comply.html"
   status = 200
+
+[[redirects]]
+  from = "/comply-examples"
+  to = "/comply-examples.html"
+  status = 200
