@@ -397,3 +397,13 @@
   to = "/ccacard.html"
   status = 200
 
+
+[[redirects]]
+  from = "/comply"
+  to = "/comply.html"
+  status = 200
+
+[[redirects]]
+  from = "/comply/"
+  to = "/comply.html"
+  status = 200
