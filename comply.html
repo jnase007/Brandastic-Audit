@@ -3,279 +3,576 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>COMPLY Digital Strategy One-Pager — Consultants</title>
+<title>COMPLY Digital Strategy — Consultants</title>
 <meta name="robots" content="noindex,nofollow">
 <link rel="canonical" href="https://audit.brandastic.com/comply">
 <link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
 <style>
-  :root {
-    --ink: #0c2a3a;
-    --ink2: #3a5563;
-    --muted: #6b8492;
-    --line: rgba(12,42,58,.14);
-    --teal: #0d8f8a;
-    --sky: #2eb8c0;
-    --soft: #e7f4f4;
-    --bg: #f3f6f7;
-    --card: #fff;
-  }
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-  body {
-    font-family: Inter, system-ui, sans-serif;
-    background: var(--bg);
-    color: var(--ink);
-    line-height: 1.45;
-  }
-  .page {
-    max-width: 1100px;
-    margin: 1rem auto 2rem;
-    background: var(--card);
-    border: 1px solid var(--line);
-    border-radius: 14px;
-    overflow: hidden;
-    box-shadow: 0 12px 40px rgba(12,42,58,.08);
-  }
-  .bar {
-    display: flex; align-items: center; justify-content: space-between; gap: 1rem;
-    padding: .85rem 1.15rem;
-    background: linear-gradient(135deg, #0c2a3a 0%, #0d5c5a 55%, #0d8f8a 100%);
-    color: #fff;
-  }
-  .bar-left { display: flex; align-items: center; gap: .7rem; }
-  .bar img { width: 34px; height: 34px; border-radius: 8px; object-fit: cover; background: #fff; }
-  .bar h1 { font-size: 1.05rem; font-weight: 800; letter-spacing: -.01em; }
-  .bar p { font-size: .78rem; opacity: .9; margin-top: .1rem; }
-  .pill {
-    font-size: .68rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase;
-    background: rgba(255,255,255,.16); border: 1px solid rgba(255,255,255,.25);
-    padding: .35rem .6rem; border-radius: 999px; white-space: nowrap;
-  }
-  .grid {
-    display: grid;
-    grid-template-columns: 1.15fr 0.85fr;
-    gap: 0;
-  }
-  .col { padding: 1rem 1.1rem 1.05rem; }
-  .col + .col { border-left: 1px solid var(--line); background: #fafcfc; }
-  h2 {
-    font-size: .72rem; font-weight: 800; letter-spacing: .11em; text-transform: uppercase;
-    color: var(--teal); margin-bottom: .45rem;
-  }
-  h3 { font-size: .92rem; font-weight: 800; margin: .55rem 0 .3rem; color: var(--ink); }
-  p, li { font-size: .82rem; color: var(--ink2); }
-  ul { padding-left: 1rem; margin: .2rem 0 .35rem; }
-  li { margin: .18rem 0; }
-  .box {
-    border: 1px solid var(--line); border-radius: 10px; padding: .65rem .7rem; margin: .4rem 0;
-    background: #fff;
-  }
-  .box strong { color: var(--ink); }
-  .call {
-    background: var(--soft); border: 1px solid rgba(13,143,138,.25);
-    border-radius: 10px; padding: .7rem .75rem; margin: .45rem 0 .55rem;
-    font-size: .84rem; color: var(--ink); font-weight: 600;
-  }
-  .stats {
-    display: grid; grid-template-columns: repeat(4, 1fr); gap: .45rem; margin: .4rem 0 .55rem;
-  }
-  .stat {
-    text-align: center; border: 1px solid var(--line); border-radius: 10px;
-    padding: .45rem .3rem; background: #fff;
-  }
-  .stat b { display: block; font-size: 1.15rem; color: var(--teal); font-weight: 800; line-height: 1.1; }
-  .stat span { font-size: .68rem; color: var(--muted); font-weight: 600; }
-  table { width: 100%; border-collapse: collapse; font-size: .78rem; margin: .35rem 0; }
-  th, td { border: 1px solid var(--line); padding: .38rem .45rem; text-align: left; vertical-align: top; }
-  th { background: var(--soft); color: var(--ink); font-weight: 700; }
-  .row2 { display: grid; grid-template-columns: 1fr 1fr; gap: .5rem; }
-  .tag {
-    display: inline-block; font-size: .68rem; font-weight: 700; color: var(--teal);
-    background: var(--soft); border-radius: 999px; padding: .1rem .4rem; margin-right: .15rem;
-  }
-  .foot {
-    border-top: 1px solid var(--line); padding: .55rem 1.1rem;
-    display: flex; justify-content: space-between; gap: .75rem; flex-wrap: wrap;
-    font-size: .72rem; color: var(--muted); background: #f7fafa;
-  }
-  .actions {
-    max-width: 1100px; margin: 0 auto 1.5rem; padding: 0 1rem;
-    display: flex; gap: .6rem; flex-wrap: wrap; align-items: center;
-  }
-  .btn {
-    display: inline-flex; align-items: center; gap: .35rem;
-    background: linear-gradient(135deg, var(--sky), var(--teal));
-    color: #fff; text-decoration: none; font-weight: 700; font-size: .85rem;
-    padding: .55rem .85rem; border-radius: 9px; border: 0; cursor: pointer;
-  }
-  .btn.secondary { background: #fff; color: var(--ink); border: 1px solid var(--line); }
-  @media (max-width: 860px) {
-    .grid, .stats, .row2 { grid-template-columns: 1fr; }
-    .col + .col { border-left: 0; border-top: 1px solid var(--line); }
-  }
-  @media print {
-    body { background: #fff; }
-    .actions { display: none !important; }
-    .page { margin: 0; border: 0; border-radius: 0; box-shadow: none; max-width: none; }
-    .col { padding: .7rem .8rem; }
-    h2 { margin-bottom: .3rem; }
-    p, li, table, .box, .call { font-size: 9.2pt; }
-    .stat b { font-size: 12pt; }
-  }
-  @page { size: letter; margin: 0.35in; }
+:root{
+  --ink:#0c2a3a;--ink2:#3a5563;--muted:#6b8492;--line:rgba(12,42,58,.12);
+  --teal:#0d8f8a;--sky:#2eb8c0;--soft:#e8f5f4;--bg:#eef3f5;--card:#fff;--code:#0b1f2a;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:76px}
+body{font-family:Inter,system-ui,sans-serif;background:var(--bg);color:var(--ink);line-height:1.5}
+a{color:var(--teal)}
+.wrap{max-width:1200px;margin:0 auto;padding:1rem 1.1rem 2.75rem}
+.toolbar{display:flex;gap:.55rem;flex-wrap:wrap;align-items:center;margin-bottom:.85rem;position:sticky;top:.5rem;z-index:20}
+.btn{appearance:none;border:0;cursor:pointer;border-radius:10px;font-weight:700;font-size:.84rem;padding:.55rem .9rem;text-decoration:none;display:inline-flex;align-items:center;gap:.35rem;box-shadow:0 8px 24px rgba(12,42,58,.08)}
+.btn-primary{background:linear-gradient(135deg,var(--sky),var(--teal));color:#fff}
+.btn-ghost{background:#fff;border:1px solid var(--line);color:var(--ink)}
+.hint{font-size:.78rem;color:var(--muted)}
+.toc{display:flex;flex-wrap:wrap;gap:.4rem;margin-bottom:1rem}
+.toc a{text-decoration:none;font-size:.75rem;font-weight:700;color:var(--ink2);background:#fff;border:1px solid var(--line);border-radius:999px;padding:.35rem .7rem}
+.toc a:hover{border-color:var(--teal);color:var(--teal)}
+
+.hero{background:radial-gradient(1100px 420px at 8% -20%,rgba(46,184,192,.35),transparent 55%),radial-gradient(900px 380px at 95% 0%,rgba(13,143,138,.28),transparent 50%),linear-gradient(145deg,#0b2433 0%,#0c3d42 48%,#0a5c58 100%);color:#fff;border-radius:22px;padding:1.45rem 1.45rem 1.3rem;margin-bottom:1rem;box-shadow:0 18px 50px rgba(12,42,58,.2)}
+.hero-top{display:flex;justify-content:space-between;gap:1rem;align-items:flex-start;flex-wrap:wrap}
+.brand{display:flex;gap:.75rem;align-items:center}
+.brand img{width:44px;height:44px;border-radius:12px;background:#fff;object-fit:cover}
+.brand h1{font-size:clamp(1.2rem,2.4vw,1.7rem);font-weight:800;letter-spacing:-.02em;line-height:1.15}
+.brand p{opacity:.88;font-size:.9rem;margin-top:.2rem}
+.badge{font-size:.7rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.22);padding:.4rem .7rem;border-radius:999px}
+.hero-line{margin-top:1rem;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.16);border-radius:14px;padding:.85rem 1rem;font-size:.98rem;font-weight:600;max-width:54rem}
+.kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:.7rem;margin-top:1rem}
+.kpi{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.14);border-radius:14px;padding:.8rem .75rem}
+.kpi b{display:block;font-size:1.5rem;font-weight:800;line-height:1;margin-bottom:.25rem}
+.kpi span{font-size:.74rem;opacity:.88;font-weight:600}
+
+.grid2{display:grid;grid-template-columns:1.05fr .95fr;gap:.9rem;margin-bottom:.9rem}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:.9rem;margin-bottom:.9rem}
+.card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:1rem 1.05rem 1.05rem;box-shadow:0 10px 30px rgba(12,42,58,.05);margin-bottom:.9rem}
+.card h2{font-size:.76rem;letter-spacing:.1em;text-transform:uppercase;color:var(--teal);font-weight:800;margin-bottom:.45rem}
+.card h3{font-size:1.02rem;font-weight:800;margin:.1rem 0 .45rem}
+.card p,.card li{font-size:.88rem;color:var(--ink2)}
+.card ul,.card ol{padding-left:1.05rem;margin:.3rem 0}
+.card li{margin:.22rem 0}
+.sub{font-size:.8rem;color:var(--muted);margin:.25rem 0 .5rem}
+.chart-box{position:relative;height:220px}
+.chart-box.sm{height:180px}
+.chart-box.tall{height:240px}
+.pair{display:grid;grid-template-columns:1fr 1fr;gap:.6rem}
+.mini{background:var(--bg);border:1px solid var(--line);border-radius:12px;padding:.7rem .75rem}
+.mini strong{display:block;font-size:.86rem;color:var(--ink);margin-bottom:.25rem}
+.mini li{font-size:.8rem}
+.pill{display:inline-block;font-size:.72rem;font-weight:700;background:var(--soft);color:var(--teal);border-radius:999px;padding:.2rem .55rem;margin:.15rem .2rem .15rem 0;border:1px solid rgba(13,143,138,.18)}
+.funnel{display:flex;flex-direction:column;gap:.42rem;margin-top:.35rem}
+.fstep{display:grid;grid-template-columns:28px 1fr auto;gap:.5rem;align-items:center}
+.fnum{width:28px;height:28px;border-radius:50%;display:grid;place-items:center;background:linear-gradient(135deg,var(--sky),var(--teal));color:#fff;font-size:.75rem;font-weight:800}
+.fbar{height:36px;border-radius:10px;display:flex;align-items:center;padding:0 .75rem;color:#fff;font-weight:700;font-size:.8rem}
+.fmeta{font-size:.72rem;color:var(--muted);font-weight:600;min-width:4.2rem;text-align:right}
+.timeline{display:grid;grid-template-columns:repeat(3,1fr);gap:.55rem}
+.phase{border:1px solid var(--line);border-radius:12px;padding:.7rem;background:linear-gradient(180deg,#fff,var(--soft))}
+.phase .when{font-size:.68rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--teal)}
+.phase h4{font-size:.9rem;margin:.2rem 0 .35rem}
+.phase li{font-size:.78rem}
+table{width:100%;border-collapse:collapse;font-size:.8rem;margin-top:.35rem}
+th,td{border:1px solid var(--line);padding:.42rem .48rem;text-align:left;vertical-align:top}
+th{background:var(--soft);color:var(--ink);font-weight:700}
+.tabs{display:flex;flex-wrap:wrap;gap:.4rem;margin:.4rem 0 .65rem}
+.tab{border:1px solid var(--line);background:#fff;border-radius:999px;padding:.4rem .75rem;font-size:.78rem;font-weight:700;color:var(--ink2);cursor:pointer}
+.tab.active{background:var(--ink);color:#fff;border-color:var(--ink)}
+.panel{display:none}
+.panel.active{display:block}
+.email{
+  background:linear-gradient(180deg,#0b1f2a,#102a36);color:#d7e6ea;border-radius:14px;padding:1rem 1.05rem;
+  font-size:.84rem;line-height:1.55;border:1px solid rgba(255,255,255,.08);margin-top:.35rem
+}
+.email .label{font-size:.68rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:#7dd3c7;margin-bottom:.35rem}
+.email .subj{color:#fff;font-weight:700;margin-bottom:.55rem}
+.email .body{white-space:pre-wrap}
+.email .meta{margin-top:.65rem;padding-top:.55rem;border-top:1px solid rgba(255,255,255,.1);font-size:.75rem;color:#93b0ba}
+.collateral{display:grid;grid-template-columns:repeat(2,1fr);gap:.55rem}
+.item{border:1px solid var(--line);border-radius:12px;padding:.75rem;background:#fff}
+.item .need{font-size:.68rem;font-weight:800;letter-spacing:.07em;text-transform:uppercase;color:var(--teal)}
+.item h4{font-size:.9rem;margin:.2rem 0 .3rem}
+.item p{font-size:.8rem}
+.need-row{display:flex;gap:.35rem;flex-wrap:wrap;margin-top:.4rem}
+.tag{font-size:.68rem;font-weight:700;border-radius:999px;padding:.15rem .45rem}
+.tag-must{background:#fee2e2;color:#b91c1c}
+.tag-should{background:#ffedd5;color:#c2410c}
+.tag-later{background:#e2e8f0;color:#475569}
+.decide{display:grid;grid-template-columns:1fr 1fr;gap:.45rem}
+.decide label{display:flex;gap:.5rem;align-items:flex-start;background:#fff;border:1px solid var(--line);border-radius:10px;padding:.55rem .6rem;font-size:.8rem;color:var(--ink2)}
+.foot{display:flex;justify-content:space-between;gap:.75rem;flex-wrap:wrap;color:var(--muted);font-size:.75rem;margin-top:.5rem}
+@media(max-width:920px){
+  .kpis,.grid2,.grid3,.pair,.timeline,.collateral,.decide{grid-template-columns:1fr}
+}
+@media print{
+  .toolbar,.toc{display:none!important}
+  .wrap{padding:0;max-width:none}
+  .card,.hero{box-shadow:none;break-inside:avoid}
+  .panel{display:block!important;margin-bottom:.6rem}
+  .tabs{display:none}
+}
 </style>
 </head>
 <body>
-  <div class="actions">
-    <button class="btn" onclick="window.print()">Print / Save PDF</button>
-    <a class="btn secondary" href="https://comply.capital" target="_blank" rel="noopener">Pilot lives on comply.capital</a>
-    <span style="font-size:.8rem;color:#6b8492">One-pager for Thursday team review · Consultants only</span>
+<div class="wrap">
+  <div class="toolbar">
+    <button class="btn btn-primary" onclick="window.print()">Print / Save PDF</button>
+    <a class="btn btn-ghost" href="https://comply.capital" target="_blank" rel="noopener">Pilot on comply.capital</a>
+    <a class="btn btn-ghost" href="#emails">Jump to emails</a>
+    <a class="btn btn-ghost" href="#collateral">Jump to collateral</a>
+    <span class="hint">Thursday strategy review · consultants only</span>
   </div>
 
-  <article class="page">
-    <header class="bar">
-      <div class="bar-left">
+  <nav class="toc">
+    <a href="#overview">Overview</a>
+    <a href="#icp">ICP / TAM</a>
+    <a href="#pains">Pains & solution</a>
+    <a href="#funnel">Funnel</a>
+    <a href="#channels">Channels</a>
+    <a href="#emails">Email & LI examples</a>
+    <a href="#collateral">Collateral list</a>
+    <a href="#90day">90 days</a>
+    <a href="#decide">Decide</a>
+  </nav>
+
+  <header class="hero" id="overview">
+    <div class="hero-top">
+      <div class="brand">
         <img src="/assets/comply-logo-square.png" alt="COMPLY">
         <div>
-          <h1>COMPLY Digital Strategy — Lender’s Construction Consultants</h1>
-          <p>One-pager for team review · TAM/ICP · Pains · Message · Channels · 90-day motion</p>
+          <h1>Digital Strategy · Lender’s Construction Consultants</h1>
+          <p>One-pager for team review · charts · sample emails · campaign collateral</p>
         </div>
       </div>
-      <div class="pill">Internal · Oct 2026</div>
-    </header>
+      <div class="badge">Internal · Oct 2026</div>
+    </div>
+    <div class="hero-line">Get Fit A consultant firms into a pilot on 1–2 live loans. Warm CMAA + Apollo lookalikes of the 34 + monthly content → conversation → teardown → pilot on comply.capital → proof.</div>
+    <div class="kpis">
+      <div class="kpi"><b>34</b><span>Fit A core firms</span></div>
+      <div class="kpi"><b>87</b><span>Mapped universe</span></div>
+      <div class="kpi"><b>4–5</b><span>Pilots / 90 days</span></div>
+      <div class="kpi"><b>1</b><span>CTA: start a pilot</span></div>
+    </div>
+  </header>
 
-    <div class="grid">
-      <!-- LEFT -->
-      <div class="col">
-        <h2>1. Goal & strategy line</h2>
-        <div class="call">Get Fit A consultant firms into a <u>pilot on 1–2 live loans</u>. Warm CMAA + Apollo lookalikes of the 34 + monthly teach content → conversation → teardown → pilot (on comply.capital) → proof.</div>
-
-        <h2>2. TAM / ICP</h2>
-        <div class="stats">
-          <div class="stat"><b>34</b><span>Fit A core</span></div>
-          <div class="stat"><b>87</b><span>Mapped firms</span></div>
-          <div class="stat"><b>A+B</b><span>SAM focus</span></div>
-          <div class="stat"><b>120–200</b><span>12-mo A universe</span></div>
+  <div class="grid2" id="icp">
+    <section class="card">
+      <h2>Market shape</h2>
+      <h3>TAM from your mapped list</h3>
+      <p class="sub">A-core first. Expand lookalikes in Apollo. Not “all of construction.”</p>
+      <div class="chart-box"><canvas id="fitChart"></canvas></div>
+    </section>
+    <section class="card">
+      <h2>ICP</h2>
+      <h3>Firm + person</h3>
+      <div class="pair">
+        <div class="mini"><strong>Firm</strong>
+          <ul>
+            <li>Lender’s construction consultant</li>
+            <li>Monthly pay-app / draw monitoring</li>
+            <li>Plan & cost, waivers, cost-to-complete</li>
+            <li>Banks as clients · commercial CRE</li>
+            <li>Boutique → pure-play national</li>
+          </ul>
         </div>
-        <div class="box">
-          <strong>ICP firm:</strong> Lender’s construction consultant — monthly pay-app/draw monitoring, plan & cost, lien waivers, cost-to-complete for <em>banks</em>. Regional boutique → pure-play national. Commercial CRE.
-        </div>
-        <div class="box">
-          <strong>ICP person:</strong> Principal / Owner · Director of Construction Monitoring or Lender Services · senior delivery lead on bank work.
-        </div>
-        <div class="box">
-          <strong>Out:</strong> GCs · CBRE/JLL-class platforms · competitor software (Built, etc.) · expert-witness-only · no lender monitoring language.
-        </div>
-        <p style="margin-top:.35rem"><span class="tag">A</span> Core 34 first   <span class="tag">B</span> Eng/DD second   <span class="tag">C</span> Funds control channel   <span class="tag">D</span> Residential low</p>
-
-        <h2>3. Pains → solution</h2>
-        <div class="row2">
-          <div class="box">
-            <strong>Pains</strong>
-            <ul>
-              <li>Monthly package chaos (G702/G703, waivers, COs)</li>
-              <li>Time sinks that don’t raise quality</li>
-              <li>Miss risk in front of the bank</li>
-              <li>Inconsistent depth across staff</li>
-              <li>Email as system of record</li>
-              <li>Wrong tools (GC PM / file dump)</li>
-              <li>Growth ceiling without more headcount</li>
-            </ul>
-          </div>
-          <div class="box">
-            <strong>COMPLY solution</strong>
-            <ul>
-              <li>Control the package before deep review</li>
-              <li>Structured pay-app / SOV workspace</li>
-              <li>Flags for humans (you still decide)</li>
-              <li>Bank-ready trail vs email threads</li>
-              <li>Repeatable process across analysts</li>
-              <li>Pilot on live loans — prove, then expand</li>
-            </ul>
-          </div>
-        </div>
-        <div class="call" style="font-weight:600">Value line: Faster, cleaner monthly draw review without giving up the judgment lenders hire them for.</div>
-
-        <h2>4. Message & CTA</h2>
-        <div class="box">
-          <strong>Voice:</strong> Peer to principal · field words · no AI hype.<br>
-          <strong>Use:</strong> lender’s consultant, draw, pay-app, G702/G703, lien waiver, plan & cost, bank-ready.<br>
-          <strong>CTA ladder:</strong> (1) 20-min redacted package teardown → (2) 30-day pilot, 1–2 loans → (3) expand seats.
+        <div class="mini"><strong>Person</strong>
+          <ul>
+            <li>Principal / Owner</li>
+            <li>Dir. Construction Monitoring</li>
+            <li>Lender Services lead</li>
+            <li>Senior bank-delivery lead</li>
+          </ul>
         </div>
       </div>
+      <p class="sub" style="margin-top:.55rem"><span class="pill">Out: GCs</span><span class="pill">CBRE/JLL-class</span><span class="pill">Competitor software</span><span class="pill">No lender monitoring language</span></p>
+      <div class="chart-box sm"><canvas id="regionChart"></canvas></div>
+    </section>
+  </div>
 
-      <!-- RIGHT -->
-      <div class="col">
-        <h2>5. Digital system (how we reach them)</h2>
-        <table>
-          <thead><tr><th>Channel</th><th>Job</th><th>Outcome</th></tr></thead>
-          <tbody>
-            <tr><td><strong>Reply.io LI</strong><br>CMAA connects</td><td>Warm path</td><td>Call / teardown</td></tr>
-            <tr><td><strong>Apollo</strong></td><td>Lookalike the 34 company-first, then people</td><td>More A-core pipeline</td></tr>
-            <tr><td><strong>Newsletter</strong></td><td>2 blogs/mo + pilot CTA + reply prompt</td><td>Nurture + discovery</td></tr>
-            <tr><td><strong>Founder LI</strong></td><td>Posts/polls from blog pains</td><td>Public signal</td></tr>
-            <tr><td><strong>comply.capital</strong></td><td>Existing pilot landing</td><td>Pilot start</td></tr>
-          </tbody>
-        </table>
-
-        <h3>Reply.io (upgrade)</h3>
-        <div class="box">
-          CONNECT: CMAA human note.<br>
-          LI1: who it’s for + teardown/pilot (not “AI age” + homepage only).<br>
-          LI2: bump · LI3: breakup.
+  <div class="grid2" id="pains">
+    <section class="card">
+      <h2>Pains → solution</h2>
+      <div class="pair">
+        <div class="mini"><strong>Pains</strong>
+          <ul>
+            <li>Package chaos (G702/G703, waivers, COs)</li>
+            <li>Time sinks that don’t raise quality</li>
+            <li>Miss risk in front of the bank</li>
+            <li>Inconsistent depth across staff</li>
+            <li>Email as system of record</li>
+            <li>Wrong tools · growth ceiling</li>
+          </ul>
         </div>
-
-        <h3>Apollo rules</h3>
-        <div class="box">
-          Keywords: construction loan monitoring, lender’s consultant, draw inspection, pay-app review, plan & cost, funds control.<br>
-          People only after company lock: Principal / Monitoring lead.
+        <div class="mini"><strong>COMPLY</strong>
+          <ul>
+            <li>Control package before deep review</li>
+            <li>Pay-app / SOV workspace</li>
+            <li>Flags for humans — you decide</li>
+            <li>Bank-ready trail</li>
+            <li>Repeatable across analysts</li>
+            <li>Pilot on live loans</li>
+          </ul>
         </div>
+      </div>
+      <p style="margin-top:.7rem;font-weight:700;color:var(--ink)">Value line: Faster, cleaner monthly draw review without giving up the judgment lenders hire them for.</p>
+    </section>
+    <section class="card">
+      <h2>Message</h2>
+      <h3>Voice + CTA ladder</h3>
+      <ul>
+        <li><strong>Voice:</strong> peer to principal · field words · no AI hype</li>
+        <li><strong>In:</strong> lender’s consultant, draw, pay-app, G702/G703, lien waiver, bank-ready</li>
+        <li><strong>Out:</strong> replace inspectors, AI approves draws, “AI age,” GC PM</li>
+      </ul>
+      <div class="chart-box sm"><canvas id="ctaChart"></canvas></div>
+    </section>
+  </div>
 
-        <h3>Monthly content</h3>
-        <table>
-          <thead><tr><th>Mo</th><th>Blog 1</th><th>Blog 2</th></tr></thead>
-          <tbody>
-            <tr><td>1</td><td>Faster pay-app review</td><td>Waiver gaps</td></tr>
-            <tr><td>2</td><td>Cost-to-complete</td><td>Bank-ready reports</td></tr>
-            <tr><td>3</td><td>Checklist that sticks</td><td>Email ≠ audit trail</td></tr>
-          </tbody>
-        </table>
-        <p>Every issue ends with the same pilot CTA + “forward to monitoring lead.”</p>
+  <div class="grid2" id="funnel">
+    <section class="card">
+      <h2>Discovery funnel</h2>
+      <div class="funnel">
+        <div class="fstep"><div class="fnum">1</div><div class="fbar" style="background:linear-gradient(90deg,#0b2433,#1f4b55);width:100%">Universe · A firms 34→150</div><div class="fmeta">Apollo</div></div>
+        <div class="fstep"><div class="fnum">2</div><div class="fbar" style="background:linear-gradient(90deg,#0d5c5a,#2eb8c0);width:88%">Conversations</div><div class="fmeta">40+/90d</div></div>
+        <div class="fstep"><div class="fnum">3</div><div class="fbar" style="background:linear-gradient(90deg,#0d8f8a,#19c3a8);width:70%">Teardowns</div><div class="fmeta">10</div></div>
+        <div class="fstep"><div class="fnum">4</div><div class="fbar" style="background:linear-gradient(90deg,#0a6e6a,#14b8a6);width:52%">Pilots live</div><div class="fmeta">4–5</div></div>
+        <div class="fstep"><div class="fnum">5</div><div class="fbar" style="background:linear-gradient(90deg,#0f766e,#34d399);width:36%">Proof story</div><div class="fmeta">1</div></div>
+      </div>
+    </section>
+    <section class="card" id="channels">
+      <h2>Channel mix</h2>
+      <div class="chart-box tall"><canvas id="channelChart"></canvas></div>
+      <table>
+        <thead><tr><th>Channel</th><th>Job</th></tr></thead>
+        <tbody>
+          <tr><td>Reply.io LI (CMAA)</td><td>Warm path → call/teardown</td></tr>
+          <tr><td>Apollo email + LI</td><td>Scale lookalikes of the 34</td></tr>
+          <tr><td>Newsletter</td><td>2 blogs/mo + pilot CTA + reply prompt</td></tr>
+          <tr><td>Founder LinkedIn</td><td>Posts/polls from pain language</td></tr>
+          <tr><td>comply.capital</td><td>Existing pilot landing</td></tr>
+        </tbody>
+      </table>
+    </section>
+  </div>
 
-        <h2>6. 90-day motion</h2>
-        <div class="box">
-          <strong>D1–14:</strong> Freeze ICP · fix Reply sequence · enrich top 15 of 34 · discovery call sheet · Month-1 blogs · pilot ops owner (Jerod)<br>
-          <strong>D15–45:</strong> CMAA + Apollo wave · 8–15 calls · 5+ teardowns · newsletter #1 · rank top pains from calls<br>
-          <strong>D46–90:</strong> 4–5 live pilots · content months 2–3 · proof story · double-down winning segment
-        </div>
+  <!-- EMAILS -->
+  <section class="card" id="emails">
+    <h2>Campaign examples</h2>
+    <h3>Emails & LinkedIn copy to use</h3>
+    <p class="sub">Paste-ready. Swap firm/name. Always point pilot to <strong>comply.capital</strong> (not this strategy page).</p>
+    <div class="tabs" id="emailTabs">
+      <button class="tab active" data-tab="li">LinkedIn · CMAA (Reply)</button>
+      <button class="tab" data-tab="apollo">Apollo email · cold A-core</button>
+      <button class="tab" data-tab="news">Newsletter CTA block</button>
+      <button class="tab" data-tab="teardown">Teardown invite</button>
+      <button class="tab" data-tab="pilot">Pilot kickoff</button>
+    </div>
 
-        <h2>7. Thursday discussion targets</h2>
-        <div class="stats">
-          <div class="stat"><b>40+</b><span>calls / 90d</span></div>
-          <div class="stat"><b>10</b><span>teardowns</span></div>
-          <div class="stat"><b>4–5</b><span>pilots</span></div>
-          <div class="stat"><b>1</b><span>proof story</span></div>
-        </div>
-        <div class="box">
-          <strong>Owners:</strong> Tom = outbound/calls · Jerod = pilot success · Justin = ICP/offer/scoreboard · Writer = 2 blogs + newsletter<br>
-          <strong>Weekly 20–30 min:</strong> pains/quotes · funnel · talk-track tweaks · next content · pilot blockers
-        </div>
+    <div class="panel active" id="tab-li">
+      <div class="email">
+        <div class="label">Reply.io · CONNECT</div>
+        <div class="body">Hey {{FirstName}}, good meeting you around CMAA — would be good to stay connected.</div>
+      </div>
+      <div class="email">
+        <div class="label">LI1 · after accept</div>
+        <div class="body">Thanks for connecting, {{FirstName}}!
 
-        <h2>8. Decide in the room</h2>
-        <ul>
-          <li>Lock Fit A as primary (lenders = later track)?</li>
-          <li>Approve Reply sequence rewrite this week?</li>
-          <li>Who writes Month-1 blogs / sends newsletter?</li>
-          <li>Pilot success definition (2–3 metrics)?</li>
-          <li>Apollo: enrich 15 now or full 34 first?</li>
-        </ul>
+We built COMPLY for firms doing monthly construction loan / draw review for lenders — pay apps, lien waivers, plan & cost, bank-ready packages.
+
+If useful: 20-min teardown on one redacted package, then a pilot on 1–2 live loans.
+https://comply.capital</div>
+        <div class="meta">Job: state ICP + offer. Avoid “AI age” + bare homepage dump.</div>
+      </div>
+      <div class="email">
+        <div class="label">LI2 · bump (day 4–5)</div>
+        <div class="body">{{FirstName}} — quick bump. We’re opening a few pilot seats for monitoring firms.
+
+No deck required. Bring one redacted package if you can — happy to tear it down in 20 minutes.
+https://comply.capital</div>
+      </div>
+      <div class="email">
+        <div class="label">LI3 · breakup</div>
+        <div class="body">Closing the loop, {{FirstName}}. If draw review capacity comes up later, easy to find me here — or start a pilot anytime on comply.capital.</div>
       </div>
     </div>
 
-    <footer class="foot">
-      <div>COMPLY · Consultant digital strategy one-pager · Not a pilot landing page</div>
-      <div>audit.brandastic.com/comply · Pilot CTA → comply.capital</div>
-    </footer>
-  </article>
+    <div class="panel" id="tab-apollo">
+      <div class="email">
+        <div class="label">Email 1 · cold A-core</div>
+        <div class="subj">Subject: Monthly draw review at {{Company}}</div>
+        <div class="body">Hi {{FirstName}},
+
+I work with lender’s construction consultants — the teams doing monthly pay-app / draw monitoring for banks.
+
+Most firms we talk to are buried in G702/G703 packages, waiver chases, and email threads — and still need a defensible recommendation to the lender.
+
+We built COMPLY to cut that grind without replacing your judgment. Worth 20 minutes on one redacted package?
+
+If it’s a fit, we pilot 1–2 live loans.
+https://comply.capital
+
+Tom
+COMPLY</div>
+        <div class="meta">Send from Tom/peer voice. Company-first list only.</div>
+      </div>
+      <div class="email">
+        <div class="label">Email 2 · follow-up</div>
+        <div class="subj">Subject: Re: Monthly draw review at {{Company}}</div>
+        <div class="body">{{FirstName}} — short follow-up.
+
+If your team is deep in monthly monitoring right now, the fastest next step is a teardown on a real (redacted) package — not a slide deck.
+
+Open to Thursday or Friday for 20 minutes?
+https://comply.capital</div>
+      </div>
+      <div class="email">
+        <div class="label">Email 3 · breakup</div>
+        <div class="subj">Subject: Closing the loop</div>
+        <div class="body">Last note from me, {{FirstName}}.
+
+If package chaos or lender pushback on draws comes up this quarter, COMPLY is built for consultant firms like yours:
+https://comply.capital
+
+Happy to pick it up anytime.</div>
+      </div>
+    </div>
+
+    <div class="panel" id="tab-news">
+      <div class="email">
+        <div class="label">Newsletter · pilot CTA block</div>
+        <div class="body">Running construction loan monitoring for lenders?
+
+We’re opening a few pilot seats for Fit A consultant firms:
+• 20-minute teardown on one redacted draw package
+• Pilot on 1–2 live loans (~30 days)
+• You still make every call — COMPLY organizes, flags, and leaves a bank-ready trail
+
+Start here → https://comply.capital
+
+P.S. Forward to whoever owns monitoring delivery at your firm.</div>
+        <div class="meta">Same CTA every month until you have proof metrics — then add one number.</div>
+      </div>
+      <div class="email">
+        <div class="label">Newsletter · discovery reply prompt</div>
+        <div class="body">Quick question (hit reply):
+On a messy draw, about how many hours does your team burn before the recommendation goes to the bank?
+
+We’re collecting real numbers from monitoring firms this month.</div>
+      </div>
+    </div>
+
+    <div class="panel" id="tab-teardown">
+      <div class="email">
+        <div class="label">After they say yes · teardown confirm</div>
+        <div class="subj">Subject: Confirmed — draw package teardown</div>
+        <div class="body">{{FirstName}} — we’re on for {{Day}}, {{Time}} {{Tz}} (20 minutes).
+
+Please send one redacted package ahead if you can (pay app + supporting docs is enough). If you can’t share files yet, we’ll still walk the flow with a sample structure and map it to your process.
+
+Join: {{CalendarLink}}
+Pilot info: https://comply.capital
+
+Talk soon,
+{{Sender}}</div>
+      </div>
+      <div class="email">
+        <div class="label">Teardown agenda (internal / calendar description)</div>
+        <div class="body">1) Your monthly monitoring process (5 min)
+2) Where time / risk shows up (5 min)
+3) Live pass on package or sample (7 min)
+4) Pilot shape: 1–2 loans, success metrics, next step (3 min)</div>
+      </div>
+    </div>
+
+    <div class="panel" id="tab-pilot">
+      <div class="email">
+        <div class="label">Pilot offer email</div>
+        <div class="subj">Subject: COMPLY pilot — 1–2 live loans</div>
+        <div class="body">{{FirstName}},
+
+Great teardown. Here’s the pilot shape we recommend:
+
+• Duration: ~30 days
+• Scope: 1–2 active monitoring loans
+• Users: you + delivery lead (optional lender view later)
+• Success (agree up front): e.g. first full draw cycle with fewer chase emails and a package you’d send the bank
+• Cadence: weekly 20-min check-in
+
+Start / access: https://comply.capital
+Reply with the two loans you want in first and who needs seats.
+
+{{Sender}}</div>
+      </div>
+      <div class="email">
+        <div class="label">Pilot week-1 internal note (Jerod)</div>
+        <div class="body">Pilot kickoff checklist
+□ Company + users invited on staging/prod as agreed
+□ 1–2 loans named
+□ Success metrics written in CRM
+□ First package uploaded or scheduled
+□ Weekly check-in on calendar
+□ Feedback tags: what they still do in Excel / email</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- COLLATERAL -->
+  <section class="card" id="collateral">
+    <h2>Collateral needed</h2>
+    <h3>Campaign asset checklist</h3>
+    <p class="sub">Build in this order. Must-have first — don’t block outbound on nice-to-haves.</p>
+    <div class="collateral">
+      <div class="item">
+        <div class="need">Must</div>
+        <h4>ICP one-pager (this page / PDF)</h4>
+        <p>TAM, pains, message, funnel for internal alignment Thursday.</p>
+        <div class="need-row"><span class="tag tag-must">Must</span><span class="tag">Internal</span></div>
+      </div>
+      <div class="item">
+        <div class="need">Must</div>
+        <h4>Reply.io LI sequence</h4>
+        <p>CONNECT + LI1–3 for CMAA (copy above). Tags for consultant vs other.</p>
+        <div class="need-row"><span class="tag tag-must">Must</span><span class="tag">Outbound</span></div>
+      </div>
+      <div class="item">
+        <div class="need">Must</div>
+        <h4>Apollo email sequence (3 touches)</h4>
+        <p>Cold A-core copy above + UTM to comply.capital pilot.</p>
+        <div class="need-row"><span class="tag tag-must">Must</span><span class="tag">Outbound</span></div>
+      </div>
+      <div class="item">
+        <div class="need">Must</div>
+        <h4>Discovery call scorecard</h4>
+        <p>Loans/mo, top pains, stack, pilot readiness 1–5, blocker, next step.</p>
+        <div class="need-row"><span class="tag tag-must">Must</span><span class="tag">Sales</span></div>
+      </div>
+      <div class="item">
+        <div class="need">Must</div>
+        <h4>Pilot one-sheet (external)</h4>
+        <p>What pilot is / isn’t, 30 days, 1–2 loans, you still approve, success metrics blank.</p>
+        <div class="need-row"><span class="tag tag-must">Must</span><span class="tag">PDF</span></div>
+      </div>
+      <div class="item">
+        <div class="need">Must</div>
+        <h4>Teardown agenda + calendar template</h4>
+        <p>20-min structure + redacted package request language.</p>
+        <div class="need-row"><span class="tag tag-must">Must</span><span class="tag">Ops</span></div>
+      </div>
+      <div class="item">
+        <div class="need">Should</div>
+        <h4>Month-1 blogs (2)</h4>
+        <p>Pay-app speed + lien waiver gaps. Consultant voice, not product brochure.</p>
+        <div class="need-row"><span class="tag tag-should">Should</span><span class="tag">Content</span></div>
+      </div>
+      <div class="item">
+        <div class="need">Should</div>
+        <h4>Newsletter template</h4>
+        <p>Opener · 2 links · pilot CTA · reply prompt · forward PS.</p>
+        <div class="need-row"><span class="tag tag-should">Should</span><span class="tag">Email</span></div>
+      </div>
+      <div class="item">
+        <div class="need">Should</div>
+        <h4>LinkedIn post set (4)</h4>
+        <p>From blog points + 1 poll (“biggest draw headache?”).</p>
+        <div class="need-row"><span class="tag tag-should">Should</span><span class="tag">Social</span></div>
+      </div>
+      <div class="item">
+        <div class="need">Should</div>
+        <h4>Objection card</h4>
+        <p>Process exists · AI risk · portal already · no time · deals are special.</p>
+        <div class="need-row"><span class="tag tag-should">Should</span><span class="tag">Sales</span></div>
+      </div>
+      <div class="item">
+        <div class="need">Later</div>
+        <h4>Case study / proof one-pager</h4>
+        <p>After first pilots — time saved, fewer kickbacks, quote.</p>
+        <div class="need-row"><span class="tag tag-later">Later</span><span class="tag">Proof</span></div>
+      </div>
+      <div class="item">
+        <div class="need">Later</div>
+        <h4>Leave-behind for banks</h4>
+        <p>Only after consultant wedge works — “what your consultant runs on.”</p>
+        <div class="need-row"><span class="tag tag-later">Later</span><span class="tag">Channel</span></div>
+      </div>
+      <div class="item">
+        <div class="need">Ops</div>
+        <h4>CRM fields / sheet</h4>
+        <p>Fit tier, source (CMAA/Apollo), pain tags, teardown date, pilot status, owner.</p>
+        <div class="need-row"><span class="tag tag-must">Must</span><span class="tag">Data</span></div>
+      </div>
+      <div class="item">
+        <div class="need">Ops</div>
+        <h4>Pilot success definition card</h4>
+        <p>2–3 metrics max agreed on kickoff; Jerod owns weekly truth.</p>
+        <div class="need-row"><span class="tag tag-must">Must</span><span class="tag">Pilot</span></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="grid2" id="90day">
+    <section class="card">
+      <h2>90-day plan</h2>
+      <div class="timeline">
+        <div class="phase"><div class="when">D1–14</div><h4>Instrument</h4><ul><li>Freeze ICP</li><li>Load Reply + Apollo sequences</li><li>Enrich top 15</li><li>Call scorecard live</li><li>Pilot one-sheet</li></ul></div>
+        <div class="phase"><div class="when">D15–45</div><h4>Learn</h4><ul><li>CMAA + Apollo wave</li><li>8–15 calls</li><li>5+ teardowns</li><li>Newsletter #1</li><li>Rank top pains</li></ul></div>
+        <div class="phase"><div class="when">D46–90</div><h4>Prove</h4><ul><li>4–5 pilots</li><li>Blogs 2–3</li><li>Proof story</li><li>Double-down segment</li></ul></div>
+      </div>
+      <div class="chart-box sm" style="margin-top:.7rem"><canvas id="targetsChart"></canvas></div>
+    </section>
+    <section class="card">
+      <h2>Content calendar</h2>
+      <div class="chart-box sm"><canvas id="contentChart"></canvas></div>
+      <table>
+        <thead><tr><th>Month</th><th>Blog 1</th><th>Blog 2</th></tr></thead>
+        <tbody>
+          <tr><td>1</td><td>Faster pay-app review</td><td>Waiver gaps</td></tr>
+          <tr><td>2</td><td>Cost-to-complete</td><td>Bank-ready reports</td></tr>
+          <tr><td>3</td><td>Checklist that sticks</td><td>Email ≠ audit trail</td></tr>
+        </tbody>
+      </table>
+      <p class="sub">Owners: Tom outbound · Jerod pilots · Justin ICP/scoreboard · Writer blogs/newsletter</p>
+    </section>
+  </div>
+
+  <section class="card" id="decide">
+    <h2>Thursday — decide in the room</h2>
+    <div class="decide">
+      <label><input type="checkbox"> Lock Fit A consultants as primary (lenders later)</label>
+      <label><input type="checkbox"> Approve Reply + Apollo copy this week</label>
+      <label><input type="checkbox"> Enrich top 15 of 34 in Apollo now</label>
+      <label><input type="checkbox"> Assign Month-1 blogs + newsletter send date</label>
+      <label><input type="checkbox"> Ship pilot one-sheet + success metrics</label>
+      <label><input type="checkbox"> CRM tags + weekly scoreboard owner</label>
+    </div>
+  </section>
+
+  <div class="foot">
+    <div>COMPLY consultant digital strategy · charts · emails · collateral</div>
+    <div>audit.brandastic.com/comply · Pilot on comply.capital</div>
+  </div>
+</div>
+
+<script>
+Chart.defaults.font.family='Inter,system-ui,sans-serif';
+Chart.defaults.color='#6b8492';
+Chart.defaults.plugins.legend.labels.boxWidth=12;
+
+new Chart(document.getElementById('fitChart'),{type:'doughnut',data:{labels:['A Core (34)','B Secondary (33)','C Channel (12)','D Low (4)','Competitor SW (4)'],datasets:[{data:[34,33,12,4,4],backgroundColor:['#0d8f8a','#3b82f6','#8b5cf6','#f59e0b','#94a3b8'],borderWidth:0}]},options:{responsive:true,maintainAspectRatio:false,cutout:'62%',plugins:{legend:{position:'right'}}}});
+
+new Chart(document.getElementById('regionChart'),{type:'bar',data:{labels:['West','NE','Midwest','TX/SC','SE','Mid-Atl','Mtn/SW','Natl'],datasets:[{data:[8,7,5,3,3,2,3,3],backgroundColor:'rgba(13,143,138,.85)',borderRadius:8,maxBarThickness:26}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},scales:{x:{grid:{display:false},ticks:{font:{size:10}}},y:{beginAtZero:true,ticks:{stepSize:2},grid:{color:'rgba(12,42,58,.06)'}}}}});
+
+new Chart(document.getElementById('ctaChart'),{type:'bar',data:{labels:['Pilot offer','Teardown ask','Feature tour','Homepage only'],datasets:[{data:[100,90,25,15],backgroundColor:['#0d8f8a','#2eb8c0','#cbd5e1','#e2e8f0'],borderRadius:8,maxBarThickness:30}]},options:{indexAxis:'y',responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},scales:{x:{max:100,grid:{color:'rgba(12,42,58,.06)'},ticks:{callback:v=>v+'%'}},y:{grid:{display:false}}}}});
+
+new Chart(document.getElementById('channelChart'),{type:'doughnut',data:{labels:['Reply CMAA','Apollo','Newsletter','Founder LI','Pilot ops'],datasets:[{data:[30,25,20,10,15],backgroundColor:['#0d8f8a','#2eb8c0','#3b82f6','#8b5cf6','#0c2a3a'],borderWidth:0}]},options:{responsive:true,maintainAspectRatio:false,cutout:'55%',plugins:{legend:{position:'bottom'},tooltip:{callbacks:{label:c=>` ${c.label}: ${c.raw}% effort`}}}}});
+
+new Chart(document.getElementById('contentChart'),{type:'bar',data:{labels:['Month 1','Month 2','Month 3'],datasets:[{label:'How-to',data:[1,1,1],backgroundColor:'#0d8f8a',stack:'c',borderRadius:6},{label:'Risk/bank',data:[1,1,1],backgroundColor:'#2eb8c0',stack:'c',borderRadius:6},{label:'Pilot CTA',data:[1,1,1],backgroundColor:'#0c2a3a',stack:'c',borderRadius:6}]},options:{responsive:true,maintainAspectRatio:false,scales:{x:{stacked:true,grid:{display:false}},y:{stacked:true,max:3,ticks:{stepSize:1},grid:{color:'rgba(12,42,58,.06)'}}},plugins:{legend:{position:'bottom'}}});
+
+new Chart(document.getElementById('targetsChart'),{type:'bar',data:{labels:['A firms','Conversations','Teardowns','Pilots'],datasets:[{data:[150,40,10,5],backgroundColor:['#0c2a3a','#0d8f8a','#2eb8c0','#19c3a8'],borderRadius:8,maxBarThickness:34}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},scales:{x:{grid:{display:false}},y:{beginAtZero:true,grid:{color:'rgba(12,42,58,.06)'}}}}});
+
+document.querySelectorAll('#emailTabs .tab').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    document.querySelectorAll('#emailTabs .tab').forEach(b=>b.classList.remove('active'));
+    document.querySelectorAll('#emails .panel').forEach(p=>p.classList.remove('active'));
+    btn.classList.add('active');
+    document.getElementById('tab-'+btn.dataset.tab).classList.add('active');
+  });
+});
+</script>
 </body>
 </html>
