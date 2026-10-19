@@ -412,3 +412,8 @@
   from = "/comply-examples"
   to = "/comply-examples.html"
   status = 200
+
+[[redirects]]
+  from = "/comply-email-october-2026"
+  to = "/comply-email-october-2026.html"
+  status = 200
