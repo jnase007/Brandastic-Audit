@@ -417,3 +417,23 @@
   from = "/comply-email-october-2026"
   to = "/comply-email-october-2026.html"
   status = 200
+
+[[redirects]]
+  from = "/client"
+  to = "/client.html"
+  status = 200
+
+[[redirects]]
+  from = "/client/"
+  to = "/client.html"
+  status = 200
+
+[[redirects]]
+  from = "/rhome"
+  to = "/client.html"
+  status = 200
+
+[[redirects]]
+  from = "/rhome/"
+  to = "/client.html"
+  status = 200

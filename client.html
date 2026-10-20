@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RHOME · Paid Media + Growth Audit — Brandastic</title>
+<meta name="robots" content="noindex,nofollow">
+<link rel="canonical" href="https://audit.brandastic.com/client">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#14171c; --slide:#1a1e24; --ink:#f3f5f7; --muted:#9aa3ad; --line:rgba(255,255,255,.08);
+  --teal:#2eb8c0; --accent:#40B4E5; --purple:#CC22FF; --red:#ff6b6b; --green:#3dd68c;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{background:#0d0f12;color:var(--ink);font-family:Inter,system-ui,sans-serif}
+body{min-height:100vh}
+.deck{max-width:1100px;margin:0 auto;padding:1rem 1rem 3rem}
+.toolbar{display:flex;gap:.5rem;flex-wrap:wrap;align-items:center;margin-bottom:1rem;position:sticky;top:.5rem;z-index:30;background:rgba(13,15,18,.85);backdrop-filter:blur(8px);padding:.4rem 0}
+.btn{border:0;cursor:pointer;border-radius:10px;font-weight:700;font-size:.8rem;padding:.5rem .85rem;text-decoration:none;display:inline-flex;align-items:center;color:#fff}
+.btn-p{background:linear-gradient(135deg,var(--accent),var(--purple))}
+.btn-g{background:rgba(255,255,255,.06);border:1px solid var(--line)}
+.hint{color:var(--muted);font-size:.75rem}
+.slide{background:var(--slide);border:1px solid var(--line);border-radius:18px;padding:2.35rem 2.45rem 2.5rem;margin:0 0 1rem;min-height:520px;position:relative;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,.35)}
+.slide::before{content:"";position:absolute;right:-100px;top:-100px;width:360px;height:360px;border-radius:50%;background:radial-gradient(circle,rgba(64,180,229,.1),transparent 70%);pointer-events:none}
+.slide-inner{position:relative;z-index:1}
+.kicker{font-size:.72rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--teal);margin-bottom:1rem}
+.h1{font-size:clamp(2rem,4.2vw,3.1rem);font-weight:700;letter-spacing:-.03em;line-height:1.08;margin-bottom:.75rem}
+.h2{font-size:clamp(1.45rem,3vw,2.1rem);font-weight:700;letter-spacing:-.02em;margin-bottom:1rem}
+.lede{font-size:1.06rem;color:var(--muted);max-width:44rem;line-height:1.6}
+.footer-bar{position:absolute;left:2.45rem;right:2.45rem;bottom:1.15rem;display:flex;justify-content:space-between;align-items:center;font-size:.7rem;color:rgba(255,255,255,.32);letter-spacing:.04em}
+.num{font-weight:600}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}
+.card{background:rgba(255,255,255,.03);border:1px solid var(--line);border-radius:14px;padding:1.05rem 1.1rem}
+.card h3{font-size:.98rem;font-weight:700;margin-bottom:.4rem}
+.card p,.card li{font-size:.88rem;color:var(--muted);line-height:1.55}
+.card ul{padding-left:1.05rem;margin:.25rem 0}
+.card li{margin:.22rem 0}
+.card strong{color:var(--ink)}
+.pain{border-color:rgba(255,107,107,.35);background:rgba(255,107,107,.06)}
+.ok{border-color:rgba(61,214,140,.28);background:rgba(61,214,140,.05)}
+.quote{border-left:3px solid var(--teal);padding:.12rem 0 .12rem .95rem;margin:.9rem 0;font-size:1.08rem;font-weight:600;color:var(--ink);line-height:1.45;max-width:46rem}
+.stat{font-size:clamp(1.5rem,3vw,2.2rem);font-weight:800;letter-spacing:-.03em;color:#fff;line-height:1.1}
+.stat-lbl{font-size:.78rem;color:var(--muted);margin-top:.28rem;line-height:1.4}
+.table{width:100%;border-collapse:collapse;font-size:.84rem;margin-top:.35rem}
+.table th,.table td{border:1px solid var(--line);padding:.5rem .55rem;text-align:left;vertical-align:top}
+.table th{background:rgba(255,255,255,.04);color:var(--ink);font-weight:700}
+.table td{color:var(--muted)}
+.pill{display:inline-block;font-size:.68rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--teal);background:rgba(46,184,192,.12);border:1px solid rgba(46,184,192,.25);padding:.26rem .5rem;border-radius:999px;margin:0 .2rem .35rem 0}
+.pill-r{color:#ffb4b4;background:rgba(255,107,107,.12);border-color:rgba(255,107,107,.28)}
+.pill-g{color:#9ef0c5;background:rgba(61,214,140,.12);border-color:rgba(61,214,140,.28)}
+.flow{display:flex;flex-wrap:wrap;gap:.4rem;align-items:center;margin:.85rem 0}
+.flow .step{background:rgba(255,255,255,.04);border:1px solid var(--line);border-radius:12px;padding:.55rem .75rem;font-weight:700;font-size:.84rem}
+.flow .arrow{color:var(--teal);font-weight:800}
+.check li{list-style:none;padding-left:0;margin:.35rem 0;font-size:.92rem;color:var(--muted);line-height:1.5}
+.check li::before{content:"→ ";color:var(--teal);font-weight:800}
+.big{font-size:1.02rem;color:var(--ink);font-weight:600;line-height:1.55;max-width:46rem}
+.small{font-size:.8rem;color:var(--muted);line-height:1.45;margin-top:.8rem}
+@media(max-width:860px){
+  .slide{padding:1.4rem 1.1rem 3rem;min-height:auto}
+  .grid2,.grid3{grid-template-columns:1fr}
+  .footer-bar{position:static;margin-top:2rem}
+}
+</style>
+</head>
+<body>
+<div class="deck">
+  <div class="toolbar">
+    <a class="btn btn-p" href="https://www.rhomepm.com/" target="_blank" rel="noopener">rhomepm.com</a>
+    <a class="btn btn-g" href="https://brandastic.com" target="_blank" rel="noopener">Brandastic</a>
+    <span class="hint">Prospect audit · Oct 20, 2026 · Private</span>
+  </div>
+
+  <!-- 1 -->
+  <section class="slide"><div class="slide-inner">
+    <div class="kicker">Brandastic · Growth audit</div>
+    <h1 class="h1">RHOME is buying the wrong leads — and the site is set up to keep doing it.</h1>
+    <p class="lede">You already know the pain: paid traffic leans <strong style="color:#fff">renter applications</strong> when more of the budget should drive <strong style="color:#fff">landlord / investor</strong> leads. This audit maps why that happens on rhomepm.com, what to fix first, and how Brandastic would own paid search, Meta, tracking, and (if you want) SEO + hosting as one system.</p>
+    <div class="grid3" style="margin-top:1.4rem">
+      <div class="card pain"><div class="stat">Landlord $</div><div class="stat-lbl">Should win more of the paid mix — not just awareness / remarketing leftovers</div></div>
+      <div class="card pain"><div class="stat">Renter skew</div><div class="stat-lbl">Natural gravity of PM sites + listings + “for rent” intent in ads</div></div>
+      <div class="card ok"><div class="stat">Fixable</div><div class="stat-lbl">Structure · negatives · audiences · conversion split · reporting</div></div>
+    </div>
+    <div class="footer-bar"><span>RHOME × Brandastic</span><span class="num">01</span></div>
+  </div></section>
+
+  <!-- 2 -->
+  <section class="slide"><div class="slide-inner">
+    <div class="kicker">What you told us</div>
+    <h2 class="h2">The job is balance — not killing renters.</h2>
+    <div class="quote">“Campaigns skew toward renter applications when a larger share of budget should drive landlord leads. This is a targeting and budget efficiency problem.”</div>
+    <div class="grid2">
+      <div class="card">
+        <h3>You need owned</h3>
+        <ul>
+          <li>Campaign structure & setup</li>
+          <li>Audience targeting</li>
+          <li>Budget allocation</li>
+          <li>Negative keyword discipline</li>
+          <li>Landlord vs renter conversion tracking</li>
+          <li>Proactive reporting cadence</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Also on the table</h3>
+        <ul>
+          <li>SEO</li>
+          <li>Content</li>
+          <li>Website hosting</li>
+          <li>Full-service growth partner (scale long-term)</li>
+        </ul>
+        <p style="margin-top:.7rem">Property management / rental ad rules matter. Missteps = compliance risk, not just wasted spend.</p>
+      </div>
+    </div>
+    <div class="footer-bar"><span>RHOME × Brandastic</span><span class="num">02</span></div>
+  </div></section>
+
+  <!-- 3 -->
+  <section class="slide"><div class="slide-inner">
+    <div class="kicker">The real cost</div>
+    <h2 class="h2">Every renter-heavy click trains the algorithm to buy more renters.</h2>
+    <p class="big">If Meta and Google see “success” as applications, portal logins, or listing views — and those events are cheaper and more common than owner form fills — the platforms will keep optimizing for volume, not portfolio value.</p>
+    <div class="grid3" style="margin-top:1.2rem">
+      <div class="card pain">
+        <h3>1. Wrong win signal</h3>
+        <p>If landlord lead ≠ a hard conversion event (or is mixed with renter events), smart bidding has no clean target.</p>
+      </div>
+      <div class="card pain">
+        <h3>2. Shared landing gravity</h3>
+        <p>Homepage H1 is generic (“Find Everything You Need”). Dual audience (Owners + Residents + For Rent) pulls paid traffic into mixed intent.</p>
+      </div>
+      <div class="card pain">
+        <h3>3. Thin paid setup today</h3>
+        <p>You described mostly remarketing + brand awareness. That rarely builds a landlord pipeline. It recycles whoever already showed up — often renters.</p>
+      </div>
+    </div>
+    <div class="footer-bar"><span>RHOME × Brandastic</span><span class="num">03</span></div>
+  </div></section>
+
+  <!-- 4 -->
+  <section class="slide"><div class="slide-inner">
+    <div class="kicker">Site snapshot · rhomepm.com</div>
+    <h2 class="h2">What we found on the public site (Oct 20, 2026)</h2>
+    <table class="table">
+      <thead><tr><th>Area</th><th>Finding</th><th>Why it matters for landlord paid</th></tr></thead>
+      <tbody>
+        <tr>
+          <td><strong>Positioning</strong></td>
+          <td>Title/desc lean investor (“Smarter Property Management for Modern Investors”) but primary H1 is broad utility copy.</td>
+          <td>Message mismatch: ads promise investors; page greets “everyone.”</td>
+        </tr>
+        <tr>
+          <td><strong>Audience split</strong></td>
+          <td>Clear nav for Owners, Residents, For Rent, Locations, Acquisitions. AppFolio owner + tenant portals.</td>
+          <td>Healthy ops site — dangerous if paid traffic lands on mixed paths without dedicated landlord LPs.</td>
+        </tr>
+        <tr>
+          <td><strong>Local footprint</strong></td>
+          <td>Multi-market location pages (Dallas, San Diego, Nashville, Chicago, Atlanta, etc.) + US/Canada map.</td>
+          <td>Paid should be market-by-market for landlords, not one national “property management” soup.</td>
+        </tr>
+        <tr>
+          <td><strong>Tracking shell</strong></td>
+          <td>GTM container present (<code>GTM-5L36S5V</code>). No Meta pixel snippet visible in raw HTML (may live only inside GTM — unconfirmed).</td>
+          <td>Need GTM audit: landlord form, renter apply, portal clicks as <em>separate</em> events.</td>
+        </tr>
+        <tr>
+          <td><strong>Social links</strong></td>
+          <td>Header social icons point to <code>#</code> (dead).</td>
+          <td>Remarketing pools + brand proof leak; easy fix, signals neglect.</td>
+        </tr>
+        <tr>
+          <td><strong>Stack</strong></td>
+          <td>Custom/nginx site, AppFolio portals, Bootstrap front-end. Blog exists (investor-leaning titles).</td>
+          <td>SEO + content + hosting are real levers — matches your fuller-service ask.</td>
+        </tr>
+        <tr>
+          <td><strong>Compliance surface</strong></td>
+          <td>Rental advertising + multi-state/Canada footprint.</td>
+          <td>Paid copy, fair housing language, and landing claims need a PM-aware review loop.</td>
+        </tr>
+      </tbody>
+    </table>
+    <p class="small">Public scan only — no ad account or analytics login yet. Next step with access: GTM + GA4 + Google Ads + Meta event map.</p>
+    <div class="footer-bar"><span>RHOME × Brandastic</span><span class="num">04</span></div>
+  </div></section>
+
+  <!-- 5 -->
+  <section class="slide"><div class="slide-inner">
+    <div class="kicker">Diagnosis</div>
+    <h2 class="h2">Why landlord demand loses inside a PM website</h2>
+    <div class="grid2">
+      <div class="card">
+        <h3>Renter side wins by default</h3>
+        <ul>
+          <li>“Homes for rent” / apply paths are high-intent and frequent</li>
+          <li>Cheaper CPC keywords (apartments, houses for rent + city)</li>
+          <li>Faster micro-conversions (views, saves, applications)</li>
+          <li>Remarketing audiences fill with browsers of listings</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Landlord side needs design</h3>
+        <ul>
+          <li>Fewer searches, higher value (“property management company near me,” “hire property manager,” “landlord property management [city]”)</li>
+          <li>Longer trust cycle (fees, service level, local team)</li>
+          <li>Needs city pages + proof + clear “manage my property” CTA</li>
+          <li>Must be a <strong>primary</strong> conversion — not buried under resident portal traffic</li>
+        </ul>
+      </div>
+    </div>
+    <p class="quote" style="margin-top:1.2rem">If you don’t separate campaigns, creatives, landers, and conversion events, the platforms will always prefer the renter machine.</p>
+    <div class="footer-bar"><span>RHOME × Brandastic</span><span class="num">05</span></div>
+  </div></section>
+
+  <!-- 6 -->
+  <section class="slide"><div class="slide-inner">
+    <div class="kicker">Paid search plan</div>
+    <h2 class="h2">Google / Microsoft: build a landlord engine, fence the renter engine</h2>
+    <div class="grid2">
+      <div class="card ok">
+        <h3>Landlord campaigns (priority budget)</h3>
+        <ul>
+          <li><strong>Brand</strong> — protect RHOME / Associa-adjacent brand queries</li>
+          <li><strong>Core PM intent by market</strong> — “property management [city]”, “hire property manager [city]”</li>
+          <li><strong>Landlord problem terms</strong> — eviction help framing carefully, vacant rental, bad tenants → service pages (compliance-reviewed)</li>
+          <li><strong>Competitor conquest</strong> (optional, controlled)</li>
+          <li>Exact/phrase heavy; RSA pinned headlines for investor outcomes</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Renter campaigns (capped, not deleted)</h3>
+        <ul>
+          <li>Separate budget ceiling so it can’t eat landlord share</li>
+          <li>Only markets where vacancy / unit fill is a stated goal</li>
+          <li>Negatives shared upward so renter terms never bleed into landlord ad groups</li>
+          <li>Bid only to apply / qualified inquiry — not soft clicks</li>
+        </ul>
+      </div>
+    </div>
+    <div class="card" style="margin-top:1rem">
+      <h3>Negative keyword system (non-negotiable)</h3>
+      <p>Shared lists: <em>jobs, salary, DIY, free, template, apartment for rent</em> (on landlord campaigns), student housing noise, pure tenant verbs on owner campaigns. Weekly expand from search terms. This is how you “shift the balance without writing off renters.”</p>
+    </div>
+    <div class="footer-bar"><span>RHOME × Brandastic</span><span class="num">06</span></div>
+  </div></section>
+
+  <!-- 7 -->
+  <section class="slide"><div class="slide-inner">
+    <div class="kicker">Paid social plan</div>
+    <h2 class="h2">Meta: stop awareness-only. Build landlord demand.</h2>
+    <div class="grid3">
+      <div class="card">
+        <h3>Prospecting</h3>
+        <p>Investor / landlord lookalikes from <strong>owner lead</strong> events only. Interest stacks: real estate investing, rental property, BiggerPockets-adjacent behaviors — tested, not dumped into one ad set.</p>
+      </div>
+      <div class="card">
+        <h3>Retargeting</h3>
+        <p>Split pools: visited owner pages / started owner form vs listing browsers. Different creative. Never one “Site traffic 180d” bucket.</p>
+      </div>
+      <div class="card">
+        <h3>Creative</h3>
+        <p>Owner pain: time, maintenance, vacancy cost, local team. Proof: markets, process, protection products (Landlord Protection Plus). Fair housing–safe claims only.</p>
+      </div>
+    </div>
+    <p class="big" style="margin-top:1.1rem">Optimization event = <strong>LandlordLead</strong> (form submit or qualified call), not PageView and not mixed “Contact.”</p>
+    <div class="footer-bar"><span>RHOME × Brandastic</span><span class="num">07</span></div>
+  </div></section>
+
+  <!-- 8 -->
+  <section class="slide"><div class="slide-inner">
+    <div class="kicker">Tracking · the unlock</div>
+    <h2 class="h2">If you can’t see landlord vs renter cleanly, you can’t buy landlord efficiently.</h2>
+    <div class="flow">
+      <span class="step">GTM audit</span><span class="arrow">→</span>
+      <span class="step">GA4 events</span><span class="arrow">→</span>
+      <span class="step">Google Ads + Meta CAPI</span><span class="arrow">→</span>
+      <span class="step">Offline quality (optional)</span>
+    </div>
+    <table class="table">
+      <thead><tr><th>Event</th><th>Definition</th><th>Used for</th></tr></thead>
+      <tbody>
+        <tr><td><strong>landlord_lead</strong></td><td>Owner/investor form submit or booked consult (by market)</td><td>Primary optimize</td></tr>
+        <tr><td><strong>landlord_call_click</strong></td><td>Click-to-call on owner pages</td><td>Secondary / observe</td></tr>
+        <tr><td><strong>renter_apply_start</strong></td><td>Application start</td><td>Renter campaigns only</td></tr>
+        <tr><td><strong>renter_apply_submit</strong></td><td>Application complete</td><td>Renter campaigns only</td></tr>
+        <tr><td><strong>portal_login</strong></td><td>Owner or tenant portal (labeled)</td><td>Exclude from acquisition optimize</td></tr>
+        <tr><td><strong>listing_view</strong></td><td>Homes-for-rent detail</td><td>Renter audience building</td></tr>
+      </tbody>
+    </table>
+    <p class="small">Brandastic sets naming, parameters (market, form_id, audience), and a weekly QA sheet so numbers match ads platforms.</p>
+    <div class="footer-bar"><span>RHOME × Brandastic</span><span class="num">08</span></div>
+  </div></section>
+
+  <!-- 9 -->
+  <section class="slide"><div class="slide-inner">
+    <div class="kicker">Landing pages</div>
+    <h2 class="h2">Paid traffic should not share the homepage with everyone.</h2>
+    <div class="grid2">
+      <div class="card pain">
+        <h3>Today</h3>
+        <ul>
+          <li>Homepage serves investors, residents, renters, acquisitions</li>
+          <li>Contact often routes through <strong>Locations</strong> (extra step)</li>
+          <li>City pages exist but need paid-specific owner CTAs and message match</li>
+          <li>Social proof / dead social links weaken trust</li>
+        </ul>
+      </div>
+      <div class="card ok">
+        <h3>Recommended</h3>
+        <ul>
+          <li><strong>Owner LP template per market</strong> (or region cluster): problem → service → local team → fees framing → form</li>
+          <li>UTM + hidden fields: campaign, market, audience=landlord</li>
+          <li>Speed + mobile form first</li>
+          <li>Thank-you event fires once, hard</li>
+          <li>Renter ads → listing/apply paths only</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bar"><span>RHOME × Brandastic</span><span class="num">09</span></div>
+  </div></section>
+
+  <!-- 10 -->
+  <section class="slide"><div class="slide-inner">
+    <div class="kicker">Compliance</div>
+    <h2 class="h2">Rental ads aren’t generic e‑comm. We treat them that way.</h2>
+    <div class="grid2">
+      <div class="card">
+        <h3>Guardrails</h3>
+        <ul>
+          <li>Fair housing–safe creative and audience exclusions</li>
+          <li>No discriminatory targeting shortcuts</li>
+          <li>Claim review on income, vacancy, “guaranteed rent” style language</li>
+          <li>Market-specific legal notes when needed (multi-state + Canada)</li>
+          <li>Clear separation of owner marketing vs resident communications</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Process</h3>
+        <ul>
+          <li>Creative checklist before launch</li>
+          <li>Landing claim sheet aligned to site legal/disclaimers</li>
+          <li>Escalation path to your ops/legal contact</li>
+          <li>Documented change log in reporting</li>
+        </ul>
+        <p style="margin-top:.6rem">This is why PM experience matters more here than a generic paid media shop.</p>
+      </div>
+    </div>
+    <div class="footer-bar"><span>RHOME × Brandastic</span><span class="num">10</span></div>
+  </div></section>
+
+  <!-- 11 -->
+  <section class="slide"><div class="slide-inner">
+    <div class="kicker">SEO · content · hosting (optional full stack)</div>
+    <h2 class="h2">You asked if we can own more than ads. Yes.</h2>
+    <div class="grid3">
+      <div class="card">
+        <h3>SEO</h3>
+        <p>City PM pages are the long-term landlord moat. Fix cannibalization, internal links Owners vs Residents, schema, and page speed on nginx stack. Rank for owner intent, not only rental listings.</p>
+      </div>
+      <div class="card">
+        <h3>Content</h3>
+        <p>Blog already leans investment tips — turn into a system: landlord guides by market, fee explainers, “what a PM does” comparison pages that feed paid + organic.</p>
+      </div>
+      <div class="card">
+        <h3>Hosting / web</h3>
+        <p>We can host and harden the marketing site, keep AppFolio portals as systems of record, fix dead socials, improve CTA paths, and ship owner LPs without waiting on a slow vendor queue.</p>
+      </div>
+    </div>
+    <p class="big" style="margin-top:1.1rem">Paid gets efficient faster when SEO and landers stop sending mixed signals.</p>
+    <div class="footer-bar"><span>RHOME × Brandastic</span><span class="num">11</span></div>
+  </div></section>
+
+  <!-- 12 -->
+  <section class="slide"><div class="slide-inner">
+    <div class="kicker">90-day plan</div>
+    <h2 class="h2">How we’d run the first quarter</h2>
+    <div class="grid3">
+      <div class="card">
+        <span class="pill">Days 1–30</span>
+        <h3>Foundation</h3>
+        <ul>
+          <li>Ad account + GTM + GA4 access</li>
+          <li>Event map: landlord vs renter</li>
+          <li>Search term / audience autopsy</li>
+          <li>Rebuild campaign structure</li>
+          <li>Negative lists v1</li>
+          <li>Owner LP wireframes (top markets)</li>
+        </ul>
+      </div>
+      <div class="card">
+        <span class="pill">Days 31–60</span>
+        <h3>Shift the mix</h3>
+        <ul>
+          <li>Launch landlord-first search + Meta</li>
+          <li>Cap renter spend to agreed %</li>
+          <li>Message-match LPs live</li>
+          <li>Creative tests (3–5 owner angles)</li>
+          <li>Weekly search-term mining</li>
+          <li>First true landlord CPL baseline</li>
+        </ul>
+      </div>
+      <div class="card">
+        <span class="pill">Days 61–90</span>
+        <h3>Scale what works</h3>
+        <ul>
+          <li>Double down markets with efficient landlord CPL</li>
+          <li>Cut waste; expand winners</li>
+          <li>SEO quick wins on top city pages</li>
+          <li>Reporting automation</li>
+          <li>Q2 budget recommendation</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bar"><span>RHOME × Brandastic</span><span class="num">12</span></div>
+  </div></section>
+
+  <!-- 13 -->
+  <section class="slide"><div class="slide-inner">
+    <div class="kicker">Reporting</div>
+    <h2 class="h2">Proactive cadence — not a vanity dashboard dump</h2>
+    <div class="grid2">
+      <div class="card">
+        <h3>Weekly (async + short call as needed)</h3>
+        <ul>
+          <li>Landlord leads, CPL, spend share vs target</li>
+          <li>Renter leads / apps (capped budget health)</li>
+          <li>Search terms added to negatives</li>
+          <li>Creative / LP winners–losers</li>
+          <li>“What we changed” log</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Monthly</h3>
+        <ul>
+          <li>Mix shift: % budget → landlord outcomes</li>
+          <li>Market scorecard</li>
+          <li>Funnel quality notes (sales feedback loop)</li>
+          <li>SEO movement on owner pages (if in scope)</li>
+          <li>Next-month test plan</li>
+        </ul>
+      </div>
+    </div>
+    <p class="quote">North star: more qualified landlord leads per dollar — with renter volume held to a conscious budget, not an accident.</p>
+    <div class="footer-bar"><span>RHOME × Brandastic</span><span class="num">13</span></div>
+  </div></section>
+
+  <!-- 14 -->
+  <section class="slide"><div class="slide-inner">
+    <div class="kicker">Why Brandastic</div>
+    <h2 class="h2">Performance partner built for multi-location service brands</h2>
+    <div class="grid2">
+      <div class="card ok">
+        <h3>What you get</h3>
+        <ul class="check">
+          <li>Paid search + Meta under one strategy</li>
+          <li>Conversion architecture (landlord vs renter)</li>
+          <li>Negative keyword and audience hygiene as a system</li>
+          <li>PM-aware creative and compliance habits</li>
+          <li>Optional SEO, content, hosting — one throat to choke</li>
+          <li>Plain-English reporting for operators and leadership</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Fit with RHOME</h3>
+        <ul>
+          <li>Multi-market footprint (your location pages are an asset)</li>
+          <li>Associa-backed scale story — ads should sound like a serious operator</li>
+          <li>AppFolio stack stays; we improve the marketing layer around it</li>
+          <li>Long-term partner posture: build the machine, then scale markets</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bar"><span>RHOME × Brandastic</span><span class="num">14</span></div>
+  </div></section>
+
+  <!-- 15 -->
+  <section class="slide"><div class="slide-inner">
+    <div class="kicker">Next step</div>
+    <h2 class="h2">Open the accounts. We’ll prove the mix shift.</h2>
+    <p class="big">Working session (60–90 min): live walkthrough of Google Ads, Meta, GTM, and top 3 markets. You leave with a landlord budget % target, event list, and 30-day build plan.</p>
+    <div class="grid3" style="margin-top:1.2rem">
+      <div class="card"><h3>Access needed</h3><p>Google Ads, Meta Business, GA4, GTM, Search Console, site CMS/hosting contact.</p></div>
+      <div class="card"><h3>Deliverable</h3><p>This audit + tracking blueprint + campaign architecture + LP outline for priority cities.</p></div>
+      <div class="card"><h3>Decision</h3><p>Paid-only or full stack (SEO + content + hosting). We can phase either way.</p></div>
+    </div>
+    <p style="margin-top:1.4rem;font-size:1.05rem;font-weight:700">Brandastic · <a href="https://brandastic.com" style="color:var(--teal)">brandastic.com</a></p>
+    <p class="small">Audit based on public site review of https://www.rhomepm.com/ and your stated goals (landlord vs renter paid efficiency). Private leave-behind for RHOME evaluation.</p>
+    <div class="footer-bar"><span>RHOME × Brandastic</span><span class="num">15</span></div>
+  </div></section>
+
+</div>
+</body>
+</html>
