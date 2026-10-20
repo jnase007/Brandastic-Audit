@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta name="robots" content="noindex, nofollow">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RHOME — Google SEO & PPC Audit by Brandastic</title>
+<link rel="canonical" href="https://audit.brandastic.com/rhomepm">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{--bg-primary:#191F24;--bg-secondary:#0d1117;--bg-tertiary:#151a20;--bg-card:rgba(100,116,139,0.15);--bg-card-hover:rgba(100,116,139,0.2);--bg-card-border:rgba(100,116,139,0.2);--text-primary:#ffffff;--text-secondary:rgba(255,255,255,0.7);--text-muted:rgba(255,255,255,0.4);--accent-blue:#0644ED;--accent-light:#40B4E5;--accent-purple:#CC22FF;--coastal-fog:#F5F3EF;--glass-bg:rgba(100,116,139,0.15);--glass-border:rgba(255,255,255,0.1);--shadow:0 8px 32px rgba(0,0,0,0.3);--red:#ef4444;--yellow:#f59e0b;--green:#22c55e;--chart-grid:rgba(255,255,255,0.06);--chart-text:rgba(255,255,255,0.5);--transition:0.3s ease}
+[data-theme="light"]{--bg-primary:#F5F3EF;--bg-secondary:#ffffff;--bg-tertiary:#f0ede8;--bg-card:rgba(255,255,255,0.85);--bg-card-hover:rgba(255,255,255,0.95);--bg-card-border:rgba(0,0,0,0.08);--text-primary:#191F24;--text-secondary:rgba(25,31,36,0.7);--text-muted:rgba(25,31,36,0.4);--glass-bg:rgba(255,255,255,0.85);--glass-border:rgba(0,0,0,0.08);--shadow:0 8px 32px rgba(0,0,0,0.06);--chart-grid:rgba(0,0,0,0.06);--chart-text:rgba(0,0,0,0.5)}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth}body{font-family:'Inter',system-ui,-apple-system,sans-serif;background:var(--bg-primary);color:var(--text-primary);line-height:1.6;transition:background-color var(--transition),color var(--transition);overflow-x:hidden}a{color:var(--accent-light);text-decoration:none}
+.nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:0 2rem;height:64px;display:flex;align-items:center;justify-content:space-between;background:var(--glass-bg);backdrop-filter:blur(20px);border-bottom:1px solid var(--glass-border);transition:background var(--transition)}.nav-brand{font-weight:700;font-size:1.15rem;letter-spacing:0.05em;display:flex;align-items:center;gap:10px}.nav-brand .dot{width:10px;height:10px;border-radius:50%;background:linear-gradient(135deg,#40B4E5,#CC22FF)}.nav-actions{display:flex;align-items:center;gap:12px}
+.theme-toggle{width:56px;height:32px;min-width:44px;min-height:44px;border-radius:13px;border:none;cursor:pointer;background:linear-gradient(135deg,#40B4E5,#CC22FF);padding:2px;display:flex;align-items:center;transition:var(--transition);flex-shrink:0}.theme-toggle .knob{width:28px;height:28px;border-radius:50%;background:var(--bg-primary);display:flex;align-items:center;justify-content:center;font-size:11px;transition:transform var(--transition),background-color var(--transition);transform:translateX(0)}[data-theme="light"] .theme-toggle .knob{transform:translateX(24px)}
+.pdf-btn{display:inline-flex;align-items:center;gap:6px;padding:8px 18px;border-radius:10px;border:none;cursor:pointer;background:linear-gradient(135deg,#40B4E5,#CC22FF);color:#fff;font-family:inherit;font-size:0.78rem;font-weight:600;letter-spacing:0.03em;transition:transform var(--transition),box-shadow var(--transition);white-space:nowrap}.pdf-btn:hover{transform:translateY(-1px);box-shadow:0 4px 20px rgba(64,180,229,0.4)}
+section{padding:3.5rem 2rem;position:relative}section:nth-child(even){background:var(--bg-secondary);transition:background var(--transition)}.container{max-width:1200px;margin:0 auto}
+.section-badge{display:inline-flex;align-items:center;gap:6px;padding:6px 16px;border-radius:50px;background:var(--glass-bg);border:1px solid var(--glass-border);font-size:0.7rem;font-weight:600;letter-spacing:0.15em;text-transform:uppercase;color:var(--text-muted);margin-bottom:1.5rem;backdrop-filter:blur(10px)}
+.section-title{font-size:clamp(1.8rem,4vw,2.8rem);font-weight:800;letter-spacing:-0.03em;margin-bottom:1rem;line-height:1.15}.section-title .gradient{background:linear-gradient(135deg,#40B4E5,#CC22FF);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}.section-sub{color:var(--text-secondary);font-size:1.05rem;max-width:700px;margin-bottom:3rem;line-height:1.7}
+.hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding-top:64px;position:relative;overflow:hidden;background:#0d1117}[data-theme="light"] .hero{background:#f5f3ef}
+.hero-video{position:absolute;inset:0;z-index:0;overflow:hidden;pointer-events:none}.hero-video::after{content:'';position:absolute;inset:0;background:linear-gradient(rgba(13,17,23,0.7),rgba(13,17,23,0.85))}[data-theme="light"] .hero-video::after{background:linear-gradient(rgba(245,243,239,0.75),rgba(255,255,255,0.85))}.hero-video iframe{position:absolute;top:50%;left:50%;width:180vw;height:180vh;min-width:180%;min-height:180%;transform:translate(-50%,-50%);border:0}.hero>*:not(.hero-video){position:relative;z-index:1}
+.hero-company{font-size:clamp(2.5rem,7vw,5.5rem);font-weight:900;letter-spacing:-0.04em;line-height:1;margin-bottom:1.5rem;background:linear-gradient(135deg,#fff 0%,rgba(255,255,255,0.7) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}[data-theme="light"] .hero-company{background:linear-gradient(135deg,#191F24 0%,rgba(25,31,36,0.7) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hero-meta{display:flex;flex-wrap:wrap;gap:1rem;justify-content:center;margin-top:1rem;margin-bottom:3rem}.hero-meta span{padding:8px 20px;border-radius:50px;background:var(--glass-bg);border:1px solid var(--glass-border);backdrop-filter:blur(10px);font-size:0.8rem;font-weight:500;color:var(--text-secondary)}
+.hero-scroll{position:absolute;bottom:1rem;animation:bounce 2s infinite;opacity:0.5}@keyframes bounce{0%,100%{transform:translateY(0)}50%{transform:translateY(8px)}}
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:2rem;align-items:start}.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}.grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem}
+.card{background:var(--bg-card);border:1px solid var(--bg-card-border);border-radius:16px;padding:2rem;backdrop-filter:blur(10px);transition:transform var(--transition),box-shadow var(--transition),background var(--transition),border-color var(--transition)}.card:hover{transform:translateY(-3px);box-shadow:var(--shadow);border-color:rgba(64,180,229,0.2)}
+.metric-card{text-align:center;padding:2rem 1.5rem}.metric-card .value{font-size:2.2rem;font-weight:800;letter-spacing:-0.03em;background:linear-gradient(135deg,#40B4E5,#CC22FF);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}.metric-card .label{font-size:0.75rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--text-muted);margin-top:0.5rem}.metric-card .change{font-size:0.8rem;margin-top:0.3rem;font-weight:600}.metric-card .change.down{color:var(--red)}.metric-card .change.up{color:var(--green)}
+.score-ring{position:relative;width:120px;height:120px;margin:0 auto 1rem}.score-ring svg{transform:rotate(-90deg);width:120px;height:120px}.score-ring .bg{fill:none;stroke:var(--bg-card-border);stroke-width:8}.score-ring .fg{fill:none;stroke-width:8;stroke-linecap:round;transition:stroke-dashoffset 1.5s ease}.score-ring .grade{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:1.8rem;font-weight:800}
+.overall-bar{height:12px;border-radius:6px;background:var(--bg-card-border);overflow:hidden;margin-top:1rem}.overall-bar .fill{height:100%;border-radius:6px;transition:width 1.5s ease;background:linear-gradient(90deg,var(--red),var(--yellow),var(--green))}
+.data-table{width:100%;border-collapse:collapse;font-size:0.9rem}.data-table th{text-align:left;padding:1rem;font-size:0.7rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--text-muted);border-bottom:1px solid var(--bg-card-border)}.data-table td{padding:0.85rem 1rem;border-bottom:1px solid var(--bg-card-border);color:var(--text-secondary)}.data-table tr:hover td{color:var(--text-primary)}
+.badge{display:inline-block;padding:3px 10px;border-radius:6px;font-size:0.7rem;font-weight:600;letter-spacing:0.05em}.badge-branded{background:rgba(204,34,255,0.15);color:#CC22FF}.badge-generic{background:rgba(64,180,229,0.15);color:#40B4E5}.badge-info{background:rgba(34,197,94,0.15);color:#22c55e}
+.warning-banner{background:linear-gradient(135deg,rgba(239,68,68,0.1),rgba(239,68,68,0.05));border:1px solid rgba(239,68,68,0.2);border-radius:12px;padding:1.5rem 2rem;display:flex;align-items:center;gap:1rem;margin-bottom:2rem}.warning-banner .icon{font-size:1.5rem}.warning-banner .text{font-weight:600;color:var(--red)}.warning-banner .sub{color:var(--text-secondary);font-size:0.9rem;font-weight:400}
+.ps-row{display:grid;grid-template-columns:1fr auto 1fr;gap:1.5rem;align-items:center;margin-bottom:1.5rem}.ps-card{padding:1.5rem;border-radius:12px}.ps-problem{background:rgba(239,68,68,0.06);border:1px solid rgba(239,68,68,0.15)}.ps-solution{background:rgba(34,197,94,0.06);border:1px solid rgba(34,197,94,0.15)}.ps-arrow{font-size:1.5rem;background:linear-gradient(135deg,#40B4E5,#CC22FF);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;font-weight:800}.ps-card .title{font-weight:700;font-size:0.95rem;margin-bottom:0.25rem}.ps-problem .title{color:var(--red)}.ps-solution .title{color:var(--green)}
+.gap-card{padding:1.5rem;text-align:center}.gap-card .kw{font-weight:700;font-size:1rem;margin-bottom:0.5rem}.gap-card .vol{font-size:1.8rem;font-weight:800;background:linear-gradient(135deg,#40B4E5,#CC22FF);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}.gap-card .vol-label{font-size:0.7rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.1em}.gap-card .status{display:inline-block;margin-top:0.75rem;padding:4px 12px;border-radius:6px;background:rgba(239,68,68,0.12);color:var(--red);font-size:0.7rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase}
+.finding-card{display:flex;gap:1.5rem;align-items:start;padding:2rem}.finding-num{flex-shrink:0;width:48px;height:48px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.2rem;font-weight:800;color:#fff}.finding-num.critical{background:linear-gradient(135deg,#ef4444,#dc2626)}.finding-num.high{background:linear-gradient(135deg,#f59e0b,#d97706)}.finding-card .title{font-weight:700;font-size:1.05rem;margin-bottom:0.3rem}.finding-card .desc{color:var(--text-secondary);font-size:0.9rem}
+.strategy-card{padding:2.5rem 2rem;border-top:3px solid transparent;background-image:linear-gradient(var(--bg-card),var(--bg-card)),linear-gradient(135deg,#40B4E5,#CC22FF);background-origin:border-box;background-clip:padding-box,border-box;border-radius:16px;text-align:center}.strategy-card .icon{font-size:2.5rem;margin-bottom:1rem}.strategy-card .title{font-weight:700;font-size:1.1rem;margin-bottom:0.75rem}.strategy-card .desc{color:var(--text-secondary);font-size:0.9rem;line-height:1.6;margin-bottom:1rem}.strategy-card .outcome{padding:0.75rem;border-radius:8px;background:rgba(64,180,229,0.08);font-size:0.8rem;font-weight:600;color:var(--accent-light)}
+.timeline{display:flex;gap:0;margin-top:2rem;position:relative}.timeline::before{content:'';position:absolute;top:40px;left:0;right:0;height:3px;background:var(--bg-card-border)}.timeline-phase{flex:1;position:relative;padding-top:60px;padding-right:1.5rem}.timeline-dot{position:absolute;top:32px;left:0;width:18px;height:18px;border-radius:50%;background:linear-gradient(135deg,#40B4E5,#CC22FF);border:3px solid var(--bg-primary);z-index:1;transition:border-color var(--transition)}.timeline-phase .phase-label{font-size:0.7rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--accent-light);margin-bottom:0.5rem}.timeline-phase .phase-title{font-weight:700;font-size:1.1rem;margin-bottom:0.75rem}.timeline-phase .phase-items{list-style:none;display:flex;flex-direction:column;gap:0.4rem}.timeline-phase .phase-items li{font-size:0.9rem;color:var(--text-secondary);padding-left:1.2rem;position:relative}.timeline-phase .phase-items li::before{content:'';position:absolute;left:0;top:8px;width:6px;height:6px;border-radius:50%;background:var(--accent-light)}
+.roi-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1.5rem}.roi-card{text-align:center;padding:2rem 1.5rem}.roi-card .label{font-size:0.7rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--text-muted);margin-bottom:0.75rem}.roi-card .before{font-size:1.3rem;font-weight:600;color:var(--text-muted);text-decoration:line-through}.roi-card .arrow{font-size:1.5rem;margin:0.5rem 0;background:linear-gradient(135deg,#40B4E5,#CC22FF);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}.roi-card .after{font-size:2rem;font-weight:800;background:linear-gradient(135deg,#40B4E5,#CC22FF);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.team-photo{width:100%;max-width:720px;margin:0 auto 2.5rem;display:block;border-radius:16px;box-shadow:0 12px 40px rgba(0,0,0,0.25);object-fit:cover;height:320px}
+[data-theme="light"] .team-photo{box-shadow:0 12px 40px rgba(0,0,0,0.1)}
+.cta-section{text-align:center;padding:8rem 2rem;position:relative;overflow:hidden;background:linear-gradient(rgba(25,31,36,0.85),rgba(25,31,36,0.9)),url('https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=1600&q=80') center/cover no-repeat}
+[data-theme="light"] .cta-section{background:linear-gradient(rgba(245,243,239,0.85),rgba(245,243,239,0.9)),url('https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=1600&q=80') center/cover no-repeat}
+.cta-section::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 50%,rgba(64,180,229,0.1) 0%,transparent 60%);pointer-events:none}.cta-btn{display:inline-flex;align-items:center;gap:8px;padding:16px 40px;border-radius:14px;background:linear-gradient(135deg,#40B4E5,#CC22FF);color:#fff;font-family:inherit;font-size:1.1rem;font-weight:700;border:none;cursor:pointer;transition:transform var(--transition),box-shadow var(--transition)}.cta-btn:hover{transform:translateY(-2px);box-shadow:0 8px 30px rgba(64,180,229,0.4)}
+.value-props{display:flex;flex-wrap:wrap;justify-content:center;gap:2rem;margin:3rem 0}.value-prop{display:flex;align-items:center;gap:8px;color:var(--text-secondary);font-size:0.95rem}.value-prop .check{color:var(--green);font-weight:700}
+.steps{display:flex;justify-content:center;gap:3rem;margin-top:3rem;flex-wrap:wrap}.step{text-align:center;max-width:200px}.step-num{width:48px;height:48px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:1.2rem;margin:0 auto 0.75rem;background:linear-gradient(135deg,#40B4E5,#CC22FF);color:#fff}.step .title{font-weight:700;font-size:0.95rem;margin-bottom:0.3rem}.step .desc{font-size:0.8rem;color:var(--text-secondary)}
+.watermark{position:fixed;bottom:20px;left:20px;display:flex;align-items:center;gap:6px;padding:8px 16px;border-radius:10px;background:var(--glass-bg);border:1px solid var(--glass-border);backdrop-filter:blur(10px);font-size:0.7rem;font-weight:600;color:var(--text-muted);letter-spacing:0.05em;z-index:999;transition:background var(--transition)}
+.persona-card{padding:2rem;text-align:center}.persona-avatar{width:72px;height:72px;border-radius:50%;margin:0 auto 1rem;display:flex;align-items:center;justify-content:center;font-size:2rem;background:linear-gradient(135deg,rgba(64,180,229,0.15),rgba(204,34,255,0.15))}.persona-name{font-weight:700;font-size:1.1rem;margin-bottom:0.25rem}.persona-demo{font-size:0.85rem;color:var(--text-muted);margin-bottom:1rem}.persona-channels{display:flex;flex-wrap:wrap;gap:6px;justify-content:center;margin-bottom:1rem}.persona-channels .ch{padding:4px 10px;border-radius:6px;background:var(--glass-bg);border:1px solid var(--glass-border);font-size:0.7rem;font-weight:600;color:var(--text-secondary)}.persona-discover{font-size:0.85rem;color:var(--text-secondary);line-height:1.6}
+.chart-wrap{background:var(--bg-card);border:1px solid var(--bg-card-border);border-radius:16px;padding:2rem;backdrop-filter:blur(10px);transition:background var(--transition),border-color var(--transition)}
+.side-nav{position:fixed;right:1.2rem;top:50%;transform:translateY(-50%);z-index:999;display:flex;flex-direction:column;align-items:center;padding:14px 8px;border-radius:999px;background:var(--glass-bg);backdrop-filter:blur(20px);border:1px solid var(--glass-border);box-shadow:var(--shadow);transition:background var(--transition),border-color var(--transition)}
+.side-nav-line{position:absolute;top:14px;bottom:14px;width:1px;background:var(--glass-border);z-index:0}
+.side-nav-dot{position:relative;z-index:1;width:8px;height:8px;border-radius:50%;background:var(--text-muted);margin:7px 0;cursor:pointer;transition:all 0.3s ease;flex-shrink:0}
+.side-nav-dot:hover{background:var(--text-secondary);transform:scale(1.3)}
+.side-nav-dot.active{width:10px;height:10px;background:linear-gradient(135deg,#40B4E5,#CC22FF);box-shadow:0 0 10px rgba(64,180,229,0.5);margin:6px 0}
+.side-nav-dot .tooltip{position:absolute;right:calc(100% + 12px);top:50%;transform:translateY(-50%) translateX(6px);background:var(--glass-bg);backdrop-filter:blur(16px);border:1px solid var(--glass-border);color:var(--text-primary);padding:4px 10px;border-radius:8px;font-size:0.7rem;font-weight:600;letter-spacing:0.03em;white-space:nowrap;opacity:0;pointer-events:none;transition:all 0.25s ease;box-shadow:var(--shadow)}
+.side-nav-dot:hover .tooltip{opacity:1;transform:translateY(-50%) translateX(0)}
+@media(max-width:768px){.side-nav{display:none}}
+@media print{.side-nav{display:none}}
+@media(max-width:1024px){.grid-4{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:768px){.grid-2,.grid-3,.grid-4{grid-template-columns:1fr}.ps-row{grid-template-columns:1fr;text-align:center}.ps-arrow{transform:rotate(90deg)}.timeline{flex-direction:column;gap:2rem}.timeline::before{display:none}.timeline-phase{padding-top:0;padding-left:2rem}.timeline-dot{top:0;left:0}section{padding:4rem 1.5rem}}
+@media print{*{transition:none!important;animation:none!important}body{background:#fff!important;color:#191F24!important;font-size:10pt}.nav,.theme-toggle,.pdf-btn,.watermark,.hero-scroll{display:none!important}section{padding:2rem 0!important;background:#fff!important;page-break-inside:avoid;break-inside:avoid}section:nth-child(even){background:#fff!important}.hero{min-height:auto!important;padding:3rem 0!important}.hero-company{-webkit-text-fill-color:#191F24!important;font-size:2.5rem!important}.card{background:#f9f9f9!important;border:1px solid #ddd!important;backdrop-filter:none!important;box-shadow:none!important;page-break-inside:avoid!important}
+  .reviews-wrap{display:none!important}
+  .ps-row{margin-bottom:0.5rem!important;gap:0.5rem!important}
+  .ps-card{padding:0.75rem!important}
+  .ps-card .title{font-size:0.85rem!important}
+  .ps-card div{font-size:0.75rem!important}.section-title .gradient,.gradient{-webkit-text-fill-color:#0644ED!important;background:none!important;color:#0644ED!important}.metric-card .value,.roi-card .after,.gap-card .vol,.stat-card .stat-num{-webkit-text-fill-color:#0644ED!important}.reveal{opacity:1!important;transform:none!important}.chart-wrap{border:1px solid #ddd!important;background:#fff!important}a{color:#0644ED!important}.container{max-width:100%!important}@page{margin:1.5cm;size:letter}h1,h2,h3{page-break-after:avoid}.grid-4{grid-template-columns:repeat(4,1fr)!important}.grid-3{grid-template-columns:repeat(3,1fr)!important}.grid-2{grid-template-columns:1fr 1fr!important}.warning-banner{border:2px solid #ef4444!important}}
+.stats-bar{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem;margin-bottom:3rem}
+.stat-card{background:var(--glass-bg);border:1px solid var(--glass-border);border-radius:16px;padding:1.5rem;text-align:center;backdrop-filter:blur(10px)}
+.stat-card .stat-num{font-size:2.5rem;font-weight:800;background:linear-gradient(135deg,#40B4E5,#CC22FF);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1.2}
+.stat-card .stat-label{font-size:0.85rem;color:var(--text-muted);margin-top:0.25rem}
+.value-cards{display:grid;grid-template-columns:repeat(2,1fr);gap:1.5rem;margin:2.5rem 0;text-align:left}
+.value-card{background:var(--glass-bg);border:1px solid var(--glass-border);border-radius:16px;padding:1.75rem;backdrop-filter:blur(10px)}
+.value-card h4{font-size:1.05rem;font-weight:700;margin:0 0 0.5rem;color:var(--text-primary)}
+.value-card p{font-size:0.9rem;color:var(--text-secondary);margin:0;line-height:1.5}
+.client-logos{text-align:center;margin:2.5rem 0 1.5rem;font-size:0.8rem;color:var(--text-muted);letter-spacing:0.05em}
+.google-serp-card{background:#fff;border:1px solid #dadce0;border-radius:12px;padding:1.5rem 2rem;margin-bottom:1.5rem;font-family:'Inter',Arial,sans-serif}
+[data-theme="dark"] .google-serp-card{background:rgba(32,33,36,0.95);border-color:rgba(255,255,255,0.1)}
+.serp-search-bar{display:flex;align-items:center;gap:10px;padding:10px 16px;border-radius:24px;border:1px solid #dfe1e5;background:#fff;margin-bottom:1.5rem;max-width:600px}
+[data-theme="dark"] .serp-search-bar{background:rgba(32,33,36,1);border-color:rgba(100,116,139,0.3)}
+.serp-search-bar svg{flex-shrink:0}
+.serp-search-bar .query{font-size:0.95rem;color:#202124;font-weight:400}
+[data-theme="dark"] .serp-search-bar .query{color:#e8eaed}
+.serp-ad{padding:1rem 0;border-bottom:1px solid #ebebeb}
+[data-theme="dark"] .serp-ad{border-bottom-color:rgba(255,255,255,0.06)}
+.serp-ad:last-child{border-bottom:none}
+.serp-sponsored{display:inline-block;font-size:0.7rem;font-weight:700;color:#202124;background:transparent;padding:0;letter-spacing:0.02em;margin-bottom:4px}
+[data-theme="dark"] .serp-sponsored{color:#e8eaed}
+.serp-ad-url{font-size:0.82rem;color:#006621;margin-bottom:2px;display:flex;align-items:center;gap:4px}
+[data-theme="dark"] .serp-ad-url{color:#99c794}
+.serp-ad-title{font-size:1.15rem;color:#1a0dab;font-weight:400;margin-bottom:4px;cursor:pointer;line-height:1.3}
+.serp-ad-title:hover{text-decoration:underline}
+[data-theme="dark"] .serp-ad-title{color:#8ab4f8}
+.serp-ad-desc{font-size:0.85rem;color:#4d5156;line-height:1.5}
+[data-theme="dark"] .serp-ad-desc{color:#bdc1c6}
+.serp-no-ads{padding:1.5rem;text-align:center;border:2px dashed rgba(239,68,68,0.3);border-radius:12px;margin:1rem 0}
+.serp-no-ads .label{font-size:1rem;font-weight:700;color:var(--red);margin-bottom:0.25rem}
+.serp-no-ads .sub{font-size:0.85rem;color:var(--text-secondary)}
+.ads-callout{background:linear-gradient(135deg,rgba(245,158,11,0.1),rgba(245,158,11,0.05));border:1px solid rgba(245,158,11,0.25);border-radius:12px;padding:1.5rem 2rem;margin-top:2rem;display:flex;align-items:start;gap:1rem}
+.ads-callout .icon{font-size:1.5rem;flex-shrink:0;line-height:1}
+.ads-callout .content{flex:1}
+.ads-callout .content .headline{font-weight:700;color:var(--yellow);font-size:0.95rem;margin-bottom:0.25rem}
+.ads-callout .content .body{color:var(--text-secondary);font-size:0.88rem;line-height:1.6}
+.seo-matrix-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;margin-top:2rem;border-radius:16px;background:var(--bg-card);border:1px solid var(--bg-card-border);backdrop-filter:blur(10px)}
+.seo-matrix{width:100%;border-collapse:collapse;font-size:0.88rem;min-width:600px}
+.seo-matrix thead th{padding:1rem 1.25rem;font-size:0.7rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--text-muted);border-bottom:2px solid var(--bg-card-border);text-align:center;white-space:nowrap}
+.seo-matrix thead th:first-child{text-align:left}
+.seo-matrix thead th.highlight{background:linear-gradient(135deg,rgba(64,180,229,0.08),rgba(204,34,255,0.08));color:var(--accent-light);position:relative}
+.seo-matrix thead th.highlight::after{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,#40B4E5,#CC22FF);border-radius:3px 3px 0 0}
+.seo-matrix tbody td{padding:0.85rem 1.25rem;border-bottom:1px solid var(--bg-card-border);text-align:center;color:var(--text-secondary);white-space:nowrap}
+.seo-matrix tbody td:first-child{text-align:left;font-weight:600;color:var(--text-primary)}
+.seo-matrix tbody td.highlight{background:linear-gradient(135deg,rgba(64,180,229,0.04),rgba(204,34,255,0.04))}
+.seo-matrix tbody tr:hover td{background:var(--bg-card-hover)}
+.seo-matrix tbody tr:hover td.highlight{background:linear-gradient(135deg,rgba(64,180,229,0.08),rgba(204,34,255,0.08))}
+.seo-matrix .status-good{color:var(--green)}
+.seo-matrix .status-warn{color:var(--yellow)}
+.seo-matrix .status-bad{color:var(--red)}
+.seo-matrix .winner-row td{border-top:2px solid var(--bg-card-border);font-weight:700;font-size:0.75rem;letter-spacing:0.08em;text-transform:uppercase}
+.seo-matrix .winner-row td.winning{background:linear-gradient(135deg,rgba(34,197,94,0.1),rgba(34,197,94,0.05));color:var(--green)}
+.seo-matrix .winner-row td.losing{background:linear-gradient(135deg,rgba(239,68,68,0.1),rgba(239,68,68,0.05));color:var(--red)}
+.seo-matrix .winner-row td.neutral{color:var(--text-muted)}
+.reading-progress{position:fixed;top:64px;left:0;width:0%;height:3px;background:linear-gradient(90deg,#40B4E5,#CC22FF);z-index:1001;transition:width 0.1s linear;pointer-events:none}
+.section-pill{position:fixed;top:58px;left:50%;transform:translateX(-50%) translateY(-10px);z-index:1001;padding:6px 18px;border-radius:50px;background:var(--glass-bg);backdrop-filter:blur(16px);border:1px solid var(--glass-border);font-size:0.7rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-muted);opacity:0;transition:opacity 0.3s ease,transform 0.3s ease;pointer-events:none;white-space:nowrap}
+.section-pill.visible{opacity:1;transform:translateX(-50%) translateY(0)}
+@media print{.section-pill{display:none!important}}
+.gradient-divider{height:2px;background:linear-gradient(90deg,transparent,#40B4E5,#CC22FF,transparent);margin:0;opacity:0;transform:scaleX(0);transition:opacity 0.8s ease,transform 1s cubic-bezier(0.22,1,0.36,1);transform-origin:center}
+.gradient-divider.active{opacity:1;transform:scaleX(1)}
+.chart-hint{text-align:center;font-size:0.75rem;color:var(--text-muted);margin-top:0.75rem;opacity:0.7;font-style:italic}
+.chart-hint::before{content:'' }
+@keyframes ctaPulse{0%{box-shadow:0 0 0 0 rgba(64,180,229,0.4)}70%{box-shadow:0 0 0 15px rgba(64,180,229,0)}100%{box-shadow:0 0 0 0 rgba(64,180,229,0)}}
+.cta-btn.pulse{animation:ctaPulse 2s ease-in-out infinite}
+.print-only{display:none!important}
+.print-cover{page-break-after:always;text-align:center;padding:4rem 2rem;min-height:90vh;flex-direction:column;align-items:center;justify-content:center}
+.print-cover .cover-brand{font-size:1.8rem;font-weight:800;letter-spacing:0.08em;color:#191F24;margin-bottom:3rem}
+.print-cover .cover-type{font-size:0.85rem;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:#64748b;margin-bottom:1rem}
+.print-cover .cover-client{font-size:3rem;font-weight:900;color:#191F24;margin-bottom:0.5rem;letter-spacing:-0.03em}
+.print-cover .cover-domain{font-size:1rem;color:#64748b;margin-bottom:3rem}
+.print-cover .cover-prepared{font-size:0.9rem;color:#64748b;margin-bottom:1rem}
+.print-cover .cover-confidential{font-size:0.7rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:#ef4444;margin-top:3rem;padding:8px 24px;border:2px solid #ef4444;border-radius:4px;display:inline-block}
+.print-toc{page-break-after:always;padding:3rem 2rem}
+.print-toc h2{font-size:1.8rem;font-weight:800;color:#191F24;margin-bottom:2rem;letter-spacing:-0.03em}
+.print-toc-item{display:flex;align-items:center;padding:0.6rem 0;border-bottom:1px solid #e5e7eb;font-size:0.9rem;color:#374151}
+.print-toc-item .toc-num{width:30px;font-weight:700;color:#0644ED;flex-shrink:0}
+.print-toc-item .toc-name{flex:1}
+@media print{
+  .print-only{display:block!important}
+  .print-cover{display:flex!important}
+  .print-cover .cover-dot{background:#0644ED!important;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  #overview,#summary,#scorecard,#pagespeed,#traffic,#keywords,#ads,#competitors,#seo-matrix,#social,#email,#reputation,#solutions,#findings,#strategy,#roadmap,#roi,#cta{page-break-before:always}
+  .card{background:#f8f9fa!important;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .section-title .gradient,.metric-card .value,.roi-card .after,.gap-card .vol,.stat-card .stat-num{-webkit-text-fill-color:#0644ED!important;background:none!important}
+  .score-ring .fg{stroke:#0644ED!important}
+  .reveal{opacity:1!important;transform:none!important;transition:none!important}
+}
+@media(max-width:768px){.stats-bar{grid-template-columns:repeat(2,1fr)}.value-cards{grid-template-columns:1fr}}
+</style>
+<style>
+.rfp-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:1.5rem}
+.rfp-item{display:flex;gap:12px;align-items:flex-start;padding:1rem 1.15rem;border-radius:12px;background:var(--bg-card);border:1px solid var(--bg-card-border)}
+.rfp-item .ck{flex-shrink:0;width:28px;height:28px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-weight:800;color:#fff;background:linear-gradient(135deg,#40B4E5,#CC22FF);font-size:.75rem}
+.rfp-item .t{font-weight:700;font-size:.92rem;margin-bottom:.15rem}
+.rfp-item .d{font-size:.82rem;color:var(--text-secondary);line-height:1.45}
+@media(max-width:768px){.rfp-grid{grid-template-columns:1fr}}
+.score-row{display:grid;grid-template-columns:repeat(5,1fr);gap:1rem;margin:1.5rem 0 0}
+@media(max-width:900px){.score-row{grid-template-columns:1fr 1fr}}
+</style>
+</head>
+<body>
+<nav class="nav">
+  <div class="nav-brand"><span class="dot"></span> BRANDASTIC</div>
+  <div class="nav-actions">
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme"><span class="knob">◐</span></button>
+    <button class="pdf-btn" onclick="window.print()">Save PDF</button>
+  </div>
+</nav>
+<div class="side-nav" aria-hidden="true">
+  <div class="side-nav-line"></div>
+  <div class="side-nav-dot active" data-section="hero"><span class="tooltip">Start</span></div>
+  <div class="side-nav-dot" data-section="rfp"><span class="tooltip">Their brief</span></div>
+  <div class="side-nav-dot" data-section="score"><span class="tooltip">Scores</span></div>
+  <div class="side-nav-dot" data-section="seo"><span class="tooltip">SEO</span></div>
+  <div class="side-nav-dot" data-section="ppc"><span class="tooltip">PPC</span></div>
+  <div class="side-nav-dot" data-section="tracking"><span class="tooltip">Tracking</span></div>
+  <div class="side-nav-dot" data-section="meta"><span class="tooltip">Meta</span></div>
+  <div class="side-nav-dot" data-section="compliance"><span class="tooltip">Compliance</span></div>
+  <div class="side-nav-dot" data-section="fullstack"><span class="tooltip">SEO+Host</span></div>
+  <div class="side-nav-dot" data-section="plan"><span class="tooltip">90 days</span></div>
+  <div class="side-nav-dot" data-section="cta"><span class="tooltip">Next</span></div>
+</div>
+
+<section class="hero" id="hero">
+  <div>
+    <div class="section-badge">Google SEO · PPC · Paid Social Audit</div>
+    <h1 class="hero-company">RHOME</h1>
+    <p style="font-size:1.25rem;color:var(--text-secondary);max-width:640px;margin:0 auto 1rem;line-height:1.5">Landlord demand is underrepresented. Renter intent wins by default — in organic and paid.</p>
+    <div class="hero-meta">
+      <span>rhomepm.com</span>
+      <span>Oct 20, 2026</span>
+      <span>Semrush US + site review</span>
+      <span>Confidential</span>
+    </div>
+    <p style="color:var(--text-muted);font-size:.9rem;max-width:560px;margin:0 auto">This audit answers every item in your partner brief: campaign structure, landlord vs renter mix, negatives, tracking, Meta, reporting, compliance, and optional SEO / content / hosting.</p>
+  </div>
+  <div class="hero-scroll">↓</div>
+</section>
+
+<section id="rfp">
+  <div class="container">
+    <div class="section-badge">01 · Your brief → our plan</div>
+    <h2 class="section-title">Everything you asked for — <span class="gradient">mapped</span></h2>
+    <p class="section-sub">Not a generic agency pitch. Each line below is something you named. Each has a concrete answer later in this audit.</p>
+    <div class="rfp-grid">
+      <div class="rfp-item"><div class="ck">1</div><div><div class="t">Shift budget to landlord leads</div><div class="d">Separate landlord vs renter engines; landlord is primary optimize goal; renter capped — not deleted.</div></div></div>
+      <div class="rfp-item"><div class="ck">2</div><div><div class="t">Own campaign structure & setup</div><div class="d">Brand + city PM intent + landlord problem terms; renter campaigns fenced with shared negatives.</div></div></div>
+      <div class="rfp-item"><div class="ck">3</div><div><div class="t">Audience targeting</div><div class="d">Owner-lead lookalikes; split retargeting (owner pages vs listing browsers); no one big “site visitors” pool.</div></div></div>
+      <div class="rfp-item"><div class="ck">4</div><div><div class="t">Budget allocation</div><div class="d">Written landlord % target; weekly rebalance; renter ceiling so it can’t eat owner pipeline.</div></div></div>
+      <div class="rfp-item"><div class="ck">5</div><div><div class="t">Negative keyword discipline</div><div class="d">Shared lists + weekly search-term mining so renter verbs never bleed into landlord groups.</div></div></div>
+      <div class="rfp-item"><div class="ck">6</div><div><div class="t">Landlord vs renter tracking</div><div class="d">Hard events: landlord_lead, renter_apply_*; portals labeled and excluded from acquisition optimize.</div></div></div>
+      <div class="rfp-item"><div class="ck">7</div><div><div class="t">Proactive reporting</div><div class="d">Weekly mix + CPL; monthly market scorecard; change log — not vanity dashboards.</div></div></div>
+      <div class="rfp-item"><div class="ck">8</div><div><div class="t">PM / rental compliance</div><div class="d">Fair housing–safe creative, claim review, multi-state + Canada guardrails.</div></div></div>
+      <div class="rfp-item"><div class="ck">9</div><div><div class="t">Paid search (Google)</div><div class="d">Intent ads on landlord queries by market; Semrush shows <strong>0</strong> Google Ads keywords today.</div></div></div>
+      <div class="rfp-item"><div class="ck">10</div><div><div class="t">Paid social (Meta)</div><div class="d">Move off awareness-only; optimize to LandlordLead; creative for owner pain + local proof.</div></div></div>
+      <div class="rfp-item"><div class="ck">11</div><div><div class="t">SEO + content + hosting</div><div class="d">Yes — full stack available. City owner pages are the long-term moat around paid.</div></div></div>
+      <div class="rfp-item"><div class="ck">12</div><div><div class="t">Long-term scale partner</div><div class="d">90-day build → market-by-market scale once landlord CPL is proven.</div></div></div>
+    </div>
+  </div>
+</section>
+
+<section id="score">
+  <div class="container">
+    <div class="section-badge">02 · Snapshot</div>
+    <h2 class="section-title">Overall: <span class="gradient">brand-strong, demand-weak</span></h2>
+    <p class="section-sub">You win when people already know “RHOME.” You under-capture landlords searching generically in your cities. Paid footprint in Semrush is effectively empty — which matches “minimal paid / remarketing-heavy.”</p>
+    <div class="warning-banner">
+      <div class="icon">!</div>
+      <div>
+        <div class="text">Core business risk</div>
+        <div class="sub">Organic traffic is ~brand + noise. High-value landlord queries (e.g. “property management san diego” ~1,900/mo, CPC ~$5+) are open competitive battlegrounds. Paid isn’t buying them yet. Renter paths on the site still win by gravity.</div>
+      </div>
+    </div>
+    <div class="score-row">
+      <div class="card metric-card"><div class="value">1,518</div><div class="label">Organic keywords</div></div>
+      <div class="card metric-card"><div class="value">~1,188</div><div class="label">Est. organic traffic</div></div>
+      <div class="card metric-card"><div class="value">$0</div><div class="label">Google Ads traffic (Semrush)</div></div>
+      <div class="card metric-card"><div class="value">#1</div><div class="label">Brand “rhome”</div></div>
+      <div class="card metric-card"><div class="value">C+</div><div class="label">Landlord demand capture</div></div>
+    </div>
+    <p style="margin-top:1rem;font-size:.8rem;color:var(--text-muted)">Source: Semrush US domain_ranks + domain_organic, Oct 20, 2026. Adwords keywords/traffic/cost all 0. Public site review only — ad accounts not connected yet.</p>
+  </div>
+</section>
+
+<section id="seo">
+  <div class="container">
+    <div class="section-badge">03 · Google SEO</div>
+    <h2 class="section-title">SEO findings: <span class="gradient">moat is unfinished</span></h2>
+    <p class="section-sub">City property-management pages exist (Dallas, San Diego, Nashville, Chicago, Atlanta…). That’s the right architecture. Rankings and internal priority still favor brand and mixed-audience paths.</p>
+
+    <div class="grid-2" style="margin-bottom:1.5rem">
+      <div class="card finding-card">
+        <div class="finding-num critical">1</div>
+        <div>
+          <div class="title">Organic is brand-heavy</div>
+          <div class="desc">Top traffic terms: “rhome”, “rhome property management”, official-website variants. Fine for retention — weak for new landlord acquisition in-market.</div>
+        </div>
+      </div>
+      <div class="card finding-card">
+        <div class="finding-num critical">2</div>
+        <div>
+          <div class="title">High-intent landlord queries are open</div>
+          <div class="desc">Examples (US vol / CPC): property management san diego 1,900 / $5.26 · company near me 2,900 / $5.24 · dallas 880 / $5.43 · nashville 590 / $5.57 · hire a property manager 590 / $7.58. These should map to owner LPs + local pages.</div>
+        </div>
+      </div>
+      <div class="card finding-card">
+        <div class="finding-num high">3</div>
+        <div>
+          <div class="title">Dual-audience homepage dilutes SEO + paid</div>
+          <div class="desc">Title/desc lean investors; H1 is generic (“Find Everything You Need”). Owners, Residents, For Rent, Acquisitions share one roof — Google and users get mixed intent.</div>
+        </div>
+      </div>
+      <div class="card finding-card">
+        <div class="finding-num high">4</div>
+        <div>
+          <div class="title">Subdomains / city variants split equity</div>
+          <div class="desc">Semrush hits saltlake.rhomepm.com, chicago.rhomepm.com, nashville.rhomepm.com alongside www city URLs. Consolidate signals; one canonical pattern per market.</div>
+        </div>
+      </div>
+      <div class="card finding-card">
+        <div class="finding-num high">5</div>
+        <div>
+          <div class="title">Renter/content noise in organic mix</div>
+          <div class="desc">Terms like short-term lease, rent stabilized, resident benefits package pull non-landlord journeys. Keep pages — don’t let them own the growth narrative in reporting.</div>
+        </div>
+      </div>
+      <div class="card finding-card">
+        <div class="finding-num high">6</div>
+        <div>
+          <div class="title">Trust / CTA hygiene</div>
+          <div class="desc">Header social icons → # (dead). Contact often via Locations. Owner form path needs to be the hero on owner-intent pages for SEO and ads message match.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card" style="margin-top:.5rem">
+      <h3 style="margin-bottom:.75rem;font-size:1.05rem">SEO scorecard (public)</h3>
+      <table class="data-table">
+        <thead><tr><th>Area</th><th>Status</th><th>Note</th></tr></thead>
+        <tbody>
+          <tr><td>Technical base</td><td><span class="badge badge-info">OK</span></td><td>HTTPS, sitemap, GTM present, multi-location IA</td></tr>
+          <tr><td>Brand SEO</td><td><span class="badge badge-info">Strong</span></td><td>#1 for rhome / brand PM variants</td></tr>
+          <tr><td>Local landlord SEO</td><td><span class="badge badge-branded">Gap</span></td><td>City pages exist; generic high-vol PM terms not owned</td></tr>
+          <tr><td>On-page owner intent</td><td><span class="badge badge-branded">Gap</span></td><td>H1/CTA/message match for paid + organic owner queries</td></tr>
+          <tr><td>Content system</td><td><span class="badge badge-generic">Partial</span></td><td>Blog leans investment; needs market landlord hubs</td></tr>
+          <tr><td>Google Ads support SEO</td><td><span class="badge badge-branded">Missing</span></td><td>0 Adwords KWs in Semrush — no paid assist on head terms</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section id="ppc">
+  <div class="container">
+    <div class="section-badge">04 · Google PPC</div>
+    <h2 class="section-title">Paid search: <span class="gradient">build the landlord engine</span></h2>
+    <p class="section-sub">You asked for intent-driven search at the top of results, ROI focus, structure, audiences, budget, and negatives. Here’s the operating model.</p>
+
+    <div class="ads-callout">
+      <div class="icon">$</div>
+      <div class="content">
+        <div class="headline">Semrush Adwords footprint = 0 keywords / 0 traffic / $0</div>
+        <div class="body">Either ads are off, brand-only with no index, or too small to register. Matches your note: minimal paid, mostly remarketing/awareness. Landlord search demand is largely unbought.</div>
+      </div>
+    </div>
+
+    <div class="grid-2" style="margin-top:1.5rem">
+      <div class="card">
+        <h3 style="margin-bottom:.5rem">Landlord campaigns (priority budget)</h3>
+        <ul style="color:var(--text-secondary);font-size:.9rem;line-height:1.6;padding-left:1.1rem">
+          <li><strong style="color:var(--text-primary)">Brand</strong> — protect RHOME / misspellings</li>
+          <li><strong style="color:var(--text-primary)">Core PM by market</strong> — “property management [city]”, “hire property manager [city]”</li>
+          <li><strong style="color:var(--text-primary)">Landlord problems</strong> — vacancy, bad tenant ops, full-service PM (compliance-reviewed copy)</li>
+          <li><strong style="color:var(--text-primary)">Competitor</strong> — optional, capped</li>
+          <li>Exact/phrase heavy; RSA headlines pinned to investor outcomes</li>
+          <li>Landing: owner LP or city owner page — never generic homepage</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3 style="margin-bottom:.5rem">Renter campaigns (capped, kept)</h3>
+        <ul style="color:var(--text-secondary);font-size:.9rem;line-height:1.6;padding-left:1.1rem">
+          <li>Separate budget ceiling so it can’t steal landlord share</li>
+          <li>Only markets where unit fill is an explicit goal</li>
+          <li>Bid to apply / qualified inquiry — not soft clicks</li>
+          <li>Land on listings / apply paths only</li>
+          <li>Negatives shared upward into landlord campaigns</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="card" style="margin-top:1.25rem">
+      <h3 style="margin-bottom:.5rem">Negative keyword system (you called this out)</h3>
+      <p style="color:var(--text-secondary);font-size:.9rem;line-height:1.6">Shared lists on landlord campaigns: jobs, salary, DIY, free, template, apartment for rent, student housing noise, pure tenant verbs. Weekly search-term mining. This is how you shift balance <em>without</em> writing off renters.</p>
+    </div>
+
+    <div class="grid-3" style="margin-top:1.25rem">
+      <div class="card gap-card"><div class="kw">property management san diego</div><div class="vol">1,900</div><div class="vol-label">mo searches · ~$5.26 CPC</div><div class="status">Buy + rank</div></div>
+      <div class="card gap-card"><div class="kw">property management company near me</div><div class="vol">2,900</div><div class="vol-label">mo searches · ~$5.24 CPC</div><div class="status">Geo-fenced</div></div>
+      <div class="card gap-card"><div class="kw">hire a property manager</div><div class="vol">590</div><div class="vol-label">mo searches · ~$7.58 CPC</div><div class="status">High intent</div></div>
+    </div>
+  </div>
+</section>
+
+<section id="tracking">
+  <div class="container">
+    <div class="section-badge">05 · Conversion tracking</div>
+    <h2 class="section-title">Landlord vs renter must be <span class="gradient">separate wins</span></h2>
+    <p class="section-sub">If Google/Meta treat applications, portal logins, and owner forms as one “conversion,” smart bidding will keep buying cheap renter volume. You asked for clear landlord vs renter results — this is the unlock.</p>
+    <div class="card">
+      <table class="data-table">
+        <thead><tr><th>Event</th><th>Definition</th><th>Optimize?</th></tr></thead>
+        <tbody>
+          <tr><td><strong>landlord_lead</strong></td><td>Owner/investor form or booked consult (+ market)</td><td>Primary — landlord campaigns</td></tr>
+          <tr><td><strong>landlord_call_click</strong></td><td>Click-to-call on owner pages</td><td>Secondary / observe</td></tr>
+          <tr><td><strong>renter_apply_start</strong></td><td>Application start</td><td>Renter campaigns only</td></tr>
+          <tr><td><strong>renter_apply_submit</strong></td><td>Application complete</td><td>Renter campaigns only</td></tr>
+          <tr><td><strong>portal_login</strong></td><td>Owner or tenant portal (labeled)</td><td>Exclude from acquisition</td></tr>
+          <tr><td><strong>listing_view</strong></td><td>Homes-for-rent detail</td><td>Renter audiences only</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="margin-top:1rem;color:var(--text-secondary);font-size:.9rem">Site already has GTM (<code>GTM-5L36S5V</code>). Next step with access: GTM + GA4 + Google Ads + Meta CAPI audit and rename. No Meta pixel visible in raw HTML (may live only inside GTM — unconfirmed).</p>
+  </div>
+</section>
+
+<section id="meta">
+  <div class="container">
+    <div class="section-badge">06 · Meta paid social</div>
+    <h2 class="section-title">Stop awareness-only. <span class="gradient">Build landlord demand.</span></h2>
+    <p class="section-sub">You want Meta planned by platform best practice, aligned to business objectives — not just reach.</p>
+    <div class="grid-3">
+      <div class="card strategy-card">
+        <div class="icon">1</div>
+        <div class="title">Prospecting</div>
+        <div class="desc">Lookalikes from <strong>owner lead</strong> events only. Test investor/landlord stacks. Never train on mixed site traffic.</div>
+        <div class="outcome">Optimize → LandlordLead</div>
+      </div>
+      <div class="card strategy-card">
+        <div class="icon">2</div>
+        <div class="title">Retargeting</div>
+        <div class="desc">Split pools: owner page / form starters vs listing browsers. Different creative and offers.</div>
+        <div class="outcome">No single 180-day site bucket</div>
+      </div>
+      <div class="card strategy-card">
+        <div class="icon">3</div>
+        <div class="title">Creative</div>
+        <div class="desc">Owner pain: time, maintenance, vacancy cost, local team. Proof: markets, process, Landlord Protection Plus. Fair housing–safe.</div>
+        <div class="outcome">Message-match owner LPs</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="compliance">
+  <div class="container">
+    <div class="section-badge">07 · Industry & compliance</div>
+    <h2 class="section-title">Rental ads aren’t <span class="gradient">generic e‑comm</span></h2>
+    <p class="section-sub">You flagged legal/regulatory nuance. Missteps are compliance risk, not just wasted spend. Multi-state + Canada footprint raises the bar.</p>
+    <div class="grid-2">
+      <div class="card">
+        <h3 style="margin-bottom:.5rem">Guardrails</h3>
+        <ul style="color:var(--text-secondary);font-size:.9rem;line-height:1.65;padding-left:1.1rem">
+          <li>Fair housing–safe creative and audience exclusions</li>
+          <li>No discriminatory targeting shortcuts</li>
+          <li>Claim review: income, vacancy, “guaranteed” language</li>
+          <li>Market-specific notes when needed</li>
+          <li>Owner marketing vs resident comms kept separate</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3 style="margin-bottom:.5rem">Process</h3>
+        <ul style="color:var(--text-secondary);font-size:.9rem;line-height:1.65;padding-left:1.1rem">
+          <li>Creative checklist before launch</li>
+          <li>Landing claims aligned to site legal copy</li>
+          <li>Escalation path to your ops/legal contact</li>
+          <li>Change log inside weekly reporting</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="fullstack">
+  <div class="container">
+    <div class="section-badge">08 · SEO · content · hosting</div>
+    <h2 class="section-title">Fuller engagement: <span class="gradient">yes, we own it</span></h2>
+    <p class="section-sub">You preferred an agency that can also run SEO, content, and hosting. Brandastic does. Paid gets efficient faster when landers and organic stop sending mixed signals.</p>
+    <div class="grid-3">
+      <div class="card">
+        <h3 style="margin-bottom:.4rem">SEO</h3>
+        <p style="color:var(--text-secondary);font-size:.9rem;line-height:1.55">City owner pages as the moat. Fix subdomain/canonical split, internal links Owners vs Residents, schema, speed on nginx stack. Rank for landlord intent — not only listings.</p>
+      </div>
+      <div class="card">
+        <h3 style="margin-bottom:.4rem">Content</h3>
+        <p style="color:var(--text-secondary);font-size:.9rem;line-height:1.55">Turn blog into a system: landlord guides by market, fee explainers, “what a PM does” pages that feed paid + organic.</p>
+      </div>
+      <div class="card">
+        <h3 style="margin-bottom:.4rem">Hosting / web</h3>
+        <p style="color:var(--text-secondary);font-size:.9rem;line-height:1.55">Host and harden marketing site; keep AppFolio as system of record; fix dead socials; ship owner LPs without a slow vendor queue.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="plan">
+  <div class="container">
+    <div class="section-badge">09 · 90-day plan + reporting</div>
+    <h2 class="section-title">How we run it</h2>
+    <div class="timeline">
+      <div class="timeline-phase">
+        <div class="timeline-dot"></div>
+        <div class="phase-label">Days 1–30</div>
+        <div class="phase-title">Foundation</div>
+        <ul class="phase-items">
+          <li>Ads + GTM + GA4 access</li>
+          <li>Event map landlord vs renter</li>
+          <li>Search term / audience autopsy</li>
+          <li>Rebuild Google structure</li>
+          <li>Negatives v1</li>
+          <li>Owner LP wireframes (top markets)</li>
+        </ul>
+      </div>
+      <div class="timeline-phase">
+        <div class="timeline-dot"></div>
+        <div class="phase-label">Days 31–60</div>
+        <div class="phase-title">Shift the mix</div>
+        <ul class="phase-items">
+          <li>Landlord-first Search + Meta live</li>
+          <li>Renter spend at agreed %</li>
+          <li>Message-match LPs</li>
+          <li>Creative tests (owner angles)</li>
+          <li>Weekly search-term mining</li>
+          <li>True landlord CPL baseline</li>
+        </ul>
+      </div>
+      <div class="timeline-phase">
+        <div class="timeline-dot"></div>
+        <div class="phase-label">Days 61–90</div>
+        <div class="phase-title">Scale winners</div>
+        <ul class="phase-items">
+          <li>Double down efficient markets</li>
+          <li>Cut waste</li>
+          <li>SEO quick wins on city pages</li>
+          <li>Reporting automation</li>
+          <li>Q2 budget recommendation</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="grid-2" style="margin-top:2.5rem">
+      <div class="card">
+        <h3 style="margin-bottom:.5rem">Weekly reporting (proactive)</h3>
+        <ul style="color:var(--text-secondary);font-size:.9rem;line-height:1.6;padding-left:1.1rem">
+          <li>Landlord leads, CPL, spend share vs target</li>
+          <li>Renter volume under cap</li>
+          <li>Negatives added</li>
+          <li>Creative / LP winners–losers</li>
+          <li>“What we changed” log</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3 style="margin-bottom:.5rem">Monthly</h3>
+        <ul style="color:var(--text-secondary);font-size:.9rem;line-height:1.6;padding-left:1.1rem">
+          <li>% budget → landlord outcomes</li>
+          <li>Market scorecard</li>
+          <li>Sales quality feedback loop</li>
+          <li>SEO movement on owner pages</li>
+          <li>Next-month test plan</li>
+        </ul>
+      </div>
+    </div>
+    <p class="section-sub" style="margin-top:1.5rem;margin-bottom:0"><strong style="color:var(--text-primary)">North star:</strong> more qualified landlord leads per dollar — renter volume held to a conscious budget, not an accident.</p>
+  </div>
+</section>
+
+<section class="cta-section" id="cta">
+  <div class="container" style="position:relative;z-index:1">
+    <div class="section-badge" style="color:rgba(255,255,255,0.7)">Next step</div>
+    <h2 class="section-title" style="color:#fff">Open the accounts.<br><span class="gradient">We’ll prove the mix shift.</span></h2>
+    <p style="color:rgba(255,255,255,0.75);max-width:640px;margin:0 auto 1.5rem;line-height:1.7">60–90 min working session: Google Ads, Meta, GTM, top 3 markets. You leave with landlord budget % target, event list, and 30-day build plan.</p>
+    <div class="value-props" style="color:rgba(255,255,255,0.8)">
+      <div class="value-prop"><span class="check">✓</span> Paid search + Meta</div>
+      <div class="value-prop"><span class="check">✓</span> Tracking split</div>
+      <div class="value-prop"><span class="check">✓</span> SEO / content / hosting ready</div>
+      <div class="value-prop"><span class="check">✓</span> PM compliance habits</div>
+    </div>
+    <p style="color:rgba(255,255,255,0.45);font-size:0.85rem;margin-top:2rem">Prepared by Brandastic · rhomepm.com public + Semrush US · Oct 20, 2026 · Private leave-behind</p>
+    <p style="margin-top:1rem"><a class="cta-btn" href="https://brandastic.com" target="_blank" rel="noopener">Brandastic</a></p>
+  </div>
+</section>
+
+<div class="watermark">Brandastic · Confidential</div>
+<script>
+(function(){
+  var root=document.documentElement;
+  var btn=document.getElementById('themeToggle');
+  function apply(t){root.setAttribute('data-theme',t);localStorage.setItem('brandastic-theme',t);}
+  var saved=localStorage.getItem('brandastic-theme');if(saved)apply(saved);
+  btn&&btn.addEventListener('click',function(){apply(root.getAttribute('data-theme')==='dark'?'light':'dark');});
+  var dots=[].slice.call(document.querySelectorAll('.side-nav-dot'));
+  var sections=dots.map(function(d){return document.getElementById(d.getAttribute('data-section'));}).filter(Boolean);
+  function onScroll(){
+    var y=window.scrollY+window.innerHeight*0.35;
+    var cur=sections[0];
+    sections.forEach(function(s){if(s.offsetTop<=y)cur=s;});
+    dots.forEach(function(d){d.classList.toggle('active',d.getAttribute('data-section')===(cur&&cur.id));});
+  }
+  window.addEventListener('scroll',onScroll,{passive:true});onScroll();
+  dots.forEach(function(d){d.addEventListener('click',function(){
+    var el=document.getElementById(d.getAttribute('data-section'));
+    if(el) el.scrollIntoView({behavior:'smooth',block:'start'});
+  });});
+})();
+</script>
+</body>
+</html>

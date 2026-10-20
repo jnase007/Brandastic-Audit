@@ -437,3 +437,24 @@
   from = "/rhome/"
   to = "/client.html"
   status = 200
+
+
+[[redirects]]
+  from = "/rhomepm"
+  to = "/rhomepm.html"
+  status = 200
+
+[[redirects]]
+  from = "/rhomepm/"
+  to = "/rhomepm.html"
+  status = 200
+
+[[redirects]]
+  from = "/rhome"
+  to = "/rhomepm.html"
+  status = 200
+
+[[redirects]]
+  from = "/rhome/"
+  to = "/rhomepm.html"
+  status = 200
