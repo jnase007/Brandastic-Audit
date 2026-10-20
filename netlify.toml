@@ -447,3 +447,23 @@
   from = "/rhome/"
   to = "/rhomepm.html"
   status = 200
+
+[[redirects]]
+  from = "/rhomepm-landlords"
+  to = "/rhomepm-landlords.html"
+  status = 200
+
+[[redirects]]
+  from = "/rhomepm-landlords/"
+  to = "/rhomepm-landlords.html"
+  status = 200
+
+[[redirects]]
+  from = "/rhome-landlords"
+  to = "/rhomepm-landlords.html"
+  status = 200
+
+[[redirects]]
+  from = "/rhome-landlords/"
+  to = "/rhomepm-landlords.html"
+  status = 200
