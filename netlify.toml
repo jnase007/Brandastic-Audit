@@ -409,6 +409,11 @@
   status = 200
 
 [[redirects]]
+  from = "/comply.pdf"
+  to = "/comply-strategy.pdf"
+  status = 200
+
+[[redirects]]
   from = "/comply-examples"
   to = "/comply-examples.html"
   status = 200
