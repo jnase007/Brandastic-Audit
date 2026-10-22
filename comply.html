@@ -73,15 +73,31 @@ body{min-height:100vh}
 .toc-list{margin-top:1.2rem;display:grid;gap:.58rem;max-width:40rem;font-size:1rem;font-weight:600;color:var(--ink)}
 .toc-list span{color:var(--muted);font-weight:500}
 .persona-hero{display:grid;grid-template-columns:190px 1fr;gap:1.15rem;align-items:start}
-.persona-photo{width:190px;height:250px;border-radius:16px;object-fit:cover;object-position:center top;border:1px solid var(--line);background:#e8eef3}
+.persona-photo{display:block;width:180px;height:220px;border-radius:14px;object-fit:cover;object-position:center 12%;border:1px solid var(--line);background:#e8eef3}
 .persona-photo-ph{width:190px;height:250px;border-radius:16px;border:1px solid var(--line);background:linear-gradient(160deg,#eef3f7,#e2eaf1 55%,#d9e6ef);display:flex;align-items:flex-end;padding:1rem;color:var(--muted);font-size:.76rem;font-weight:600}
 .persona-name{font-size:1.5rem;font-weight:800;letter-spacing:-.02em;margin:.12rem 0 .18rem;color:var(--ink)}
 .persona-role{font-size:.84rem;color:var(--teal);font-weight:700;letter-spacing:.04em;text-transform:uppercase;margin-bottom:.5rem}
 .persona-quote{font-size:1.02rem;font-style:italic;color:#3a4a5a;line-height:1.45;margin:.35rem 0 .9rem;max-width:34rem}
 .persona-meta{font-size:.82rem;color:var(--muted);line-height:1.55;margin-bottom:.3rem}
 .trio{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}
-.trio img,.persona-photo-sm{width:100%;aspect-ratio:3/4;height:auto;max-height:200px;object-fit:cover;object-position:center top;border-radius:12px;margin-bottom:.65rem;border:1px solid var(--line);background:#e8eef3}
+.trio{align-items:stretch}.trio .card{display:flex;flex-direction:column}.trio img,.persona-photo-sm{display:block;width:100%;height:200px;object-fit:cover;object-position:center 12%;border-radius:12px;margin:0 0 .65rem;border:1px solid var(--line);background:#e8eef3;flex:0 0 auto}
 .persona-photo-sm-ph{width:100%;height:150px;border-radius:12px;margin-bottom:.7rem;border:1px solid var(--line);background:linear-gradient(160deg,#eef3f7,#e2eaf1);display:flex;align-items:flex-end;padding:.7rem;font-size:.7rem;color:var(--muted);font-weight:600}
+.persona-board{display:grid;grid-template-columns:repeat(3,1fr);gap:.85rem;align-items:start}
+.persona-board .card{padding:.75rem .8rem .85rem;min-height:0}
+.persona-board img{display:block;width:100%;height:155px;object-fit:cover;object-position:center 12%;border-radius:12px;margin:0 0 .45rem;border:1px solid var(--line);background:#e8eef3}
+.persona-board .persona-name{font-size:1.05rem;margin:.1rem 0 .2rem}
+.persona-board .persona-role{font-size:.68rem;margin-bottom:.35rem;letter-spacing:.05em}
+.persona-board .persona-quote{font-size:.78rem;font-style:italic;color:#3a4a5a;line-height:1.3;margin:0 0 .4rem;min-height:0}
+.persona-board .persona-meta{font-size:.74rem;line-height:1.4;margin:0 0 .55rem}
+.persona-board .mini{display:grid;gap:.35rem}
+.persona-board .mini h4{font-size:.68rem;text-transform:uppercase;letter-spacing:.06em;color:var(--teal);margin:0}
+.persona-board .mini ul{margin:0;padding-left:1rem}
+.persona-board .mini li{font-size:.72rem;color:var(--muted);line-height:1.35;margin:.08rem 0}
+@media print{
+  .persona-board img{height:140px}
+  .persona-board .persona-quote{font-size:.78rem;min-height:0}
+  .persona-board .mini li{font-size:.68rem}
+}
 .check li{list-style:none;padding-left:0;margin:.35rem 0}
 .check li::before{content:"→ ";color:var(--teal);font-weight:800}
 @media(max-width:860px){
@@ -114,9 +130,9 @@ body{min-height:100vh}
   .lede{font-size:.9rem}
   .table{font-size:.7rem}
   .table th,.table td{padding:.26rem .3rem}
-  .persona-photo,.persona-photo-ph{width:160px;height:210px}
+  .persona-photo,.persona-photo-ph{width:150px;height:185px;object-position:center 12%}
   .persona-hero{grid-template-columns:160px 1fr;gap:.85rem}
-  .trio img,.persona-photo-sm{max-height:170px}
+  .trio img,.persona-photo-sm{height:170px;object-position:center 12%}
   .grid3{gap:.65rem}
   .card{padding:.7rem .75rem}
   .card p,.card li{font-size:.78rem}
@@ -288,129 +304,54 @@ body{min-height:100vh}
     </div>
   </section>
 
-  <section class="slide" id="personas">
-    <div class="slide-inner divider-slide">
-      <div class="h1">Target<br>Personas</div>
-      <p class="lede" style="margin-top:.75rem">Three markets. Three people. One primary.</p>
-      <div class="footer-bar"><span>BRANDASTIC</span><span class="num">09</span></div>
-    </div>
-  </section>
-
-  <section class="slide">
+  <section class="slide" id="personas" style="padding-bottom:2.6rem">
     <div class="slide-inner">
-      <div class="kicker">03 · ICP overview</div>
+      <div class="kicker">03 · Target personas</div>
       <div class="h2">Who we sell to</div>
-      <div class="trio">
-        <div class="card" style="border-color:rgba(46,184,192,.4)">
-          <img class="persona-photo-sm" src="assets/comply-personas/marcus-hale.jpg" alt="Marcus Hale" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
-          <div class="persona-photo-sm-ph" style="display:none">Marcus · Consultant</div>
+      <p class="lede" style="margin-bottom:.75rem">Three markets. Three people. <strong style="color:var(--ink)">Marcus is primary (~70%).</strong> Never blend his copy into Elena’s list.</p>
+      <div class="persona-board">
+        <div class="card" style="border-color:rgba(15,143,151,.45)">
+          <img src="assets/comply-personas/marcus-hale.jpg" alt="Marcus Hale" width="400" height="500">
           <div class="pill">Primary · 70%</div>
-          <h3>Marcus Hale</h3>
-          <p><strong>The Monthly Monitor</strong><br>Lender’s construction consultant<br>Fit A · your 34 core</p>
+          <div class="persona-role">The Monthly Monitor · Consultant</div>
+          <div class="persona-name">Marcus Hale · 46</div>
+          <div class="persona-quote">“My product isn’t a PDF. It’s a defensible recommendation to the bank — and I’m buried every month.”</div>
+          <div class="persona-meta"><strong style="color:var(--ink)">Role:</strong> Principal / senior reviewer at a lender’s monitoring firm.<br><strong style="color:var(--ink)">Day:</strong> Pay apps, G702/G703, waivers, site notes, bank memo.<br><strong style="color:var(--ink)">Buy path:</strong> Walkthrough → 1–2 live pilots → expand</div>
+          <div class="mini">
+            <div><h4>Pains</h4><ul><li>Package chaos + waiver chase</li><li>No single checklist across jobs</li><li>Hours gone before the recommendation</li></ul></div>
+            <div><h4>COMPLY win</h4><ul><li>Same spine every draw</li><li>Faster, cleaner trail</li><li>$300/project trial on real work</li></ul></div>
+          </div>
         </div>
         <div class="card">
-          <img class="persona-photo-sm" src="assets/comply-personas/elena-vargas.jpg" alt="Elena Vargas" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
-          <div class="persona-photo-sm-ph" style="display:none">Elena · Lender</div>
+          <img src="assets/comply-personas/elena-vargas.jpg" alt="Elena Vargas" width="400" height="500">
           <div class="pill">Secondary · 20%</div>
-          <h3>Elena Vargas</h3>
-          <p><strong>The Credit Desk</strong><br>Commercial construction lender<br>After consultant proof</p>
+          <div class="persona-role">The Credit Desk · Lender</div>
+          <div class="persona-name">Elena Vargas · 41</div>
+          <div class="persona-quote">“I don’t need another platform tour. I need consistent draws across the book — and fewer surprises.”</div>
+          <div class="persona-meta"><strong style="color:var(--ink)">Role:</strong> VP / credit / construction lending lead.<br><strong style="color:var(--ink)">Day:</strong> Approve funding, manage risk, rely on monitors.<br><strong style="color:var(--ink)">Buy path:</strong> Joint pilot with her consultant — not cold RFP first</div>
+          <div class="mini">
+            <div><h4>Pains</h4><ul><li>Uneven package quality</li><li>Slow monitoring = risk</li><li>Big software cycles elsewhere</li></ul></div>
+            <div><h4>COMPLY win</h4><ul><li>Works with firm she hired</li><li>Proof from live pilots</li><li>Not $150/deal bank war first</li></ul></div>
+          </div>
         </div>
         <div class="card">
-          <img class="persona-photo-sm" src="assets/comply-personas/jordan-park.jpg" alt="Jordan Park" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
-          <div class="persona-photo-sm-ph" style="display:none">Jordan · Developer</div>
+          <img src="assets/comply-personas/jordan-park.jpg" alt="Jordan Park" width="400" height="500">
           <div class="pill">Secondary · 10%</div>
-          <h3>Jordan Park</h3>
-          <p><strong>The Draw Submitter</strong><br>Commercial developer<br>Only with bank/consultant path</p>
+          <div class="persona-role">The Draw Submitter · Developer</div>
+          <div class="persona-name">Jordan Park · 38</div>
+          <div class="persona-quote">“Tell me what the bank needs so the draw funds the first time — I’m not trying to live in software.”</div>
+          <div class="persona-meta"><strong style="color:var(--ink)">Role:</strong> Developer / project principal submitting draws.<br><strong style="color:var(--ink)">Day:</strong> Keep jobs funded; fight rework and delay.<br><strong style="color:var(--ink)">Buy path:</strong> Only with a live bank/consultant path — not main wallet</div>
+          <div class="mini">
+            <div><h4>Pains</h4><ul><li>Kicked packages</li><li>Unclear monthly checklist</li><li>Heavy software bills on his side</li></ul></div>
+            <div><h4>COMPLY win</h4><ul><li>Clearer expectations</li><li>Fewer kicks when Marcus runs COMPLY</li><li>Not Rabbet’s developer-pay model</li></ul></div>
+          </div>
         </div>
       </div>
-      <p class="lede" style="margin-top:1rem">Never blend Marcus copy into Elena’s list. One motion — different words.</p>
       <div class="footer-bar"><span>BRANDASTIC</span><span class="num">10</span></div>
     </div>
   </section>
 
-  <section class="slide">
-    <div class="slide-inner">
-      <div class="kicker">03 · Persona 1 · Primary</div>
-      <div class="persona-hero">
-        <div>
-          <img class="persona-photo" src="assets/comply-personas/marcus-hale.jpg" alt="Marcus Hale" onerror="this.outerHTML='<div class=persona-photo-ph>Marcus Hale · 46 · Consultant</div>'">
-        </div>
-        <div>
-          <div class="persona-role">The Monthly Monitor · Construction consultant</div>
-          <div class="persona-name">Marcus Hale · 46</div>
-          <div class="persona-quote">“My product isn’t a PDF. It’s a defensible recommendation to the bank — and I’m buried every month.”</div>
-          <div class="persona-meta">
-            <strong style="color:var(--ink)">Role:</strong> Principal / senior reviewer at a lender’s monitoring firm.<br>
-            <strong style="color:var(--ink)">Day:</strong> Pay apps, G702/G703, waivers, site notes, bank memo.<br>
-            <strong style="color:var(--ink)">Channels:</strong> LinkedIn · CMAA · peer referral · email<br>
-            <strong style="color:var(--ink)">Buy path:</strong> Walkthrough → 1–2 live pilots → expand projects
-          </div>
-        </div>
-      </div>
-      <div class="grid3" style="margin-top:.9rem">
-        <div class="card"><h3>Goals</h3><ul><li>Clear the monthly book without frying the team</li><li>Look airtight to the lender</li><li>Keep professional judgment</li></ul></div>
-        <div class="card"><h3>Pains</h3><ul><li>Package chaos + waiver chase</li><li>No single checklist across jobs</li><li>Hours gone before the recommendation</li></ul></div>
-        <div class="card"><h3>COMPLY win</h3><ul><li>Same spine every draw</li><li>Faster, cleaner trail</li><li>$300/project trial on real work</li></ul></div>
-      </div>
-      <div class="footer-bar"><span>BRANDASTIC</span><span class="num">11</span></div>
-    </div>
-  </section>
-
-  <section class="slide">
-    <div class="slide-inner">
-      <div class="kicker">03 · Persona 2 · Secondary</div>
-      <div class="persona-hero">
-        <div>
-          <img class="persona-photo" src="assets/comply-personas/elena-vargas.jpg" alt="Elena Vargas" onerror="this.outerHTML='<div class=persona-photo-ph>Elena Vargas · 41 · Lender</div>'">
-        </div>
-        <div>
-          <div class="persona-role">The Credit Desk · Commercial construction lender</div>
-          <div class="persona-name">Elena Vargas · 41</div>
-          <div class="persona-quote">“I don’t need another platform tour. I need consistent draws across the book — and fewer surprises.”</div>
-          <div class="persona-meta">
-            <strong style="color:var(--ink)">Role:</strong> VP / credit / construction lending lead.<br>
-            <strong style="color:var(--ink)">Day:</strong> Approve funding, manage risk, rely on outside monitors.<br>
-            <strong style="color:var(--ink)">Channels:</strong> Consultant intro · LinkedIn · CRE/MBA events<br>
-            <strong style="color:var(--ink)">Buy path:</strong> Joint pilot with her consultant — not cold enterprise RFP first
-          </div>
-        </div>
-      </div>
-      <div class="grid3" style="margin-top:.9rem">
-        <div class="card"><h3>Goals</h3><ul><li>Fund safely, on time</li><li>Clean trail across loans</li><li>Trusted monitoring partners</li></ul></div>
-        <div class="card"><h3>Pains</h3><ul><li>Uneven package quality</li><li>Slow monitoring = risk</li><li>Big software cycles elsewhere</li></ul></div>
-        <div class="card"><h3>COMPLY win</h3><ul><li>Works with firm she hired</li><li>Proof from live pilots</li><li>Not $150/deal bank war first</li></ul></div>
-      </div>
-      <div class="footer-bar"><span>BRANDASTIC</span><span class="num">12</span></div>
-    </div>
-  </section>
-
-  <section class="slide">
-    <div class="slide-inner">
-      <div class="kicker">03 · Persona 3 · Secondary</div>
-      <div class="persona-hero">
-        <div>
-          <img class="persona-photo" src="assets/comply-personas/jordan-park.jpg" alt="Jordan Park" onerror="this.outerHTML='<div class=persona-photo-ph>Jordan Park · 38 · Developer</div>'">
-        </div>
-        <div>
-          <div class="persona-role">The Draw Submitter · Commercial developer</div>
-          <div class="persona-name">Jordan Park · 38</div>
-          <div class="persona-quote">“Tell me what the bank needs so the draw funds the first time — I’m not trying to live in software.”</div>
-          <div class="persona-meta">
-            <strong style="color:var(--ink)">Role:</strong> Developer / project principal submitting monthly draws.<br>
-            <strong style="color:var(--ink)">Day:</strong> Keep jobs funded; fight rework and delay.<br>
-            <strong style="color:var(--ink)">Channels:</strong> Lender or consultant intro · project network<br>
-            <strong style="color:var(--ink)">Buy path:</strong> Only when attached to a live loan path — not our main wallet
-          </div>
-        </div>
-      </div>
-      <div class="grid3" style="margin-top:.9rem">
-        <div class="card"><h3>Goals</h3><ul><li>Draws through first time</li><li>Keep the job moving</li><li>Less back-and-forth</li></ul></div>
-        <div class="card"><h3>Pains</h3><ul><li>Kicked packages</li><li>Unclear monthly checklist</li><li>Heavy software bills on his side</li></ul></div>
-        <div class="card"><h3>COMPLY win</h3><ul><li>Clearer expectations</li><li>Fewer kicks when Marcus runs COMPLY</li><li>Not Rabbet’s developer-pay model</li></ul></div>
-      </div>
-      <div class="footer-bar"><span>BRANDASTIC</span><span class="num">13</span></div>
-    </div>
-  </section>
+  
 
 
   <section class="slide" id="icp-samples">
