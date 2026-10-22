@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  COMPLY wordmark — brand spec: DM Sans, weight 800, ALL CAPS, letter-spacing -0.48px equivalent, teal.
+  This SVG uses live <text> (requires DM Sans). For print/handoff where the font may be missing,
+  use comply-logo-outlined.svg (paths) instead. Two fills provided: solid teal + gradient (commented).
+-->
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="420" viewBox="0 0 1600 420" role="img" aria-label="COMPLY">
+  <defs>
+    <linearGradient id="complyTeal" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#2BC4E0"/>
+      <stop offset="45%" stop-color="#34DCC4"/>
+      <stop offset="100%" stop-color="#00C9A2"/>
+    </linearGradient>
+  </defs>
+  <!-- Solid brand teal #00D4AA. To use the gradient instead, set fill="url(#complyTeal)" -->
+  <text x="800" y="210"
+        text-anchor="middle" dominant-baseline="central"
+        font-family="'DM Sans','DM Sans Variable',sans-serif"
+        font-weight="800"
+        font-size="250"
+        letter-spacing="-8"
+        fill="#00D4AA">COMPLY</text>
+</svg>

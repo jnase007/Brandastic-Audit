@@ -159,6 +159,13 @@ body{min-height:100vh}
 .li-ad-side h3{margin:0 0 .35rem}
 @media print{.li-ad-wrap{grid-template-columns:1.1fr .9fr}}
 
+
+.title-brand{display:flex;flex-direction:column;align-items:flex-start;gap:.85rem;margin-bottom:1.1rem}
+.title-brand img{height:52px;width:auto;display:block}
+.title-tagline{font-size:1.05rem;font-weight:600;color:var(--ink);line-height:1.35;max-width:36rem}
+.title-tagline span{color:var(--teal);font-weight:800}
+@media print{.title-brand img{height:44px}}
+
 </style>
 </head>
 <body>
@@ -178,9 +185,13 @@ body{min-height:100vh}
 
   <section class="slide" id="title">
     <div class="slide-inner divider-slide">
-      <div class="kicker">COMPLY · For Tom, Jerod & Justin</div>
+      <div class="title-brand">
+        <img src="assets/comply-logo-dark-2x.png" alt="COMPLY" />
+        <div class="title-tagline">Run construction draws as a system — cleaner packages, less chase, bank-ready trail. <span>Humans still decide.</span></div>
+      </div>
+      <div class="kicker">For Tom, Jerod & Justin · 2027 game plan</div>
       <div class="h1">Marketing Discovery<br>+ Strategy</div>
-      <p class="lede" style="margin-top:1rem">Full 2027 marketing plan + ROI model for Tom, Jerod & Justin — engines, costs, expected clients, and the path to multi-million revenue.</p>
+      <p class="lede" style="margin-top:1rem">Full marketing plan + ROI model — engines, costs, expected clients, and the path to multi-million revenue.</p>
       <div class="footer-bar"><span>BRANDASTIC</span><span>comply.capital</span></div>
     </div>
   </section>
@@ -1412,13 +1423,14 @@ DM me if you want in.</div>
     </div>
   </section>
 
-  <section class="slide">
+    <section class="slide" id="close">
     <div class="slide-inner divider-slide">
-      <div class="kicker">COMPLY</div>
+      <div class="title-brand" style="margin-bottom:1.25rem">
+        <img src="assets/comply-logo-dark-2x.png" alt="COMPLY" />
+        <div class="title-tagline">Run construction draws as a system — cleaner packages, less chase, bank-ready trail. <span>Humans still decide.</span></div>
+      </div>
       <div class="h1">Approve the plan.<br>Manage the ROI.</div>
       <p class="lede" style="margin-top:1rem">
-        Product: comply.capital<br>
-        Deck: audit.brandastic.com/comply<br><br>
         2027 plan: 1→20 clients · ~$480k run-rate path<br>
         ROI engines: outbound · incentives · SEO · proof<br>
         Then scale toward $3M
