@@ -9,69 +9,69 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
 :root{
-  --bg:#14171c; --slide:#1a1e24; --ink:#f3f5f7; --muted:#9aa3ad; --line:rgba(255,255,255,.08);
-  --teal:#2eb8c0; --accent:#40B4E5; --purple:#CC22FF;
+  --bg:#f4f7fa; --slide:#ffffff; --ink:#15202b; --muted:#5b6b7c; --line:rgba(21,32,43,.12);
+  --teal:#0f8f97; --accent:#1f8fc9; --purple:#9b1fd6;
 }
 *{box-sizing:border-box;margin:0;padding:0}
-html,body{background:#0d0f12;color:var(--ink);font-family:Inter,system-ui,sans-serif}
+html,body{background:var(--bg);color:var(--ink);font-family:Inter,system-ui,sans-serif}
 body{min-height:100vh}
-.deck{max-width:1100px;margin:0 auto;padding:1rem 1rem 3rem}
-.toolbar{display:flex;gap:.5rem;flex-wrap:wrap;align-items:center;margin-bottom:1rem;position:sticky;top:.5rem;z-index:30;background:rgba(13,15,18,.85);backdrop-filter:blur(8px);padding:.4rem 0}
-.btn{border:0;cursor:pointer;border-radius:10px;font-weight:700;font-size:.8rem;padding:.5rem .85rem;text-decoration:none;display:inline-flex;align-items:center;color:#fff}
-.btn-p{background:linear-gradient(135deg,var(--accent),var(--purple))}
-.btn-g{background:rgba(255,255,255,.06);border:1px solid var(--line)}
+.deck{max-width:1180px;margin:0 auto;padding:1rem 1rem 3rem}
+.toolbar{display:flex;gap:.5rem;flex-wrap:wrap;align-items:center;margin-bottom:1rem;position:sticky;top:.5rem;z-index:30;background:rgba(244,247,250,.92);backdrop-filter:blur(8px);padding:.4rem 0}
+.btn{border:0;cursor:pointer;border-radius:10px;font-weight:700;font-size:.8rem;padding:.5rem .85rem;text-decoration:none;display:inline-flex;align-items:center}
+.btn-p{background:linear-gradient(135deg,var(--accent),var(--purple));color:#ffffff}
+.btn-g{background:#ffffff;border:1px solid var(--line);color:var(--ink)}
 .hint{color:var(--muted);font-size:.75rem}
-.slide{background:var(--slide);border:1px solid var(--line);border-radius:18px;padding:2.35rem 2.45rem 2.5rem;margin:0 0 1rem;min-height:540px;position:relative;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,.35)}
-.slide::before{content:"";position:absolute;right:-100px;top:-100px;width:360px;height:360px;border-radius:50%;background:radial-gradient(circle,rgba(64,180,229,.1),transparent 70%);pointer-events:none}
+.slide{background:var(--slide);border:1px solid var(--line);border-radius:18px;padding:2rem 2.35rem 2.3rem;margin:0 0 1rem;min-height:620px;position:relative;overflow:hidden;box-shadow:0 12px 36px rgba(21,32,43,.08)}
+.slide::before{content:"";position:absolute;right:-100px;top:-100px;width:360px;height:360px;border-radius:50%;background:radial-gradient(circle,rgba(31,143,201,.10),transparent 70%);pointer-events:none}
 .slide-inner{position:relative;z-index:1}
 .kicker{font-size:.72rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--teal);margin-bottom:1rem}
-.h1{font-size:clamp(2rem,4.2vw,3.1rem);font-weight:700;letter-spacing:-.03em;line-height:1.08;margin-bottom:.75rem}
-.h2{font-size:clamp(1.5rem,3vw,2.2rem);font-weight:700;letter-spacing:-.02em;margin-bottom:1rem}
+.h1{font-size:clamp(2rem,4.2vw,3.1rem);font-weight:700;letter-spacing:-.03em;line-height:1.08;margin-bottom:.75rem;color:var(--ink)}
+.h2{font-size:clamp(1.5rem,3vw,2.2rem);font-weight:700;letter-spacing:-.02em;margin-bottom:1rem;color:var(--ink)}
 .lede{font-size:1.06rem;color:var(--muted);max-width:42rem;line-height:1.6}
-.footer-bar{position:absolute;left:2.45rem;right:2.45rem;bottom:1.2rem;display:flex;justify-content:space-between;align-items:center;font-size:.7rem;color:rgba(255,255,255,.32);letter-spacing:.04em}
+.footer-bar{position:absolute;left:2.35rem;right:2.35rem;bottom:1.05rem;display:flex;justify-content:space-between;align-items:center;font-size:.7rem;color:rgba(21,32,43,.42);letter-spacing:.04em}
 .num{font-weight:600}
-.divider-slide{display:flex;flex-direction:column;justify-content:center;min-height:500px}
+.divider-slide{display:flex;flex-direction:column;justify-content:center;min-height:560px}
 .phase{color:var(--accent);font-size:.82rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;margin-bottom:.55rem}
 .phase-p{color:var(--purple)}
 .grid2{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
 .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}
-.card{background:rgba(255,255,255,.03);border:1px solid var(--line);border-radius:14px;padding:1.05rem 1.1rem}
-.card h3{font-size:.98rem;font-weight:700;margin-bottom:.4rem}
+.card{background:#f7fafc;border:1px solid var(--line);border-radius:14px;padding:1.05rem 1.1rem}
+.card h3{font-size:.98rem;font-weight:700;margin-bottom:.4rem;color:var(--ink)}
 .card p,.card li{font-size:.88rem;color:var(--muted);line-height:1.55}
 .card ul{padding-left:1.05rem;margin:.25rem 0}
 .card li{margin:.2rem 0}
 .card strong{color:var(--ink)}
 .big{font-size:1.02rem;color:var(--ink);font-weight:600;line-height:1.55;max-width:44rem}
-.pill{display:inline-block;font-size:.68rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--teal);background:rgba(46,184,192,.12);border:1px solid rgba(46,184,192,.25);padding:.26rem .5rem;border-radius:999px;margin:0 .2rem .3rem 0}
+.pill{display:inline-block;font-size:.68rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--teal);background:rgba(15,143,151,.10);border:1px solid rgba(15,143,151,.28);padding:.26rem .5rem;border-radius:999px;margin:0 .2rem .3rem 0}
 .table{width:100%;border-collapse:collapse;font-size:.84rem;margin-top:.35rem}
 .table th,.table td{border:1px solid var(--line);padding:.48rem .52rem;text-align:left;vertical-align:top}
-.table th{background:rgba(255,255,255,.04);color:var(--ink);font-weight:700}
+.table th{background:#eef3f7;color:var(--ink);font-weight:700}
 .table td{color:var(--muted)}
 .quote{border-left:3px solid var(--teal);padding:.12rem 0 .12rem .95rem;margin:.9rem 0;font-size:1.08rem;font-weight:600;color:var(--ink);line-height:1.45;max-width:44rem}
-.msg{background:#0f1419;border:1px solid var(--line);border-radius:12px;padding:.95rem 1.05rem;margin:.45rem 0;font-size:.84rem;line-height:1.55;color:#c9d4dc;white-space:pre-wrap}
+.msg{background:#f3f7fa;border:1px solid var(--line);border-radius:12px;padding:.95rem 1.05rem;margin:.45rem 0;font-size:.84rem;line-height:1.55;color:#334556;white-space:pre-wrap}
 .msg .lbl{font-size:.64rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--teal);margin-bottom:.32rem}
-.msg .subj{color:#fff;font-weight:700;margin-bottom:.35rem}
+.msg .subj{color:var(--ink);font-weight:700;margin-bottom:.35rem}
 .flow{display:flex;flex-wrap:wrap;gap:.4rem;align-items:center;margin:.9rem 0}
-.flow .step{background:rgba(255,255,255,.04);border:1px solid var(--line);border-radius:12px;padding:.6rem .8rem;font-weight:700;font-size:.86rem}
+.flow .step{background:#f3f7fa;border:1px solid var(--line);border-radius:12px;padding:.6rem .8rem;font-weight:700;font-size:.86rem;color:var(--ink)}
 .flow .arrow{color:var(--teal);font-weight:800}
 .cal-week{display:grid;grid-template-columns:88px 1fr;gap:.65rem;padding:.6rem 0;border-bottom:1px solid var(--line)}
 .cal-week:last-child{border-bottom:0}
 .cal-week b{color:var(--teal);font-size:.82rem}
 .cal-week span{color:var(--muted);font-size:.84rem;line-height:1.5}
-.stat{font-size:clamp(1.6rem,3.3vw,2.45rem);font-weight:800;letter-spacing:-.03em;color:#fff;line-height:1.1}
+.stat{font-size:clamp(1.6rem,3.3vw,2.45rem);font-weight:800;letter-spacing:-.03em;color:var(--ink);line-height:1.1}
 .stat-lbl{font-size:.78rem;color:var(--muted);margin-top:.28rem;line-height:1.4}
-.toc-list{margin-top:1.2rem;display:grid;gap:.58rem;max-width:40rem;font-size:1rem;font-weight:600}
+.toc-list{margin-top:1.2rem;display:grid;gap:.58rem;max-width:40rem;font-size:1rem;font-weight:600;color:var(--ink)}
 .toc-list span{color:var(--muted);font-weight:500}
 .persona-hero{display:grid;grid-template-columns:210px 1fr;gap:1.35rem;align-items:start}
-.persona-photo{width:210px;height:300px;border-radius:16px;object-fit:cover;object-position:center 18%;border:1px solid var(--line);background:#12151a}
-.persona-photo-ph{width:210px;height:300px;border-radius:16px;border:1px solid var(--line);background:linear-gradient(160deg,#1c222b,#12151a 55%,#1a2430);display:flex;align-items:flex-end;padding:1rem;color:var(--muted);font-size:.76rem;font-weight:600}
-.persona-name{font-size:1.5rem;font-weight:800;letter-spacing:-.02em;margin:.12rem 0 .18rem}
+.persona-photo{width:210px;height:300px;border-radius:16px;object-fit:cover;object-position:center 18%;border:1px solid var(--line);background:#e8eef3}
+.persona-photo-ph{width:210px;height:300px;border-radius:16px;border:1px solid var(--line);background:linear-gradient(160deg,#eef3f7,#e2eaf1 55%,#d9e6ef);display:flex;align-items:flex-end;padding:1rem;color:var(--muted);font-size:.76rem;font-weight:600}
+.persona-name{font-size:1.5rem;font-weight:800;letter-spacing:-.02em;margin:.12rem 0 .18rem;color:var(--ink)}
 .persona-role{font-size:.84rem;color:var(--teal);font-weight:700;letter-spacing:.04em;text-transform:uppercase;margin-bottom:.5rem}
-.persona-quote{font-size:1.02rem;font-style:italic;color:#d7dee5;line-height:1.45;margin:.35rem 0 .9rem;max-width:34rem}
+.persona-quote{font-size:1.02rem;font-style:italic;color:#3a4a5a;line-height:1.45;margin:.35rem 0 .9rem;max-width:34rem}
 .persona-meta{font-size:.82rem;color:var(--muted);line-height:1.55;margin-bottom:.3rem}
 .trio{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}
-.trio img,.persona-photo-sm{width:100%;height:210px;object-fit:cover;object-position:center 18%;border-radius:12px;margin-bottom:.7rem;border:1px solid var(--line);background:#12151a}
-.persona-photo-sm-ph{width:100%;height:150px;border-radius:12px;margin-bottom:.7rem;border:1px solid var(--line);background:linear-gradient(160deg,#1c222b,#12151a);display:flex;align-items:flex-end;padding:.7rem;font-size:.7rem;color:var(--muted);font-weight:600}
+.trio img,.persona-photo-sm{width:100%;height:210px;object-fit:cover;object-position:center 18%;border-radius:12px;margin-bottom:.7rem;border:1px solid var(--line);background:#e8eef3}
+.persona-photo-sm-ph{width:100%;height:150px;border-radius:12px;margin-bottom:.7rem;border:1px solid var(--line);background:linear-gradient(160deg,#eef3f7,#e2eaf1);display:flex;align-items:flex-end;padding:.7rem;font-size:.7rem;color:var(--muted);font-weight:600}
 .check li{list-style:none;padding-left:0;margin:.35rem 0}
 .check li::before{content:"→ ";color:var(--teal);font-weight:800}
 @media(max-width:860px){
@@ -81,12 +81,24 @@ body{min-height:100vh}
   .footer-bar{left:1.1rem;right:1.1rem}
   .cal-week{grid-template-columns:1fr}
 }
+@page{size:letter landscape;margin:.45in}
 @media print{
   .toolbar{display:none!important}
-  body{background:#14171c}
-  .deck{max-width:none;padding:0}
-  .slide{break-after:page;box-shadow:none;border:0;border-radius:0;min-height:100vh;margin:0;page-break-after:always}
+  html,body{background:#ffffff!important;color:var(--ink)}
+  .deck{max-width:none;padding:0;margin:0}
+  .slide{
+    background:#ffffff!important;
+    break-after:page;page-break-after:always;
+    box-shadow:none;border:0;border-radius:0;
+    min-height:0;height:auto;margin:0;padding:1.1rem 1.25rem 1.4rem;
+    overflow:visible
+  }
   .slide:last-child{break-after:auto;page-break-after:auto}
+  .slide::before{display:none}
+  .divider-slide{min-height:0}
+  .footer-bar{position:static;margin-top:1.2rem;color:rgba(21,32,43,.45)}
+  .card,.msg,.flow .step,.table th{background:#f7fafc!important;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  a{color:var(--teal)!important;text-decoration:none}
 }
 </style>
 </head>
@@ -211,7 +223,7 @@ body{min-height:100vh}
           <tr><td><strong>Email + Excel</strong></td><td>“Free” process</td><td>Hidden staff time ($25k–$50k+/yr stories)</td><td><strong>Real day-to-day rival</strong></td></tr>
         </tbody>
       </table>
-      <p class="big" style="margin-top:1rem">Bank platforms own the <strong style="color:#fff">lender conversation</strong>. Nobody cleanly owns the <strong style="color:#fff">consultant’s monthly package desk</strong>. That’s our door.</p>
+      <p class="big" style="margin-top:1rem">Bank platforms own the <strong style="color:var(--ink)">lender conversation</strong>. Nobody cleanly owns the <strong style="color:var(--ink)">consultant’s monthly package desk</strong>. That’s our door.</p>
       <div class="footer-bar"><span>BRANDASTIC</span><span class="num">07</span></div>
     </div>
   </section>
@@ -306,10 +318,10 @@ body{min-height:100vh}
           <div class="persona-name">Marcus Hale · 46</div>
           <div class="persona-quote">“My product isn’t a PDF. It’s a defensible recommendation to the bank — and I’m buried every month.”</div>
           <div class="persona-meta">
-            <strong style="color:#fff">Role:</strong> Principal / senior reviewer at a lender’s monitoring firm.<br>
-            <strong style="color:#fff">Day:</strong> Pay apps, G702/G703, waivers, site notes, bank memo.<br>
-            <strong style="color:#fff">Channels:</strong> LinkedIn · CMAA · peer referral · email<br>
-            <strong style="color:#fff">Buy path:</strong> Walkthrough → 1–2 live pilots → expand projects
+            <strong style="color:var(--ink)">Role:</strong> Principal / senior reviewer at a lender’s monitoring firm.<br>
+            <strong style="color:var(--ink)">Day:</strong> Pay apps, G702/G703, waivers, site notes, bank memo.<br>
+            <strong style="color:var(--ink)">Channels:</strong> LinkedIn · CMAA · peer referral · email<br>
+            <strong style="color:var(--ink)">Buy path:</strong> Walkthrough → 1–2 live pilots → expand projects
           </div>
         </div>
       </div>
@@ -334,10 +346,10 @@ body{min-height:100vh}
           <div class="persona-name">Elena Vargas · 41</div>
           <div class="persona-quote">“I don’t need another platform tour. I need consistent draws across the book — and fewer surprises.”</div>
           <div class="persona-meta">
-            <strong style="color:#fff">Role:</strong> VP / credit / construction lending lead.<br>
-            <strong style="color:#fff">Day:</strong> Approve funding, manage risk, rely on outside monitors.<br>
-            <strong style="color:#fff">Channels:</strong> Consultant intro · LinkedIn · CRE/MBA events<br>
-            <strong style="color:#fff">Buy path:</strong> Joint pilot with her consultant — not cold enterprise RFP first
+            <strong style="color:var(--ink)">Role:</strong> VP / credit / construction lending lead.<br>
+            <strong style="color:var(--ink)">Day:</strong> Approve funding, manage risk, rely on outside monitors.<br>
+            <strong style="color:var(--ink)">Channels:</strong> Consultant intro · LinkedIn · CRE/MBA events<br>
+            <strong style="color:var(--ink)">Buy path:</strong> Joint pilot with her consultant — not cold enterprise RFP first
           </div>
         </div>
       </div>
@@ -362,10 +374,10 @@ body{min-height:100vh}
           <div class="persona-name">Jordan Park · 38</div>
           <div class="persona-quote">“Tell me what the bank needs so the draw funds the first time — I’m not trying to live in software.”</div>
           <div class="persona-meta">
-            <strong style="color:#fff">Role:</strong> Developer / project principal submitting monthly draws.<br>
-            <strong style="color:#fff">Day:</strong> Keep jobs funded; fight rework and delay.<br>
-            <strong style="color:#fff">Channels:</strong> Lender or consultant intro · project network<br>
-            <strong style="color:#fff">Buy path:</strong> Only when attached to a live loan path — not our main wallet
+            <strong style="color:var(--ink)">Role:</strong> Developer / project principal submitting monthly draws.<br>
+            <strong style="color:var(--ink)">Day:</strong> Keep jobs funded; fight rework and delay.<br>
+            <strong style="color:var(--ink)">Channels:</strong> Lender or consultant intro · project network<br>
+            <strong style="color:var(--ink)">Buy path:</strong> Only when attached to a live loan path — not our main wallet
           </div>
         </div>
       </div>
@@ -391,18 +403,18 @@ body{min-height:100vh}
     <div class="slide-inner">
       <div class="kicker">03b · YES · Primary</div>
       <div class="h2">Construction consultants (Marcus)</div>
-      <p class="lede" style="margin-bottom:.7rem">Lender’s construction consultants / monitoring firms — monthly draw review for banks. <strong style="color:#fff">Chase first (~70%).</strong></p>
+      <p class="lede" style="margin-bottom:.7rem">Lender’s construction consultants / monitoring firms — monthly draw review for banks. <strong style="color:var(--ink)">Chase first (~70%).</strong></p>
       <table class="table">
         <thead><tr><th>Name</th><th>Title</th><th>Company</th><th>Location</th><th>LinkedIn</th></tr></thead>
         <tbody>
-        <tr><td><strong style='color:#fff'>James Bruno</strong><div style='font-size:.72rem;color:var(--muted);margin-top:.15rem'>YES · primary (Marcus)</div></td><td>Vice President, Senior Surety Consultant &amp; Construction Project Manager</td><td>Beacon Consulting Group, Inc.</td><td>Medford Massachusetts</td><td><a href="http://www.linkedin.com/in/james-bruno-473ba232" target="_blank" rel="noopener" style="color:#2eb8c0">LinkedIn</a></td></tr>
-<tr><td><strong style='color:#fff'>Derek Perry</strong><div style='font-size:.72rem;color:var(--muted);margin-top:.15rem'>YES · primary (Marcus)</div></td><td>Senior Construction Consultant</td><td>Construction Monitoring Consultants, Inc. (CMC)</td><td>New York</td><td><a href="http://www.linkedin.com/in/derek-perry-cmc" target="_blank" rel="noopener" style="color:#2eb8c0">LinkedIn</a></td></tr>
-<tr><td><strong style='color:#fff'>Lam Hoang</strong><div style='font-size:.72rem;color:var(--muted);margin-top:.15rem'>YES · primary (Marcus)</div></td><td>Construction Consultant</td><td>Moran Consultants</td><td>Baton Rouge Louisiana</td><td><a href="http://www.linkedin.com/in/lam-hoang-41064aa8" target="_blank" rel="noopener" style="color:#2eb8c0">LinkedIn</a></td></tr>
-<tr><td><strong style='color:#fff'>Eric Mach</strong><div style='font-size:.72rem;color:var(--muted);margin-top:.15rem'>YES · primary (Marcus)</div></td><td>Construction Consultant (Lender&#x27;s Representative)</td><td>National Construction Advisors</td><td></td><td><a href="http://www.linkedin.com/in/eric-mach-nca" target="_blank" rel="noopener" style="color:#2eb8c0">LinkedIn</a></td></tr>
-<tr><td><strong style='color:#fff'>Cray Shellenbarger</strong><div style='font-size:.72rem;color:var(--muted);margin-top:.15rem'>YES · primary (Marcus)</div></td><td>Construction Consultant</td><td>Newbanks, Inc.</td><td>Pensacola Florida</td><td><a href="http://www.linkedin.com/in/cray-shellenbarger-52b1a761" target="_blank" rel="noopener" style="color:#2eb8c0">LinkedIn</a></td></tr>
-<tr><td><strong style='color:#fff'>Edward Humphrey</strong><div style='font-size:.72rem;color:var(--muted);margin-top:.15rem'>YES · primary (Marcus)</div></td><td>Construction Consultant</td><td>Newbanks, Inc.</td><td>Raleigh North Carolina</td><td><a href="http://www.linkedin.com/in/edward-humphrey" target="_blank" rel="noopener" style="color:#2eb8c0">LinkedIn</a></td></tr>
-<tr><td><strong style='color:#fff'>Jonathan Duke</strong><div style='font-size:.72rem;color:var(--muted);margin-top:.15rem'>YES · primary (Marcus)</div></td><td>Construction Consultant</td><td>Newbanks, Inc.</td><td>North Carolina</td><td><a href="http://www.linkedin.com/in/jonathan-duke-a6161710" target="_blank" rel="noopener" style="color:#2eb8c0">LinkedIn</a></td></tr>
-<tr><td><strong style='color:#fff'>Karl Bealke</strong><div style='font-size:.72rem;color:var(--muted);margin-top:.15rem'>YES · primary (Marcus)</div></td><td>Construction Consultant</td><td>Newbanks, Inc.</td><td>Atlanta Georgia</td><td><a href="http://www.linkedin.com/in/karlbealke" target="_blank" rel="noopener" style="color:#2eb8c0">LinkedIn</a></td></tr>
+        <tr><td><strong style='color:var(--ink)'>James Bruno</strong><div style='font-size:.72rem;color:var(--muted);margin-top:.15rem'>YES · primary (Marcus)</div></td><td>Vice President, Senior Surety Consultant &amp; Construction Project Manager</td><td>Beacon Consulting Group, Inc.</td><td>Medford Massachusetts</td><td><a href="http://www.linkedin.com/in/james-bruno-473ba232" target="_blank" rel="noopener" style="color:#2eb8c0">LinkedIn</a></td></tr>
+<tr><td><strong style='color:var(--ink)'>Derek Perry</strong><div style='font-size:.72rem;color:var(--muted);margin-top:.15rem'>YES · primary (Marcus)</div></td><td>Senior Construction Consultant</td><td>Construction Monitoring Consultants, Inc. (CMC)</td><td>New York</td><td><a href="http://www.linkedin.com/in/derek-perry-cmc" target="_blank" rel="noopener" style="color:#2eb8c0">LinkedIn</a></td></tr>
+<tr><td><strong style='color:var(--ink)'>Lam Hoang</strong><div style='font-size:.72rem;color:var(--muted);margin-top:.15rem'>YES · primary (Marcus)</div></td><td>Construction Consultant</td><td>Moran Consultants</td><td>Baton Rouge Louisiana</td><td><a href="http://www.linkedin.com/in/lam-hoang-41064aa8" target="_blank" rel="noopener" style="color:#2eb8c0">LinkedIn</a></td></tr>
+<tr><td><strong style='color:var(--ink)'>Eric Mach</strong><div style='font-size:.72rem;color:var(--muted);margin-top:.15rem'>YES · primary (Marcus)</div></td><td>Construction Consultant (Lender&#x27;s Representative)</td><td>National Construction Advisors</td><td></td><td><a href="http://www.linkedin.com/in/eric-mach-nca" target="_blank" rel="noopener" style="color:#2eb8c0">LinkedIn</a></td></tr>
+<tr><td><strong style='color:var(--ink)'>Cray Shellenbarger</strong><div style='font-size:.72rem;color:var(--muted);margin-top:.15rem'>YES · primary (Marcus)</div></td><td>Construction Consultant</td><td>Newbanks, Inc.</td><td>Pensacola Florida</td><td><a href="http://www.linkedin.com/in/cray-shellenbarger-52b1a761" target="_blank" rel="noopener" style="color:#2eb8c0">LinkedIn</a></td></tr>
+<tr><td><strong style='color:var(--ink)'>Edward Humphrey</strong><div style='font-size:.72rem;color:var(--muted);margin-top:.15rem'>YES · primary (Marcus)</div></td><td>Construction Consultant</td><td>Newbanks, Inc.</td><td>Raleigh North Carolina</td><td><a href="http://www.linkedin.com/in/edward-humphrey" target="_blank" rel="noopener" style="color:#2eb8c0">LinkedIn</a></td></tr>
+<tr><td><strong style='color:var(--ink)'>Jonathan Duke</strong><div style='font-size:.72rem;color:var(--muted);margin-top:.15rem'>YES · primary (Marcus)</div></td><td>Construction Consultant</td><td>Newbanks, Inc.</td><td>North Carolina</td><td><a href="http://www.linkedin.com/in/jonathan-duke-a6161710" target="_blank" rel="noopener" style="color:#2eb8c0">LinkedIn</a></td></tr>
+<tr><td><strong style='color:var(--ink)'>Karl Bealke</strong><div style='font-size:.72rem;color:var(--muted);margin-top:.15rem'>YES · primary (Marcus)</div></td><td>Construction Consultant</td><td>Newbanks, Inc.</td><td>Atlanta Georgia</td><td><a href="http://www.linkedin.com/in/karlbealke" target="_blank" rel="noopener" style="color:#2eb8c0">LinkedIn</a></td></tr>
         </tbody>
       </table>
       <div class="footer-bar"><span>BRANDASTIC</span><span class="num">13c</span></div>
@@ -413,11 +425,11 @@ body{min-height:100vh}
     <div class="slide-inner">
       <div class="kicker">03b · YES · Fit A firms (34)</div>
       <div class="h2">Company-level targets</div>
-      <p class="lede" style="margin-bottom:.7rem">From the Construction Loan Oversight Firms sheet — <strong style="color:#fff">A · Core target</strong>.</p>
+      <p class="lede" style="margin-bottom:.7rem">From the Construction Loan Oversight Firms sheet — <strong style="color:var(--ink)">A · Core target</strong>.</p>
       <table class="table">
         <thead><tr><th>Firm</th><th>Category</th><th>HQ</th><th>Website</th><th>Fit</th></tr></thead>
         <tbody>
-        <tr><td><strong style='color:#fff'>Andrew Dey Consulting</strong></td><td>Lender&#x27;s Construction Consultant firm</td><td>Unverified (NH/VT/MA)</td><td>andrewdey.com</td><td><span class='pill'>Fit A</span></td></tr><tr><td><strong style='color:#fff'>Appono Consulting</strong></td><td>Lender&#x27;s Construction Consultant firm</td><td>Unverified</td><td>apponoconsulting.com</td><td><span class='pill'>Fit A</span></td></tr><tr><td><strong style='color:#fff'>ATD Consultants Inc.</strong></td><td>Lender&#x27;s Construction Consultant firm</td><td>Unverified (New Jersey)</td><td>atdnj.com</td><td><span class='pill'>Fit A</span></td></tr><tr><td><strong style='color:#fff'>BC Group, Inc.</strong></td><td>Lender&#x27;s Construction Consultant firm</td><td>Portland, OR</td><td>bcgroup-inc.com</td><td><span class='pill'>Fit A</span></td></tr><tr><td><strong style='color:#fff'>Beacon Consulting Group</strong></td><td>Lender&#x27;s Construction Consultant firm</td><td>Unverified (NY metro)</td><td>beacon.ws</td><td><span class='pill'>Fit A</span></td></tr><tr><td><strong style='color:#fff'>Borrman Consulting</strong></td><td>Lender&#x27;s Construction Consultant firm</td><td>Loveland, CO</td><td>borrmanconsulting.com</td><td><span class='pill'>Fit A</span></td></tr><tr><td><strong style='color:#fff'>Brenton Construction Advisory LLC</strong></td><td>Lender&#x27;s Construction Consultant firm</td><td>Unverified</td><td>Unverified</td><td><span class='pill'>Fit A</span></td></tr><tr><td><strong style='color:#fff'>Building Consultants, Inc.</strong></td><td>Lender&#x27;s Construction Consultant firm</td><td>Ellicott City, MD</td><td>Unverified</td><td><span class='pill'>Fit A</span></td></tr>
+        <tr><td><strong style='color:var(--ink)'>Andrew Dey Consulting</strong></td><td>Lender&#x27;s Construction Consultant firm</td><td>Unverified (NH/VT/MA)</td><td>andrewdey.com</td><td><span class='pill'>Fit A</span></td></tr><tr><td><strong style='color:var(--ink)'>Appono Consulting</strong></td><td>Lender&#x27;s Construction Consultant firm</td><td>Unverified</td><td>apponoconsulting.com</td><td><span class='pill'>Fit A</span></td></tr><tr><td><strong style='color:var(--ink)'>ATD Consultants Inc.</strong></td><td>Lender&#x27;s Construction Consultant firm</td><td>Unverified (New Jersey)</td><td>atdnj.com</td><td><span class='pill'>Fit A</span></td></tr><tr><td><strong style='color:var(--ink)'>BC Group, Inc.</strong></td><td>Lender&#x27;s Construction Consultant firm</td><td>Portland, OR</td><td>bcgroup-inc.com</td><td><span class='pill'>Fit A</span></td></tr><tr><td><strong style='color:var(--ink)'>Beacon Consulting Group</strong></td><td>Lender&#x27;s Construction Consultant firm</td><td>Unverified (NY metro)</td><td>beacon.ws</td><td><span class='pill'>Fit A</span></td></tr><tr><td><strong style='color:var(--ink)'>Borrman Consulting</strong></td><td>Lender&#x27;s Construction Consultant firm</td><td>Loveland, CO</td><td>borrmanconsulting.com</td><td><span class='pill'>Fit A</span></td></tr><tr><td><strong style='color:var(--ink)'>Brenton Construction Advisory LLC</strong></td><td>Lender&#x27;s Construction Consultant firm</td><td>Unverified</td><td>Unverified</td><td><span class='pill'>Fit A</span></td></tr><tr><td><strong style='color:var(--ink)'>Building Consultants, Inc.</strong></td><td>Lender&#x27;s Construction Consultant firm</td><td>Ellicott City, MD</td><td>Unverified</td><td><span class='pill'>Fit A</span></td></tr>
         </tbody>
       </table>
       <div class="footer-bar"><span>BRANDASTIC</span><span class="num">13d</span></div>
@@ -428,17 +440,17 @@ body{min-height:100vh}
     <div class="slide-inner">
       <div class="kicker">03b · Secondary · 20%</div>
       <div class="h2">Lenders / capital (Elena)</div>
-      <p class="lede" style="margin-bottom:.7rem">Apollo owner pulls with lending/capital signal. <strong style="color:#fff">Verify construction loan desk</strong> before heavy spend. Prefer joint path with their consultant.</p>
+      <p class="lede" style="margin-bottom:.7rem">Apollo owner pulls with lending/capital signal. <strong style="color:var(--ink)">Verify construction loan desk</strong> before heavy spend. Prefer joint path with their consultant.</p>
       <table class="table">
         <thead><tr><th>Name</th><th>Title</th><th>Company</th><th>Location</th><th>LinkedIn</th></tr></thead>
         <tbody>
-        <tr><td><strong style='color:#fff'>Donna Russell</strong><div style='font-size:.72rem;color:var(--muted);margin-top:.15rem'>SECONDARY · 20% (Elena)</div></td><td>Co-Owner</td><td>Grind Capital Group</td><td>Atlanta Georgia</td><td><a href="http://www.linkedin.com/in/donna-russell-4266a2280" target="_blank" rel="noopener" style="color:#2eb8c0">LinkedIn</a></td></tr>
-<tr><td><strong style='color:#fff'>Justin Golshir</strong><div style='font-size:.72rem;color:var(--muted);margin-top:.15rem'>SECONDARY · 20% (Elena)</div></td><td>Founder and CEO</td><td>Grind Capital Group</td><td>Atlanta Georgia</td><td><a href="http://www.linkedin.com/in/justin-golshir-0463b019" target="_blank" rel="noopener" style="color:#2eb8c0">LinkedIn</a></td></tr>
-<tr><td><strong style='color:#fff'>Miad Ballai</strong><div style='font-size:.72rem;color:var(--muted);margin-top:.15rem'>SECONDARY · 20% (Elena)</div></td><td>Founder and CEO</td><td>Bella Cyrus Capital</td><td>Nashville Tennessee</td><td><a href="http://www.linkedin.com/in/miadballai" target="_blank" rel="noopener" style="color:#2eb8c0">LinkedIn</a></td></tr>
-<tr><td><strong style='color:#fff'>Randy North</strong><div style='font-size:.72rem;color:var(--muted);margin-top:.15rem'>SECONDARY · 20% (Elena)</div></td><td>President, CEO</td><td>Capital Commercial Real Estate Group, Inc.</td><td>Hollywood Florida</td><td><a href="http://www.linkedin.com/in/randy-north-0a164810" target="_blank" rel="noopener" style="color:#2eb8c0">LinkedIn</a></td></tr>
-<tr><td><strong style='color:#fff'>Brien Wloch</strong><div style='font-size:.72rem;color:var(--muted);margin-top:.15rem'>SECONDARY · 20% (Elena)</div></td><td>Managing Member</td><td>Dearborn Capital Commercial Real Estate, LLC</td><td>Chicago Illinois</td><td><a href="http://www.linkedin.com/in/brien-wloch-b54533a" target="_blank" rel="noopener" style="color:#2eb8c0">LinkedIn</a></td></tr>
-<tr><td><strong style='color:#fff'>Kess Romano</strong><div style='font-size:.72rem;color:var(--muted);margin-top:.15rem'>SECONDARY · 20% (Elena)</div></td><td>President &amp; CEO, Principal</td><td>Romano Capital, Inc.</td><td>Vancouver Washington</td><td><a href="http://www.linkedin.com/in/kess-romano-3a9475279" target="_blank" rel="noopener" style="color:#2eb8c0">LinkedIn</a></td></tr>
-<tr><td><strong style='color:#fff'>Travis Crane</strong><div style='font-size:.72rem;color:var(--muted);margin-top:.15rem'>SECONDARY · 20% (Elena)</div></td><td>Co-Owner</td><td>Alpine Commercial Capital</td><td>Pflugerville Texas</td><td><a href="http://www.linkedin.com/in/travis-crane-0499341b6" target="_blank" rel="noopener" style="color:#2eb8c0">LinkedIn</a></td></tr>
+        <tr><td><strong style='color:var(--ink)'>Donna Russell</strong><div style='font-size:.72rem;color:var(--muted);margin-top:.15rem'>SECONDARY · 20% (Elena)</div></td><td>Co-Owner</td><td>Grind Capital Group</td><td>Atlanta Georgia</td><td><a href="http://www.linkedin.com/in/donna-russell-4266a2280" target="_blank" rel="noopener" style="color:#2eb8c0">LinkedIn</a></td></tr>
+<tr><td><strong style='color:var(--ink)'>Justin Golshir</strong><div style='font-size:.72rem;color:var(--muted);margin-top:.15rem'>SECONDARY · 20% (Elena)</div></td><td>Founder and CEO</td><td>Grind Capital Group</td><td>Atlanta Georgia</td><td><a href="http://www.linkedin.com/in/justin-golshir-0463b019" target="_blank" rel="noopener" style="color:#2eb8c0">LinkedIn</a></td></tr>
+<tr><td><strong style='color:var(--ink)'>Miad Ballai</strong><div style='font-size:.72rem;color:var(--muted);margin-top:.15rem'>SECONDARY · 20% (Elena)</div></td><td>Founder and CEO</td><td>Bella Cyrus Capital</td><td>Nashville Tennessee</td><td><a href="http://www.linkedin.com/in/miadballai" target="_blank" rel="noopener" style="color:#2eb8c0">LinkedIn</a></td></tr>
+<tr><td><strong style='color:var(--ink)'>Randy North</strong><div style='font-size:.72rem;color:var(--muted);margin-top:.15rem'>SECONDARY · 20% (Elena)</div></td><td>President, CEO</td><td>Capital Commercial Real Estate Group, Inc.</td><td>Hollywood Florida</td><td><a href="http://www.linkedin.com/in/randy-north-0a164810" target="_blank" rel="noopener" style="color:#2eb8c0">LinkedIn</a></td></tr>
+<tr><td><strong style='color:var(--ink)'>Brien Wloch</strong><div style='font-size:.72rem;color:var(--muted);margin-top:.15rem'>SECONDARY · 20% (Elena)</div></td><td>Managing Member</td><td>Dearborn Capital Commercial Real Estate, LLC</td><td>Chicago Illinois</td><td><a href="http://www.linkedin.com/in/brien-wloch-b54533a" target="_blank" rel="noopener" style="color:#2eb8c0">LinkedIn</a></td></tr>
+<tr><td><strong style='color:var(--ink)'>Kess Romano</strong><div style='font-size:.72rem;color:var(--muted);margin-top:.15rem'>SECONDARY · 20% (Elena)</div></td><td>President &amp; CEO, Principal</td><td>Romano Capital, Inc.</td><td>Vancouver Washington</td><td><a href="http://www.linkedin.com/in/kess-romano-3a9475279" target="_blank" rel="noopener" style="color:#2eb8c0">LinkedIn</a></td></tr>
+<tr><td><strong style='color:var(--ink)'>Travis Crane</strong><div style='font-size:.72rem;color:var(--muted);margin-top:.15rem'>SECONDARY · 20% (Elena)</div></td><td>Co-Owner</td><td>Alpine Commercial Capital</td><td>Pflugerville Texas</td><td><a href="http://www.linkedin.com/in/travis-crane-0499341b6" target="_blank" rel="noopener" style="color:#2eb8c0">LinkedIn</a></td></tr>
         </tbody>
       </table>
       <div class="footer-bar"><span>BRANDASTIC</span><span class="num">13e</span></div>
@@ -453,13 +465,13 @@ body{min-height:100vh}
       <table class="table">
         <thead><tr><th>Name</th><th>Title</th><th>Company</th><th>Location</th><th>LinkedIn</th></tr></thead>
         <tbody>
-        <tr><td><strong style='color:#fff'>Craig Denooyer</strong><div style='font-size:.72rem;color:var(--muted);margin-top:.15rem'>SECONDARY · 10% (Jordan path)</div></td><td>CEO</td><td>633 Group</td><td>Portage Michigan</td><td><a href="http://www.linkedin.com/in/craig-denooyer-2899997" target="_blank" rel="noopener" style="color:#2eb8c0">LinkedIn</a></td></tr>
-<tr><td><strong style='color:#fff'>Daniel Messier</strong><div style='font-size:.72rem;color:var(--muted);margin-top:.15rem'>SECONDARY · 10% (Jordan path)</div></td><td>Senior Vice President of Development</td><td>AAM 15 Management, LLC</td><td>Boston Massachusetts</td><td><a href="http://www.linkedin.com/in/daniel-messier-20934022" target="_blank" rel="noopener" style="color:#2eb8c0">LinkedIn</a></td></tr>
-<tr><td><strong style='color:#fff'>Javier Rolon</strong><div style='font-size:.72rem;color:var(--muted);margin-top:.15rem'>SECONDARY · 10% (Jordan path)</div></td><td>President &amp; CEO</td><td>AIMM</td><td>Houston Texas</td><td><a href="http://www.linkedin.com/in/javier-rolon-79a9244" target="_blank" rel="noopener" style="color:#2eb8c0">LinkedIn</a></td></tr>
-<tr><td><strong style='color:#fff'>Eric Mandell</strong><div style='font-size:.72rem;color:var(--muted);margin-top:.15rem'>SECONDARY · 10% (Jordan path)</div></td><td>Co-Founder and President</td><td>ALLY Commercial Real Estate</td><td>Los Angeles California</td><td><a href="http://www.linkedin.com/in/eric-mandell-53b468233" target="_blank" rel="noopener" style="color:#2eb8c0">LinkedIn</a></td></tr>
-<tr><td><strong style='color:#fff'>Nicole Vaz-Huerta</strong><div style='font-size:.72rem;color:var(--muted);margin-top:.15rem'>SECONDARY · 10% (Jordan path)</div></td><td>Vice President Development &amp; Construction Accounting</td><td>AMCAL Multi-Housing, Inc.</td><td>Agoura Hills California</td><td><a href="http://www.linkedin.com/in/nicole-vaz-huerta-37113a14" target="_blank" rel="noopener" style="color:#2eb8c0">LinkedIn</a></td></tr>
-<tr><td><strong style='color:#fff'>Isabelle Lockwood</strong><div style='font-size:.72rem;color:var(--muted);margin-top:.15rem'>SECONDARY · 10% (Jordan path)</div></td><td>Senior Vice President, Development</td><td>AMLI Residential</td><td>Denver Colorado</td><td><a href="http://www.linkedin.com/in/isabellewolfe" target="_blank" rel="noopener" style="color:#2eb8c0">LinkedIn</a></td></tr>
-<tr><td><strong style='color:#fff'>Randy Simmering</strong><div style='font-size:.72rem;color:var(--muted);margin-top:.15rem'>SECONDARY · 10% (Jordan path)</div></td><td>Senior Vice President Development and Construction</td><td>AT Industrial Co</td><td>Boulder Colorado</td><td><a href="http://www.linkedin.com/in/randy-simmering-15600714" target="_blank" rel="noopener" style="color:#2eb8c0">LinkedIn</a></td></tr>
+        <tr><td><strong style='color:var(--ink)'>Craig Denooyer</strong><div style='font-size:.72rem;color:var(--muted);margin-top:.15rem'>SECONDARY · 10% (Jordan path)</div></td><td>CEO</td><td>633 Group</td><td>Portage Michigan</td><td><a href="http://www.linkedin.com/in/craig-denooyer-2899997" target="_blank" rel="noopener" style="color:#2eb8c0">LinkedIn</a></td></tr>
+<tr><td><strong style='color:var(--ink)'>Daniel Messier</strong><div style='font-size:.72rem;color:var(--muted);margin-top:.15rem'>SECONDARY · 10% (Jordan path)</div></td><td>Senior Vice President of Development</td><td>AAM 15 Management, LLC</td><td>Boston Massachusetts</td><td><a href="http://www.linkedin.com/in/daniel-messier-20934022" target="_blank" rel="noopener" style="color:#2eb8c0">LinkedIn</a></td></tr>
+<tr><td><strong style='color:var(--ink)'>Javier Rolon</strong><div style='font-size:.72rem;color:var(--muted);margin-top:.15rem'>SECONDARY · 10% (Jordan path)</div></td><td>President &amp; CEO</td><td>AIMM</td><td>Houston Texas</td><td><a href="http://www.linkedin.com/in/javier-rolon-79a9244" target="_blank" rel="noopener" style="color:#2eb8c0">LinkedIn</a></td></tr>
+<tr><td><strong style='color:var(--ink)'>Eric Mandell</strong><div style='font-size:.72rem;color:var(--muted);margin-top:.15rem'>SECONDARY · 10% (Jordan path)</div></td><td>Co-Founder and President</td><td>ALLY Commercial Real Estate</td><td>Los Angeles California</td><td><a href="http://www.linkedin.com/in/eric-mandell-53b468233" target="_blank" rel="noopener" style="color:#2eb8c0">LinkedIn</a></td></tr>
+<tr><td><strong style='color:var(--ink)'>Nicole Vaz-Huerta</strong><div style='font-size:.72rem;color:var(--muted);margin-top:.15rem'>SECONDARY · 10% (Jordan path)</div></td><td>Vice President Development &amp; Construction Accounting</td><td>AMCAL Multi-Housing, Inc.</td><td>Agoura Hills California</td><td><a href="http://www.linkedin.com/in/nicole-vaz-huerta-37113a14" target="_blank" rel="noopener" style="color:#2eb8c0">LinkedIn</a></td></tr>
+<tr><td><strong style='color:var(--ink)'>Isabelle Lockwood</strong><div style='font-size:.72rem;color:var(--muted);margin-top:.15rem'>SECONDARY · 10% (Jordan path)</div></td><td>Senior Vice President, Development</td><td>AMLI Residential</td><td>Denver Colorado</td><td><a href="http://www.linkedin.com/in/isabellewolfe" target="_blank" rel="noopener" style="color:#2eb8c0">LinkedIn</a></td></tr>
+<tr><td><strong style='color:var(--ink)'>Randy Simmering</strong><div style='font-size:.72rem;color:var(--muted);margin-top:.15rem'>SECONDARY · 10% (Jordan path)</div></td><td>Senior Vice President Development and Construction</td><td>AT Industrial Co</td><td>Boulder Colorado</td><td><a href="http://www.linkedin.com/in/randy-simmering-15600714" target="_blank" rel="noopener" style="color:#2eb8c0">LinkedIn</a></td></tr>
         </tbody>
       </table>
       <div class="footer-bar"><span>BRANDASTIC</span><span class="num">13f</span></div>
@@ -470,16 +482,16 @@ body{min-height:100vh}
     <div class="slide-inner">
       <div class="kicker">03b · NO · Not primary</div>
       <div class="h2">Contractors / builders (skip)</div>
-      <p class="lede" style="margin-bottom:.7rem">Showed up in broad Apollo “construction consultant” pulls. <strong style="color:#fff">Not Marcus.</strong> Don’t burn Reply.io here.</p>
+      <p class="lede" style="margin-bottom:.7rem">Showed up in broad Apollo “construction consultant” pulls. <strong style="color:var(--ink)">Not Marcus.</strong> Don’t burn Reply.io here.</p>
       <table class="table">
         <thead><tr><th>Name</th><th>Title</th><th>Company</th><th>Location</th><th>LinkedIn</th></tr></thead>
         <tbody>
-        <tr><td><strong style='color:#fff'>William Kerns</strong><div style='font-size:.72rem;color:var(--muted);margin-top:.15rem'>NO · not primary ICP</div></td><td>Construction Consultant</td><td>14er Exteriors</td><td>Wheat Ridge Colorado</td><td><a href="http://www.linkedin.com/in/williamkernsaicp" target="_blank" rel="noopener" style="color:#2eb8c0">LinkedIn</a></td></tr>
-<tr><td><strong style='color:#fff'>Sonny Gonzalez</strong><div style='font-size:.72rem;color:var(--muted);margin-top:.15rem'>NO · not primary ICP</div></td><td>Solar Energy Consultant / New Construction Solar Consultant</td><td>A.M. Sun Solar + Roofing</td><td>Templeton California</td><td><a href="http://www.linkedin.com/in/sonny-gonzalez-a1bb0a60" target="_blank" rel="noopener" style="color:#2eb8c0">LinkedIn</a></td></tr>
-<tr><td><strong style='color:#fff'>Joshua Heckroth</strong><div style='font-size:.72rem;color:var(--muted);margin-top:.15rem'>NO · not primary ICP</div></td><td>Pre-Construction / Distributor Consultant</td><td>ASSA ABLOY Door Security Solutions - US</td><td>Los Angeles California</td><td><a href="http://www.linkedin.com/in/joshheckroth" target="_blank" rel="noopener" style="color:#2eb8c0">LinkedIn</a></td></tr>
-<tr><td><strong style='color:#fff'>Ken Thiel</strong><div style='font-size:.72rem;color:var(--muted);margin-top:.15rem'>NO · not primary ICP</div></td><td>Director of Construction/Consultant</td><td>Alpha &amp; Omega Builders</td><td>Boise Idaho</td><td><a href="http://www.linkedin.com/in/ken-thiel-82453328" target="_blank" rel="noopener" style="color:#2eb8c0">LinkedIn</a></td></tr>
-<tr><td><strong style='color:#fff'>Matthew Willbanks</strong><div style='font-size:.72rem;color:var(--muted);margin-top:.15rem'>NO · not primary ICP</div></td><td>Construction Consultant</td><td>Avila Construction Company</td><td></td><td><a href="http://www.linkedin.com/in/matthew-willbanks-65650967" target="_blank" rel="noopener" style="color:#2eb8c0">LinkedIn</a></td></tr>
-<tr><td><strong style='color:#fff'>Michael Hanson</strong><div style='font-size:.72rem;color:var(--muted);margin-top:.15rem'>NO · not primary ICP</div></td><td>Business Development Consultant for Boardwalk Paving &amp; Construction | Owner, Hanson Homes LLC</td><td>BOARDWALK PAVING &amp; CONSTRUCTION</td><td>Garland Texas</td><td><a href="http://www.linkedin.com/in/michael-hanson12" target="_blank" rel="noopener" style="color:#2eb8c0">LinkedIn</a></td></tr>
+        <tr><td><strong style='color:var(--ink)'>William Kerns</strong><div style='font-size:.72rem;color:var(--muted);margin-top:.15rem'>NO · not primary ICP</div></td><td>Construction Consultant</td><td>14er Exteriors</td><td>Wheat Ridge Colorado</td><td><a href="http://www.linkedin.com/in/williamkernsaicp" target="_blank" rel="noopener" style="color:#2eb8c0">LinkedIn</a></td></tr>
+<tr><td><strong style='color:var(--ink)'>Sonny Gonzalez</strong><div style='font-size:.72rem;color:var(--muted);margin-top:.15rem'>NO · not primary ICP</div></td><td>Solar Energy Consultant / New Construction Solar Consultant</td><td>A.M. Sun Solar + Roofing</td><td>Templeton California</td><td><a href="http://www.linkedin.com/in/sonny-gonzalez-a1bb0a60" target="_blank" rel="noopener" style="color:#2eb8c0">LinkedIn</a></td></tr>
+<tr><td><strong style='color:var(--ink)'>Joshua Heckroth</strong><div style='font-size:.72rem;color:var(--muted);margin-top:.15rem'>NO · not primary ICP</div></td><td>Pre-Construction / Distributor Consultant</td><td>ASSA ABLOY Door Security Solutions - US</td><td>Los Angeles California</td><td><a href="http://www.linkedin.com/in/joshheckroth" target="_blank" rel="noopener" style="color:#2eb8c0">LinkedIn</a></td></tr>
+<tr><td><strong style='color:var(--ink)'>Ken Thiel</strong><div style='font-size:.72rem;color:var(--muted);margin-top:.15rem'>NO · not primary ICP</div></td><td>Director of Construction/Consultant</td><td>Alpha &amp; Omega Builders</td><td>Boise Idaho</td><td><a href="http://www.linkedin.com/in/ken-thiel-82453328" target="_blank" rel="noopener" style="color:#2eb8c0">LinkedIn</a></td></tr>
+<tr><td><strong style='color:var(--ink)'>Matthew Willbanks</strong><div style='font-size:.72rem;color:var(--muted);margin-top:.15rem'>NO · not primary ICP</div></td><td>Construction Consultant</td><td>Avila Construction Company</td><td></td><td><a href="http://www.linkedin.com/in/matthew-willbanks-65650967" target="_blank" rel="noopener" style="color:#2eb8c0">LinkedIn</a></td></tr>
+<tr><td><strong style='color:var(--ink)'>Michael Hanson</strong><div style='font-size:.72rem;color:var(--muted);margin-top:.15rem'>NO · not primary ICP</div></td><td>Business Development Consultant for Boardwalk Paving &amp; Construction | Owner, Hanson Homes LLC</td><td>BOARDWALK PAVING &amp; CONSTRUCTION</td><td>Garland Texas</td><td><a href="http://www.linkedin.com/in/michael-hanson12" target="_blank" rel="noopener" style="color:#2eb8c0">LinkedIn</a></td></tr>
         </tbody>
       </table>
       <div class="quote">If they build or sell construction services — not monitor draws for a lender — out of primary.</div>
@@ -533,7 +545,7 @@ body{min-height:100vh}
         <thead><tr><th>Projects / company</th><th>@ $300</th><th>@ $400</th><th>@ $500</th></tr></thead>
         <tbody>
           <tr><td><strong>3</strong></td><td>~278 cos</td><td>~208</td><td>~167</td></tr>
-          <tr><td><strong>5</strong></td><td>~167</td><td><strong style="color:#fff">~125 ← plan</strong></td><td>~100</td></tr>
+          <tr><td><strong>5</strong></td><td>~167</td><td><strong style="color:var(--ink)">~125 ← plan</strong></td><td>~100</td></tr>
           <tr><td><strong>8</strong></td><td>~104</td><td>~78</td><td>~63</td></tr>
           <tr><td><strong>10</strong></td><td>~83</td><td>~63</td><td>~50</td></tr>
         </tbody>
@@ -559,10 +571,10 @@ body{min-height:100vh}
       <table class="table">
         <thead><tr><th>When</th><th>Target</th><th>What must be true</th><th>Rough $*</th></tr></thead>
         <tbody>
-          <tr><td><strong>Q4 2026</strong></td><td><strong style="color:#fff">1–5 pilots</strong></td><td>CMAA + LinkedIn + walkthroughs + live jobs</td><td>Pilot fees</td></tr>
+          <tr><td><strong>Q4 2026</strong></td><td><strong style="color:var(--ink)">1–5 pilots</strong></td><td>CMAA + LinkedIn + walkthroughs + live jobs</td><td>Pilot fees</td></tr>
           <tr><td><strong>End 2027</strong></td><td>~15–25 paying</td><td>Repeat motion · projects stack</td><td>~$0.3–0.6M</td></tr>
           <tr><td><strong>End 2028</strong></td><td>~40–60 paying</td><td>Referrals · lender intros</td><td>~$1.0–1.5M</td></tr>
-          <tr><td><strong>2029–30</strong></td><td>~100–125 paying</td><td>Consultants + some lenders</td><td><strong style="color:#fff">~$2.5–3.0M+</strong></td></tr>
+          <tr><td><strong>2029–30</strong></td><td>~100–125 paying</td><td>Consultants + some lenders</td><td><strong style="color:var(--ink)">~$2.5–3.0M+</strong></td></tr>
         </tbody>
       </table>
       <p class="lede" style="margin-top:1rem">*~$24k/company/year. Q4 floor=1 · solid=2–3 · stretch=4–5. Do not confuse pilots with $3M logos.</p>
@@ -720,7 +732,7 @@ DM me if you want in.</div>
       <div class="cal-week"><b>W7–8</b><span>Newsletter #2. More warm walkthroughs. Lender only with consultant path.</span></div>
       <div class="cal-week"><b>W9–10</b><span>Push 3–5 pilots. Write proof line: time saved, fewer chases, cleaner bank package.</span></div>
       <div class="cal-week"><b>W11–12</b><span>Newsletter #3 with proof. Year-end: 1–5 pilots · 1 story · 2027 plan for ~15–25 paying.</span></div>
-      <div class="card" style="margin-top:1rem"><h3>Scoreboard</h3><p>Network on · newsletter habit · posts steady · <strong style="color:#fff">1–5 pilots · 1 proof story</strong> · math path to $3M still clear</p></div>
+      <div class="card" style="margin-top:1rem"><h3>Scoreboard</h3><p>Network on · newsletter habit · posts steady · <strong style="color:var(--ink)">1–5 pilots · 1 proof story</strong> · math path to $3M still clear</p></div>
       <div class="footer-bar"><span>BRANDASTIC</span><span class="num">26</span></div>
     </div>
   </section>
