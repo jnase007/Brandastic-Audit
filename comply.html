@@ -166,6 +166,11 @@ body{min-height:100vh}
 .title-tagline span{color:var(--teal);font-weight:800}
 @media print{.title-brand img{height:44px}}
 
+
+.channel-toc{display:grid;grid-template-columns:repeat(4,1fr);gap:.65rem;margin-top:.85rem}
+.channel-toc .card{text-align:center;padding:1rem .6rem;border:1px solid var(--line)}
+.channel-toc .card strong{display:block;font-size:1.05rem;color:var(--teal);margin-bottom:.25rem}
+.channel-toc .card span{font-size:.78rem;color:var(--muted);line-height:1.35}
 </style>
 </head>
 <body>
@@ -196,26 +201,29 @@ body{min-height:100vh}
     </div>
   </section>
 
-  <section class="slide">
+    <section class="slide" id="toc">
     <div class="slide-inner">
       <div class="kicker">Contents</div>
-      <div class="h2">Table of Contents</div>
-      <div class="toc-list">
-        <div>01 · Brand / Market Assessment</div>
-        <div>02 · Competitor Research + Analysis <span>bubble chart · pricing</span></div>
-        <div>03 · Target Personas <span>Marcus · Elena · Jordan</span></div>
-        <div>03b · Apollo ICP samples <span>real people from our lists</span></div>
-        <div>04 · Goals + Objectives <span>$3M math · 2027: 1 to 20 paying clients</span></div>
-        <div>05 · What we say + how we sell</div>
-        <div>05b · 2027 Full Plan + ROI <span>approval for Tom & Jerod</span></div>
-        <div>06 · Sample Copy (ready to send)</div>
-        <div>07 · Master Marketing Calendar (90 days)</div>
-        <div>08 · Tom & Jerod Weekly Playbook</div>
-        <div>09 · Owners + Next Steps</div>
+      <div class="h2">How to read this deck</div>
+      <div class="toc">
+        <div>01 · Market & competitors</div>
+        <div>02 · Who we sell <span>consultants first · ~50 firms</span></div>
+        <div>03 · What we say <span>margin · GC time · consistency</span></div>
+        <div>04 · Marketing channels <span>LinkedIn · Email · Social · SEO</span></div>
+        <div>05 · Money & ROI <span>20 clients · $480k · $3M path</span></div>
+        <div>06 · Sample ads & copy</div>
+        <div>07 · 90 days + next steps</div>
+      </div>
+      <div class="channel-toc">
+        <div class="card"><strong>LinkedIn</strong><span>Reply.io outbound + gift walkthrough ads</span></div>
+        <div class="card"><strong>Email</strong><span>Direct openers + monthly newsletter</span></div>
+        <div class="card"><strong>Social</strong><span>Founder posts 2–3× / week</span></div>
+        <div class="card"><strong>SEO</strong><span>8-piece content machine on comply.capital</span></div>
       </div>
       <div class="footer-bar"><span>COMPLY</span><span class="num">02</span></div>
     </div>
   </section>
+
 
   <section class="slide" id="discovery">
     <div class="slide-inner divider-slide">
@@ -725,6 +733,173 @@ body{min-height:100vh}
     </div>
   </section>
 
+  <section class="slide" id="channels-hub">
+    <div class="slide-inner">
+      <div class="kicker">04 · Marketing channels</div>
+      <div class="h2">Where we run the plan</div>
+      <p class="lede" style="margin-bottom:.55rem">Four channels. Same ICP. Same offer path: walkthrough → pilot → paid.</p>
+      <div class="channel-toc">
+        <div class="card" style="border-color:rgba(15,143,151,.45)"><strong>1 · LinkedIn</strong><span>Primary pipeline engine</span></div>
+        <div class="card" style="border-color:rgba(15,143,151,.45)"><strong>2 · Email</strong><span>Open + nurture + follow-up</span></div>
+        <div class="card" style="border-color:rgba(15,143,151,.45)"><strong>3 · Social</strong><span>Founder presence & proof</span></div>
+        <div class="card" style="border-color:rgba(15,143,151,.45)"><strong>4 · SEO</strong><span>Always-on inbound compound</span></div>
+      </div>
+      <div class="quote" style="margin-top:1rem">Tom & Jerod run LinkedIn + social. Email supports every meeting. SEO builds the long game on comply.capital.</div>
+      <div class="footer-bar"><span>COMPLY</span><span class="num">CH0</span></div>
+    </div>
+  </section>
+
+  <section class="slide" id="channel-linkedin">
+    <div class="slide-inner">
+      <div class="kicker">04 · Channel · LinkedIn</div>
+      <div class="h2">Primary: outbound + gift walkthroughs</div>
+      <div class="grid2">
+        <div class="card" style="border-color:rgba(15,143,151,.45)">
+          <h3>What we do</h3>
+          <ul>
+            <li>Tom + Jerod on <strong>Reply.io</strong></li>
+            <li>Fit A consultant connects (from Tom/Jerod list)</li>
+            <li>Short plain-English notes</li>
+            <li>Message ads: $100 Amazon / Kindle after meeting</li>
+            <li>Book 20-min package walkthroughs</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Plan math (monthly)</h3>
+          <ul>
+            <li><strong>100–120</strong> Fit A connects</li>
+            <li><strong>8–12</strong> walkthroughs held</li>
+            <li><strong>2–4</strong> pilots started</li>
+            <li><strong>~1.5–2</strong> new paying clients</li>
+          </ul>
+          <p style="margin-top:.55rem">This is the core engine for the ~50-firm beachhead.</p>
+        </div>
+      </div>
+      <div class="footer-bar"><span>COMPLY</span><span class="num">CH1</span></div>
+    </div>
+  </section>
+
+  <section class="slide" id="channel-email">
+    <div class="slide-inner">
+      <div class="kicker">04 · Channel · Email</div>
+      <div class="h2">Direct email + monthly newsletter</div>
+      <div class="grid2">
+        <div class="card" style="border-color:rgba(15,143,151,.45)">
+          <h3>Direct email</h3>
+          <ul>
+            <li>Only clean direct contacts</li>
+            <li>Same pain → walkthrough CTA</li>
+            <li>Consultants: margin angle</li>
+            <li>Developers: time with GC (secondary)</li>
+            <li>Same-day follow-up after every meeting</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Monthly newsletter</h3>
+          <ul>
+            <li>2 useful field reads</li>
+            <li>1 pilot / walkthrough CTA</li>
+            <li>Plain language — no AI hype</li>
+            <li>Proof blocks when pilots produce them</li>
+            <li>Keeps warm leads in the relationship</li>
+          </ul>
+        </div>
+      </div>
+      <div class="quote" style="margin-top:.85rem">Email is not a separate campaign. It’s the follow-through layer for LinkedIn meetings and pilots.</div>
+      <div class="footer-bar"><span>COMPLY</span><span class="num">CH2</span></div>
+    </div>
+  </section>
+
+  <section class="slide" id="channel-social">
+    <div class="slide-inner">
+      <div class="kicker">04 · Channel · Social</div>
+      <div class="h2">Founder posts that support pipeline</div>
+      <div class="grid2">
+        <div class="card" style="border-color:rgba(15,143,151,.45)">
+          <h3>Cadence</h3>
+          <ul>
+            <li><strong>2–3 posts / week</strong> combined (Tom + Jerod)</li>
+            <li>Split ownership — don’t both ghost</li>
+            <li>Always a next step (walkthrough / pilot)</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Content mix</h3>
+          <ul>
+            <li><strong>Pain:</strong> monthly package chaos / waiver chase</li>
+            <li><strong>Process:</strong> what bank-ready looks like</li>
+            <li><strong>Proof:</strong> pilot notes, time saved, quotes</li>
+            <li><strong>Offer:</strong> 20-min walkthrough</li>
+          </ul>
+        </div>
+      </div>
+      <div class="card" style="margin-top:.7rem">
+        <h3>Rules</h3>
+        <p>No feature spam. No AI hype. Field words only. Social makes COMPLY familiar so LinkedIn notes and gift ads convert easier.</p>
+      </div>
+      <div class="footer-bar"><span>COMPLY</span><span class="num">CH3</span></div>
+    </div>
+  </section>
+
+  <section class="slide" id="channel-seo">
+    <div class="slide-inner">
+      <div class="kicker">04 · Channel · SEO</div>
+      <div class="h2">8-piece content machine on comply.capital</div>
+      <div class="grid2">
+        <div class="card" style="border-color:rgba(15,143,151,.45)">
+          <h3>System</h3>
+          <p>Same Brandastic agency SEO plan:</p>
+          <ul>
+            <li>1 Ultimate guide</li>
+            <li>1 Listicle</li>
+            <li>1 Buyer guide</li>
+            <li>5 Thought-leadership pieces</li>
+          </ul>
+          <p style="margin-top:.45rem">Per category/feature node. Finish 8 before the next node.</p>
+        </div>
+        <div class="card">
+          <h3>First nodes</h3>
+          <ol>
+            <li>Draw packages for consultants</li>
+            <li>AI review · DEFICIENCY / WATCH / CLEAR</li>
+            <li>G702/G703 pay-app</li>
+            <li>Lien waivers</li>
+            <li>Document checklist</li>
+          </ol>
+          <p style="margin-top:.45rem">Every page CTA → walkthrough / pilot.</p>
+        </div>
+      </div>
+      <div class="quote" style="margin-top:.85rem">SEO won’t replace LinkedIn in month one. It compounds so inbound supports the same walkthrough offer later.</div>
+      <div class="footer-bar"><span>COMPLY</span><span class="num">CH4</span></div>
+    </div>
+  </section>
+
+  <section class="slide" id="channels-together">
+    <div class="slide-inner">
+      <div class="kicker">04 · Channels together</div>
+      <div class="h2">One motion across all four</div>
+      <div class="flow" style="margin-bottom:.85rem">
+        <div class="step">LinkedIn open</div><div class="arrow">→</div>
+        <div class="step">Email follow</div><div class="arrow">→</div>
+        <div class="step">Social proof</div><div class="arrow">→</div>
+        <div class="step">Walkthrough</div><div class="arrow">→</div>
+        <div class="step">Pilot</div><div class="arrow">→</div>
+        <div class="step">SEO proof pages</div>
+      </div>
+      <table class="table">
+        <thead><tr><th>Channel</th><th>Owner</th><th>Weekly job</th><th>Success look</th></tr></thead>
+        <tbody>
+          <tr><td><strong>LinkedIn</strong></td><td>Tom + Jerod</td><td>Connects, notes, gift ads, meetings</td><td>8–12 walkthroughs / mo</td></tr>
+          <tr><td><strong>Email</strong></td><td>Tom + Jerod</td><td>Openers + same-day follow-ups</td><td>Meetings assisted + newsletter sent</td></tr>
+          <tr><td><strong>Social</strong></td><td>Tom + Jerod</td><td>2–3 posts / week</td><td>Consistent presence + CTAs</td></tr>
+          <tr><td><strong>SEO</strong></td><td>Writer + Justin</td><td>Ship 8-pack nodes</td><td>Guides live + demo CTAs</td></tr>
+        </tbody>
+      </table>
+      <div class="footer-bar"><span>COMPLY</span><span class="num">CH5</span></div>
+    </div>
+  </section>
+
+
   
   <section class="slide" id="win-market">
     <div class="slide-inner divider-slide">
@@ -1208,7 +1383,7 @@ Interested?</div>
 
 <section class="slide">
     <div class="slide-inner">
-      <div class="kicker">06 · Copy ready to send</div>
+      <div class="kicker">04 · Sample copy</div>
       <div class="h2">Marcus (consultant) sequences</div>
       <div class="msg"><div class="lbl">LinkedIn connect</div>Hey {{FirstName}}, good to meet you around CMAA / in construction lending — would be good to connect.</div>
       <div class="msg"><div class="lbl">LinkedIn after accept</div>Thanks for connecting, {{FirstName}}!
@@ -1233,7 +1408,7 @@ Tom · COMPLY</div>
 
   <section class="slide">
     <div class="slide-inner">
-      <div class="kicker">06 · Newsletter + social</div>
+      <div class="kicker">04 · Email + social samples</div>
       <div class="h2">Always-on content</div>
       <div class="msg"><div class="lbl">Newsletter close</div>Running construction loan monitoring for lenders?
 
