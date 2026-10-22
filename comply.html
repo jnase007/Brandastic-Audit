@@ -172,6 +172,47 @@ body{min-height:100vh}
 .channel-toc .card{text-align:center;padding:1rem .6rem;border:1px solid var(--line)}
 .channel-toc .card strong{display:block;font-size:1.05rem;color:var(--teal);margin-bottom:.25rem}
 .channel-toc .card span{font-size:.78rem;color:var(--muted);line-height:1.35}
+
+/* Title slide: main story centered; brand lockup small bottom-left */
+.slide#title .slide-inner,
+.slide-inner.title-slide{
+  min-height:560px;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:flex-start;
+  position:relative;
+  padding-bottom:4.5rem;
+}
+.slide#title .title-main{max-width:34rem}
+.slide#title .title-main .h1{font-size:2.75rem;line-height:1.05;margin:0}
+.slide#title .title-main .kicker{margin-bottom:.55rem}
+.slide#title .title-main .lede{margin-top:.85rem;max-width:28rem}
+.slide#title .title-brand{
+  position:absolute;
+  left:0; bottom:0;
+  margin:0;
+  gap:.28rem;
+  max-width:22rem;
+}
+.slide#title .title-brand img{height:28px;width:auto;opacity:.95}
+.slide#title .title-tagline{
+  font-size:.78rem;
+  font-weight:600;
+  color:var(--muted);
+  line-height:1.3;
+  max-width:22rem;
+  letter-spacing:0;
+}
+.slide#title .footer-bar{display:none} /* brand lockup replaces footer on title */
+@media print{
+  .slide#title .slide-inner,.slide-inner.title-slide{min-height:0;padding-bottom:3.2rem}
+  .slide#title .title-brand img{height:24px}
+}
+
+
+.slide#close .title-brand img{height:32px}
+.slide#close .title-tagline{font-size:.85rem;font-weight:600;color:var(--muted);max-width:28rem}
 </style>
 </head>
 <body>
@@ -189,15 +230,17 @@ body{min-height:100vh}
     <span class="hint">COMPLY · Killer owner strategy · Brandastic</span>
   </div>
 
-    <section class="slide" id="title">
-    <div class="slide-inner divider-slide">
+      <section class="slide" id="title">
+    <div class="slide-inner title-slide">
+      <div class="title-main">
+        <div class="kicker">For Tom, Jerod & Justin · 2027 game plan</div>
+        <div class="h1">Marketing Discovery<br>+ Strategy</div>
+        <p class="lede">Who we sell, what we say, how we reach them, and the path to 20 clients.</p>
+      </div>
       <div class="title-brand">
         <img src="assets/comply-logo-dark-2x.png" alt="COMPLY" />
         <div class="title-tagline">Intelligence Layer for Construction Draw Management</div>
       </div>
-      <div class="kicker">For Tom, Jerod & Justin · 2027 game plan</div>
-      <div class="h1">Marketing Discovery<br>+ Strategy</div>
-      <p class="lede" style="margin-top:1rem">Who we sell, what we say, how we reach them, and the path to 20 clients.</p>
       <div class="footer-bar"><span>COMPLY</span><span>comply.capital</span></div>
     </div>
   </section>
