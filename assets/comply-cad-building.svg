@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 720" fill="none" aria-hidden="true">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#2BC4E0" stop-opacity=".55"/>
+      <stop offset="55%" stop-color="#00D4AA" stop-opacity=".35"/>
+      <stop offset="100%" stop-color="#2F6BFF" stop-opacity=".2"/>
+    </linearGradient>
+    <linearGradient id="fade" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#0f1419" stop-opacity="0"/>
+      <stop offset="100%" stop-color="#0f1419" stop-opacity=".55"/>
+    </linearGradient>
+  </defs>
+  <!-- ground grid -->
+  <g stroke="#2BC4E0" stroke-opacity=".12" stroke-width="1">
+    <path d="M40 560 H600 M80 580 H560 M120 600 H520 M160 620 H480"/>
+    <path d="M200 540 L100 640 M280 540 L180 640 M360 540 L280 640 M440 540 L380 640 M520 540 L480 640"/>
+  </g>
+  <!-- main tower wireframe -->
+  <g stroke="url(#g)" stroke-width="1.6" stroke-linejoin="round">
+    <!-- isometric-ish tower -->
+    <path d="M220 520 L220 160 L360 100 L500 160 L500 520 L360 580 Z"/>
+    <path d="M220 160 L360 220 L500 160"/>
+    <path d="M360 220 L360 580"/>
+    <!-- floors -->
+    <path d="M235 210 L360 265 L485 210" stroke-opacity=".7"/>
+    <path d="M235 260 L360 315 L485 260" stroke-opacity=".65"/>
+    <path d="M235 310 L360 365 L485 310" stroke-opacity=".6"/>
+    <path d="M235 360 L360 415 L485 360" stroke-opacity=".55"/>
+    <path d="M235 410 L360 465 L485 410" stroke-opacity=".5"/>
+    <path d="M235 460 L360 515 L485 460" stroke-opacity=".45"/>
+    <!-- windows grid left face -->
+    <g stroke-opacity=".4" stroke-width="1">
+      <path d="M250 230 V500 M280 242 V512 M310 254 V524"/>
+      <path d="M250 250 H320 M250 290 H325 M250 330 H330 M250 370 H335 M250 410 H340 M250 450 H345 M250 490 H348"/>
+    </g>
+    <!-- right face windows -->
+    <g stroke-opacity=".35" stroke-width="1">
+      <path d="M390 242 V512 M420 230 V500 M450 218 V488"/>
+      <path d="M380 250 H470 M375 290 H465 M370 330 H460 M365 370 H455 M360 410 H450 M355 450 H445"/>
+    </g>
+    <!-- crane -->
+    <path d="M360 100 L360 40" stroke-opacity=".8"/>
+    <path d="M300 55 H480" stroke-opacity=".75"/>
+    <path d="M480 55 L470 70 M480 55 L490 70" stroke-opacity=".7"/>
+    <path d="M420 55 L420 90" stroke-opacity=".45"/>
+  </g>
+  <!-- side low building -->
+  <g stroke="#00D4AA" stroke-opacity=".45" stroke-width="1.4">
+    <path d="M90 520 L90 340 L180 300 L270 340 L270 520 L180 560 Z"/>
+    <path d="M90 340 L180 380 L270 340"/>
+    <path d="M180 380 L180 560"/>
+    <path d="M110 370 V500 M140 382 V512 M160 390 V520" stroke-opacity=".35"/>
+    <path d="M110 400 H175 M110 440 H178 M110 480 H180" stroke-opacity=".3"/>
+  </g>
+  <!-- dimension ticks -->
+  <g stroke="#7DD3FC" stroke-opacity=".35" stroke-width="1">
+    <path d="M70 340 V520 M60 340 H80 M60 520 H80"/>
+    <path d="M220 600 H500 M220 590 V610 M500 590 V610"/>
+  </g>
+  <text x="52" y="430" fill="#7DD3FC" fill-opacity=".4" font-family="ui-monospace,monospace" font-size="11" transform="rotate(-90 52 430)">ELEV</text>
+  <text x="330" y="635" fill="#7DD3FC" fill-opacity=".35" font-family="ui-monospace,monospace" font-size="11">CAD · DRAW PACKAGE</text>
+  <rect width="640" height="720" fill="url(#fade)"/>
+</svg>

@@ -516,6 +516,140 @@ img.comply-logo,
   filter:none!important;
 }
 
+
+/* Persona board — full faces, no edge clip */
+.persona-board{
+  display:grid!important;
+  grid-template-columns:repeat(3,minmax(0,1fr))!important;
+  gap:.65rem!important;
+  width:100%!important;
+  max-width:100%!important;
+  box-sizing:border-box!important;
+  overflow:visible!important;
+  align-items:start!important;
+}
+.persona-board .card{
+  min-width:0!important;
+  width:auto!important;
+  max-width:100%!important;
+  overflow:hidden!important;
+  box-sizing:border-box!important;
+  padding:.65rem .65rem .75rem!important;
+}
+.persona-board .card > img,
+#personas .persona-board img{
+  display:block!important;
+  width:100%!important;
+  max-width:100%!important;
+  height:210px!important;
+  object-fit:cover!important;
+  object-position:center 10%!important;
+  border-radius:12px!important;
+  margin:0 0 .5rem!important;
+}
+#personas .persona-board img[alt="Jordan Park"]{
+  object-position:40% 8%!important;
+}
+#personas .persona-board img[alt="Elena Vargas"]{
+  object-position:center 6%!important;
+}
+#personas .persona-board img[alt="Marcus Hale"]{
+  object-position:center 8%!important;
+}
+#personas .slide-inner,
+.slide#personas .slide-inner{
+  overflow:visible!important;
+  width:100%!important;
+  max-width:100%!important;
+  box-sizing:border-box!important;
+  padding-left:1.6rem!important;
+  padding-right:1.6rem!important;
+}
+/* kill earlier forced 180/155 heights on board */
+.persona-board .persona-card img,
+.persona-board img{
+  height:210px!important;
+}
+
+
+/* Dark section openers: CAD art + vertically centered titles */
+.slide.section-dark{
+  position:relative!important;
+  overflow:hidden!important;
+}
+.slide.section-dark .slide-inner,
+.slide-inner.divider-slide{
+  position:relative!important;
+  z-index:1!important;
+  min-height:520px!important;
+  display:flex!important;
+  flex-direction:column!important;
+  justify-content:center!important; /* vertical center */
+  align-items:flex-start!important; /* left text */
+  padding:2.4rem 2.6rem!important;
+  padding-right:42%!important; /* room for CAD */
+  box-sizing:border-box!important;
+}
+.slide.section-dark .cad-art{
+  position:absolute!important;
+  right:-2%!important;
+  top:50%!important;
+  transform:translateY(-50%)!important;
+  width:min(48%, 420px)!important;
+  height:auto!important;
+  max-height:88%!important;
+  opacity:.9!important;
+  pointer-events:none!important;
+  z-index:0!important;
+  filter:drop-shadow(0 0 28px rgba(43,196,224,.12));
+}
+.slide.section-dark .h1{
+  position:relative;z-index:2;
+  margin:0!important;
+  max-width:14ch;
+}
+.slide.section-dark .phase,
+.slide.section-dark .lede,
+.slide.section-dark .sec-sub,
+.slide.section-dark p{
+  position:relative;z-index:2;
+  max-width:34rem;
+}
+.slide.section-dark .brand-top,
+.slide.section-dark .footer-bar{
+  position:relative;z-index:2;
+  width:100%;
+}
+.slide.section-dark .footer-bar{
+  margin-top:auto!important;
+  padding-top:2rem!important;
+}
+.slide.section-dark .brand-top{
+  position:absolute!important;
+  top:1.4rem!important;
+  left:2.6rem!important;
+  right:2.6rem!important;
+  display:flex!important;
+  justify-content:space-between!important;
+  width:auto!important;
+  margin:0!important;
+  opacity:.55;
+  font-size:.7rem;
+  font-weight:700;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+}
+@media print{
+  .slide.section-dark .slide-inner{min-height:0!important;padding-right:38%!important}
+  .slide.section-dark .cad-art{opacity:.75!important}
+}
+
+
+#personas .persona-board{display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:.6rem!important;width:100%!important}
+#personas .persona-board .card{min-width:0!important;overflow:hidden!important}
+#personas .persona-board .card > img{width:100%!important;height:220px!important;object-fit:cover!important;object-position:center 8%!important;border-radius:12px!important}
+#personas .persona-board .card > img[alt="Jordan Park"]{object-position:42% 5%!important}
+
 </style>
 </head>
 <body>
@@ -590,6 +724,7 @@ img.comply-logo,
  </div>
  </section><section class="slide section-dark" id="discovery">
  <div class="slide-inner divider-slide">
+      <img class="cad-art" src="assets/comply-cad-building.svg" alt="" />
  <div class="phase">Discovery</div>
  <div class="h1">The market</div>
  <div class="footer-bar"><span>COMPLY</span><span class="num">03</span></div>
@@ -636,6 +771,7 @@ img.comply-logo,
  </div>
  </section><section class="slide section-dark">
  <div class="slide-inner divider-slide">
+      <img class="cad-art" src="assets/comply-cad-building.svg" alt="" />
  <div class="h1">Competitors</div>
  <div class="footer-bar"><span>COMPLY</span><span class="num">06</span></div>
  </div>
@@ -751,20 +887,8 @@ img.comply-logo,
  </div>
  </div>
  <div class="card">
- <img src="assets/comply-fixed/elena-vargas.jpg" alt="Elena Vargas" width="400" height="500">
- <div class="pill">Secondary · 20%</div>
- <div class="persona-role">The Credit Desk · Lender</div>
- <div class="persona-name">Elena Vargas · 41</div>
- <div class="persona-quote">“I don’t need another platform tour. I need consistent draws across the book — and fewer surprises.”</div>
- <div class="persona-meta"><strong style="color:var(--ink)">Role:</strong> VP / credit / construction lending lead.<br><strong style="color:var(--ink)">Day:</strong> Approve funding, manage risk, rely on monitors.<br><strong style="color:var(--ink)">Buy path:</strong> Joint pilot with her consultant — not cold RFP first</div>
- <div class="mini">
- <div><h4>Pains</h4><ul><li>Uneven package quality</li><li>Slow monitoring = risk</li><li>Big software cycles elsewhere</li></ul></div>
- <div><h4>COMPLY win</h4><ul><li>Works with firm she hired</li><li>Proof from live pilots</li><li>Not $150/deal bank war first</li></ul></div>
- </div>
- </div>
- <div class="card">
  <img src="assets/comply-fixed/jordan-park.jpg" alt="Jordan Park" width="400" height="500">
- <div class="pill">Secondary · 10%</div>
+ <div class="pill">Secondary · 20%</div>
  <div class="persona-role">The Draw Submitter · Developer</div>
  <div class="persona-name">Jordan Park · 38</div>
  <div class="persona-quote">“Tell me what the bank needs so the draw funds the first time — I’m not trying to live in software.”</div>
@@ -775,10 +899,23 @@ img.comply-logo,
  </div>
  </div>
  </div>
+ <div class="<div class="card">
+ <img src="assets/comply-fixed/elena-vargas.jpg" alt="Elena Vargas" width="400" height="500">
+ <div class="pill">Third · 10%</div>
+ <div class="persona-role">The Credit Desk · Lender</div>
+ <div class="persona-name">Elena Vargas · 41</div>
+ <div class="persona-quote">“I don’t need another platform tour. I need consistent draws across the book — and fewer surprises.”</div>
+ <div class="persona-meta"><strong style="color:var(--ink)">Role:</strong> VP / credit / construction lending lead.<br><strong style="color:var(--ink)">Day:</strong> Approve funding, manage risk, rely on monitors.<br><strong style="color:var(--ink)">Buy path:</strong> Joint pilot with her consultant — not cold RFP first</div>
+ <div class="mini">
+ <div><h4>Pains</h4><ul><li>Uneven package quality</li><li>Slow monitoring = risk</li><li>Big software cycles elsewhere</li></ul></div>
+ <div><h4>COMPLY win</h4><ul><li>Works with firm she hired</li><li>Proof from live pilots</li><li>Not $150/deal bank war first</li></ul></div>
+ </div>
+ </div>
  <div class="footer-bar"><span>COMPLY</span><span class="num">10</span></div>
  </div>
- </section><section class="slide section-dark" id="icp-samples">
+</div></section><section class="slide section-dark" id="icp-samples">
  <div class="slide-inner divider-slide">
+      <img class="cad-art" src="assets/comply-cad-building.svg" alt="" />
  <div class="h1">Apollo ICP samples</div>
  <p class="lede" style="margin-top:.75rem">Real people and firms from lists we already pulled — so Tom & Jerod can say “yes, those people” or “no, not them.”</p>
  <div class="footer-bar"><span>COMPLY</span><span class="num">13b</span></div>
@@ -880,6 +1017,7 @@ img.comply-logo,
  </div>
  </section><section class="slide section-dark" id="strategy">
  <div class="slide-inner divider-slide">
+      <img class="cad-art" src="assets/comply-cad-building.svg" alt="" />
  <div class="phase phase-p">Part 2</div>
  <div <div class="phase">How we sell</div>
       class="h1">Goals</div>
@@ -1402,6 +1540,7 @@ img.comply-logo,
   </section>
 <section class="slide section-dark" id="win-market">
  <div class="slide-inner divider-slide">
+      <img class="cad-art" src="assets/comply-cad-building.svg" alt="" />
  <div class="phase phase-p">Part 2b</div>
  <div class="h1">2027 plan + ROI</div>
  <p class="lede" style="margin-top:.7rem">Tom · Jerod · Justin approval pack — what we do, what it costs, what we should expect</p>
@@ -2296,6 +2435,7 @@ DM me if you want in.</div>
  </div>
  </section><section class="slide section-dark" id="calendar" data-camp="multi">
  <div class="slide-inner divider-slide">
+      <img class="cad-art" src="assets/comply-cad-building.svg" alt="" />
  <div class="h1">Calendar</div>
  <p class="phase">90 days · 1–5 pilots</p>
  <div class="footer-bar"><span>COMPLY</span><span class="num">23</span></div>
@@ -2451,6 +2591,7 @@ DM me if you want in.</div>
  </div>
  </section><section class="slide section-dark" id="close">
  <div class="slide-inner divider-slide">
+      <img class="cad-art" src="assets/comply-cad-building.svg" alt="" />
  <div class="title-brand" style="margin-bottom:1.1rem">
  <img src="assets/comply-logo-wordmark-dark.svg" alt="COMPLY" class="comply-logo" width="133" height="32" />
  <div class="title-tagline">Intelligence Layer for Construction Draw Management · <span>AI Native. 92% Faster.</span></div>

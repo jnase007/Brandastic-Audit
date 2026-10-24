@@ -318,6 +318,79 @@ img.comply-logo,
   filter:none!important;
 }
 
+
+/* Dark section openers: CAD art + vertically centered titles */
+.slide.section-dark{
+  position:relative!important;
+  overflow:hidden!important;
+}
+.slide.section-dark .slide-inner,
+.slide-inner.divider-slide{
+  position:relative!important;
+  z-index:1!important;
+  min-height:520px!important;
+  display:flex!important;
+  flex-direction:column!important;
+  justify-content:center!important; /* vertical center */
+  align-items:flex-start!important; /* left text */
+  padding:2.4rem 2.6rem!important;
+  padding-right:42%!important; /* room for CAD */
+  box-sizing:border-box!important;
+}
+.slide.section-dark .cad-art{
+  position:absolute!important;
+  right:-2%!important;
+  top:50%!important;
+  transform:translateY(-50%)!important;
+  width:min(48%, 420px)!important;
+  height:auto!important;
+  max-height:88%!important;
+  opacity:.9!important;
+  pointer-events:none!important;
+  z-index:0!important;
+  filter:drop-shadow(0 0 28px rgba(43,196,224,.12));
+}
+.slide.section-dark .h1{
+  position:relative;z-index:2;
+  margin:0!important;
+  max-width:14ch;
+}
+.slide.section-dark .phase,
+.slide.section-dark .lede,
+.slide.section-dark .sec-sub,
+.slide.section-dark p{
+  position:relative;z-index:2;
+  max-width:34rem;
+}
+.slide.section-dark .brand-top,
+.slide.section-dark .footer-bar{
+  position:relative;z-index:2;
+  width:100%;
+}
+.slide.section-dark .footer-bar{
+  margin-top:auto!important;
+  padding-top:2rem!important;
+}
+.slide.section-dark .brand-top{
+  position:absolute!important;
+  top:1.4rem!important;
+  left:2.6rem!important;
+  right:2.6rem!important;
+  display:flex!important;
+  justify-content:space-between!important;
+  width:auto!important;
+  margin:0!important;
+  opacity:.55;
+  font-size:.7rem;
+  font-weight:700;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+}
+@media print{
+  .slide.section-dark .slide-inner{min-height:0!important;padding-right:38%!important}
+  .slide.section-dark .cad-art{opacity:.75!important}
+}
+
 </style>
 </head>
 <body>
@@ -380,6 +453,7 @@ img.comply-logo,
  </div>
  </section><section class="slide section-dark" id="assess">
     <div class="slide-inner">
+      <img class="cad-art" src="assets/comply-cad-building.svg" alt="" />
       <div class="brand-top"><span>COMPLY</span><span>SECTION</span></div>
       <div class="h1">The<br>market</div>
       <p class="sec-sub">How big the opportunity is · who pays · why we start with consultants.</p>
@@ -519,6 +593,7 @@ img.comply-logo,
  </div>
  </section><section class="slide section-dark" id="strategy">
     <div class="slide-inner">
+      <img class="cad-art" src="assets/comply-cad-building.svg" alt="" />
       <div class="brand-top"><span>COMPLY</span><span>SECTION</span></div>
       <div class="h1">What we<br>say</div>
       <p class="sec-sub">The headache, the short walkthrough, then a pilot on real loans.</p>
@@ -544,6 +619,7 @@ img.comply-logo,
  </div>
  </section><section class="slide section-dark" id="channels">
     <div class="slide-inner">
+      <img class="cad-art" src="assets/comply-cad-building.svg" alt="" />
       <div class="brand-top"><span>COMPLY</span><span>SECTION</span></div>
       <div class="h1">How we<br>sell</div>
       <p class="sec-sub">LinkedIn, email, social, and SEO — color-coded so the plan stays clear.</p>
@@ -775,6 +851,7 @@ https://comply.capital · Tom · COMPLY</div>
  </div>
  </section><section class="slide section-dark" id="ads">
     <div class="slide-inner">
+      <img class="cad-art" src="assets/comply-cad-building.svg" alt="" />
       <div class="brand-top"><span>COMPLY</span><span>SECTION</span></div>
       <div class="h1">Ads &<br>messages</div>
       <p class="sec-sub">Real examples we will run — image text only (no double overlay).</p>
@@ -844,6 +921,7 @@ https://comply.capital · Tom · COMPLY</div>
  </div>
  </section><section class="slide section-dark" id="plan">
     <div class="slide-inner">
+      <img class="cad-art" src="assets/comply-cad-building.svg" alt="" />
       <div class="brand-top"><span>COMPLY</span><span>SECTION</span></div>
       <div class="h1">Next 90<br>days</div>
       <p class="sec-sub">What we do · how we keep score · weekly rhythm.</p>
@@ -968,6 +1046,7 @@ https://comply.capital · Tom · COMPLY</div>
   </section>
 <section class="slide section-dark" id="ask">
     <div class="slide-inner">
+      <img class="cad-art" src="assets/comply-cad-building.svg" alt="" />
       <div class="brand-top"><span>COMPLY</span><span>SECTION</span></div>
       <div class="h1">Align &<br>go</div>
       <p class="sec-sub">Agree the plan so investors and the team are on the same page.</p>
