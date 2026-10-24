@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>COMPLY · Go-to-Market Strategy</title>
 <meta name="robots" content="noindex,nofollow">
-<link rel="canonical" href="https://audit.brandastic.com/comply">
+<link rel="canonical" href="">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
 :root{
@@ -465,6 +465,57 @@ img.comply-logo,
  }
 }
 
+
+/* Photo tone — avoid blown-out wash */
+.persona-card img,
+.persona-photo img,
+.persona-photo-sm,
+.icp-face img,
+.market-photo img,
+.phone .img img,
+.ad-phone .ph-img img,
+.ad-wrap img{
+  filter: none !important;
+  -webkit-filter: none !important;
+  opacity: 1 !important;
+  object-fit: cover;
+  object-position: center 18%;
+}
+.market-photo img{
+  object-position: center top;
+}
+
+
+/* clean photo sizing */
+.persona-card img,
+.persona-photo img,
+.persona-photo-sm,
+.icp-face img{
+  display:block!important;
+  width:100%!important;
+  height:180px!important;
+  object-fit:cover!important;
+  object-position:center 15%!important;
+  border-radius:12px!important;
+  filter:none!important;
+  opacity:1!important;
+}
+.market-photo img{
+  width:100%!important;
+  height:100%!important;
+  min-height:260px!important;
+  object-fit:cover!important;
+  object-position:center top!important;
+  filter:none!important;
+}
+.phone .img img,
+.ad-phone .ph-img img{
+  width:100%!important;
+  aspect-ratio:1/1!important;
+  object-fit:cover!important;
+  filter:none!important;
+}
+
 </style>
 </head>
 <body>
@@ -688,7 +739,7 @@ img.comply-logo,
  <p class="lede" style="margin-bottom:.75rem">Three markets. Three people. <strong style="color:var(--ink)">Marcus is primary (~70%).</strong> Never blend his copy into Elena’s list.</p>
  <div class="persona-board">
  <div class="card" style="border-color:rgba(15,143,151,.45)">
- <img src="assets/comply-personas/marcus-hale.jpg" alt="Marcus Hale" width="400" height="500">
+ <img src="assets/comply-fixed/marcus-hale.jpg" alt="Marcus Hale" width="400" height="500">
  <div class="pill">Primary · 70%</div>
  <div class="persona-role">The Monthly Monitor · Consultant</div>
  <div class="persona-name">Marcus Hale · 46</div>
@@ -700,7 +751,7 @@ img.comply-logo,
  </div>
  </div>
  <div class="card">
- <img src="assets/comply-personas/elena-vargas.jpg" alt="Elena Vargas" width="400" height="500">
+ <img src="assets/comply-fixed/elena-vargas.jpg" alt="Elena Vargas" width="400" height="500">
  <div class="pill">Secondary · 20%</div>
  <div class="persona-role">The Credit Desk · Lender</div>
  <div class="persona-name">Elena Vargas · 41</div>
@@ -712,7 +763,7 @@ img.comply-logo,
  </div>
  </div>
  <div class="card">
- <img src="assets/comply-personas/jordan-park.jpg" alt="Jordan Park" width="400" height="500">
+ <img src="assets/comply-fixed/jordan-park.jpg" alt="Jordan Park" width="400" height="500">
  <div class="pill">Secondary · 10%</div>
  <div class="persona-role">The Draw Submitter · Developer</div>
  <div class="persona-name">Jordan Park · 38</div>
@@ -2182,7 +2233,7 @@ DM me if you want in.</div>
  <div class="ph-top"><div class="ph-av">C</div><div class="ph-meta"><strong>COMPLY</strong><br><span>Sponsored</span></div></div>
  <div class="ph-cap">Most draw delays aren’t bad GCs — they’re incomplete packages stuck in email.</div>
  <div class="ph-img">
- <img src="assets/comply-visual-ads/01-endless-paperwork.jpg" alt="Endless paperwork ad">
+ <img src="assets/comply-fixed/01-endless-paperwork.jpg" alt="Endless paperwork ad">
  <div class="overlay"><strong>ENDLESS<br>PAPERWORK.</strong><em>STILL NOT BANK-READY</em></div>
  </div>
  <div class="ph-foot"><div><div class="hl">Your inbox is not a draw process</div><div class="ds">CLEAR · WATCH · DEFICIENCY</div></div><div class="cta">Book</div></div>
@@ -2208,7 +2259,7 @@ DM me if you want in.</div>
  <div class="ph-top"><div class="ph-av" style="background:#7eb832;color:#143018">C</div><div class="ph-meta"><strong>COMPLY</strong><br><span>Sponsored</span></div></div>
  <div class="ph-cap">20-min walkthrough on one redacted package. Pilot on 1–2 live loans.</div>
  <div class="ph-img">
- <img src="assets/comply-visual-ads/05-one-system.jpg" alt="One system ad">
+ <img src="assets/comply-fixed/05-one-system.jpg" alt="One system ad">
  <div class="overlay"><strong>ONE SYSTEM.</strong><em>THE WHOLE MONTHLY PACKAGE</em></div>
  </div>
  <div class="ph-foot"><div><div class="hl">One system for the monthly grind</div><div class="ds">comply.capital</div></div><div class="cta">Start</div></div>
@@ -2234,7 +2285,7 @@ DM me if you want in.</div>
  <div class="ph-top"><div class="ph-av" style="background:#2b6cb0">C</div><div class="ph-meta"><strong>COMPLY</strong><br><span>Sponsored</span></div></div>
  <div class="ph-cap">Joint walkthrough with your monitoring partner. Cleaner packages across the book.</div>
  <div class="ph-img">
- <img src="assets/comply-visual-ads/02-bank-not-slow.jpg" alt="Bank ready ad">
+ <img src="assets/comply-fixed/02-bank-not-slow.jpg" alt="Bank ready ad">
  <div class="overlay"><strong>BANK-READY<br>FASTER.</strong><em>WITHOUT SKIPPING THE HUMAN CALL</em></div>
  </div>
  <div class="ph-foot"><div><div class="hl">Cleaner packages. Clearer trail.</div><div class="ds">Lender path after proof</div></div><div class="cta">Book</div></div>

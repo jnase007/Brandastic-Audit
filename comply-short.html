@@ -68,7 +68,7 @@ body{min-height:100vh}
 .slide.section-dark{background:var(--dark);border-color:#1f2937;color:#fff;min-height:520px}
 .slide.section-dark .slide-inner{min-height:480px;justify-content:center;align-items:flex-start}
 .slide.section-dark .brand-top{display:flex;justify-content:space-between;width:100%;position:absolute;top:0;left:0;right:0;font-size:.7rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.55)}
-.slide.section-dark .sec-frame{border:2px solid var(--purple);border-radius:6px;padding:1.6rem 2rem;margin-top:2rem}
+.slide.section-dark .sec-frame{border:0!important;padding:0!important;margin:0!important;background:transparent!important;box-shadow:none!important;outline:none!important}
 .slide.section-dark .sec-frame .h1{color:#fff;font-size:3rem}
 .slide.section-dark .sec-sub{margin-top:1rem;color:rgba(255,255,255,.7);font-size:.95rem;max-width:28rem;line-height:1.4}
 .slide.section-dark .footer-bar{border-top-color:rgba(255,255,255,.12);color:rgba(255,255,255,.45)}
@@ -254,6 +254,70 @@ img.comply-logo,
  }
 }
 
+
+/* no purple Canva boxes on section openers */
+.slide.section-dark .sec-frame,
+.sec-frame{
+  border:0!important;
+  outline:none!important;
+  box-shadow:none!important;
+  background:transparent!important;
+  padding:0!important;
+  margin:0!important;
+  border-radius:0!important;
+}
+.slide.section-dark .h1{border:0!important;padding:0!important}
+
+/* Photo tone — avoid blown-out wash */
+.persona-card img,
+.persona-photo img,
+.persona-photo-sm,
+.icp-face img,
+.market-photo img,
+.phone .img img,
+.ad-phone .ph-img img,
+.ad-wrap img{
+  filter: none !important;
+  -webkit-filter: none !important;
+  opacity: 1 !important;
+  object-fit: cover;
+  object-position: center 18%;
+}
+.market-photo img{
+  object-position: center top;
+}
+
+
+/* clean photo sizing */
+.persona-card img,
+.persona-photo img,
+.persona-photo-sm,
+.icp-face img{
+  display:block!important;
+  width:100%!important;
+  height:180px!important;
+  object-fit:cover!important;
+  object-position:center 15%!important;
+  border-radius:12px!important;
+  filter:none!important;
+  opacity:1!important;
+}
+.market-photo img{
+  width:100%!important;
+  height:100%!important;
+  min-height:260px!important;
+  object-fit:cover!important;
+  object-position:center top!important;
+  filter:none!important;
+}
+.phone .img img,
+.ad-phone .ph-img img{
+  width:100%!important;
+  aspect-ratio:1/1!important;
+  object-fit:cover!important;
+  filter:none!important;
+}
+
 </style>
 </head>
 <body>
@@ -315,18 +379,18 @@ img.comply-logo,
  <div class="footer-bar"><span>COMPLY</span><span>02</span></div>
  </div>
  </section><section class="slide section-dark" id="assess">
- <div class="slide-inner">
- <div class="brand-top"><span>COMPLY</span><span>SECTION</span></div>
- <div class="sec-frame"><div class="h1">The<br>market</div></div>
- <p class="sec-sub">How big the opportunity is · who pays · why we start with consultants.</p>
- <div class="footer-bar"><span>COMPLY</span><span>03</span></div>
- </div>
- </section><section class="slide">
+    <div class="slide-inner">
+      <div class="brand-top"><span>COMPLY</span><span>SECTION</span></div>
+      <div class="h1">The<br>market</div>
+      <p class="sec-sub">How big the opportunity is · who pays · why we start with consultants.</p>
+      <div class="footer-bar"><span>COMPLY</span><span>03</span></div>
+    </div>
+  </section><section class="slide">
  <div class="slide-inner">
  <div class="h2" style="font-size:2.1rem;margin-bottom:.2rem">A strong market.<br>A clear opportunity.</div>
  <div class="market-row">
  <div class="market-photo">
- <img src="assets/comply-personas/marcus-hale.jpg" alt="Consultant ICP"/>
+ <img src="assets/comply-fixed/marcus-hale.jpg" alt="Consultant ICP"/>
  <div class="tag">Key market drivers</div>
  </div>
  <div>
@@ -454,13 +518,13 @@ img.comply-logo,
  <div class="footer-bar"><span>COMPLY</span><span>06</span></div>
  </div>
  </section><section class="slide section-dark" id="strategy">
- <div class="slide-inner">
- <div class="brand-top"><span>COMPLY</span><span>SECTION</span></div>
- <div class="sec-frame"><div class="h1">What we<br>say</div></div>
- <p class="sec-sub">The headache, the short walkthrough, then a pilot on real loans.</p>
- <div class="footer-bar"><span>COMPLY</span><span>07</span></div>
- </div>
- </section><section class="slide">
+    <div class="slide-inner">
+      <div class="brand-top"><span>COMPLY</span><span>SECTION</span></div>
+      <div class="h1">What we<br>say</div>
+      <p class="sec-sub">The headache, the short walkthrough, then a pilot on real loans.</p>
+      <div class="footer-bar"><span>COMPLY</span><span>07</span></div>
+    </div>
+  </section><section class="slide">
  <div class="slide-inner">
  <div class="kicker">Message · motion</div>
  <div class="h2">One ladder. Four channels.</div>
@@ -479,13 +543,13 @@ img.comply-logo,
  <div class="footer-bar"><span>COMPLY</span><span>08</span></div>
  </div>
  </section><section class="slide section-dark" id="channels">
- <div class="slide-inner">
- <div class="brand-top"><span>COMPLY</span><span>SECTION</span></div>
- <div class="sec-frame"><div class="h1">How we<br>sell</div></div>
- <p class="sec-sub">LinkedIn, email, social, and SEO — color-coded so the plan stays clear.</p>
- <div class="footer-bar"><span>COMPLY</span><span>09</span></div>
- </div>
- </section><section class="slide" data-camp="multi" id="camp-key">
+    <div class="slide-inner">
+      <div class="brand-top"><span>COMPLY</span><span>SECTION</span></div>
+      <div class="h1">How we<br>sell</div>
+      <p class="sec-sub">LinkedIn, email, social, and SEO — color-coded so the plan stays clear.</p>
+      <div class="footer-bar"><span>COMPLY</span><span>09</span></div>
+    </div>
+  </section><section class="slide" data-camp="multi" id="camp-key">
  <div class="slide-inner">
  <div class="kicker">How we sell · color key</div>
  <div class="h2">When you see the color, you know the lane</div>
@@ -710,13 +774,13 @@ https://comply.capital · Tom · COMPLY</div>
  <div class="footer-bar"><span>COMPLY</span><span>15</span></div>
  </div>
  </section><section class="slide section-dark" id="ads">
- <div class="slide-inner">
- <div class="brand-top"><span>COMPLY</span><span>SECTION</span></div>
- <div class="sec-frame"><div class="h1">Ads &<br>messages</div></div>
- <p class="sec-sub">Real examples we will run — image text only (no double overlay).</p>
- <div class="footer-bar"><span>COMPLY</span><span>16</span></div>
- </div>
- </section><section class="slide" data-camp="linkedin" id="ad1">
+    <div class="slide-inner">
+      <div class="brand-top"><span>COMPLY</span><span>SECTION</span></div>
+      <div class="h1">Ads &<br>messages</div>
+      <p class="sec-sub">Real examples we will run — image text only (no double overlay).</p>
+      <div class="footer-bar"><span>COMPLY</span><span>16</span></div>
+    </div>
+  </section><section class="slide" data-camp="linkedin" id="ad1">
  <div class="slide-inner" style="padding:0;min-height:0">
  <div class="ad-wrap">
  <div class="ad-copy">
@@ -730,7 +794,7 @@ https://comply.capital · Tom · COMPLY</div>
  <div class="phone">
  <div class="top"><div class="av">C</div><div><strong>COMPLY</strong><br><span style="font-weight:500;color:#6b7785;font-size:.65rem">Sponsored</span></div></div>
  <div class="cap">Most draw delays aren’t bad GCs — incomplete packages stuck in email.</div>
- <div class="img"><img src="assets/comply-visual-ads/01-endless-paperwork.jpg" alt="Endless paperwork"/></div>
+ <div class="img"><img src="assets/comply-fixed/01-endless-paperwork.jpg" alt="Endless paperwork"/></div>
  <div class="foot"><span>Your inbox is not a draw process</span><span style="border:1px solid #c9d2dc;border-radius:999px;padding:.25rem .55rem;font-size:.65rem">Book</span></div>
  </div>
  </div>
@@ -750,7 +814,7 @@ https://comply.capital · Tom · COMPLY</div>
  <div class="phone">
  <div class="top"><div class="av" style="background:var(--camp-social)">C</div><div><strong>COMPLY</strong><br><span style="font-weight:500;color:#6b7785;font-size:.65rem">Sponsored</span></div></div>
  <div class="cap">20-min walkthrough. Pilot on 1–2 live loans.</div>
- <div class="img"><img src="assets/comply-visual-ads/05-one-system.jpg" alt="One system"/></div>
+ <div class="img"><img src="assets/comply-fixed/05-one-system.jpg" alt="One system"/></div>
  <div class="foot"><span>One system for the monthly grind</span><span style="border:1px solid #c9d2dc;border-radius:999px;padding:.25rem .55rem;font-size:.65rem">Start</span></div>
  </div>
  </div>
@@ -772,20 +836,20 @@ https://comply.capital · Tom · COMPLY</div>
  <div class="phone">
  <div class="top"><div class="av" style="background:var(--camp-pilot)">C</div><div><strong>COMPLY</strong><br><span style="font-weight:500;color:#6b7785;font-size:.65rem">Sponsored</span></div></div>
  <div class="cap">Joint walkthrough with your monitoring partner. Cleaner packages across the book.</div>
- <div class="img"><img src="assets/comply-visual-ads/02-bank-not-slow.jpg" alt="Bank ready creative — text is in the image only"/></div>
+ <div class="img"><img src="assets/comply-fixed/02-bank-not-slow.jpg" alt="Bank ready creative — text is in the image only"/></div>
  <div class="foot"><span>Cleaner packages. Clearer trail.</span><span style="border:1px solid #c9d2dc;border-radius:999px;padding:.25rem .55rem;font-size:.65rem">Book</span></div>
  </div>
  </div>
  </div>
  </div>
  </section><section class="slide section-dark" id="plan">
- <div class="slide-inner">
- <div class="brand-top"><span>COMPLY</span><span>SECTION</span></div>
- <div class="sec-frame"><div class="h1">Next 90<br>days</div></div>
- <p class="sec-sub">What we do · how we keep score · weekly rhythm.</p>
- <div class="footer-bar"><span>COMPLY</span><span>17</span></div>
- </div>
- </section><section class="slide" data-camp="pilot" id="measure">
+    <div class="slide-inner">
+      <div class="brand-top"><span>COMPLY</span><span>SECTION</span></div>
+      <div class="h1">Next 90<br>days</div>
+      <p class="sec-sub">What we do · how we keep score · weekly rhythm.</p>
+      <div class="footer-bar"><span>COMPLY</span><span>17</span></div>
+    </div>
+  </section><section class="slide" data-camp="pilot" id="measure">
  <div class="slide-inner">
  <div class="kicker">Measurement</div>
  <div class="h2">How we’ll know it’s working</div>
@@ -903,13 +967,13 @@ https://comply.capital · Tom · COMPLY</div>
     </div>
   </section>
 <section class="slide section-dark" id="ask">
- <div class="slide-inner">
- <div class="brand-top"><span>COMPLY</span><span>SECTION</span></div>
- <div class="sec-frame"><div class="h1">Align &<br>go</div></div>
- <p class="sec-sub">Agree the plan so investors and the team are on the same page.</p>
- <div class="footer-bar"><span>COMPLY</span><span>21</span></div>
- </div>
- </section><section class="slide" data-camp="pilot" id="next">
+    <div class="slide-inner">
+      <div class="brand-top"><span>COMPLY</span><span>SECTION</span></div>
+      <div class="h1">Align &<br>go</div>
+      <p class="sec-sub">Agree the plan so investors and the team are on the same page.</p>
+      <div class="footer-bar"><span>COMPLY</span><span>21</span></div>
+    </div>
+  </section><section class="slide" data-camp="pilot" id="next">
  <div class="slide-inner">
  <div class="kicker">Team alignment</div>
  <div class="h2">What we need to do</div>
@@ -941,7 +1005,7 @@ https://comply.capital · Tom · COMPLY</div>
  <p class="lede" style="margin-top:1rem">Investors see the path. The team knows who does what this week.</p>
  <div class="title-brand">
  <img src="assets/comply-logo-wordmark-dark.svg" alt="COMPLY" class="comply-logo" width="133" height="32" />
- <div class="title-tagline">comply.capital · audit.brandastic.com/comply · <span style="color:var(--teal);font-weight:800">AI Native. 92% Faster.</span></div>
+ <div class="title-tagline">comply.capital · AI Native. 92% Faster.</div>
  </div>
  </div>
  </section>
