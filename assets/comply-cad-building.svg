@@ -1,63 +1,128 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 720" fill="none" aria-hidden="true">
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 780" fill="none" aria-hidden="true">
   <defs>
-    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#2BC4E0" stop-opacity=".55"/>
-      <stop offset="55%" stop-color="#00D4AA" stop-opacity=".35"/>
-      <stop offset="100%" stop-color="#2F6BFF" stop-opacity=".2"/>
+    <linearGradient id="gNeon" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#5CFFB0"/>
+      <stop offset="45%" stop-color="#00E6A0"/>
+      <stop offset="100%" stop-color="#2BFF88"/>
+    </linearGradient>
+    <linearGradient id="gMid" x1="0" y1="1" x2="0" y2="0">
+      <stop offset="0%" stop-color="#00D4AA" stop-opacity=".95"/>
+      <stop offset="100%" stop-color="#7CFFC8" stop-opacity=".85"/>
     </linearGradient>
     <linearGradient id="fade" x1="0" y1="0" x2="0" y2="1">
       <stop offset="0%" stop-color="#0f1419" stop-opacity="0"/>
-      <stop offset="100%" stop-color="#0f1419" stop-opacity=".55"/>
+      <stop offset="100%" stop-color="#0f1419" stop-opacity=".25"/>
     </linearGradient>
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="1.2" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
   </defs>
-  <!-- ground grid -->
-  <g stroke="#2BC4E0" stroke-opacity=".12" stroke-width="1">
-    <path d="M40 560 H600 M80 580 H560 M120 600 H520 M160 620 H480"/>
-    <path d="M200 540 L100 640 M280 540 L180 640 M360 540 L280 640 M440 540 L380 640 M520 540 L480 640"/>
+
+  <!-- ground grid - greener -->
+  <g stroke="#5CFFB0" stroke-opacity=".28" stroke-width="1.2">
+    <path d="M30 600 H690"/>
+    <path d="M60 620 H660"/>
+    <path d="M100 640 H620"/>
+    <path d="M140 660 H580"/>
+    <path d="M180 680 H540"/>
+    <path d="M160 580 L70 700 M240 580 L150 700 M320 580 L240 700 M400 580 L330 700 M480 580 L420 700 M560 580 L510 700 M640 580 L600 700"/>
   </g>
-  <!-- main tower wireframe -->
-  <g stroke="url(#g)" stroke-width="1.6" stroke-linejoin="round">
-    <!-- isometric-ish tower -->
-    <path d="M220 520 L220 160 L360 100 L500 160 L500 520 L360 580 Z"/>
-    <path d="M220 160 L360 220 L500 160"/>
-    <path d="M360 220 L360 580"/>
-    <!-- floors -->
-    <path d="M235 210 L360 265 L485 210" stroke-opacity=".7"/>
-    <path d="M235 260 L360 315 L485 260" stroke-opacity=".65"/>
-    <path d="M235 310 L360 365 L485 310" stroke-opacity=".6"/>
-    <path d="M235 360 L360 415 L485 360" stroke-opacity=".55"/>
-    <path d="M235 410 L360 465 L485 410" stroke-opacity=".5"/>
-    <path d="M235 460 L360 515 L485 460" stroke-opacity=".45"/>
-    <!-- windows grid left face -->
-    <g stroke-opacity=".4" stroke-width="1">
-      <path d="M250 230 V500 M280 242 V512 M310 254 V524"/>
-      <path d="M250 250 H320 M250 290 H325 M250 330 H330 M250 370 H335 M250 410 H340 M250 450 H345 M250 490 H348"/>
+
+  <g filter="url(#glow)" stroke="url(#gNeon)" stroke-linejoin="round" stroke-linecap="round">
+
+    <!-- far left tower -->
+    <g stroke-width="2" stroke-opacity=".9">
+      <path d="M48 600 L48 360 L110 330 L172 360 L172 600 L110 630 Z"/>
+      <path d="M48 360 L110 390 L172 360"/>
+      <path d="M110 390 L110 630"/>
+      <path d="M62 400 V580 M88 412 V592 M130 412 V592 M152 400 V580" stroke-width="1.3" stroke-opacity=".7"/>
+      <path d="M62 430 H100 M62 470 H100 M62 510 H100 M62 550 H100" stroke-width="1.2" stroke-opacity=".65"/>
+      <path d="M120 430 H160 M120 470 H160 M120 510 H160 M120 550 H160" stroke-width="1.2" stroke-opacity=".65"/>
     </g>
-    <!-- right face windows -->
-    <g stroke-opacity=".35" stroke-width="1">
-      <path d="M390 242 V512 M420 230 V500 M450 218 V488"/>
-      <path d="M380 250 H470 M375 290 H465 M370 330 H460 M365 370 H455 M360 410 H450 M355 450 H445"/>
+
+    <!-- mid-left slab -->
+    <g stroke-width="2.1" stroke-opacity=".95">
+      <path d="M150 600 L150 280 L250 230 L350 280 L350 600 L250 650 Z"/>
+      <path d="M150 280 L250 330 L350 280"/>
+      <path d="M250 330 L250 650"/>
+      <!-- floors -->
+      <path d="M165 320 L250 365 L335 320" stroke-width="1.5" stroke-opacity=".8"/>
+      <path d="M165 370 L250 415 L335 370" stroke-width="1.5" stroke-opacity=".75"/>
+      <path d="M165 420 L250 465 L335 420" stroke-width="1.5" stroke-opacity=".7"/>
+      <path d="M165 470 L250 515 L335 470" stroke-width="1.5" stroke-opacity=".65"/>
+      <path d="M165 520 L250 565 L335 520" stroke-width="1.5" stroke-opacity=".6"/>
+      <!-- windows -->
+      <path d="M180 340 V560 M210 355 V575 M280 355 V575 M310 340 V560" stroke-width="1.3" stroke-opacity=".65"/>
     </g>
-    <!-- crane -->
-    <path d="M360 100 L360 40" stroke-opacity=".8"/>
-    <path d="M300 55 H480" stroke-opacity=".75"/>
-    <path d="M480 55 L470 70 M480 55 L490 70" stroke-opacity=".7"/>
-    <path d="M420 55 L420 90" stroke-opacity=".45"/>
+
+    <!-- MAIN center tower (tallest) -->
+    <g stroke-width="2.4">
+      <path d="M300 600 L300 140 L420 70 L540 140 L540 600 L420 670 Z"/>
+      <path d="M300 140 L420 210 L540 140"/>
+      <path d="M420 210 L420 670"/>
+      <!-- floors -->
+      <path d="M318 185 L420 245 L522 185" stroke-width="1.7" stroke-opacity=".85"/>
+      <path d="M318 240 L420 300 L522 240" stroke-width="1.7" stroke-opacity=".8"/>
+      <path d="M318 295 L420 355 L522 295" stroke-width="1.7" stroke-opacity=".75"/>
+      <path d="M318 350 L420 410 L522 350" stroke-width="1.7" stroke-opacity=".7"/>
+      <path d="M318 405 L420 465 L522 405" stroke-width="1.7" stroke-opacity=".65"/>
+      <path d="M318 460 L420 520 L522 460" stroke-width="1.7" stroke-opacity=".6"/>
+      <path d="M318 515 L420 575 L522 515" stroke-width="1.7" stroke-opacity=".55"/>
+      <!-- window grid -->
+      <path d="M340 200 V560 M370 215 V575 M390 225 V585 M450 225 V585 M480 215 V575 M510 200 V560" stroke-width="1.35" stroke-opacity=".7"/>
+      <path d="M335 230 H400 M335 280 H405 M335 330 H410 M335 380 H415 M335 430 H415 M335 480 H415 M335 530 H415" stroke-width="1.2" stroke-opacity=".6"/>
+      <path d="M440 230 H515 M440 280 H515 M440 330 H510 M440 380 H505 M440 430 H500 M440 480 H495 M440 530 H490" stroke-width="1.2" stroke-opacity=".55"/>
+      <!-- crane -->
+      <path d="M420 70 L420 18" stroke-width="2.2"/>
+      <path d="M340 32 H530" stroke-width="2.2"/>
+      <path d="M530 32 L515 48 M530 32 L545 48" stroke-width="2"/>
+      <path d="M470 32 L470 85" stroke-width="1.5" stroke-opacity=".75"/>
+      <path d="M390 32 L390 95" stroke-width="1.3" stroke-opacity=".55"/>
+    </g>
+
+    <!-- right mid tower -->
+    <g stroke-width="2" stroke-opacity=".92">
+      <path d="M500 600 L500 250 L590 205 L680 250 L680 600 L590 645 Z"/>
+      <path d="M500 250 L590 295 L680 250"/>
+      <path d="M590 295 L590 645"/>
+      <path d="M515 285 L590 325 L665 285" stroke-width="1.5" stroke-opacity=".75"/>
+      <path d="M515 335 L590 375 L665 335" stroke-width="1.5" stroke-opacity=".7"/>
+      <path d="M515 385 L590 425 L665 385" stroke-width="1.5" stroke-opacity=".65"/>
+      <path d="M515 435 L590 475 L665 435" stroke-width="1.5" stroke-opacity=".6"/>
+      <path d="M515 485 L590 525 L665 485" stroke-width="1.5" stroke-opacity=".55"/>
+      <path d="M530 300 V560 M560 315 V575 M620 315 V575 M650 300 V560" stroke-width="1.3" stroke-opacity=".65"/>
+    </g>
+
+    <!-- front low podium / site building -->
+    <g stroke-width="2.1" stroke-opacity=".95">
+      <path d="M210 600 L210 470 L320 430 L430 470 L430 600 L320 640 Z"/>
+      <path d="M210 470 L320 510 L430 470"/>
+      <path d="M320 510 L320 640"/>
+      <path d="M230 490 V585 M260 502 V597 M280 510 V605" stroke-width="1.3" stroke-opacity=".7"/>
+      <path d="M360 502 V597 M390 490 V585 M410 482 V577" stroke-width="1.3" stroke-opacity=".65"/>
+      <path d="M230 520 H300 M230 555 H305" stroke-width="1.2" stroke-opacity=".6"/>
+      <path d="M340 520 H410 M340 555 H405" stroke-width="1.2" stroke-opacity=".55"/>
+    </g>
+
+    <!-- small right annex -->
+    <g stroke-width="1.9" stroke-opacity=".88">
+      <path d="M560 600 L560 480 L620 450 L680 480 L680 600 L620 630 Z"/>
+      <path d="M560 480 L620 510 L680 480"/>
+      <path d="M620 510 L620 630"/>
+      <path d="M575 500 V585 M600 512 V597 M640 512 V597 M665 500 V585" stroke-width="1.2" stroke-opacity=".65"/>
+    </g>
   </g>
-  <!-- side low building -->
-  <g stroke="#00D4AA" stroke-opacity=".45" stroke-width="1.4">
-    <path d="M90 520 L90 340 L180 300 L270 340 L270 520 L180 560 Z"/>
-    <path d="M90 340 L180 380 L270 340"/>
-    <path d="M180 380 L180 560"/>
-    <path d="M110 370 V500 M140 382 V512 M160 390 V520" stroke-opacity=".35"/>
-    <path d="M110 400 H175 M110 440 H178 M110 480 H180" stroke-opacity=".3"/>
+
+  <!-- dimension marks -->
+  <g stroke="#7CFFC8" stroke-opacity=".55" stroke-width="1.4">
+    <path d="M28 360 V600 M18 360 H38 M18 600 H38"/>
+    <path d="M300 700 H540 M300 690 V710 M540 690 V710"/>
   </g>
-  <!-- dimension ticks -->
-  <g stroke="#7DD3FC" stroke-opacity=".35" stroke-width="1">
-    <path d="M70 340 V520 M60 340 H80 M60 520 H80"/>
-    <path d="M220 600 H500 M220 590 V610 M500 590 V610"/>
-  </g>
-  <text x="52" y="430" fill="#7DD3FC" fill-opacity=".4" font-family="ui-monospace,monospace" font-size="11" transform="rotate(-90 52 430)">ELEV</text>
-  <text x="330" y="635" fill="#7DD3FC" fill-opacity=".35" font-family="ui-monospace,monospace" font-size="11">CAD · DRAW PACKAGE</text>
-  <rect width="640" height="720" fill="url(#fade)"/>
+  <text x="14" y="490" fill="#7CFFC8" fill-opacity=".7" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="13" transform="rotate(-90 14 490)">ELEVATION</text>
+  <text x="360" y="735" fill="#7CFFC8" fill-opacity=".65" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="13" text-anchor="middle">CAD · CONSTRUCTION DRAWING</text>
+  <text x="360" y="755" fill="#5CFFB0" fill-opacity=".45" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="11" text-anchor="middle">SCALE 1:200</text>
+
+  <rect width="720" height="780" fill="url(#fade)"/>
 </svg>
