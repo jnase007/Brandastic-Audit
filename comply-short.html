@@ -101,7 +101,7 @@ body{min-height:100vh}
 /* Visual market */
 .market-row{display:grid;grid-template-columns:240px 1fr;gap:1.2rem;align-items:center;margin-top:.6rem}
 .market-photo{border-radius:18px;overflow:hidden;border:1px solid var(--line);background:#111;min-height:280px;position:relative}
-.market-photo img{width:100%;height:100%;object-fit:cover;display:block;min-height:280px}
+.market-photo .market-photo .market-photo .market-photo img{width:100%;height:100%;object-fit:cover;display:block;min-height:280px}
 .market-photo .tag{position:absolute;left:.7rem;bottom:.7rem;background:rgba(255,255,255,.92);border-radius:12px;padding:.55rem .75rem;font-weight:800;font-size:.85rem}
 .drivers{display:grid;grid-template-columns:repeat(3,1fr);gap:.85rem;margin:1rem 0 .5rem}
 .driver{text-align:left}
@@ -140,7 +140,7 @@ body{min-height:100vh}
 .phone .av{width:32px;height:32px;border-radius:50%;background:#1a365d;color:#fff;display:flex;align-items:center;justify-content:center;font-weight:800}
 .phone .cap{padding:0 .7rem .45rem;font-size:.7rem;color:#3a4654;line-height:1.3}
 .phone .img{position:relative}
-.phone .img img{width:100%;display:block;aspect-ratio:1;object-fit:cover}
+.phone .img .phone .img img,.ad-phone .ph-img .phone .img img{width:100%;display:block;aspect-ratio:1;object-fit:cover}
 .phone .ov{position:absolute;left:0;right:0;bottom:0;padding:.9rem .7rem;background:linear-gradient(transparent,rgba(0,0,0,.75));color:#fff}
 .phone .ov strong{display:block;font-size:1.15rem;line-height:1.05}
 .phone .foot{display:flex;justify-content:space-between;align-items:center;padding:.55rem .65rem;border-top:1px solid #e6ebf0;color:#15202b;font-size:.72rem;font-weight:800}
@@ -208,7 +208,7 @@ table.simple th{font-size:.72rem;text-transform:uppercase;letter-spacing:.04em;c
 
 /* Ad creative: never stack HTML text on top of baked-in image copy */
 .phone .img .ov,.phone .img .overlay{display:none!important}
-.phone .img img{width:100%;display:block;aspect-ratio:1;object-fit:cover;object-position:center top}
+.phone .img .phone .img img,.ad-phone .ph-img .phone .img img{width:100%;display:block;aspect-ratio:1;object-fit:cover;object-position:center top}
 
 
 /* Budget slide */
@@ -223,6 +223,43 @@ table.simple th{font-size:.72rem;text-transform:uppercase;letter-spacing:.04em;c
 .cap-card{border-radius:14px;padding:1rem;border:1px solid var(--line);background:var(--camp-li-soft);border-left:5px solid var(--camp-li)}
 .cap-card h3{margin:0 0 .4rem;font-size:.95rem}
 .cap-card p{font-size:.84rem;line-height:1.4;color:#1f2a36}
+
+
+/* COMPLY wordmark — never stretch */
+.title-brand img,
+img.comply-logo,
+.comply-logo{
+  height:28px!important;
+  width:auto!important;
+  max-width:220px!important;
+  max-height:36px!important;
+  object-fit:contain!important;
+  object-position:left center!important;
+  aspect-ratio:auto!important;
+  min-height:0!important;
+  min-width:0!important;
+  display:block!important;
+}
+.slide#title .title-brand img,
+.slide#close .title-brand img{height:32px!important;max-height:40px!important}
+@media print{
+  .title-brand img,img.comply-logo{height:24px!important;max-height:28px!important}
+}
+
+
+/* logo lock final */
+img.comply-logo,.title-brand img.comply-logo,.title-brand > img{
+  height:30px !important;
+  width: auto !important;
+  max-width: 200px !important;
+  max-height: 34px !important;
+  object-fit: contain !important;
+  object-position: left center !important;
+  aspect-ratio: unset !important;
+  min-height: 0 !important;
+  flex: 0 0 auto !important;
+  align-self: flex-start !important;
+}
 
 </style>
 </head>
@@ -259,7 +296,7 @@ table.simple th{font-size:.72rem;text-transform:uppercase;letter-spacing:.04em;c
       <div class="h1">Go-to-Market<br>Strategy</div>
       <p class="lede" style="margin-top:.85rem">For investors and the team — plain plan for who we sell to, how we sell, what we run, and what we do in the next 90 days.</p>
       <div class="title-brand">
-        <img src="assets/comply-logo-dark-2x.png" alt="COMPLY"/>
+        <img src="assets/comply-logo-dark-2x.png" alt="COMPLY" class="comply-logo"/>
         <div class="title-tagline">Draw review for the firms banks already trust · <span style="color:var(--teal);font-weight:800">Humans still decide</span></div>
       </div>
     </div>
@@ -838,7 +875,7 @@ https://comply.capital · Tom · COMPLY</div>
       <div class="h1">Same plan.<br>Same next steps.</div>
       <p class="lede" style="margin-top:1rem">Investors see the path. The team knows who does what this week.</p>
       <div class="title-brand">
-        <img src="assets/comply-logo-dark-2x.png" alt="COMPLY"/>
+        <img src="assets/comply-logo-dark-2x.png" alt="COMPLY" class="comply-logo"/>
         <div class="title-tagline">comply.capital · audit.brandastic.com/comply</div>
       </div>
     </div>

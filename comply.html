@@ -81,11 +81,11 @@ body{min-height:100vh}
 .persona-quote{font-size:1.02rem;font-style:italic;color:#3a4a5a;line-height:1.45;margin:.35rem 0 .9rem;max-width:34rem}
 .persona-meta{font-size:.82rem;color:var(--muted);line-height:1.55;margin-bottom:.3rem}
 .trio{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}
-.trio{align-items:stretch}.trio .card{display:flex;flex-direction:column}.trio img,.persona-photo-sm{display:block;width:100%;height:200px;object-fit:cover;object-position:center 12%;border-radius:12px;margin:0 0 .65rem;border:1px solid var(--line);background:#e8eef3;flex:0 0 auto}
+.trio{align-items:stretch}.trio .card{display:flex;flex-direction:column}.trio .persona-card img,.persona-photo .persona-card img,.persona-photo .persona-card img,.persona-photo img,.persona-photo-sm{display:block;width:100%;height:200px;object-fit:cover;object-position:center 12%;border-radius:12px;margin:0 0 .65rem;border:1px solid var(--line);background:#e8eef3;flex:0 0 auto}
 .persona-photo-sm-ph{width:100%;height:150px;border-radius:12px;margin-bottom:.7rem;border:1px solid var(--line);background:linear-gradient(160deg,#eef3f7,#e2eaf1);display:flex;align-items:flex-end;padding:.7rem;font-size:.7rem;color:var(--muted);font-weight:600}
 .persona-board{display:grid;grid-template-columns:repeat(3,1fr);gap:.85rem;align-items:start}
 .persona-board .card{padding:.75rem .8rem .85rem;min-height:0}
-.persona-board img{display:block;width:100%;height:155px;object-fit:cover;object-position:center 12%;border-radius:12px;margin:0 0 .45rem;border:1px solid var(--line);background:#e8eef3}
+.persona-board .persona-card img,.icp-face img,.photo .persona-card img,.icp-face .persona-card img,.icp-face img{display:block;width:100%;height:155px;object-fit:cover;object-position:center 12%;border-radius:12px;margin:0 0 .45rem;border:1px solid var(--line);background:#e8eef3}
 .persona-board .persona-name{font-size:1.05rem;margin:.1rem 0 .2rem}
 .persona-board .persona-role{font-size:.68rem;margin-bottom:.35rem;letter-spacing:.05em}
 .persona-board .persona-quote{font-size:.78rem;font-style:italic;color:#3a4a5a;line-height:1.3;margin:0 0 .4rem;min-height:0}
@@ -95,7 +95,7 @@ body{min-height:100vh}
 .persona-board .mini ul{margin:0;padding-left:1rem}
 .persona-board .mini li{font-size:.72rem;color:var(--muted);line-height:1.35;margin:.08rem 0}
 @media print{
-  .persona-board img{height:140px}
+  .persona-board .persona-card .persona-card .persona-card img{height:140px}
   .persona-board .persona-quote{font-size:.78rem;min-height:0}
   .persona-board .mini li{font-size:.68rem}
 }
@@ -134,7 +134,7 @@ body{min-height:100vh}
   .table th,.table td{padding:.26rem .3rem}
   .persona-photo,.persona-photo-ph{width:150px;height:185px;object-position:center 12%}
   .persona-hero{grid-template-columns:160px 1fr;gap:.85rem}
-  .trio img,.persona-photo-sm{height:170px;object-position:center 12%}
+  .trio .persona-card img,.persona-photo .persona-card img,.persona-photo-sm{height:170px;object-position:center 12%}
   .grid3{gap:.65rem}
   .card{padding:.7rem .75rem}
   .card p,.card li{font-size:.78rem}
@@ -296,7 +296,7 @@ body{min-height:100vh}
 .ad-phone .ph-meta span{color:#6b7785;font-size:.68rem}
 .ad-phone .ph-cap{padding:0 .8rem .55rem;font-size:.72rem;color:#3a4654;line-height:1.35}
 .ad-phone .ph-img{position:relative;background:#0d1116}
-.ad-phone .ph-img img{width:100%;display:block;aspect-ratio:1/1;object-fit:cover}
+.ad-phone .ph-img .phone .img img,.ad-phone .ph-img .ad-phone .ph-img img,.phone .img img{width:100%;display:block;aspect-ratio:1/1;object-fit:cover}
 .ad-phone .ph-img .overlay{position:absolute;left:0;right:0;bottom:0;padding:1.05rem .85rem;background:linear-gradient(transparent,rgba(0,0,0,.75));color:#fff}
 .ad-phone .ph-img .overlay strong{display:block;font-size:1.25rem;line-height:1.05;letter-spacing:-.02em}
 .ad-phone .ph-img .overlay em{display:block;font-style:normal;font-size:.7rem;opacity:.88;margin-top:.3rem;font-weight:600}
@@ -435,6 +435,43 @@ body{min-height:100vh}
   .slide.section-dark,.slide-inner.divider-slide{min-height:0;-webkit-print-color-adjust:exact;print-color-adjust:exact}
 }
 
+
+/* COMPLY wordmark — never stretch */
+.title-brand img,
+img.comply-logo,
+.comply-logo{
+  height:28px!important;
+  width:auto!important;
+  max-width:220px!important;
+  max-height:36px!important;
+  object-fit:contain!important;
+  object-position:left center!important;
+  aspect-ratio:auto!important;
+  min-height:0!important;
+  min-width:0!important;
+  display:block!important;
+}
+.slide#title .title-brand img,
+.slide#close .title-brand img{height:32px!important;max-height:40px!important}
+@media print{
+  .title-brand img,img.comply-logo{height:24px!important;max-height:28px!important}
+}
+
+
+/* logo lock final */
+img.comply-logo,.title-brand img.comply-logo,.title-brand > img{
+  height:30px !important;
+  width: auto !important;
+  max-width: 200px !important;
+  max-height: 34px !important;
+  object-fit: contain !important;
+  object-position: left center !important;
+  aspect-ratio: unset !important;
+  min-height: 0 !important;
+  flex: 0 0 auto !important;
+  align-self: flex-start !important;
+}
+
 </style>
 </head>
 <body>
@@ -476,7 +513,7 @@ body{min-height:100vh}
         <p class="lede">Who we sell to, how we sell, what we say, and the path to 20 clients.</p>
       </div>
       <div class="title-brand">
-        <img src="assets/comply-logo-dark-2x.png" alt="COMPLY" />
+        <img src="assets/comply-logo-dark-2x.png" alt="COMPLY" class="comply-logo" />
         <div class="title-tagline">Intelligence Layer for Construction Draw Management</div>
       </div>
       <div class="footer-bar"><span>COMPLY</span><span>comply.capital</span></div>
@@ -2401,7 +2438,7 @@ DM me if you want in.</div>
       <section class="slide section-dark" id="close">
     <div class="slide-inner divider-slide">
       <div class="title-brand" style="margin-bottom:1.1rem">
-        <img src="assets/comply-logo-dark-2x.png" alt="COMPLY" />
+        <img src="assets/comply-logo-dark-2x.png" alt="COMPLY" class="comply-logo" />
         <div class="title-tagline">Intelligence Layer for Construction Draw Management</div>
       </div>
       <div class="h1">Approve the plan.<br>Go win the package desk.</div>
