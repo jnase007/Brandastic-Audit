@@ -683,6 +683,21 @@ img.comply-logo,
 .slide.section-dark .lede,
 .slide.section-dark .sec-sub{ position:relative; z-index:2; }
 
+
+/* Dark cards: never black-on-black body copy */
+.card.dark-callout,
+.card.dark-callout p,
+.slide .card[style*="background:#0f1419"] p,
+.slide .card[style*="background:#0f1419"] li,
+.slide .card[style*="background:#171b22"] p{
+  color:#e8eef5 !important;
+  opacity:1 !important;
+}
+.card.dark-callout h3,
+.slide .card[style*="background:#0f1419"] h3{
+  color:#fff !important;
+}
+
 </style>
 </head>
 <body>
@@ -1909,7 +1924,7 @@ Interested?</div>
       </div>
       <div class="card" style="margin-top:.85rem;background:#0f1419;color:#e8eef5;border:0">
         <h3 style="color:#fff;margin:0 0 .35rem">LinkedIn offer line</h3>
-        <p style="margin:0;font-size:.9rem;line-height:1.45;opacity:.92">“20 minutes on one redacted package. If we hop on the call, I’ll send a $100 Amazon gift card right after.” → pilot on 1–2 live loans if it fits.</p>
+        <p style="margin:0;font-size:.9rem;line-height:1.45;opacity:1;color:#e8eef5">“20 minutes on one redacted package. If we hop on the call, I’ll send a $100 Amazon gift card right after.” → pilot on 1–2 live loans if it fits.</p>
       </div>
       <div class="footer-bar"><span>COMPLY</span><span class="num">Gifts</span></div>
     </div>
@@ -2261,9 +2276,9 @@ DM me if you want in.</div>
  </ul>
  </div>
  </div>
- <div class="card" style="margin-top:.9rem;background:#0f1419;color:#e8eef5;border:0">
+ <div class="card" style="margin-top:.9rem;background:#0f1419;color:#e8eef5;border:0" class="dark-callout">
  <h3 style="color:#fff;margin:0 0 .4rem">Why this beats spray-and-pray software sales</h3>
- <p style="margin:0;font-size:.92rem;line-height:1.45;opacity:.92">Rabbet and bank platforms sell wide. We sell narrow on purpose: the firms that already live in monthly draw packages. The list is the product of the methodology — so the motion stays sharp and the $300/draw path to 3% / $3M stays honest.</p>
+ <p style="margin:0;font-size:.92rem;line-height:1.45;color:#e8eef5;opacity:1">Rabbet and bank platforms sell wide. We sell narrow on purpose: the firms that already live in monthly draw packages. The list is the product of the methodology — so the motion stays sharp and the $300/draw path to 3% / $3M stays honest.</p>
  </div>
  <div class="footer-bar"><span>COMPLY</span><span class="num">Method</span></div>
  </div>
