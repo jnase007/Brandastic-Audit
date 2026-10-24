@@ -472,3 +472,25 @@
   from = "/rhome-landlords/"
   to = "/rhomepm-landlords.html"
   status = 200
+
+
+[[redirects]]
+  from = "/comply-short"
+  to = "/comply-short.html"
+  status = 200
+
+[[redirects]]
+  from = "/comply-short/"
+  to = "/comply-short.html"
+  status = 200
+
+[[redirects]]
+  from = "/comply-full"
+  to = "/comply-full.html"
+  status = 200
+
+[[redirects]]
+  from = "/comply-full/"
+  to = "/comply-full.html"
+  status = 200
+
