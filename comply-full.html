@@ -688,6 +688,59 @@ img.comply-logo,
   filter: drop-shadow(0 0 22px rgba(0,230,160,.3)) drop-shadow(0 0 48px rgba(92,255,176,.14)) !important;
 }
 
+
+/* TAM math card — clean hierarchy */
+.tam-math{padding:1rem 1.05rem!important}
+.tam-math h3{margin:0 0 .75rem!important;font-size:.95rem!important}
+.tam-row{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:.15rem;
+  padding:.7rem 0;
+  border-top:1px solid var(--line);
+}
+.tam-row:first-of-type{border-top:0;padding-top:.15rem}
+.tam-label{
+  font-size:.68rem!important;
+  font-weight:800!important;
+  letter-spacing:.06em!important;
+  text-transform:uppercase!important;
+  color:var(--muted)!important;
+  line-height:1.2!important;
+}
+.tam-value{
+  font-size:1.55rem!important;
+  font-weight:800!important;
+  letter-spacing:-.03em!important;
+  color:var(--ink)!important;
+  line-height:1.1!important;
+  margin:.1rem 0!important;
+}
+.tam-how{
+  font-size:.8rem!important;
+  color:var(--muted)!important;
+  line-height:1.35!important;
+  font-weight:600!important;
+}
+.tam-note{
+  margin-top:.55rem!important;
+  padding-top:.65rem!important;
+  border-top:1px solid var(--line)!important;
+  font-size:.78rem!important;
+  color:var(--muted)!important;
+  line-height:1.4!important;
+}
+.tam-goal{
+  margin-top:.55rem!important;
+  padding:.65rem .75rem!important;
+  border-radius:12px!important;
+  background:#0f1419!important;
+  color:#e8eef5!important;
+  font-size:.82rem!important;
+  line-height:1.4!important;
+}
+.tam-goal strong{color:#fff!important}
+
 </style>
 </head>
 <body>
@@ -2189,14 +2242,26 @@ DM me if you want in.</div>
  <li>COMPLY fee: <strong>$300–$600 / project / month</strong> → <strong>$3.6k–$7.2k / project / year</strong>.</li>
  </ul>
  </div>
- <div class="card" style="border-top:4px solid var(--camp-email)">
- <h3>TAM math (owner view)</h3>
- <div class="stats" style="grid-template-columns:1fr 1fr;margin:.5rem 0">
- <div class="stat"><div class="n" style="font-size:1.25rem">~$90–180M</div><div class="l">ARR mid case · ~25k deals × $300–$600/mo</div></div>
- <div class="stat"><div class="n" style="font-size:1.25rem">~$50–290M</div><div class="l">ARR band · 15k–40k deals × price range</div></div>
- </div>
- <p style="font-size:.84rem;color:var(--muted);line-height:1.4;margin-top:.35rem">Monthly dollars: ~25k deals × $450 mid ≈ <strong>~$11M / month</strong> software capacity. That’s the ceiling if every draw-monitored commercial job paid COMPLY.</p>
- </div>
+ <div class="card tam-math" style="border-color:rgba(47,107,255,.35)">
+          <h3>TAM math (owner view)</h3>
+          <div class="tam-row">
+            <div class="tam-label">Mid case ARR</div>
+            <div class="tam-value">~$90–180M</div>
+            <div class="tam-how">~25,000 deals × $300–$600 / mo</div>
+          </div>
+          <div class="tam-row">
+            <div class="tam-label">Full band ARR</div>
+            <div class="tam-value">~$50–290M</div>
+            <div class="tam-how">15k–40k deals × price range</div>
+          </div>
+          <div class="tam-note">
+            Monthly capacity (mid): ~25k deals × $450 ≈ <strong>~$11M / month</strong>.
+            Ceiling if every draw-monitored commercial job paid COMPLY.
+          </div>
+          <div class="tam-goal">
+            <strong>Our goal:</strong> ~3% of this market ≈ <strong>$3M</strong> at <strong>$300 / draw</strong>.
+          </div>
+        </div>
  </div>
  <div class="grid3" style="margin-top:.85rem">
  <div class="card" style="border-top:4px solid var(--camp-li)"><h3>Who we sell</h3><p style="font-size:.84rem;line-height:1.4"><strong>70% consultants</strong> — easiest door; one firm onboards many lender/developer deals.<br><strong>20% developers</strong> — real demand, secondary.<br><strong>10% lenders</strong> — third; have their own stack; usually won’t buy us direct.</p></div>
@@ -2629,7 +2694,7 @@ DM me if you want in.</div>
  </section><section class="slide section-dark" id="close">
     <div class="slide-inner divider-slide">
       <img class="cad-art" src="assets/comply-cad-building.svg?v=sparse4" alt="" />
-      <div class="h1">Approve the plan.<br>Go win the package desk.</div>
+      <div class="h1">Lock the plan.<br>Go win the package desk.</div>
       <p class="lede">~50 consultant firms · 20 clients in 2027 · LinkedIn + gifts + SEO</p>
       <div class="footer-bar"><span>COMPLY</span><span>comply.capital</span></div>
     </div>

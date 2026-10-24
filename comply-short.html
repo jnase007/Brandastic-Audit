@@ -477,6 +477,59 @@ img.comply-logo,
   filter: drop-shadow(0 0 22px rgba(0,230,160,.3)) drop-shadow(0 0 48px rgba(92,255,176,.14)) !important;
 }
 
+
+/* TAM math card — clean hierarchy */
+.tam-math{padding:1rem 1.05rem!important}
+.tam-math h3{margin:0 0 .75rem!important;font-size:.95rem!important}
+.tam-row{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:.15rem;
+  padding:.7rem 0;
+  border-top:1px solid var(--line);
+}
+.tam-row:first-of-type{border-top:0;padding-top:.15rem}
+.tam-label{
+  font-size:.68rem!important;
+  font-weight:800!important;
+  letter-spacing:.06em!important;
+  text-transform:uppercase!important;
+  color:var(--muted)!important;
+  line-height:1.2!important;
+}
+.tam-value{
+  font-size:1.55rem!important;
+  font-weight:800!important;
+  letter-spacing:-.03em!important;
+  color:var(--ink)!important;
+  line-height:1.1!important;
+  margin:.1rem 0!important;
+}
+.tam-how{
+  font-size:.8rem!important;
+  color:var(--muted)!important;
+  line-height:1.35!important;
+  font-weight:600!important;
+}
+.tam-note{
+  margin-top:.55rem!important;
+  padding-top:.65rem!important;
+  border-top:1px solid var(--line)!important;
+  font-size:.78rem!important;
+  color:var(--muted)!important;
+  line-height:1.4!important;
+}
+.tam-goal{
+  margin-top:.55rem!important;
+  padding:.65rem .75rem!important;
+  border-radius:12px!important;
+  background:#0f1419!important;
+  color:#e8eef5!important;
+  font-size:.82rem!important;
+  line-height:1.4!important;
+}
+.tam-goal strong{color:#fff!important}
+
 </style>
 </head>
 <body>
@@ -569,10 +622,19 @@ img.comply-logo,
  <div class="kicker">TAM · owner math</div>
  <div class="h2">Commercial deals × $300 / mo</div>
  <div class="grid2" style="margin-top:.7rem">
- <div class="card" style="border-top:4px solid var(--camp-li)">
+  <div class="card tam-math" style="border-top:4px solid var(--camp-li)">
  <h3>Total addressable (ARR)</h3>
- <div class="stat" style="margin:.5rem 0"><div class="n">~$90–180M</div><div class="l">Mid · ~25k deals × $300/mo</div></div>
- <p>Band ~$50–290M if 15k–40k deals at full price range. Ceiling if every draw-monitored commercial job paid COMPLY.</p>
+ <div class="tam-row">
+ <div class="tam-label">Mid case ARR</div>
+ <div class="tam-value">~$90–180M</div>
+ <div class="tam-how">~25,000 deals × $300–$600 / mo</div>
+ </div>
+ <div class="tam-row">
+ <div class="tam-label">Full band ARR</div>
+ <div class="tam-value">~$50–290M</div>
+ <div class="tam-how">15k–40k deals × price range</div>
+ </div>
+ <div class="tam-note">Ceiling if every draw-monitored commercial job paid COMPLY.</div>
  </div>
  <div class="card" style="border-top:4px solid var(--camp-email)">
  <h3>What we chase now</h3>
