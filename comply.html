@@ -205,6 +205,11 @@ table.simple th{font-size:.72rem;text-transform:uppercase;letter-spacing:.04em;c
 .gantt-legend{display:flex;flex-wrap:wrap;gap:.75rem;margin-top:1rem;font-size:.72rem;font-weight:700;color:var(--muted)}
 .gantt-legend i{display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:.3rem;vertical-align:middle}
 
+
+/* Ad creative: never stack HTML text on top of baked-in image copy */
+.phone .img .ov,.phone .img .overlay{display:none!important}
+.phone .img img{width:100%;display:block;aspect-ratio:1;object-fit:cover;object-position:center top}
+
 </style>
 </head>
 <body>
@@ -522,7 +527,7 @@ https://comply.capital · Tom · COMPLY</div>
     <div class="slide-inner">
       <div class="brand-top"><span>COMPLY</span><span>SECTION</span></div>
       <div class="sec-frame"><div class="h1">Ads &<br>messages</div></div>
-      <p class="sec-sub">Real examples we will run — color matches each campaign.</p>
+      <p class="sec-sub">Real examples we will run — image text only (no double overlay).</p>
       <div class="footer-bar"><span>COMPLY</span><span>16</span></div>
     </div>
   </section>
@@ -541,7 +546,7 @@ https://comply.capital · Tom · COMPLY</div>
           <div class="phone">
             <div class="top"><div class="av">C</div><div><strong>COMPLY</strong><br><span style="font-weight:500;color:#6b7785;font-size:.65rem">Sponsored</span></div></div>
             <div class="cap">Most draw delays aren’t bad GCs — incomplete packages stuck in email.</div>
-            <div class="img"><img src="assets/comply-visual-ads/01-endless-paperwork.jpg" alt=""/><div class="ov"><strong>ENDLESS PAPERWORK.</strong></div></div>
+            <div class="img"><img src="assets/comply-visual-ads/01-endless-paperwork.jpg" alt="Endless paperwork"/></div>
             <div class="foot"><span>Your inbox is not a draw process</span><span style="border:1px solid #c9d2dc;border-radius:999px;padding:.25rem .55rem;font-size:.65rem">Book</span></div>
           </div>
         </div>
@@ -563,13 +568,38 @@ https://comply.capital · Tom · COMPLY</div>
           <div class="phone">
             <div class="top"><div class="av" style="background:var(--camp-social)">C</div><div><strong>COMPLY</strong><br><span style="font-weight:500;color:#6b7785;font-size:.65rem">Sponsored</span></div></div>
             <div class="cap">20-min walkthrough. Pilot on 1–2 live loans.</div>
-            <div class="img"><img src="assets/comply-visual-ads/05-one-system.jpg" alt=""/><div class="ov"><strong>ONE SYSTEM.</strong></div></div>
+            <div class="img"><img src="assets/comply-visual-ads/05-one-system.jpg" alt="One system"/></div>
             <div class="foot"><span>One system for the monthly grind</span><span style="border:1px solid #c9d2dc;border-radius:999px;padding:.25rem .55rem;font-size:.65rem">Start</span></div>
           </div>
         </div>
       </div>
     </div>
   </section>
+
+  <section class="slide" data-camp="linkedin" id="ad3">
+    <div class="slide-inner" style="padding:0;min-height:0">
+      <div class="ad-wrap">
+        <div class="ad-copy">
+          <span class="chip pilot">Lender · 10% · third</span>
+          <span class="chip li" style="margin-left:.25rem">Not ideal outbound</span>
+          <div class="num">Ad 3</div>
+          <div class="f"><div class="l">Caption</div><div class="v">More consistent draw packages across your book. Prefer a joint walkthrough with the monitoring firm you already trust. Humans still decide.</div></div>
+          <div class="f"><div class="l">Headline</div><div class="v">Cleaner packages. Clearer trail.</div></div>
+          <div class="f"><div class="l">Description</div><div class="v">Joint path with your monitoring partner</div></div>
+          <div class="f"><div class="l">Button</div><div class="shop">BOOK JOINT WALKTHROUGH</div></div>
+        </div>
+        <div style="display:flex;align-items:center;padding:1rem">
+          <div class="phone">
+            <div class="top"><div class="av" style="background:var(--camp-pilot)">C</div><div><strong>COMPLY</strong><br><span style="font-weight:500;color:#6b7785;font-size:.65rem">Sponsored</span></div></div>
+            <div class="cap">Joint walkthrough with your monitoring partner. Cleaner packages across the book.</div>
+            <div class="img"><img src="assets/comply-visual-ads/02-bank-not-slow.jpg" alt="Bank ready creative — text is in the image only"/></div>
+            <div class="foot"><span>Cleaner packages. Clearer trail.</span><span style="border:1px solid #c9d2dc;border-radius:999px;padding:.25rem .55rem;font-size:.65rem">Book</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
 
   <!-- DARK PLAN -->
   <section class="slide section-dark" id="plan">
