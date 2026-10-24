@@ -3,152 +3,116 @@
   <defs>
     <linearGradient id="gNeon" x1="0" y1="0" x2="1" y2="1">
       <stop offset="0%" stop-color="#5CFFB0"/>
-      <stop offset="45%" stop-color="#00E6A0"/>
+      <stop offset="50%" stop-color="#00E6A0"/>
       <stop offset="100%" stop-color="#2BFF88"/>
     </linearGradient>
     <linearGradient id="fade" x1="0" y1="0" x2="0" y2="1">
       <stop offset="0%" stop-color="#0f1419" stop-opacity="0"/>
-      <stop offset="100%" stop-color="#0f1419" stop-opacity=".18"/>
+      <stop offset="100%" stop-color="#0f1419" stop-opacity=".2"/>
     </linearGradient>
-    <filter id="glow" x="-15%" y="-15%" width="130%" height="130%">
-      <feGaussianBlur stdDeviation="1.5" result="b"/>
+    <filter id="glow" x="-12%" y="-12%" width="124%" height="124%">
+      <feGaussianBlur stdDeviation="1.6" result="b"/>
       <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
     </filter>
-    <clipPath id="stage"><rect x="0" y="40" width="980" height="700"/></clipPath>
+    <clipPath id="stage"><rect x="0" y="50" width="980" height="680"/></clipPath>
     <style><![CDATA[
-      .grid { opacity: .28; animation: gridScroll 18s linear infinite; }
-      .skyline {
-        transform-origin: 640px 400px;
-        animation: skyScroll 16s ease-in-out infinite alternate, floatY 9s ease-in-out infinite alternate;
-      }
+      .grid { opacity: .2; animation: gridScroll 22s linear infinite; }
+      .skyline { animation: panDrift 16s ease-in-out infinite alternate; transform-origin: 700px 400px; }
       .draw {
-        stroke-dasharray: 1400;
-        stroke-dashoffset: 1400;
-        animation: drawIn 3s ease forwards, dashFlow 7.5s linear 3s infinite;
-      }
-      .draw-slow {
-        stroke-dasharray: 1100;
-        stroke-dashoffset: 1100;
-        animation: drawIn 3.8s ease .12s forwards, dashFlow 10s linear 4s infinite;
+        stroke-dasharray: 1000;
+        stroke-dashoffset: 1000;
+        animation: drawIn 2.8s ease forwards, dashFlow 9s linear 2.8s infinite;
       }
       .draw-win {
-        stroke-dasharray: 480;
-        stroke-dashoffset: 480;
-        animation: drawIn 2.4s ease .35s forwards, dashFlow 5.5s linear 2.8s infinite;
+        stroke-dasharray: 320;
+        stroke-dashoffset: 320;
+        animation: drawIn 2.2s ease .35s forwards, dashFlow 7s linear 2.6s infinite;
       }
-      .crane {
-        transform-origin: 660px 20px;
-        animation: craneSway 5s ease-in-out infinite alternate;
-      }
-      .scan {
-        animation: scanY 6s ease-in-out infinite;
-      }
+      .crane { transform-origin: 700px 24px; animation: craneSway 6s ease-in-out infinite alternate; }
+      .scan { animation: scanY 7s ease-in-out infinite; }
       @keyframes drawIn { to { stroke-dashoffset: 0; } }
-      @keyframes dashFlow { to { stroke-dashoffset: -280; } }
-      @keyframes skyScroll {
-        from { transform: translate(0px, 0); }
-        to { transform: translate(18px, -10px); }
-      }
-      @keyframes floatY {
-        from { transform: translateY(0); }
-        to { transform: translateY(-14px); }
-      }
-      /* combine: use one transform on skyline */
-      .skyline {
-        animation: panDrift 14s ease-in-out infinite alternate;
-      }
+      @keyframes dashFlow { to { stroke-dashoffset: -200; } }
       @keyframes panDrift {
-        0% { transform: translate(0px, 6px); }
-        50% { transform: translate(12px, -10px); }
-        100% { transform: translate(22px, 4px); }
+        0% { transform: translate(0, 4px); }
+        100% { transform: translate(16px, -8px); }
       }
       @keyframes gridScroll {
-        from { transform: translateY(0); opacity: .22; }
-        50% { opacity: .34; }
-        to { transform: translateY(-28px); opacity: .22; }
+        from { transform: translateY(0); }
+        to { transform: translateY(-22px); }
       }
       @keyframes craneSway {
-        from { transform: rotate(-1.5deg); }
-        to { transform: rotate(1.8deg); }
+        from { transform: rotate(-1.2deg); }
+        to { transform: rotate(1.4deg); }
       }
       @keyframes scanY {
-        0% { transform: translateY(-40px); opacity: 0; }
-        15% { opacity: .55; }
-        50% { opacity: .35; }
-        85% { opacity: .55; }
-        100% { transform: translateY(420px); opacity: 0; }
+        0% { transform: translateY(-30px); opacity: 0; }
+        20% { opacity: .4; }
+        80% { opacity: .35; }
+        100% { transform: translateY(380px); opacity: 0; }
       }
       @media (prefers-reduced-motion: reduce) {
-        .grid, .skyline, .draw, .draw-slow, .draw-win, .crane, .scan {
-          animation: none !important;
-          stroke-dashoffset: 0 !important;
-        }
+        .grid,.skyline,.draw,.draw-win,.crane,.scan { animation: none !important; stroke-dashoffset: 0 !important; }
       }
     ]]></style>
   </defs>
 
   <g clip-path="url(#stage)">
-  <g class="grid" stroke="#5CFFB0" stroke-width="1.2">
-    <path d="M40 610 H940 M80 630 H900 M130 650 H850 M180 670 H800 M230 690 H750"/>
-    <path d="M40 560 H940 M80 580 H900 M130 540 H850"/>
-    <path d="M120 590 L40 720 M220 590 L120 720 M320 590 L220 720 M420 590 L330 720 M520 590 L440 720 M620 590 L550 720 M720 590 L660 720 M820 590 L770 720 M920 590 L880 720"/>
-  </g>
-
-  <!-- scanning line -->
-  <g class="scan" stroke="#7CFFC8" stroke-opacity=".45" stroke-width="1.5">
-    <path d="M80 120 H920"/>
-    <path d="M80 128 H920" stroke-opacity=".2" stroke-width="6"/>
-  </g>
-
-  <g class="skyline" filter="url(#glow)" stroke="url(#gNeon)" stroke-linejoin="round" stroke-linecap="round">
-    <!-- LEFT -->
-    <g stroke-width="2" stroke-opacity=".92">
-      <path class="draw" d="M70 600 L70 340 L145 300 L220 340 L220 600 L145 640 Z"/>
-      <path class="draw" d="M70 340 L145 380 L220 340 M145 380 L145 640"/>
-      <path class="draw-win" d="M90 390 V575 M120 405 V590 M165 405 V590 M195 390 V575 M90 430 H140 M90 480 H140 M90 530 H140 M155 430 H205 M155 480 H205 M155 530 H205" stroke-width="1.25" stroke-opacity=".7"/>
+    <!-- sparse ground -->
+    <g class="grid" stroke="#5CFFB0" stroke-width="1.15">
+      <path d="M60 620 H920"/>
+      <path d="M120 650 H860"/>
+      <path d="M180 680 H800"/>
+      <path d="M200 590 L110 710 M360 590 L280 710 M520 590 L450 710 M680 590 L620 710 M840 590 L790 710"/>
     </g>
-    <!-- MID-LEFT -->
-    <g stroke-width="2.1" stroke-opacity=".95">
-      <path class="draw-slow" d="M250 600 L250 265 L370 210 L490 265 L490 600 L370 655 Z"/>
-      <path class="draw" d="M250 265 L370 320 L490 265 M370 320 L370 655"/>
-      <path class="draw-win" d="M270 305 L370 355 L470 305 M270 360 L370 410 L470 360 M270 415 L370 465 L470 415 M270 470 L370 520 L470 470 M270 525 L370 575 L470 525 M290 325 V560 M330 345 V580 M410 345 V580 M450 325 V560" stroke-width="1.35" stroke-opacity=".68"/>
+
+    <g class="scan" stroke="#7CFFC8" stroke-opacity=".4" stroke-width="1.4">
+      <path d="M120 140 H900"/>
     </g>
-    <!-- CENTER -->
-    <g stroke-width="2.45">
-      <path class="draw-slow" d="M520 600 L520 120 L660 45 L800 120 L800 600 L660 675 Z"/>
-      <path class="draw" d="M520 120 L660 195 L800 120 M660 195 L660 675"/>
-      <path class="draw-win" d="M540 170 L660 235 L780 170 M540 230 L660 295 L780 230 M540 290 L660 355 L780 290 M540 350 L660 415 L780 350 M540 410 L660 475 L780 410 M540 470 L660 535 L780 470 M540 530 L660 595 L780 530" stroke-width="1.7" stroke-opacity=".72"/>
-      <path class="draw-win" d="M560 185 V560 M600 205 V580 M630 220 V590 M690 220 V590 M720 205 V580 M760 185 V560 M555 220 H640 M555 280 H645 M555 340 H650 M555 400 H650 M555 460 H650 M555 520 H650 M680 220 H770 M680 280 H765 M680 340 H760 M680 400 H755 M680 460 H750 M680 520 H745" stroke-width="1.25" stroke-opacity=".6"/>
-      <g class="crane">
-        <path d="M660 45 L660 8 M560 20 H790 M790 20 L772 38 M790 20 L808 38 M720 20 L720 80 M610 20 L610 90" stroke-width="2"/>
+
+    <g class="skyline" filter="url(#glow)" stroke="url(#gNeon)" stroke-linejoin="round" stroke-linecap="round">
+
+      <!-- left low building -->
+      <g stroke-width="2.2" stroke-opacity=".9">
+        <path class="draw" d="M120 600 L120 360 L210 310 L300 360 L300 600 L210 650 Z"/>
+        <path class="draw" d="M120 360 L210 410 L300 360 M210 410 L210 650"/>
+        <path class="draw-win" d="M150 430 V560 M180 445 V575 M240 445 V575 M270 430 V560" stroke-width="1.35" stroke-opacity=".65"/>
+        <path class="draw-win" d="M150 470 H200 M150 520 H200 M230 470 H280 M230 520 H280" stroke-width="1.2" stroke-opacity=".55"/>
+      </g>
+
+      <!-- center tall -->
+      <g stroke-width="2.5">
+        <path class="draw" d="M360 600 L360 140 L520 70 L680 140 L680 600 L520 670 Z"/>
+        <path class="draw" d="M360 140 L520 210 L680 140 M520 210 L520 670"/>
+        <!-- only a few floors -->
+        <path class="draw-win" d="M390 230 L520 290 L650 230 M390 340 L520 400 L650 340 M390 450 L520 510 L650 450" stroke-width="1.7" stroke-opacity=".72"/>
+        <!-- sparse windows -->
+        <path class="draw-win" d="M420 250 V540 M470 270 V560 M570 270 V560 M620 250 V540" stroke-width="1.4" stroke-opacity=".62"/>
+        <g class="crane">
+          <path d="M520 70 L520 18 M430 30 H640 M640 30 L622 48 M640 30 L658 48 M560 30 L560 95" stroke-width="2.1"/>
+        </g>
+      </g>
+
+      <!-- right tower -->
+      <g stroke-width="2.2" stroke-opacity=".92">
+        <path class="draw" d="M720 600 L720 250 L820 200 L920 250 L920 600 L820 650 Z"/>
+        <path class="draw" d="M720 250 L820 300 L920 250 M820 300 L820 650"/>
+        <path class="draw-win" d="M750 310 L820 355 L890 310 M750 400 L820 445 L890 400 M750 490 L820 535 L890 490" stroke-width="1.55" stroke-opacity=".68"/>
+        <path class="draw-win" d="M760 330 V560 M800 350 V575 M850 350 V575 M890 330 V560" stroke-width="1.3" stroke-opacity=".6"/>
+      </g>
+
+      <!-- small front podium -->
+      <g stroke-width="2.1" stroke-opacity=".9">
+        <path class="draw" d="M480 600 L480 470 L580 430 L680 470 L680 600 L580 640 Z"/>
+        <path class="draw" d="M480 470 L580 510 L680 470 M580 510 L580 640"/>
+        <path class="draw-win" d="M510 500 V575 M550 515 V590 M610 515 V590 M650 500 V575" stroke-width="1.25" stroke-opacity=".6"/>
       </g>
     </g>
-    <!-- FAR RIGHT -->
-    <g stroke-width="2" stroke-opacity=".92">
-      <path class="draw" d="M820 600 L820 240 L900 195 L980 240 L980 600 L900 645 Z"/>
-      <path class="draw" d="M820 240 L900 285 L980 240 M900 285 L900 645"/>
-      <path class="draw-win" d="M838 275 L900 315 L962 275 M838 330 L900 370 L962 330 M838 385 L900 425 L962 385 M838 440 L900 480 L962 440 M838 495 L900 535 L962 495 M850 290 V560 M875 305 V575 M925 305 V575 M950 290 V560" stroke-width="1.35" stroke-opacity=".65"/>
-    </g>
-    <!-- podium -->
-    <g stroke-width="2.1" stroke-opacity=".95">
-      <path class="draw" d="M360 600 L360 455 L470 415 L580 455 L580 600 L470 640 Z"/>
-      <path class="draw" d="M360 455 L470 495 L580 455 M470 495 L470 640"/>
-      <path class="draw-win" d="M385 475 V580 M420 490 V595 M510 490 V595 M545 475 V580 M385 510 H450 M385 550 H455 M490 510 H555 M490 550 H550" stroke-width="1.25" stroke-opacity=".65"/>
-    </g>
-    <!-- annex -->
-    <g stroke-width="1.9" stroke-opacity=".88">
-      <path class="draw" d="M700 600 L700 490 L770 455 L840 490 L840 600 L770 635 Z"/>
-      <path class="draw" d="M700 490 L770 525 L840 490 M770 525 L770 635"/>
-      <path class="draw-win" d="M720 510 V585 M745 522 V597 M795 522 V597 M820 510 V585" stroke-width="1.2" stroke-opacity=".65"/>
-    </g>
-  </g>
   </g>
 
-  <g stroke="#7CFFC8" stroke-opacity=".5" stroke-width="1.4">
-    <path d="M45 340 V600 M35 340 H55 M35 600 H55 M520 715 H800 M520 705 V725 M800 705 V725"/>
+  <g stroke="#7CFFC8" stroke-opacity=".45" stroke-width="1.3">
+    <path d="M55 360 V600 M45 360 H65 M45 600 H65"/>
   </g>
-  <text x="28" y="480" fill="#7CFFC8" fill-opacity=".7" font-family="ui-monospace, Menlo, monospace" font-size="13" transform="rotate(-90 28 480)">ELEVATION</text>
-  <text x="640" y="745" fill="#7CFFC8" fill-opacity=".65" font-family="ui-monospace, Menlo, monospace" font-size="13" text-anchor="middle">CAD · CONSTRUCTION DRAWING</text>
-  <text x="640" y="765" fill="#5CFFB0" fill-opacity=".45" font-family="ui-monospace, Menlo, monospace" font-size="11" text-anchor="middle">SCALE 1:200</text>
+  <text x="30" y="490" fill="#7CFFC8" fill-opacity=".65" font-family="ui-monospace, Menlo, monospace" font-size="12" transform="rotate(-90 30 490)">ELEVATION</text>
+  <text x="700" y="740" fill="#7CFFC8" fill-opacity=".6" font-family="ui-monospace, Menlo, monospace" font-size="12" text-anchor="middle">CAD · DRAWING</text>
   <rect width="980" height="780" fill="url(#fade)"/>
 </svg>
