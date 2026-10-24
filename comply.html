@@ -210,6 +210,20 @@ table.simple th{font-size:.72rem;text-transform:uppercase;letter-spacing:.04em;c
 .phone .img .ov,.phone .img .overlay{display:none!important}
 .phone .img img{width:100%;display:block;aspect-ratio:1;object-fit:cover;object-position:center top}
 
+
+/* Budget slide */
+.budget-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:1rem;margin-top:.55rem}
+.budget-table{width:100%;border-collapse:collapse;font-size:.84rem}
+.budget-table th{text-align:left;font-size:.68rem;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);padding:.4rem .35rem;border-bottom:1px solid var(--line)}
+.budget-table td{padding:.55rem .35rem;border-bottom:1px solid var(--line);vertical-align:top}
+.budget-table .amt{font-weight:800;white-space:nowrap}
+.budget-table .note{font-size:.75rem;color:var(--muted);line-height:1.3}
+.budget-total{display:flex;justify-content:space-between;align-items:center;margin-top:.75rem;padding:.85rem 1rem;border-radius:14px;background:#0f1419;color:#fff}
+.budget-total .n{font-size:1.45rem;font-weight:800;letter-spacing:-.02em}
+.cap-card{border-radius:14px;padding:1rem;border:1px solid var(--line);background:var(--camp-li-soft);border-left:5px solid var(--camp-li)}
+.cap-card h3{margin:0 0 .4rem;font-size:.95rem}
+.cap-card p{font-size:.84rem;line-height:1.4;color:#1f2a36}
+
 </style>
 </head>
 <body>
@@ -220,6 +234,7 @@ table.simple th{font-size:.72rem;text-transform:uppercase;letter-spacing:.04em;c
     <a class="btn btn-g" href="#assess">The market</a>
     <a class="btn btn-g" href="#channels">How we sell</a>
     <a class="btn btn-g" href="#ads">Ads</a>
+    <a class="btn btn-g" href="#budget">Budget</a>
     <a class="btn btn-g" href="#plan">90 days</a>
     <a class="btn btn-g" href="comply-examples.html">Full examples</a>
     <span class="hint">COMPLY · Go-to-Market Strategy · investors + team</span>
@@ -232,6 +247,7 @@ table.simple th{font-size:.72rem;text-transform:uppercase;letter-spacing:.04em;c
     <a class="seo" href="#ch-seo">SEO</a>
     <a class="ads" href="#ads">Ads</a>
     <a class="plan" href="#copy">Sample copy</a>
+    <a class="plan" href="#budget">Budget</a>
     <a class="plan" href="#plan">90 days</a>
   </div>
 
@@ -258,8 +274,9 @@ table.simple th{font-size:.72rem;text-transform:uppercase;letter-spacing:.04em;c
         <a href="#icp"><strong>2 · Who we sell to</strong><span>Consultants first · then developers · lenders last</span></a>
         <a href="#strategy"><strong>3 · What we say</strong><span>The pain · the walkthrough · the pilot</span></a>
         <a href="#channels"><strong>4 · How we sell</strong><span><span class="rail" style="background:var(--camp-li)"></span>LinkedIn <span class="rail" style="background:var(--camp-email)"></span>Email <span class="rail" style="background:var(--camp-social)"></span>Social <span class="rail" style="background:var(--camp-seo)"></span>SEO</span></a>
-        <a href="#ads"><strong>5 · Ads & messages</strong><span>Examples we will actually run</span></a>
-        <a href="#plan"><strong>6 · Next 90 days</strong><span>Who does what · how we keep score</span></a>
+        <a href="#budget"><strong>5 · Budget</strong><span>Reply.io $184.87 · caps · campaign spend</span></a>
+        <a href="#ads"><strong>6 · Ads & messages</strong><span>Examples we will actually run</span></a>
+        <a href="#plan"><strong>7 · Next 90 days</strong><span>Who does what · how we keep score</span></a>
       </div>
       <p class="lede" style="margin-top:1rem;font-size:.9rem">Short on purpose — so the room can align and leave with a clear to-do list.</p>
       <div class="footer-bar"><span>COMPLY</span><span>02</span></div>
@@ -404,6 +421,83 @@ table.simple th{font-size:.72rem;text-transform:uppercase;letter-spacing:.04em;c
       <div class="footer-bar"><span>COMPLY</span><span>10</span></div>
     </div>
   </section>
+
+  <section class="slide" data-camp="multi" id="budget">
+    <div class="slide-inner">
+      <div class="kicker">How we sell · budget</div>
+      <div class="h2">Where the money goes</div>
+      <p class="lede" style="font-size:.9rem;margin-bottom:.25rem">Working monthly plan so investors and the team see the same numbers. Soft costs (Tom/Jerod time) sit on top of this cash spend.</p>
+      <div class="budget-grid">
+        <div>
+          <table class="budget-table">
+            <thead><tr><th>Campaign</th><th>What it buys</th><th>Monthly</th></tr></thead>
+            <tbody>
+              <tr>
+                <td><span class="chip li">LinkedIn</span></td>
+                <td><div><strong>Reply.io</strong> — Tom + Jerod seats</div><div class="note">~40 LinkedIn outreaches / person / day (Reply.io cap). Connects, sequences, gift-ad support.</div></td>
+                <td class="amt">$184.87</td>
+              </tr>
+              <tr>
+                <td><span class="chip li">LinkedIn</span> ads</td>
+                <td><div>Gift walkthrough + consultant creative tests</div><div class="note">Start small; scale only what books meetings.</div></td>
+                <td class="amt">$500–$1,000</td>
+              </tr>
+              <tr>
+                <td><span class="chip email">Email</span></td>
+                <td><div>Apollo / data + send tooling (if not already covered)</div><div class="note">Non-CMAA sequences · newsletter. Keep lean while Reply.io is the spine.</div></td>
+                <td class="amt">$0–$200</td>
+              </tr>
+              <tr>
+                <td><span class="chip social">Social</span></td>
+                <td><div>Boost winning posts / short video clips</div><div class="note">Optional. Organic founder posts are free; boost only winners.</div></td>
+                <td class="amt">$0–$300</td>
+              </tr>
+              <tr>
+                <td><span class="chip seo">SEO</span></td>
+                <td><div>Writing / tools for comply.capital 8-pack</div><div class="note">Background lane — not tip of spear.</div></td>
+                <td class="amt">$0–$400</td>
+              </tr>
+              <tr>
+                <td><span class="chip pilot">Pilots</span></td>
+                <td><div>Walkthrough gifts (~$100 after call) + misc</div><div class="note">Only when meetings book — variable.</div></td>
+                <td class="amt">$200–$500</td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="budget-total">
+            <div>
+              <div style="font-size:.72rem;opacity:.75;font-weight:700;letter-spacing:.06em;text-transform:uppercase">Working monthly cash</div>
+              <div style="font-size:.84rem;opacity:.85;margin-top:.15rem">Floor ≈ Reply.io only · Starter band with ads</div>
+            </div>
+            <div style="text-align:right">
+              <div class="n">~$900–$2,600</div>
+              <div style="font-size:.75rem;opacity:.8">Reply.io $184.87 locked in</div>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div class="cap-card">
+            <h3>Capacity that matters</h3>
+            <p><strong>Reply.io hard cap:</strong> about <strong>40 LinkedIn outreaches per person per day</strong>.</p>
+            <p style="margin-top:.45rem">Tom + Jerod together ≈ <strong>up to ~80/day</strong> theoretical · real working floor stays <strong>15–25 quality ICP connects/week each</strong> so replies stay human.</p>
+            <p style="margin-top:.45rem"><strong>Do not</strong> buy more seats until connect→walkthrough rate is proven.</p>
+          </div>
+          <div class="card" style="margin-top:.75rem;border-left:5px solid var(--camp-pilot)">
+            <h3>Investor read</h3>
+            <p style="font-size:.84rem;line-height:1.4">Low cash burn to test the door. Software spine is ~$185/mo. Paid ads are optional fuel. People time (founders) is the real investment until pilots pay.</p>
+          </div>
+          <div class="card" style="margin-top:.75rem">
+            <h3>90-day cash picture</h3>
+            <p style="font-size:.84rem;line-height:1.4"><strong>Lean:</strong> ~$185 × 3 ≈ <strong>$555</strong> (Reply.io only)<br>
+            <strong>Starter:</strong> ~$1,200/mo avg ≈ <strong>~$3,600</strong> / quarter<br>
+            <strong>With ads on:</strong> up to ~$2,600/mo ≈ <strong>~$7,800</strong> / quarter</p>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bar"><span>COMPLY</span><span>Budget</span></div>
+    </div>
+  </section>
+
 
   <!-- LINKEDIN -->
   <section class="slide" data-camp="linkedin" id="ch-li">
