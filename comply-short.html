@@ -225,40 +225,33 @@ table.simple th{font-size:.72rem;text-transform:uppercase;letter-spacing:.04em;c
 .cap-card p{font-size:.84rem;line-height:1.4;color:#1f2a36}
 
 
-/* COMPLY wordmark — never stretch */
-.title-brand img,
+
+/* COMPLY wordmark — fixed aspect, cannot stretch */
 img.comply-logo,
-.comply-logo{
-  height:28px!important;
-  width:auto!important;
-  max-width:220px!important;
-  max-height:36px!important;
-  object-fit:contain!important;
-  object-position:left center!important;
-  aspect-ratio:auto!important;
-  min-height:0!important;
-  min-width:0!important;
-  display:block!important;
-}
+.title-brand img.comply-logo,
+.title-brand > img,
 .slide#title .title-brand img,
-.slide#close .title-brand img{height:32px!important;max-height:40px!important}
-@media print{
-  .title-brand img,img.comply-logo{height:24px!important;max-height:28px!important}
-}
-
-
-/* logo lock final */
-img.comply-logo,.title-brand img.comply-logo,.title-brand > img{
-  height:30px !important;
-  width: auto !important;
-  max-width: 200px !important;
-  max-height: 34px !important;
+.slide#close .title-brand img{
+  width: 133px !important;
+  height: 32px !important;
+  max-width: 133px !important;
+  max-height: 32px !important;
+  min-width: 0 !important;
+  min-height: 0 !important;
   object-fit: contain !important;
   object-position: left center !important;
-  aspect-ratio: unset !important;
-  min-height: 0 !important;
+  aspect-ratio: 133 / 32 !important;
   flex: 0 0 auto !important;
   align-self: flex-start !important;
+  display: block !important;
+}
+@media print{
+  img.comply-logo,.title-brand img{
+    width: 110px !important;
+    height: 26px !important;
+    max-width: 110px !important;
+    max-height: 26px !important;
+  }
 }
 
 </style>
@@ -296,7 +289,7 @@ img.comply-logo,.title-brand img.comply-logo,.title-brand > img{
       <div class="h1">Go-to-Market<br>Strategy</div>
       <p class="lede" style="margin-top:.85rem">For investors and the team — plain plan for who we sell to, how we sell, what we run, and what we do in the next 90 days.</p>
       <div class="title-brand">
-        <img src="assets/comply-logo-dark-2x.png" alt="COMPLY" class="comply-logo"/>
+        <img src="assets/comply-logo-wordmark-dark.svg" alt="COMPLY" class="comply-logo" width="133" height="32" />
         <div class="title-tagline">Draw review for the firms banks already trust · <span style="color:var(--teal);font-weight:800">Humans still decide</span></div>
       </div>
     </div>
@@ -875,7 +868,7 @@ https://comply.capital · Tom · COMPLY</div>
       <div class="h1">Same plan.<br>Same next steps.</div>
       <p class="lede" style="margin-top:1rem">Investors see the path. The team knows who does what this week.</p>
       <div class="title-brand">
-        <img src="assets/comply-logo-dark-2x.png" alt="COMPLY" class="comply-logo"/>
+        <img src="assets/comply-logo-wordmark-dark.svg" alt="COMPLY" class="comply-logo" width="133" height="32" />
         <div class="title-tagline">comply.capital · audit.brandastic.com/comply</div>
       </div>
     </div>

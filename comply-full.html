@@ -436,40 +436,33 @@ body{min-height:100vh}
 }
 
 
-/* COMPLY wordmark — never stretch */
-.title-brand img,
+
+/* COMPLY wordmark — fixed aspect, cannot stretch */
 img.comply-logo,
-.comply-logo{
-  height:28px!important;
-  width:auto!important;
-  max-width:220px!important;
-  max-height:36px!important;
-  object-fit:contain!important;
-  object-position:left center!important;
-  aspect-ratio:auto!important;
-  min-height:0!important;
-  min-width:0!important;
-  display:block!important;
-}
+.title-brand img.comply-logo,
+.title-brand > img,
 .slide#title .title-brand img,
-.slide#close .title-brand img{height:32px!important;max-height:40px!important}
-@media print{
-  .title-brand img,img.comply-logo{height:24px!important;max-height:28px!important}
-}
-
-
-/* logo lock final */
-img.comply-logo,.title-brand img.comply-logo,.title-brand > img{
-  height:30px !important;
-  width: auto !important;
-  max-width: 200px !important;
-  max-height: 34px !important;
+.slide#close .title-brand img{
+  width: 133px !important;
+  height: 32px !important;
+  max-width: 133px !important;
+  max-height: 32px !important;
+  min-width: 0 !important;
+  min-height: 0 !important;
   object-fit: contain !important;
   object-position: left center !important;
-  aspect-ratio: unset !important;
-  min-height: 0 !important;
+  aspect-ratio: 133 / 32 !important;
   flex: 0 0 auto !important;
   align-self: flex-start !important;
+  display: block !important;
+}
+@media print{
+  img.comply-logo,.title-brand img{
+    width: 110px !important;
+    height: 26px !important;
+    max-width: 110px !important;
+    max-height: 26px !important;
+  }
 }
 
 </style>
@@ -513,7 +506,7 @@ img.comply-logo,.title-brand img.comply-logo,.title-brand > img{
         <p class="lede">Who we sell to, how we sell, what we say, and the path to 20 clients.</p>
       </div>
       <div class="title-brand">
-        <img src="assets/comply-logo-dark-2x.png" alt="COMPLY" class="comply-logo" />
+        <img src="assets/comply-logo-wordmark-dark.svg" alt="COMPLY" class="comply-logo" width="133" height="32" />
         <div class="title-tagline">Intelligence Layer for Construction Draw Management</div>
       </div>
       <div class="footer-bar"><span>COMPLY</span><span>comply.capital</span></div>
@@ -2438,7 +2431,7 @@ DM me if you want in.</div>
       <section class="slide section-dark" id="close">
     <div class="slide-inner divider-slide">
       <div class="title-brand" style="margin-bottom:1.1rem">
-        <img src="assets/comply-logo-dark-2x.png" alt="COMPLY" class="comply-logo" />
+        <img src="assets/comply-logo-wordmark-dark.svg" alt="COMPLY" class="comply-logo" width="133" height="32" />
         <div class="title-tagline">Intelligence Layer for Construction Draw Management</div>
       </div>
       <div class="h1">Approve the plan.<br>Go win the package desk.</div>
