@@ -1534,6 +1534,63 @@ body.deck-mode section.slide.section-dark.deck-active .footer-bar{
   .slide.section-dark .slide-inner{ min-height:0!important; }
 }
 
+
+/* Dynamic forecast / value scrubber */
+.forecast-dyn .fd-wrap{margin-top:.15rem}
+.forecast-dyn .fd-milestones{display:flex;flex-wrap:wrap;gap:.4rem;margin:0 0 .55rem}
+.forecast-dyn .fd-milestones button{
+  appearance:none;border:1px solid rgba(21,32,43,.12);background:#f3f7fa;color:#15202b;
+  font-weight:800;font-size:.78rem;padding:.4rem .65rem;border-radius:999px;cursor:pointer;
+}
+.forecast-dyn .fd-milestones button.is-on{
+  background:#0f8f97;color:#fff;border-color:#0f8f97;
+}
+.forecast-dyn .fd-slider-lab{display:block;font-size:.72rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:#5b6b7c;margin:0 0 .25rem}
+.forecast-dyn #fdClients{
+  width:100%;accent-color:#0f8f97;height:1.4rem;cursor:pointer;margin:0 0 .55rem;
+}
+.forecast-dyn .fd-chart{
+  position:relative;height:18px;border-radius:999px;background:#e8eef3;margin:0 0 .7rem;overflow:hidden;
+}
+.forecast-dyn .fd-chart-fill{
+  position:absolute;left:0;top:0;bottom:0;width:24%;background:linear-gradient(90deg,#0f8f97,#40B4E5);border-radius:999px;
+}
+.forecast-dyn .fd-chart-mark{
+  position:absolute;top:50%;width:14px;height:14px;margin:-7px 0 0 -7px;border-radius:50%;
+  background:#fff;border:3px solid #0d1b2a;box-shadow:0 2px 8px rgba(0,0,0,.18);left:24%;
+}
+.forecast-dyn .fd-chart-scale{display:flex;justify-content:space-between;font-size:.68rem;color:#5b6b7c;margin-top:.2rem}
+.forecast-dyn .fd-story{
+  font-size:.95rem;line-height:1.4;color:#15202b;margin:0 0 .75rem;padding:.7rem .85rem;
+  background:#eef6f7;border-radius:12px;border-left:4px solid #0f8f97;min-height:3.2rem;
+}
+.forecast-dyn .fd-story strong{color:#0f8f97}
+.forecast-dyn .fd-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:.55rem;
+}
+.forecast-dyn .fd-card{
+  background:#fff;border:1px solid rgba(21,32,43,.1);border-radius:12px;padding:.7rem .75rem;
+  transition:border-color .15s, box-shadow .15s, transform .15s;
+}
+.forecast-dyn .fd-card.is-hot{
+  border-color:rgba(15,143,151,.45);box-shadow:0 0 0 2px rgba(15,143,151,.12);
+}
+.forecast-dyn .fd-card.is-value{
+  border-color:rgba(13,27,42,.35);background:#0d1b2a;color:#e8eef5;
+}
+.forecast-dyn .fd-card.is-value .fd-k{color:#00D4AA}
+.forecast-dyn .fd-card.is-value .fd-s{color:rgba(232,238,245,.7)}
+.forecast-dyn .fd-card.is-value .fd-v{color:#fff}
+.forecast-dyn .fd-k{font-size:.68rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:#5b6b7c}
+.forecast-dyn .fd-v{font-size:1.35rem;font-weight:800;line-height:1.15;margin:.2rem 0 .1rem;color:#15202b}
+.forecast-dyn .fd-s{font-size:.72rem;color:#5b6b7c;line-height:1.3}
+.forecast-dyn .fd-note{margin:.7rem 0 0;font-size:.75rem;color:#5b6b7c;line-height:1.35}
+body.deck-mode .forecast-dyn .fd-card.is-value{background:#0d1b2a!important;color:#e8eef5!important}
+body.deck-mode .forecast-dyn .fd-story{background:#eef6f7!important;color:#15202b!important}
+@media (max-width:900px){
+  .forecast-dyn .fd-grid{grid-template-columns:repeat(2,1fr)}
+}
+
 </style>
 </head>
 <body>
@@ -2097,46 +2154,43 @@ body.deck-mode section.slide.section-dark.deck-active .footer-bar{
  <div class="footer-bar"><span>COMPLY</span><span class="num">17</span></div>
  </div>
  </section><section class="slide" id="forecast-2027">
- <div class="slide-inner">
- <div class="kicker">04 · 2027 forecast</div>
- <div class="h2">1 paid client on Jan 1 → 20 by year-end</div>
- <p class="lede" style="margin-bottom:.55rem">If we get <strong style="color:var(--ink)">1 paying client on Jan 1, 2027</strong>, the goal is <strong style="color:var(--ink)">20 paying clients by Dec 31, 2027</strong>. That means <strong style="color:var(--ink)">19 new paying clients in 12 months</strong> — about <strong style="color:var(--ink)">1.6 new clients every month</strong>. We should aim for <strong style="color:var(--ink)">about 2 new paying clients per month</strong> so a slow month or a cancel does not wreck the year.</p>
- <svg class="forecast-svg" viewBox="0 0 720 260" width="100%" height="auto" role="img" aria-label="2027 client growth from 1 to 20">
- <rect x="0" y="0" width="720" height="260" fill="#f7fafc" rx="12"/>
- <line x1="48" y1="220.0" x2="696" y2="220.0" stroke="rgba(21,32,43,.08)" stroke-width="1"/><text x="40" y="224.0" text-anchor="end" font-size="11" fill="#5b6b7c">0</text><line x1="48" y1="170.0" x2="696" y2="170.0" stroke="rgba(21,32,43,.08)" stroke-width="1"/><text x="40" y="174.0" text-anchor="end" font-size="11" fill="#5b6b7c">5</text><line x1="48" y1="120.0" x2="696" y2="120.0" stroke="rgba(21,32,43,.08)" stroke-width="1"/><text x="40" y="124.0" text-anchor="end" font-size="11" fill="#5b6b7c">10</text><line x1="48" y1="70.0" x2="696" y2="70.0" stroke="rgba(21,32,43,.08)" stroke-width="1"/><text x="40" y="74.0" text-anchor="end" font-size="11" fill="#5b6b7c">15</text><line x1="48" y1="20.0" x2="696" y2="20.0" stroke="rgba(21,32,43,.08)" stroke-width="1"/><text x="40" y="24.0" text-anchor="end" font-size="11" fill="#5b6b7c">20</text>
- <rect x="60.1" y="200.0" width="29.7" height="20.0" rx="4" fill="rgba(31,143,201,.18)"/><rect x="114.2" y="210.0" width="29.7" height="10.0" rx="4" fill="rgba(31,143,201,.18)"/><rect x="168.2" y="200.0" width="29.7" height="20.0" rx="4" fill="rgba(31,143,201,.18)"/><rect x="222.2" y="210.0" width="29.7" height="10.0" rx="4" fill="rgba(31,143,201,.18)"/><rect x="276.1" y="200.0" width="29.7" height="20.0" rx="4" fill="rgba(31,143,201,.18)"/><rect x="330.1" y="210.0" width="29.7" height="10.0" rx="4" fill="rgba(31,143,201,.18)"/><rect x="384.1" y="200.0" width="29.7" height="20.0" rx="4" fill="rgba(31,143,201,.18)"/><rect x="438.1" y="200.0" width="29.7" height="20.0" rx="4" fill="rgba(31,143,201,.18)"/><rect x="492.1" y="210.0" width="29.7" height="10.0" rx="4" fill="rgba(31,143,201,.18)"/><rect x="546.1" y="200.0" width="29.7" height="20.0" rx="4" fill="rgba(31,143,201,.18)"/><rect x="600.1" y="210.0" width="29.7" height="10.0" rx="4" fill="rgba(31,143,201,.18)"/><rect x="654.1" y="200.0" width="29.7" height="20.0" rx="4" fill="rgba(31,143,201,.18)"/>
- <polyline fill="none" stroke="#0f8f97" stroke-width="3" stroke-linejoin="round" stroke-linecap="round" points="75.0,190.0 129.0,180.0 183.0,160.0 237.0,150.0 291.0,130.0 345.0,120.0 399.0,100.0 453.0,80.0 507.0,70.0 561.0,50.0 615.0,40.0 669.0,20.0"/>
- <circle cx="75.0" cy="190.0" r="4.5" fill="#0f8f97"/><text x="75.0" y="180.0" text-anchor="middle" font-size="11" font-weight="700" fill="#15202b">3</text><circle cx="129.0" cy="180.0" r="4.5" fill="#0f8f97"/><circle cx="183.0" cy="160.0" r="4.5" fill="#0f8f97"/><circle cx="237.0" cy="150.0" r="4.5" fill="#0f8f97"/><circle cx="291.0" cy="130.0" r="4.5" fill="#0f8f97"/><circle cx="345.0" cy="120.0" r="4.5" fill="#0f8f97"/><text x="345.0" y="110.0" text-anchor="middle" font-size="11" font-weight="700" fill="#15202b">10</text><circle cx="399.0" cy="100.0" r="4.5" fill="#0f8f97"/><circle cx="453.0" cy="80.0" r="4.5" fill="#0f8f97"/><circle cx="507.0" cy="70.0" r="4.5" fill="#0f8f97"/><text x="507.0" y="60.0" text-anchor="middle" font-size="11" font-weight="700" fill="#15202b">15</text><circle cx="561.0" cy="50.0" r="4.5" fill="#0f8f97"/><circle cx="615.0" cy="40.0" r="4.5" fill="#0f8f97"/><circle cx="669.0" cy="20.0" r="4.5" fill="#0f8f97"/><text x="669.0" y="10.0" text-anchor="middle" font-size="11" font-weight="700" fill="#15202b">20</text>
- <text x="75.0" y="246" text-anchor="middle" font-size="11" fill="#5b6b7c">Jan</text><text x="129.0" y="246" text-anchor="middle" font-size="11" fill="#5b6b7c">Feb</text><text x="183.0" y="246" text-anchor="middle" font-size="11" fill="#5b6b7c">Mar</text><text x="237.0" y="246" text-anchor="middle" font-size="11" fill="#5b6b7c">Apr</text><text x="291.0" y="246" text-anchor="middle" font-size="11" fill="#5b6b7c">May</text><text x="345.0" y="246" text-anchor="middle" font-size="11" fill="#5b6b7c">Jun</text><text x="399.0" y="246" text-anchor="middle" font-size="11" fill="#5b6b7c">Jul</text><text x="453.0" y="246" text-anchor="middle" font-size="11" fill="#5b6b7c">Aug</text><text x="507.0" y="246" text-anchor="middle" font-size="11" fill="#5b6b7c">Sep</text><text x="561.0" y="246" text-anchor="middle" font-size="11" fill="#5b6b7c">Oct</text><text x="615.0" y="246" text-anchor="middle" font-size="11" fill="#5b6b7c">Nov</text><text x="669.0" y="246" text-anchor="middle" font-size="11" fill="#5b6b7c">Dec</text>
- <text x="48" y="14" font-size="11" font-weight="700" fill="#0f8f97">Paying clients (line) · New clients added that month (bars)</text>
-</svg>
- <div class="grid3" style="margin-top:.75rem">
- <div class="card" style="border-color:rgba(15,143,151,.4)">
- <div class="stat" style="font-size:1.7rem">~$2k → $40k</div>
- <div class="stat-lbl"><strong>Monthly recurring revenue</strong><br>1 client ≈ $2,000 per month (5 projects × ~$400)<br>20 clients ≈ <strong>$40,000 per month</strong></div>
+ <div class="slide-inner forecast-dyn">
+ <div class="kicker">04 · LIVE MODEL · DRAG TO RUN THE NUMBERS</div>
+ <div class="h2">1 paid client → grow the book · see value</div>
+ <p class="lede" style="margin-bottom:.55rem">Drag the bar (or tap a milestone). We’ll highlight <strong>clients</strong>, <strong>deals</strong>, <strong>revenue</strong>, and what the company could be <strong>worth</strong>. 2027 path still starts at <strong>1 on Jan 1 → 20 by year-end</strong> (~2 new clients / month).</p>
+
+ <div class="fd-wrap">
+  <div class="fd-milestones" id="fdMiles" role="tablist" aria-label="Milestones">
+   <button type="button" data-c="1">1</button>
+   <button type="button" data-c="10">10</button>
+   <button type="button" data-c="20" class="is-on">20 · ’27</button>
+   <button type="button" data-c="28">$1M</button>
+   <button type="button" data-c="50">50</button>
+   <button type="button" data-c="56">$2M</button>
+   <button type="button" data-c="83">$3M</button>
+  </div>
+  <label class="fd-slider-lab" for="fdClients">Paying clients</label>
+  <input type="range" id="fdClients" min="1" max="83" value="20" step="1" />
+  <div class="fd-chart" aria-hidden="true">
+   <div class="fd-chart-fill" id="fdFill"></div>
+   <div class="fd-chart-mark" id="fdMark"></div>
+   <div class="fd-chart-scale"><span>1</span><span>20</span><span>50</span><span>83</span></div>
+  </div>
+  <div class="fd-story" id="fdStory"></div>
+  <div class="fd-grid" id="fdGrid">
+   <div class="fd-card is-hot"><div class="fd-k">Clients</div><div class="fd-v" id="fdClientsOut">20</div><div class="fd-s" id="fdClientsSub">paying companies</div></div>
+   <div class="fd-card is-hot"><div class="fd-k">Live deals</div><div class="fd-v" id="fdDealsOut">200</div><div class="fd-s" id="fdDealsSub">≈ 10 per client</div></div>
+   <div class="fd-card is-hot"><div class="fd-k">MRR</div><div class="fd-v" id="fdMrrOut">$60k</div><div class="fd-s">$300 × live deals</div></div>
+   <div class="fd-card is-hot"><div class="fd-k">ARR</div><div class="fd-v" id="fdArrOut">$720k</div><div class="fd-s" id="fdArrSub">yearly run-rate</div></div>
+   <div class="fd-card"><div class="fd-k">EBITDA (lean)</div><div class="fd-v" id="fdEbitdaOut">~$70k</div><div class="fd-s" id="fdEbitdaSub">~10% path</div></div>
+   <div class="fd-card is-value"><div class="fd-k">Company value</div><div class="fd-v" id="fdValOut">$3–6M</div><div class="fd-s" id="fdValSub">ARR × private SaaS band</div></div>
+  </div>
+  <p class="fd-note">Model: <strong>$300 / project / mo</strong> · <strong>~10 live deals / client</strong> · value = ARR × multiple (grows with scale). CAC still a pilot learning goal. Not a formal appraisal.</p>
  </div>
- <div class="card" style="border-color:rgba(15,143,151,.4)">
- <div class="stat" style="font-size:1.7rem">~$480k</div>
- <div class="stat-lbl"><strong>Yearly revenue at 20 clients</strong><br>20 × ~$24k/year = <strong>about $480k per year</strong><br>Early pilots with fewer jobs will be lower until more projects are on COMPLY</div>
+ <div class="footer-bar"><span>COMPLY</span><span>Live model</span></div>
  </div>
- <div class="card">
- <div class="stat" style="font-size:1.7rem">~2 / mo</div>
- <div class="stat-lbl"><strong>How many new clients we need each month</strong><br>Need 19 new paying clients total · aim for about 2 signups per month<br>We need more demos than buyers, because not everyone says yes</div>
- </div>
- </div>
- <div class="grid2" style="margin-top:.7rem">
- <div class="card">
- <h3>Where the 20 come from</h3>
- <p><strong>Primary:</strong> lender-side construction consultants — about <strong>~50 ideal firms</strong> in the core target set. Getting 20 clients means winning a big share of that small group first (Marcus).<br><br><strong>Not the main buyer:</strong> commercial developers number in the <strong>tens of thousands</strong> — useful on a live bank/consultant path, not who we chase first to hit 20 clients in 2027.</p>
- </div>
- <div class="card">
- <h3>Assumptions (label until price locks)</h3>
- <p>Plan math = 5 active projects × ~$400/project/mo = ~$2,000 MRR / ~$24k ARR per company.<br>Pilot start can be $300/project/mo on 1–2 jobs — MRR ramps as projects stack.<br>Churn/slip buffer = sell ~2 / month even though math is ~1.6.</p>
- </div>
- </div>
- <div class="footer-bar"><span>COMPLY</span><span class="num">17b</span></div>
- </div>
- </section><section class="slide">
+</section>
+<section class="slide">
  <div class="slide-inner">
  <div class="kicker">04 · Ladder</div>
  <div class="h2">Multi-year climb (owner view)</div>
@@ -3670,6 +3724,121 @@ DM me if you want in.</div>
   });
   var m=(location.hash||'').match(/slide-(\d+)/i);
   if(m){var n=parseInt(m[1],10)-1; if(!isNaN(n)&&n>=0&&n<slides.length) i=n;}
+})();
+</script>
+
+
+<script>
+(function(){
+  function money(n){
+    if (n >= 1000000) return '$' + (n/1000000).toFixed(n%1000000===0?0:2).replace(/\.00$/,'') + 'M';
+    if (n >= 1000) return '$' + Math.round(n/1000) + 'k';
+    return '$' + Math.round(n);
+  }
+  function moneyRange(a,b){
+    return money(a).replace('$','') + '–' + money(b);
+  }
+  function ebitdaMargin(arr){
+    if (arr < 500000) return 0.05;
+    if (arr < 1000000) return 0.10;
+    if (arr < 2000000) return 0.15;
+    if (arr < 3000000) return 0.20;
+    return 0.25;
+  }
+  function multipleBand(arr){
+    if (arr < 1000000) return [4, 8];
+    if (arr < 2000000) return [5, 10];
+    return [6, 12];
+  }
+  function wire(root){
+    if (!root || root.getAttribute('data-fd-ready')) return;
+    root.setAttribute('data-fd-ready','1');
+    var slider = root.querySelector('#fdClients');
+    var miles = root.querySelectorAll('#fdMiles button');
+    if (!slider) return;
+
+    function setClients(c, fromBtn){
+      c = Math.max(1, Math.min(83, parseInt(c,10)||1));
+      slider.value = c;
+      var deals = c * 10;
+      var mrr = deals * 300;
+      var arr = mrr * 12;
+      var m = ebitdaMargin(arr);
+      var ebitda = arr * m;
+      var band = multipleBand(arr);
+      var vLo = arr * band[0], vHi = arr * band[1];
+      var pct = (c - 1) / (83 - 1);
+
+      root.querySelector('#fdFill').style.width = (pct*100) + '%';
+      root.querySelector('#fdMark').style.left = (pct*100) + '%';
+      root.querySelector('#fdClientsOut').textContent = String(c);
+      root.querySelector('#fdClientsSub').textContent = c === 1 ? 'paying company' : 'paying companies';
+      root.querySelector('#fdDealsOut').textContent = deals.toLocaleString();
+      root.querySelector('#fdDealsSub').textContent = '≈ 10 live deals each';
+      root.querySelector('#fdMrrOut').textContent = money(mrr);
+      root.querySelector('#fdArrOut').textContent = money(arr);
+      root.querySelector('#fdArrSub').textContent = arr >= 1000000 ? 'at / past $1M ARR mark' : 'yearly run-rate';
+      root.querySelector('#fdEbitdaOut').textContent = money(ebitda);
+      root.querySelector('#fdEbitdaSub').textContent = 'lean path ~' + Math.round(m*100) + '% margin';
+      root.querySelector('#fdValOut').textContent = money(vLo) + ' – ' + money(vHi);
+      root.querySelector('#fdValSub').textContent = band[0] + '–' + band[1] + '× ARR (private SaaS band)';
+
+      var story = '';
+      if (c <= 5) {
+        story = 'Early stage: <strong>' + c + ' client' + (c>1?'s':'') + '</strong>, about <strong>' + deals + ' live deals</strong>. Revenue ~<strong>' + money(arr) + ' ARR</strong>. Focus = pilots, logos, learn CAC.';
+      } else if (c < 20) {
+        story = 'Climbing to the 2027 goal: <strong>' + c + ' clients</strong> · <strong>' + deals + ' deals</strong> · ~<strong>' + money(arr) + ' ARR</strong>. Still under the 20-client year-end target.';
+      } else if (c === 20) {
+        story = '<strong>2027 year-end picture:</strong> 20 clients · 200 live deals · ~<strong>$720k ARR</strong> · company value roughly <strong>' + money(vLo) + '–' + money(vHi) + '</strong>.';
+      } else if (c < 28) {
+        story = '<strong>' + c + ' clients</strong> · <strong>' + deals + ' deals</strong> · ~<strong>' + money(arr) + ' ARR</strong>. Crossing toward the <strong>$1M</strong> mark (~28 clients at 10 deals each).';
+      } else if (c < 56) {
+        story = 'Past <strong>$1M ARR</strong> shape: <strong>' + c + ' clients</strong> · <strong>' + deals + ' deals</strong> · ~<strong>' + money(arr) + '</strong>/yr · worth about <strong>' + money(vLo) + '–' + money(vHi) + '</strong>.';
+      } else if (c < 83) {
+        story = 'Toward <strong>$2M–$3M</strong>: <strong>' + c + ' clients</strong> · <strong>' + deals + ' deals</strong> · ~<strong>' + money(arr) + ' ARR</strong> · value band <strong>' + money(vLo) + '–' + money(vHi) + '</strong>.';
+      } else {
+        story = '<strong>North star:</strong> 83 clients · 830 live deals ≈ <strong>$3M ARR</strong> (833 lock). Company value band about <strong>' + money(vLo) + '–' + money(vHi) + '</strong>.';
+      }
+      root.querySelector('#fdStory').innerHTML = story;
+
+      miles.forEach(function(btn){
+        var bc = parseInt(btn.getAttribute('data-c'),10);
+        btn.classList.toggle('is-on', bc === c || (fromBtn && btn === fromBtn));
+        // light match nearest milestone highlight
+        if (!fromBtn) {
+          var nearest = null, best=999;
+          miles.forEach(function(b){
+            var d=Math.abs(parseInt(b.getAttribute('data-c'),10)-c);
+            if (d<best){best=d;nearest=b;}
+          });
+          btn.classList.toggle('is-on', btn===nearest);
+        }
+      });
+      if (fromBtn) {
+        miles.forEach(function(btn){ btn.classList.toggle('is-on', btn===fromBtn); });
+      }
+    }
+
+    slider.addEventListener('input', function(){ setClients(slider.value, null); });
+    miles.forEach(function(btn){
+      btn.addEventListener('click', function(e){
+        e.preventDefault(); e.stopPropagation();
+        setClients(btn.getAttribute('data-c'), btn);
+      });
+    });
+    // stop present-mode click advance when using controls
+    root.addEventListener('click', function(e){
+      if (e.target.closest && (e.target.closest('#fdClients') || e.target.closest('#fdMiles') || e.target.closest('.fd-wrap'))) {
+        e.stopPropagation();
+      }
+    });
+    setClients(20, null);
+  }
+  function boot(){
+    document.querySelectorAll('#forecast-2027').forEach(wire);
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', boot);
+  else boot();
 })();
 </script>
 
