@@ -1634,11 +1634,107 @@ body.deck-mode .slide#close.deck-active .close-sum-lede{
 
 
 
-/* SaaS valuation source footnotes */
-.saas-source-note{ margin:.5rem 0 0; font-size:.66rem; line-height:1.35; color:#5b6b7c; }
-.saas-source-note a{ color:#0f8f97; font-weight:700; text-decoration:underline; text-underline-offset:2px; }
-.slide.section-ns-summary .saas-source-note{ color:rgba(243,255,251,.62)!important; }
-.slide.section-ns-summary .saas-source-note a{ color:#7dffd0!important; }
+
+/* North star summary — dark green standout */
+.slide.section-ns-summary,
+.slide.section-ns-summary > .slide-inner.ns-summary-inner{
+  background:#0b3d36 !important;
+  color:#f3fffb !important;
+}
+.slide.section-ns-summary .kicker{ color:#7dffd0 !important; }
+.slide.section-ns-summary .h2{ color:#fff !important; }
+.slide.section-ns-summary .lede,
+.slide.section-ns-summary .ns-lede,
+.slide.section-ns-summary li,
+.slide.section-ns-summary p{ color:rgba(243,255,251,.92) !important; }
+.slide.section-ns-summary .ns-card{
+  background:rgba(255,255,255,.1) !important;
+  border:1px solid rgba(255,255,255,.18) !important;
+  color:#f3fffb !important;
+}
+.slide.section-ns-summary .ns-card-title{ color:#fff !important; font-weight:800; margin-bottom:.4rem; }
+.slide.section-ns-summary .ns-card-value{ background:rgba(0,0,0,.22) !important; }
+.slide.section-ns-summary .ns-note{ color:rgba(243,255,251,.65) !important; list-style:none; margin-left:-1.1rem; }
+.slide.section-ns-summary .ns-acq,
+.slide.section-ns-summary .ns-why{
+  background:rgba(0,0,0,.22) !important;
+  border:1px solid rgba(125,255,208,.3) !important;
+  border-radius:12px;
+  padding:.75rem .9rem;
+  margin-top:.65rem;
+}
+.slide.section-ns-summary .ns-acq-k,
+.slide.section-ns-summary .ns-why-k{ color:#7dffd0 !important; font-weight:800; margin-bottom:.3rem; }
+.slide.section-ns-summary .ns-acq-row,
+.slide.section-ns-summary .ns-why-t{ color:#fff !important; }
+.slide.section-ns-summary .footer-bar{ color:rgba(243,255,251,.5) !important; border-top-color:rgba(255,255,255,.12) !important; }
+body.deck-mode section.slide.section-ns-summary.deck-active > .slide-inner{
+  background:#0b3d36 !important; color:#f3fffb !important;
+}
+
+/* SaaS source chips — high contrast, easy to see */
+.saas-sources{
+  margin:.7rem 0 .15rem;
+  padding:.7rem .8rem;
+  border-radius:12px;
+  background:#eef6f7;
+  border:1px solid rgba(15,143,151,.28);
+}
+.saas-sources-label{
+  font-size:.72rem;
+  font-weight:800;
+  letter-spacing:.04em;
+  text-transform:uppercase;
+  color:#0f8f97;
+  margin:0 0 .45rem;
+}
+.saas-sources-links{
+  display:flex;
+  flex-wrap:wrap;
+  gap:.4rem;
+}
+.saas-sources-links a{
+  display:inline-block;
+  font-size:.78rem !important;
+  font-weight:800 !important;
+  line-height:1.2 !important;
+  color:#ffffff !important;
+  background:#0f8f97 !important;
+  border:1px solid #0c7380 !important;
+  padding:.4rem .65rem !important;
+  border-radius:999px !important;
+  text-decoration:none !important;
+  box-shadow:0 1px 2px rgba(0,0,0,.08);
+}
+.saas-sources-links a:hover{
+  background:#0c7380 !important;
+  color:#fff !important;
+}
+/* On dark green north-star page */
+.slide.section-ns-summary .saas-sources{
+  background:rgba(0,0,0,.28) !important;
+  border:1px solid rgba(125,255,208,.4) !important;
+}
+.slide.section-ns-summary .saas-sources-label{
+  color:#7dffd0 !important;
+}
+.slide.section-ns-summary .saas-sources-links a{
+  background:#7dffd0 !important;
+  color:#0b3d36 !important;
+  border-color:#5be0b8 !important;
+  font-weight:800 !important;
+}
+/* Present mode */
+body.deck-mode .saas-sources-links a{
+  color:#ffffff !important;
+  background:#0f8f97 !important;
+}
+body.deck-mode section.slide.section-ns-summary.deck-active .saas-sources-links a{
+  background:#7dffd0 !important;
+  color:#0b3d36 !important;
+}
+/* kill old faint footnote style */
+.saas-source-note{ display:none !important; }
 
 </style>
 </head>
@@ -1801,14 +1897,18 @@ body.deck-mode .slide#close.deck-active .close-sum-lede{
  </tbody>
  </table>
  <p style="margin:0 0 .35rem;font-size:.75rem;color:var(--muted);line-height:1.35">*Lean path margins for planning. **Stretch needs strong growth, retention, and competitive process — not automatic at the ARR number. Early check: ~5 clients × ~10 deals ≈ ~$180k ARR → about <strong>~$0.4–0.9M</strong> at 2–5× (not a locked $1M).</p>
- <p class="saas-source-note">Sources (see with your own eyes):
- <a href="https://saasvaluationmultiple.com/saas-valuation-multiples-2026" target="_blank" rel="noopener">SaaS Valuation Multiple — 2026 private ranges</a>
- · <a href="https://www.saas-capital.com/blog-posts/what-are-saas-companies-worth/" target="_blank" rel="noopener">SaaS Capital</a>
- · <a href="https://aventis-advisors.com/saas-valuation-multiples/" target="_blank" rel="noopener">Aventis Advisors</a>
- · <a href="https://www.l40.com/insights/saas-multiples" target="_blank" rel="noopener">L40</a>
- · <a href="https://www.prnewswire.com/news-releases/private-saas-company-survey-reveals-ai-driven-transformation-and-sustained-operational-excellence-302615030.html" target="_blank" rel="noopener">KeyBanc + Sapphire Private SaaS Survey</a>.
- Illustrative planning bands, not a formal appraisal.
- </p>
+ 
+ <div class="saas-sources">
+ <div class="saas-sources-label">Sources (click to verify)</div>
+ <div class="saas-sources-links">
+ <a href="https://saasvaluationmultiple.com/saas-valuation-multiples-2026" target="_blank" rel="noopener">SaaS Valuation Multiple 2026</a>
+ <a href="https://www.saas-capital.com/blog-posts/what-are-saas-companies-worth/" target="_blank" rel="noopener">SaaS Capital</a>
+ <a href="https://aventis-advisors.com/saas-valuation-multiples/" target="_blank" rel="noopener">Aventis Advisors</a>
+ <a href="https://www.l40.com/insights/saas-multiples" target="_blank" rel="noopener">L40 Multiples</a>
+ <a href="https://www.prnewswire.com/news-releases/private-saas-company-survey-reveals-ai-driven-transformation-and-sustained-operational-excellence-302615030.html" target="_blank" rel="noopener">KeyBanc + Sapphire Survey</a>
+ </div>
+ </div>
+
  <div class="footer-bar"><span>COMPLY</span><span>Investor value</span></div>
  </div>
  </section><section class="slide" id="toc">
@@ -3733,13 +3833,18 @@ DM me if you want in.</div>
  <div class="ns-why-k">Why we do marketing</div>
  <div class="ns-why-t"><strong>Win ~50 → deepen to ~17 deals → $3M ARR → real company value.</strong> LinkedIn + gifts + SEO.</div>
  </div>
- <p class="saas-source-note">Sources:
+ 
+ <div class="saas-sources">
+ <div class="saas-sources-label">Sources (click to verify)</div>
+ <div class="saas-sources-links">
  <a href="https://saasvaluationmultiple.com/saas-valuation-multiples-2026" target="_blank" rel="noopener">SaaS Valuation Multiple 2026</a>
- · <a href="https://www.saas-capital.com/blog-posts/what-are-saas-companies-worth/" target="_blank" rel="noopener">SaaS Capital</a>
- · <a href="https://aventis-advisors.com/saas-valuation-multiples/" target="_blank" rel="noopener">Aventis</a>
- · <a href="https://www.l40.com/insights/saas-multiples" target="_blank" rel="noopener">L40</a>
- · <a href="https://www.prnewswire.com/news-releases/private-saas-company-survey-reveals-ai-driven-transformation-and-sustained-operational-excellence-302615030.html" target="_blank" rel="noopener">KeyBanc + Sapphire</a>.
- </p>
+ <a href="https://www.saas-capital.com/blog-posts/what-are-saas-companies-worth/" target="_blank" rel="noopener">SaaS Capital</a>
+ <a href="https://aventis-advisors.com/saas-valuation-multiples/" target="_blank" rel="noopener">Aventis Advisors</a>
+ <a href="https://www.l40.com/insights/saas-multiples" target="_blank" rel="noopener">L40 Multiples</a>
+ <a href="https://www.prnewswire.com/news-releases/private-saas-company-survey-reveals-ai-driven-transformation-and-sustained-operational-excellence-302615030.html" target="_blank" rel="noopener">KeyBanc + Sapphire Survey</a>
+ </div>
+ </div>
+
  <div class="footer-bar"><span>COMPLY</span><span>North star summary</span></div>
  </div>
  </section>
