@@ -1315,6 +1315,33 @@ body.deck-mode section.slide#close.deck-active > .slide-inner{
   padding-bottom: 2rem !important;
 }
 
+
+/* Competitor logos */
+.comp-logo-row{
+  display:flex; flex-wrap:wrap; gap:.7rem; align-items:center;
+  margin:0 0 1rem; padding:.65rem .75rem;
+  background:#f7fafc; border:1px solid rgba(21,32,43,.08); border-radius:12px;
+}
+.comp-logo-row .comp-logo{
+  display:inline-flex; align-items:center; justify-content:center;
+  height:34px; padding:0 .35rem;
+}
+.comp-logo-row .comp-logo img{
+  max-height:28px; max-width:120px; width:auto; height:auto;
+  object-fit:contain; display:block; filter:none;
+}
+.comp-logo-row .comp-logo.built img{ max-height:30px; max-width:36px; border-radius:6px; }
+.comp-logo-row .comp-logo.email img{ max-height:26px; max-width:90px; }
+.table td .comp-cell{
+  display:flex; align-items:center; gap:.5rem;
+}
+.table td .comp-cell img{
+  width:22px; height:22px; object-fit:contain; flex:0 0 auto;
+  border-radius:4px; background:#fff;
+}
+.table td .comp-cell img.wide{ width:auto; max-width:72px; height:18px; }
+body.deck-mode .comp-logo-row{ background:#f3f6f9!important; }
+
 </style>
 </head>
 <body>
@@ -1448,15 +1475,27 @@ body.deck-mode section.slide#close.deck-active > .slide-inner{
  <div class="slide-inner">
  <div class="kicker">02 · Market map</div>
  <div class="h2">Who else is in the fight</div>
+
+ <div class="comp-logo-row" aria-label="Competitor logos">
+   <span class="comp-logo rabbet"><img src="assets/comply-competitors/rabbet.svg" alt="Rabbet"></span>
+   <span class="comp-logo built"><img src="assets/comply-competitors/built.png" alt="Built"></span>
+   <span class="comp-logo land"><img src="assets/comply-competitors/land-gorilla.svg" alt="Land Gorilla"></span>
+   <span class="comp-logo sitewire"><img src="assets/comply-competitors/sitewire.png" alt="Sitewire"></span>
+   <span class="comp-logo truepic"><img src="assets/comply-competitors/truepic.svg" alt="Truepic"></span>
+   <span class="comp-logo email"><img src="assets/comply-competitors/email-excel.png" alt="Email and Excel"></span>
+ </div>
+
  <table class="table">
  <thead><tr><th>Player</th><th>What they sell</th><th>Who pays</th><th>Threat to us</th></tr></thead>
+ 
  <tbody>
- <tr><td><strong>Rabbet</strong></td><td>Lender draw / budget / docs</td><td>Bank cheap · developer heavy</td><td>Named in sales calls — know the answer</td></tr>
- <tr><td><strong>Built</strong></td><td>Big construction-finance platform</td><td>Enterprise lenders</td><td>Logo gravity · long cycles</td></tr>
- <tr><td><strong>Land Gorilla</strong></td><td>Construction loan manager</td><td>Banks / CUs</td><td>Bank ops software lane</td></tr>
- <tr><td><strong>Sitewire / Truepic</strong></td><td>Inspection / photo proof</td><td>Per job / feature</td><td>Field piece only</td></tr>
- <tr><td><strong>Email + Excel</strong></td><td>“Free” process</td><td>Hidden staff time ($25k–$50k+/yr stories)</td><td><strong>Real day-to-day rival</strong></td></tr>
+ <tr><td><div class="comp-cell"><img class="wide" src="assets/comply-competitors/rabbet.svg" alt=""><strong>Rabbet</strong></div></td><td>Lender draw / budget / docs</td><td>Bank cheap · developer heavy</td><td>Named in sales calls — know the answer</td></tr>
+ <tr><td><div class="comp-cell"><img class="" src="assets/comply-competitors/built.png" alt=""><strong>Built</strong></div></td><td>Big construction-finance platform</td><td>Enterprise lenders</td><td>Logo gravity · long cycles</td></tr>
+ <tr><td><div class="comp-cell"><img class="wide" src="assets/comply-competitors/land-gorilla.svg" alt=""><strong>Land Gorilla</strong></div></td><td>Construction loan manager</td><td>Banks / CUs</td><td>Bank ops software lane</td></tr>
+ <tr><td><div class="comp-cell"><img class="" src="assets/comply-competitors/sitewire.png" alt=""><strong>Sitewire / Truepic</strong></div></td><td>Inspection / photo proof</td><td>Per job / feature</td><td>Field piece only</td></tr>
+ <tr><td><div class="comp-cell"><img class="wide" src="assets/comply-competitors/email-excel.png" alt=""><strong>Email + Excel</strong></div></td><td>“Free” process</td><td>Hidden staff time ($25k–$50k+/yr stories)</td><td><strong>Real day-to-day rival</strong></td></tr>
  </tbody>
+
  </table>
  <p class="big" style="margin-top:1rem">Bank platforms already own the talk with the lender. Almost nobody owns the consultant’s monthly draw-review paperwork. That is where COMPLY starts.</p>
  <div class="footer-bar"><span>COMPLY</span><span class="num">07</span></div>
@@ -1465,6 +1504,16 @@ body.deck-mode section.slide#close.deck-active > .slide-inner{
  <div class="slide-inner">
  <div class="kicker">02 · Competitor map</div>
  <div class="h2">Market share × price (circle view)</div>
+
+ <div class="comp-logo-row" aria-label="Competitor logos">
+   <span class="comp-logo rabbet"><img src="assets/comply-competitors/rabbet.svg" alt="Rabbet"></span>
+   <span class="comp-logo built"><img src="assets/comply-competitors/built.png" alt="Built"></span>
+   <span class="comp-logo land"><img src="assets/comply-competitors/land-gorilla.svg" alt="Land Gorilla"></span>
+   <span class="comp-logo sitewire"><img src="assets/comply-competitors/sitewire.png" alt="Sitewire"></span>
+   <span class="comp-logo truepic"><img src="assets/comply-competitors/truepic.svg" alt="Truepic"></span>
+   <span class="comp-logo email"><img src="assets/comply-competitors/email-excel.png" alt="Email and Excel"></span>
+ </div>
+
  <svg class="comp-bubbles" viewBox="0 0 920 400" role="img" aria-label="Competitor bubble chart">
  <rect width="920" height="400" rx="14" fill="#f7fafc"/>
  <rect x="80" y="40" width="800" height="320" rx="8" fill="#fff" stroke="rgba(21,32,43,.1)"/>

@@ -1104,6 +1104,33 @@ body.deck-mode section.slide#close.deck-active > .slide-inner{
   padding-bottom: 2rem !important;
 }
 
+
+/* Competitor logos */
+.comp-logo-row{
+  display:flex; flex-wrap:wrap; gap:.7rem; align-items:center;
+  margin:0 0 1rem; padding:.65rem .75rem;
+  background:#f7fafc; border:1px solid rgba(21,32,43,.08); border-radius:12px;
+}
+.comp-logo-row .comp-logo{
+  display:inline-flex; align-items:center; justify-content:center;
+  height:34px; padding:0 .35rem;
+}
+.comp-logo-row .comp-logo img{
+  max-height:28px; max-width:120px; width:auto; height:auto;
+  object-fit:contain; display:block; filter:none;
+}
+.comp-logo-row .comp-logo.built img{ max-height:30px; max-width:36px; border-radius:6px; }
+.comp-logo-row .comp-logo.email img{ max-height:26px; max-width:90px; }
+.table td .comp-cell{
+  display:flex; align-items:center; gap:.5rem;
+}
+.table td .comp-cell img{
+  width:22px; height:22px; object-fit:contain; flex:0 0 auto;
+  border-radius:4px; background:#fff;
+}
+.table td .comp-cell img.wide{ width:auto; max-width:72px; height:18px; }
+body.deck-mode .comp-logo-row{ background:#f3f6f9!important; }
+
 </style>
 </head>
 <body>
