@@ -1342,6 +1342,82 @@ body.deck-mode section.slide#close.deck-active > .slide-inner{
 .table td .comp-cell img.wide{ width:auto; max-width:72px; height:18px; }
 body.deck-mode .comp-logo-row{ background:#f3f6f9!important; }
 
+
+/* Section dividers: title block vertically centered (not top-stuck) */
+.slide.section-dark .slide-inner.divider-slide,
+.slide.section-dark > .slide-inner.divider-slide,
+.slide-inner.divider-slide{
+  display:flex!important;
+  flex-direction:column!important;
+  justify-content:center!important;
+  align-items:flex-start!important;
+  position:relative!important;
+  min-height:560px!important;
+  padding-top:2.2rem!important;
+  padding-bottom:3.2rem!important;
+}
+/* Keep COMPLY / SECTION labels at top corners without shifting the title */
+.slide.section-dark .brand-top{
+  position:absolute!important;
+  top:1.35rem!important;
+  left:2.4rem!important;
+  right:2.4rem!important;
+  margin:0!important;
+  z-index:3!important;
+}
+/* Footer pinned to bottom so it no longer pulls the title up */
+.slide.section-dark .slide-inner.divider-slide > .footer-bar,
+.slide-inner.divider-slide > .footer-bar,
+.slide.section-dark .divider-slide .footer-bar{
+  position:absolute!important;
+  left:2.4rem!important;
+  right:2.4rem!important;
+  bottom:1.25rem!important;
+  margin:0!important;
+  margin-top:0!important;
+  padding-top:.85rem!important;
+  width:auto!important;
+  z-index:3!important;
+}
+/* Title cluster sits in true vertical center */
+.slide.section-dark .slide-inner.divider-slide > .phase,
+.slide.section-dark .slide-inner.divider-slide > .h1,
+.slide.section-dark .slide-inner.divider-slide > .lede,
+.slide.section-dark .slide-inner.divider-slide > .sec-plain{
+  position:relative!important;
+  z-index:2!important;
+}
+.slide.section-dark .slide-inner.divider-slide > .h1{
+  margin:0!important;
+  max-width:14ch!important;
+}
+.slide.section-dark .slide-inner.divider-slide > .phase{
+  margin:0 0 .55rem!important;
+}
+.slide.section-dark .slide-inner.divider-slide > .lede{
+  margin:.7rem 0 0!important;
+  max-width:28rem!important;
+}
+/* Present mode: same mid-height lock on dark dividers */
+body.deck-mode section.slide.section-dark.deck-active > .slide-inner.divider-slide{
+  justify-content:center!important;
+  align-items:flex-start!important;
+  padding-top:2.2rem!important;
+  padding-bottom:3.2rem!important;
+  padding-left:2.4rem!important;
+}
+body.deck-mode section.slide.section-dark.deck-active > .slide-inner.divider-slide > .footer-bar{
+  position:absolute!important;
+  left:2.4rem!important;
+  right:2.4rem!important;
+  bottom:1.25rem!important;
+  margin:0!important;
+  margin-top:0!important;
+}
+@media print{
+  .slide.section-dark .slide-inner.divider-slide{ min-height:0!important; }
+}
+
 </style>
 </head>
 <body>
