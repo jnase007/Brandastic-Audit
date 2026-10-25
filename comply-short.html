@@ -1380,6 +1380,46 @@ body.deck-mode .forecast-dyn .fd-story{background:#eef6f7!important;color:#15202
   .forecast-dyn .fd-grid{grid-template-columns:repeat(2,1fr)}
 }
 
+
+/* Close summary · north star why marketing */
+.slide#close .close-sum-lede{
+  max-width:28rem;
+  margin-top:.55rem;
+  margin-bottom:0;
+  color:rgba(232,238,245,.9)!important;
+  position:relative;
+  z-index:2;
+}
+.slide#close .close-sum-list{
+  list-style:none;
+  margin:.75rem 0 0;
+  padding:0;
+  max-width:30rem;
+  position:relative;
+  z-index:2;
+}
+.slide#close .close-sum-list li{
+  position:relative;
+  padding:.4rem 0 .4rem 1.1rem;
+  font-size:.9rem;
+  line-height:1.35;
+  color:rgba(232,238,245,.92)!important;
+  border-bottom:1px solid rgba(255,255,255,.1);
+}
+.slide#close .close-sum-list li:last-child{ border-bottom:0; }
+.slide#close .close-sum-list li::before{
+  content:"";
+  position:absolute; left:0; top:.72rem;
+  width:.42rem; height:.42rem; border-radius:50%;
+  background:#00D4AA;
+}
+.slide#close .close-sum-list strong{ color:#fff!important; font-weight:800; }
+.slide#close .muted-inline{ color:rgba(232,238,245,.55)!important; font-weight:500; }
+body.deck-mode .slide#close.deck-active .close-sum-list li,
+body.deck-mode .slide#close.deck-active .close-sum-lede{
+  color:rgba(232,238,245,.92)!important;
+}
+
 </style>
 </head>
 <body>
@@ -2204,15 +2244,22 @@ https://comply.capital · Tom · COMPLY</div>
  <div class="footer-bar"><span>COMPLY</span><span>22</span></div>
  </div>
  </section><section class="slide" id="close">
-    <div class="slide-inner title-slide">
+    <div class="slide-inner title-slide close-summary">
       <div class="site-hero-stack site-hero-static" aria-hidden="true">
         <img src="assets/comply-heroes/close-developers.jpg" alt="" class="site-hero-main" />
       </div>
       <div class="site-hero-fade" aria-hidden="true"></div>
       <div class="title-main">
-        <div class="kicker">Next step</div>
+        <div class="kicker">North star · why the marketing plan</div>
         <div class="h1">Let’s take<br>the market!</div>
-        <p class="lede">North star: 3% · 50×10 · 833 live projects = $3M · LinkedIn + gifts + SEO</p>
+        <p class="lede close-sum-lede">Hit <strong>$3M ARR</strong> so the company can be worth real money. Marketing is how we get the clients.</p>
+        <ul class="close-sum-list">
+          <li><strong>Goal:</strong> <strong>$3M / year</strong> ≈ <strong>3%</strong> of the draw market</li>
+          <li><strong>Means:</strong> <strong>833 live projects</strong> at <strong>$300/mo</strong>, all running at once</li>
+          <li><strong>Shape:</strong> ~<strong>50 clients × ~17 deals</strong> <span class="muted-inline">(or ~83 clients × 10)</span></li>
+          <li><strong>Value:</strong> about <strong>$18M – $36M</strong> company value band <span class="muted-inline">(illustrative private SaaS ARR multiples)</span></li>
+          <li><strong>Why marketing:</strong> win clients → ARR → value · LinkedIn + gifts + SEO · learn CAC on pilots</li>
+        </ul>
       </div>
       <div class="title-brand">
         <img src="assets/comply-logo-wordmark-dark.svg" alt="COMPLY" class="comply-logo" width="133" height="32" />
