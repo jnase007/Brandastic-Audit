@@ -730,28 +730,6 @@ img.comply-logo,
 }
 
 
-/* Presenter: fullscreen slideshow v3 */
-.deck-present-btn{
-  position:fixed; right:18px; bottom:18px; z-index:99999;
-  appearance:none; border:0; cursor:pointer;
-  font-family:Inter,system-ui,sans-serif; font-weight:800; font-size:.82rem;
-  color:#fff; background:linear-gradient(135deg,#0f8f97,#0d1b2a);
-  padding:.72rem 1rem; border-radius:999px;
-  box-shadow:0 10px 28px rgba(13,27,42,.28);
-}
-.deck-present-btn:hover{ filter:brightness(1.08); }
-.deck-exit-btn,
-.deck-exit-hint,
-.deck-nav,
-.deck-counter{ display:none; }
-body.deck-mode{
-  background:#0b1016!important;
-  overflow:hidden!important;
-  height:100vh!important;
-  width:100vw!important;
-}
-body.deck-mode .deck,
-body.deck-mode .wrap{ margin:0!important; padding:0!important; max-width:none!important; width:100%!important; }
 /* Hide ALL page chrome while presenting */
 body.deck-mode .toolbar,
 body.deck-mode .camp-nav,
@@ -836,6 +814,255 @@ body.deck-mode .slide.deck-active .slide-inner{
   .deck-present-btn,.deck-exit-btn,.deck-exit-hint,.deck-nav,.deck-counter{ display:none!important; }
   body.deck-mode .slide{ display:block!important; position:relative!important; inset:auto!important; width:auto!important; height:auto!important; }
   body.deck-mode .toolbar, body.deck-mode .camp-nav{ display:flex!important; visibility:visible!important; height:auto!important; opacity:1!important; }
+}
+
+
+/* LIGHT slides: forced white surface + dark ink */
+body.deck-mode .slide.deck-active .slide-inner{
+  width:min(1280px, 96vw)!important;
+  height:min(720px, calc(100vh - 44px))!important;
+  max-height:calc(100vh - 44px)!important;
+  min-height:0!important;
+  margin:0 auto!important;
+  border-radius:14px!important;
+  box-shadow:0 18px 50px rgba(0,0,0,.45)!important;
+  overflow:auto!important;
+  background:#ffffff!important;
+  color:#15202b!important;
+}
+body.deck-mode .slide:not(.section-dark).deck-active .slide-inner{
+  background:#ffffff!important;
+  color:#15202b!important;
+}
+body.deck-mode .slide:not(.section-dark).deck-active .h1,
+body.deck-mode .slide:not(.section-dark).deck-active .h2,
+body.deck-mode .slide:not(.section-dark).deck-active h1,
+body.deck-mode .slide:not(.section-dark).deck-active h2,
+body.deck-mode .slide:not(.section-dark).deck-active h3{
+  color:#15202b!important;
+}
+body.deck-mode .slide:not(.section-dark).deck-active .lede,
+body.deck-mode .slide:not(.section-dark).deck-active .big,
+body.deck-mode .slide:not(.section-dark).deck-active p,
+body.deck-mode .slide:not(.section-dark).deck-active li,
+body.deck-mode .slide:not(.section-dark).deck-active td,
+body.deck-mode .slide:not(.section-dark).deck-active label,
+body.deck-mode .slide:not(.section-dark).deck-active .persona-meta,
+body.deck-mode .slide:not(.section-dark).deck-active .persona-quote{
+  color:#1f2a36!important;
+}
+body.deck-mode .slide:not(.section-dark).deck-active .kicker{ color:#0f8f97!important; }
+body.deck-mode .slide:not(.section-dark).deck-active .muted,
+body.deck-mode .slide:not(.section-dark).deck-active .footer-bar,
+body.deck-mode .slide:not(.section-dark).deck-active .num{ color:#5b6b7c!important; }
+body.deck-mode .slide:not(.section-dark).deck-active .card{
+  background:#fff!important; color:#15202b!important; border-color:rgba(21,32,43,.12)!important;
+}
+body.deck-mode .slide:not(.section-dark).deck-active table,
+body.deck-mode .slide:not(.section-dark).deck-active .table{
+  background:#fff!important; color:#15202b!important;
+}
+body.deck-mode .slide:not(.section-dark).deck-active th{
+  background:#eef2f6!important; color:#15202b!important;
+}
+body.deck-mode .slide:not(.section-dark).deck-active td{
+  color:#1f2a36!important; border-color:rgba(21,32,43,.1)!important;
+}
+body.deck-mode .slide:not(.section-dark).deck-active .stat .n{ color:#15202b!important; }
+body.deck-mode .slide:not(.section-dark).deck-active .stat .l{ color:#5b6b7c!important; }
+body.deck-mode .slide:not(.section-dark).deck-active .quote{
+  color:#15202b!important; background:#f4f7fa!important;
+}
+
+/* DARK slides */
+body.deck-mode .slide.section-dark.deck-active .slide-inner,
+body.deck-mode .slide#title.deck-active .slide-inner,
+body.deck-mode .slide#close.deck-active .slide-inner{
+  background:#0d1b2a!important;
+  color:#e8eef5!important;
+}
+body.deck-mode .slide.section-dark.deck-active .h1,
+body.deck-mode .slide.section-dark.deck-active .h2,
+body.deck-mode .slide#title.deck-active .h1,
+body.deck-mode .slide#close.deck-active .h1{
+  color:#ffffff!important;
+}
+body.deck-mode .slide.section-dark.deck-active .lede,
+body.deck-mode .slide.section-dark.deck-active p,
+body.deck-mode .slide.section-dark.deck-active li,
+body.deck-mode .slide#title.deck-active .lede,
+body.deck-mode .slide#close.deck-active .lede{
+  color:rgba(232,238,245,.92)!important;
+}
+body.deck-mode .slide.section-dark.deck-active .kicker,
+body.deck-mode .slide#title.deck-active .kicker,
+body.deck-mode .slide#close.deck-active .kicker{
+  color:#00D4AA!important;
+}
+body.deck-mode .slide.section-dark.deck-active .footer-bar,
+body.deck-mode .slide#title.deck-active .footer-bar,
+body.deck-mode .slide#close.deck-active .footer-bar{
+  color:rgba(232,238,245,.5)!important;
+  border-top-color:rgba(255,255,255,.12)!important;
+}
+body.deck-mode .slide.section-dark.deck-active .card{
+  background:rgba(255,255,255,.06)!important;
+  color:#e8eef5!important;
+  border-color:rgba(255,255,255,.12)!important;
+}
+@media print{
+  .deck-present-btn,.deck-exit-btn,.deck-exit-hint,.deck-nav,.deck-counter{display:none!important}
+  body.deck-mode .slide{display:block!important;position:relative!important;inset:auto!important;width:auto!important;height:auto!important}
+  body.deck-mode .toolbar, body.deck-mode .camp-nav{display:flex!important;visibility:visible!important;height:auto!important;opacity:1!important}
+}
+
+
+/* PRESENT v6 — contrast lock at end of stylesheet */
+.deck-present-btn{
+  position:fixed;right:18px;bottom:18px;z-index:99999;appearance:none;border:0;cursor:pointer;
+  font-family:Inter,system-ui,sans-serif;font-weight:800;font-size:.82rem;color:#fff;
+  background:linear-gradient(135deg,#0f8f97,#0d1b2a);padding:.72rem 1rem;border-radius:999px;
+  box-shadow:0 10px 28px rgba(13,27,42,.28);
+}
+.deck-exit-btn,.deck-exit-hint,.deck-nav,.deck-counter{display:none!important}
+body.deck-mode{background:#0b1220!important;overflow:hidden!important;height:100vh!important;width:100vw!important}
+body.deck-mode .deck,body.deck-mode .wrap{margin:0!important;padding:0!important;max-width:none!important;width:100%!important}
+body.deck-mode .toolbar,body.deck-mode .camp-nav,body.deck-mode #camp-nav,body.deck-mode .toc,
+body.deck-mode .deck-present-btn,body.deck-mode .page-nav,body.deck-mode .sticky-nav{
+  display:none!important;visibility:hidden!important;pointer-events:none!important;height:0!important;opacity:0!important;overflow:hidden!important;margin:0!important;padding:0!important
+}
+body.deck-mode .deck-exit-btn{
+  display:inline-flex!important;align-items:center;position:fixed;top:14px;left:14px;z-index:100002;
+  appearance:none;border:0;cursor:pointer;font-family:Inter,system-ui,sans-serif;font-weight:800;font-size:.8rem;
+  color:#fff;background:#dc2626;padding:.55rem .95rem;border-radius:999px;box-shadow:0 8px 22px rgba(0,0,0,.35)
+}
+body.deck-mode .deck-exit-hint{
+  display:block!important;position:fixed;left:50%;bottom:12px;transform:translateX(-50%);z-index:100001;
+  color:rgba(255,255,255,.85);font-size:.7rem;font-weight:600;background:rgba(0,0,0,.55);padding:.35rem .75rem;border-radius:999px;pointer-events:none
+}
+body.deck-mode .deck-counter{
+  display:block!important;position:fixed;top:16px;right:14px;z-index:100001;color:#fff;font-size:.72rem;font-weight:700;
+  background:rgba(0,0,0,.5);padding:.3rem .55rem;border-radius:8px;pointer-events:none
+}
+body.deck-mode .deck-nav{display:block!important;position:fixed;inset:0;z-index:100000;pointer-events:none}
+body.deck-mode .deck-nav button{
+  pointer-events:auto;position:absolute;top:50%;transform:translateY(-50%);width:44px;height:64px;border:0;border-radius:12px;
+  background:rgba(255,255,255,.16);color:#fff;font-size:1.5rem;cursor:pointer
+}
+body.deck-mode .deck-nav .deck-prev{left:8px}
+body.deck-mode .deck-nav .deck-next{right:8px}
+
+body.deck-mode section.slide{
+  display:none!important;position:fixed!important;inset:0!important;width:100vw!important;height:100vh!important;
+  margin:0!important;border:0!important;border-radius:0!important;box-shadow:none!important;overflow:hidden!important;z-index:1!important;
+  background:transparent!important;
+}
+body.deck-mode section.slide.deck-active{
+  display:flex!important;align-items:center!important;justify-content:center!important;z-index:2!important;
+}
+
+/* LIGHT slide shell */
+body.deck-mode section.slide:not(.section-dark).deck-active{
+  background:#0b1220!important;
+}
+body.deck-mode section.slide:not(.section-dark).deck-active > .slide-inner,
+body.deck-mode section.slide:not(.section-dark).deck-active > .slide-inner.title-slide,
+body.deck-mode section.slide:not(.section-dark).deck-active > .slide-inner.divider-slide{
+  width:min(1280px,96vw)!important;
+  height:min(720px,calc(100vh - 48px))!important;
+  max-height:calc(100vh - 48px)!important;
+  min-height:0!important;
+  margin:0 auto!important;
+  border-radius:14px!important;
+  box-shadow:0 18px 50px rgba(0,0,0,.45)!important;
+  overflow:auto!important;
+  background:#ffffff !important;
+  color:#15202b !important;
+  border:1px solid rgba(255,255,255,.08)!important;
+}
+body.deck-mode section.slide:not(.section-dark).deck-active .h1,
+body.deck-mode section.slide:not(.section-dark).deck-active .h2,
+body.deck-mode section.slide:not(.section-dark).deck-active h1,
+body.deck-mode section.slide:not(.section-dark).deck-active h2,
+body.deck-mode section.slide:not(.section-dark).deck-active h3{
+  color:#15202b !important;
+}
+body.deck-mode section.slide:not(.section-dark).deck-active .lede,
+body.deck-mode section.slide:not(.section-dark).deck-active .big,
+body.deck-mode section.slide:not(.section-dark).deck-active p,
+body.deck-mode section.slide:not(.section-dark).deck-active li,
+body.deck-mode section.slide:not(.section-dark).deck-active td,
+body.deck-mode section.slide:not(.section-dark).deck-active .persona-quote,
+body.deck-mode section.slide:not(.section-dark).deck-active .persona-meta,
+body.deck-mode section.slide:not(.section-dark).deck-active .quote{
+  color:#1f2a36 !important;
+}
+body.deck-mode section.slide:not(.section-dark).deck-active .kicker{color:#0f8f97 !important}
+body.deck-mode section.slide:not(.section-dark).deck-active .muted,
+body.deck-mode section.slide:not(.section-dark).deck-active .footer-bar,
+body.deck-mode section.slide:not(.section-dark).deck-active .num,
+body.deck-mode section.slide:not(.section-dark).deck-active .stat .l{color:#5b6b7c !important}
+body.deck-mode section.slide:not(.section-dark).deck-active .stat .n{color:#15202b !important}
+body.deck-mode section.slide:not(.section-dark).deck-active .card{
+  background:#ffffff !important;color:#15202b !important;border-color:rgba(21,32,43,.12)!important
+}
+body.deck-mode section.slide:not(.section-dark).deck-active table,
+body.deck-mode section.slide:not(.section-dark).deck-active .table{
+  background:#fff !important;color:#15202b !important
+}
+body.deck-mode section.slide:not(.section-dark).deck-active th{
+  background:#eef2f6 !important;color:#15202b !important
+}
+body.deck-mode section.slide:not(.section-dark).deck-active td{
+  color:#1f2a36 !important;border-color:rgba(21,32,43,.12)!important;background:transparent !important
+}
+body.deck-mode section.slide:not(.section-dark).deck-active .quote{background:#f4f7fa !important}
+
+/* DARK slides + title/close */
+body.deck-mode section.slide.section-dark.deck-active,
+body.deck-mode section.slide#title.deck-active,
+body.deck-mode section.slide#close.deck-active{
+  background:#0b1220!important;
+}
+body.deck-mode section.slide.section-dark.deck-active > .slide-inner,
+body.deck-mode section.slide.section-dark.deck-active > .slide-inner.divider-slide,
+body.deck-mode section.slide#title.deck-active > .slide-inner,
+body.deck-mode section.slide#close.deck-active > .slide-inner{
+  width:min(1280px,96vw)!important;
+  height:min(720px,calc(100vh - 48px))!important;
+  max-height:calc(100vh - 48px)!important;
+  min-height:0!important;
+  margin:0 auto!important;
+  border-radius:14px!important;
+  box-shadow:0 18px 50px rgba(0,0,0,.45)!important;
+  overflow:hidden!important;
+  background:#0d1b2a !important;
+  color:#e8eef5 !important;
+}
+body.deck-mode section.slide.section-dark.deck-active .h1,
+body.deck-mode section.slide.section-dark.deck-active .h2,
+body.deck-mode section.slide#title.deck-active .h1,
+body.deck-mode section.slide#close.deck-active .h1{color:#ffffff !important}
+body.deck-mode section.slide.section-dark.deck-active .lede,
+body.deck-mode section.slide.section-dark.deck-active p,
+body.deck-mode section.slide#title.deck-active .lede,
+body.deck-mode section.slide#close.deck-active .lede,
+body.deck-mode section.slide.section-dark.deck-active li{color:rgba(232,238,245,.92) !important}
+body.deck-mode section.slide.section-dark.deck-active .kicker,
+body.deck-mode section.slide#title.deck-active .kicker,
+body.deck-mode section.slide#close.deck-active .kicker{color:#00D4AA !important}
+body.deck-mode section.slide.section-dark.deck-active .footer-bar,
+body.deck-mode section.slide#title.deck-active .footer-bar,
+body.deck-mode section.slide#close.deck-active .footer-bar{
+  color:rgba(232,238,245,.5)!important;border-top-color:rgba(255,255,255,.12)!important
+}
+body.deck-mode section.slide.section-dark.deck-active .card{
+  background:rgba(255,255,255,.06)!important;color:#e8eef5!important;border-color:rgba(255,255,255,.12)!important
+}
+@media print{
+  .deck-present-btn,.deck-exit-btn,.deck-exit-hint,.deck-nav,.deck-counter{display:none!important}
+  body.deck-mode section.slide{display:block!important;position:relative!important;inset:auto!important;width:auto!important;height:auto!important}
+  body.deck-mode .toolbar,body.deck-mode .camp-nav{display:flex!important;visibility:visible!important;height:auto!important;opacity:1!important}
 }
 
 </style>
@@ -1559,9 +1786,11 @@ https://comply.capital · Tom · COMPLY</div>
 </div>
 
 
+
+
 <button type="button" class="deck-present-btn" id="deckPresentBtn" title="Fullscreen slideshow">▸ Present</button>
 <button type="button" class="deck-exit-btn" id="deckExitBtn" title="Exit slideshow">✕ Exit</button>
-<div class="deck-exit-hint" id="deckHint">← → keys · click sides · Exit or Esc</div>
+<div class="deck-exit-hint">← → keys · click sides · Exit or Esc</div>
 <div class="deck-counter" id="deckCounter"></div>
 <div class="deck-nav" id="deckNav" aria-hidden="true">
   <button type="button" class="deck-prev" id="deckPrev" aria-label="Previous">‹</button>
@@ -1569,72 +1798,54 @@ https://comply.capital · Tom · COMPLY</div>
 </div>
 <script>
 (function(){
-  var slides = Array.prototype.slice.call(document.querySelectorAll('section.slide'));
-  if (!slides.length) return;
-  var btn = document.getElementById('deckPresentBtn');
-  var exitBtn = document.getElementById('deckExitBtn');
-  var nav = document.getElementById('deckNav');
-  var prev = document.getElementById('deckPrev');
-  var next = document.getElementById('deckNext');
-  var counter = document.getElementById('deckCounter');
-  var i = 0, mode = false;
-
-  function updateCounter(){ if (counter) counter.textContent = (i+1) + ' / ' + slides.length; }
+  var slides=[].slice.call(document.querySelectorAll('section.slide'));
+  if(!slides.length) return;
+  var btn=document.getElementById('deckPresentBtn');
+  var exitBtn=document.getElementById('deckExitBtn');
+  var nav=document.getElementById('deckNav');
+  var prev=document.getElementById('deckPrev');
+  var next=document.getElementById('deckNext');
+  var counter=document.getElementById('deckCounter');
+  var i=0, mode=false;
+  function updateCounter(){ if(counter) counter.textContent=(i+1)+' / '+slides.length; }
   function show(n){
-    i = ((n % slides.length) + slides.length) % slides.length;
-    for (var k=0;k<slides.length;k++) slides[k].classList.toggle('deck-active', k===i);
+    i=((n%slides.length)+slides.length)%slides.length;
+    for(var k=0;k<slides.length;k++) slides[k].classList.toggle('deck-active', k===i);
     updateCounter();
-    try { history.replaceState(null,'','#slide-'+(i+1)); } catch(e){}
+    try{history.replaceState(null,'','#slide-'+(i+1));}catch(e){}
   }
   function enterFS(){
-    var root = document.documentElement;
-    var req = root.requestFullscreen || root.webkitRequestFullscreen || root.msRequestFullscreen;
-    if (req) try { var p=req.call(root); if(p&&p.catch) p.catch(function(){}); } catch(e){}
+    var r=document.documentElement;
+    var req=r.requestFullscreen||r.webkitRequestFullscreen||r.msRequestFullscreen;
+    if(req) try{var p=req.call(r); if(p&&p.catch)p.catch(function(){});}catch(e){}
   }
   function exitFS(){
     var d=document;
-    if (!(d.fullscreenElement||d.webkitFullscreenElement||d.msFullscreenElement)) return;
+    if(!(d.fullscreenElement||d.webkitFullscreenElement||d.msFullscreenElement)) return;
     var x=d.exitFullscreen||d.webkitExitFullscreen||d.msExitFullscreen;
-    if (x) try { x.call(d); } catch(e){}
+    if(x) try{x.call(d);}catch(e){}
   }
-  function enter(){
-    if (mode) return;
-    mode = true;
-    document.body.classList.add('deck-mode');
-    nav.setAttribute('aria-hidden','false');
-    show(i);
-    enterFS();
-  }
-  function exit(){
-    if (!mode) return;
-    mode = false;
-    document.body.classList.remove('deck-mode');
-    for (var k=0;k<slides.length;k++) slides[k].classList.remove('deck-active');
-    nav.setAttribute('aria-hidden','true');
-    exitFS();
-  }
-
-  btn.addEventListener('click', function(e){ e.preventDefault(); e.stopPropagation(); enter(); });
-  exitBtn.addEventListener('click', function(e){ e.preventDefault(); e.stopPropagation(); exit(); });
-  prev.addEventListener('click', function(e){ e.preventDefault(); e.stopPropagation(); show(i-1); });
-  next.addEventListener('click', function(e){ e.preventDefault(); e.stopPropagation(); show(i+1); });
-
-  document.addEventListener('keydown', function(e){
-    if (!mode) return;
-    if (e.key === 'Escape') { e.preventDefault(); exit(); return; }
-    if (e.key==='ArrowRight'||e.key==='PageDown'||e.key===' '||e.key==='Enter'){ e.preventDefault(); show(i+1); return; }
-    if (e.key==='ArrowLeft'||e.key==='PageUp'||e.key==='Backspace'){ e.preventDefault(); show(i-1); return; }
-    if (e.key==='Home'){ e.preventDefault(); show(0); }
-    if (e.key==='End'){ e.preventDefault(); show(slides.length-1); }
+  function enter(){ if(mode) return; mode=true; document.body.classList.add('deck-mode'); nav.setAttribute('aria-hidden','false'); show(i); enterFS(); }
+  function exit(){ if(!mode) return; mode=false; document.body.classList.remove('deck-mode'); for(var k=0;k<slides.length;k++) slides[k].classList.remove('deck-active'); nav.setAttribute('aria-hidden','true'); exitFS(); }
+  btn.addEventListener('click',function(e){e.preventDefault();e.stopPropagation();enter();});
+  exitBtn.addEventListener('click',function(e){e.preventDefault();e.stopPropagation();exit();});
+  prev.addEventListener('click',function(e){e.preventDefault();e.stopPropagation();show(i-1);});
+  next.addEventListener('click',function(e){e.preventDefault();e.stopPropagation();show(i+1);});
+  document.addEventListener('keydown',function(e){
+    if(!mode) return;
+    if(e.key==='Escape'){e.preventDefault();exit();return;}
+    if(e.key==='ArrowRight'||e.key==='PageDown'||e.key===' '||e.key==='Enter'){e.preventDefault();show(i+1);return;}
+    if(e.key==='ArrowLeft'||e.key==='PageUp'||e.key==='Backspace'){e.preventDefault();show(i-1);return;}
+    if(e.key==='Home'){e.preventDefault();show(0);}
+    if(e.key==='End'){e.preventDefault();show(slides.length-1);}
   });
-  document.addEventListener('click', function(e){
-    if (!mode) return;
-    if (e.target.closest && (e.target.closest('#deckPrev')||e.target.closest('#deckNext')||e.target.closest('#deckPresentBtn')||e.target.closest('#deckExitBtn'))) return;
-    var x = e.clientX / window.innerWidth;
-    if (x >= 0.5) show(i+1); else show(i-1);
+  document.addEventListener('click',function(e){
+    if(!mode) return;
+    if(e.target.closest&&(e.target.closest('#deckPrev')||e.target.closest('#deckNext')||e.target.closest('#deckPresentBtn')||e.target.closest('#deckExitBtn'))) return;
+    if((e.clientX/window.innerWidth)>=0.5) show(i+1); else show(i-1);
   });
   var m=(location.hash||'').match(/slide-(\d+)/i);
-  if (m){ var n=parseInt(m[1],10)-1; if(!isNaN(n)&&n>=0&&n<slides.length) i=n; }
+  if(m){var n=parseInt(m[1],10)-1; if(!isNaN(n)&&n>=0&&n<slides.length) i=n;}
 })();
 </script>
 
