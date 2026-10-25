@@ -1276,6 +1276,45 @@ body.deck-mode section.slide.section-dark.deck-active .card{
   body.deck-mode .toolbar,body.deck-mode .camp-nav{display:flex!important;visibility:visible!important;height:auto!important;opacity:1!important}
 }
 
+
+/* PRESENT v6.1 — more inner padding so text isn't edge-hugging */
+body.deck-mode section.slide.deck-active > .slide-inner,
+body.deck-mode section.slide:not(.section-dark).deck-active > .slide-inner,
+body.deck-mode section.slide:not(.section-dark).deck-active > .slide-inner.title-slide,
+body.deck-mode section.slide:not(.section-dark).deck-active > .slide-inner.divider-slide,
+body.deck-mode section.slide.section-dark.deck-active > .slide-inner,
+body.deck-mode section.slide.section-dark.deck-active > .slide-inner.divider-slide,
+body.deck-mode section.slide#title.deck-active > .slide-inner,
+body.deck-mode section.slide#close.deck-active > .slide-inner{
+  padding: 2.1rem 2.4rem 2rem !important;
+  box-sizing: border-box !important;
+}
+body.deck-mode section.slide.deck-active > .slide-inner .h1,
+body.deck-mode section.slide.deck-active > .slide-inner .h2{
+  padding-right: .25rem !important;
+}
+body.deck-mode section.slide.deck-active > .slide-inner .grid2,
+body.deck-mode section.slide.deck-active > .slide-inner .grid3,
+body.deck-mode section.slide.deck-active > .slide-inner .card,
+body.deck-mode section.slide.deck-active > .slide-inner table,
+body.deck-mode section.slide.deck-active > .slide-inner .table{
+  max-width: 100% !important;
+}
+body.deck-mode section.slide.deck-active > .slide-inner .footer-bar{
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+/* keep title/close hero padding-right for image panel */
+body.deck-mode section.slide#title.deck-active > .slide-inner,
+body.deck-mode section.slide#close.deck-active > .slide-inner{
+  padding-right: min(52%, 32rem) !important;
+  padding-left: 2.4rem !important;
+  padding-top: 2.1rem !important;
+  padding-bottom: 2rem !important;
+}
+
 </style>
 </head>
 <body>
