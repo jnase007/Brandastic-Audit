@@ -677,14 +677,98 @@ img.comply-logo,
 }
 
 
-/* Title/close static heroes (user title photo + platform close) */
-.slide#title .site-hero-stack.site-hero-static img,
-.slide#close .site-hero-stack.site-hero-static img{
-  opacity:1!important; animation:none!important; transform:none!important; object-fit:cover!important;
+
+/* Close slide — platform hero right, clean copy left */
+.slide#close .slide-inner{
+  position:relative!important;
+  overflow:hidden!important;
+  min-height:560px!important;
+  display:flex!important;
+  flex-direction:column!important;
+  justify-content:center!important;
+  align-items:flex-start!important;
+  padding:2.4rem 2.4rem!important;
+  padding-right:min(52%, 32rem)!important;
+  background:#0d1b2a!important;
+  color:#e8eef5!important;
+  border:0!important;
+  box-shadow:none!important;
 }
-.slide#title .site-hero-stack.site-hero-static img{ object-position:center 28%!important; }
-.slide#close .site-hero-stack.site-hero-static img{ object-position:left center!important; }
+.slide#close .site-hero-stack{
+  position:absolute!important;
+  top:0!important; right:0!important; bottom:0!important;
+  width:min(50%, 34rem)!important;
+  z-index:0!important;
+  overflow:hidden!important;
+  margin:0!important;
+  background:#0d1b2a!important;
+}
+.slide#close .site-hero-stack img,
+.slide#close .site-hero-stack img.site-hero-main{
+  position:absolute!important;
+  inset:0!important;
+  width:100%!important;
+  height:100%!important;
+  object-fit:cover!important;
+  object-position:left center!important;
+  opacity:1!important;
+  animation:none!important;
+  transform:none!important;
+  margin:0!important;
+  border:0!important;
+  border-radius:0!important;
+  filter:none!important;
+  min-height:0!important;
+  max-height:none!important;
+  aspect-ratio:auto!important;
+}
+.slide#close .site-hero-fade{
+  position:absolute!important;
+  top:0; bottom:0;
+  right:min(44%, 28rem);
+  width:6.5rem!important;
+  background:linear-gradient(90deg, #0d1b2a 0%, rgba(13,27,42,0) 100%)!important;
+  z-index:1!important;
+  pointer-events:none!important;
+}
+.slide#close .h1,
+.slide#close .lede,
+.slide#close .phase,
+.slide#close .footer-bar,
+.slide#close .title-brand,
+.slide#close .title-tagline,
+.slide#close .kicker{
+  position:relative!important;
+  z-index:2!important;
+}
+.slide#close .h1{
+  color:#fff!important;
+  max-width:14ch!important;
+  margin:0 0 .6rem!important;
+  border:0!important;
+}
+.slide#close .lede{
+  color:rgba(232,238,245,.88)!important;
+  max-width:28rem!important;
+  margin:0!important;
+}
+.slide#close .title-brand{ margin-top:1.4rem!important; }
+.slide#close .title-brand img.comply-logo{
+  filter:brightness(0) invert(1)!important;
+  opacity:.95!important;
+}
+.slide#close .title-tagline{ color:rgba(232,238,245,.78)!important; }
+.slide#close .title-tagline span{ color:#5CFFB0!important; }
+.slide#close .footer-bar{
+  margin-top:auto!important;
+  width:100%!important;
+  color:rgba(232,238,245,.45)!important;
+  border-top:1px solid rgba(255,255,255,.12)!important;
+}
 .slide#close .cad-art{ display:none!important; }
+@media print{
+  .slide#close .slide-inner{ min-height:0!important; -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+}
 
 </style>
 </head>
@@ -1391,23 +1475,20 @@ https://comply.capital · Tom · COMPLY</div>
  <div class="footer-bar"><span>COMPLY</span><span>22</span></div>
  </div>
  </section><section class="slide" id="close">
- <div class="slide-inner title-slide">
+    <div class="slide-inner">
       <div class="site-hero-stack site-hero-static" aria-hidden="true">
         <img src="assets/comply-heroes/close-platform.jpg" alt="" class="site-hero-main" />
       </div>
       <div class="site-hero-fade" aria-hidden="true"></div>
-
-      <div 
-      <div 
-
- <div class="h1">Same plan.<br>Same next steps.</div>
- <p class="lede" style="margin-top:1rem">Investors see the path. The team knows who does what this week.</p>
- <div class="title-brand">
- <img src="assets/comply-logo-wordmark-dark.svg" alt="COMPLY" class="comply-logo" width="133" height="32" />
- <div class="title-tagline">comply.capital · AI Native. 92% Faster.</div>
- </div>
- </div>
- </section>
+      <div class="h1">Let’s take<br>the market!</div>
+      <p class="lede" style="margin-top:1rem">Investors see the path. The team knows who does what this week.</p>
+      <div class="title-brand">
+        <img src="assets/comply-logo-wordmark-dark.svg" alt="COMPLY" class="comply-logo" width="133" height="32" />
+        <div class="title-tagline">comply.capital · <span>AI Native. 92% Faster.</span></div>
+      </div>
+      <div class="footer-bar"><span>COMPLY</span><span>comply.capital</span></div>
+    </div>
+  </section>
 </div>
 </body>
 </html>
