@@ -720,6 +720,104 @@ img.comply-logo,
   .slide#title .site-hero-stack img{ opacity:1!important; animation:none!important; }
 }
 
+
+/* Presenter: fullscreen slideshow */
+.deck-present-btn{
+  position:fixed;
+  right:18px;
+  bottom:18px;
+  z-index:99999;
+  appearance:none;
+  border:0;
+  cursor:pointer;
+  font-family:Inter,system-ui,sans-serif;
+  font-weight:800;
+  font-size:.82rem;
+  letter-spacing:.02em;
+  color:#fff;
+  background:linear-gradient(135deg,#0f8f97,#0d1b2a);
+  padding:.72rem 1rem;
+  border-radius:999px;
+  box-shadow:0 10px 28px rgba(13,27,42,.28);
+}
+.deck-present-btn:hover{ filter:brightness(1.08); }
+.deck-present-btn:focus-visible{ outline:2px solid #00D4AA; outline-offset:3px; }
+body.deck-mode{ background:#0b1016!important; overflow:hidden!important; }
+body.deck-mode .deck-present-btn{ display:none!important; }
+body.deck-mode .deck-exit-hint{
+  display:block!important;
+  position:fixed;
+  left:50%;
+  bottom:14px;
+  transform:translateX(-50%);
+  z-index:100000;
+  color:rgba(255,255,255,.72);
+  font-size:.72rem;
+  font-weight:600;
+  background:rgba(0,0,0,.45);
+  padding:.35rem .7rem;
+  border-radius:999px;
+  pointer-events:none;
+}
+.deck-exit-hint{ display:none; }
+body.deck-mode .slide{
+  display:none!important;
+  position:fixed!important;
+  inset:0!important;
+  width:100vw!important;
+  height:100vh!important;
+  max-width:none!important;
+  margin:0!important;
+  border-radius:0!important;
+  box-shadow:none!important;
+  overflow:hidden!important;
+  page-break-after:auto!important;
+}
+body.deck-mode .slide.deck-active{
+  display:flex!important;
+  align-items:center!important;
+  justify-content:center!important;
+}
+body.deck-mode .slide.deck-active .slide-inner{
+  width:min(1280px, 96vw)!important;
+  height:min(720px, 92vh)!important;
+  max-height:92vh!important;
+  min-height:0!important;
+  margin:0 auto!important;
+  border-radius:14px!important;
+  box-shadow:0 20px 60px rgba(0,0,0,.35)!important;
+  overflow:hidden!important;
+}
+body.deck-mode .deck-nav{
+  display:flex!important;
+  position:fixed;
+  inset:0;
+  z-index:99998;
+  pointer-events:none;
+}
+body.deck-mode .deck-nav button{
+  pointer-events:auto;
+  position:absolute;
+  top:50%;
+  transform:translateY(-50%);
+  width:48px;
+  height:72px;
+  border:0;
+  border-radius:12px;
+  background:rgba(255,255,255,.12);
+  color:#fff;
+  font-size:1.6rem;
+  cursor:pointer;
+}
+body.deck-mode .deck-nav button:hover{ background:rgba(255,255,255,.22); }
+body.deck-mode .deck-nav .deck-prev{ left:10px; }
+body.deck-mode .deck-nav .deck-next{ right:10px; }
+.deck-nav{ display:none; }
+@media print{
+  .deck-present-btn, .deck-exit-hint, .deck-nav{ display:none!important; }
+  body.deck-mode .slide{ display:block!important; position:relative!important; inset:auto!important; width:auto!important; height:auto!important; }
+}
+
 </style>
 </head>
 <body>
@@ -1439,5 +1537,120 @@ https://comply.capital · Tom · COMPLY</div>
     </div>
   </section>
 </div>
+
+<button type="button" class="deck-present-btn" id="deckPresentBtn" title="Fullscreen slideshow">▸ Present</button>
+<div class="deck-exit-hint" id="deckHint">← → or click · Esc to exit · F for fullscreen</div>
+<div class="deck-nav" id="deckNav" aria-hidden="true">
+  <button type="button" class="deck-prev" id="deckPrev" aria-label="Previous slide">‹</button>
+  <button type="button" class="deck-next" id="deckNext" aria-label="Next slide">›</button>
+</div>
+<script>
+(function(){
+  var slides = Array.prototype.slice.call(document.querySelectorAll('section.slide'));
+  if (!slides.length) return;
+  var btn = document.getElementById('deckPresentBtn');
+  var hint = document.getElementById('deckHint');
+  var nav = document.getElementById('deckNav');
+  var prev = document.getElementById('deckPrev');
+  var next = document.getElementById('deckNext');
+  var i = 0;
+  var mode = false;
+
+  function show(n){
+    if (!slides.length) return;
+    i = (n + slides.length) % slides.length;
+    slides.forEach(function(s, idx){
+      s.classList.toggle('deck-active', idx === i);
+    });
+    try {
+      history.replaceState(null, '', '#slide-' + (i+1));
+    } catch (e) {}
+  }
+
+  function enter(){
+    if (mode) return;
+    mode = true;
+    document.body.classList.add('deck-mode');
+    nav.setAttribute('aria-hidden', 'false');
+    show(i);
+    var root = document.documentElement;
+    var req = root.requestFullscreen || root.webkitRequestFullscreen || root.msRequestFullscreen;
+    if (req) {
+      try { req.call(root); } catch (e) {}
+    }
+    btn.textContent = '▸ Present';
+  }
+
+  function exit(){
+    if (!mode) return;
+    mode = false;
+    document.body.classList.remove('deck-mode');
+    slides.forEach(function(s){ s.classList.remove('deck-active'); });
+    nav.setAttribute('aria-hidden', 'true');
+    var doc = document;
+    var x = doc.exitFullscreen || doc.webkitExitFullscreen || doc.msExitFullscreen;
+    if (x && (doc.fullscreenElement || doc.webkitFullscreenElement)) {
+      try { x.call(doc); } catch (e) {}
+    }
+  }
+
+  function toggle(){
+    if (mode) exit(); else enter();
+  }
+
+  btn.addEventListener('click', function(e){
+    e.preventDefault();
+    enter();
+  });
+  prev.addEventListener('click', function(e){ e.preventDefault(); e.stopPropagation(); show(i-1); });
+  next.addEventListener('click', function(e){ e.preventDefault(); e.stopPropagation(); show(i+1); });
+
+  document.addEventListener('keydown', function(e){
+    if (!mode) {
+      if ((e.key === 'p' || e.key === 'P') && !e.metaKey && !e.ctrlKey && !e.altKey) {
+        // optional quick present
+      }
+      return;
+    }
+    if (e.key === 'Escape') { exit(); return; }
+    if (e.key === 'ArrowRight' || e.key === 'PageDown' || e.key === ' ' || e.key === 'Enter') {
+      e.preventDefault(); show(i+1); return;
+    }
+    if (e.key === 'ArrowLeft' || e.key === 'PageUp' || e.key === 'Backspace') {
+      e.preventDefault(); show(i-1); return;
+    }
+    if (e.key === 'Home') { e.preventDefault(); show(0); return; }
+    if (e.key === 'End') { e.preventDefault(); show(slides.length-1); return; }
+    if (e.key === 'f' || e.key === 'F') {
+      var root = document.documentElement;
+      var req = root.requestFullscreen || root.webkitRequestFullscreen;
+      if (req) try { req.call(root); } catch (err) {}
+    }
+  });
+
+  document.addEventListener('click', function(e){
+    if (!mode) return;
+    if (e.target.closest && (e.target.closest('#deckPrev') || e.target.closest('#deckNext') || e.target.closest('#deckPresentBtn'))) return;
+    // click right half next, left half prev
+    var x = e.clientX / window.innerWidth;
+    if (x > 0.55) show(i+1);
+    else if (x < 0.35) show(i-1);
+  });
+
+  document.addEventListener('fullscreenchange', function(){
+    if (!document.fullscreenElement && mode) {
+      // keep deck mode even if user exits browser fullscreen via OS; Esc still exits deck
+    }
+  });
+
+  // deep link #slide-3
+  var m = (location.hash || '').match(/slide-(\d+)/i);
+  if (m) {
+    var n = parseInt(m[1], 10) - 1;
+    if (!isNaN(n) && n >= 0 && n < slides.length) i = n;
+  }
+})();
+</script>
+
 </body>
 </html>
