@@ -496,153 +496,6 @@ img.comply-logo,
 .tam-goal strong{color:#fff!important}
 
 
-/* Title + close: COMPLY site look (navy + rotating heroes) */
-.slide#title .slide-inner,
-.slide#close .slide-inner{
-  position:relative!important;
-  overflow:hidden!important;
-  min-height:560px!important;
-  display:flex!important;
-  flex-direction:column!important;
-  justify-content:center!important;
-  align-items:flex-start!important;
-  padding:2.4rem 2.4rem!important;
-  padding-right:min(50%, 30rem)!important;
-  background:#0d1b2a!important;
-  color:#e8eef5!important;
-  border:0!important;
-  box-shadow:none!important;
-}
-.slide#title .site-hero-stack,
-.slide#close .site-hero-stack{
-  position:absolute!important;
-  top:0; right:0; bottom:0;
-  width:min(50%, 32rem)!important;
-  z-index:0!important;
-  overflow:hidden!important;
-}
-.slide#title .site-hero-stack img,
-.slide#close .site-hero-stack img{
-  position:absolute!important;
-  inset:0!important;
-  width:100%!important;
-  height:100%!important;
-  object-fit:cover!important;
-  object-position:center center!important;
-  margin:0!important;
-  border:0!important;
-  border-radius:0!important;
-  opacity:0!important;
-  animation: heroRotate 24s ease-in-out infinite;
-  filter:none!important;
-  min-height:0!important;
-  max-height:none!important;
-  aspect-ratio:auto!important;
-}
-.slide#title .site-hero-stack img:nth-child(1),
-.slide#close .site-hero-stack img:nth-child(1){ animation-delay: 0s; }
-.slide#title .site-hero-stack img:nth-child(2),
-.slide#close .site-hero-stack img:nth-child(2){ animation-delay: 4s; }
-.slide#title .site-hero-stack img:nth-child(3),
-.slide#close .site-hero-stack img:nth-child(3){ animation-delay: 8s; }
-.slide#title .site-hero-stack img:nth-child(4),
-.slide#close .site-hero-stack img:nth-child(4){ animation-delay: 12s; }
-.slide#title .site-hero-stack img:nth-child(5),
-.slide#close .site-hero-stack img:nth-child(5){ animation-delay: 16s; }
-.slide#title .site-hero-stack img:nth-child(6),
-.slide#close .site-hero-stack img:nth-child(6){ animation-delay: 20s; }
-@keyframes heroRotate{
-  0% { opacity:0; transform:scale(1.04); }
-  4% { opacity:1; transform:scale(1.02); }
-  14% { opacity:1; transform:scale(1.0); }
-  18% { opacity:0; transform:scale(1.0); }
-  100% { opacity:0; transform:scale(1.0); }
-}
-.slide#title .site-hero-fade,
-.slide#close .site-hero-fade{
-  position:absolute!important;
-  top:0; bottom:0;
-  right:min(42%, 26rem);
-  width:7.5rem!important;
-  background:linear-gradient(90deg,#0d1b2a 0%,rgba(13,27,42,0) 100%)!important;
-  z-index:1!important;
-  pointer-events:none!important;
-}
-.slide#title .title-main,
-.slide#close .title-main,
-.slide#title .title-brand,
-.slide#close .title-brand,
-.slide#title .kicker,
-.slide#close .kicker,
-.slide#title .h1,
-.slide#close .h1,
-.slide#title .lede,
-.slide#close .lede,
-.slide#title .footer-bar,
-.slide#close .footer-bar{
-  position:relative!important;
-  z-index:2!important;
-}
-.slide#title .h1,
-.slide#close .h1{
-  color:#fff!important;
-  max-width:14ch!important;
-  margin:0!important;
-}
-.slide#title .lede,
-.slide#close .lede{
-  color:rgba(232,238,245,.84)!important;
-  max-width:28rem!important;
-}
-.slide#title .kicker,
-.slide#close .kicker{
-  color:#00D4AA!important;
-}
-.slide#title .title-tagline,
-.slide#close .title-tagline{
-  color:rgba(232,238,245,.78)!important;
-}
-.slide#title .title-tagline span,
-.slide#close .title-tagline span{
-  color:#5CFFB0!important;
-}
-.slide#title .title-brand img.comply-logo,
-.slide#close .title-brand img.comply-logo{
-  filter: brightness(0) invert(1)!important;
-  opacity:.95!important;
-}
-.slide#title .footer-bar,
-.slide#close .footer-bar{
-  margin-top:auto!important;
-  color:rgba(232,238,245,.45)!important;
-  border-top:1px solid rgba(255,255,255,.12)!important;
-  width:100%!important;
-}
-.slide#title .title-brand,
-.slide#close .title-brand{
-  margin-top:1.35rem!important;
-}
-@media (prefers-reduced-motion: reduce){
-  .slide#title .site-hero-stack img:nth-child(1),
-  .slide#close .site-hero-stack img:nth-child(1){ opacity:1!important; animation:none!important; }
-  .slide#title .site-hero-stack img:not(:nth-child(1)),
-  .slide#close .site-hero-stack img:not(:nth-child(1)){ display:none!important; }
-}
-@media print{
-  .slide#title .slide-inner,
-  .slide#close .slide-inner{
-    min-height:0!important;
-    -webkit-print-color-adjust:exact;
-    print-color-adjust:exact;
-  }
-  .slide#title .site-hero-stack img,
-  .slide#close .site-hero-stack img{ animation:none!important; opacity:0!important; }
-  .slide#title .site-hero-stack img:nth-child(1),
-  .slide#close .site-hero-stack img:nth-child(5){ opacity:1!important; }
-}
-
-
-
 /* Close slide — platform hero right, clean copy left */
 .slide#close .slide-inner{
   position:relative!important;
@@ -779,6 +632,94 @@ img.comply-logo,
   #personas .persona-board img{ height:200px!important; max-height:200px!important; }
 }
 
+
+/* Title slide hero — always visible custom photo */
+.slide#title .slide-inner.title-slide,
+.slide#title .slide-inner{
+  position:relative!important;
+  overflow:hidden!important;
+  min-height:560px!important;
+  display:flex!important;
+  flex-direction:column!important;
+  justify-content:center!important;
+  align-items:flex-start!important;
+  padding:2.4rem 2.4rem!important;
+  padding-right:min(52%, 32rem)!important;
+  background:#0d1b2a!important;
+  color:#e8eef5!important;
+  border:0!important;
+  box-shadow:none!important;
+}
+.slide#title .site-hero-stack{
+  position:absolute!important;
+  top:0!important; right:0!important; bottom:0!important;
+  width:min(50%, 34rem)!important;
+  z-index:0!important;
+  overflow:hidden!important;
+  margin:0!important;
+  background:#0d1b2a!important;
+}
+.slide#title .site-hero-stack img,
+.slide#title .site-hero-stack img.site-hero-main,
+.slide#title .site-hero-stack.site-hero-static img{
+  position:absolute!important;
+  inset:0!important;
+  width:100%!important;
+  height:100%!important;
+  object-fit:cover!important;
+  object-position:center 28%!important;
+  opacity:1!important;
+  animation:none!important;
+  transform:none!important;
+  display:block!important;
+  margin:0!important;
+  border:0!important;
+  border-radius:0!important;
+  filter:none!important;
+  min-height:0!important;
+  max-height:none!important;
+  aspect-ratio:auto!important;
+  visibility:visible!important;
+}
+.slide#title .site-hero-fade{
+  position:absolute!important;
+  top:0; bottom:0;
+  right:min(44%, 28rem);
+  width:6.5rem!important;
+  background:linear-gradient(90deg,#0d1b2a 0%, rgba(13,27,42,0) 100%)!important;
+  z-index:1!important;
+  pointer-events:none!important;
+}
+.slide#title .title-main,
+.slide#title .title-brand,
+.slide#title .footer-bar,
+.slide#title .kicker,
+.slide#title .h1,
+.slide#title .lede{
+  position:relative!important;
+  z-index:2!important;
+}
+.slide#title .h1{ color:#fff!important; max-width:14ch!important; margin:0!important; border:0!important; }
+.slide#title .lede{ color:rgba(232,238,245,.88)!important; max-width:28rem!important; }
+.slide#title .kicker{ color:#00D4AA!important; }
+.slide#title .title-tagline{ color:rgba(232,238,245,.78)!important; }
+.slide#title .title-tagline span{ color:#5CFFB0!important; }
+.slide#title .title-brand{ margin-top:1.4rem!important; }
+.slide#title .title-brand img.comply-logo{
+  filter:brightness(0) invert(1)!important;
+  opacity:.95!important;
+}
+.slide#title .footer-bar{
+  margin-top:auto!important;
+  width:100%!important;
+  color:rgba(232,238,245,.45)!important;
+  border-top:1px solid rgba(255,255,255,.12)!important;
+}
+@media print{
+  .slide#title .slide-inner{ min-height:0!important; -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+  .slide#title .site-hero-stack img{ opacity:1!important; animation:none!important; }
+}
+
 </style>
 </head>
 <body>
@@ -811,24 +752,23 @@ img.comply-logo,
 
  <!-- 01 TITLE -->
  <section class="slide" id="title">
- <div class="slide-inner title-slide">
+    <div class="slide-inner title-slide">
       <div class="site-hero-stack site-hero-static" aria-hidden="true">
         <img src="assets/comply-heroes/title-hero-custom.jpg" alt="" class="site-hero-main" />
       </div>
       <div class="site-hero-fade" aria-hidden="true"></div>
-
-      <div 
-      <div 
-
- <div class="kicker">Investors · Tom · Jerod · Justin · Go-to-Market Strategy</div>
- <div class="h1">Go-to-Market<br>Strategy</div>
- <p class="lede" style="margin-top:.85rem">For investors and the team — plain plan for who we sell to, how we sell, what we run, and what we do in the next 90 days.</p>
- <div class="title-brand">
- <img src="assets/comply-logo-wordmark-dark.svg" alt="COMPLY" class="comply-logo" width="133" height="32" />
- <div class="title-tagline">Draw review for the firms banks already trust · <span style="color:var(--teal);font-weight:800">AI Native. 92% Faster.</span></div>
- </div>
- </div>
- </section><section class="slide" id="agenda">
+      <div class="title-main">
+        <div class="kicker">Investors · Tom · Jerod · Justin · Go-to-Market Strategy</div>
+        <div class="h1">Go-to-Market<br>Strategy</div>
+        <p class="lede">Who we sell to, how we sell, what we say, and the path to 3% of the draw market (~$3M).</p>
+      </div>
+      <div class="title-brand">
+        <img src="assets/comply-logo-wordmark-dark.svg" alt="COMPLY" class="comply-logo" width="133" height="32" />
+        <div class="title-tagline">comply.capital · <span>AI Native. 92% Faster.</span></div>
+      </div>
+      <div class="footer-bar"><span>COMPLY</span><span>comply.capital</span></div>
+    </div>
+  </section><section class="slide" id="agenda">
  <div class="slide-inner">
  <div class="kicker">Agenda · share with investors · align the team</div>
  <div class="h2">The plain path</div>
