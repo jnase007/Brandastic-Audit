@@ -676,6 +676,16 @@ img.comply-logo,
   .slide#close .site-hero-stack img:nth-child(5){ opacity:1!important; }
 }
 
+
+/* Title/close static heroes (user title photo + platform close) */
+.slide#title .site-hero-stack.site-hero-static img,
+.slide#close .site-hero-stack.site-hero-static img{
+  opacity:1!important; animation:none!important; transform:none!important; object-fit:cover!important;
+}
+.slide#title .site-hero-stack.site-hero-static img{ object-position:center 28%!important; }
+.slide#close .site-hero-stack.site-hero-static img{ object-position:left center!important; }
+.slide#close .cad-art{ display:none!important; }
+
 </style>
 </head>
 <body>
@@ -709,15 +719,13 @@ img.comply-logo,
  <!-- 01 TITLE -->
  <section class="slide" id="title">
  <div class="slide-inner title-slide">
-      <div class="site-hero-stack" aria-hidden="true">
-        <img src="assets/comply-heroes/hero-1.jpg" alt="" />
-        <img src="assets/comply-heroes/hero-2.jpg" alt="" />
-        <img src="assets/comply-heroes/hero-3.jpg" alt="" />
-        <img src="assets/comply-heroes/hero-4.jpg" alt="" />
-        <img src="assets/comply-heroes/hero-5.jpg" alt="" />
-        <img src="assets/comply-heroes/hero-6.jpg" alt="" />
+      <div class="site-hero-stack site-hero-static" aria-hidden="true">
+        <img src="assets/comply-heroes/title-hero-custom.jpg" alt="" class="site-hero-main" />
       </div>
       <div class="site-hero-fade" aria-hidden="true"></div>
+
+      <div 
+      <div 
 
  <div class="kicker">Investors · Tom · Jerod · Justin · Go-to-Market Strategy</div>
  <div class="h1">Go-to-Market<br>Strategy</div>
@@ -1384,15 +1392,13 @@ https://comply.capital · Tom · COMPLY</div>
  </div>
  </section><section class="slide" id="close">
  <div class="slide-inner title-slide">
-      <div class="site-hero-stack" aria-hidden="true">
-        <img src="assets/comply-heroes/hero-1.jpg" alt="" />
-        <img src="assets/comply-heroes/hero-2.jpg" alt="" />
-        <img src="assets/comply-heroes/hero-3.jpg" alt="" />
-        <img src="assets/comply-heroes/hero-4.jpg" alt="" />
-        <img src="assets/comply-heroes/hero-5.jpg" alt="" />
-        <img src="assets/comply-heroes/hero-6.jpg" alt="" />
+      <div class="site-hero-stack site-hero-static" aria-hidden="true">
+        <img src="assets/comply-heroes/close-platform.jpg" alt="" class="site-hero-main" />
       </div>
       <div class="site-hero-fade" aria-hidden="true"></div>
+
+      <div 
+      <div 
 
  <div class="h1">Same plan.<br>Same next steps.</div>
  <p class="lede" style="margin-top:1rem">Investors see the path. The team knows who does what this week.</p>

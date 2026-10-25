@@ -887,6 +887,16 @@ img.comply-logo,
   .slide#close .site-hero-stack img:nth-child(5){ opacity:1!important; }
 }
 
+
+/* Title/close static heroes (user title photo + platform close) */
+.slide#title .site-hero-stack.site-hero-static img,
+.slide#close .site-hero-stack.site-hero-static img{
+  opacity:1!important; animation:none!important; transform:none!important; object-fit:cover!important;
+}
+.slide#title .site-hero-stack.site-hero-static img{ object-position:center 28%!important; }
+.slide#close .site-hero-stack.site-hero-static img{ object-position:left center!important; }
+.slide#close .cad-art{ display:none!important; }
+
 </style>
 </head>
 <body>
@@ -925,15 +935,13 @@ img.comply-logo,
 
  <section class="slide" id="title">
  <div class="slide-inner title-slide">
-      <div class="site-hero-stack" aria-hidden="true">
-        <img src="assets/comply-heroes/hero-1.jpg" alt="" />
-        <img src="assets/comply-heroes/hero-2.jpg" alt="" />
-        <img src="assets/comply-heroes/hero-3.jpg" alt="" />
-        <img src="assets/comply-heroes/hero-4.jpg" alt="" />
-        <img src="assets/comply-heroes/hero-5.jpg" alt="" />
-        <img src="assets/comply-heroes/hero-6.jpg" alt="" />
+      <div class="site-hero-stack site-hero-static" aria-hidden="true">
+        <img src="assets/comply-heroes/title-hero-custom.jpg" alt="" class="site-hero-main" />
       </div>
       <div class="site-hero-fade" aria-hidden="true"></div>
+
+      <div 
+      <div 
 
  <div class="title-main">
  <div class="kicker">For Tom, Jerod & Justin · 2027 game plan</div>
@@ -2849,15 +2857,13 @@ DM me if you want in.</div>
  </div>
  </section><section class="slide section-dark" id="close">
     <div class="slide-inner divider-slide">
-      <div class="site-hero-stack" aria-hidden="true">
-        <img src="assets/comply-heroes/hero-1.jpg" alt="" />
-        <img src="assets/comply-heroes/hero-2.jpg" alt="" />
-        <img src="assets/comply-heroes/hero-3.jpg" alt="" />
-        <img src="assets/comply-heroes/hero-4.jpg" alt="" />
-        <img src="assets/comply-heroes/hero-5.jpg" alt="" />
-        <img src="assets/comply-heroes/hero-6.jpg" alt="" />
+      <div class="site-hero-stack site-hero-static" aria-hidden="true">
+        <img src="assets/comply-heroes/close-platform.jpg" alt="" class="site-hero-main" />
       </div>
       <div class="site-hero-fade" aria-hidden="true"></div>
+
+      <div 
+      <div 
 
       <img class="cad-art" src="assets/comply-cad-building.svg?v=sparse4" alt="" />
       <div class="h1">Lock the plan.<br>Go win the package desk.</div>
