@@ -1525,6 +1525,85 @@ body.deck-mode section.slide.section-ns-summary.deck-active .saas-sources-links 
 /* kill old faint footnote style */
 .saas-source-note{ display:none !important; }
 
+
+/* Investor value table — aligned columns */
+.val-table-wrap{ width:100%; overflow:auto; margin:0 0 .45rem; }
+.val-table{
+  width:100%;
+  border-collapse:collapse;
+  table-layout:fixed;
+  font-size:.84rem;
+  line-height:1.25;
+}
+.val-table th,
+.val-table td{
+  padding:.55rem .55rem;
+  text-align:left;
+  vertical-align:middle;
+  border-bottom:1px solid rgba(21,32,43,.1);
+  word-wrap:break-word;
+  overflow-wrap:anywhere;
+}
+.val-table thead th{
+  font-size:.72rem;
+  font-weight:800;
+  color:#0f8f97;
+  border-bottom:2px solid rgba(15,143,151,.35);
+  background:#f3fafb;
+}
+.val-table tbody tr:last-child td{ border-bottom:0; }
+.val-table .c-arr{ width:12%; }
+.val-table .c-ebitda{ width:20%; }
+.val-table .c-base{ width:22%; }
+.val-table .c-better{ width:23%; }
+.val-table .c-stretch{ width:23%; }
+.val-footnote{
+  margin:0 0 .55rem;
+  font-size:.72rem;
+  line-height:1.35;
+  color:#5b6b7c;
+}
+body.deck-mode .val-table thead th{ background:#eef6f7!important; color:#0f8f97!important; }
+body.deck-mode .val-table td, body.deck-mode .val-table th{ color:#15202b!important; }
+
+/* Page numbers on every slide */
+.slide-page-num{
+  position:absolute;
+  right:1.35rem;
+  bottom:0.95rem;
+  z-index:6;
+  font-size:.72rem;
+  font-weight:800;
+  letter-spacing:.04em;
+  color:rgba(21,32,43,.45);
+  font-variant-numeric:tabular-nums;
+  pointer-events:none;
+}
+.slide{ position:relative; }
+.slide .footer-bar{ padding-right:3.2rem; }
+.slide.section-dark .slide-page-num,
+.slide.section-ns-summary .slide-page-num,
+.slide#title .slide-page-num,
+.slide#close .slide-page-num{
+  color:rgba(255,255,255,.5);
+}
+body.deck-mode .slide-page-num{
+  right: max(1.2rem, env(safe-area-inset-right));
+  bottom: max(0.9rem, env(safe-area-inset-bottom));
+}
+body.deck-mode section.slide.section-dark.deck-active .slide-page-num,
+body.deck-mode section.slide.section-ns-summary.deck-active .slide-page-num,
+body.deck-mode section.slide#title.deck-active .slide-page-num,
+body.deck-mode section.slide#close.deck-active .slide-page-num{
+  color:rgba(255,255,255,.55)!important;
+}
+body.deck-mode section.slide:not(.section-dark):not(.section-ns-summary):not(#title):not(#close).deck-active .slide-page-num{
+  color:rgba(21,32,43,.45)!important;
+}
+@media print{
+  .slide-page-num{ color:#5b6b7c !important; }
+}
+
 </style>
 </head>
 <body>
@@ -1652,37 +1731,44 @@ body.deck-mode section.slide.section-ns-summary.deck-active .saas-sources-links 
  </div>
  </div>
 
- <table class="table" style="font-size:.82rem;width:100%;margin:0 0 .55rem">
+ <div class="val-table-wrap">
+ <table class="val-table" aria-label="ARR value bands">
  <thead>
- <tr><th>ARR mark</th><th>EBITDA lean*</th><th>Base value (2–4×)</th><th>Better case (3–5×)</th><th>Stretch (5–8×)**</th></tr>
+ <tr>
+ <th class="c-arr">ARR mark</th>
+ <th class="c-ebitda">EBITDA lean*</th>
+ <th class="c-base">Base value (2–4×)</th>
+ <th class="c-better">Better case (3–5×)</th>
+ <th class="c-stretch">Stretch (5–8×)**</th>
+ </tr>
  </thead>
  <tbody>
  <tr>
- <td><strong>$1M</strong></td>
- <td>~$100k (10%)</td>
- <td><strong>~$2–4M</strong></td>
- <td><strong>~$3–5M</strong></td>
- <td>up to ~$5–8M</td>
+ <td class="c-arr"><strong>$1M</strong></td>
+ <td class="c-ebitda">~$100k (10%)</td>
+ <td class="c-base"><strong>~$2–4M</strong></td>
+ <td class="c-better"><strong>~$3–5M</strong></td>
+ <td class="c-stretch">up to ~$5–8M</td>
  </tr>
  <tr>
- <td><strong>$2M</strong></td>
- <td>~$400k (20%)</td>
- <td><strong>~$2–4M base</strong></td>
- <td><strong>~$6–10M</strong></td>
- <td>up to ~$10–16M</td>
+ <td class="c-arr"><strong>$2M</strong></td>
+ <td class="c-ebitda">~$400k (20%)</td>
+ <td class="c-base"><strong>~$4–8M</strong></td>
+ <td class="c-better"><strong>~$6–10M</strong></td>
+ <td class="c-stretch">up to ~$10–16M</td>
  </tr>
  <tr>
- <td><strong>$3M</strong></td>
- <td>~$750k (25%)</td>
- <td><strong>~$6–12M</strong></td>
- <td><strong>~$9–15M</strong></td>
- <td>up to ~$15–24M</td>
+ <td class="c-arr"><strong>$3M</strong></td>
+ <td class="c-ebitda">~$750k (25%)</td>
+ <td class="c-base"><strong>~$6–12M</strong></td>
+ <td class="c-better"><strong>~$9–15M</strong></td>
+ <td class="c-stretch">up to ~$15–24M</td>
  </tr>
  </tbody>
  </table>
- <p style="margin:0 0 .35rem;font-size:.75rem;color:var(--muted);line-height:1.35">*Lean path margins for planning. **Stretch needs strong growth, retention, and competitive process — not automatic at the ARR number. Early check: ~5 clients × ~10 deals ≈ ~$180k ARR → about <strong>~$0.4–0.9M</strong> at 2–5× (not a locked $1M).</p>
- 
- <div class="saas-sources">
+ </div>
+ <p class="val-footnote">*Lean path margins for planning. **Stretch needs strong growth, retention, and competitive process — not automatic at the ARR number. Early check: ~5 clients × ~10 deals ≈ ~$180k ARR → about <strong>~$0.4–0.9M</strong> at 2–5× (not a locked $1M).</p>
+<div class="saas-sources">
  <div class="saas-sources-label">Sources (click to verify)</div>
  <div class="saas-sources-links">
  <a href="https://saasvaluationmultiple.com/saas-valuation-multiples-2026" target="_blank" rel="noopener">SaaS Valuation Multiple 2026</a>
@@ -2606,6 +2692,33 @@ https://comply.capital · Tom · COMPLY</div>
   }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', boot);
   else boot();
+})();
+</script>
+
+
+<script>
+(function(){
+  function numberSlides(root){
+    root = root || document;
+    var slides = root.querySelectorAll('section.slide');
+    var total = slides.length;
+    slides.forEach(function(slide, i){
+      var n = i + 1;
+      var el = slide.querySelector(':scope > .slide-page-num');
+      if (!el) {
+        el = document.createElement('div');
+        el.className = 'slide-page-num';
+        el.setAttribute('aria-hidden','true');
+        slide.appendChild(el);
+      }
+      el.textContent = n + ' / ' + total;
+    });
+  }
+  function boot(){ numberSlides(document); }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', boot);
+  else boot();
+  // re-run after present mode mutations
+  setTimeout(boot, 300);
 })();
 </script>
 
