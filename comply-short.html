@@ -1424,43 +1424,6 @@ body.deck-mode .slide#close.deck-active .close-sum-lede{
 
 
 
-/* North star summary — dark green standout */
-.slide.section-ns-summary,
-.slide.section-ns-summary > .slide-inner.ns-summary-inner{
-  background:#0b3d36 !important;
-  color:#f3fffb !important;
-}
-.slide.section-ns-summary .kicker{ color:#7dffd0 !important; }
-.slide.section-ns-summary .h2{ color:#fff !important; }
-.slide.section-ns-summary .lede,
-.slide.section-ns-summary .ns-lede,
-.slide.section-ns-summary li,
-.slide.section-ns-summary p{ color:rgba(243,255,251,.92) !important; }
-.slide.section-ns-summary .ns-card{
-  background:rgba(255,255,255,.1) !important;
-  border:1px solid rgba(255,255,255,.18) !important;
-  color:#f3fffb !important;
-}
-.slide.section-ns-summary .ns-card-title{ color:#fff !important; font-weight:800; margin-bottom:.4rem; }
-.slide.section-ns-summary .ns-card-value{ background:rgba(0,0,0,.22) !important; }
-.slide.section-ns-summary .ns-note{ color:rgba(243,255,251,.65) !important; list-style:none; margin-left:-1.1rem; }
-.slide.section-ns-summary .ns-acq,
-.slide.section-ns-summary .ns-why{
-  background:rgba(0,0,0,.22) !important;
-  border:1px solid rgba(125,255,208,.3) !important;
-  border-radius:12px;
-  padding:.75rem .9rem;
-  margin-top:.65rem;
-}
-.slide.section-ns-summary .ns-acq-k,
-.slide.section-ns-summary .ns-why-k{ color:#7dffd0 !important; font-weight:800; margin-bottom:.3rem; }
-.slide.section-ns-summary .ns-acq-row,
-.slide.section-ns-summary .ns-why-t{ color:#fff !important; }
-.slide.section-ns-summary .footer-bar{ color:rgba(243,255,251,.5) !important; border-top-color:rgba(255,255,255,.12) !important; }
-body.deck-mode section.slide.section-ns-summary.deck-active > .slide-inner{
-  background:#0b3d36 !important; color:#f3fffb !important;
-}
-
 /* SaaS source chips — high contrast, easy to see */
 .saas-sources{
   margin:.7rem 0 .15rem;
@@ -1602,6 +1565,189 @@ body.deck-mode section.slide:not(.section-dark):not(.section-ns-summary):not(#ti
 }
 @media print{
   .slide-page-num{ color:#5b6b7c !important; }
+}
+
+
+/* North star summary — HIGH CONTRAST readability */
+section.slide.section-ns-summary{
+  background:#062e29 !important;
+  border:0 !important;
+  box-shadow:none !important;
+}
+section.slide.section-ns-summary > .slide-inner.ns-summary-inner,
+section.slide.section-ns-summary > .slide-inner{
+  background:#062e29 !important;
+  color:#ffffff !important;
+  min-height:560px !important;
+  display:flex !important;
+  flex-direction:column !important;
+  justify-content:center !important;
+  box-sizing:border-box !important;
+  padding:1.6rem 2.1rem 2.4rem !important;
+}
+section.slide.section-ns-summary .kicker{
+  color:#9bffd9 !important;
+  font-weight:800 !important;
+  font-size:.78rem !important;
+  letter-spacing:.08em !important;
+}
+section.slide.section-ns-summary .h2{
+  color:#ffffff !important;
+  font-size:2rem !important;
+  line-height:1.15 !important;
+  margin:.2rem 0 .5rem !important;
+  text-shadow:none !important;
+}
+section.slide.section-ns-summary .ns-lede,
+section.slide.section-ns-summary .lede{
+  color:#eafff6 !important;
+  font-size:1.02rem !important;
+  line-height:1.4 !important;
+  max-width:46rem !important;
+  margin:0 0 .85rem !important;
+  opacity:1 !important;
+}
+section.slide.section-ns-summary .ns-lede strong,
+section.slide.section-ns-summary .lede strong{
+  color:#ffffff !important;
+  font-weight:800 !important;
+}
+section.slide.section-ns-summary .ns-grid2{
+  display:grid !important;
+  grid-template-columns:1fr 1fr !important;
+  gap:.85rem !important;
+}
+section.slide.section-ns-summary .ns-card{
+  background:#0f4a42 !important;
+  border:2px solid rgba(155,255,217,.45) !important;
+  border-radius:14px !important;
+  padding:.9rem 1rem !important;
+  color:#ffffff !important;
+  box-shadow:none !important;
+}
+section.slide.section-ns-summary .ns-card-value{
+  background:#0a3d36 !important;
+  border-color:#9bffd9 !important;
+}
+section.slide.section-ns-summary .ns-card-title{
+  color:#9bffd9 !important;
+  font-weight:800 !important;
+  font-size:1.05rem !important;
+  margin:0 0 .5rem !important;
+}
+section.slide.section-ns-summary .ns-card ul{
+  margin:0 !important;
+  padding-left:1.15rem !important;
+  line-height:1.5 !important;
+  font-size:.95rem !important;
+}
+section.slide.section-ns-summary .ns-card li{
+  color:#ffffff !important;
+  margin:.15rem 0 !important;
+}
+section.slide.section-ns-summary .ns-card strong{
+  color:#ffffff !important;
+  font-weight:800 !important;
+}
+section.slide.section-ns-summary .ns-note{
+  list-style:none !important;
+  margin:.4rem 0 0 -1.15rem !important;
+  color:#c9ffe8 !important;
+  font-size:.88rem !important;
+}
+section.slide.section-ns-summary .ns-acq,
+section.slide.section-ns-summary .ns-why{
+  margin-top:.7rem !important;
+  padding:.85rem 1rem !important;
+  border-radius:12px !important;
+  background:#0f4a42 !important;
+  border:2px solid rgba(155,255,217,.4) !important;
+}
+section.slide.section-ns-summary .ns-acq-k,
+section.slide.section-ns-summary .ns-why-k{
+  color:#9bffd9 !important;
+  font-weight:800 !important;
+  font-size:.9rem !important;
+  margin:0 0 .35rem !important;
+}
+section.slide.section-ns-summary .ns-acq-t,
+section.slide.section-ns-summary .ns-why-t{
+  color:#ffffff !important;
+  font-size:1.05rem !important;
+  line-height:1.35 !important;
+  font-weight:700 !important;
+}
+section.slide.section-ns-summary .ns-acq-s{
+  color:#eafff6 !important;
+  font-size:.92rem !important;
+  line-height:1.35 !important;
+  margin-top:.3rem !important;
+}
+section.slide.section-ns-summary .saas-sources{
+  margin-top:.7rem !important;
+  padding:.75rem .85rem !important;
+  border-radius:12px !important;
+  background:#041f1b !important;
+  border:2px solid rgba(155,255,217,.35) !important;
+}
+section.slide.section-ns-summary .saas-sources-label{
+  color:#9bffd9 !important;
+  font-weight:800 !important;
+  font-size:.75rem !important;
+  text-transform:uppercase !important;
+  letter-spacing:.05em !important;
+  margin:0 0 .45rem !important;
+}
+section.slide.section-ns-summary .saas-sources-links{
+  display:flex !important;
+  flex-wrap:wrap !important;
+  gap:.45rem !important;
+}
+section.slide.section-ns-summary .saas-sources-links a{
+  display:inline-block !important;
+  background:#ffffff !important;
+  color:#062e29 !important;
+  font-weight:800 !important;
+  font-size:.8rem !important;
+  padding:.45rem .7rem !important;
+  border-radius:999px !important;
+  text-decoration:none !important;
+  border:0 !important;
+  box-shadow:0 1px 3px rgba(0,0,0,.25) !important;
+}
+section.slide.section-ns-summary .footer-bar{
+  color:rgba(234,255,246,.65) !important;
+  border-top-color:rgba(155,255,217,.25) !important;
+  margin-top:auto !important;
+}
+section.slide.section-ns-summary .slide-page-num{
+  color:#062e29 !important;
+  background:#9bffd9 !important;
+}
+/* Present mode force */
+body.deck-mode section.slide.section-ns-summary.deck-active,
+body.deck-mode section.slide.section-ns-summary.deck-active > .slide-inner{
+  background:#062e29 !important;
+  color:#fff !important;
+}
+body.deck-mode section.slide.section-ns-summary.deck-active .h2{ color:#fff !important; }
+body.deck-mode section.slide.section-ns-summary.deck-active .kicker{ color:#9bffd9 !important; }
+body.deck-mode section.slide.section-ns-summary.deck-active .lede,
+body.deck-mode section.slide.section-ns-summary.deck-active li,
+body.deck-mode section.slide.section-ns-summary.deck-active p{
+  color:#fff !important;
+}
+body.deck-mode section.slide.section-ns-summary.deck-active .ns-card{
+  background:#0f4a42 !important;
+  color:#fff !important;
+  border-color:rgba(155,255,217,.45) !important;
+}
+body.deck-mode section.slide.section-ns-summary.deck-active .saas-sources-links a{
+  background:#fff !important;
+  color:#062e29 !important;
+}
+@media (max-width:900px){
+  section.slide.section-ns-summary .ns-grid2{ grid-template-columns:1fr !important; }
 }
 
 </style>
@@ -2449,38 +2595,39 @@ https://comply.capital · Tom · COMPLY</div>
  <div class="kicker">NORTH STAR · WHY THE MARKETING PLAN</div>
  <div class="h2">$3M ARR — the realistic picture</div>
  <p class="lede ns-lede">Marketing wins clients → ARR → company value. Primary shape: <strong>50 clients × ~17 live deals</strong>.</p>
- <div class="grid2" style="gap:.85rem;align-items:stretch">
- <div class="card ns-card">
+
+ <div class="ns-grid2">
+ <div class="ns-card">
  <div class="ns-card-title">The goal (realistic)</div>
  <ul>
  <li><strong>$3M / year</strong> ≈ <strong>3%</strong> of the draw market</li>
  <li><strong>833 live projects</strong> at <strong>$300/mo</strong>, all at once</li>
  <li><strong>50 clients × ~17 deals</strong></li>
- <li>Early: ~5 clients × ~10 deals ≈ ~$180k ARR → value about <strong>~$0.4–0.9M</strong> (2–5×), not a locked $1M</li>
+ <li>Early: ~5 × ~10 deals ≈ ~$180k ARR → value about <strong>~$0.4–0.9M</strong> (2–5×)</li>
  </ul>
  </div>
- <div class="card ns-card ns-card-value">
+ <div class="ns-card ns-card-value">
  <div class="ns-card-title">Company value (2026 base case)</div>
  <ul>
- <li><strong>$1M ARR</strong> → ~<strong>$2–4M</strong> base (better ~$3–5M)</li>
- <li><strong>$2M ARR</strong> → ~<strong>$4–8M</strong> base (better ~$6–10M)</li>
- <li><strong>$3M ARR</strong> → ~<strong>$6–12M</strong> base (better ~$9–15M)</li>
+ <li><strong>$1M ARR</strong> → <strong>~$2–4M</strong> base · better <strong>~$3–5M</strong></li>
+ <li><strong>$2M ARR</strong> → <strong>~$4–8M</strong> base · better <strong>~$6–10M</strong></li>
+ <li><strong>$3M ARR</strong> → <strong>~$6–12M</strong> base · better <strong>~$9–15M</strong></li>
  <li class="ns-note">Stretch 5–8× only with strong metrics — not automatic</li>
  </ul>
  </div>
  </div>
+
  <div class="ns-acq">
  <div class="ns-acq-k">Acquisition benchmark</div>
- <div class="ns-acq-row">
- <div><strong>CAC (Customer Acquisition Cost) ≤ ~$1,000 / client</strong></div>
- <div>~<strong>8 presentations + 8 gifts</strong> · measure on pilots</div>
+ <div class="ns-acq-t"><strong>CAC (Customer Acquisition Cost) ≤ ~$1,000 / client</strong></div>
+ <div class="ns-acq-s">~8 presentations + 8 gifts · measure on pilots · ~$50k → ~50 clients path</div>
  </div>
- </div>
+
  <div class="ns-why">
  <div class="ns-why-k">Why we do marketing</div>
  <div class="ns-why-t"><strong>Win ~50 → deepen to ~17 deals → $3M ARR → real company value.</strong> LinkedIn + gifts + SEO.</div>
  </div>
- 
+
  <div class="saas-sources">
  <div class="saas-sources-label">Sources (click to verify)</div>
  <div class="saas-sources-links">
@@ -2491,7 +2638,6 @@ https://comply.capital · Tom · COMPLY</div>
  <a href="https://www.prnewswire.com/news-releases/private-saas-company-survey-reveals-ai-driven-transformation-and-sustained-operational-excellence-302615030.html" target="_blank" rel="noopener">KeyBanc + Sapphire Survey</a>
  </div>
  </div>
-
  <div class="footer-bar"><span>COMPLY</span><span>North star summary</span></div>
  </div>
  </section>
