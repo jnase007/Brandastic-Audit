@@ -7,6 +7,39 @@
 <link rel="stylesheet" href="/gameplan_marketing/_icp-full.css"/>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
 <script>(function(){try{var t=localStorage.getItem('ba_strategies_theme');document.documentElement.setAttribute('data-theme',t==='dark'?'dark':'light');}catch(e){document.documentElement.setAttribute('data-theme','light');}})();</script>
+
+<style id="ba-pill-actions">
+.ba-topbar{
+  display:flex; flex-wrap:wrap; gap:.6rem; align-items:center;
+  position:sticky; top:0; z-index:20;
+  padding:.75rem 0 .85rem; margin:0 0 1.15rem;
+  background:rgba(248,250,252,.94);
+  backdrop-filter: blur(12px);
+  border-bottom:1px solid rgba(15,23,42,.07);
+}
+.ba-pill{
+  display:inline-flex; align-items:center; justify-content:center; gap:.4rem;
+  padding:.72rem 1.2rem;
+  border-radius:999px;
+  font-size:.92rem; font-weight:800; letter-spacing:-.01em;
+  text-decoration:none !important; border:1.5px solid transparent;
+  cursor:pointer; font-family:inherit; line-height:1;
+  transition: transform .14s ease, box-shadow .14s ease;
+  box-shadow: 0 1px 2px rgba(15,23,42,.04);
+  background:#fff; color:#0f172a !important;
+}
+.ba-pill:hover{ transform:translateY(-1px); box-shadow:0 10px 22px rgba(15,23,42,.12); }
+.ba-pill-grad{
+  background: linear-gradient(135deg, #0284c7 0%, #6366f1 55%, #7c3aed 100%);
+  color:#fff !important; border-color:transparent;
+}
+.ba-pill-ghost{ border-color:#e2e8f0; }
+.ba-pill-ghost:hover{ border-color:#cbd5e1; background:#f8fafc; }
+html[data-theme="dark"] .ba-topbar{ background:rgba(15,23,42,.94); border-bottom-color:rgba(255,255,255,.08); }
+html[data-theme="dark"] .ba-pill-ghost{ background:#1e293b; color:#e2e8f0 !important; border-color:rgba(255,255,255,.12); }
+@media print{ .ba-topbar, .no-print{ display:none !important; } }
+</style>
+
 </head><body><div class="layout">
 <nav id="side-nav">
 <a class="brand-lockup" href="/gameplan_marketing/index.html" title="Brandastic"><img class="brand-logo" src="/assets/brandastic-logo-black.png" alt="Brandastic"/></a>
@@ -136,7 +169,6 @@ if(!anyOpen){
 }
 })();</script>
 <main class="sec-icp">
-<div class="print-bar no-print"><button class="btn" type="button" onclick="window.print()">Print</button></div>
 <div class="icp-kicker">Brandastic · ICP hub</div>
 <h1>Three ICPs — same format for the team</h1>
 <p class="lead" style="color:var(--muted)">Every ICP page has the same 8 sections (Geo → Market charts → Profile → Titles → Offer → Copy → 90-day → Apollo). Print all three and line them up.</p>
