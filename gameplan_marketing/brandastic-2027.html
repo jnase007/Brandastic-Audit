@@ -149,6 +149,23 @@ li{margin:.2rem 0}
   .site-hero-fade{display:none}
 }
 
+
+/* Calendar weeks (Comply-style) */
+.cal-week{display:grid;grid-template-columns:88px 1fr;gap:.65rem;padding:.65rem .75rem;border-bottom:1px solid var(--line);border-radius:10px;margin:.35rem 0;align-items:start}
+.cal-week:last-of-type{border-bottom:1px solid var(--line)}
+.cal-week b{color:var(--teal);font-size:.82rem;padding-top:.1rem}
+.cal-week span{color:var(--muted);font-size:.84rem;line-height:1.5}
+.cal-week.camp-lock{border-left:4px solid #0f8f97;background:rgba(15,143,151,.08)}
+.cal-week.camp-rel{border-left:4px solid #1f8fc9;background:rgba(31,143,201,.08)}
+.cal-week.camp-proof{border-left:4px solid #74b816;background:rgba(116,184,22,.1)}
+.cal-week.camp-sales{border-left:4px solid #4c6ef5;background:rgba(76,110,245,.08)}
+.cal-week.camp-social{border-left:4px solid #9775fa;background:rgba(151,117,250,.1)}
+html[data-theme="dark"] .cal-week.camp-lock{background:rgba(45,212,191,.08)}
+html[data-theme="dark"] .cal-week.camp-rel{background:rgba(56,189,248,.08)}
+html[data-theme="dark"] .cal-week.camp-proof{background:rgba(52,211,153,.08)}
+html[data-theme="dark"] .cal-week.camp-sales{background:rgba(129,140,248,.1)}
+html[data-theme="dark"] .cal-week.camp-social{background:rgba(167,139,250,.1)}
+
 /* Present mode */
 .deck-present-btn{
   position:fixed;right:18px;bottom:18px;z-index:99999;appearance:none;border:0;cursor:pointer;
@@ -603,6 +620,68 @@ If your first draft needs a glossary, rewrite it.</div>
     </div>
   </section>
 
+
+  <!-- CALENDAR DIVIDER -->
+  <section class="slide" id="calendar">
+    <div class="slide-inner section-dark">
+      <div class="phase">90 days · weekly machine</div>
+      <div class="h1">Calendar</div>
+      <p class="lede">What the team runs each week — then the 90-day build week by week.</p>
+      <div class="footer-bar"><span>BRANDASTIC 2027</span><span>CAL</span></div>
+    </div>
+  </section>
+
+  <!-- WEEKLY RHYTHM -->
+  <section class="slide" id="weekly-rhythm">
+    <div class="slide-inner">
+      <div class="kicker">Calendar · Weekly machine</div>
+      <h2 class="h2">Rhythm the team can run</h2>
+      <table class="table">
+        <tr><th>Day</th><th>Focus</th></tr>
+        <tr><td><strong>Mon</strong></td><td>Weekly numbers: new conversations, proposals out, won/lost with reason, recurring cash vs $160K. Set the week’s targets.</td></tr>
+        <tr><td><strong>Tue</strong></td><td>Warm reopen outreach (email + calls on the 50-name list). Log replies same day.</td></tr>
+        <tr><td><strong>Wed</strong></td><td>Search / proof work: ship or improve one page, guide, or case study for a locked market.</td></tr>
+        <tr><td><strong>Thu</strong></td><td>Meetings + proposals. Referral asks after wins. Whitespace notes on top accounts.</td></tr>
+        <tr><td><strong>Fri</strong></td><td>20–30 min standup. 1–2 plain-English LinkedIn posts. Capture pains → next week’s posts and pages.</td></tr>
+      </table>
+      <div class="card" style="margin-top:1rem">
+        <h3>Weekly floor (team-wide)</h3>
+        <p>10–20 warm touches · same-day follow-up · 3–5 human LinkedIn posts · 1 proof or search ship · pipeline board updated · win/loss written</p>
+      </div>
+      <div class="footer-bar"><span>BRANDASTIC 2027</span><span>16</span></div>
+    </div>
+  </section>
+
+  <!-- DAYS 1-30 -->
+  <section class="slide" id="cal-30">
+    <div class="slide-inner">
+      <div class="kicker">Calendar · Days 1–30</div>
+      <h2 class="h2">Engine on</h2>
+      <div class="cal-week camp-lock"><b>Week 1</b><span>Justin locks 2–3 markets + keep/kill services. Draft success numbers. Build empty weekly scorecard. Start the 50-name warm list (past proposals + happy clients).</span></div>
+      <div class="cal-week camp-rel"><b>Week 2</b><span>Finish 50-name list with owners. Approve reopen + referral email templates. Stand up pipeline board (stages visible). Assign rock owners.</span></div>
+      <div class="cal-week camp-proof"><b>Week 3</b><span>Ship first case study or guide for market #1. Begin warm reopens (10–15 touches). 3–5 LinkedIn posts. First weekly numbers review.</span></div>
+      <div class="cal-week camp-sales"><b>Week 4</b><span>Ship proof piece for market #2. More reopens + first referral asks after any win. Proposals out tracked. Kill weak copy from week 3 replies.</span></div>
+      <div class="footer-bar"><span>BRANDASTIC 2027</span><span>17</span></div>
+    </div>
+  </section>
+
+  <!-- DAYS 31-90 -->
+  <section class="slide" id="cal-90">
+    <div class="slide-inner">
+      <div class="kicker">Calendar · Days 31–90</div>
+      <h2 class="h2">Proof + pipeline</h2>
+      <div class="cal-week camp-rel"><b>W5–6</b><span>Full reopen pass on the 50-name list. Search pages live for locked offers × markets. Weekly pipeline 20 min without fail. Whitespace notes on top 5 accounts.</span></div>
+      <div class="cal-week camp-proof"><b>W7–8</b><span>Second proof wave (before/after or short story). Double what books meetings; drop what doesn’t. Referral system on autopilot after wins.</span></div>
+      <div class="cal-week camp-sales"><b>W9–10</b><span>Tighten close path. Every lost deal has a one-sentence reason. Avg package and recurring cash on the board. Decide if sales OS is ready for a small paid test.</span></div>
+      <div class="cal-week camp-social"><b>W11–12</b><span>Publish one clear proof story. QBR-style lookback: conversations · proposals · won/lost · cash. Name next-quarter rocks. Paid test only if follow-up is tight — otherwise keep compounding search + relationships.</span></div>
+      <div class="card" style="margin-top:1rem">
+        <h3>90-day finish line</h3>
+        <p>Markets locked · warm machine running · proof shipped · win/loss habit live · path from <strong>~$2.12M pace → $2.5M+</strong> still honest · bookings − churn tracked</p>
+      </div>
+      <div class="footer-bar"><span>BRANDASTIC 2027</span><span>18</span></div>
+    </div>
+  </section>
+
   <!-- 16 CLOSE -->
   <section class="slide" id="close">
     <div class="slide-inner close-slide">
@@ -625,7 +704,7 @@ If your first draft needs a glossary, rewrite it.</div>
         <img src="../assets/brandastic-logo-white.png" alt="Brandastic" />
         <div class="title-tagline">Focused. Growth. · <span>brandastic.com</span></div>
       </div>
-      <div class="footer-bar"><span>BRANDASTIC</span><span>Team working strategy · 2027</span></div>
+      <div class="footer-bar"><span>BRANDASTIC</span><span>19 · Team working strategy · 2027</span></div>
     </div>
   </section>
 
