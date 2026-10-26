@@ -19,73 +19,188 @@
 </style>
 
 <style id="p2027-theme">
-main.sec-plan { max-width: 1000px; }
+/* 2027 planning — cleaner layout */
+main.sec-plan {
+  max-width: 980px;
+  padding-bottom: 3rem;
+}
+main.sec-plan > .kicker {
+  font-size: .7rem;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  font-weight: 800;
+  color: #0284c7;
+  margin: 0 0 .35rem;
+}
+main.sec-plan > h1 {
+  font-size: clamp(1.75rem, 3.5vw, 2.35rem);
+  letter-spacing: -.03em;
+  margin: 0 0 .5rem;
+  line-height: 1.15;
+}
+main.sec-plan > .lede {
+  font-size: 1.02rem;
+  line-height: 1.55;
+  max-width: 42rem;
+  margin: 0 0 1rem;
+  color: var(--muted, #64748b);
+}
+section.card {
+  border: 1px solid var(--line, #e2e8f0);
+  border-radius: 18px;
+  padding: 1.15rem 1.25rem 1.25rem;
+  background: var(--card, #fff);
+  box-shadow: 0 10px 28px rgba(15,23,42,.05);
+  margin: 0 0 1.15rem;
+}
+section.card > h2 {
+  font-size: 1.15rem;
+  letter-spacing: -.02em;
+  margin: 0 0 .75rem;
+  padding-bottom: .55rem;
+  border-bottom: 1px solid var(--line, #e2e8f0);
+  line-height: 1.25;
+}
+section.card h3 {
+  font-size: 0.98rem;
+  margin: 1.1rem 0 .55rem;
+  line-height: 1.3;
+}
+section.card h4 {
+  font-size: 0.88rem;
+  margin: 1rem 0 .45rem;
+  font-weight: 800;
+}
+section.card p,
+section.card li {
+  line-height: 1.5;
+  font-size: .92rem;
+}
+section.card ul,
+section.card ol {
+  margin: .35rem 0 .65rem 1.15rem;
+}
+section.card table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  font-size: .88rem;
+  margin: .5rem 0 .85rem;
+  overflow: hidden;
+  border-radius: 12px;
+  border: 1px solid var(--line, #e2e8f0);
+}
+section.card th,
+section.card td {
+  padding: .65rem .7rem;
+  text-align: left;
+  vertical-align: top;
+  border-bottom: 1px solid var(--line, #e2e8f0);
+  line-height: 1.4;
+}
+section.card tr:last-child td { border-bottom: 0; }
+section.card th {
+  font-size: .68rem;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  font-weight: 800;
+}
+section.card .muted {
+  font-size: .82rem;
+  line-height: 1.45;
+  color: var(--muted, #64748b);
+}
+
+/* section accents */
 #one-pager {
   border: 2px solid #0284c7 !important;
-  background: linear-gradient(180deg,#F0F9FF,#fff);
+  background: linear-gradient(180deg, #F0F9FF 0%, #fff 42%);
 }
-#one-pager h2 { color: #0369a1; }
-#one-pager h3 { color: #0284c7; margin-top: 1.1rem; }
+#one-pager h2 { color: #0369a1; border-bottom-color: #bae6fd; }
+#one-pager h3 { color: #0284c7; }
 #one-pager table th { background: #e0f2fe !important; color: #0c4a6e !important; }
-#client-list { border-left: 4px solid #059669; }
-#client-list h2 { color: #047857; }
+#one-pager table { background: #fff; }
+
+#client-list { border-left: 5px solid #059669; }
+#client-list h2 { color: #047857; border-bottom-color: #a7f3d0; }
 #client-list h3 {
   color: #0f766e;
   border-bottom: 2px solid #a7f3d0;
-  padding-bottom: .35rem;
+  padding-bottom: .4rem;
 }
-#client-list h4 { color: #065f46; margin-top: 1.1rem; }
-section.card {
-  border-radius: 16px;
-  box-shadow: 0 8px 24px rgba(15,23,42,.05);
-  margin-bottom: 1.25rem;
-}
-section.card > h2 { font-size: 1.2rem; letter-spacing: -.02em; }
-.money-table th { background: rgba(2,132,199,.12) !important; color: #0369a1 !important; }
+#client-list h4 { color: #065f46; }
+
+.money-table th { background: #e0f2fe !important; color: #0369a1 !important; }
+.money-table tbody tr:nth-child(even) { background: #f8fbff; }
 .mkt-table thead th { background: #ecfdf5 !important; color: #047857 !important; }
 .mkt-table tbody tr:nth-child(even) { background: #f0fdf4; }
+.mkt-table td:last-child { font-variant-numeric: tabular-nums; font-weight: 700; }
 .host-table thead th { background: #f1f5f9 !important; color: #334155 !important; }
 .host-table tbody tr { background: #f8fafc; }
-.forgive-table thead th { background: #fffbeb !important; color: #b45309 !important; }
-.forgive-table tbody tr { background: #fffbeb; }
+.host-table td:last-child { font-variant-numeric: tabular-nums; font-weight: 700; }
 .score-table thead th { background: #f5f3ff !important; color: #5b21b6 !important; }
 .score-table tbody tr:nth-child(even) { background: #faf5ff; }
+
 .resource-bar {
   display: flex;
   flex-wrap: wrap;
   gap: .5rem;
-  margin: 1rem 0 1.25rem;
+  margin: .85rem 0 1.35rem;
 }
 .resource-bar a {
   display: inline-flex;
   align-items: center;
   gap: .35rem;
-  padding: .55rem .9rem;
+  padding: .6rem 1rem;
   border-radius: 999px;
-  font-size: .82rem;
+  font-size: .84rem;
   font-weight: 700;
   text-decoration: none;
   border: 1px solid var(--line, #e2e8f0);
+  transition: transform .12s ease, box-shadow .12s ease;
 }
+.resource-bar a:hover { transform: translateY(-1px); box-shadow: 0 6px 16px rgba(15,23,42,.08); }
 .resource-bar a.score {
   background: #0284c7;
-  color: #fff;
+  color: #fff !important;
   border-color: #0284c7;
 }
 .resource-bar a.soft {
   background: #fff;
   color: #0369a1;
 }
-html[data-theme="dark"] #one-pager { background: rgba(2,132,199,.12); }
+
+/* sticky print helper */
+.print-bar {
+  position: sticky;
+  top: 0;
+  z-index: 5;
+  background: rgba(255,255,255,.92);
+  backdrop-filter: blur(8px);
+  padding: .55rem 0;
+  margin-bottom: .75rem;
+  border-bottom: 1px solid var(--line, #e2e8f0);
+}
+
+html[data-theme="dark"] #one-pager { background: rgba(2,132,199,.1); }
+html[data-theme="dark"] section.card { box-shadow: none; }
+html[data-theme="dark"] .print-bar { background: rgba(15,23,42,.9); }
 html[data-theme="dark"] .mkt-table tbody tr:nth-child(even),
+html[data-theme="dark"] .money-table tbody tr:nth-child(even),
 html[data-theme="dark"] .host-table tbody tr,
-html[data-theme="dark"] .forgive-table tbody tr,
 html[data-theme="dark"] .score-table tbody tr:nth-child(even) {
   background: rgba(255,255,255,.03);
 }
 html[data-theme="dark"] .resource-bar a.soft {
   background: var(--panel2, #1e293b);
   color: #7dd3fc;
+}
+
+@media (max-width: 700px) {
+  section.card { padding: 1rem; border-radius: 14px; }
+  section.card table { font-size: .82rem; }
+  section.card th, section.card td { padding: .55rem .5rem; }
+  .resource-bar a { width: 100%; justify-content: center; }
 }
 @media print {
   #one-pager { break-inside: avoid; }
@@ -94,6 +209,8 @@ html[data-theme="dark"] .resource-bar a.soft {
     border: 1px solid #000;
     background: #fff !important;
   }
+  .print-bar { display: none !important; }
+  section.card { box-shadow: none; break-inside: avoid; }
 }
 </style>
 
