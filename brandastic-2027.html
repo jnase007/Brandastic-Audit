@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Brandastic 2027 · How we grow</title>
+<meta name="robots" content="noindex,nofollow">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+ --bg:#f4f7fa; --slide:#ffffff; --ink:#15202b; --muted:#5b6b7c; --line:rgba(21,32,43,.12);
+ --teal:#0f8f97; --accent:#1f8fc9; --purple:#9b1fd6; --green:#059669; --amber:#d97706;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{background:var(--bg);color:var(--ink);font-family:Inter,system-ui,sans-serif}
+body{min-height:100vh}
+.deck{max-width:1100px;margin:0 auto;padding:1rem 1rem 3rem}
+.toolbar{display:flex;gap:.5rem;flex-wrap:wrap;align-items:center;margin-bottom:1rem;position:sticky;top:.5rem;z-index:30;background:rgba(244,247,250,.94);backdrop-filter:blur(10px);padding:.45rem 0}
+.btn{border:0;cursor:pointer;border-radius:999px;font-weight:800;font-size:.84rem;padding:.62rem 1.05rem;text-decoration:none;display:inline-flex;align-items:center;font-family:inherit}
+.btn-p{background:linear-gradient(135deg,var(--accent),var(--purple));color:#fff}
+.btn-g{background:#fff;border:1.5px solid var(--line);color:var(--ink)}
+.btn:hover{filter:brightness(1.03);transform:translateY(-1px)}
+.hint{color:var(--muted);font-size:.75rem;margin-left:.25rem}
+.slide{background:var(--slide);border:1px solid var(--line);border-radius:18px;padding:1.75rem 1.9rem 1.4rem;margin:0 0 1rem;min-height:520px;position:relative;overflow:hidden;box-shadow:0 12px 36px rgba(21,32,43,.07)}
+.slide::before{content:"";position:absolute;right:-100px;top:-100px;width:340px;height:340px;border-radius:50%;background:radial-gradient(circle,rgba(31,143,201,.10),transparent 70%);pointer-events:none}
+.slide-inner{position:relative;z-index:1;display:flex;flex-direction:column;min-height:460px}
+.kicker{font-size:.72rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--teal);margin-bottom:.85rem}
+.h1{font-size:clamp(1.85rem,3.8vw,2.85rem);font-weight:800;letter-spacing:-.03em;line-height:1.08;margin-bottom:.65rem}
+.h2{font-size:clamp(1.35rem,2.6vw,1.95rem);font-weight:800;letter-spacing:-.02em;margin-bottom:.85rem}
+.lede{font-size:1.02rem;color:var(--muted);max-width:42rem;line-height:1.6}
+.footer-bar{margin-top:auto;padding-top:1rem;display:flex;justify-content:space-between;font-size:.7rem;color:rgba(21,32,43,.4);border-top:1px solid rgba(21,32,43,.06)}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:.85rem}
+@media(max-width:800px){.grid2,.grid3{grid-template-columns:1fr}}
+.card{background:#f7fafc;border:1px solid var(--line);border-radius:14px;padding:1rem 1.05rem}
+.card h3{font-size:.98rem;font-weight:800;margin-bottom:.4rem}
+.card p,.card li{font-size:.88rem;color:var(--muted);line-height:1.55}
+.card ul{padding-left:1.05rem;margin:.25rem 0}
+.card li{margin:.22rem 0}
+.card strong{color:var(--ink)}
+.stat{font-size:clamp(1.45rem,3vw,2.2rem);font-weight:800;letter-spacing:-.03em;line-height:1.1}
+.stat-lbl{font-size:.78rem;color:var(--muted);margin-top:.28rem;line-height:1.4}
+.pill{display:inline-block;font-size:.68rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--teal);background:rgba(15,143,151,.10);border:1px solid rgba(15,143,151,.28);padding:.26rem .5rem;border-radius:999px;margin:0 .25rem .3rem 0}
+.table{width:100%;border-collapse:collapse;font-size:.84rem;margin-top:.4rem}
+.table th,.table td{border:1px solid var(--line);padding:.5rem .55rem;text-align:left;vertical-align:top}
+.table th{background:#eef3f7;color:var(--ink);font-weight:800;font-size:.72rem;letter-spacing:.04em;text-transform:uppercase}
+.table td{color:var(--muted)}
+.table td strong{color:var(--ink)}
+.quote{border-left:3px solid var(--teal);padding:.15rem 0 .15rem .95rem;margin:.9rem 0;font-size:1.05rem;font-weight:700;line-height:1.45;max-width:44rem}
+.flow{display:flex;flex-wrap:wrap;gap:.4rem;align-items:center;margin:.8rem 0}
+.flow .step{background:#f3f7fa;border:1px solid var(--line);border-radius:12px;padding:.55rem .75rem;font-weight:800;font-size:.84rem}
+.flow .arrow{color:var(--teal);font-weight:900}
+.big{font-size:1.02rem;font-weight:600;line-height:1.55;max-width:44rem;color:var(--ink)}
+.toc-list{margin-top:1.1rem;display:grid;gap:.5rem;max-width:40rem;font-size:.98rem;font-weight:700}
+.toc-list span{color:var(--muted);font-weight:500}
+.note{font-size:.8rem;color:var(--muted);margin-top:.65rem;line-height:1.45}
+</style>
+</head>
+<body>
+<div class="deck">
+  <div class="toolbar no-print">
+    <button class="btn btn-p" type="button" onclick="window.print()">Print / Save PDF</button>
+    <a class="btn btn-g" href="/gameplan_marketing/planning-2027.html">2027 planning pack</a>
+    <a class="btn btn-g" href="/gameplan_marketing/strategic-plan.html">Strategic plan</a>
+    <a class="btn btn-g" href="/gameplan_marketing/goals-vision.html">Goals & vision</a>
+    <a class="btn btn-g" href="/comply">Comply strategy</a>
+    <span class="hint">Brandastic agency · 2027</span>
+  </div>
+
+  <!-- 1 TITLE -->
+  <section class="slide">
+    <div class="slide-inner">
+      <div class="kicker">Brandastic · 2027 strategy</div>
+      <h1 class="h1">How Brandastic grows in 2027</h1>
+      <p class="lede">A simple plan for the team. Built from our strategic plan, masterclass notes, and 2026 real numbers. Plain English.</p>
+      <div class="toc-list">
+        <div>1. Where we are <span>· money and clients</span></div>
+        <div>2. What we are / are not <span>· honest positioning</span></div>
+        <div>3. How we win clients <span>· search + referrals first</span></div>
+        <div>4. The sequence <span>· do not shuffle</span></div>
+        <div>5. 2027 targets <span>· real math</span></div>
+        <div>6. 90-day plan <span>· owners and numbers</span></div>
+      </div>
+      <div class="footer-bar"><span>BRANDASTIC</span><span class="num">01 / 10</span></div>
+    </div>
+  </section>
+
+  <!-- 2 WHERE WE ARE -->
+  <section class="slide">
+    <div class="slide-inner">
+      <div class="kicker">Where we are</div>
+      <h2 class="h2">2026 truth (use this in the room)</h2>
+      <div class="grid3" style="margin-top:1rem">
+        <div class="card"><div class="stat">$1.67M</div><div class="stat-lbl">2025 full-year sales</div></div>
+        <div class="card"><div class="stat">~$2.12M</div><div class="stat-lbl">2026 pace (Jan–Sep annualized)</div></div>
+        <div class="card"><div class="stat">$2.5M</div><div class="stat-lbl">2026 goal on Goal Sheet</div></div>
+        <div class="card"><div class="stat">~$120K</div><div class="stat-lbl">Monthly recurring packages (Aug list)</div></div>
+        <div class="card"><div class="stat">~$5.5–7K</div><div class="stat-lbl">Rough average monthly package (depends how you count clients)</div></div>
+        <div class="card"><div class="stat">93 / 15</div><div class="stat-lbl">Leads / contracts YTD</div></div>
+      </div>
+      <p class="quote" style="margin-top:1.2rem">Most new clients came from <strong>search (Google)</strong> and <strong>referrals</strong> — not paid ads for the agency.</p>
+      <p class="note">Net income Jan–Sep ~$232K–$240K. Recurring goal on sheet is $160K/mo; we are at ~$120K/mo. Hosting/site-care lines are separate from pure marketing packages.</p>
+      <div class="footer-bar"><span>BRANDASTIC</span><span class="num">02 / 10</span></div>
+    </div>
+  </section>
+
+  <!-- 3 WHAT WE ARE -->
+  <section class="slide">
+    <div class="slide-inner">
+      <div class="kicker">Positioning</div>
+      <h2 class="h2">What we are · what we are not</h2>
+      <div class="grid2" style="margin-top:.8rem">
+        <div class="card">
+          <h3>What we are</h3>
+          <ul>
+            <li>A full-service digital marketing agency that grows <strong>real businesses</strong></li>
+            <li>Strong at <strong>search</strong>, paid media delivery, retainers, and long client relationships</li>
+            <li>Orange County based · serves clients across ICPs (dental/medical, education, industrial, more)</li>
+            <li>Path to a bigger firm: clean growth, higher packages, less chaos</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>What we are not (yet)</h3>
+          <ul>
+            <li>Not a software company (Comply is a separate lane)</li>
+            <li>Not “get new clients only by running Meta ads for ourselves”</li>
+            <li>Not trying to be everything for everyone</li>
+            <li>Not growing by stacking tiny unprofitable packages forever</li>
+          </ul>
+        </div>
+      </div>
+      <div class="card" style="margin-top:1rem">
+        <h3>Strengths to run at</h3>
+        <p>Search + referrals · delivery depth · CalOps-scale proof · Agency Academy learning · team that can execute</p>
+      </div>
+      <div class="card" style="margin-top:.75rem">
+        <h3>Gaps we must close</h3>
+        <p>Clean win/loss tracking · sales rhythm · capacity before big paid push · average package size · less owner-only sales</p>
+      </div>
+      <div class="footer-bar"><span>BRANDASTIC</span><span class="num">03 / 10</span></div>
+    </div>
+  </section>
+
+  <!-- 4 HOW WE WIN -->
+  <section class="slide">
+    <div class="slide-inner">
+      <div class="kicker">How we win clients</div>
+      <h2 class="h2">Engines we fund in 2027</h2>
+      <div class="grid2" style="margin-top:.85rem">
+        <div class="card">
+          <span class="pill">Primary</span>
+          <h3>1. Search (Google)</h3>
+          <p>Pages for the clients we want. Proof stories. Course / hub content. Keep ranking and converting.</p>
+        </div>
+        <div class="card">
+          <span class="pill">Primary</span>
+          <h3>2. Referrals</h3>
+          <p>Ask on purpose. Partner list. Thank-you path. Make it easy for happy clients to send us work.</p>
+        </div>
+        <div class="card">
+          <span class="pill">Support</span>
+          <h3>3. Proof + content</h3>
+          <p>Case studies by client type. Simple posts. Authority without empty noise.</p>
+        </div>
+        <div class="card">
+          <span class="pill">Test only</span>
+          <h3>4. Paid for the agency</h3>
+          <p>Small LinkedIn or niche test <strong>only after</strong> sales follow-up is tight and capacity can take wins. Do not outspend our ability to close and deliver.</p>
+        </div>
+      </div>
+      <p class="quote">Default spend mix: <strong>70%</strong> search + referrals + proof · <strong>20%</strong> one paid test · <strong>10%</strong> events / relationships.</p>
+      <div class="footer-bar"><span>BRANDASTIC</span><span class="num">04 / 10</span></div>
+    </div>
+  </section>
+
+  <!-- 5 SEQUENCE -->
+  <section class="slide">
+    <div class="slide-inner">
+      <div class="kicker">From the strategic plan · do not shuffle</div>
+      <h2 class="h2">The one sequence</h2>
+      <div class="flow">
+        <div class="step">0 · Justin decisions</div><div class="arrow">→</div>
+        <div class="step">1 · Bookings from relationships</div><div class="arrow">→</div>
+        <div class="step">2 · Content on what we keep</div><div class="arrow">→</div>
+        <div class="step">3 · Sales follow-up ready</div><div class="arrow">→</div>
+        <div class="step">4 · Paid ads for us</div><div class="arrow">→</div>
+        <div class="step">5 · Optional new offer</div>
+      </div>
+      <div class="grid2" style="margin-top:1rem">
+        <div class="card">
+          <h3>Phase 1 · next 30–60 days</h3>
+          <p>Bookings from relationships. Client nights / gifts only if measured. Reopen warm doors. Protect delivery quality.</p>
+        </div>
+        <div class="card">
+          <h3>Phase 2 · days 30–120</h3>
+          <p>Content machine on offers we already sell well. Proof pages. Not random posting.</p>
+        </div>
+        <div class="card">
+          <h3>Phase 3 · parallel</h3>
+          <p>Sales OS hard enough for paid: who owns follow-up, speed to proposal, weekly pipeline review.</p>
+        </div>
+        <div class="card">
+          <h3>Phase 4 · only after 0–3</h3>
+          <p>Advertise the agency. Message-ad style tests. One audience. One offer. Measure meetings and closed cash.</p>
+        </div>
+      </div>
+      <p class="note">Source: strategic plan from Agency Academy Videos 1–4. Launch at most one new offer later (Phase 5) — optional.</p>
+      <div class="footer-bar"><span>BRANDASTIC</span><span class="num">05 / 10</span></div>
+    </div>
+  </section>
+
+  <!-- 6 TARGETS -->
+  <section class="slide">
+    <div class="slide-inner">
+      <div class="kicker">2027 targets · honest math</div>
+      <h2 class="h2">What “good” looks like</h2>
+      <table class="table">
+        <tr><th>Goal</th><th>Now</th><th>2027 draft</th><th>Plain meaning</th></tr>
+        <tr><td><strong>Revenue</strong></td><td>~$2.12M pace</td><td><strong>~$2.5–2.7M</strong></td><td>Need about +$32K/mo vs today’s pace</td></tr>
+        <tr><td><strong>Recurring clients</strong></td><td>~17–24</td><td><strong>~22–28</strong></td><td>Net after churn — not vanity headcount</td></tr>
+        <tr><td><strong>New clients</strong></td><td>~1.5 contracts/mo YTD</td><td><strong>~10–12 / year</strong></td><td>~1 per month net of losses</td></tr>
+        <tr><td><strong>Monthly recurring</strong></td><td>~$120K</td><td><strong>toward $160K</strong></td><td>Goal Sheet target</td></tr>
+        <tr><td><strong>Average package</strong></td><td>~$5.5–7K</td><td><strong>nudge up</strong></td><td>$7.5K hope is good; not the only lever</td></tr>
+        <tr><td><strong>Growth cheat</strong></td><td>—</td><td><strong>Bookings − churn > 0</strong></td><td>Every quarter</td></tr>
+      </table>
+      <p class="quote">17 → 46 clients at $5.5K is a <strong>~$3M</strong> story — not the small step from $2.12M to $2.5M. Fix the goals table if anyone still sees 46 as “next year only.”</p>
+      <div class="footer-bar"><span>BRANDASTIC</span><span class="num">06 / 10</span></div>
+    </div>
+  </section>
+
+  <!-- 7 WHO WE SERVE -->
+  <section class="slide">
+    <div class="slide-inner">
+      <div class="kicker">Who we want more of</div>
+      <h2 class="h2">Client focus (pick hard)</h2>
+      <div class="grid3" style="margin-top:.85rem">
+        <div class="card">
+          <h3>Dental / medical / surgical</h3>
+          <p>JB White, Paragon, Dental Smart, Young Surgical pattern. Clear offers. Good retainers.</p>
+        </div>
+        <div class="card">
+          <h3>Education (CalOps peers)</h3>
+          <p>Flagship proof already. Other schools/charters that need serious digital.</p>
+        </div>
+        <div class="card">
+          <h3>Industrial / specialty B2B</h3>
+          <p>LabTech, Wearparts, Morehouse-style. Search + paid can work when offer is sharp.</p>
+        </div>
+      </div>
+      <div class="card" style="margin-top:1rem">
+        <h3>Rules</h3>
+        <ul>
+          <li>If we only double down on <strong>two</strong> types in 2027, name them in the room.</li>
+          <li>Set a <strong>minimum monthly package</strong> so tiny unprofitable work stops filling the book.</li>
+          <li>CalOps concentration is a strength and a risk — plan backup growth.</li>
+        </ul>
+      </div>
+      <div class="footer-bar"><span>BRANDASTIC</span><span class="num">07 / 10</span></div>
+    </div>
+  </section>
+
+  <!-- 8 90 DAY -->
+  <section class="slide">
+    <div class="slide-inner">
+      <div class="kicker">Next 90 days</div>
+      <h2 class="h2">Q1 focus (only three big rocks)</h2>
+      <table class="table">
+        <tr><th>#</th><th>Rock</th><th>Owner</th><th>30-day first step</th><th>Success number</th></tr>
+        <tr><td><strong>1</strong></td><td>Search + proof machine (pages + case studies for 2 client types)</td><td></td><td></td><td></td></tr>
+        <tr><td><strong>2</strong></td><td>Referral system (ask cadence + partner list)</td><td></td><td></td><td></td></tr>
+        <tr><td><strong>3</strong></td><td>Sales follow-up OS (speed, pipeline review, who owns what)</td><td></td><td></td><td></td></tr>
+      </table>
+      <div class="grid2" style="margin-top:1rem">
+        <div class="card">
+          <h3>Weekly numbers</h3>
+          <ul>
+            <li>New conversations</li>
+            <li>Proposals out</li>
+            <li>Won / lost</li>
+            <li>Recurring cash vs $160K goal</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Do not</h3>
+          <ul>
+            <li>Launch three new offers at once</li>
+            <li>Spend big on ads before follow-up is tight</li>
+            <li>Confuse hosting retainers with marketing growth</li>
+            <li>Use vanity client counts without average package</li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bar"><span>BRANDASTIC</span><span class="num">08 / 10</span></div>
+    </div>
+  </section>
+
+  <!-- 9 TEAM -->
+  <section class="slide">
+    <div class="slide-inner">
+      <div class="kicker">Team</div>
+      <h2 class="h2">How we run it</h2>
+      <div class="grid2" style="margin-top:.85rem">
+        <div class="card">
+          <h3>Justin owns</h3>
+          <ul>
+            <li>Final offers and pricing floor</li>
+            <li>Big relationships</li>
+            <li>What we will not do</li>
+            <li>Cash floor</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Team owns</h3>
+          <ul>
+            <li>Delivery quality and hours truth</li>
+            <li>Search / content execution</li>
+            <li>Referral asks on accounts</li>
+            <li>Weekly pipeline hygiene</li>
+          </ul>
+        </div>
+      </div>
+      <div class="card" style="margin-top:1rem">
+        <h3>Meeting rhythm</h3>
+        <p><strong>Weekly:</strong> pipeline + delivery risks (short). <strong>Monthly:</strong> money + recurring total + wins/losses. <strong>Quarterly:</strong> keep / kill / double-down on engines.</p>
+      </div>
+      <p class="note">Full 30–45 min brainstorm one-pager lives on the 2027 planning pack page.</p>
+      <div class="footer-bar"><span>BRANDASTIC</span><span class="num">09 / 10</span></div>
+    </div>
+  </section>
+
+  <!-- 10 CLOSE -->
+  <section class="slide">
+    <div class="slide-inner">
+      <div class="kicker">Lock</div>
+      <h2 class="h2">One-page close</h2>
+      <p class="big">Brandastic grows in 2027 by <strong>getting and keeping the right clients</strong> through <strong>search and referrals</strong>, raising package quality, and only then spending on ads — after sales and delivery can handle the wins.</p>
+      <div class="grid3" style="margin-top:1.2rem">
+        <div class="card"><div class="stat" style="font-size:1.35rem">$2.12M → $2.5M+</div><div class="stat-lbl">Pace to goal</div></div>
+        <div class="card"><div class="stat" style="font-size:1.35rem">Search + referrals</div><div class="stat-lbl">Main engines</div></div>
+        <div class="card"><div class="stat" style="font-size:1.35rem">3 rocks / 90 days</div><div class="stat-lbl">No more than three</div></div>
+      </div>
+      <div class="card" style="margin-top:1rem">
+        <h3>Links</h3>
+        <p>
+          <a href="/gameplan_marketing/planning-2027.html">2027 planning pack</a> ·
+          <a href="/gameplan_marketing/strategic-plan.html">Strategic plan</a> ·
+          <a href="/gameplan_marketing/goals-vision.html">Goals & vision</a> ·
+          <a href="https://docs.google.com/spreadsheets/d/1h-O3MynKwL9MhxO2Ytly5gtHd_udyqNJ6n4_OfXLCgY/edit?gid=0#gid=0" target="_blank" rel="noopener">Scorecard</a>
+        </p>
+      </div>
+      <div class="footer-bar"><span>BRANDASTIC · FOCUSED. GROWTH.</span><span class="num">10 / 10</span></div>
+    </div>
+  </section>
+
+</div>
+</body>
+</html>
