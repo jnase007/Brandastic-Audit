@@ -10,77 +10,199 @@
 :root, html[data-theme="light"]{
   --bg:#f4f7fa; --slide:#ffffff; --ink:#15202b; --muted:#5b6b7c; --line:rgba(21,32,43,.12);
   --teal:#0f8f97; --accent:#1f8fc9; --purple:#7c3aed; --green:#059669; --card:#f7fafc;
-  --msgbg:#f3f7fa; --th:#eef3f7; --toolbg:rgba(244,247,250,.94);
+  --msgbg:#f3f7fa; --th:#eef3f7; --toolbg:rgba(244,247,250,.94); --hero-bg:#0d1b2a;
 }
 html[data-theme="dark"]{
   --bg:#0b1220; --slide:#121a2b; --ink:#e8eef7; --muted:#9aa8bc; --line:rgba(232,238,247,.12);
   --teal:#2dd4bf; --accent:#38bdf8; --purple:#a78bfa; --green:#34d399; --card:#182234;
-  --msgbg:#1a2436; --th:#1c2740; --toolbg:rgba(11,18,32,.94);
+  --msgbg:#1a2436; --th:#1c2740; --toolbg:rgba(11,18,32,.94); --hero-bg:#0d1b2a;
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html,body{background:var(--bg);color:var(--ink);font-family:Inter,system-ui,sans-serif}
-.deck{max-width:1120px;margin:0 auto;padding:1rem 1rem 3rem}
+.deck{max-width:1120px;margin:0 auto;padding:1rem 1rem 4.5rem}
 .toolbar{display:flex;gap:.5rem;flex-wrap:wrap;align-items:center;margin-bottom:1rem;position:sticky;top:.4rem;z-index:40;background:var(--toolbg);backdrop-filter:blur(12px);padding:.45rem 0}
-.btn{border:0;cursor:pointer;border-radius:999px;font-weight:800;font-size:.82rem;padding:.62rem 1rem;text-decoration:none;display:inline-flex;align-items:center;font-family:inherit;line-height:1}
-.btn-p{background:linear-gradient(135deg,var(--accent),var(--purple));color:#fff}
-.btn-g{background:var(--slide);border:1.5px solid var(--line);color:var(--ink)}
-.btn:hover{filter:brightness(1.05)}
-.hint{color:var(--muted);font-size:.72rem}
-.slide{background:var(--slide);border:1px solid var(--line);border-radius:18px;padding:1.7rem 1.85rem 1.35rem;margin:0 0 .95rem;min-height:560px;position:relative;overflow:hidden;box-shadow:0 12px 36px rgba(0,0,0,.08)}
-.slide::before{content:"";position:absolute;right:-110px;top:-110px;width:360px;height:360px;border-radius:50%;background:radial-gradient(circle,rgba(31,143,201,.12),transparent 70%);pointer-events:none}
-html[data-theme="dark"] .slide::before{background:radial-gradient(circle,rgba(56,189,248,.12),transparent 70%)}
-.inner{position:relative;z-index:1;display:flex;flex-direction:column;min-height:500px}
-.kicker{font-size:.7rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--teal);margin-bottom:.75rem}
-.h1{font-size:clamp(1.8rem,3.6vw,2.8rem);font-weight:800;letter-spacing:-.03em;line-height:1.08;margin-bottom:.55rem}
-.h2{font-size:clamp(1.3rem,2.5vw,1.9rem);font-weight:800;letter-spacing:-.02em;margin-bottom:.75rem}
-.lede{font-size:1rem;color:var(--muted);max-width:44rem;line-height:1.55}
-.foot{margin-top:auto;padding-top:.95rem;display:flex;justify-content:space-between;font-size:.68rem;color:var(--muted);border-top:1px solid var(--line);opacity:.85}
-.grid2{display:grid;grid-template-columns:1fr 1fr;gap:.9rem}
-.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:.8rem}
-@media(max-width:820px){.grid2,.grid3{grid-template-columns:1fr}}
-.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:.95rem 1rem}
-.card h3{font-size:.95rem;font-weight:800;margin-bottom:.35rem}
-.card p,.card li{font-size:.86rem;color:var(--muted);line-height:1.5}
-.card ul{padding-left:1.05rem;margin:.2rem 0}
-.card li{margin:.18rem 0}
-.card strong{color:var(--ink)}
-.stat{font-size:clamp(1.35rem,2.8vw,2rem);font-weight:800;letter-spacing:-.03em}
-.stat-lbl{font-size:.76rem;color:var(--muted);margin-top:.25rem;line-height:1.35}
-.pill{display:inline-block;font-size:.66rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--teal);background:rgba(15,143,151,.12);border:1px solid rgba(15,143,151,.28);padding:.22rem .45rem;border-radius:999px;margin:0 .2rem .25rem 0}
-.table{width:100%;border-collapse:collapse;font-size:.8rem;margin-top:.35rem}
-.table th,.table td{border:1px solid var(--line);padding:.42rem .48rem;text-align:left;vertical-align:top}
-.table th{background:var(--th);color:var(--ink);font-weight:800;font-size:.68rem;letter-spacing:.05em;text-transform:uppercase}
-.table td{color:var(--muted)}
-.table td strong{color:var(--ink)}
-.quote{border-left:3px solid var(--teal);padding-left:.9rem;margin:.85rem 0;font-size:1.02rem;font-weight:700;line-height:1.45;max-width:46rem}
-.msg{background:var(--msgbg);border:1px solid var(--line);border-radius:12px;padding:.9rem 1rem;margin:.4rem 0;font-size:.82rem;line-height:1.5;color:var(--muted);white-space:pre-wrap}
-.msg .lbl{font-size:.62rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--teal);margin-bottom:.3rem}
-.msg .subj{color:var(--ink);font-weight:700;margin-bottom:.3rem}
-.flow{display:flex;flex-wrap:wrap;gap:.35rem;align-items:center;margin:.7rem 0}
-.flow .step{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:.5rem .7rem;font-weight:800;font-size:.8rem}
-.flow .arrow{color:var(--teal);font-weight:900}
-.toc{margin-top:1rem;display:grid;gap:.42rem;font-size:.95rem;font-weight:700}
+.btn{border:0;cursor:pointer;border-radius:999px;font-weight:800;font-size:.82rem;padding:.62rem 1rem;text-decoration:none;display:inline-flex;align-items:center;font-family:inherit;color:var(--ink);background:var(--card);border:1px solid var(--line)}
+.btn-p{background:linear-gradient(135deg,var(--teal),var(--accent));color:#fff;border:0}
+.btn-g{background:var(--slide);color:var(--ink)}
+.hint{font-size:.75rem;color:var(--muted);font-weight:600;margin-left:.25rem}
+
+section.slide{margin:0 0 1.15rem;background:transparent}
+.slide-inner,.inner{
+  background:var(--slide);border:1px solid var(--line);border-radius:18px;
+  padding:1.55rem 1.65rem 1.2rem;min-height:520px;position:relative;overflow:hidden;
+  box-shadow:0 8px 28px rgba(15,30,50,.06);display:flex;flex-direction:column
+}
+.kicker{font-size:.72rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--teal);margin-bottom:.45rem}
+.h1{font-size:clamp(1.85rem,3.6vw,2.65rem);font-weight:800;letter-spacing:-.03em;line-height:1.08;margin:0 0 .55rem}
+.h2{font-size:clamp(1.45rem,2.6vw,2rem);font-weight:800;letter-spacing:-.02em;line-height:1.15;margin:0 0 .45rem}
+.lede{color:var(--muted);font-size:1.02rem;line-height:1.45;max-width:42rem;margin:0 0 .9rem}
+h3{font-size:.95rem;font-weight:800;margin:0 0 .35rem}
+p{font-size:.9rem;line-height:1.45;color:var(--ink)}
+ul{margin:.2rem 0 0 1.1rem;font-size:.88rem;line-height:1.45;color:var(--ink)}
+li{margin:.2rem 0}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:.9rem 1rem}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:.85rem;margin-top:.7rem}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:.75rem}
+.stat{font-size:1.55rem;font-weight:800;color:var(--teal);letter-spacing:-.02em}
+.stat-lbl{font-size:.74rem;color:var(--muted);margin-top:.2rem;line-height:1.3}
+.quote{margin:.85rem 0;padding:.85rem 1rem;border-left:4px solid var(--teal);background:var(--msgbg);border-radius:0 12px 12px 0;font-size:.92rem}
+.note{margin-top:.75rem;font-size:.8rem;color:var(--muted)}
+.pill{display:inline-block;font-size:.68rem;font-weight:800;padding:.2rem .55rem;border-radius:999px;background:rgba(15,143,151,.12);color:var(--teal);margin-bottom:.35rem}
+.table{width:100%;border-collapse:collapse;font-size:.8rem;margin-top:.55rem}
+.table th{text-align:left;background:var(--th);padding:.55rem .55rem;font-weight:800;border-bottom:1px solid var(--line)}
+.table td{padding:.55rem;border-bottom:1px solid var(--line);vertical-align:top;color:var(--ink)}
+.flow{display:flex;flex-wrap:wrap;gap:.4rem;align-items:center;margin-top:.5rem}
+.step{background:var(--card);border:1px solid var(--line);border-radius:999px;padding:.45rem .75rem;font-size:.78rem;font-weight:700}
+.arrow{color:var(--muted);font-weight:700}
+.msg{background:var(--msgbg);border:1px solid var(--line);border-radius:12px;padding:.85rem 1rem;font-size:.84rem;white-space:pre-wrap;line-height:1.4;margin:.55rem 0}
+.msg .lbl{font-size:.68rem;font-weight:800;color:var(--teal);text-transform:uppercase;letter-spacing:.04em;margin-bottom:.25rem;display:block}
+.msg .subj{font-weight:700;margin-bottom:.35rem;display:block}
+.foot,.footer-bar{margin-top:auto;padding-top:1rem;display:flex;justify-content:space-between;font-size:.7rem;font-weight:700;color:var(--muted);letter-spacing:.04em}
+.toc{display:grid;grid-template-columns:1fr 1fr;gap:.35rem .9rem;margin:1rem 0 .5rem;font-size:.88rem;font-weight:600}
 .toc span{color:var(--muted);font-weight:500}
-.note{font-size:.78rem;color:var(--muted);margin-top:.55rem;line-height:1.4}
-.big{font-size:1.02rem;font-weight:600;line-height:1.55;max-width:46rem}
+
+/* Title + close hero (Comply-style) */
+.slide-inner.title-slide, .slide-inner.close-slide{
+  background:var(--hero-bg)!important;color:#e8eef5!important;border:0!important;
+  min-height:560px;padding:2.2rem 2.2rem;padding-right:min(52%, 32rem);
+}
+.site-hero-stack{
+  position:absolute;top:0;right:0;bottom:0;width:min(50%,34rem);
+  z-index:0;overflow:hidden;background:var(--hero-bg)
+}
+.site-hero-stack img{
+  position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 30%
+}
+.site-hero-fade{
+  position:absolute;top:0;bottom:0;right:min(44%,28rem);width:6.5rem;z-index:1;pointer-events:none;
+  background:linear-gradient(90deg, var(--hero-bg) 0%, rgba(13,27,42,0) 100%)
+}
+.title-main,.title-brand,.title-tagline,.kicker,.h1,.lede,.footer-bar{position:relative;z-index:2}
+.title-slide .h1, .close-slide .h1{color:#fff;max-width:14ch;margin:0 0 .6rem;font-size:clamp(2rem,4vw,2.9rem)}
+.title-slide .lede, .close-slide .lede{color:rgba(232,238,245,.88);max-width:28rem}
+.title-slide .kicker, .close-slide .kicker{color:#5CFFB0}
+.title-brand{margin-top:1.6rem}
+.title-brand img{height:28px;width:auto;display:block;filter:brightness(0) invert(1);opacity:.95}
+.title-tagline{margin-top:.55rem;font-size:.88rem;color:rgba(232,238,245,.78);max-width:26rem}
+.title-tagline span{color:#5CFFB0;font-weight:700}
+.title-slide .footer-bar, .close-slide .footer-bar{color:rgba(232,238,245,.55);border:0}
+.close-checks{margin:1rem 0 0;padding:0;list-style:none;position:relative;z-index:2}
+.close-checks li{
+  color:rgba(232,238,245,.9);font-size:.95rem;font-weight:600;margin:.45rem 0;
+  padding-left:1.35rem;position:relative
+}
+.close-checks li:before{content:"✓";position:absolute;left:0;color:#5CFFB0;font-weight:800}
+
+/* Dark divider */
+.slide-inner.section-dark{
+  background:linear-gradient(145deg,#0d1b2a,#152238);color:#e8eef5;border:0;min-height:420px;
+  justify-content:center
+}
+.section-dark .phase{font-size:.8rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:#5CFFB0;margin-bottom:.6rem}
+.section-dark .h1{color:#fff;max-width:18ch}
+.section-dark .lede{color:rgba(232,238,245,.8)}
+.section-dark .footer-bar{color:rgba(232,238,245,.45)}
+
+/* 90-day phase cards */
+.phases{display:grid;grid-template-columns:repeat(3,1fr);gap:.75rem;margin-top:.85rem}
+.phase-card{border-radius:16px;padding:1rem .95rem;color:#fff;min-height:280px}
+.phase-card.p1{background:linear-gradient(165deg,#3b5bdb,#4c6ef5)}
+.phase-card.p2{background:linear-gradient(165deg,#1c7ed6,#339af0)}
+.phase-card.p3{background:linear-gradient(165deg,#74b816,#94d82d);color:#143200}
+.phase-card h3{
+  text-align:center;font-size:.82rem;background:rgba(255,255,255,.22);border-radius:999px;
+  padding:.4rem .6rem;margin:0 0 .75rem;font-weight:800
+}
+.phase-card.p3 h3{background:rgba(255,255,255,.35);color:#143200}
+.phase-card ol{margin:0;padding:0;list-style:none}
+.phase-card li{display:grid;grid-template-columns:1.4rem 1fr;gap:.4rem;margin:.55rem 0;font-size:.78rem;line-height:1.35}
+.phase-card .n{
+  width:1.25rem;height:1.25rem;border-radius:50%;background:rgba(255,255,255,.25);
+  display:flex;align-items:center;justify-content:center;font-size:.68rem;font-weight:800
+}
+.phase-card .t{font-weight:800;font-size:.72rem;letter-spacing:.03em}
+.phase-card .d{opacity:.92;font-weight:500}
+
+/* Roadmap bars */
+.roadmap{margin-top:1rem}
+.rm-row{display:grid;grid-template-columns:140px 1fr;gap:.65rem;align-items:center;margin:.45rem 0}
+.rm-label{font-size:.78rem;font-weight:700;color:var(--ink)}
+.rm-track{height:28px;background:var(--th);border-radius:999px;position:relative;overflow:hidden}
+.rm-bar{position:absolute;top:3px;bottom:3px;border-radius:999px;font-size:.65rem;font-weight:700;color:#fff;display:flex;align-items:center;padding:0 .55rem;white-space:nowrap}
+.rm-months{display:grid;grid-template-columns:repeat(12,1fr);gap:0;margin:.2rem 0 .5rem 140px;font-size:.62rem;color:var(--muted);font-weight:700;text-align:center}
+.rm-legend{display:flex;flex-wrap:wrap;gap:.65rem;margin-top:.7rem;font-size:.72rem;font-weight:700;color:var(--muted)}
+.rm-legend i{display:inline-block;width:.7rem;height:.7rem;border-radius:50%;margin-right:.25rem}
+
+/* Measure */
+.measure{display:grid;grid-template-columns:220px 1fr;gap:1rem;margin-top:.8rem}
+.measure-side{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:1rem}
+.m-row{display:grid;grid-template-columns:140px 1fr 1fr;gap:.5rem;align-items:start;padding:.55rem 0;border-bottom:1px solid var(--line);font-size:.8rem}
+.m-row:last-child{border:0}
+.m-tag{display:inline-block;border-radius:999px;padding:.35rem .7rem;font-weight:800;font-size:.72rem;color:#fff;text-align:center}
+.m-tag.a{background:#0f8f97}.m-tag.b{background:#1f8fc9}.m-tag.c{background:#74b816}.m-tag.d{background:#c5d4e3;color:#15202b}.m-tag.e{background:transparent;border:1.5px solid var(--accent);color:var(--accent)}
+
+@media (max-width:900px){
+  .grid2,.grid3,.phases,.measure,.rm-row{grid-template-columns:1fr}
+  .rm-months{margin-left:0}
+  .slide-inner.title-slide,.slide-inner.close-slide{padding-right:1.5rem;min-height:480px}
+  .site-hero-stack{width:100%;height:42%;top:auto;opacity:.35}
+  .site-hero-fade{display:none}
+}
+
+/* Present mode */
+.deck-present-btn{
+  position:fixed;right:18px;bottom:18px;z-index:99999;appearance:none;border:0;cursor:pointer;
+  font-family:Inter,system-ui,sans-serif;font-weight:800;font-size:.82rem;color:#fff;
+  background:linear-gradient(135deg,#0f8f97,#0d1b2a);padding:.72rem 1rem;border-radius:999px;
+  box-shadow:0 10px 28px rgba(13,27,42,.28)
+}
+.deck-exit-btn,.deck-exit-hint,.deck-nav,.deck-counter{display:none!important}
+body.deck-mode{background:#0b1220!important;overflow:hidden!important;height:100vh!important;width:100vw!important}
+body.deck-mode .deck{margin:0!important;padding:0!important;max-width:none!important;width:100%!important}
+body.deck-mode .toolbar,body.deck-mode .deck-present-btn{
+  display:none!important;visibility:hidden!important;pointer-events:none!important;height:0!important;opacity:0!important
+}
+body.deck-mode .deck-exit-btn{
+  display:inline-flex!important;align-items:center;position:fixed;top:14px;left:14px;z-index:100002;
+  appearance:none;border:0;cursor:pointer;font-family:Inter,system-ui,sans-serif;font-weight:800;font-size:.8rem;
+  color:#fff;background:#dc2626;padding:.55rem .95rem;border-radius:999px;box-shadow:0 8px 22px rgba(0,0,0,.35)
+}
+body.deck-mode .deck-exit-hint{
+  display:block!important;position:fixed;left:50%;bottom:12px;transform:translateX(-50%);z-index:100001;
+  color:rgba(255,255,255,.85);font-size:.7rem;font-weight:600;background:rgba(0,0,0,.55);padding:.35rem .75rem;border-radius:999px;pointer-events:none
+}
+body.deck-mode .deck-counter{
+  display:block!important;position:fixed;top:16px;right:14px;z-index:100001;color:#fff;font-size:.72rem;font-weight:700;
+  background:rgba(0,0,0,.5);padding:.3rem .55rem;border-radius:8px;pointer-events:none
+}
+body.deck-mode .deck-nav{display:block!important;position:fixed;inset:0;z-index:100000;pointer-events:none}
+body.deck-mode .deck-nav button{
+  pointer-events:auto;position:absolute;top:50%;transform:translateY(-50%);width:44px;height:64px;border:0;border-radius:12px;
+  background:rgba(255,255,255,.16);color:#fff;font-size:1.5rem;cursor:pointer
+}
+body.deck-mode .deck-nav .deck-prev{left:8px}
+body.deck-mode .deck-nav .deck-next{right:8px}
+body.deck-mode section.slide{
+  display:none!important;position:fixed!important;inset:0!important;width:100vw!important;height:100vh!important;
+  max-width:none!important;margin:0!important;border:0!important;border-radius:0!important;box-shadow:none!important;
+  overflow:hidden!important;background:transparent!important;z-index:1!important
+}
+body.deck-mode section.slide.deck-active{
+  display:flex!important;align-items:center!important;justify-content:center!important;z-index:2!important
+}
+body.deck-mode .slide.deck-active .slide-inner{
+  width:min(1280px,96vw)!important;height:min(720px,calc(100vh - 40px))!important;
+  max-height:calc(100vh - 40px)!important;min-height:0!important;margin:0 auto!important;border-radius:14px!important;
+  box-shadow:0 18px 50px rgba(0,0,0,.4)!important;overflow:auto!important
+}
+
 @media print{
-  .toolbar{display:none!important}
-  .slide{box-shadow:none;break-after:page;min-height:0}
+  .toolbar,.deck-present-btn,.deck-exit-btn,.deck-exit-hint,.deck-nav,.deck-counter{display:none!important}
   body{background:#fff}
+  section.slide{break-after:page;margin:0}
+  .slide-inner{box-shadow:none;border:1px solid #ddd;min-height:0}
 }
 </style>
-<script>
-(function(){
-  try{
-    var t=localStorage.getItem("ba2027_theme")||"light";
-    document.documentElement.setAttribute("data-theme", t==="dark"?"dark":"light");
-  }catch(e){}
-  window.baSetTheme=function(mode){
-    document.documentElement.setAttribute("data-theme", mode);
-    try{localStorage.setItem("ba2027_theme", mode);}catch(e){}
-  };
-})();
-</script>
 </head>
 <body>
 <div class="deck">
@@ -88,6 +210,7 @@ html[data-theme="dark"] .slide::before{background:radial-gradient(circle,rgba(56
     <button class="btn btn-p" type="button" onclick="window.print()">Print / Save PDF</button>
     <button class="btn btn-g" type="button" onclick="baSetTheme('light')">Light slides</button>
     <button class="btn btn-g" type="button" onclick="baSetTheme('dark')">Dark slides</button>
+    <button class="btn btn-p" type="button" id="toolbarPresent" onclick="document.getElementById('deckPresentBtn').click()">▸ Present</button>
     <a class="btn btn-g" href="/gameplan_marketing/planning-2027.html">2027 planning pack</a>
     <a class="btn btn-g" href="/gameplan_marketing/strategic-plan.html">Strategic plan</a>
     <a class="btn btn-g" href="/comply">Comply deck</a>
@@ -95,183 +218,203 @@ html[data-theme="dark"] .slide::before{background:radial-gradient(circle,rgba(56
   </div>
 
   <!-- 01 TITLE -->
-  <section class="slide"><div class="inner">
-    <div class="kicker">Brandastic · 2027 working strategy</div>
-    <h1 class="h1">How we win more of the right clients</h1>
-    <p class="lede">A full team deck — competitor view, who we sell, go-to-market, channel messages, email + social examples. Built from the masterclass strategic plan and what we already do. Plain English. Mark it up. Make it better.</p>
-    <div class="toc">
-      <div>01 Title</div>
-      <div>02 Where we are <span>· real 2026 numbers</span></div>
-      <div>03 Competitor analysis</div>
-      <div>04 Ideal target market</div>
-      <div>05 Go-to-market strategy</div>
-      <div>06 Sequence (do not shuffle)</div>
-      <div>07 Channel system</div>
-      <div>08 Email examples</div>
-      <div>09 Social examples</div>
-      <div>10 90-day plan + owners</div>
+  <section class="slide" id="title">
+    <div class="slide-inner title-slide">
+      <div class="site-hero-stack" aria-hidden="true">
+        <img src="../images/office.jpg" alt="" class="site-hero-main" />
+      </div>
+      <div class="site-hero-fade" aria-hidden="true"></div>
+      <div class="title-main">
+        <div class="kicker">Brandastic team · 2027 working strategy</div>
+        <div class="h1">How we win more of the right clients</div>
+        <p class="lede">Who we sell to, how we sell, what we say. Built from the masterclass plan and what already works. Plain English. Mark it up. Make it better.</p>
+      </div>
+      <div class="title-brand">
+        <img src="../assets/brandastic-logo-white.png" alt="Brandastic" />
+        <div class="title-tagline">Focused growth for Orange County and beyond · <span>Search. Referrals. Proof.</span></div>
+      </div>
+      <div class="footer-bar"><span>BRANDASTIC</span><span>brandastic.com</span></div>
     </div>
-    <div class="foot"><span>BRANDASTIC 2027</span><span>01</span></div>
-  </div></section>
+  </section>
 
-  <!-- 02 WHERE WE ARE -->
-  <section class="slide"><div class="inner">
-    <div class="kicker">Reality check</div>
-    <h2 class="h2">Where Brandastic is now</h2>
-    <div class="grid3" style="margin-top:.9rem">
-      <div class="card"><div class="stat">$1.67M</div><div class="stat-lbl">2025 full-year sales</div></div>
-      <div class="card"><div class="stat">~$2.12M</div><div class="stat-lbl">2026 pace (Jan–Sep annualized)</div></div>
-      <div class="card"><div class="stat">$2.5M</div><div class="stat-lbl">2026 goal</div></div>
-      <div class="card"><div class="stat">~$120K</div><div class="stat-lbl">Monthly recurring packages (Aug)</div></div>
-      <div class="card"><div class="stat">93 / 15</div><div class="stat-lbl">Leads / contracts YTD</div></div>
-      <div class="card"><div class="stat">~$5.5–7K</div><div class="stat-lbl">Rough avg monthly package</div></div>
+  <!-- 02 DIVIDER -->
+  <section class="slide" id="section-reality">
+    <div class="slide-inner section-dark">
+      <div class="phase">01 · Reality</div>
+      <div class="h1">Where we are — and what must change</div>
+      <p class="lede">Real 2026 numbers first. Then the plan.</p>
+      <div class="footer-bar"><span>BRANDASTIC 2027</span><span>02</span></div>
     </div>
-    <p class="quote">Most new clients come from <strong>search (Google)</strong> and <strong>referrals</strong> — not from running big ads for Brandastic itself.</p>
-    <div class="grid2">
-      <div class="card"><h3>Already working</h3><ul>
-        <li>Search + referral engine</li>
-        <li>Deep delivery (paid, search, content, web)</li>
-        <li>Flagship proof (CalOps-scale work)</li>
-        <li>Masterclass system + AI drafting help</li>
-      </ul></div>
-      <div class="card"><h3>Must fix</h3><ul>
-        <li>Who we sell to still too wide</li>
-        <li>Win/loss tracking incomplete</li>
-        <li>Sales follow-up not always tight</li>
-        <li>Average package size uneven</li>
-      </ul></div>
-    </div>
-    <div class="foot"><span>BRANDASTIC 2027</span><span>02</span></div>
-  </div></section>
+  </section>
 
-  <!-- 03 COMPETITORS -->
-  <section class="slide"><div class="inner">
-    <div class="kicker">Competitor analysis</div>
-    <h2 class="h2">Who we bump into (and how we win)</h2>
-    <p class="lede">Not a full market map — a working view for the team. Update names as you hear them on calls.</p>
-    <table class="table">
-      <tr><th>Type</th><th>Examples</th><th>What they sell</th><th>Our edge</th><th>Our risk</th></tr>
-      <tr><td><strong>Big national agencies</strong></td><td>Large multi-office shops</td><td>Breadth, brand, process theater</td><td>Speed, owner access, care, OC roots</td><td>They look “safer” to big RFPs</td></tr>
-      <tr><td><strong>Boutique specialists</strong></td><td>SEO-only, PPC-only, dental-only</td><td>Deep niche skill</td><td>Full stack under one roof</td><td>They can out-specialize one channel</td></tr>
-      <tr><td><strong>Freelance / cheap shops</strong></td><td>Solo + offshore stacks</td><td>Low price</td><td>Strategy + accountability + team</td><td>Price pressure on small packages</td></tr>
-      <tr><td><strong>In-house teams</strong></td><td>Client hires their own marketer</td><td>Control, salary cost</td><td>Bench depth, multi-channel, no single point of failure</td><td>“We’ll just hire someone”</td></tr>
-      <tr><td><strong>Platform / DIY tools</strong></td><td>Agencies-in-a-box, AI tools</td><td>Software, templates</td><td>Judgment, creative, media skill, relationships</td><td>Prospects think software replaces us</td></tr>
-      <tr><td><strong>Directive-class B2B machines</strong></td><td>High-end B2B demand gen</td><td>Tight ICP + content + paid</td><td>We can copy structure at our size</td><td>We cannot copy their ad spend</td></tr>
-    </table>
-    <p class="note">Team task: add 5 real competitors you lost to or beat in 2026. Write the real reason in one sentence each.</p>
-    <div class="foot"><span>BRANDASTIC 2027</span><span>03</span></div>
-  </div></section>
-
-  <!-- 04 TARGET MARKET -->
-  <section class="slide"><div class="inner">
-    <div class="kicker">Ideal target market</div>
-    <h2 class="h2">Who we want more of</h2>
-    <div class="grid3" style="margin-top:.7rem">
-      <div class="card"><span class="pill">Priority</span><h3>Dental / medical / surgical</h3><p>Pattern already live (JB White, Paragon, Dental Smart, Young Surgical). Clear offers. Good monthly packages.</p></div>
-      <div class="card"><span class="pill">Priority</span><h3>Education (CalOps peers)</h3><p>Flagship proof. Schools/charters that need serious digital, not hobby social.</p></div>
-      <div class="card"><span class="pill">Priority</span><h3>Industrial / specialty B2B</h3><p>LabTech, Wearparts, Morehouse-style. Search + paid when the offer is sharp.</p></div>
+  <!-- 03 WHERE WE ARE -->
+  <section class="slide" id="where">
+    <div class="slide-inner">
+      <div class="kicker">01 · Reality check</div>
+      <h2 class="h2">Where Brandastic is now</h2>
+      <div class="grid3" style="margin-top:.9rem">
+        <div class="card"><div class="stat">$1.67M</div><div class="stat-lbl">2025 full-year sales</div></div>
+        <div class="card"><div class="stat">~$2.12M</div><div class="stat-lbl">2026 pace (Jan–Sep annualized)</div></div>
+        <div class="card"><div class="stat">$2.5M</div><div class="stat-lbl">2026 goal sheet target</div></div>
+        <div class="card"><div class="stat">~$120K</div><div class="stat-lbl">Monthly recurring packages</div></div>
+        <div class="card"><div class="stat">93 / 15</div><div class="stat-lbl">Leads / contracts YTD</div></div>
+        <div class="card"><div class="stat">~$5.5–7K</div><div class="stat-lbl">Rough avg monthly package</div></div>
+      </div>
+      <p class="quote">Most new clients come from <strong>search (Google)</strong> and <strong>referrals</strong> — not from running big ads for Brandastic itself.</p>
+      <div class="grid2">
+        <div class="card"><h3>Already working</h3><ul>
+          <li>Search + referral engine</li>
+          <li>Deep delivery (paid, search, content, web)</li>
+          <li>Flagship proof (CalOps-scale work)</li>
+          <li>Masterclass system + AI drafting help</li>
+        </ul></div>
+        <div class="card"><h3>Must fix</h3><ul>
+          <li>Who we sell to still too wide</li>
+          <li>Win/loss tracking incomplete</li>
+          <li>Sales follow-up not always tight</li>
+          <li>Average package size uneven</li>
+        </ul></div>
+      </div>
+      <div class="footer-bar"><span>BRANDASTIC 2027</span><span>03</span></div>
     </div>
-    <div class="grid2" style="margin-top:.85rem">
-      <div class="card">
-        <h3>Buyer we sell to</h3>
-        <ul>
+  </section>
+
+  <!-- 04 COMPETITORS -->
+  <section class="slide" id="competitors">
+    <div class="slide-inner">
+      <div class="kicker">02 · Competitor analysis</div>
+      <h2 class="h2">Who we bump into (and how we win)</h2>
+      <p class="lede">Working view for the team. Update names as you hear them on calls.</p>
+      <table class="table">
+        <tr><th>Type</th><th>Examples</th><th>What they sell</th><th>Our edge</th><th>Our risk</th></tr>
+        <tr><td><strong>Big national agencies</strong></td><td>Large multi-office shops</td><td>Breadth, brand, process theater</td><td>Speed, owner access, care, OC roots</td><td>They look “safer” on big RFPs</td></tr>
+        <tr><td><strong>Boutique specialists</strong></td><td>SEO-only, PPC-only, dental-only</td><td>Deep niche skill</td><td>Full stack under one roof</td><td>They can out-specialize one channel</td></tr>
+        <tr><td><strong>Freelance / cheap shops</strong></td><td>Solo + offshore stacks</td><td>Low price</td><td>Strategy + accountability + team</td><td>Price pressure on small packages</td></tr>
+        <tr><td><strong>In-house teams</strong></td><td>Client hires their own marketer</td><td>Control, salary cost</td><td>Bench depth, multi-channel</td><td>“We’ll just hire someone”</td></tr>
+        <tr><td><strong>Platform / DIY tools</strong></td><td>Agencies-in-a-box, AI tools</td><td>Software, templates</td><td>Judgment, creative, media skill</td><td>Prospects think software replaces us</td></tr>
+        <tr><td><strong>Directive-class B2B</strong></td><td>High-end B2B demand gen</td><td>Tight ICP + content + paid</td><td>We can copy structure at our size</td><td>We cannot copy their ad spend</td></tr>
+      </table>
+      <p class="note">Team task: add 5 real competitors you lost to or beat in 2026. One honest sentence each.</p>
+      <div class="footer-bar"><span>BRANDASTIC 2027</span><span>04</span></div>
+    </div>
+  </section>
+
+  <!-- 05 TARGET -->
+  <section class="slide" id="target">
+    <div class="slide-inner">
+      <div class="kicker">03 · Ideal target market</div>
+      <h2 class="h2">Who we want more of</h2>
+      <div class="grid3" style="margin-top:.7rem">
+        <div class="card"><span class="pill">Priority</span><h3>Dental / medical / surgical</h3><p>Pattern already live (JB White, Paragon, Dental Smart, Young Surgical). Clear offers. Good monthly packages.</p></div>
+        <div class="card"><span class="pill">Priority</span><h3>Education (CalOps peers)</h3><p>Flagship proof. Schools and charters that need serious digital, not hobby social.</p></div>
+        <div class="card"><span class="pill">Priority</span><h3>Industrial / specialty B2B</h3><p>LabTech, Wearparts, Morehouse-style. Search + paid when the offer is sharp.</p></div>
+      </div>
+      <div class="grid2">
+        <div class="card"><h3>Buyer we sell to</h3><ul>
           <li>Owner / founder who acts as marketing lead</li>
           <li>VP / Director of Marketing</li>
-          <li>Operator who cares about leads and revenue, not vanity posts</li>
-        </ul>
-      </div>
-      <div class="card">
-        <h3>Who we should not chase</h3>
-        <ul>
-          <li>Tiny budgets that cannot support a real monthly package</li>
+          <li>Operator who cares about leads and revenue</li>
+        </ul></div>
+        <div class="card"><h3>Who we should not chase</h3><ul>
+          <li>Tiny budgets that cannot support a real package</li>
           <li>“Just post for us” with no strategy</li>
-          <li>RFPs we cannot honestly win (scatter offers)</li>
-          <li>Anyone who only wants the cheapest pair of hands</li>
-        </ul>
+          <li>RFPs we cannot honestly win</li>
+          <li>Anyone who only wants the cheapest hands</li>
+        </ul></div>
       </div>
+      <p class="quote">Room decision: lock <strong>two or three</strong> focus markets for 12 months. Everything else is exception-only.</p>
+      <div class="footer-bar"><span>BRANDASTIC 2027</span><span>05</span></div>
     </div>
-    <p class="quote">Room decision: lock <strong>two or three</strong> focus markets for 12 months. Everything else is exception-only.</p>
-    <div class="foot"><span>BRANDASTIC 2027</span><span>04</span></div>
-  </div></section>
+  </section>
 
-  <!-- 05 GTM -->
-  <section class="slide"><div class="inner">
-    <div class="kicker">Go-to-market strategy</div>
-    <h2 class="h2">How demand becomes booked work</h2>
-    <div class="flow">
-      <div class="step">1. Be findable</div><div class="arrow">→</div>
-      <div class="step">2. Be referred</div><div class="arrow">→</div>
-      <div class="step">3. Reopen warm doors</div><div class="arrow">→</div>
-      <div class="step">4. Prove it</div><div class="arrow">→</div>
-      <div class="step">5. Close clean</div><div class="arrow">→</div>
-      <div class="step">6. Expand</div>
+  <!-- 06 GTM DIVIDER -->
+  <section class="slide" id="section-gtm">
+    <div class="slide-inner section-dark">
+      <div class="phase">02 · Go-to-market</div>
+      <div class="h1">How demand becomes booked work</div>
+      <p class="lede">Search and referrals first. Ads only after the sales system is tight.</p>
+      <div class="footer-bar"><span>BRANDASTIC 2027</span><span>06</span></div>
     </div>
-    <div class="grid2" style="margin-top:.85rem">
-      <div class="card">
-        <h3>Primary engines (fund first)</h3>
-        <ul>
+  </section>
+
+  <!-- 07 GTM -->
+  <section class="slide" id="gtm">
+    <div class="slide-inner">
+      <div class="kicker">04 · Go-to-market strategy</div>
+      <h2 class="h2">How demand becomes booked work</h2>
+      <div class="flow">
+        <div class="step">1. Be findable</div><div class="arrow">→</div>
+        <div class="step">2. Be referred</div><div class="arrow">→</div>
+        <div class="step">3. Reopen warm doors</div><div class="arrow">→</div>
+        <div class="step">4. Prove it</div><div class="arrow">→</div>
+        <div class="step">5. Close clean</div><div class="arrow">→</div>
+        <div class="step">6. Expand</div>
+      </div>
+      <div class="grid2">
+        <div class="card"><h3>Primary engines (fund first)</h3><ul>
           <li><strong>Search:</strong> pages + guides for locked services × markets</li>
           <li><strong>Referrals:</strong> formal ask system + partners</li>
           <li><strong>Return / reopen:</strong> past proposals + past clients</li>
           <li><strong>Whitespace:</strong> grow top accounts before only hunting new</li>
-        </ul>
-      </div>
-      <div class="card">
-        <h3>Support engines</h3>
-        <ul>
+        </ul></div>
+        <div class="card"><h3>Support engines</h3><ul>
           <li>Proof library (case studies by market)</li>
-          <li>Light LinkedIn presence (human, not spam)</li>
+          <li>Light LinkedIn (human, not spam)</li>
           <li>Client nights / gifts — small, measured</li>
           <li>Paid for Brandastic — only after sales OS is tight</li>
-        </ul>
+        </ul></div>
       </div>
+      <div class="card" style="margin-top:.85rem"><h3>Default money mix</h3>
+        <p><strong>70%</strong> search + referrals + proof · <strong>20%</strong> one paid test · <strong>10%</strong> events / relationships</p>
+      </div>
+      <div class="footer-bar"><span>BRANDASTIC 2027</span><span>07</span></div>
     </div>
-    <div class="card" style="margin-top:.85rem">
-      <h3>Default money mix</h3>
-      <p><strong>70%</strong> search + referrals + proof · <strong>20%</strong> one paid test · <strong>10%</strong> events/relationships</p>
+  </section>
+
+  <!-- 08 SEQUENCE -->
+  <section class="slide" id="sequence">
+    <div class="slide-inner">
+      <div class="kicker">05 · Masterclass order · do not shuffle</div>
+      <h2 class="h2">Do this in order</h2>
+      <table class="table">
+        <tr><th>Phase</th><th>What</th><th>Why first</th></tr>
+        <tr><td><strong>0</strong></td><td>Justin locks markets + keep/kill services</td><td>End scatter</td></tr>
+        <tr><td><strong>1</strong></td><td>Bookings from relationships (30–60 days)</td><td>Fastest cash at our size</td></tr>
+        <tr><td><strong>2</strong></td><td>Content / search machine on what we keep</td><td>Compounds; needs locked focus</td></tr>
+        <tr><td><strong>3</strong></td><td>Sales follow-up OS</td><td>Ads die without process</td></tr>
+        <tr><td><strong>4</strong></td><td>Advertise Brandastic (small)</td><td>Only after 0–3 breathe</td></tr>
+        <tr><td><strong>5</strong></td><td>Optional: one new offer later</td><td>Do not launch three things at once</td></tr>
+      </table>
+      <p class="quote">If we jump to ads or new services first, we waste money. That is the whole recommendation.</p>
+      <div class="footer-bar"><span>BRANDASTIC 2027</span><span>08</span></div>
     </div>
-    <div class="foot"><span>BRANDASTIC 2027</span><span>05</span></div>
-  </div></section>
+  </section>
 
-  <!-- 06 SEQUENCE -->
-  <section class="slide"><div class="inner">
-    <div class="kicker">From strategic plan · masterclass order</div>
-    <h2 class="h2">Do this in order</h2>
-    <table class="table">
-      <tr><th>Phase</th><th>What</th><th>Why first</th></tr>
-      <tr><td><strong>0</strong></td><td>Justin locks markets + keep/kill services</td><td>End scatter</td></tr>
-      <tr><td><strong>1</strong></td><td>Bookings from relationships (30–60 days)</td><td>Fastest cash at our size</td></tr>
-      <tr><td><strong>2</strong></td><td>Content/search machine on what we keep</td><td>Compounds; needs locked focus</td></tr>
-      <tr><td><strong>3</strong></td><td>Sales follow-up OS</td><td>Ads die without process</td></tr>
-      <tr><td><strong>4</strong></td><td>Advertise Brandastic (small)</td><td>Only after 0–3 breathe</td></tr>
-      <tr><td><strong>5</strong></td><td>Optional: one new offer later</td><td>Do not launch three things at once</td></tr>
-    </table>
-    <p class="quote">If we jump to ads or new services first, we waste money. That is the whole recommendation.</p>
-    <div class="foot"><span>BRANDASTIC 2027</span><span>06</span></div>
-  </div></section>
+  <!-- 09 CHANNELS -->
+  <section class="slide" id="channels">
+    <div class="slide-inner">
+      <div class="kicker">06 · Channel communication</div>
+      <h2 class="h2">What we say where</h2>
+      <table class="table">
+        <tr><th>Channel</th><th>Job</th><th>Core message</th><th>When</th></tr>
+        <tr><td><strong>Website / search</strong></td><td>Be found + convert</td><td>“We help [market] get more of the right customers — clear work, real proof.”</td><td>Always on · ship weekly</td></tr>
+        <tr><td><strong>Email</strong></td><td>Warm pipeline</td><td>Helpful, specific, one ask. No hype.</td><td>Weekly human outreach</td></tr>
+        <tr><td><strong>Referral asks</strong></td><td>Multiply happy clients</td><td>“Who else should we help like we helped you?”</td><td>After wins · quarterly</td></tr>
+        <tr><td><strong>LinkedIn</strong></td><td>Authority + soft outbound</td><td>Operator stories, lessons, proof</td><td>3–5 posts/week team-wide</td></tr>
+        <tr><td><strong>Client delivery</strong></td><td>Keep + expand</td><td>Results, next opportunity, clear next step</td><td>Monthly / QBR</td></tr>
+        <tr><td><strong>Paid (later)</strong></td><td>Scale known offer</td><td>One offer · one audience</td><td>Only after sales OS ready</td></tr>
+      </table>
+      <p class="note">Voice lock: plain English always. Say <strong>new clients</strong>, not “new logos.”</p>
+      <div class="footer-bar"><span>BRANDASTIC 2027</span><span>09</span></div>
+    </div>
+  </section>
 
-  <!-- 07 CHANNELS -->
-  <section class="slide"><div class="inner">
-    <div class="kicker">Channel communication</div>
-    <h2 class="h2">What we say where</h2>
-    <table class="table">
-      <tr><th>Channel</th><th>Job</th><th>Core message</th><th>Cadence</th></tr>
-      <tr><td><strong>Website / search pages</strong></td><td>Be found + convert</td><td>“We help [market] get more of the right customers — with clear work and real proof.”</td><td>Always on · ship weekly</td></tr>
-      <tr><td><strong>Email (reopen / nurture)</strong></td><td>Warm pipeline</td><td>Helpful, specific, one ask. No hype.</td><td>Weekly human outreach + light nurture</td></tr>
-      <tr><td><strong>Referral asks</strong></td><td>Multiply happy clients</td><td>“Who else should we help like we helped you?”</td><td>After wins · quarterly reminders</td></tr>
-      <tr><td><strong>LinkedIn</strong></td><td>Authority + soft outbound</td><td>Operator stories, lessons, proof — not “we do everything”</td><td>3–5 posts/week team-wide</td></tr>
-      <tr><td><strong>Client delivery touch</strong></td><td>Keep + expand</td><td>Results, next opportunity, clear next step</td><td>Monthly / QBR rhythm</td></tr>
-      <tr><td><strong>Paid (later)</strong></td><td>Scale known offer</td><td>One offer · one audience · gift only for show-up if used</td><td>Only after sales OS ready</td></tr>
-    </table>
-    <p class="note">Voice lock: plain English always. New clients, not “new logos.” No jargon a tired parent couldn’t follow.</p>
-    <div class="foot"><span>BRANDASTIC 2027</span><span>07</span></div>
-  </div></section>
-
-  <!-- 08 EMAIL EXAMPLES -->
-  <section class="slide"><div class="inner">
-    <div class="kicker">Email examples</div>
-    <h2 class="h2">Copy the team can use / improve</h2>
-    <div class="msg"><div class="lbl">Reopen · past proposal</div><div class="subj">Subject: Still thinking about growth for [Company]?</div>Hi [Name],
+  <!-- 10 EMAIL -->
+  <section class="slide" id="email">
+    <div class="slide-inner">
+      <div class="kicker">07 · Email examples</div>
+      <h2 class="h2">Copy the team can use and improve</h2>
+      <div class="msg"><span class="lbl">Reopen · past proposal</span><span class="subj">Subject: Still thinking about growth for [Company]?</span>Hi [Name],
 
 We talked earlier about [goal: more patients / more enrollment / more qualified leads].
 I wanted to reopen that in a simple way.
@@ -282,7 +425,7 @@ Open to a 15-minute call this week?
 
 [Justin / AM name]
 Brandastic</div>
-    <div class="msg"><div class="lbl">Referral ask · after a win</div><div class="subj">Subject: Quick ask</div>Hi [Name],
+      <div class="msg"><span class="lbl">Referral ask · after a win</span><span class="subj">Subject: Quick ask</span>Hi [Name],
 
 Glad [result] is moving.
 
@@ -291,74 +434,277 @@ If you know one owner who needs the same kind of help, I’d be grateful for an 
 Thank you either way.
 
 [Name]</div>
-    <div class="msg"><div class="lbl">Whitespace · current client</div><div class="subj">Subject: One gap I see on [Company]</div>Hi [Name],
+      <div class="msg"><span class="lbl">Whitespace · current client</span><span class="subj">Subject: One gap I see on [Company]</span>Hi [Name],
 
 Looking at your account, search is working. Paid social is thin relative to the opportunity in [market].
 
 If you want, I can sketch a small test (budget + goal + what “good” looks like) — no obligation.
 
 [Name]</div>
-    <div class="foot"><span>BRANDASTIC 2027</span><span>08</span></div>
-  </div></section>
+      <div class="footer-bar"><span>BRANDASTIC 2027</span><span>10</span></div>
+    </div>
+  </section>
 
-  <!-- 09 SOCIAL -->
-  <section class="slide"><div class="inner">
-    <div class="kicker">Social examples</div>
-    <h2 class="h2">LinkedIn / short posts (plain English)</h2>
-    <div class="grid2" style="margin-top:.6rem">
-      <div class="msg"><div class="lbl">Proof</div>Most agencies talk about “brand.”
+  <!-- 11 SOCIAL -->
+  <section class="slide" id="social">
+    <div class="slide-inner">
+      <div class="kicker">08 · Social examples</div>
+      <h2 class="h2">LinkedIn / short posts (plain English)</h2>
+      <div class="grid2" style="margin-top:.6rem">
+        <div class="msg"><span class="lbl">Proof</span>Most agencies talk about “brand.”
 
 Our clients care about something simpler:
 more of the right customers.
 
 Here’s what that looked like for a [dental / school / B2B] team last quarter → [link]</div>
-      <div class="msg"><div class="lbl">Lesson</div>Search still brings us clients.
+        <div class="msg"><span class="lbl">Lesson</span>Search still brings us clients.
 Referrals still bring us clients.
 
 Ads for our own agency come later — after follow-up is tight.
 
 Order matters.</div>
-      <div class="msg"><div class="lbl">Offer</div>If you’re an owner who is tired of random marketing:
+        <div class="msg"><span class="lbl">Offer</span>If you’re an owner who is tired of random marketing:
 
 We build a clear monthly plan and run it.
 
 No jargon. No 40-page decks you never read.</div>
-      <div class="msg"><div class="lbl">Recruit / culture</div>We’re hiring people who can explain marketing to a normal person.
+        <div class="msg"><span class="lbl">Culture</span>We’re hiring people who can explain marketing to a normal person.
 
 If your first draft needs a glossary, rewrite it.</div>
+      </div>
+      <p class="note">Team task: rewrite each post in your own voice. Keep the idea.</p>
+      <div class="footer-bar"><span>BRANDASTIC 2027</span><span>11</span></div>
     </div>
-    <p class="note">Team task: rewrite each post in your own voice. Keep the idea. Drop anything that sounds like a brochure.</p>
-    <div class="foot"><span>BRANDASTIC 2027</span><span>09</span></div>
-  </div></section>
+  </section>
 
-  <!-- 10 90 DAY -->
-  <section class="slide"><div class="inner">
-    <div class="kicker">90 days</div>
-    <h2 class="h2">What we implement first</h2>
-    <table class="table">
-      <tr><th>#</th><th>Rock</th><th>Owner</th><th>First 30 days</th><th>Success number</th></tr>
-      <tr><td><strong>1</strong></td><td>Search + proof for 2 markets</td><td></td><td>Pick markets · ship 1 case study + 1 guide each</td><td></td></tr>
-      <tr><td><strong>2</strong></td><td>Referral + reopen system</td><td></td><td>List of 50 warm names · weekly outreach board</td><td></td></tr>
-      <tr><td><strong>3</strong></td><td>Sales follow-up OS</td><td></td><td>Stages visible · weekly pipeline 20 min</td><td></td></tr>
-    </table>
-    <div class="grid2" style="margin-top:.9rem">
-      <div class="card"><h3>Weekly numbers</h3><ul>
-        <li>New conversations</li>
-        <li>Proposals out</li>
-        <li>Won / lost (with reason)</li>
-        <li>Recurring cash vs $160K goal</li>
-      </ul></div>
-      <div class="card"><h3>Targets to react to</h3><ul>
-        <li>Pace <strong>~$2.12M</strong> → aim <strong>$2.5M+</strong></li>
-        <li>Clients <strong>~22–28</strong> net (not 46 next year)</li>
-        <li>Grow count a little + average a little</li>
-        <li>Bookings − churn > 0 every quarter</li>
-      </ul></div>
+  <!-- 12 90 DAYS -->
+  <section class="slide" id="ninety">
+    <div class="slide-inner">
+      <div class="kicker">09 · The first 90 days</div>
+      <h2 class="h2">Lock → reopen → tighten</h2>
+      <div class="phases">
+        <div class="phase-card p1">
+          <h3>Phase 1 · Days 1–30</h3>
+          <ol>
+            <li><span class="n">1</span><div><div class="t">LOCK</div><div class="d">2–3 markets · keep/kill services · success numbers</div></div></li>
+            <li><span class="n">2</span><div><div class="t">LIST</div><div class="d">50 warm names (past proposals + happy clients)</div></div></li>
+            <li><span class="n">3</span><div><div class="t">PROOF</div><div class="d">1 case study + 1 guide per locked market</div></div></li>
+            <li><span class="n">4</span><div><div class="t">BOARD</div><div class="d">Weekly pipeline board · stages visible</div></div></li>
+            <li><span class="n">5</span><div><div class="t">VOICE</div><div class="d">Plain-English message bank for email + LI</div></div></li>
+          </ol>
+        </div>
+        <div class="phase-card p2">
+          <h3>Phase 2 · Days 31–60</h3>
+          <ol>
+            <li><span class="n">1</span><div><div class="t">REOPEN</div><div class="d">Warm email + calls on the 50-name list</div></div></li>
+            <li><span class="n">2</span><div><div class="t">ASK</div><div class="d">Referral asks after every clear win</div></div></li>
+            <li><span class="n">3</span><div><div class="t">SHIP</div><div class="d">Search pages live for locked offers × markets</div></div></li>
+            <li><span class="n">4</span><div><div class="t">POST</div><div class="d">3–5 human LinkedIn posts / week team-wide</div></div></li>
+            <li><span class="n">5</span><div><div class="t">EXPAND</div><div class="d">Whitespace notes on top current accounts</div></div></li>
+          </ol>
+        </div>
+        <div class="phase-card p3">
+          <h3>Phase 3 · Days 61–90</h3>
+          <ol>
+            <li><span class="n">1</span><div><div class="t">TIGHTEN</div><div class="d">Kill weak copy · double what books meetings</div></div></li>
+            <li><span class="n">2</span><div><div class="t">CLOSE</div><div class="d">Proposals out · win/loss reasons written</div></div></li>
+            <li><span class="n">3</span><div><div class="t">MEASURE</div><div class="d">Weekly scorecard: convos · proposals · cash</div></div></li>
+            <li><span class="n">4</span><div><div class="t">DECIDE</div><div class="d">Small paid test only if sales OS is breathing</div></div></li>
+            <li><span class="n">5</span><div><div class="t">PLAN</div><div class="d">Next-quarter rocks with named owners</div></div></li>
+          </ol>
+        </div>
+      </div>
+      <div class="footer-bar"><span>BRANDASTIC 2027</span><span>12</span></div>
     </div>
-    <p class="quote">Team working deck: improve the competitor list, fill owners, rewrite examples, lock two markets.</p>
-    <div class="foot"><span>BRANDASTIC · FOCUSED. GROWTH.</span><span>10</span></div>
-  </div></section>
+  </section>
+
+  <!-- 13 ROADMAP -->
+  <section class="slide" id="roadmap">
+    <div class="slide-inner">
+      <div class="kicker">10 · Long-term roadmap</div>
+      <h2 class="h2">Example 12-month build</h2>
+      <p class="lede">Start now · lock markets · scale search + relationships · paid only when ready.</p>
+      <div class="rm-months"><span>NOV</span><span>DEC</span><span>JAN</span><span>FEB</span><span>MAR</span><span>APR</span><span>MAY</span><span>JUN</span><span>JUL</span><span>AUG</span><span>SEP</span><span>OCT</span></div>
+      <div class="roadmap">
+        <div class="rm-row"><div class="rm-label">Markets + offers</div><div class="rm-track"><div class="rm-bar" style="left:0;width:25%;background:#0f8f97">Lock 2–3</div></div></div>
+        <div class="rm-row"><div class="rm-label">Warm reopen</div><div class="rm-track"><div class="rm-bar" style="left:0;width:45%;background:#1f8fc9">50 names · weekly board</div></div></div>
+        <div class="rm-row"><div class="rm-label">Search / proof</div><div class="rm-track"><div class="rm-bar" style="left:8%;width:85%;background:#74b816">Guides · cases · pages</div></div></div>
+        <div class="rm-row"><div class="rm-label">Sales OS</div><div class="rm-track"><div class="rm-bar" style="left:8%;width:70%;background:#4c6ef5">Stages · win/loss · follow-up</div></div></div>
+        <div class="rm-row"><div class="rm-label">LinkedIn / social</div><div class="rm-track"><div class="rm-bar" style="left:12%;width:80%;background:#9775fa">Human posts · soft outbound</div></div></div>
+        <div class="rm-row"><div class="rm-label">Paid (Brandastic)</div><div class="rm-track"><div class="rm-bar" style="left:45%;width:50%;background:#868e96">Optional · one offer test</div></div></div>
+      </div>
+      <div class="rm-legend">
+        <span><i style="background:#0f8f97"></i>Focus lock</span>
+        <span><i style="background:#1f8fc9"></i>Relationships</span>
+        <span><i style="background:#74b816"></i>Search / proof</span>
+        <span><i style="background:#4c6ef5"></i>Sales system</span>
+        <span><i style="background:#868e96"></i>Paid later</span>
+      </div>
+      <div class="footer-bar"><span>BRANDASTIC 2027</span><span>13</span></div>
+    </div>
+  </section>
+
+  <!-- 14 MEASURE -->
+  <section class="slide" id="measure">
+    <div class="slide-inner">
+      <div class="kicker">11 · Measurement</div>
+      <h2 class="h2">How we’ll measure success</h2>
+      <div class="measure">
+        <div class="measure-side">
+          <h3>Success indicators</h3>
+          <ul>
+            <li>Qualified owner conversations</li>
+            <li>Proposals out each week</li>
+            <li>Won / lost with a real reason</li>
+            <li>Recurring packages → $160K/mo path</li>
+            <li>Pace ~$2.12M → $2.5M+</li>
+            <li>Bookings − churn > 0 every quarter</li>
+          </ul>
+        </div>
+        <div>
+          <div class="m-row"><span class="m-tag a">Awareness</span><div>· Search impressions / rankings on locked pages<br>· LinkedIn reach on proof posts</div><div>· Brandastic.com engaged sessions from target markets</div></div>
+          <div class="m-row"><span class="m-tag b">Pipeline</span><div>· Warm reopens started<br>· Referral intros received</div><div>· New qualified conversations / week</div></div>
+          <div class="m-row"><span class="m-tag c">Engagement</span><div>· Reply rate on email<br>· Meeting show rate</div><div>· Case study / guide views</div></div>
+          <div class="m-row"><span class="m-tag d">Conversion</span><div>· Proposals out<br>· Close rate</div><div>· Avg new package size</div></div>
+          <div class="m-row"><span class="m-tag e">Retention</span><div>· Churn / month<br>· Whitespace expands</div><div>· Net growth = bookings − churn</div></div>
+        </div>
+      </div>
+      <div class="footer-bar"><span>BRANDASTIC 2027</span><span>14</span></div>
+    </div>
+  </section>
+
+  <!-- 15 OWNERS -->
+  <section class="slide" id="owners">
+    <div class="slide-inner">
+      <div class="kicker">12 · Rocks + owners</div>
+      <h2 class="h2">What we implement first</h2>
+      <table class="table">
+        <tr><th>#</th><th>Rock</th><th>Owner</th><th>First 30 days</th><th>Success number</th></tr>
+        <tr><td><strong>1</strong></td><td>Search + proof for 2 markets</td><td></td><td>Pick markets · ship 1 case + 1 guide each</td><td></td></tr>
+        <tr><td><strong>2</strong></td><td>Referral + reopen system</td><td></td><td>List of 50 warm names · weekly outreach board</td><td></td></tr>
+        <tr><td><strong>3</strong></td><td>Sales follow-up OS</td><td></td><td>Stages visible · weekly pipeline 20 min</td><td></td></tr>
+      </table>
+      <div class="grid2">
+        <div class="card"><h3>Weekly numbers</h3><ul>
+          <li>New conversations</li>
+          <li>Proposals out</li>
+          <li>Won / lost (with reason)</li>
+          <li>Recurring cash vs $160K goal</li>
+        </ul></div>
+        <div class="card"><h3>Targets to react to</h3><ul>
+          <li>Pace <strong>~$2.12M</strong> → aim <strong>$2.5M+</strong></li>
+          <li>Clients <strong>~22–28</strong> net (not 46 next year)</li>
+          <li>Grow count a little + average a little</li>
+          <li>Bookings − churn > 0 every quarter</li>
+        </ul></div>
+      </div>
+      <p class="quote">Team working deck: improve competitor list, fill owners, rewrite examples, lock two markets.</p>
+      <div class="footer-bar"><span>BRANDASTIC 2027</span><span>15</span></div>
+    </div>
+  </section>
+
+  <!-- 16 CLOSE -->
+  <section class="slide" id="close">
+    <div class="slide-inner close-slide">
+      <div class="site-hero-stack" aria-hidden="true">
+        <img src="../images/team-meeting.jpg" alt="" class="site-hero-main" />
+      </div>
+      <div class="site-hero-fade" aria-hidden="true"></div>
+      <div class="title-main">
+        <div class="kicker">Next step</div>
+        <div class="h1">Make this deck better together</div>
+        <p class="lede">Fill the blanks. Lock two markets. Name owners. Ship the first 30 days.</p>
+        <ul class="close-checks">
+          <li>Lock 2–3 focus markets this week</li>
+          <li>Build the 50-name warm list</li>
+          <li>Ship one proof piece per market</li>
+          <li>Run the weekly pipeline board</li>
+        </ul>
+      </div>
+      <div class="title-brand">
+        <img src="../assets/brandastic-logo-white.png" alt="Brandastic" />
+        <div class="title-tagline">Focused. Growth. · <span>brandastic.com</span></div>
+      </div>
+      <div class="footer-bar"><span>BRANDASTIC</span><span>Team working strategy · 2027</span></div>
+    </div>
+  </section>
 
 </div>
+
+<button type="button" class="deck-present-btn" id="deckPresentBtn" title="Fullscreen slideshow">▸ Present</button>
+<button type="button" class="deck-exit-btn" id="deckExitBtn" title="Exit slideshow">✕ Exit</button>
+<div class="deck-exit-hint">← → keys · click sides · Exit or Esc</div>
+<div class="deck-counter" id="deckCounter"></div>
+<div class="deck-nav" id="deckNav" aria-hidden="true">
+  <button type="button" class="deck-prev" id="deckPrev" aria-label="Previous">‹</button>
+  <button type="button" class="deck-next" id="deckNext" aria-label="Next">›</button>
+</div>
+
+<script>
+function baSetTheme(t){
+  document.documentElement.setAttribute('data-theme', t);
+  try{ localStorage.setItem('ba2027-theme', t); }catch(e){}
+}
+(function(){
+  try{
+    var t=localStorage.getItem('ba2027-theme');
+    if(t==='dark'||t==='light') baSetTheme(t);
+  }catch(e){}
+})();
+
+(function(){
+  var slides=[].slice.call(document.querySelectorAll('section.slide'));
+  if(!slides.length) return;
+  var btn=document.getElementById('deckPresentBtn');
+  var exitBtn=document.getElementById('deckExitBtn');
+  var nav=document.getElementById('deckNav');
+  var prev=document.getElementById('deckPrev');
+  var next=document.getElementById('deckNext');
+  var counter=document.getElementById('deckCounter');
+  var i=0, mode=false;
+  function updateCounter(){ if(counter) counter.textContent=(i+1)+' / '+slides.length; }
+  function show(n){
+    i=((n%slides.length)+slides.length)%slides.length;
+    for(var k=0;k<slides.length;k++) slides[k].classList.toggle('deck-active', k===i);
+    updateCounter();
+    try{history.replaceState(null,'','#slide-'+(i+1));}catch(e){}
+  }
+  function enterFS(){
+    var r=document.documentElement;
+    var req=r.requestFullscreen||r.webkitRequestFullscreen||r.msRequestFullscreen;
+    if(req) try{var p=req.call(r); if(p&&p.catch)p.catch(function(){});}catch(e){}
+  }
+  function exitFS(){
+    var d=document;
+    if(!(d.fullscreenElement||d.webkitFullscreenElement||d.msFullscreenElement)) return;
+    var x=d.exitFullscreen||d.webkitExitFullscreen||d.msExitFullscreen;
+    if(x) try{x.call(d);}catch(e){}
+  }
+  function enter(){ if(mode) return; mode=true; document.body.classList.add('deck-mode'); nav.setAttribute('aria-hidden','false'); show(i); enterFS(); }
+  function exit(){ if(!mode) return; mode=false; document.body.classList.remove('deck-mode'); for(var k=0;k<slides.length;k++) slides[k].classList.remove('deck-active'); nav.setAttribute('aria-hidden','true'); exitFS(); }
+  btn.addEventListener('click',function(e){e.preventDefault();e.stopPropagation();enter();});
+  exitBtn.addEventListener('click',function(e){e.preventDefault();e.stopPropagation();exit();});
+  prev.addEventListener('click',function(e){e.preventDefault();e.stopPropagation();show(i-1);});
+  next.addEventListener('click',function(e){e.preventDefault();e.stopPropagation();show(i+1);});
+  document.addEventListener('keydown',function(e){
+    if(!mode) return;
+    if(e.key==='Escape'){e.preventDefault();exit();return;}
+    if(e.key==='ArrowRight'||e.key==='PageDown'||e.key===' '||e.key==='Enter'){e.preventDefault();show(i+1);return;}
+    if(e.key==='ArrowLeft'||e.key==='PageUp'||e.key==='Backspace'){e.preventDefault();show(i-1);return;}
+    if(e.key==='Home'){e.preventDefault();show(0);}
+    if(e.key==='End'){e.preventDefault();show(slides.length-1);}
+  });
+  document.addEventListener('click',function(e){
+    if(!mode) return;
+    if(e.target.closest&&(e.target.closest('#deckPrev')||e.target.closest('#deckNext')||e.target.closest('#deckPresentBtn')||e.target.closest('#deckExitBtn')||e.target.closest('#toolbarPresent'))) return;
+    if((e.clientX/window.innerWidth)>=0.5) show(i+1); else show(i-1);
+  });
+  document.addEventListener('fullscreenchange',function(){
+    if(!document.fullscreenElement && mode) exit();
+  });
+  var m=(location.hash||'').match(/slide-(\d+)/i);
+  if(m){var n=parseInt(m[1],10)-1; if(!isNaN(n)&&n>=0&&n<slides.length) i=n;}
+})();
+</script>
 </body>
 </html>
