@@ -19,6 +19,9 @@
 </style>
 
 <style id="p2027-theme">
+/* kill old school print btn look on this page */
+main .print-bar, main .print-bar .btn { display:none !important; }
+
 /* 2027 planning — cleaner layout */
 main.sec-plan {
   max-width: 980px;
@@ -342,10 +345,13 @@ if(!anyOpen){
 }
 })();</script>
 <main class="sec-plan">
-<div class="print-bar no-print p2027-actions">
-<button type="button" class="p2027-btn p2027-btn-ghost" onclick="window.print()">Print / Save PDF</button>
-<a class="p2027-btn p2027-btn-primary" href="/gameplan_marketing/goals-vision.html">Goals & vision</a>
-<a class="p2027-btn p2027-btn-ghost" href="/gameplan_marketing/strategic-plan.html">Strategic plan</a>
+
+<div class="p2027-topbar no-print">
+  <button type="button" class="p2027-pill p2027-pill-ghost" onclick="window.print()">
+    <span class="p2027-ico" aria-hidden="true">↓</span> Print / Save PDF
+  </button>
+  <a class="p2027-pill p2027-pill-grad" href="/gameplan_marketing/goals-vision.html">Goals & vision</a>
+  <a class="p2027-pill p2027-pill-ghost" href="/gameplan_marketing/strategic-plan.html">Strategic plan</a>
 </div>
 
 <p class="kicker">Plan · Team meeting pack</p>
