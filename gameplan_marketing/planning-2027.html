@@ -17,6 +17,86 @@
 .list a{display:block;padding:.45rem 0;border-bottom:1px solid var(--line);color:var(--text)}
 .list a:hover{color:var(--accent)}
 </style>
+
+<style id="p2027-theme">
+main.sec-plan { max-width: 1000px; }
+#one-pager {
+  border: 2px solid #0284c7 !important;
+  background: linear-gradient(180deg,#F0F9FF,#fff);
+}
+#one-pager h2 { color: #0369a1; }
+#one-pager h3 { color: #0284c7; margin-top: 1.1rem; }
+#one-pager table th { background: #e0f2fe !important; color: #0c4a6e !important; }
+#client-list { border-left: 4px solid #059669; }
+#client-list h2 { color: #047857; }
+#client-list h3 {
+  color: #0f766e;
+  border-bottom: 2px solid #a7f3d0;
+  padding-bottom: .35rem;
+}
+#client-list h4 { color: #065f46; margin-top: 1.1rem; }
+section.card {
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(15,23,42,.05);
+  margin-bottom: 1.25rem;
+}
+section.card > h2 { font-size: 1.2rem; letter-spacing: -.02em; }
+.money-table th { background: rgba(2,132,199,.12) !important; color: #0369a1 !important; }
+.mkt-table thead th { background: #ecfdf5 !important; color: #047857 !important; }
+.mkt-table tbody tr:nth-child(even) { background: #f0fdf4; }
+.host-table thead th { background: #f1f5f9 !important; color: #334155 !important; }
+.host-table tbody tr { background: #f8fafc; }
+.forgive-table thead th { background: #fffbeb !important; color: #b45309 !important; }
+.forgive-table tbody tr { background: #fffbeb; }
+.score-table thead th { background: #f5f3ff !important; color: #5b21b6 !important; }
+.score-table tbody tr:nth-child(even) { background: #faf5ff; }
+.resource-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .5rem;
+  margin: 1rem 0 1.25rem;
+}
+.resource-bar a {
+  display: inline-flex;
+  align-items: center;
+  gap: .35rem;
+  padding: .55rem .9rem;
+  border-radius: 999px;
+  font-size: .82rem;
+  font-weight: 700;
+  text-decoration: none;
+  border: 1px solid var(--line, #e2e8f0);
+}
+.resource-bar a.score {
+  background: #0284c7;
+  color: #fff;
+  border-color: #0284c7;
+}
+.resource-bar a.soft {
+  background: #fff;
+  color: #0369a1;
+}
+html[data-theme="dark"] #one-pager { background: rgba(2,132,199,.12); }
+html[data-theme="dark"] .mkt-table tbody tr:nth-child(even),
+html[data-theme="dark"] .host-table tbody tr,
+html[data-theme="dark"] .forgive-table tbody tr,
+html[data-theme="dark"] .score-table tbody tr:nth-child(even) {
+  background: rgba(255,255,255,.03);
+}
+html[data-theme="dark"] .resource-bar a.soft {
+  background: var(--panel2, #1e293b);
+  color: #7dd3fc;
+}
+@media print {
+  #one-pager { break-inside: avoid; }
+  .resource-bar a.score {
+    color: #000 !important;
+    border: 1px solid #000;
+    background: #fff !important;
+  }
+}
+</style>
+
 </head><body><div class="layout">
 <nav id="side-nav">
 <a class="brand-lockup" href="/gameplan_marketing/index.html" title="Brandastic"><img class="brand-logo" src="/assets/brandastic-logo-black.png" alt="Brandastic"/></a>
@@ -154,6 +234,14 @@ if(!anyOpen){
 <h1>2027 planning</h1>
 <p class="lede">One page to run the Brandastic year-ahead meeting. Plain English. Numbers first. Fill blanks with the team — do not invent wins.</p>
 
+<div class="resource-bar no-print">
+  <a class="score" href="https://docs.google.com/spreadsheets/d/1h-O3MynKwL9MhxO2Ytly5gtHd_udyqNJ6n4_OfXLCgY/edit?gid=0#gid=0" target="_blank" rel="noopener">Scorecard — leads & sales by channel</a>
+  <a class="soft" href="#one-pager">30-min one-pager</a>
+  <a class="soft" href="#client-list">Client book</a>
+  <a class="soft" href="/gameplan_marketing/goals-vision.html">Goals & vision</a>
+</div>
+
+
 <section class="card" id="one-pager" style="border:2px solid #0284c7">
 <h2>ONE-PAGER · 30–45 min team brainstorm</h2>
 <p class="lede" style="margin-top:0">Keep it simple. No long decks. Justin facilitates. Someone takes notes on a whiteboard or this page.</p>
@@ -222,7 +310,7 @@ if(!anyOpen){
 <p class="lede" style="margin-top:0">From your Goal Sheet + P&L PDFs (Jan–Sep). Plain English. One company = one client even if SEO and PPC are billed separately (LabTech, Nordic, Rogers).</p>
 
 <h3>Money snapshot (Jan–Sep 2026 actual)</h3>
-<table>
+<table class="money-table">
 <tr><th>Metric</th><th>Number</th><th>Notes</th></tr>
 <tr><td>Total income YTD (Sep)</td><td><b>~$1.59M–$1.60M</b></td><td>Goal sheet ~$1,590,085 · P&L ~$1,597,855</td></tr>
 <tr><td>Average month so far</td><td><b>~$177K</b></td><td></td></tr>
@@ -241,7 +329,7 @@ if(!anyOpen){
 <p>Some lines are <b>marketing retainers</b>. Some are <b>hosting / site care / development-style retainers</b>. Both matter for cash; only marketing rows are the “marketing client” conversation.</p>
 
 <h4>Marketing retainers (main list)</h4>
-<table>
+<table class="mkt-table">
 <tr><th>Client</th><th>What it is on the sheet</th><th>$ / mo</th></tr>
 <tr><td><b>CalOps</b></td><td>Marketing</td><td style="text-align:right"><b>$21,000</b></td></tr>
 <tr><td>Friar Tux</td><td>Marketing</td><td style="text-align:right">$8,400</td></tr>
@@ -269,7 +357,7 @@ if(!anyOpen){
 </table>
 
 <h4>Hosting / site care / other retainers (not pure marketing)</h4>
-<table>
+<table class="host-table">
 <tr><th>Client</th><th>What it is</th><th>$ / mo</th></tr>
 <tr><td>Trico Realty</td><td>Site Care</td><td style="text-align:right">$1,515</td></tr>
 <tr><td>Beach Homes Hosting</td><td>Hosting</td><td style="text-align:right">$197</td></tr>
@@ -277,7 +365,7 @@ if(!anyOpen){
 <p class="muted">Sheet total ~$119,835/mo includes every line. For the marketing conversation, use the marketing table above. Hosting/site-care is real money but different work.</p>
 
 <h3>Forgiven / written off in 2026</h3>
-<table>
+<table class="forgive-table">
 <tr><th>Client</th><th>Amount</th></tr>
 <tr><td>Starboard Realty (4 invoices)</td><td style="text-align:right">$17,500</td></tr>
 <tr><td>Check N Play</td><td style="text-align:right">$9,600</td></tr>
@@ -286,6 +374,12 @@ if(!anyOpen){
 </table>
 
 <p><b>How most new clients came in:</b> SEO + referrals.</p>
+
+<div class="resource-bar" style="margin-top:.5rem">
+  <a class="score" href="https://docs.google.com/spreadsheets/d/1h-O3MynKwL9MhxO2Ytly5gtHd_udyqNJ6n4_OfXLCgY/edit?gid=0#gid=0" target="_blank" rel="noopener">Open Scorecard V2 2026 (leads & sales by channel)</a>
+</div>
+<p class="muted">Use the scorecard in the room when you talk channels — SEO, referrals, and everything else.</p>
+
 <p><b>Room exercise (5 min):</b> star 3 must-keep marketing clients · circle 2 at-risk · underline 2 upsell targets.</p>
 </section>
 
@@ -345,7 +439,7 @@ if(!anyOpen){
 
 <section class="card">
 <h2>3) 2027 scoreboard (draft — lock in the room)</h2>
-<table>
+<table class="score-table">
 <tr><th>Goal</th><th>2026 track</th><th>2027 draft target</th><th>Lock?</th></tr>
 <tr><td>Revenue</td><td>2025: <b>$1,673,870</b> · 2026 track ~$2.3M</td><td><b>~$2.5–2.7M</b> (path to $3.5M/2030)</td><td></td></tr>
 <tr><td>Recurring clients</td><td>~17</td><td><b>~22–28</b> (net after churn)</td><td></td></tr>
