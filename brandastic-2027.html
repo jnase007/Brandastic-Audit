@@ -5,150 +5,175 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>Brandastic 2027 · Team plan</title>
 <meta name="robots" content="noindex,nofollow"/>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
 <style>
 :root,html[data-theme="light"]{
-  --bg:#eef2f6;--slide:#fff;--ink:#15202b;--muted:#5b6b7c;--line:rgba(21,32,43,.12);
-  --teal:#0f8f97;--card:#f5f8fb;--msgbg:#f0f5f8;--th:#e8eef3;--tool:rgba(238,242,246,.94);
-  --hero:#0d1b2a;--neon:#5CFFB0;
-  --ch-seo:#7c3aed;--ch-ref:#0f8f97;--ch-exist:#0d9488;--ch-direct:#64748b;
-  --ch-out:#1f8fc9;--ch-gads:#ea4335;--ch-meta:#e1306c;--ch-event:#d97706;
-  --ch-ai:#8b5cf6;--ch-sales:#4c6ef5;
+  --bg:#f0f4fa; --slide:#fff; --ink:#001F40; --muted:#5a6b80; --line:rgba(0,31,64,.12);
+  --blue:#0644ed; --blue2:#3b6cf5; --navy:#001F40; --gold:#FCBA52; --card:#f3f6fc;
+  --msgbg:#eef3fb; --th:#e7eef8; --tool:rgba(240,244,250,.95); --hero:#001F40; --neon:#7eb6ff;
+  --c1:#0644ed; --c2:#3b6cf5; --c3:#1d4ed8; --c4:#0ea5e9; --c5:#6366f1; --c6:#8b5cf6;
+  --c7:#f59e0b; --c8:#ef4444; --c9:#64748b; --us:#0644ed;
 }
 html[data-theme="dark"]{
-  --bg:#0b1220;--slide:#121a2b;--ink:#e8eef7;--muted:#9aa8bc;--line:rgba(232,238,247,.12);
-  --teal:#2dd4bf;--card:#182234;--msgbg:#1a2436;--th:#1c2740;--tool:rgba(11,18,32,.94);
+  --bg:#070f1c; --slide:#0d1829; --ink:#e8eef7; --muted:#9aabbf; --line:rgba(232,238,247,.12);
+  --blue:#4d7cff; --blue2:#6b93ff; --navy:#0a1628; --gold:#FCBA52; --card:#132036;
+  --msgbg:#15243b; --th:#1a2740; --tool:rgba(7,15,28,.95); --hero:#001F40; --neon:#7eb6ff;
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html,body{background:var(--bg);color:var(--ink);font-family:Inter,system-ui,sans-serif}
 .deck{max-width:1180px;margin:0 auto;padding:1rem 1rem 4.5rem}
-.toolbar{display:flex;flex-wrap:wrap;gap:.45rem;align-items:center;position:sticky;top:.35rem;z-index:50;
-  background:var(--tool);backdrop-filter:blur(12px);padding:.5rem 0;margin-bottom:.85rem}
-.btn{border:1px solid var(--line);background:var(--slide);color:var(--ink);border-radius:999px;font:800 .8rem Inter,system-ui,sans-serif;
-  padding:.55rem .9rem;cursor:pointer;text-decoration:none;display:inline-flex}
-.btn-p{background:linear-gradient(135deg,var(--teal),#0d1b2a);color:#fff;border:0}
-.hint{font-size:.72rem;color:var(--muted);font-weight:600}
-section.slide{margin:0 0 1rem}
-.slide-inner{background:var(--slide);border:1px solid var(--line);border-radius:18px;padding:1.5rem 1.6rem 1.2rem;
-  min-height:560px;display:flex;flex-direction:column;position:relative;overflow:hidden;box-shadow:0 10px 28px rgba(15,30,50,.06)}
-.kicker{font-size:.72rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--teal);margin-bottom:.4rem}
-.h1{font-size:clamp(1.9rem,3.6vw,2.7rem);font-weight:800;letter-spacing:-.03em;line-height:1.08;margin:0 0 .45rem}
-.h2{font-size:clamp(1.35rem,2.4vw,1.9rem);font-weight:800;letter-spacing:-.02em;margin:0 0 .4rem}
-.lede{color:var(--muted);font-size:1rem;line-height:1.45;max-width:40rem;margin:0 0 .7rem}
-h3{font-size:.92rem;font-weight:800;margin:0 0 .3rem}
-p,li{font-size:.88rem;line-height:1.45}
-ul{margin:.15rem 0 0 1.05rem}
-.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:.85rem .95rem}
-.grid2{display:grid;grid-template-columns:1fr 1fr;gap:.75rem;margin-top:.55rem}
-.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:.7rem;margin-top:.5rem}
-.grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:.55rem}
-.stat{font-size:1.5rem;font-weight:800;color:var(--teal)}
-.stat-lbl{font-size:.72rem;color:var(--muted);margin-top:.15rem}
-.quote{margin:.7rem 0 0;padding:.75rem 1rem;border-left:4px solid var(--teal);background:var(--msgbg);border-radius:0 12px 12px 0;font-size:.9rem}
-.pill{display:inline-block;font-size:.66rem;font-weight:800;padding:.18rem .5rem;border-radius:999px;background:rgba(15,143,151,.12);color:var(--teal);margin-bottom:.3rem}
-.table{width:100%;border-collapse:collapse;font-size:.8rem;margin-top:.4rem}
-.table th{text-align:left;background:var(--th);padding:.5rem;font-weight:800;border-bottom:1px solid var(--line)}
-.table td{padding:.5rem;border-bottom:1px solid var(--line);vertical-align:top}
-.msg{background:var(--msgbg);border:1px solid var(--line);border-radius:12px;padding:.75rem .85rem;font-size:.8rem;white-space:pre-wrap;line-height:1.4;margin:.4rem 0}
-.msg .lbl{display:block;font-size:.65rem;font-weight:800;color:var(--teal);text-transform:uppercase;margin-bottom:.15rem}
-.msg .subj{display:block;font-weight:700;margin-bottom:.25rem}
-.footer-bar{margin-top:auto;padding-top:.8rem;display:flex;justify-content:space-between;font-size:.68rem;font-weight:700;color:var(--muted)}
+.toolbar{display:flex;flex-wrap:wrap;gap:.4rem;align-items:center;position:sticky;top:.3rem;z-index:40;
+  background:var(--tool);backdrop-filter:blur(12px);padding:.45rem 0;margin-bottom:.8rem}
+.btn{border:1px solid var(--line);background:var(--slide);color:var(--ink);border-radius:999px;font:800 .78rem Inter,system-ui,sans-serif;
+  padding:.52rem .85rem;cursor:pointer;text-decoration:none;display:inline-flex}
+.btn-p{background:linear-gradient(135deg,var(--blue),var(--navy));color:#fff;border:0}
+.hint{font-size:.7rem;color:var(--muted);font-weight:600}
+section.slide{margin:0 0 .95rem}
+.slide-inner{background:var(--slide);border:1px solid var(--line);border-radius:18px;padding:1.45rem 1.55rem 1.1rem;
+  min-height:560px;display:flex;flex-direction:column;position:relative;overflow:hidden;box-shadow:0 10px 28px rgba(0,31,64,.07)}
+.kicker{font-size:.7rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--blue);margin-bottom:.35rem}
+.h1{font-size:clamp(1.85rem,3.5vw,2.6rem);font-weight:800;letter-spacing:-.03em;line-height:1.08;margin:0 0 .4rem}
+.h2{font-size:clamp(1.3rem,2.3vw,1.85rem);font-weight:800;letter-spacing:-.02em;margin:0 0 .35rem}
+.lede{color:var(--muted);font-size:.98rem;line-height:1.4;max-width:38rem;margin:0 0 .65rem}
+h3{font-size:.9rem;font-weight:800;margin:0 0 .25rem}
+p,li{font-size:.86rem;line-height:1.4}
+ul{margin:.1rem 0 0 1rem}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:.8rem .9rem}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:.7rem;margin-top:.5rem}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:.65rem;margin-top:.45rem}
+.grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:.5rem}
+.stat{font-size:1.45rem;font-weight:800;color:var(--blue)}
+.stat-lbl{font-size:.7rem;color:var(--muted);margin-top:.12rem}
+.quote{margin:.65rem 0 0;padding:.7rem .9rem;border-left:4px solid var(--blue);background:var(--msgbg);border-radius:0 12px 12px 0;font-size:.88rem}
+.pill{display:inline-block;font-size:.64rem;font-weight:800;padding:.16rem .48rem;border-radius:999px;background:rgba(6,68,237,.1);color:var(--blue);margin-bottom:.25rem}
+.table{width:100%;border-collapse:collapse;font-size:.78rem;margin-top:.35rem}
+.table th{text-align:left;background:var(--th);padding:.48rem;font-weight:800;border-bottom:1px solid var(--line)}
+.table td{padding:.48rem;border-bottom:1px solid var(--line);vertical-align:top}
+.msg{background:var(--msgbg);border:1px solid var(--line);border-radius:12px;padding:.7rem .8rem;font-size:.78rem;white-space:pre-wrap;line-height:1.35;margin:.35rem 0}
+.msg .lbl{display:block;font-size:.62rem;font-weight:800;color:var(--blue);text-transform:uppercase;margin-bottom:.12rem}
+.msg .subj{display:block;font-weight:700;margin-bottom:.2rem}
+.footer-bar{margin-top:auto;padding-top:.7rem;display:flex;justify-content:space-between;font-size:.66rem;font-weight:700;color:var(--muted)}
 
+/* title photo */
 .slide-inner.title-photo{background:var(--hero)!important;color:#e8eef5!important;border:0!important;min-height:560px!important;
-  padding:2.3rem!important;padding-right:min(52%,32rem)!important;justify-content:center!important}
+  padding:2.2rem!important;padding-right:min(52%,32rem)!important;justify-content:center!important}
 .site-hero-stack{position:absolute;inset:0 0 0 auto;width:min(50%,34rem);overflow:hidden;z-index:0}
 .site-hero-stack img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 28%;
-  filter:brightness(.9) contrast(1.05);animation:ken 18s ease-in-out infinite alternate}
+  filter:brightness(.88) contrast(1.05);animation:ken 18s ease-in-out infinite alternate}
 @keyframes ken{from{transform:scale(1)}to{transform:scale(1.06)}}
-.site-hero-fade{position:absolute;top:0;bottom:0;right:min(44%,28rem);width:7rem;z-index:1;
-  background:linear-gradient(90deg,var(--hero),transparent);pointer-events:none}
-.site-hero-stack::after{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(90deg,rgba(13,27,42,.5),rgba(13,27,42,.15))}
+.site-hero-fade{position:absolute;top:0;bottom:0;right:min(44%,28rem);width:7rem;z-index:1;background:linear-gradient(90deg,var(--hero),transparent);pointer-events:none}
+.site-hero-stack::after{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(90deg,rgba(0,31,64,.55),rgba(0,31,64,.2))}
 .title-copy{position:relative;z-index:2;max-width:min(34rem,48%)}
-.title-photo .phase{font-size:.8rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--neon);margin-bottom:.5rem}
-.title-photo .h1{color:#fff;font-size:clamp(2.1rem,4vw,2.9rem);max-width:14ch}
+.title-photo .phase{font-size:.78rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--neon);margin-bottom:.45rem}
+.title-photo .h1{color:#fff;font-size:clamp(2rem,4vw,2.85rem);max-width:14ch}
 .title-photo .lede{color:rgba(232,238,245,.88);margin:0}
-.title-photo .footer-bar{position:absolute;left:2.3rem;right:min(52%,32rem);bottom:1.1rem;margin:0;padding:0;z-index:2;color:rgba(232,238,245,.5)}
-.title-brand{position:relative;z-index:2;margin-top:1.4rem}
+.title-photo .footer-bar{position:absolute;left:2.2rem;right:min(52%,32rem);bottom:1rem;margin:0;padding:0;z-index:2;color:rgba(232,238,245,.5)}
+.title-brand{position:relative;z-index:2;margin-top:1.3rem}
 .title-brand img{height:28px;filter:brightness(0) invert(1)}
-.title-tagline{margin-top:.45rem;font-size:.88rem;color:rgba(232,238,245,.78)}
+.title-tagline{margin-top:.4rem;font-size:.86rem;color:rgba(232,238,245,.78)}
 .title-tagline span{color:var(--neon);font-weight:700}
-.close-checks{list-style:none;margin:.9rem 0 0;padding:0;position:relative;z-index:2}
-.close-checks li{color:rgba(232,238,245,.92);font-weight:600;margin:.35rem 0;padding-left:1.25rem;position:relative;font-size:.95rem}
+.close-checks{list-style:none;margin:.85rem 0 0;padding:0;position:relative;z-index:2}
+.close-checks li{color:rgba(232,238,245,.92);font-weight:600;margin:.32rem 0;padding-left:1.2rem;position:relative;font-size:.92rem}
 .close-checks li:before{content:"✓";position:absolute;left:0;color:var(--neon);font-weight:800}
 
-.persona-board{display:grid;grid-template-columns:repeat(3,1fr);gap:.7rem;margin-top:.45rem}
-.persona-board .card{display:flex;flex-direction:column}
-.persona-photo{width:100%;aspect-ratio:3/4;border-radius:14px;overflow:hidden;margin-bottom:.5rem;border:1px solid var(--line);background:#1a2230}
-.persona-photo img{width:100%;height:100%;object-fit:contain;object-position:center}
-.persona-role{font-size:.66rem;font-weight:800;letter-spacing:.05em;text-transform:uppercase;color:var(--teal);margin:.1rem 0}
-.persona-name{font-size:1.02rem;font-weight:800;margin:.15rem 0}
-.persona-quote{font-size:.82rem;color:var(--muted);font-style:italic;margin:.25rem 0 .45rem;line-height:1.35}
-.persona-simple{margin:0 0 0 1rem;font-size:.78rem;line-height:1.4}
+/* personas */
+.persona-board{display:grid;grid-template-columns:repeat(3,1fr);gap:.65rem;margin-top:.4rem}
+.persona-board .card{border-top:4px solid var(--blue)}
+.persona-board .card:nth-child(2){border-top-color:var(--c4)}
+.persona-board .card:nth-child(3){border-top-color:var(--c6)}
+.persona-photo{width:100%;aspect-ratio:3/4;border-radius:14px;overflow:hidden;margin-bottom:.45rem;border:1px solid var(--line);background:#0d1829}
+.persona-photo img{width:100%;height:100%;object-fit:contain}
+.persona-role{font-size:.64rem;font-weight:800;letter-spacing:.05em;text-transform:uppercase;color:var(--blue)}
+.persona-name{font-size:1rem;font-weight:800;margin:.12rem 0}
+.persona-quote{font-size:.8rem;color:var(--muted);font-style:italic;margin:.2rem 0 .4rem;line-height:1.3}
+.persona-simple{margin:0 0 0 .95rem;font-size:.76rem}
 
-/* funnel */
-.funnel-wrap{display:flex;flex-direction:column;align-items:center;gap:8px;margin:.4rem auto 0;max-width:900px}
-.funnel-stage{color:#fff;border-radius:14px;padding:.8rem 1rem;width:100%;display:grid;grid-template-columns:130px 1fr 130px;gap:.6rem;align-items:center;
-  box-shadow:0 8px 22px rgba(0,0,0,.15);animation:in .6s ease both}
-.funnel-stage:nth-child(1){width:100%;background:linear-gradient(135deg,#7c3aed,#a78bfa)}
-.funnel-stage:nth-child(3){width:90%;background:linear-gradient(135deg,#1f8fc9,#38bdf8);animation-delay:.08s}
-.funnel-stage:nth-child(5){width:80%;background:linear-gradient(135deg,#0f8f97,#2dd4bf);animation-delay:.16s}
-.funnel-stage:nth-child(7){width:70%;background:linear-gradient(135deg,#4c6ef5,#748ffc);animation-delay:.24s}
-.funnel-stage:nth-child(9){width:60%;background:linear-gradient(135deg,#059669,#34d399);animation-delay:.32s}
-.funnel-stage:nth-child(11){width:52%;background:linear-gradient(135deg,#0d1b2a,#1f8fc9);animation-delay:.4s}
-.funnel-stage .n{font-weight:800;font-size:.92rem}
-.funnel-stage .j{font-size:.72rem;opacity:.92;margin-top:.1rem}
-.funnel-stage .ch{display:flex;flex-wrap:wrap;gap:.25rem}
-.funnel-stage .ch span{background:rgba(255,255,255,.2);border-radius:999px;padding:.15rem .4rem;font-size:.6rem;font-weight:800}
-.funnel-stage .m{text-align:right;font-size:.68rem;font-weight:800}
-.funnel-stage .m b{display:block;font-size:1rem}
-.funnel-arrow{width:0;height:0;border-left:10px solid transparent;border-right:10px solid transparent;border-top:10px solid rgba(15,143,151,.4)}
-@keyframes in{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+/* color key chips — same everywhere */
+.key{display:flex;flex-wrap:wrap;gap:.3rem;margin:.3rem 0 .5rem}
+.chip{border-radius:999px;padding:.22rem .55rem;font-weight:800;font-size:.66rem;color:#fff}
+.chip.seo{background:var(--c6)}.chip.out{background:var(--c4)}.chip.ref{background:var(--c1)}
+.chip.exist{background:var(--c3)}.chip.sales{background:var(--c2)}.chip.gads{background:var(--c8)}
+.chip.meta{background:#e1306c}.chip.event{background:var(--c7)}.chip.site{background:var(--c9)}.chip.ai{background:#7c3aed}
 
-/* gantt simple */
-.ch-key{display:flex;flex-wrap:wrap;gap:.35rem;margin:.35rem 0 .5rem}
-.ch-pill{border-radius:999px;padding:.25rem .6rem;font-weight:800;font-size:.68rem;color:#fff}
-.ch-pill.seo{background:var(--ch-seo)}.ch-pill.ref{background:var(--ch-ref)}.ch-pill.exist{background:var(--ch-exist)}
-.ch-pill.out{background:var(--ch-out)}.ch-pill.gads{background:var(--ch-gads)}.ch-pill.meta{background:var(--ch-meta)}
-.ch-pill.event{background:var(--ch-event)}.ch-pill.ai{background:var(--ch-ai)}.ch-pill.sales{background:var(--ch-sales)}
-.ch-pill.direct{background:var(--ch-direct)}
-.gantt{flex:1;display:flex;flex-direction:column;justify-content:space-evenly;min-height:380px}
-.gantt-head{display:grid;grid-template-columns:150px repeat(12,1fr);gap:3px;margin-bottom:4px}
-.gantt-head span{text-align:center;font-size:.65rem;font-weight:800;color:var(--muted)}
-.gantt-row{display:grid;grid-template-columns:150px 1fr;gap:10px;align-items:center;min-height:40px}
-.gantt-label{font-size:.8rem;font-weight:800}
-.gantt-label small{display:block;font-size:.65rem;font-weight:600;color:var(--muted)}
-.gantt-track{position:relative;height:32px;background:var(--th);border-radius:9px;border:1px solid var(--line);overflow:hidden}
-.gantt-bar{position:absolute;top:4px;bottom:4px;border-radius:7px;display:flex;align-items:center;padding:0 .5rem;
-  font-size:.65rem;font-weight:800;color:#fff;white-space:nowrap;overflow:hidden}
+/* funnel blue family */
+.funnel-wrap{display:flex;flex-direction:column;align-items:center;gap:7px;margin:.35rem auto 0;max-width:900px}
+.funnel-stage{color:#fff;border-radius:14px;padding:.75rem .95rem;width:100%;display:grid;grid-template-columns:120px 1fr 110px;gap:.55rem;align-items:center;
+  box-shadow:0 8px 22px rgba(0,31,64,.18);animation:in .55s ease both}
+.funnel-stage:nth-child(1){width:100%;background:linear-gradient(135deg,#001F40,#0644ed)}
+.funnel-stage:nth-child(3){width:90%;background:linear-gradient(135deg,#0644ed,#3b6cf5);animation-delay:.07s}
+.funnel-stage:nth-child(5){width:80%;background:linear-gradient(135deg,#1d4ed8,#0ea5e9);animation-delay:.14s}
+.funnel-stage:nth-child(7){width:70%;background:linear-gradient(135deg,#3b6cf5,#6366f1);animation-delay:.21s}
+.funnel-stage:nth-child(9){width:60%;background:linear-gradient(135deg,#0644ed,#1d4ed8);animation-delay:.28s}
+.funnel-stage:nth-child(11){width:52%;background:linear-gradient(135deg,#001F40,#3b6cf5);animation-delay:.35s}
+.funnel-stage .n{font-weight:800;font-size:.9rem}
+.funnel-stage .j{font-size:.7rem;opacity:.92;margin-top:.08rem}
+.funnel-stage .ch{display:flex;flex-wrap:wrap;gap:.22rem}
+.funnel-stage .ch span{background:rgba(255,255,255,.2);border-radius:999px;padding:.12rem .38rem;font-size:.58rem;font-weight:800}
+.funnel-stage .m{text-align:right;font-size:.66rem;font-weight:800}
+.funnel-stage .m b{display:block;font-size:.95rem}
+.funnel-arrow{width:0;height:0;border-left:9px solid transparent;border-right:9px solid transparent;border-top:9px solid rgba(6,68,237,.35)}
+@keyframes in{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
 
-.week{display:grid;grid-template-columns:repeat(5,1fr);gap:.5rem;margin-top:.5rem}
-.week .d{border:1px solid var(--line);border-radius:12px;padding:.65rem;background:var(--card);min-height:140px}
-.week .d b{display:block;font-size:.78rem;margin-bottom:.35rem}
-.week .d span{display:block;font-size:.72rem;color:var(--muted);line-height:1.35;margin:.2rem 0}
+/* gantt */
+.gantt{flex:1;display:flex;flex-direction:column;justify-content:space-evenly;min-height:360px}
+.gantt-head{display:grid;grid-template-columns:140px repeat(12,1fr);gap:3px;margin-bottom:4px}
+.gantt-head span{text-align:center;font-size:.62rem;font-weight:800;color:var(--muted)}
+.gantt-row{display:grid;grid-template-columns:140px 1fr;gap:10px;align-items:center;min-height:38px}
+.gantt-label{font-size:.78rem;font-weight:800}
+.gantt-label small{display:block;font-size:.62rem;font-weight:600;color:var(--muted)}
+.gantt-track{position:relative;height:30px;background:var(--th);border-radius:9px;border:1px solid var(--line);overflow:hidden}
+.gantt-bar{position:absolute;top:3px;bottom:3px;border-radius:7px;display:flex;align-items:center;padding:0 .45rem;
+  font-size:.62rem;font-weight:800;color:#fff;white-space:nowrap;overflow:hidden}
+
+.week{display:grid;grid-template-columns:repeat(5,1fr);gap:.45rem;margin-top:.45rem}
+.week .d{border:1px solid var(--line);border-radius:12px;padding:.6rem;background:var(--card);min-height:130px;border-top:4px solid var(--blue)}
+.week .d:nth-child(2){border-top-color:var(--c4)}.week .d:nth-child(3){border-top-color:var(--c6)}
+.week .d:nth-child(4){border-top-color:var(--c2)}.week .d:nth-child(5){border-top-color:var(--c3)}
+.week .d b{display:block;font-size:.76rem;margin-bottom:.3rem}
+.week .d span{display:block;font-size:.7rem;color:var(--muted);line-height:1.3;margin:.15rem 0}
+.week .d .tag{display:inline-block;border-radius:6px;padding:.1rem .35rem;font-size:.58rem;font-weight:800;color:#fff;margin-top:.25rem}
+
+/* competitor map */
+.cmap{position:relative;flex:1;min-height:380px;margin-top:.4rem;border:1px solid var(--line);border-radius:16px;background:
+  linear-gradient(to right, rgba(6,68,237,.04), rgba(6,68,237,.02)),
+  linear-gradient(#eef3fb,#fff);overflow:hidden}
+.cmap-x,.cmap-y{position:absolute;font-size:.68rem;font-weight:800;color:var(--muted);letter-spacing:.04em;text-transform:uppercase}
+.cmap-x{bottom:12px;left:50%;transform:translateX(-50%)}
+.cmap-y{left:10px;top:50%;transform:translateY(-50%) rotate(-90deg);transform-origin:center}
+.cmap-axis-x{position:absolute;left:56px;right:18px;bottom:42px;height:2px;background:rgba(0,31,64,.15)}
+.cmap-axis-y{position:absolute;left:56px;top:18px;bottom:42px;width:2px;background:rgba(0,31,64,.15)}
+.cmap-grid{position:absolute;inset:18px 18px 42px 56px;background-image:
+  linear-gradient(to right, rgba(0,31,64,.06) 1px, transparent 1px),
+  linear-gradient(to bottom, rgba(0,31,64,.06) 1px, transparent 1px);background-size:25% 25%}
+.cmap-dot{position:absolute;border-radius:14px;padding:.45rem .55rem;color:#fff;font-weight:800;font-size:.68rem;line-height:1.15;
+  box-shadow:0 8px 20px rgba(0,31,64,.2);transform:translate(-50%,-50%);text-align:center;min-width:88px;animation:in .5s ease both}
+.cmap-dot small{display:block;font-weight:600;font-size:.58rem;opacity:.9;margin-top:.12rem}
+.cmap-dot.us{background:linear-gradient(135deg,#0644ed,#001F40);min-width:100px;font-size:.74rem;z-index:3;box-shadow:0 0 0 4px rgba(6,68,237,.25),0 10px 28px rgba(6,68,237,.35)}
+.cmap-dot.a{background:#64748b}.cmap-dot.b{background:#0ea5e9}.cmap-dot.c{background:#f59e0b}.cmap-dot.d{background:#8b5cf6}.cmap-dot.e{background:#ef4444}.cmap-dot.f{background:#6366f1}
+.cmap-note{position:absolute;right:14px;top:14px;font-size:.68rem;color:var(--muted);max-width:180px;line-height:1.3;font-weight:600}
 
 @media(max-width:900px){
   .grid2,.grid3,.grid4,.persona-board,.week,.funnel-stage{grid-template-columns:1fr}
   .funnel-stage{width:100%!important}
-  .title-photo{padding-right:1.4rem!important}
-  .site-hero-stack{width:100%;height:40%;top:auto;opacity:.4}
+  .title-photo{padding-right:1.3rem!important}
+  .site-hero-stack{width:100%;height:38%;top:auto;opacity:.4}
   .title-copy{max-width:100%}
-  .gantt-head{display:none}
-  .gantt-row{grid-template-columns:1fr}
+  .gantt-head{display:none}.gantt-row{grid-template-columns:1fr}
 }
-@media (prefers-reduced-motion:reduce){.site-hero-stack img,.funnel-stage{animation:none!important}}
+@media(prefers-reduced-motion:reduce){.site-hero-stack img,.funnel-stage,.cmap-dot{animation:none!important}}
 
 .deck-present-btn{position:fixed;right:16px;bottom:16px;z-index:99999;border:0;border-radius:999px;cursor:pointer;
-  font:800 .82rem Inter,system-ui,sans-serif;color:#fff;padding:.7rem 1rem;background:linear-gradient(135deg,var(--teal),#0d1b2a)}
+  font:800 .8rem Inter,system-ui,sans-serif;color:#fff;padding:.68rem .95rem;background:linear-gradient(135deg,var(--blue),var(--navy))}
 .deck-exit-btn,.deck-exit-hint,.deck-nav,.deck-counter{display:none!important}
-body.deck-mode{background:#0b1220!important;overflow:hidden!important;height:100vh!important}
+body.deck-mode{background:#001F40!important;overflow:hidden!important;height:100vh!important}
 body.deck-mode .deck{margin:0!important;padding:0!important;max-width:none!important;width:100%!important}
 body.deck-mode .toolbar,body.deck-mode .deck-present-btn{display:none!important}
 body.deck-mode .deck-exit-btn{display:inline-flex!important;position:fixed;top:14px;left:14px;z-index:100002;border:0;border-radius:999px;
-  background:#dc2626;color:#fff;font:800 .8rem Inter,system-ui,sans-serif;padding:.5rem .9rem;cursor:pointer}
+  background:#dc2626;color:#fff;font:800 .78rem Inter,system-ui,sans-serif;padding:.5rem .85rem;cursor:pointer}
 body.deck-mode .deck-exit-hint{display:block!important;position:fixed;left:50%;bottom:12px;transform:translateX(-50%);z-index:100001;
-  color:#fff;font-size:.7rem;font-weight:600;background:rgba(0,0,0,.55);padding:.3rem .7rem;border-radius:999px}
-body.deck-mode .deck-counter{display:block!important;position:fixed;top:16px;right:14px;z-index:100001;color:#fff;font-size:.72rem;font-weight:700;
-  background:rgba(0,0,0,.5);padding:.3rem .55rem;border-radius:8px}
+  color:#fff;font-size:.68rem;font-weight:600;background:rgba(0,0,0,.55);padding:.28rem .65rem;border-radius:999px}
+body.deck-mode .deck-counter{display:block!important;position:fixed;top:16px;right:14px;z-index:100001;color:#fff;font-size:.7rem;font-weight:700;
+  background:rgba(0,0,0,.5);padding:.28rem .5rem;border-radius:8px}
 body.deck-mode .deck-nav{display:block!important;position:fixed;inset:0;z-index:100000;pointer-events:none}
 body.deck-mode .deck-nav button{pointer-events:auto;position:absolute;top:50%;transform:translateY(-50%);width:44px;height:64px;border:0;border-radius:12px;
   background:rgba(255,255,255,.16);color:#fff;font-size:1.5rem;cursor:pointer}
@@ -156,12 +181,12 @@ body.deck-mode .deck-nav .deck-prev{left:8px}body.deck-mode .deck-nav .deck-next
 body.deck-mode section.slide{display:none!important;position:fixed!important;inset:0!important;margin:0!important}
 body.deck-mode section.slide.deck-active{display:flex!important;align-items:center!important;justify-content:center!important}
 body.deck-mode .slide.deck-active .slide-inner{width:min(1280px,96vw)!important;height:min(720px,calc(100vh - 40px))!important;
-  max-height:calc(100vh - 40px)!important;overflow:auto!important;border-radius:14px!important;box-shadow:0 18px 50px rgba(0,0,0,.4)!important}
+  max-height:calc(100vh - 40px)!important;overflow:auto!important;border-radius:14px!important;box-shadow:0 18px 50px rgba(0,0,0,.45)!important}
 @media print{
   .toolbar,.deck-present-btn,.deck-exit-btn,.deck-exit-hint,.deck-nav,.deck-counter{display:none!important}
   section.slide{break-after:page}
   .slide-inner{box-shadow:none;border-radius:0}
-  .site-hero-stack img,.funnel-stage{animation:none!important}
+  .site-hero-stack img,.funnel-stage,.cmap-dot{animation:none!important}
   @page{size:landscape;margin:.4in}
   html,body{-webkit-print-color-adjust:exact;print-color-adjust:exact}
 }
@@ -174,8 +199,7 @@ body.deck-mode .slide.deck-active .slide-inner{width:min(1280px,96vw)!important;
     <button class="btn" type="button" onclick="baSetTheme('light')">Light</button>
     <button class="btn" type="button" onclick="baSetTheme('dark')">Dark</button>
     <button class="btn btn-p" type="button" onclick="document.getElementById('deckPresentBtn').click()">▸ Present</button>
-    <a class="btn" href="/gameplan_marketing/planning-2027.html" target="_blank" rel="noopener">Planning pack</a>
-    <span class="hint">Simple team plan</span>
+    <span class="hint">Brandastic blue · simple team plan</span>
   </div>
 
   <section class="slide" id="title">
@@ -197,41 +221,39 @@ body.deck-mode .slide.deck-active .slide-inner{width:min(1280px,96vw)!important;
 
   <section class="slide" id="where">
     <div class="slide-inner">
-      <div class="kicker">Where we are</div>
-      <h2 class="h2">Simple scoreboard</h2>
-      <div class="grid4" style="margin-top:.6rem">
-        <div class="card"><div class="stat">$1.67M</div><div class="stat-lbl">2025 sales</div></div>
-        <div class="card"><div class="stat">~$2.12M</div><div class="stat-lbl">2026 pace</div></div>
-        <div class="card"><div class="stat">$2.5M</div><div class="stat-lbl">2026 goal</div></div>
-        <div class="card"><div class="stat">$160K</div><div class="stat-lbl">Monthly recurring goal</div></div>
+      <div class="kicker">Scoreboard</div>
+      <h2 class="h2">Where we are</h2>
+      <div class="grid4" style="margin-top:.55rem">
+        <div class="card" style="border-top:4px solid var(--blue)"><div class="stat">$1.67M</div><div class="stat-lbl">2025 sales</div></div>
+        <div class="card" style="border-top:4px solid var(--c4)"><div class="stat">~$2.12M</div><div class="stat-lbl">2026 pace</div></div>
+        <div class="card" style="border-top:4px solid var(--c2)"><div class="stat">$2.5M</div><div class="stat-lbl">2026 goal</div></div>
+        <div class="card" style="border-top:4px solid var(--c3)"><div class="stat">$160K</div><div class="stat-lbl">Monthly recurring goal</div></div>
       </div>
-      <p class="quote" style="margin-top:.9rem">Most new clients come from <strong>search</strong> and <strong>referrals</strong>. We fund that first. Ads for Brandastic come later.</p>
-      <div class="grid2">
-        <div class="card"><h3>Do more of</h3><ul>
-          <li>Clear offer pages for locked markets</li>
-          <li>Warm reopen + referral asks</li>
-          <li>Grow current clients</li>
-          <li>Write why we win and lose</li>
-        </ul></div>
-        <div class="card"><h3>Do less of</h3><ul>
-          <li>Chasing every industry</li>
-          <li>Ads before follow-up is tight</li>
-          <li>Long decks nobody reads</li>
-          <li>Vanity posts with no next step</li>
-        </ul></div>
-      </div>
+      <p class="quote">Most new clients come from <strong>search</strong> and <strong>referrals</strong>. Fund that first. Brandastic ads later.</p>
       <div class="footer-bar"><span>BRANDASTIC 2027</span><span>2</span></div>
     </div>
   </section>
 
-    <section class="slide" id="section-who">
-    <div class="slide-inner title-photo">
-      <div class="site-hero-stack" aria-hidden="true"><img src="assets/ba-office-2027/client-meeting.jpg" alt=""/></div>
-      <div class="site-hero-fade" aria-hidden="true"></div>
-      <div class="title-copy">
-        <div class="phase">Who</div>
-        <div class="h1">Three buyers</div>
-        <p class="lede">Titles, pains, how we help.</p>
+  <section class="slide" id="competitors">
+    <div class="slide-inner" style="min-height:600px">
+      <div class="kicker">Competitors · visual map</div>
+      <h2 class="h2">Price vs full-service depth</h2>
+      <p class="lede" style="margin-bottom:.2rem">Left = cheaper / thinner. Right = fuller stack. Up = higher price. <strong style="color:var(--blue)">Blue = us.</strong></p>
+      <div class="cmap">
+        <div class="cmap-grid"></div>
+        <div class="cmap-axis-y"></div>
+        <div class="cmap-axis-x"></div>
+        <div class="cmap-y">Higher price →</div>
+        <div class="cmap-x">← thinner service ····· fuller stack →</div>
+        <div class="cmap-note">Working map — rename dots with real shops you meet on calls.</div>
+        <!-- positions: left% from axis area, top% -->
+        <div class="cmap-dot a" style="left:22%;top:72%">Freelance / cheap<small>Low price · thin</small></div>
+        <div class="cmap-dot c" style="left:30%;top:48%">DIY / AI tools<small>Software · no team</small></div>
+        <div class="cmap-dot b" style="left:48%;top:58%">Boutique specialist<small>One channel deep</small></div>
+        <div class="cmap-dot f" style="left:62%;top:40%">In-house hire<small>Salary · one person</small></div>
+        <div class="cmap-dot d" style="left:78%;top:28%">Big national<small>High price · slow</small></div>
+        <div class="cmap-dot e" style="left:70%;top:18%">Directive-class<small>High spend B2B</small></div>
+        <div class="cmap-dot us" style="left:58%;top:46%">BRANDASTIC<small>Full stack · mid price · fast</small></div>
       </div>
       <div class="footer-bar"><span>BRANDASTIC 2027</span><span>3</span></div>
     </div>
@@ -240,7 +262,7 @@ body.deck-mode .slide.deck-active .slide-inner{width:min(1280px,96vw)!important;
   <section class="slide" id="personas">
     <div class="slide-inner">
       <div class="kicker">Who we sell to</div>
-      <h2 class="h2">Three people. Keep lists pure.</h2>
+      <h2 class="h2">Three buyers</h2>
       <div class="persona-board">
         <div class="card">
           <div class="persona-photo"><img src="assets/brandastic-personas/icp-dental-owner.jpg" alt="Dana"/></div>
@@ -249,19 +271,19 @@ body.deck-mode .slide.deck-active .slide-inner{width:min(1280px,96vw)!important;
           <div class="persona-name">Dana · 44</div>
           <div class="persona-quote">“Dealers can’t find what we sell.”</div>
           <ul class="persona-simple">
-            <li><strong>Pain:</strong> offer buried, random marketing</li>
-            <li><strong>We do:</strong> clear pages + search that books demand</li>
+            <li><strong>Pain:</strong> offer buried</li>
+            <li><strong>We help:</strong> clear pages + search</li>
           </ul>
         </div>
         <div class="card">
           <div class="persona-photo"><img src="assets/brandastic-personas/icp-education-leader.jpg" alt="Maya"/></div>
           <div class="pill">Secondary</div>
-          <div class="persona-role">Enrollment / marketing · Online schools</div>
+          <div class="persona-role">Enrollment lead · Online schools</div>
           <div class="persona-name">Maya · 41</div>
           <div class="persona-quote">“If families can’t find us, enrollment fails.”</div>
           <ul class="persona-simple">
             <li><strong>Pain:</strong> spend without inquiries</li>
-            <li><strong>We do:</strong> search + paid + site aimed at enrollment</li>
+            <li><strong>We help:</strong> search + paid for enrollment</li>
           </ul>
         </div>
         <div class="card">
@@ -271,8 +293,8 @@ body.deck-mode .slide.deck-active .slide-inner{width:min(1280px,96vw)!important;
           <div class="persona-name">Sam · 51</div>
           <div class="persona-quote">“Buyers need to see the shop and ask for a quote.”</div>
           <ul class="persona-simple">
-            <li><strong>Pain:</strong> invisible online, no time</li>
-            <li><strong>We do:</strong> get-found package, simple quote path</li>
+            <li><strong>Pain:</strong> invisible online</li>
+            <li><strong>We help:</strong> get-found + quote path</li>
           </ul>
         </div>
       </div>
@@ -283,196 +305,169 @@ body.deck-mode .slide.deck-active .slide-inner{width:min(1280px,96vw)!important;
   <section class="slide" id="message">
     <div class="slide-inner">
       <div class="kicker">What we say</div>
-      <h2 class="h2">One house line · three buyer lines</h2>
-      <div class="card" style="margin-top:.4rem">
-        <h3>House line</h3>
-        <p style="font-size:1.1rem;font-weight:700;margin-top:.35rem;line-height:1.35">We help the right businesses get more of the right customers — with a clear plan and work you can see.</p>
+      <h2 class="h2">House line + buyer lines</h2>
+      <div class="card" style="border-left:4px solid var(--blue);margin-top:.35rem">
+        <h3>House</h3>
+        <p style="font-size:1.08rem;font-weight:700;margin-top:.3rem;line-height:1.35">We help the right businesses get more of the right customers — with a clear plan and work you can see.</p>
       </div>
-      <table class="table">
-        <tr><th>Buyer</th><th>Say this</th></tr>
-        <tr><td><strong>Dana</strong></td><td>We make it obvious what you sell — so dealers and clinics find you and start.</td></tr>
-        <tr><td><strong>Maya</strong></td><td>We help families find your school and inquire — without noise.</td></tr>
-        <tr><td><strong>Sam</strong></td><td>We help buyers see the real shop and ask for a quote.</td></tr>
-      </table>
-      <p class="quote">Plain English only. If it needs a glossary, rewrite it.</p>
+      <div class="grid3" style="margin-top:.65rem">
+        <div class="card" style="border-top:4px solid var(--blue)"><h3>Dana</h3><p style="font-size:.84rem;margin-top:.3rem;color:var(--muted)">We make it obvious what you sell — so dealers and clinics find you and start.</p></div>
+        <div class="card" style="border-top:4px solid var(--c4)"><h3>Maya</h3><p style="font-size:.84rem;margin-top:.3rem;color:var(--muted)">We help families find your school and inquire — without noise.</p></div>
+        <div class="card" style="border-top:4px solid var(--c6)"><h3>Sam</h3><p style="font-size:.84rem;margin-top:.3rem;color:var(--muted)">We help buyers see the real shop and ask for a quote.</p></div>
+      </div>
       <div class="footer-bar"><span>BRANDASTIC 2027</span><span>5</span></div>
-    </div>
-  </section>
-
-    <section class="slide" id="section-funnel">
-    <div class="slide-inner title-photo">
-      <div class="site-hero-stack" aria-hidden="true"><img src="assets/ba-office-2027/office-3.jpg" alt=""/></div>
-      <div class="site-hero-fade" aria-hidden="true"></div>
-      <div class="title-copy">
-        <div class="phase">System</div>
-        <div class="h1">How demand becomes work</div>
-        <p class="lede">Awareness → booked work → expand.</p>
-      </div>
-      <div class="footer-bar"><span>BRANDASTIC 2027</span><span>6</span></div>
     </div>
   </section>
 
   <section class="slide" id="funnel">
     <div class="slide-inner">
-      <div class="kicker">Funnel</div>
+      <div class="kicker">Funnel · color path</div>
       <h2 class="h2">Awareness → expand</h2>
+      <div class="key">
+        <span class="chip seo">SEO</span><span class="chip out">Outbound</span><span class="chip ref">Referral</span>
+        <span class="chip exist">Existing</span><span class="chip sales">Sales</span><span class="chip site">Site</span>
+      </div>
       <div class="funnel-wrap">
-        <div class="funnel-stage"><div><div class="n">1 · Awareness</div><div class="j">Be findable</div></div><div class="ch"><span>SEO</span><span>LinkedIn</span><span>Events</span><span>AI</span></div><div class="m"><b>Seen</b></div></div>
+        <div class="funnel-stage"><div><div class="n">1 · Awareness</div><div class="j">Be findable</div></div><div class="ch"><span>SEO</span><span>LinkedIn</span><span>Events</span></div><div class="m"><b>Seen</b></div></div>
         <div class="funnel-arrow"></div>
-        <div class="funnel-stage"><div><div class="n">2 · Interest</div><div class="j">Offer clear in 10 seconds</div></div><div class="ch"><span>Site</span><span>Pages</span><span>Proof</span></div><div class="m"><b>Engaged</b></div></div>
+        <div class="funnel-stage"><div><div class="n">2 · Interest</div><div class="j">Offer clear fast</div></div><div class="ch"><span>Site</span><span>Pages</span><span>Proof</span></div><div class="m"><b>Engaged</b></div></div>
         <div class="funnel-arrow"></div>
         <div class="funnel-stage"><div><div class="n">3 · Talk</div><div class="j">Human outreach</div></div><div class="ch"><span>Email</span><span>Outbound</span><span>Referral</span></div><div class="m"><b>Meetings</b></div></div>
         <div class="funnel-arrow"></div>
-        <div class="funnel-stage"><div><div class="n">4 · Intent</div><div class="j">One-pager + next step</div></div><div class="ch"><span>Calls</span><span>Board</span></div><div class="m"><b>Fit yes</b></div></div>
+        <div class="funnel-stage"><div><div class="n">4 · Intent</div><div class="j">One-pager</div></div><div class="ch"><span>Calls</span><span>Board</span></div><div class="m"><b>Fit</b></div></div>
         <div class="funnel-arrow"></div>
-        <div class="funnel-stage"><div><div class="n">5 · Win</div><div class="j">Proposal → close</div></div><div class="ch"><span>Proposal</span><span>Win/loss</span></div><div class="m"><b>Contract</b></div></div>
+        <div class="funnel-stage"><div><div class="n">5 · Win</div><div class="j">Close</div></div><div class="ch"><span>Proposal</span><span>Win/loss</span></div><div class="m"><b>Contract</b></div></div>
         <div class="funnel-arrow"></div>
-        <div class="funnel-stage"><div><div class="n">6 · Expand</div><div class="j">Grow + ask for intros</div></div><div class="ch"><span>Existing</span><span>Referral</span></div><div class="m"><b>Net growth</b></div></div>
+        <div class="funnel-stage"><div><div class="n">6 · Expand</div><div class="j">Grow + intros</div></div><div class="ch"><span>Existing</span><span>Referral</span></div><div class="m"><b>Net growth</b></div></div>
       </div>
-      <p class="quote">If wins are weak, don’t buy more ads. Fix the middle first.</p>
-      <div class="footer-bar"><span>BRANDASTIC 2027</span><span>7</span></div>
+      <div class="footer-bar"><span>BRANDASTIC 2027</span><span>6</span></div>
     </div>
   </section>
 
-  <section class="slide" id="gantt-12" style="">
+  <section class="slide" id="gantt">
     <div class="slide-inner" style="min-height:620px">
-      <div class="kicker">Channels on a timeline</div>
-      <h2 class="h2">What runs when (12 months)</h2>
-      <div class="ch-key">
-        <span class="ch-pill seo">SEO</span><span class="ch-pill out">Outbound</span><span class="ch-pill ref">Referral</span>
-        <span class="ch-pill exist">Existing</span><span class="ch-pill sales">Sales board</span>
-        <span class="ch-pill gads">Google</span><span class="ch-pill meta">Meta</span><span class="ch-pill event">Events</span>
+      <div class="kicker">Channels · timeline</div>
+      <h2 class="h2">Same colors · whole year</h2>
+      <div class="key">
+        <span class="chip seo">SEO</span><span class="chip out">Outbound</span><span class="chip ref">Referral</span>
+        <span class="chip exist">Existing</span><span class="chip sales">Sales board</span>
+        <span class="chip gads">Google</span><span class="chip meta">Meta</span><span class="chip event">Events</span>
       </div>
       <div class="gantt-head"><span></span><span>N</span><span>D</span><span>J</span><span>F</span><span>M</span><span>A</span><span>M</span><span>J</span><span>J</span><span>A</span><span>S</span><span>O</span></div>
       <div class="gantt">
-        <div class="gantt-row"><div class="gantt-label">SEO<small>pages + proof</small></div><div class="gantt-track">
-          <div class="gantt-bar" style="left:0;width:20%;background:var(--ch-seo)">Start</div>
-          <div class="gantt-bar" style="left:18%;width:82%;background:var(--ch-seo)">Always on</div></div></div>
-        <div class="gantt-row"><div class="gantt-label">Outbound<small>email + LinkedIn</small></div><div class="gantt-track">
-          <div class="gantt-bar" style="left:0;width:100%;background:var(--ch-out)">Weekly warm list</div></div></div>
+        <div class="gantt-row"><div class="gantt-label">SEO</div><div class="gantt-track">
+          <div class="gantt-bar" style="left:0;width:100%;background:var(--c6)">Always on · pages + proof</div></div></div>
+        <div class="gantt-row"><div class="gantt-label">Outbound</div><div class="gantt-track">
+          <div class="gantt-bar" style="left:0;width:100%;background:var(--c4)">Weekly warm list</div></div></div>
         <div class="gantt-row"><div class="gantt-label">Referral</div><div class="gantt-track">
-          <div class="gantt-bar" style="left:10%;width:90%;background:var(--ch-ref)">After every win</div></div></div>
-        <div class="gantt-row"><div class="gantt-label">Existing clients</div><div class="gantt-track">
-          <div class="gantt-bar" style="left:10%;width:90%;background:var(--ch-exist)">Grow packages</div></div></div>
+          <div class="gantt-bar" style="left:8%;width:92%;background:var(--c1)">After every win</div></div></div>
+        <div class="gantt-row"><div class="gantt-label">Existing</div><div class="gantt-track">
+          <div class="gantt-bar" style="left:8%;width:92%;background:var(--c3)">Grow packages</div></div></div>
         <div class="gantt-row"><div class="gantt-label">Sales board</div><div class="gantt-track">
-          <div class="gantt-bar" style="left:0;width:100%;background:var(--ch-sales)">Thursday 20 minutes</div></div></div>
-        <div class="gantt-row"><div class="gantt-label">Google / Meta<small>for us</small></div><div class="gantt-track">
-          <div class="gantt-bar" style="left:0;width:55%;background:var(--ch-gads);opacity:.35">Later</div>
-          <div class="gantt-bar" style="left:55%;width:45%;background:var(--ch-meta)">Only if ready</div></div></div>
+          <div class="gantt-bar" style="left:0;width:100%;background:var(--c2)">Thu 20 min</div></div></div>
+        <div class="gantt-row"><div class="gantt-label">Google / Meta</div><div class="gantt-track">
+          <div class="gantt-bar" style="left:0;width:55%;background:var(--c8);opacity:.4">Later</div>
+          <div class="gantt-bar" style="left:55%;width:45%;background:#e1306c">Only if ready</div></div></div>
         <div class="gantt-row"><div class="gantt-label">Events</div><div class="gantt-track">
-          <div class="gantt-bar" style="left:8%;width:14%;background:var(--ch-event)">Q1</div>
-          <div class="gantt-bar" style="left:33%;width:14%;background:var(--ch-event)">Q2</div>
-          <div class="gantt-bar" style="left:58%;width:14%;background:var(--ch-event)">Q3</div>
-          <div class="gantt-bar" style="left:83%;width:14%;background:var(--ch-event)">Q4</div></div></div>
+          <div class="gantt-bar" style="left:8%;width:14%;background:var(--c7)">Q1</div>
+          <div class="gantt-bar" style="left:33%;width:14%;background:var(--c7)">Q2</div>
+          <div class="gantt-bar" style="left:58%;width:14%;background:var(--c7)">Q3</div>
+          <div class="gantt-bar" style="left:83%;width:14%;background:var(--c7)">Q4</div></div></div>
       </div>
-      <div class="footer-bar"><span>BRANDASTIC 2027</span><span>8</span></div>
+      <div class="footer-bar"><span>BRANDASTIC 2027</span><span>7</span></div>
     </div>
   </section>
 
   <section class="slide" id="week">
     <div class="slide-inner">
-      <div class="kicker">Weekly rhythm</div>
-      <h2 class="h2">What the team does</h2>
+      <div class="kicker">Week · color days</div>
+      <h2 class="h2">What we do</h2>
       <div class="week">
-        <div class="d"><b>Mon</b><span>Numbers by channel</span><span>Set week targets</span></div>
-        <div class="d"><b>Tue</b><span>Warm emails + LinkedIn</span><span>5+ sends each owner</span></div>
-        <div class="d"><b>Wed</b><span>Ship one page or proof</span><span>SEO / site work</span></div>
-        <div class="d"><b>Thu</b><span>Pipeline 20 min</span><span>Referral asks after wins</span></div>
-        <div class="d"><b>Fri</b><span>Short standup</span><span>2 LinkedIn posts</span></div>
+        <div class="d"><b>Mon</b><span>Numbers by channel</span><span>Set targets</span><span class="tag" style="background:var(--c2)">Sales</span></div>
+        <div class="d"><b>Tue</b><span>Warm emails + LI</span><span>5+ sends</span><span class="tag" style="background:var(--c4)">Outbound</span></div>
+        <div class="d"><b>Wed</b><span>Ship a page/proof</span><span>SEO work</span><span class="tag" style="background:var(--c6)">SEO</span></div>
+        <div class="d"><b>Thu</b><span>Pipeline 20 min</span><span>Referral asks</span><span class="tag" style="background:var(--c1)">Referral</span></div>
+        <div class="d"><b>Fri</b><span>Standup</span><span>2 LinkedIn posts</span><span class="tag" style="background:var(--c3)">Team</span></div>
       </div>
-      <p class="quote">Done = emails sent, board updated, something shipped, posts live. Not “worked on strategy.”</p>
-      <div class="footer-bar"><span>BRANDASTIC 2027</span><span>9</span></div>
+      <p class="quote">Done = sent · shipped · board updated · posted.</p>
+      <div class="footer-bar"><span>BRANDASTIC 2027</span><span>8</span></div>
     </div>
   </section>
 
   <section class="slide" id="emails">
     <div class="slide-inner">
-      <div class="kicker">Emails · copy these</div>
-      <h2 class="h2">Three opens · one referral</h2>
-      <div class="msg"><span class="lbl">Dana · supplier</span><span class="subj">Subject: Still thinking about dealer demand for [Product]?</span>Hi [Name],
+      <div class="kicker">Emails · copy/paste</div>
+      <h2 class="h2">Team reads these</h2>
+      <div class="msg" style="border-left:4px solid var(--blue)"><span class="lbl">Dana</span><span class="subj">Subject: Still thinking about dealer demand for [Product]?</span>Hi [Name],
 
 We talked about making it obvious what [Company] makes — so dealers stop hunting PDFs.
-
-I can send a one-page 90-day view (pages, search, what “good” looks like).
+I can send a one-page 90-day view.
 
 15 minutes this week?
 
 [Name] · Brandastic</div>
-      <div class="msg"><span class="lbl">Maya · school</span><span class="subj">Subject: How online schools get family inquiries</span>Hi [Name],
+      <div class="msg" style="border-left:4px solid var(--c4)"><span class="lbl">Maya</span><span class="subj">Subject: How online schools get family inquiries</span>Hi [Name],
 
-We help online schools get found so families inquire — search, paid, and site trust aimed at enrollment.
-
+We help online schools get found so families inquire.
 Happy to show the motion in 15 minutes.
 
 [Name] · Brandastic</div>
-      <div class="msg"><span class="lbl">Sam · shop</span><span class="subj">Subject: Make the real shop easy to find</span>Hi [Name],
+      <div class="msg" style="border-left:4px solid var(--c6)"><span class="lbl">Sam</span><span class="subj">Subject: Make the real shop easy to find</span>Hi [Name],
 
-Goal is simple: a buyer sees the real capability and asks for a quote. I can sketch a clear start package — one page, no long deck.
+Goal: buyer sees capability and asks for a quote. I can sketch a simple start package — one page.
 
 Open to a short call?
 
 [Name] · Brandastic</div>
-      <div class="msg"><span class="lbl">After a win · referral</span><span class="subj">Subject: Quick ask</span>Hi [Name],
+      <div class="msg" style="border-left:4px solid var(--c1)"><span class="lbl">Referral after a win</span><span class="subj">Subject: Quick ask</span>Hi [Name],
 
-Glad [result] is moving. If you know one owner who needs the same help, I’d love an intro — even just a name.
+Glad [result] is moving. If you know one owner who needs the same help, I’d love an intro — even a name.
 
 Thank you either way.
 
 [Name]</div>
-      <div class="footer-bar"><span>BRANDASTIC 2027</span><span>10</span></div>
+      <div class="footer-bar"><span>BRANDASTIC 2027</span><span>9</span></div>
     </div>
   </section>
 
   <section class="slide" id="social">
     <div class="slide-inner">
-      <div class="kicker">LinkedIn · copy these</div>
-      <h2 class="h2">Four posts · rotate</h2>
+      <div class="kicker">LinkedIn · copy/paste</div>
+      <h2 class="h2">Four posts</h2>
       <div class="grid2">
-        <div class="msg"><span class="lbl">Suppliers</span>Most supplier sites hide the product in a PDF.
+        <div class="msg" style="border-top:4px solid var(--blue)"><span class="lbl">Suppliers</span>Most supplier sites hide the product in a PDF.
 
 Dealers don’t wait.
 
 Clear offer pages + search so the right buyers start.</div>
-        <div class="msg"><span class="lbl">Schools</span>Online schools don’t need more noise.
+        <div class="msg" style="border-top:4px solid var(--c4)"><span class="lbl">Schools</span>Online schools don’t need more noise.
 
 They need families to find them and inquire.
 
 Search. Paid. Site trust.</div>
-        <div class="msg"><span class="lbl">Shops</span>Owner-led shops: put capability + “request a quote” where a tired buyer can see it today.
+        <div class="msg" style="border-top:4px solid var(--c6)"><span class="lbl">Shops</span>Put capability + “request a quote” where a tired buyer can see it today.
 
 Get found first. Ads later.</div>
-        <div class="msg"><span class="lbl">Us</span>Search still brings us clients.
+        <div class="msg" style="border-top:4px solid var(--c2)"><span class="lbl">Us</span>Search still brings us clients.
 Referrals still bring us clients.
 
 Ads for our agency come later — after follow-up is tight.</div>
       </div>
-      <div class="footer-bar"><span>BRANDASTIC 2027</span><span>11</span></div>
+      <div class="footer-bar"><span>BRANDASTIC 2027</span><span>10</span></div>
     </div>
   </section>
 
-  <section class="slide" id="ninety">
+  <section class="slide" id="rocks">
     <div class="slide-inner">
-      <div class="kicker">First 90 days</div>
-      <h2 class="h2">Three rocks only</h2>
+      <div class="kicker">90 days · three rocks</div>
+      <h2 class="h2">That’s it</h2>
       <div class="grid3">
-        <div class="card"><div class="pill">Rock 1</div><h3>Lock + proof</h3><ul>
-          <li>Pick 2–3 markets</li>
-          <li>1 case study each</li>
-          <li>1 clear offer page each</li>
-        </ul></div>
-        <div class="card"><div class="pill">Rock 2</div><h3>Warm machine</h3><ul>
-          <li>50-name list</li>
-          <li>Weekly outreach</li>
-          <li>Referral ask after wins</li>
-        </ul></div>
-        <div class="card"><div class="pill">Rock 3</div><h3>Sales board</h3><ul>
-          <li>Stages visible</li>
-          <li>Thu 20 minutes</li>
-          <li>Win/loss reason every time</li>
-        </ul></div>
+        <div class="card" style="border-top:4px solid var(--c6)"><div class="pill">1 · SEO blue-purple</div><h3>Lock + proof</h3><ul><li>2–3 markets</li><li>1 case each</li><li>1 offer page each</li></ul></div>
+        <div class="card" style="border-top:4px solid var(--c4)"><div class="pill">2 · Outbound sky</div><h3>Warm machine</h3><ul><li>50-name list</li><li>Weekly sends</li><li>Referral after wins</li></ul></div>
+        <div class="card" style="border-top:4px solid var(--c2)"><div class="pill">3 · Sales blue</div><h3>Board</h3><ul><li>Stages visible</li><li>Thu 20 min</li><li>Win/loss reason</li></ul></div>
       </div>
-      <p class="quote">Owners go on the board this week. Blank owner = not real work.</p>
-      <div class="footer-bar"><span>BRANDASTIC 2027</span><span>12</span></div>
+      <p class="quote">Name an owner on each rock this week.</p>
+      <div class="footer-bar"><span>BRANDASTIC 2027</span><span>11</span></div>
     </div>
   </section>
 
@@ -482,11 +477,11 @@ Ads for our agency come later — after follow-up is tight.</div>
       <div class="site-hero-fade" aria-hidden="true"></div>
       <div class="title-copy">
         <div class="phase">This week</div>
-        <div class="h1">Start simple</div>
+        <div class="h1">Start</div>
         <ul class="close-checks">
           <li>Lock 2–3 markets</li>
           <li>Build the 50-name list</li>
-          <li>Send the email templates</li>
+          <li>Send the emails</li>
           <li>Run Thursday pipeline</li>
         </ul>
       </div>
@@ -501,7 +496,7 @@ Ads for our agency come later — after follow-up is tight.</div>
 
 <button type="button" class="deck-present-btn" id="deckPresentBtn">▸ Present</button>
 <button type="button" class="deck-exit-btn" id="deckExitBtn">✕ Exit</button>
-<div class="deck-exit-hint">← → · click sides · Esc</div>
+<div class="deck-exit-hint">← → · sides · Esc</div>
 <div class="deck-counter" id="deckCounter"></div>
 <div class="deck-nav" id="deckNav" aria-hidden="true">
   <button type="button" class="deck-prev" id="deckPrev">‹</button>
