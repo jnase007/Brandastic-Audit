@@ -3,1995 +3,31 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Brandastic 2027 &middot; Growth strategy</title>
+<title>Brandastic 2027 · Education Growth Strategy</title>
 <meta name="robots" content="noindex,nofollow"/>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
-
-:root{
- --bg:#f4f7fa; --slide:#ffffff; --ink:#15202b; --muted:#5b6b7c; --line:rgba(21,32,43,.12);
- --teal:#0644ed; --accent:#3b6cf5; --purple:#001F40;
-}
-*{box-sizing:border-box;margin:0;padding:0}
-html,body{background:var(--bg);color:var(--ink);font-family:Inter,system-ui,sans-serif}
-body{min-height:100vh}
-.deck{max-width:1180px;margin:0 auto;padding:1rem 1rem 3rem}
-.toolbar{display:flex;gap:.5rem;flex-wrap:wrap;align-items:center;margin-bottom:1rem;position:sticky;top:.5rem;z-index:30;background:rgba(244,247,250,.92);backdrop-filter:blur(8px);padding:.4rem 0}
-.btn{border:0;cursor:pointer;border-radius:10px;font-weight:700;font-size:.8rem;padding:.5rem .85rem;text-decoration:none;display:inline-flex;align-items:center}
-.btn-p{background:linear-gradient(135deg,var(--accent),var(--purple));color:#ffffff}
-.btn-g{background:#ffffff;border:1px solid var(--line);color:var(--ink)}
-.hint{color:var(--muted);font-size:.75rem}
-.slide{background:var(--slide);border:1px solid var(--line);border-radius:18px;padding:2rem 2.35rem 1.6rem;margin:0 0 1rem;min-height:620px;position:relative;overflow:hidden;box-shadow:0 12px 36px rgba(21,32,43,.08)}
-.slide::before{content:"";position:absolute;right:-100px;top:-100px;width:360px;height:360px;border-radius:50%;background:radial-gradient(circle,rgba(31,143,201,.10),transparent 70%);pointer-events:none}
-.slide-inner{position:relative;z-index:1;display:flex;flex-direction:column;min-height:540px;padding-bottom:0}
-.slide-inner > .footer-bar{position:static;margin-top:auto;padding-top:1.1rem;flex-shrink:0;background:transparent}
-.kicker{font-size:.72rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--teal);margin-bottom:1rem}
-.h1{font-size:clamp(2rem,4.2vw,3.1rem);font-weight:700;letter-spacing:-.03em;line-height:1.08;margin-bottom:.75rem;color:var(--ink)}
-.h2{font-size:clamp(1.5rem,3vw,2.2rem);font-weight:700;letter-spacing:-.02em;margin-bottom:1rem;color:var(--ink)}
-.lede{font-size:1.06rem;color:var(--muted);max-width:42rem;line-height:1.6}
-.footer-bar{position:static;display:flex;justify-content:space-between;align-items:center;font-size:.7rem;color:rgba(21,32,43,.42);letter-spacing:.04em;margin-top:1rem;padding-top:.85rem;border-top:1px solid rgba(21,32,43,.06)}
-.num{font-weight:600}
-.divider-slide{display:flex;flex-direction:column;justify-content:center;min-height:560px}
-.phase{color:var(--accent);font-size:.82rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;margin-bottom:.55rem}
-.phase-p{color:var(--purple)}
-.grid2{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
-.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}
-.card{background:#f7fafc;border:1px solid var(--line);border-radius:14px;padding:1.05rem 1.1rem}
-.card h3{font-size:.98rem;font-weight:700;margin-bottom:.4rem;color:var(--ink)}
-.card p,.card li{font-size:.88rem;color:var(--muted);line-height:1.55}
-.card ul{padding-left:1.05rem;margin:.25rem 0}
-.card li{margin:.2rem 0}
-.card strong{color:var(--ink)}
-.big{font-size:1.02rem;color:var(--ink);font-weight:600;line-height:1.55;max-width:44rem}
-.pill{display:inline-block;font-size:.68rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--teal);background:rgba(15,143,151,.10);border:1px solid rgba(15,143,151,.28);padding:.26rem .5rem;border-radius:999px;margin:0 .2rem .3rem 0}
-.table{width:100%;border-collapse:collapse;font-size:.78rem;margin-top:.35rem;table-layout:fixed}
-.table th,.table td{border:1px solid var(--line);padding:.36rem .42rem;text-align:left;vertical-align:top;word-wrap:break-word;overflow-wrap:anywhere}
-.table th{background:#eef3f7;color:var(--ink);font-weight:700}
-.table td{color:var(--muted)}
-.table.icp-people col.c1{width:22%}
-.table.icp-people col.c2{width:40%}
-.table.icp-people col.c3{width:38%}
-.table.icp-firms col.c1{width:36%}
-.table.icp-firms col.c2{width:28%}
-.table.icp-firms col.c3{width:24%}
-.table.icp-firms col.c4{width:12%}
-.icp-sub{font-size:.68rem;color:var(--muted);margin-top:.1rem;line-height:1.35}
-.icp-name a{color:var(--ink);text-decoration:none;font-weight:700}
-.icp-name a:hover{color:var(--teal)}
-.quote{border-left:3px solid var(--teal);padding:.12rem 0 .12rem .95rem;margin:.9rem 0;font-size:1.08rem;font-weight:600;color:var(--ink);line-height:1.45;max-width:44rem}
-.msg{background:#f3f7fa;border:1px solid var(--line);border-radius:12px;padding:.95rem 1.05rem;margin:.45rem 0;font-size:.84rem;line-height:1.55;color:#334556;white-space:pre-wrap}
-.msg .lbl{font-size:.64rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--teal);margin-bottom:.32rem}
-.msg .subj{color:var(--ink);font-weight:700;margin-bottom:.35rem}
-.flow{display:flex;flex-wrap:wrap;gap:.4rem;align-items:center;margin:.9rem 0}
-.flow .step{background:#f3f7fa;border:1px solid var(--line);border-radius:12px;padding:.6rem .8rem;font-weight:700;font-size:.86rem;color:var(--ink)}
-.flow .arrow{color:var(--teal);font-weight:800}
-.cal-week{display:grid;grid-template-columns:88px 1fr;gap:.65rem;padding:.6rem 0;border-bottom:1px solid var(--line)}
-.cal-week:last-child{border-bottom:0}
-.cal-week b{color:var(--teal);font-size:.82rem}
-.cal-week span{color:var(--muted);font-size:.84rem;line-height:1.5}
-.stat{font-size:clamp(1.6rem,3.3vw,2.45rem);font-weight:800;letter-spacing:-.03em;color:var(--ink);line-height:1.1}
-.stat-lbl{font-size:.78rem;color:var(--muted);margin-top:.28rem;line-height:1.4}
-.toc-list{margin-top:1.2rem;display:grid;gap:.58rem;max-width:40rem;font-size:1rem;font-weight:600;color:var(--ink)}
-.toc-list span{color:var(--muted);font-weight:500}
-.persona-hero{display:grid;grid-template-columns:190px 1fr;gap:1.15rem;align-items:start}
-.persona-photo{display:block;width:180px;height:220px;border-radius:14px;object-fit:cover;object-position:center 12%;border:1px solid var(--line);background:#e8eef3}
-.persona-photo-ph{width:190px;height:250px;border-radius:16px;border:1px solid var(--line);background:linear-gradient(160deg,#eef3f7,#e2eaf1 55%,#d9e6ef);display:flex;align-items:flex-end;padding:1rem;color:var(--muted);font-size:.76rem;font-weight:600}
-.persona-name{font-size:1.5rem;font-weight:800;letter-spacing:-.02em;margin:.12rem 0 .18rem;color:var(--ink)}
-.persona-role{font-size:.84rem;color:var(--teal);font-weight:700;letter-spacing:.04em;text-transform:uppercase;margin-bottom:.5rem}
-.persona-quote{font-size:1.02rem;font-style:italic;color:#3a4a5a;line-height:1.45;margin:.35rem 0 .9rem;max-width:34rem}
-.persona-meta{font-size:.82rem;color:var(--muted);line-height:1.55;margin-bottom:.3rem}
-.trio{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}
-.trio{align-items:stretch}.trio .card{display:flex;flex-direction:column}.trio .persona-card img,.persona-photo .persona-card img,.persona-photo .persona-card img,.persona-photo img,.persona-photo-sm{display:block;width:100%;height:200px;object-fit:cover;object-position:center 12%;border-radius:12px;margin:0 0 .65rem;border:1px solid var(--line);background:#e8eef3;flex:0 0 auto}
-.persona-photo-sm-ph{width:100%;height:150px;border-radius:12px;margin-bottom:.7rem;border:1px solid var(--line);background:linear-gradient(160deg,#eef3f7,#e2eaf1);display:flex;align-items:flex-end;padding:.7rem;font-size:.7rem;color:var(--muted);font-weight:600}
-.persona-board{display:grid;grid-template-columns:repeat(3,1fr);gap:.85rem;align-items:start}
-.persona-board .card{padding:.75rem .8rem .85rem;min-height:0}
-.persona-board .persona-card img,.icp-face img,.photo .persona-card img,.icp-face .persona-card img,.icp-face img{display:block;width:100%;height:155px;object-fit:cover;object-position:center 12%;border-radius:12px;margin:0 0 .45rem;border:1px solid var(--line);background:#e8eef3}
-.persona-board .persona-name{font-size:1.05rem;margin:.1rem 0 .2rem}
-.persona-board .persona-role{font-size:.68rem;margin-bottom:.35rem;letter-spacing:.05em}
-.persona-board .persona-quote{font-size:.78rem;font-style:italic;color:#3a4a5a;line-height:1.3;margin:0 0 .4rem;min-height:0}
-.persona-board .persona-meta{font-size:.74rem;line-height:1.4;margin:0 0 .55rem}
-.persona-board .mini{display:grid;gap:.35rem}
-.persona-board .mini h4{font-size:.68rem;text-transform:uppercase;letter-spacing:.06em;color:var(--teal);margin:0}
-.persona-board .mini ul{margin:0;padding-left:1rem}
-.persona-board .mini li{font-size:.72rem;color:var(--muted);line-height:1.35;margin:.08rem 0}
-@media print{
- .persona-board .persona-card .persona-card .persona-card img{height:140px}
- .persona-board .persona-quote{font-size:.78rem;min-height:0}
- .persona-board .mini li{font-size:.68rem}
-}
-.forecast-svg{display:block;width:100%;max-height:280px;border:1px solid var(--line);border-radius:12px;background:#f7fafc}
-.check li{list-style:none;padding-left:0;margin:.35rem 0}
-.check li::before{content:"→ ";color:var(--teal);font-weight:800}
-@media(max-width:860px){
- .slide{padding:1.4rem 1.1rem 3rem;min-height:auto}
- .grid2,.grid3,.trio,.persona-hero{grid-template-columns:1fr}
- .persona-photo,.persona-photo-ph{width:100%;height:220px}
- .footer-bar{position:static!important;margin-top:.85rem;padding-top:.55rem;border-top:1px solid rgba(21,32,43,.08);color:rgba(21,32,43,.45)}
- .cal-week{grid-template-columns:1fr}
-}
-@page{size:letter landscape;margin:.38in}
-@media print{
- .toolbar{display:none!important}
- html,body{background:#ffffff!important;color:var(--ink)}
- .deck{max-width:none;padding:0;margin:0}
- .slide{
- background:#ffffff!important;
- break-after:page;page-break-after:always;
- box-shadow:none;border:0;border-radius:0;
- min-height:0;height:auto;margin:0;padding:.8rem .95rem 1.15rem;
- overflow:visible
- }
- .slide:last-child{break-after:auto;page-break-after:auto}
- .slide::before{display:none}
- .divider-slide{min-height:0}
- .footer-bar{position:static;margin-top:.7rem;color:rgba(21,32,43,.45)}
- .card,.msg,.flow .step,.table th{background:#f7fafc!important;-webkit-print-color-adjust:exact;print-color-adjust:exact}
- a{color:var(--teal)!important;text-decoration:none}
- .h1{font-size:1.85rem}
- .h2{font-size:1.35rem;margin-bottom:.45rem}
- .lede{font-size:.9rem}
- .table{font-size:.7rem}
- .table th,.table td{padding:.26rem .3rem}
- .persona-photo,.persona-photo-ph{width:150px;height:185px;object-position:center 12%}
- .persona-hero{grid-template-columns:160px 1fr;gap:.85rem}
- .trio .persona-card img,.persona-photo .persona-card img,.persona-photo-sm{height:170px;object-position:center 12%}
- .grid3{gap:.65rem}
- .card{padding:.7rem .75rem}
- .card p,.card li{font-size:.78rem}
- .persona-quote{font-size:.95rem}
-}
-.comp-bubbles{display:block;width:100%;border:1px solid var(--line);border-radius:14px;background:#f7fafc}
-.comp-note{font-size:.74rem;color:var(--muted);line-height:1.35;margin-top:.45rem}
-
-.li-ad-wrap{display:grid;grid-template-columns:1.15fr .85fr;gap:.85rem;align-items:start}
-.li-ad-mock{background:#fff;border:1px solid #e3e5e8;border-radius:12px;padding:1rem 1.05rem 1.05rem;box-shadow:0 8px 24px rgba(21,32,43,.06);font-family:Inter,system-ui,sans-serif}
-.li-ad-mock .ad-top{display:flex;align-items:center;gap:.55rem;margin-bottom:.7rem}
-.li-ad-mock .ad-logo{width:28px;height:28px;border-radius:6px;background:linear-gradient(135deg,#0f8f97,#1f8fc9);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:.7rem}
-.li-ad-mock .ad-meta{line-height:1.15}
-.li-ad-mock .ad-meta strong{font-size:.82rem;color:#15202b}
-.li-ad-mock .ad-meta span{font-size:.68rem;color:#6b7785}
-.li-ad-mock .ad-person{display:flex;align-items:center;gap:.45rem;margin:.15rem 0 .55rem;font-size:.78rem;font-weight:700;color:#15202b}
-.li-ad-mock .ad-avatar{width:34px;height:34px;border-radius:50%;background:#d9e6ef;border:1px solid #c5d3de}
-.li-ad-mock .ad-body{font-size:.84rem;color:#1f2a36;line-height:1.45;white-space:pre-wrap}
-.li-ad-mock .ad-btns{display:flex;flex-direction:column;gap:.4rem;margin-top:.75rem}
-.li-ad-mock .ad-btn{border:1px solid #c9d2dc;border-radius:18px;padding:.45rem .7rem;text-align:center;font-size:.78rem;color:#3a4a5a;background:#f7f9fb}
-.li-ad-mock .ad-btn.primary{border-color:#0f8f97;color:#0f8f97;font-weight:700}
-.li-ad-side{font-size:.78rem;color:var(--muted);line-height:1.45}
-.li-ad-side h3{margin:0 0 .35rem}
-@media print{.li-ad-wrap{grid-template-columns:1.1fr .9fr}}
-
-
-.title-brand{display:flex;flex-direction:column;align-items:flex-start;gap:.85rem;margin-bottom:1.1rem}
-.title-brand img{height:52px;width:auto;display:block}
-.title-tagline{font-size:1.05rem;font-weight:600;color:var(--ink);line-height:1.35;max-width:36rem}
-.title-tagline span{color:var(--teal);font-weight:800}
-@media print{.title-brand img{height:44px}}
-
-
-.channel-toc{display:grid;grid-template-columns:repeat(4,1fr);gap:.65rem;margin-top:.85rem}
-.channel-toc .card{text-align:center;padding:1rem .6rem;border:1px solid var(--line)}
-.channel-toc .card strong{display:block;font-size:1.05rem;color:var(--teal);margin-bottom:.25rem}
-.channel-toc .card span{font-size:.78rem;color:var(--muted);line-height:1.35}
-
-/* Title slide: main story centered; brand lockup small bottom-left */
-.slide#title .slide-inner,
-.slide-inner.title-slide{
- min-height:560px;
- display:flex;
- flex-direction:column;
- justify-content:center;
- align-items:flex-start;
- position:relative;
- padding-bottom:4.5rem;
-}
-.slide#title .title-main{max-width:34rem}
-.slide#title .title-main .h1{font-size:2.75rem;line-height:1.05;margin:0}
-.slide#title .title-main .kicker{margin-bottom:.55rem}
-.slide#title .title-main .lede{margin-top:.85rem;max-width:28rem}
-.slide#title .title-brand{
- position:absolute;
- left:0; bottom:0;
- margin:0;
- gap:.28rem;
- max-width:22rem;
-}
-.slide#title .title-brand img{height:28px;width:auto;opacity:.95}
-.slide#title .title-tagline{
- font-size:.78rem;
- font-weight:600;
- color:var(--muted);
- line-height:1.3;
- max-width:22rem;
- letter-spacing:0;
-}
-.slide#title .footer-bar{display:none} /* brand lockup replaces footer on title */
-@media print{
- .slide#title .slide-inner,.slide-inner.title-slide{min-height:0;padding-bottom:3.2rem}
- .slide#title .title-brand img{height:24px}
-}
-
-
-.slide#close .title-brand img{height:32px}
-.slide#close .title-tagline{font-size:.85rem;font-weight:600;color:var(--muted);max-width:28rem}
-
-/* Brandastic-style visual strategy blocks + campaign color sets */
-:root{
- --camp-li:#0f8f97;
- --camp-email:#1f8fc9;
- --camp-social:#7eb832;
- --camp-seo:#9b1fd6;
- --camp-lender:#2b6cb0;
- --camp-dev:#c05621;
-}
-.camp-pill{display:inline-flex;align-items:center;gap:.35rem;border-radius:999px;padding:.28rem .7rem;font-weight:800;font-size:.78rem;color:#fff}
-.camp-pill.li{background:var(--camp-li)}
-.camp-pill.email{background:var(--camp-email)}
-.camp-pill.social{background:var(--camp-social);color:#143018}
-.camp-pill.seo{background:var(--camp-seo)}
-.camp-pill.lender{background:var(--camp-lender)}
-.camp-key{display:flex;flex-wrap:wrap;gap:.45rem;margin:.6rem 0 1rem}
-.ba-sw{display:grid;grid-template-columns:1fr 1.15fr;gap:1rem;margin-top:.75rem;align-items:stretch}
-.ba-sw .panel{border-radius:18px;border:1px solid var(--line);overflow:hidden;background:#fff;box-shadow:0 8px 24px rgba(21,32,43,.06)}
-.ba-sw .panel .hd{padding:.75rem 1.05rem;font-weight:800;color:#fff;font-size:.95rem}
-.ba-sw .panel.strengths .hd{background:#1a2330}
-.ba-sw .panel.opps .hd{background:#1a2330}
-.ba-sw .panel .bd{padding:1rem 1.1rem 1.15rem}
-.ba-sw ul{margin:0;padding-left:1.05rem;color:var(--ink);font-size:.9rem;line-height:1.45}
-.ba-sw li{margin:.35rem 0}
-.ba-sw .opp-block{margin:0 0 .85rem}
-.ba-sw .opp-block:last-child{margin:0}
-.ba-sw .opp-block strong{display:block;font-size:.72rem;letter-spacing:.04em;text-transform:uppercase;color:var(--camp-li);margin-bottom:.25rem}
-.measure-grid{display:grid;grid-template-columns:220px 1fr;gap:1.1rem;margin-top:.7rem}
-.measure-side{background:#e8edf2;border-radius:18px;padding:1.1rem 1.15rem}
-.measure-side h3{font-size:.95rem;margin:0 0 .55rem}
-.measure-side ul{margin:0;padding-left:1.05rem;font-size:.88rem;line-height:1.4}
-.measure-rows{display:flex;flex-direction:column}
-.measure-row{display:grid;grid-template-columns:200px 1fr;gap:1rem;align-items:start;padding:.75rem 0;border-bottom:1px solid var(--line)}
-.measure-row:last-child{border-bottom:0}
-.measure-row .tag{border-radius:999px;padding:.45rem .85rem;font-weight:800;font-size:.82rem;color:#fff;text-align:center}
-.measure-row .tag.a{background:#2eb7d4}
-.measure-row .tag.b{background:#2f6bff}
-.measure-row .tag.c{background:#b7e04a;color:#1a2a10}
-.measure-row .tag.d{background:#c9e8f5;color:#1a4a66}
-.measure-row .tag.e{background:#fff;color:#2f6bff;border:2px solid #c9d8f0}
-.measure-row ul{display:grid;grid-template-columns:1fr 1fr;gap:.15rem .8rem;margin:0;padding-left:1rem;font-size:.84rem;color:#1f2a36}
-.days90{display:grid;grid-template-columns:repeat(3,1fr);gap:.85rem;margin-top:.85rem}
-.days90 .col{border-radius:18px;padding:1rem .95rem 1.05rem;min-height:400px}
-.days90 .col h3{margin:0 0 .85rem;font-size:.95rem;color:#fff;background:rgba(0,0,0,.12);border-radius:12px;padding:.55rem .7rem;text-align:center}
-.days90 .col.p1{background:linear-gradient(180deg,#2f6bff,#4b7fff);color:#fff}
-.days90 .col.p2{background:linear-gradient(180deg,#3aa8e8,#5ec0f0);color:#fff}
-.days90 .col.p3{background:linear-gradient(180deg,#b7e04a,#c8ea6e);color:#1a2a10}
-.days90 .col.p3 h3{color:#1a2a10;background:rgba(255,255,255,.35)}
-.days90 .item{display:grid;grid-template-columns:28px 1fr;gap:.55rem;margin:0 0 .7rem;align-items:start}
-.days90 .ico{width:28px;height:28px;border-radius:50%;background:rgba(255,255,255,.22);display:flex;align-items:center;justify-content:center;font-size:.72rem;font-weight:800}
-.days90 .item b{display:block;font-size:.82rem;letter-spacing:.02em}
-.days90 .item span{display:block;font-size:.78rem;opacity:.92;line-height:1.3;font-weight:500}
-.roadmap{margin-top:.7rem}
-.roadmap-head{display:grid;grid-template-columns:150px repeat(12,1fr);gap:0;font-size:.6rem;font-weight:700;color:var(--muted);text-align:center;margin-bottom:.35rem}
-.roadmap-row{display:grid;grid-template-columns:150px 1fr;gap:.5rem;align-items:center;margin:.38rem 0}
-.roadmap-row .lab{font-size:.72rem;font-weight:700;color:var(--muted)}
-.roadmap-track{position:relative;height:28px;background:rgba(21,32,43,.04);border-radius:8px;overflow:hidden}
-.roadmap-track::before{content:"";position:absolute;inset:0;background-image:repeating-linear-gradient(90deg,transparent,transparent calc(100%/12 - 1px),rgba(0,0,0,.06) calc(100%/12 - 1px),rgba(0,0,0,.06) calc(100%/12))}
-.bar{position:absolute;top:4px;height:20px;border-radius:999px;font-size:.58rem;font-weight:800;color:#fff;display:flex;align-items:center;padding:0 .5rem;white-space:nowrap;overflow:hidden;box-shadow:0 2px 6px rgba(0,0,0,.12)}
-.bar.g{background:#2f6bff}
-.bar.s{background:#3aa8e8}
-.bar.o{background:#b7e04a;color:#1a2a10}
-.bar.e{background:#a8b4f0;color:#1a2038}
-.bar.i{background:#d7eef8;color:#1a4a66}
-.roadmap-legend{display:flex;flex-wrap:wrap;gap:.65rem;margin-top:.85rem;font-size:.72rem;font-weight:700;color:var(--muted)}
-.roadmap-legend i{display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:.3rem}
-.ad-spec-dark-wrap{background:#171b22;color:#e8eef5;border-radius:18px;overflow:hidden;min-height:540px}
-.ad-spec-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:0;min-height:540px}
-.ad-spec-copy{padding:1.55rem 1.6rem 1.35rem}
-.ad-spec-copy .ad-num{font-size:2.35rem;font-weight:800;letter-spacing:-.03em;margin:.25rem 0 1rem;color:#fff}
-.ad-spec-copy .field{margin:0 0 .95rem}
-.ad-spec-copy .field .lbl{font-size:.66rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:#8b97a8;margin-bottom:.28rem}
-.ad-spec-copy .field .val{font-size:.9rem;line-height:1.45;color:#dce5ef;max-width:26rem}
-.ad-spec-copy .shop{display:inline-block;background:#fff;color:#171b22;font-weight:800;font-size:.76rem;padding:.55rem 1rem;border-radius:999px;margin-top:.15rem}
-.ad-spec-phone-wrap{padding:1.15rem 1.15rem 1.15rem .4rem;display:flex;align-items:center;justify-content:center}
-.ad-phone{background:#fff;border-radius:18px;border:1px solid #d5dde6;overflow:hidden;box-shadow:0 18px 40px rgba(0,0,0,.22);width:100%;max-width:340px}
-.ad-phone .ph-top{display:flex;gap:.55rem;align-items:center;padding:.7rem .8rem .35rem}
-.ad-phone .ph-av{width:36px;height:36px;border-radius:50%;background:#222;color:#fff;display:flex;align-items:center;justify-content:center;font-weight:800}
-.ad-phone .ph-meta{font-size:.78rem;line-height:1.2;color:#15202b}
-.ad-phone .ph-meta span{color:#6b7785;font-size:.68rem}
-.ad-phone .ph-cap{padding:0 .8rem .55rem;font-size:.72rem;color:#3a4654;line-height:1.35}
-.ad-phone .ph-img{position:relative;background:#0d1116}
-.ad-phone .ph-img .phone .img img,.ad-phone .ph-img .ad-phone .ph-img img,.phone .img img{width:100%;display:block;aspect-ratio:1/1;object-fit:cover}
-.ad-phone .ph-img .overlay{position:absolute;left:0;right:0;bottom:0;padding:1.05rem .85rem;background:linear-gradient(transparent,rgba(0,0,0,.75));color:#fff}
-.ad-phone .ph-img .overlay strong{display:block;font-size:1.25rem;line-height:1.05;letter-spacing:-.02em}
-.ad-phone .ph-img .overlay em{display:block;font-style:normal;font-size:.7rem;opacity:.88;margin-top:.3rem;font-weight:600}
-.ad-phone .ph-foot{display:flex;justify-content:space-between;align-items:center;gap:.5rem;padding:.65rem .75rem;border-top:1px solid #e6ebf0}
-.ad-phone .ph-foot .hl{font-size:.76rem;font-weight:800;color:#15202b}
-.ad-phone .ph-foot .ds{font-size:.66rem;color:#6b7785}
-.ad-phone .ph-foot .cta{border:1px solid #c9d2dc;border-radius:999px;padding:.35rem .7rem;font-size:.66rem;font-weight:800;color:#15202b;background:#fff}
-.camp-banner{display:flex;gap:.4rem;flex-wrap:wrap;margin-bottom:.35rem}
-.market-hero{display:grid;grid-template-columns:1.05fr 1.2fr;gap:1.2rem;align-items:center;margin-top:.6rem}
-.market-hero .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:.75rem;margin:1rem 0}
-.market-hero .stat{text-align:center;padding:.85rem .5rem;border-radius:16px;background:#f3f7fb;border:1px solid var(--line)}
-.market-hero .stat .n{font-size:1.55rem;font-weight:800;color:var(--camp-li);letter-spacing:-.02em}
-.market-hero .stat .l{font-size:.72rem;color:var(--muted);line-height:1.3;margin-top:.25rem}
-.market-hero .visual{position:relative;border-radius:22px;overflow:hidden;min-height:320px;background:linear-gradient(145deg,#0f8f97,#1f8fc9 55%,#9b1fd6);box-shadow:0 16px 40px rgba(15,143,151,.25)}
-.market-hero .visual .inner{position:absolute;inset:0;padding:1.4rem;color:#fff;display:flex;flex-direction:column;justify-content:flex-end}
-.market-hero .visual .inner h3{font-size:1.6rem;line-height:1.1;margin:0 0 .4rem}
-.market-hero .visual .inner p{font-size:.88rem;opacity:.92;max-width:22rem;line-height:1.4}
-.market-hero .badge{display:inline-block;background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.35);border-radius:999px;padding:.3rem .7rem;font-size:.72rem;font-weight:800;margin-bottom:.7rem}
-@media print{
- .days90 .col{min-height:0}
- .ad-spec-dark-wrap,.ad-spec-grid{min-height:0}
- .ad-phone .ph-img img{max-height:260px}
- .market-hero .visual{min-height:240px}
-}
-
-
-/* ===== Full deck: black section openers + campaign colors (no purple Canva boxes) ===== */
-:root{
- --camp-li:#3B9DD9;
- --camp-li-soft:#E3F3FB;
- --camp-li-ink:#0c4a6e;
- --camp-email:#9BA3E8;
- --camp-email-soft:#EEF0FC;
- --camp-email-ink:#3730a3;
- --camp-social:#A8D93A;
- --camp-social-soft:#F3FBE3;
- --camp-social-ink:#3f6212;
- --camp-seo:#7DD3FC;
- --camp-seo-bar:#D7EEF8;
- --camp-seo-soft:#F0F9FF;
- --camp-seo-ink:#0369a1;
- --camp-pilot:#2F6BFF;
- --camp-dev:#c05621;
- --camp-lender:#64748b;
- --sec-dark:#0f1419;
-}
-.camp-nav{
- display:flex;flex-wrap:wrap;gap:.35rem;align-items:center;
- position:sticky;top:3rem;z-index:35;
- background:rgba(244,247,250,.95);backdrop-filter:blur(8px);
- padding:.3rem 0 .55rem;margin:0 0 .75rem;border-bottom:1px solid var(--line);
-}
-.camp-nav .lab{font-size:.65rem;font-weight:800;letter-spacing:.07em;text-transform:uppercase;color:var(--muted);margin-right:.2rem}
-.camp-nav a{text-decoration:none;font-size:.7rem;font-weight:800;border-radius:999px;padding:.3rem .65rem;color:#fff}
-.camp-nav a.li{background:var(--camp-li)}
-.camp-nav a.email{background:var(--camp-email);color:#1e1b4b}
-.camp-nav a.social{background:var(--camp-social);color:#143018}
-.camp-nav a.seo{background:var(--camp-seo);color:var(--camp-seo-ink)}
-.camp-nav a.ads{background:linear-gradient(135deg,var(--camp-li),var(--camp-social));color:#0f172a}
-.camp-nav a.plan{background:#334155;color:#fff}
-.camp-nav a.budget{background:#0f1419;color:#fff}
-
-/* Black section openers — NO purple box */
-.slide.section-dark,
-.slide-inner.divider-slide{
- background:var(--sec-dark)!important;
- color:#fff!important;
- border-color:#1f2937!important;
- box-shadow:none!important;
- min-height:520px;
- display:flex;flex-direction:column;justify-content:center;align-items:flex-start;
- padding:2.2rem 2.4rem!important;
-}
-.slide.section-dark .h1,
-.slide-inner.divider-slide .h1{
- color:#fff!important;font-size:3rem;line-height:1.05;border:0!important;padding:0!important;margin:0;
- box-shadow:none!important;outline:none!important;
-}
-.slide.section-dark .phase,
-.slide-inner.divider-slide .phase{color:rgba(255,255,255,.55)!important;font-weight:800;letter-spacing:.12em;text-transform:uppercase;font-size:.75rem;margin-bottom:.75rem}
-.slide.section-dark .lede,
-.slide.section-dark p,
-.slide-inner.divider-slide .lede,
-.slide-inner.divider-slide p{color:rgba(255,255,255,.72)!important}
-.slide.section-dark .footer-bar,
-.slide-inner.divider-slide .footer-bar{border-top-color:rgba(255,255,255,.12)!important;color:rgba(255,255,255,.45)!important;width:100%;margin-top:auto;padding-top:1.2rem}
-.slide.section-dark .sec-plain,
-.slide-inner.divider-slide .sec-plain{border:0!important;padding:0!important;margin:0!important;background:transparent!important}
-
-/* Campaign rails */
-.slide[data-camp="linkedin"] .slide-inner{border-left:7px solid var(--camp-li);padding-left:calc(2.35rem - 2px)}
-.slide[data-camp="email"] .slide-inner{border-left:7px solid var(--camp-email);padding-left:calc(2.35rem - 2px)}
-.slide[data-camp="social"] .slide-inner{border-left:7px solid var(--camp-social);padding-left:calc(2.35rem - 2px)}
-.slide[data-camp="seo"] .slide-inner{border-left:7px solid var(--camp-seo);padding-left:calc(2.35rem - 2px)}
-.slide[data-camp="multi"] .slide-inner{border-left:7px solid #334155;padding-left:calc(2.35rem - 2px)}
-.slide[data-camp="pilot"] .slide-inner{border-left:7px solid var(--camp-pilot);padding-left:calc(2.35rem - 2px)}
-
-.chip{display:inline-flex;align-items:center;border-radius:999px;padding:.22rem .65rem;font-size:.68rem;font-weight:800;color:#fff;margin:0 .25rem .15rem 0}
-.chip.li{background:var(--camp-li)} .chip.email{background:var(--camp-email);color:#1e1b4b}
-.chip.social{background:var(--camp-social);color:#143018} .chip.seo{background:var(--camp-seo);color:var(--camp-seo-ink)}
-.chip.pilot{background:var(--camp-pilot)}
-
-.msg.camp-li,.msg.li{background:var(--camp-li-soft)!important;border-left:4px solid var(--camp-li)!important}
-.msg.camp-email,.msg.email{background:var(--camp-email-soft)!important;border-left:4px solid var(--camp-email)!important}
-.msg.camp-social,.msg.social{background:var(--camp-social-soft)!important;border-left:4px solid var(--camp-social)!important}
-.msg.camp-li .lbl,.msg.li .lbl{color:var(--camp-li-ink)!important}
-.msg.camp-email .lbl,.msg.email .lbl{color:var(--camp-email-ink)!important}
-.msg.camp-social .lbl,.msg.social .lbl{color:var(--camp-social-ink)!important}
-
-.cal-week.camp-li{border-left:4px solid var(--camp-li);background:var(--camp-li-soft)}
-.cal-week.camp-email{border-left:4px solid var(--camp-email);background:var(--camp-email-soft)}
-.cal-week.camp-social{border-left:4px solid var(--camp-social);background:var(--camp-social-soft)}
-.cal-week.camp-seo{border-left:4px solid var(--camp-seo);background:var(--camp-seo-soft)}
-
-/* Never stack ad text */
-.li-ad-mock .ad-img-overlay,
-.phone .img .ov,
-.phone .img .overlay,
-.ad-phone .ph-img .overlay{display:none!important}
-
-.channel-toc .card.li{border-top:4px solid var(--camp-li)!important}
-.channel-toc .card.email{border-top:4px solid var(--camp-email)!important}
-.channel-toc .card.social{border-top:4px solid var(--camp-social)!important}
-.channel-toc .card.seo{border-top:4px solid var(--camp-seo)!important}
-
-.budget-table{width:100%;border-collapse:collapse;font-size:.84rem;margin-top:.4rem}
-.budget-table th{text-align:left;font-size:.68rem;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);padding:.4rem .35rem;border-bottom:1px solid var(--line)}
-.budget-table td{padding:.55rem .35rem;border-bottom:1px solid var(--line);vertical-align:top}
-.budget-table .amt{font-weight:800;white-space:nowrap}
-.budget-table .note{font-size:.75rem;color:var(--muted);line-height:1.3}
-.budget-total{display:flex;justify-content:space-between;align-items:center;margin-top:.75rem;padding:.85rem 1rem;border-radius:14px;background:#0f1419;color:#fff}
-.budget-total .n{font-size:1.35rem;font-weight:800}
-
-@media print{
- .camp-nav{display:none!important}
- .slide.section-dark,.slide-inner.divider-slide{min-height:0;-webkit-print-color-adjust:exact;print-color-adjust:exact}
-}
-
-
-
-/* COMPLY wordmark — fixed aspect, cannot stretch */
-img.comply-logo,
-.title-brand img.comply-logo,
-.title-brand > img,
-.slide#title .title-brand img,
-.slide#close .title-brand img{
- width: 133px !important;
- height: 32px !important;
- max-width: 133px !important;
- max-height: 32px !important;
- min-width: 0 !important;
- min-height: 0 !important;
- object-fit: contain !important;
- object-position: left center !important;
- aspect-ratio: 133 / 32 !important;
- flex: 0 0 auto !important;
- align-self: flex-start !important;
- display: block !important;
-}
-@media print{
- img.comply-logo,.title-brand img{
- width: 110px !important;
- height: 26px !important;
- max-width: 110px !important;
- max-height: 26px !important;
- }
-}
-
-
-/* Photo tone — avoid blown-out wash */
-.persona-card img,
-.persona-photo img,
-.persona-photo-sm,
-.icp-face img,
-.market-photo img,
-.phone .img img,
-.ad-phone .ph-img img,
-.ad-wrap img{
-  filter: none !important;
-  -webkit-filter: none !important;
-  opacity: 1 !important;
-  object-fit: cover;
-  object-position: center 18%;
-}
-.market-photo img{
-  object-position: center top;
-}
-
-
-/* clean photo sizing */
-.persona-card img,
-.persona-photo img,
-.persona-photo-sm,
-.icp-face img{
-  display:block!important;
-  width:100%!important;
-  height:180px!important;
-  object-fit:cover!important;
-  object-position:center 15%!important;
-  border-radius:12px!important;
-  filter:none!important;
-  opacity:1!important;
-}
-.market-photo img{
-  width:100%!important;
-  height:100%!important;
-  min-height:260px!important;
-  object-fit:cover!important;
-  object-position:center top!important;
-  filter:none!important;
-}
-.phone .img img,
-.ad-phone .ph-img img{
-  width:100%!important;
-  aspect-ratio:1/1!important;
-  object-fit:cover!important;
-  filter:none!important;
-}
-
-
-/* kill earlier forced 180/155 heights on board */
-.persona-board .persona-card img,
-.persona-board img{
-  height:210px!important;
-}
-
-
-/* Dark section openers: CAD art + vertically centered titles */
-.slide.section-dark{
-  position:relative!important;
-  overflow:hidden!important;
-}
-.slide.section-dark .slide-inner,
-.slide-inner.divider-slide{
-  position:relative!important;
-  z-index:1!important;
-  min-height:520px!important;
-  display:flex!important;
-  flex-direction:column!important;
-  justify-content:center!important; /* vertical center */
-  align-items:flex-start!important; /* left text */
-  padding:2.4rem 2.6rem!important;
-  padding-right:42%!important; /* room for CAD */
-  box-sizing:border-box!important;
-}
-.slide.section-dark .cad-art{
-  position:absolute!important;
-  right:-2%!important;
-  top:50%!important;
-  transform:translateY(-50%)!important;
-  width:min(52%, 480px)!important;
-  height:auto!important;
-  max-height:88%!important;
-  opacity:1!important;
-  pointer-events:none!important;
-  z-index:0!important;
-  filter:drop-shadow(0 0 28px rgba(43,196,224,.12));
-}
-.slide.section-dark .h1{
-  position:relative;z-index:2;
-  margin:0!important;
-  max-width:14ch;
-}
-.slide.section-dark .phase,
-.slide.section-dark .lede,
-.slide.section-dark .sec-sub,
-.slide.section-dark p{
-  position:relative;z-index:2;
-  max-width:34rem;
-}
-.slide.section-dark .brand-top,
-.slide.section-dark .footer-bar{
-  position:relative;z-index:2;
-  width:100%;
-}
-.slide.section-dark .footer-bar{
-  margin-top:auto!important;
-  padding-top:2rem!important;
-}
-.slide.section-dark .brand-top{
-  position:absolute!important;
-  top:1.4rem!important;
-  left:2.6rem!important;
-  right:2.6rem!important;
-  display:flex!important;
-  justify-content:space-between!important;
-  width:auto!important;
-  margin:0!important;
-  opacity:.55;
-  font-size:.7rem;
-  font-weight:700;
-  letter-spacing:.08em;
-  text-transform:uppercase;
-}
-@media print{
-  .slide.section-dark .slide-inner{min-height:0!important;padding-right:38%!important}
-  .slide.section-dark .cad-art{opacity:.75!important}
-}
-
-
-#personas .persona-board{display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:.6rem!important;width:100%!important}
-#personas .persona-board .card{min-width:0!important;overflow:hidden!important}
-#personas .persona-board .card > img{width:100%!important;height:220px!important;object-fit:cover!important;object-position:center 8%!important;border-radius:12px!important}
-#personas .persona-board .card > img[alt="Jordan Park"]{object-position:42% 5%!important}
-
-
-/* Dark openers polish */
-.slide.section-dark .slide-inner{
-  justify-content:center!important;
-  align-items:flex-start!important;
-  min-height:520px!important;
-  padding-right:min(46%, 28rem)!important;
-}
-.slide.section-dark .cad-art{
-  right:-1%!important;
-  width:min(52%, 480px)!important;
-  opacity:1!important;
-  filter:drop-shadow(0 0 18px rgba(0,230,160,.25)) drop-shadow(0 0 40px rgba(92,255,176,.12))!important;
-}
-.slide.section-dark .h1{
-  font-size:clamp(2.4rem, 4.5vw, 3.2rem)!important;
-  line-height:1.05!important;
-  border:0!important;
-  max-width:12ch!important;
-}
-
-
-
-
-/* Dark cards: never black-on-black body copy */
-.card.dark-callout,
-.card.dark-callout p,
-.slide .card[style*="background:#0f1419"] p,
-.slide .card[style*="background:#0f1419"] li{
-  color:#e8eef5 !important;
-  opacity:1 !important;
-}
-.slide .card[style*="background:#0f1419"] h3{ color:#fff !important; }
-
-/* CAD right + fewer-line art */
-.slide.section-dark .slide-inner,
-.slide-inner.divider-slide{ padding-right: min(56%, 32rem) !important; }
-.slide.section-dark .cad-art{
-  right: -4% !important;
-  left: auto !important;
-  top: 50% !important;
-  transform: translateY(-50%) !important;
-  width: min(56%, 540px) !important;
-  max-width: 56% !important;
-  max-height: 90% !important;
-  opacity: 1 !important;
-  object-fit: contain !important;
-  object-position: right center !important;
-  filter: drop-shadow(0 0 22px rgba(0,230,160,.3)) drop-shadow(0 0 48px rgba(92,255,176,.14)) !important;
-}
-
-
-/* TAM math card — clean hierarchy */
-.tam-math{padding:1rem 1.05rem!important}
-.tam-math h3{margin:0 0 .75rem!important;font-size:.95rem!important}
-.tam-row{
-  display:grid;
-  grid-template-columns:1fr;
-  gap:.15rem;
-  padding:.7rem 0;
-  border-top:1px solid var(--line);
-}
-.tam-row:first-of-type{border-top:0;padding-top:.15rem}
-.tam-label{
-  font-size:.68rem!important;
-  font-weight:800!important;
-  letter-spacing:.06em!important;
-  text-transform:uppercase!important;
-  color:var(--muted)!important;
-  line-height:1.2!important;
-}
-.tam-value{
-  font-size:1.55rem!important;
-  font-weight:800!important;
-  letter-spacing:-.03em!important;
-  color:var(--ink)!important;
-  line-height:1.1!important;
-  margin:.1rem 0!important;
-}
-.tam-how{
-  font-size:.8rem!important;
-  color:var(--muted)!important;
-  line-height:1.35!important;
-  font-weight:600!important;
-}
-.tam-note{
-  margin-top:.55rem!important;
-  padding-top:.65rem!important;
-  border-top:1px solid var(--line)!important;
-  font-size:.78rem!important;
-  color:var(--muted)!important;
-  line-height:1.4!important;
-}
-.tam-goal{
-  margin-top:.55rem!important;
-  padding:.65rem .75rem!important;
-  border-radius:12px!important;
-  background:#0f1419!important;
-  color:#e8eef5!important;
-  font-size:.82rem!important;
-  line-height:1.4!important;
-}
-.tam-goal strong{color:#fff!important}
-
-
-/* Close slide — platform hero right, clean copy left */
-.slide#close .slide-inner{
-  position:relative!important;
-  overflow:hidden!important;
-  min-height:560px!important;
-  display:flex!important;
-  flex-direction:column!important;
-  justify-content:center!important;
-  align-items:flex-start!important;
-  padding:2.4rem 2.4rem!important;
-  padding-right:min(52%, 32rem)!important;
-  background:#0d1b2a!important;
-  color:#e8eef5!important;
-  border:0!important;
-  box-shadow:none!important;
-}
-.slide#close .site-hero-stack{
-  position:absolute!important;
-  top:0!important; right:0!important; bottom:0!important;
-  width:min(50%, 34rem)!important;
-  z-index:0!important;
-  overflow:hidden!important;
-  margin:0!important;
-  background:#0d1b2a!important;
-}
-.slide#close .site-hero-stack img,
-.slide#close .site-hero-stack img.site-hero-main{
-  position:absolute!important;
-  inset:0!important;
-  width:100%!important;
-  height:100%!important;
-  object-fit:cover!important;
-  object-position:left center!important;
-  opacity:1!important;
-  animation:none!important;
-  transform:none!important;
-  margin:0!important;
-  border:0!important;
-  border-radius:0!important;
-  filter:none!important;
-  min-height:0!important;
-  max-height:none!important;
-  aspect-ratio:auto!important;
-}
-.slide#close .site-hero-fade{
-  position:absolute!important;
-  top:0; bottom:0;
-  right:min(44%, 28rem);
-  width:6.5rem!important;
-  background:linear-gradient(90deg, #0d1b2a 0%, rgba(13,27,42,0) 100%)!important;
-  z-index:1!important;
-  pointer-events:none!important;
-}
-.slide#close .h1,
-.slide#close .lede,
-.slide#close .phase,
-.slide#close .footer-bar,
-.slide#close .title-brand,
-.slide#close .title-tagline,
-.slide#close .kicker{
-  position:relative!important;
-  z-index:2!important;
-}
-.slide#close .h1{
-  color:#fff!important;
-  max-width:14ch!important;
-  margin:0 0 .6rem!important;
-  border:0!important;
-}
-.slide#close .lede{
-  color:rgba(232,238,245,.88)!important;
-  max-width:28rem!important;
-  margin:0!important;
-}
-.slide#close .title-brand{ margin-top:1.4rem!important; }
-.slide#close .title-brand img.comply-logo{
-  filter:brightness(0) invert(1)!important;
-  opacity:.95!important;
-}
-.slide#close .title-tagline{ color:rgba(232,238,245,.78)!important; }
-.slide#close .title-tagline span{ color:#5CFFB0!important; }
-.slide#close .footer-bar{
-  margin-top:auto!important;
-  width:100%!important;
-  color:rgba(232,238,245,.45)!important;
-  border-top:1px solid rgba(255,255,255,.12)!important;
-}
-.slide#close .cad-art{ display:none!important; }
-@media print{
-  .slide#close .slide-inner{ min-height:0!important; -webkit-print-color-adjust:exact; print-color-adjust:exact; }
-}
-
-
-/* Personas: full faces — no mouth crop */
-#personas .persona-board{
-  display:grid!important;
-  grid-template-columns:repeat(3,minmax(0,1fr))!important;
-  gap:.55rem!important;
-  width:100%!important;
-  align-items:stretch!important;
-}
-#personas .persona-board .card{
-  min-width:0!important;
-  overflow:hidden!important;
-  display:flex!important;
-  flex-direction:column!important;
-  padding:.55rem .55rem .65rem!important;
-}
-#personas .persona-board .card > img,
-#personas .persona-board img{
-  display:block!important;
-  width:100%!important;
-  height:240px!important;
-  max-height:240px!important;
-  object-fit:cover!important;
-  /* bias upward so chin/mouth stay in frame */
-  object-position:center 12%!important;
-  border-radius:12px!important;
-  margin:0 0 .45rem!important;
-  background:#1a1f26!important;
-  flex:0 0 auto!important;
-}
-#personas .persona-board img[alt="Marcus Hale"],
-#personas .persona-board img[src*="marcus"]{ object-position:center 8%!important; }
-#personas .persona-board img[alt="Jordan Park"],
-#personas .persona-board img[src*="jordan"]{ object-position:center 10%!important; }
-#personas .persona-board img[alt="Elena Vargas"],
-#personas .persona-board img[src*="elena"]{ object-position:center 14%!important; }
-#personas .persona-board .persona-quote{ font-size:.7rem!important; line-height:1.25!important; }
-#personas .persona-board .persona-meta{ font-size:.66rem!important; line-height:1.3!important; }
-#personas .persona-board .mini li{ font-size:.62rem!important; }
-@media print{
-  #personas .persona-board .card > img,
-  #personas .persona-board img{ height:200px!important; max-height:200px!important; }
-}
-
-
-/* Title slide hero — always visible custom photo */
-.slide#title .slide-inner.title-slide,
-.slide#title .slide-inner{
-  position:relative!important;
-  overflow:hidden!important;
-  min-height:560px!important;
-  display:flex!important;
-  flex-direction:column!important;
-  justify-content:center!important;
-  align-items:flex-start!important;
-  padding:2.4rem 2.4rem!important;
-  padding-right:min(52%, 32rem)!important;
-  background:#0d1b2a!important;
-  color:#e8eef5!important;
-  border:0!important;
-  box-shadow:none!important;
-}
-.slide#title .site-hero-stack{
-  position:absolute!important;
-  top:0!important; right:0!important; bottom:0!important;
-  width:min(50%, 34rem)!important;
-  z-index:0!important;
-  overflow:hidden!important;
-  margin:0!important;
-  background:#0d1b2a!important;
-}
-.slide#title .site-hero-stack img,
-.slide#title .site-hero-stack img.site-hero-main,
-.slide#title .site-hero-stack.site-hero-static img{
-  position:absolute!important;
-  inset:0!important;
-  width:100%!important;
-  height:100%!important;
-  object-fit:cover!important;
-  object-position:center 28%!important;
-  opacity:1!important;
-  animation:none!important;
-  transform:none!important;
-  display:block!important;
-  margin:0!important;
-  border:0!important;
-  border-radius:0!important;
-  filter:none!important;
-  min-height:0!important;
-  max-height:none!important;
-  aspect-ratio:auto!important;
-  visibility:visible!important;
-}
-.slide#title .site-hero-fade{
-  position:absolute!important;
-  top:0; bottom:0;
-  right:min(44%, 28rem);
-  width:6.5rem!important;
-  background:linear-gradient(90deg,#0d1b2a 0%, rgba(13,27,42,0) 100%)!important;
-  z-index:1!important;
-  pointer-events:none!important;
-}
-.slide#title .title-main,
-.slide#title .title-brand,
-.slide#title .footer-bar,
-.slide#title .kicker,
-.slide#title .h1,
-.slide#title .lede{
-  position:relative!important;
-  z-index:2!important;
-}
-.slide#title .h1{ color:#fff!important; max-width:14ch!important; margin:0!important; border:0!important; }
-.slide#title .lede{ color:rgba(232,238,245,.88)!important; max-width:28rem!important; }
-.slide#title .kicker{ color:#00D4AA!important; }
-.slide#title .title-tagline{ color:rgba(232,238,245,.78)!important; }
-.slide#title .title-tagline span{ color:#5CFFB0!important; }
-.slide#title .title-brand{ margin-top:1.4rem!important; }
-.slide#title .title-brand img.comply-logo{
-  filter:brightness(0) invert(1)!important;
-  opacity:.95!important;
-}
-.slide#title .footer-bar{
-  margin-top:auto!important;
-  width:100%!important;
-  color:rgba(232,238,245,.45)!important;
-  border-top:1px solid rgba(255,255,255,.12)!important;
-}
-@media print{
-  .slide#title .slide-inner{ min-height:0!important; -webkit-print-color-adjust:exact; print-color-adjust:exact; }
-  .slide#title .site-hero-stack img{ opacity:1!important; animation:none!important; }
-}
-
-
-/* Close developers hero crop */
-.slide#close .site-hero-stack img,
-.slide#close .site-hero-stack img.site-hero-main{
-  object-position:center 22%!important;
-  opacity:1!important;
-  animation:none!important;
-}
-
-
-/* Hide ALL page chrome while presenting */
-body.deck-mode .toolbar,
-body.deck-mode .camp-nav,
-body.deck-mode #camp-nav,
-body.deck-mode .toc,
-body.deck-mode .deck-present-btn,
-body.deck-mode .page-nav,
-body.deck-mode .sticky-nav{
-  display:none!important;
-  visibility:hidden!important;
-  pointer-events:none!important;
-  height:0!important;
-  max-height:0!important;
-  overflow:hidden!important;
-  margin:0!important;
-  padding:0!important;
-  opacity:0!important;
-}
-body.deck-mode .deck-exit-btn{
-  display:inline-flex!important;
-  align-items:center;
-  gap:.35rem;
-  position:fixed;
-  top:14px;
-  left:14px;
-  z-index:100002;
-  appearance:none;
-  border:0;
-  cursor:pointer;
-  font-family:Inter,system-ui,sans-serif;
-  font-weight:800;
-  font-size:.8rem;
-  color:#fff;
-  background:rgba(220,38,38,.92);
-  padding:.55rem .9rem;
-  border-radius:999px;
-  box-shadow:0 8px 22px rgba(0,0,0,.35);
-}
-body.deck-mode .deck-exit-btn:hover{ filter:brightness(1.08); }
-body.deck-mode .deck-exit-hint{
-  display:block!important;
-  position:fixed; left:50%; bottom:12px; transform:translateX(-50%);
-  z-index:100001; color:rgba(255,255,255,.75); font-size:.7rem; font-weight:600;
-  background:rgba(0,0,0,.5); padding:.35rem .75rem; border-radius:999px; pointer-events:none;
-}
-body.deck-mode .deck-counter{
-  display:block!important;
-  position:fixed; top:16px; right:14px; z-index:100001;
-  color:rgba(255,255,255,.85); font-size:.72rem; font-weight:700;
-  background:rgba(0,0,0,.45); padding:.3rem .55rem; border-radius:8px; pointer-events:none;
-}
-body.deck-mode .deck-nav{
-  display:block!important; position:fixed; inset:0; z-index:100000; pointer-events:none;
-}
-body.deck-mode .deck-nav button{
-  pointer-events:auto; position:absolute; top:50%; transform:translateY(-50%);
-  width:44px; height:64px; border:0; border-radius:12px;
-  background:rgba(255,255,255,.14); color:#fff; font-size:1.5rem; cursor:pointer;
-}
-body.deck-mode .deck-nav button:hover{ background:rgba(255,255,255,.24); }
-body.deck-mode .deck-nav .deck-prev{ left:8px; }
-body.deck-mode .deck-nav .deck-next{ right:8px; }
-body.deck-mode section.slide,
-body.deck-mode .slide{
-  display:none!important; position:fixed!important; inset:0!important;
-  width:100vw!important; height:100vh!important; max-width:none!important;
-  margin:0!important; border:0!important; border-radius:0!important; box-shadow:none!important;
-  overflow:hidden!important; background:transparent!important; z-index:1!important;
-}
-body.deck-mode section.slide.deck-active,
-body.deck-mode .slide.deck-active{
-  display:flex!important; align-items:center!important; justify-content:center!important; z-index:2!important;
-}
-body.deck-mode .slide.deck-active .slide-inner{
-  width:min(1280px, 96vw)!important;
-  height:min(720px, calc(100vh - 40px))!important;
-  max-height:calc(100vh - 40px)!important;
-  min-height:0!important; margin:0 auto!important; border-radius:14px!important;
-  box-shadow:0 18px 50px rgba(0,0,0,.4)!important; overflow:hidden!important;
-}
-@media print{
-  .deck-present-btn,.deck-exit-btn,.deck-exit-hint,.deck-nav,.deck-counter{ display:none!important; }
-  body.deck-mode .slide{ display:block!important; position:relative!important; inset:auto!important; width:auto!important; height:auto!important; }
-  body.deck-mode .toolbar, body.deck-mode .camp-nav{ display:flex!important; visibility:visible!important; height:auto!important; opacity:1!important; }
-}
-
-
-/* LIGHT slides: forced white surface + dark ink */
-body.deck-mode .slide.deck-active .slide-inner{
-  width:min(1280px, 96vw)!important;
-  height:min(720px, calc(100vh - 44px))!important;
-  max-height:calc(100vh - 44px)!important;
-  min-height:0!important;
-  margin:0 auto!important;
-  border-radius:14px!important;
-  box-shadow:0 18px 50px rgba(0,0,0,.45)!important;
-  overflow:auto!important;
-  background:#ffffff!important;
-  color:#15202b!important;
-}
-body.deck-mode .slide:not(.section-dark).deck-active .slide-inner{
-  background:#ffffff!important;
-  color:#15202b!important;
-}
-body.deck-mode .slide:not(.section-dark).deck-active .h1,
-body.deck-mode .slide:not(.section-dark).deck-active .h2,
-body.deck-mode .slide:not(.section-dark).deck-active h1,
-body.deck-mode .slide:not(.section-dark).deck-active h2,
-body.deck-mode .slide:not(.section-dark).deck-active h3{
-  color:#15202b!important;
-}
-body.deck-mode .slide:not(.section-dark).deck-active .lede,
-body.deck-mode .slide:not(.section-dark).deck-active .big,
-body.deck-mode .slide:not(.section-dark).deck-active p,
-body.deck-mode .slide:not(.section-dark).deck-active li,
-body.deck-mode .slide:not(.section-dark).deck-active td,
-body.deck-mode .slide:not(.section-dark).deck-active label,
-body.deck-mode .slide:not(.section-dark).deck-active .persona-meta,
-body.deck-mode .slide:not(.section-dark).deck-active .persona-quote{
-  color:#1f2a36!important;
-}
-body.deck-mode .slide:not(.section-dark).deck-active .kicker{ color:#0f8f97!important; }
-body.deck-mode .slide:not(.section-dark).deck-active .muted,
-body.deck-mode .slide:not(.section-dark).deck-active .footer-bar,
-body.deck-mode .slide:not(.section-dark).deck-active .num{ color:#5b6b7c!important; }
-body.deck-mode .slide:not(.section-dark).deck-active .card{
-  background:#fff!important; color:#15202b!important; border-color:rgba(21,32,43,.12)!important;
-}
-body.deck-mode .slide:not(.section-dark).deck-active table,
-body.deck-mode .slide:not(.section-dark).deck-active .table{
-  background:#fff!important; color:#15202b!important;
-}
-body.deck-mode .slide:not(.section-dark).deck-active th{
-  background:#eef2f6!important; color:#15202b!important;
-}
-body.deck-mode .slide:not(.section-dark).deck-active td{
-  color:#1f2a36!important; border-color:rgba(21,32,43,.1)!important;
-}
-body.deck-mode .slide:not(.section-dark).deck-active .stat .n{ color:#15202b!important; }
-body.deck-mode .slide:not(.section-dark).deck-active .stat .l{ color:#5b6b7c!important; }
-body.deck-mode .slide:not(.section-dark).deck-active .quote{
-  color:#15202b!important; background:#f4f7fa!important;
-}
-
-/* DARK slides */
-body.deck-mode .slide.section-dark.deck-active .slide-inner,
-body.deck-mode .slide#title.deck-active .slide-inner,
-body.deck-mode .slide#close.deck-active .slide-inner{
-  background:#0d1b2a!important;
-  color:#e8eef5!important;
-}
-body.deck-mode .slide.section-dark.deck-active .h1,
-body.deck-mode .slide.section-dark.deck-active .h2,
-body.deck-mode .slide#title.deck-active .h1,
-body.deck-mode .slide#close.deck-active .h1{
-  color:#ffffff!important;
-}
-body.deck-mode .slide.section-dark.deck-active .lede,
-body.deck-mode .slide.section-dark.deck-active p,
-body.deck-mode .slide.section-dark.deck-active li,
-body.deck-mode .slide#title.deck-active .lede,
-body.deck-mode .slide#close.deck-active .lede{
-  color:rgba(232,238,245,.92)!important;
-}
-body.deck-mode .slide.section-dark.deck-active .kicker,
-body.deck-mode .slide#title.deck-active .kicker,
-body.deck-mode .slide#close.deck-active .kicker{
-  color:#00D4AA!important;
-}
-body.deck-mode .slide.section-dark.deck-active .footer-bar,
-body.deck-mode .slide#title.deck-active .footer-bar,
-body.deck-mode .slide#close.deck-active .footer-bar{
-  color:rgba(232,238,245,.5)!important;
-  border-top-color:rgba(255,255,255,.12)!important;
-}
-body.deck-mode .slide.section-dark.deck-active .card{
-  background:rgba(255,255,255,.06)!important;
-  color:#e8eef5!important;
-  border-color:rgba(255,255,255,.12)!important;
-}
-@media print{
-  .deck-present-btn,.deck-exit-btn,.deck-exit-hint,.deck-nav,.deck-counter{display:none!important}
-  body.deck-mode .slide{display:block!important;position:relative!important;inset:auto!important;width:auto!important;height:auto!important}
-  body.deck-mode .toolbar, body.deck-mode .camp-nav{display:flex!important;visibility:visible!important;height:auto!important;opacity:1!important}
-}
-
-
-/* PRESENT v6 — contrast lock at end of stylesheet */
-.deck-present-btn{
-  position:fixed;right:18px;bottom:18px;z-index:99999;appearance:none;border:0;cursor:pointer;
-  font-family:Inter,system-ui,sans-serif;font-weight:800;font-size:.82rem;color:#fff;
-  background:linear-gradient(135deg,#0f8f97,#0d1b2a);padding:.72rem 1rem;border-radius:999px;
-  box-shadow:0 10px 28px rgba(13,27,42,.28);
-}
-.deck-exit-btn,.deck-exit-hint,.deck-nav,.deck-counter{display:none!important}
-body.deck-mode{background:#0b1220!important;overflow:hidden!important;height:100vh!important;width:100vw!important}
-body.deck-mode .deck,body.deck-mode .wrap{margin:0!important;padding:0!important;max-width:none!important;width:100%!important}
-body.deck-mode .toolbar,body.deck-mode .camp-nav,body.deck-mode #camp-nav,body.deck-mode .toc,
-body.deck-mode .deck-present-btn,body.deck-mode .page-nav,body.deck-mode .sticky-nav{
-  display:none!important;visibility:hidden!important;pointer-events:none!important;height:0!important;opacity:0!important;overflow:hidden!important;margin:0!important;padding:0!important
-}
-body.deck-mode .deck-exit-btn{
-  display:inline-flex!important;align-items:center;position:fixed;top:14px;left:14px;z-index:100002;
-  appearance:none;border:0;cursor:pointer;font-family:Inter,system-ui,sans-serif;font-weight:800;font-size:.8rem;
-  color:#fff;background:#dc2626;padding:.55rem .95rem;border-radius:999px;box-shadow:0 8px 22px rgba(0,0,0,.35)
-}
-body.deck-mode .deck-exit-hint{
-  display:block!important;position:fixed;left:50%;bottom:12px;transform:translateX(-50%);z-index:100001;
-  color:rgba(255,255,255,.85);font-size:.7rem;font-weight:600;background:rgba(0,0,0,.55);padding:.35rem .75rem;border-radius:999px;pointer-events:none
-}
-body.deck-mode .deck-counter{
-  display:block!important;position:fixed;top:16px;right:14px;z-index:100001;color:#fff;font-size:.72rem;font-weight:700;
-  background:rgba(0,0,0,.5);padding:.3rem .55rem;border-radius:8px;pointer-events:none
-}
-body.deck-mode .deck-nav{display:block!important;position:fixed;inset:0;z-index:100000;pointer-events:none}
-body.deck-mode .deck-nav button{
-  pointer-events:auto;position:absolute;top:50%;transform:translateY(-50%);width:44px;height:64px;border:0;border-radius:12px;
-  background:rgba(255,255,255,.16);color:#fff;font-size:1.5rem;cursor:pointer
-}
-body.deck-mode .deck-nav .deck-prev{left:8px}
-body.deck-mode .deck-nav .deck-next{right:8px}
-
-body.deck-mode section.slide{
-  display:none!important;position:fixed!important;inset:0!important;width:100vw!important;height:100vh!important;
-  margin:0!important;border:0!important;border-radius:0!important;box-shadow:none!important;overflow:hidden!important;z-index:1!important;
-  background:transparent!important;
-}
-body.deck-mode section.slide.deck-active{
-  display:flex!important;align-items:center!important;justify-content:center!important;z-index:2!important;
-}
-
-/* LIGHT slide shell */
-body.deck-mode section.slide:not(.section-dark).deck-active{
-  background:#0b1220!important;
-}
-body.deck-mode section.slide:not(.section-dark).deck-active > .slide-inner,
-body.deck-mode section.slide:not(.section-dark).deck-active > .slide-inner.title-slide,
-body.deck-mode section.slide:not(.section-dark).deck-active > .slide-inner.divider-slide{
-  width:min(1280px,96vw)!important;
-  height:min(720px,calc(100vh - 48px))!important;
-  max-height:calc(100vh - 48px)!important;
-  min-height:0!important;
-  margin:0 auto!important;
-  border-radius:14px!important;
-  box-shadow:0 18px 50px rgba(0,0,0,.45)!important;
-  overflow:auto!important;
-  background:#ffffff !important;
-  color:#15202b !important;
-  border:1px solid rgba(255,255,255,.08)!important;
-}
-body.deck-mode section.slide:not(.section-dark).deck-active .h1,
-body.deck-mode section.slide:not(.section-dark).deck-active .h2,
-body.deck-mode section.slide:not(.section-dark).deck-active h1,
-body.deck-mode section.slide:not(.section-dark).deck-active h2,
-body.deck-mode section.slide:not(.section-dark).deck-active h3{
-  color:#15202b !important;
-}
-body.deck-mode section.slide:not(.section-dark).deck-active .lede,
-body.deck-mode section.slide:not(.section-dark).deck-active .big,
-body.deck-mode section.slide:not(.section-dark).deck-active p,
-body.deck-mode section.slide:not(.section-dark).deck-active li,
-body.deck-mode section.slide:not(.section-dark).deck-active td,
-body.deck-mode section.slide:not(.section-dark).deck-active .persona-quote,
-body.deck-mode section.slide:not(.section-dark).deck-active .persona-meta,
-body.deck-mode section.slide:not(.section-dark).deck-active .quote{
-  color:#1f2a36 !important;
-}
-body.deck-mode section.slide:not(.section-dark).deck-active .kicker{color:#0f8f97 !important}
-body.deck-mode section.slide:not(.section-dark).deck-active .muted,
-body.deck-mode section.slide:not(.section-dark).deck-active .footer-bar,
-body.deck-mode section.slide:not(.section-dark).deck-active .num,
-body.deck-mode section.slide:not(.section-dark).deck-active .stat .l{color:#5b6b7c !important}
-body.deck-mode section.slide:not(.section-dark).deck-active .stat .n{color:#15202b !important}
-body.deck-mode section.slide:not(.section-dark).deck-active .card{
-  background:#ffffff !important;color:#15202b !important;border-color:rgba(21,32,43,.12)!important
-}
-body.deck-mode section.slide:not(.section-dark).deck-active table,
-body.deck-mode section.slide:not(.section-dark).deck-active .table{
-  background:#fff !important;color:#15202b !important
-}
-body.deck-mode section.slide:not(.section-dark).deck-active th{
-  background:#eef2f6 !important;color:#15202b !important
-}
-body.deck-mode section.slide:not(.section-dark).deck-active td{
-  color:#1f2a36 !important;border-color:rgba(21,32,43,.12)!important;background:transparent !important
-}
-body.deck-mode section.slide:not(.section-dark).deck-active .quote{background:#f4f7fa !important}
-
-/* DARK slides + title/close */
-body.deck-mode section.slide.section-dark.deck-active,
-body.deck-mode section.slide#title.deck-active,
-body.deck-mode section.slide#close.deck-active{
-  background:#0b1220!important;
-}
-body.deck-mode section.slide.section-dark.deck-active > .slide-inner,
-body.deck-mode section.slide.section-dark.deck-active > .slide-inner.divider-slide,
-body.deck-mode section.slide#title.deck-active > .slide-inner,
-body.deck-mode section.slide#close.deck-active > .slide-inner{
-  width:min(1280px,96vw)!important;
-  height:min(720px,calc(100vh - 48px))!important;
-  max-height:calc(100vh - 48px)!important;
-  min-height:0!important;
-  margin:0 auto!important;
-  border-radius:14px!important;
-  box-shadow:0 18px 50px rgba(0,0,0,.45)!important;
-  overflow:hidden!important;
-  background:#0d1b2a !important;
-  color:#e8eef5 !important;
-}
-body.deck-mode section.slide.section-dark.deck-active .h1,
-body.deck-mode section.slide.section-dark.deck-active .h2,
-body.deck-mode section.slide#title.deck-active .h1,
-body.deck-mode section.slide#close.deck-active .h1{color:#ffffff !important}
-body.deck-mode section.slide.section-dark.deck-active .lede,
-body.deck-mode section.slide.section-dark.deck-active p,
-body.deck-mode section.slide#title.deck-active .lede,
-body.deck-mode section.slide#close.deck-active .lede,
-body.deck-mode section.slide.section-dark.deck-active li{color:rgba(232,238,245,.92) !important}
-body.deck-mode section.slide.section-dark.deck-active .kicker,
-body.deck-mode section.slide#title.deck-active .kicker,
-body.deck-mode section.slide#close.deck-active .kicker{color:#00D4AA !important}
-body.deck-mode section.slide.section-dark.deck-active .footer-bar,
-body.deck-mode section.slide#title.deck-active .footer-bar,
-body.deck-mode section.slide#close.deck-active .footer-bar{
-  color:rgba(232,238,245,.5)!important;border-top-color:rgba(255,255,255,.12)!important
-}
-body.deck-mode section.slide.section-dark.deck-active .card{
-  background:rgba(255,255,255,.06)!important;color:#e8eef5!important;border-color:rgba(255,255,255,.12)!important
-}
-@media print{
-  .deck-present-btn,.deck-exit-btn,.deck-exit-hint,.deck-nav,.deck-counter{display:none!important}
-  body.deck-mode section.slide{display:block!important;position:relative!important;inset:auto!important;width:auto!important;height:auto!important}
-  body.deck-mode .toolbar,body.deck-mode .camp-nav{display:flex!important;visibility:visible!important;height:auto!important;opacity:1!important}
-}
-
-
-/* PRESENT v6.1 — more inner padding so text isn't edge-hugging */
-body.deck-mode section.slide.deck-active > .slide-inner,
-body.deck-mode section.slide:not(.section-dark).deck-active > .slide-inner,
-body.deck-mode section.slide:not(.section-dark).deck-active > .slide-inner.title-slide,
-body.deck-mode section.slide:not(.section-dark).deck-active > .slide-inner.divider-slide,
-body.deck-mode section.slide.section-dark.deck-active > .slide-inner,
-body.deck-mode section.slide.section-dark.deck-active > .slide-inner.divider-slide,
-body.deck-mode section.slide#title.deck-active > .slide-inner,
-body.deck-mode section.slide#close.deck-active > .slide-inner{
-  padding: 2.1rem 2.4rem 2rem !important;
-  box-sizing: border-box !important;
-}
-body.deck-mode section.slide.deck-active > .slide-inner .h1,
-body.deck-mode section.slide.deck-active > .slide-inner .h2{
-  padding-right: .25rem !important;
-}
-body.deck-mode section.slide.deck-active > .slide-inner .grid2,
-body.deck-mode section.slide.deck-active > .slide-inner .grid3,
-body.deck-mode section.slide.deck-active > .slide-inner .card,
-body.deck-mode section.slide.deck-active > .slide-inner table,
-body.deck-mode section.slide.deck-active > .slide-inner .table{
-  max-width: 100% !important;
-}
-body.deck-mode section.slide.deck-active > .slide-inner .footer-bar{
-  margin-left: 0 !important;
-  margin-right: 0 !important;
-  padding-left: 0 !important;
-  padding-right: 0 !important;
-}
-/* keep title/close hero padding-right for image panel */
-body.deck-mode section.slide#title.deck-active > .slide-inner,
-body.deck-mode section.slide#close.deck-active > .slide-inner{
-  padding-right: min(52%, 32rem) !important;
-  padding-left: 2.4rem !important;
-  padding-top: 2.1rem !important;
-  padding-bottom: 2rem !important;
-}
-
-
-/* Competitor logos */
-.comp-logo-row{
-  display:flex; flex-wrap:wrap; gap:.7rem; align-items:center;
-  margin:0 0 1rem; padding:.65rem .75rem;
-  background:#f7fafc; border:1px solid rgba(21,32,43,.08); border-radius:12px;
-}
-.comp-logo-row .comp-logo{
-  display:inline-flex; align-items:center; justify-content:center;
-  height:34px; padding:0 .35rem;
-}
-.comp-logo-row .comp-logo img{
-  max-height:28px; max-width:120px; width:auto; height:auto;
-  object-fit:contain; display:block; filter:none;
-}
-.comp-logo-row .comp-logo.built img{ max-height:30px; max-width:36px; border-radius:6px; }
-.comp-logo-row .comp-logo.email img{ max-height:26px; max-width:90px; }
-.table td .comp-cell{
-  display:flex; align-items:center; gap:.5rem;
-}
-.table td .comp-cell img{
-  width:22px; height:22px; object-fit:contain; flex:0 0 auto;
-  border-radius:4px; background:#fff;
-}
-.table td .comp-cell img.wide{ width:auto; max-width:72px; height:18px; }
-body.deck-mode .comp-logo-row{ background:#f3f6f9!important; }
-
-
-/* Keep COMPLY / SECTION labels at top corners without shifting the title */
-.slide.section-dark .brand-top{
-  position:absolute!important;
-  top:1.35rem!important;
-  left:2.4rem!important;
-  right:2.4rem!important;
-  margin:0!important;
-  z-index:3!important;
-}
-/* Footer pinned to bottom so it no longer pulls the title up */
-.slide.section-dark .slide-inner.divider-slide > .footer-bar,
-.slide-inner.divider-slide > .footer-bar,
-.slide.section-dark .divider-slide .footer-bar{
-  position:absolute!important;
-  left:2.4rem!important;
-  right:2.4rem!important;
-  bottom:1.25rem!important;
-  margin:0!important;
-  margin-top:0!important;
-  padding-top:.85rem!important;
-  width:auto!important;
-  z-index:3!important;
-}
-/* Title cluster sits in true vertical center */
-.slide.section-dark .slide-inner.divider-slide > .phase,
-.slide.section-dark .slide-inner.divider-slide > .h1,
-.slide.section-dark .slide-inner.divider-slide > .lede,
-.slide.section-dark .slide-inner.divider-slide > .sec-plain{
-  position:relative!important;
-  z-index:2!important;
-}
-.slide.section-dark .slide-inner.divider-slide > .h1{
-  margin:0!important;
-  max-width:14ch!important;
-}
-.slide.section-dark .slide-inner.divider-slide > .phase{
-  margin:0 0 .55rem!important;
-}
-.slide.section-dark .slide-inner.divider-slide > .lede{
-  margin:.7rem 0 0!important;
-  max-width:28rem!important;
-}
-/* Present mode: same mid-height lock on dark dividers */
-body.deck-mode section.slide.section-dark.deck-active > .slide-inner.divider-slide{
-  justify-content:center!important;
-  align-items:flex-start!important;
-  padding-top:2.2rem!important;
-  padding-bottom:3.2rem!important;
-  padding-left:2.4rem!important;
-}
-body.deck-mode section.slide.section-dark.deck-active > .slide-inner.divider-slide > .footer-bar{
-  position:absolute!important;
-  left:2.4rem!important;
-  right:2.4rem!important;
-  bottom:1.25rem!important;
-  margin:0!important;
-  margin-top:0!important;
-}
-@media print{
-  .slide.section-dark .slide-inner.divider-slide{ min-height:0!important; }
-}
-
-
-/* Black pages: left-middle content lock (title + all section-dark) */
-.slide#title .slide-inner.title-slide,
-.slide#title .slide-inner,
-.slide#close .slide-inner,
-.slide.section-dark .slide-inner,
-.slide.section-dark .slide-inner.divider-slide,
-.slide-inner.divider-slide{
-  display:flex!important;
-  flex-direction:column!important;
-  justify-content:center!important;
-  align-items:flex-start!important;
-  position:relative!important;
-  min-height:560px!important;
-  box-sizing:border-box!important;
-  padding-top:2.4rem!important;
-  padding-bottom:3.4rem!important;
-  padding-left:2.6rem!important;
-}
-.slide#title .slide-inner{
-  padding-right:min(52%, 34rem)!important;
-  background:#0d1b2a!important;
-}
-.slide#title .title-main{
-  position:relative!important;
-  z-index:2!important;
-  margin:0!important;
-  max-width:28rem!important;
-}
-.slide#title .title-brand{
-  position:relative!important;
-  z-index:2!important;
-  margin-top:1.25rem!important;
-  margin-bottom:0!important;
-}
-.slide#title .footer-bar,
-.slide#close .footer-bar,
-.slide.section-dark .footer-bar,
-.slide-inner.divider-slide > .footer-bar{
-  position:absolute!important;
-  left:2.6rem!important;
-  right:2.6rem!important;
-  bottom:1.3rem!important;
-  margin:0!important;
-  margin-top:0!important;
-  width:auto!important;
-  z-index:4!important;
-  padding-top:.85rem!important;
-}
-.slide#title .kicker,
-.slide#title .h1,
-.slide#title .lede{
-  position:relative!important;
-  z-index:2!important;
-}
-.slide#close .slide-inner{
-  padding-right:min(52%, 34rem)!important;
-  background:#0d1b2a!important;
-}
-.slide#close .title-main,
-.slide#close .h1,
-.slide#close .lede,
-.slide#close .kicker{
-  position:relative!important;
-  z-index:2!important;
-}
-.slide.section-dark .slide-inner.divider-slide{
-  padding-right:min(56%, 32rem)!important;
-}
-.slide.section-dark .brand-top{
-  position:absolute!important;
-  top:1.3rem!important;
-  left:2.6rem!important;
-  right:2.6rem!important;
-  margin:0!important;
-  z-index:4!important;
-}
-.slide.section-dark .slide-inner.divider-slide > .phase,
-.slide.section-dark .slide-inner.divider-slide > .h1,
-.slide.section-dark .slide-inner.divider-slide > .lede,
-.slide.section-dark .slide-inner.divider-slide > .sec-plain{
-  position:relative!important;
-  z-index:2!important;
-  margin-left:0!important;
-}
-.slide.section-dark .slide-inner.divider-slide > .phase{ margin:0 0 .5rem!important; }
-.slide.section-dark .slide-inner.divider-slide > .h1{ margin:0!important; max-width:14ch!important; }
-.slide.section-dark .slide-inner.divider-slide > .lede{ margin:.65rem 0 0!important; max-width:30rem!important; }
-.slide#title .footer-bar,
-.slide#close .footer-bar,
-.slide.section-dark .footer-bar{
-  margin-top:0!important;
-}
-body.deck-mode section.slide#title.deck-active > .slide-inner,
-body.deck-mode section.slide#close.deck-active > .slide-inner,
-body.deck-mode section.slide.section-dark.deck-active > .slide-inner,
-body.deck-mode section.slide.section-dark.deck-active > .slide-inner.divider-slide{
-  display:flex!important;
-  flex-direction:column!important;
-  justify-content:center!important;
-  align-items:flex-start!important;
-  padding-top:2.4rem!important;
-  padding-bottom:3.4rem!important;
-  padding-left:2.6rem!important;
-  box-sizing:border-box!important;
-}
-body.deck-mode section.slide#title.deck-active > .slide-inner,
-body.deck-mode section.slide#close.deck-active > .slide-inner{
-  padding-right:min(52%, 34rem)!important;
-}
-body.deck-mode section.slide.section-dark.deck-active > .slide-inner.divider-slide{
-  padding-right:min(56%, 32rem)!important;
-}
-body.deck-mode section.slide#title.deck-active .footer-bar,
-body.deck-mode section.slide#close.deck-active .footer-bar,
-body.deck-mode section.slide.section-dark.deck-active .footer-bar{
-  position:absolute!important;
-  left:2.6rem!important;
-  right:2.6rem!important;
-  bottom:1.3rem!important;
-  margin:0!important;
-  margin-top:0!important;
-}
-@media print{
-  .slide#title .slide-inner,
-  .slide#close .slide-inner,
-  .slide.section-dark .slide-inner{ min-height:0!important; }
-}
-
-
-/* Dynamic forecast / value scrubber */
-.forecast-dyn .fd-wrap{margin-top:.15rem}
-.forecast-dyn .fd-milestones{display:flex;flex-wrap:wrap;gap:.4rem;margin:0 0 .55rem}
-.forecast-dyn .fd-milestones button{
-  appearance:none;border:1px solid rgba(21,32,43,.12);background:#f3f7fa;color:#15202b;
-  font-weight:800;font-size:.78rem;padding:.4rem .65rem;border-radius:999px;cursor:pointer;
-}
-.forecast-dyn .fd-milestones button.is-on{
-  background:#0f8f97;color:#fff;border-color:#0f8f97;
-}
-.forecast-dyn .fd-slider-lab{display:block;font-size:.72rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:#5b6b7c;margin:0 0 .25rem}
-.forecast-dyn #fdClients{
-  width:100%;accent-color:#0f8f97;height:1.4rem;cursor:pointer;margin:0 0 .55rem;
-}
-.forecast-dyn .fd-chart{
-  position:relative;height:18px;border-radius:999px;background:#e8eef3;margin:0 0 .7rem;overflow:hidden;
-}
-.forecast-dyn .fd-chart-fill{
-  position:absolute;left:0;top:0;bottom:0;width:24%;background:linear-gradient(90deg,#0f8f97,#40B4E5);border-radius:999px;
-}
-.forecast-dyn .fd-chart-mark{
-  position:absolute;top:50%;width:14px;height:14px;margin:-7px 0 0 -7px;border-radius:50%;
-  background:#fff;border:3px solid #0d1b2a;box-shadow:0 2px 8px rgba(0,0,0,.18);left:24%;
-}
-.forecast-dyn .fd-chart-scale{display:flex;justify-content:space-between;font-size:.68rem;color:#5b6b7c;margin-top:.2rem}
-.forecast-dyn .fd-story{
-  font-size:.95rem;line-height:1.4;color:#15202b;margin:0 0 .75rem;padding:.7rem .85rem;
-  background:#eef6f7;border-radius:12px;border-left:4px solid #0f8f97;min-height:3.2rem;
-}
-.forecast-dyn .fd-story strong{color:#0f8f97}
-.forecast-dyn .fd-grid{
-  display:grid;grid-template-columns:repeat(3,1fr);gap:.55rem;
-}
-.forecast-dyn .fd-card{
-  background:#fff;border:1px solid rgba(21,32,43,.1);border-radius:12px;padding:.7rem .75rem;
-  transition:border-color .15s, box-shadow .15s, transform .15s;
-}
-.forecast-dyn .fd-card.is-hot{
-  border-color:rgba(15,143,151,.45);box-shadow:0 0 0 2px rgba(15,143,151,.12);
-}
-.forecast-dyn .fd-card.is-value{
-  border-color:rgba(13,27,42,.35);background:#0d1b2a;color:#e8eef5;
-}
-.forecast-dyn .fd-card.is-value .fd-k{color:#00D4AA}
-.forecast-dyn .fd-card.is-value .fd-s{color:rgba(232,238,245,.7)}
-.forecast-dyn .fd-card.is-value .fd-v{color:#fff}
-.forecast-dyn .fd-k{font-size:.68rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:#5b6b7c}
-.forecast-dyn .fd-v{font-size:1.35rem;font-weight:800;line-height:1.15;margin:.2rem 0 .1rem;color:#15202b}
-.forecast-dyn .fd-s{font-size:.72rem;color:#5b6b7c;line-height:1.3}
-.forecast-dyn .fd-note{margin:.7rem 0 0;font-size:.75rem;color:#5b6b7c;line-height:1.35}
-body.deck-mode .forecast-dyn .fd-card.is-value{background:#0d1b2a!important;color:#e8eef5!important}
-body.deck-mode .forecast-dyn .fd-story{background:#eef6f7!important;color:#15202b!important}
-@media (max-width:900px){
-  .forecast-dyn .fd-grid{grid-template-columns:repeat(2,1fr)}
-}
-
-
-/* Close summary · north star why marketing */
-.slide#close .close-sum-lede{
-  max-width:28rem;
-  margin-top:.55rem;
-  margin-bottom:0;
-  color:rgba(232,238,245,.9)!important;
-  position:relative;
-  z-index:2;
-}
-.slide#close .close-sum-list{
-  list-style:none;
-  margin:.75rem 0 0;
-  padding:0;
-  max-width:30rem;
-  position:relative;
-  z-index:2;
-}
-.slide#close .close-sum-list li{
-  position:relative;
-  padding:.4rem 0 .4rem 1.1rem;
-  font-size:.9rem;
-  line-height:1.35;
-  color:rgba(232,238,245,.92)!important;
-  border-bottom:1px solid rgba(255,255,255,.1);
-}
-.slide#close .close-sum-list li:last-child{ border-bottom:0; }
-.slide#close .close-sum-list li::before{
-  content:"";
-  position:absolute; left:0; top:.72rem;
-  width:.42rem; height:.42rem; border-radius:50%;
-  background:#00D4AA;
-}
-.slide#close .close-sum-list strong{ color:#fff!important; font-weight:800; }
-.slide#close .muted-inline{ color:rgba(232,238,245,.55)!important; font-weight:500; }
-body.deck-mode .slide#close.deck-active .close-sum-list li,
-body.deck-mode .slide#close.deck-active .close-sum-lede{
-  color:rgba(232,238,245,.92)!important;
-}
-
-
-
-
-
-/* SaaS source chips — high contrast, easy to see */
-.saas-sources{
-  margin:.7rem 0 .15rem;
-  padding:.7rem .8rem;
-  border-radius:12px;
-  background:#eef6f7;
-  border:1px solid rgba(15,143,151,.28);
-}
-.saas-sources-label{
-  font-size:.72rem;
-  font-weight:800;
-  letter-spacing:.04em;
-  text-transform:uppercase;
-  color:#0f8f97;
-  margin:0 0 .45rem;
-}
-.saas-sources-links{
-  display:flex;
-  flex-wrap:wrap;
-  gap:.4rem;
-}
-.saas-sources-links a{
-  display:inline-block;
-  font-size:.78rem !important;
-  font-weight:800 !important;
-  line-height:1.2 !important;
-  color:#ffffff !important;
-  background:#0f8f97 !important;
-  border:1px solid #0c7380 !important;
-  padding:.4rem .65rem !important;
-  border-radius:999px !important;
-  text-decoration:none !important;
-  box-shadow:0 1px 2px rgba(0,0,0,.08);
-}
-.saas-sources-links a:hover{
-  background:#0c7380 !important;
-  color:#fff !important;
-}
-/* On dark green north-star page */
-.slide.section-ns-summary .saas-sources{
-  background:rgba(0,0,0,.28) !important;
-  border:1px solid rgba(125,255,208,.4) !important;
-}
-.slide.section-ns-summary .saas-sources-label{
-  color:#7dffd0 !important;
-}
-.slide.section-ns-summary .saas-sources-links a{
-  background:#7dffd0 !important;
-  color:#0b3d36 !important;
-  border-color:#5be0b8 !important;
-  font-weight:800 !important;
-}
-/* Present mode */
-body.deck-mode .saas-sources-links a{
-  color:#ffffff !important;
-  background:#0f8f97 !important;
-}
-body.deck-mode section.slide.section-ns-summary.deck-active .saas-sources-links a{
-  background:#7dffd0 !important;
-  color:#0b3d36 !important;
-}
-/* kill old faint footnote style */
-.saas-source-note{ display:none !important; }
-
-
-/* Investor value table — aligned columns */
-.val-table-wrap{ width:100%; overflow:auto; margin:0 0 .45rem; }
-.val-table{
-  width:100%;
-  border-collapse:collapse;
-  table-layout:fixed;
-  font-size:.84rem;
-  line-height:1.25;
-}
-.val-table th,
-.val-table td{
-  padding:.55rem .55rem;
-  text-align:left;
-  vertical-align:middle;
-  border-bottom:1px solid rgba(21,32,43,.1);
-  word-wrap:break-word;
-  overflow-wrap:anywhere;
-}
-.val-table thead th{
-  font-size:.72rem;
-  font-weight:800;
-  color:#0f8f97;
-  border-bottom:2px solid rgba(15,143,151,.35);
-  background:#f3fafb;
-}
-.val-table tbody tr:last-child td{ border-bottom:0; }
-.val-table .c-arr{ width:12%; }
-.val-table .c-ebitda{ width:20%; }
-.val-table .c-base{ width:22%; }
-.val-table .c-better{ width:23%; }
-.val-table .c-stretch{ width:23%; }
-.val-footnote{
-  margin:0 0 .55rem;
-  font-size:.72rem;
-  line-height:1.35;
-  color:#5b6b7c;
-}
-body.deck-mode .val-table thead th{ background:#eef6f7!important; color:#0f8f97!important; }
-body.deck-mode .val-table td, body.deck-mode .val-table th{ color:#15202b!important; }
-
-/* Page numbers on every slide */
-.slide-page-num{
-  position:absolute;
-  right:1.35rem;
-  bottom:0.95rem;
-  z-index:6;
-  font-size:.72rem;
-  font-weight:800;
-  letter-spacing:.04em;
-  color:rgba(21,32,43,.45);
-  font-variant-numeric:tabular-nums;
-  pointer-events:none;
-}
-.slide{ position:relative; }
-.slide .footer-bar{ padding-right:3.2rem; }
-.slide.section-dark .slide-page-num,
-.slide.section-ns-summary .slide-page-num,
-.slide#title .slide-page-num,
-.slide#close .slide-page-num{
-  color:rgba(255,255,255,.5);
-}
-body.deck-mode .slide-page-num{
-  right: max(1.2rem, env(safe-area-inset-right));
-  bottom: max(0.9rem, env(safe-area-inset-bottom));
-}
-body.deck-mode section.slide.section-dark.deck-active .slide-page-num,
-body.deck-mode section.slide.section-ns-summary.deck-active .slide-page-num,
-body.deck-mode section.slide#title.deck-active .slide-page-num,
-body.deck-mode section.slide#close.deck-active .slide-page-num{
-  color:rgba(255,255,255,.55)!important;
-}
-body.deck-mode section.slide:not(.section-dark):not(.section-ns-summary):not(#title):not(#close).deck-active .slide-page-num{
-  color:rgba(21,32,43,.45)!important;
-}
-@media print{
-  .slide-page-num{ color:#5b6b7c !important; }
-}
-
-
-/* North star summary — HIGH CONTRAST readability */
-section.slide.section-ns-summary{
-  background:#062e29 !important;
-  border:0 !important;
-  box-shadow:none !important;
-}
-section.slide.section-ns-summary > .slide-inner.ns-summary-inner,
-section.slide.section-ns-summary > .slide-inner{
-  background:#062e29 !important;
-  color:#ffffff !important;
-  min-height:560px !important;
-  display:flex !important;
-  flex-direction:column !important;
-  justify-content:center !important;
-  box-sizing:border-box !important;
-  padding:1.6rem 2.1rem 2.4rem !important;
-}
-section.slide.section-ns-summary .kicker{
-  color:#9bffd9 !important;
-  font-weight:800 !important;
-  font-size:.78rem !important;
-  letter-spacing:.08em !important;
-}
-section.slide.section-ns-summary .h2{
-  color:#ffffff !important;
-  font-size:2rem !important;
-  line-height:1.15 !important;
-  margin:.2rem 0 .5rem !important;
-  text-shadow:none !important;
-}
-section.slide.section-ns-summary .ns-lede,
-section.slide.section-ns-summary .lede{
-  color:#eafff6 !important;
-  font-size:1.02rem !important;
-  line-height:1.4 !important;
-  max-width:46rem !important;
-  margin:0 0 .85rem !important;
-  opacity:1 !important;
-}
-section.slide.section-ns-summary .ns-lede strong,
-section.slide.section-ns-summary .lede strong{
-  color:#ffffff !important;
-  font-weight:800 !important;
-}
-section.slide.section-ns-summary .ns-grid2{
-  display:grid !important;
-  grid-template-columns:1fr 1fr !important;
-  gap:.85rem !important;
-}
-section.slide.section-ns-summary .ns-card{
-  background:#0f4a42 !important;
-  border:2px solid rgba(155,255,217,.45) !important;
-  border-radius:14px !important;
-  padding:.9rem 1rem !important;
-  color:#ffffff !important;
-  box-shadow:none !important;
-}
-section.slide.section-ns-summary .ns-card-value{
-  background:#0a3d36 !important;
-  border-color:#9bffd9 !important;
-}
-section.slide.section-ns-summary .ns-card-title{
-  color:#9bffd9 !important;
-  font-weight:800 !important;
-  font-size:1.05rem !important;
-  margin:0 0 .5rem !important;
-}
-section.slide.section-ns-summary .ns-card ul{
-  margin:0 !important;
-  padding-left:1.15rem !important;
-  line-height:1.5 !important;
-  font-size:.95rem !important;
-}
-section.slide.section-ns-summary .ns-card li{
-  color:#ffffff !important;
-  margin:.15rem 0 !important;
-}
-section.slide.section-ns-summary .ns-card strong{
-  color:#ffffff !important;
-  font-weight:800 !important;
-}
-section.slide.section-ns-summary .ns-note{
-  list-style:none !important;
-  margin:.4rem 0 0 -1.15rem !important;
-  color:#c9ffe8 !important;
-  font-size:.88rem !important;
-}
-section.slide.section-ns-summary .ns-acq,
-section.slide.section-ns-summary .ns-why{
-  margin-top:.7rem !important;
-  padding:.85rem 1rem !important;
-  border-radius:12px !important;
-  background:#0f4a42 !important;
-  border:2px solid rgba(155,255,217,.4) !important;
-}
-section.slide.section-ns-summary .ns-acq-k,
-section.slide.section-ns-summary .ns-why-k{
-  color:#9bffd9 !important;
-  font-weight:800 !important;
-  font-size:.9rem !important;
-  margin:0 0 .35rem !important;
-}
-section.slide.section-ns-summary .ns-acq-t,
-section.slide.section-ns-summary .ns-why-t{
-  color:#ffffff !important;
-  font-size:1.05rem !important;
-  line-height:1.35 !important;
-  font-weight:700 !important;
-}
-section.slide.section-ns-summary .ns-acq-s{
-  color:#eafff6 !important;
-  font-size:.92rem !important;
-  line-height:1.35 !important;
-  margin-top:.3rem !important;
-}
-section.slide.section-ns-summary .saas-sources{
-  margin-top:.7rem !important;
-  padding:.75rem .85rem !important;
-  border-radius:12px !important;
-  background:#041f1b !important;
-  border:2px solid rgba(155,255,217,.35) !important;
-}
-section.slide.section-ns-summary .saas-sources-label{
-  color:#9bffd9 !important;
-  font-weight:800 !important;
-  font-size:.75rem !important;
-  text-transform:uppercase !important;
-  letter-spacing:.05em !important;
-  margin:0 0 .45rem !important;
-}
-section.slide.section-ns-summary .saas-sources-links{
-  display:flex !important;
-  flex-wrap:wrap !important;
-  gap:.45rem !important;
-}
-section.slide.section-ns-summary .saas-sources-links a{
-  display:inline-block !important;
-  background:#ffffff !important;
-  color:#062e29 !important;
-  font-weight:800 !important;
-  font-size:.8rem !important;
-  padding:.45rem .7rem !important;
-  border-radius:999px !important;
-  text-decoration:none !important;
-  border:0 !important;
-  box-shadow:0 1px 3px rgba(0,0,0,.25) !important;
-}
-section.slide.section-ns-summary .footer-bar{
-  color:rgba(234,255,246,.65) !important;
-  border-top-color:rgba(155,255,217,.25) !important;
-  margin-top:auto !important;
-}
-section.slide.section-ns-summary .slide-page-num{
-  color:#062e29 !important;
-  background:#9bffd9 !important;
-}
-/* Present mode force */
-body.deck-mode section.slide.section-ns-summary.deck-active,
-body.deck-mode section.slide.section-ns-summary.deck-active > .slide-inner{
-  background:#062e29 !important;
-  color:#fff !important;
-}
-body.deck-mode section.slide.section-ns-summary.deck-active .h2{ color:#fff !important; }
-body.deck-mode section.slide.section-ns-summary.deck-active .kicker{ color:#9bffd9 !important; }
-body.deck-mode section.slide.section-ns-summary.deck-active .lede,
-body.deck-mode section.slide.section-ns-summary.deck-active li,
-body.deck-mode section.slide.section-ns-summary.deck-active p{
-  color:#fff !important;
-}
-body.deck-mode section.slide.section-ns-summary.deck-active .ns-card{
-  background:#0f4a42 !important;
-  color:#fff !important;
-  border-color:rgba(155,255,217,.45) !important;
-}
-body.deck-mode section.slide.section-ns-summary.deck-active .saas-sources-links a{
-  background:#fff !important;
-  color:#062e29 !important;
-}
-@media (max-width:900px){
-  section.slide.section-ns-summary .ns-grid2{ grid-template-columns:1fr !important; }
-}
-
-
-/* Dark cinematic default */
-html[data-theme="dark"] {
-  --bg:#04060c; --slide:#0a0f1a; --ink:#f0f4fa; --muted:#8a9bb4; --line:rgba(255,255,255,.07);
-  --blue:#4d7cff; --blue2:#6b93ff; --navy:#060a14; --teal:#4d7cff; --accent:#6b93ff; --purple:#060a14;
-}
-html[data-theme="dark"] .slide {
-  background:linear-gradient(180deg,#0a0f18,#070b12);
-  border-color:rgba(255,255,255,.06);
-  box-shadow:0 24px 80px rgba(0,0,0,.45),inset 0 1px 0 rgba(255,255,255,.04);
-}
-html[data-theme="dark"] .slide::before{background:radial-gradient(circle,rgba(77,124,255,.08),transparent 70%)}
-html[data-theme="dark"] .card{background:rgba(255,255,255,.03);border-color:rgba(255,255,255,.06)}
-html[data-theme="dark"] .card h3{color:#fff}
-html[data-theme="dark"] .msg{background:rgba(255,255,255,.04);border-color:rgba(255,255,255,.06)}
-html[data-theme="dark"] .table th{background:rgba(255,255,255,.05);color:#fff}
-html[data-theme="dark"] .table td{color:#8a9bb4}
-html[data-theme="dark"] .h1,.h2{color:var(--ink)}
-html[data-theme="dark"] .stat{color:#fff}
-html[data-theme="dark"] .toolbar{background:rgba(4,6,12,.88)}
-html[data-theme="dark"] .btn-g{background:rgba(255,255,255,.05);border-color:rgba(255,255,255,.08);color:#e0e8f0}
-html[data-theme="dark"] .comp-bubbles{background:rgba(255,255,255,.03);border-color:rgba(255,255,255,.06)}
-html[data-theme="dark"] .persona-photo,.persona-photo-ph,.persona-photo-sm-ph{background:#0a1020;border-color:rgba(255,255,255,.08)}
-html[data-theme="dark"] .persona-quote{color:#8a9bb4}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>COMPLY · How we win customers</title>
+<meta name="robots" content="noindex,nofollow">
+<link rel="canonical" href="">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+
+/* Brandastic blue overrides */
+:root { --teal:#0644ed; --accent:#3b6cf5; }
+html[data-theme="dark"] { --teal:#4d7cff; --accent:#6b93ff; }
 
 /* Present mode */
 .deck-present-btn{position:fixed;right:16px;bottom:16px;z-index:99999;border:0;border-radius:12px;cursor:pointer;
   font:800 .82rem Inter,system-ui,sans-serif;color:#fff;padding:.72rem 1rem;
   background:linear-gradient(135deg,#0644ed,#001F40);box-shadow:0 0 24px rgba(6,68,237,.35)}
 .deck-exit-btn,.deck-exit-hint,.deck-nav,.deck-counter{display:none!important}
-body.deck-mode{background:#030508!important;overflow:hidden!important;height:100vh!important}
+body.deck-mode{background:#001F40!important;overflow:hidden!important;height:100vh!important}
 body.deck-mode .deck{margin:0!important;padding:0!important;max-width:none!important;width:100%!important}
 body.deck-mode .toolbar,body.deck-mode .deck-present-btn{display:none!important}
 body.deck-mode .deck-exit-btn{display:inline-flex!important;position:fixed;top:14px;left:14px;z-index:100002;border:0;border-radius:10px;
@@ -2006,1263 +42,390 @@ body.deck-mode .deck-nav button{pointer-events:auto;position:absolute;top:50%;tr
 body.deck-mode .deck-nav .dk-prev{left:8px}body.deck-mode .deck-nav .dk-next{right:8px}
 body.deck-mode section.slide{display:none!important;position:fixed!important;inset:0!important;margin:0!important;border:0!important;border-radius:0!important}
 body.deck-mode section.slide.deck-active{display:flex!important;align-items:center!important;justify-content:center!important}
-body.deck-mode .slide.deck-active{padding:0!important}
 body.deck-mode .slide.deck-active .slide-inner{width:min(1320px,96vw)!important;height:min(740px,calc(100vh - 36px))!important;
   max-height:calc(100vh - 36px)!important;overflow:auto!important;border-radius:16px!important;
-  box-shadow:0 30px 90px rgba(0,0,0,.6),0 0 0 1px rgba(255,255,255,.05)!important}
-
-
-
-/* Hero images on title slides */
-.title-hero{position:absolute;top:0;right:0;bottom:0;width:min(48%,32rem);overflow:hidden;z-index:0}
-.title-hero img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 30%;
-  filter:brightness(.85) contrast(1.05);animation:heroKen 20s ease-in-out infinite alternate}
-@keyframes heroKen{from{transform:scale(1)}to{transform:scale(1.07)}}
-.title-hero::after{content:"";position:absolute;inset:0;z-index:1;
-  background:linear-gradient(90deg,rgba(0,31,64,1) 0%,rgba(0,31,64,.4) 50%,rgba(0,31,64,.5) 100%)}
-.divider-slide{position:relative;overflow:hidden}
-.divider-slide .phase,.divider-slide .h1,.divider-slide .lede,.divider-slide .footer-bar,
-.divider-slide>div,.divider-slide>p,.divider-slide>img{position:relative;z-index:2}
-@media(max-width:900px){
-  .title-hero{width:100%;height:40%;top:auto;opacity:.35}
-}
-@media(prefers-reduced-motion:reduce){.title-hero img{animation:none!important}}
-@media print{.title-hero img{animation:none!important}}
-
-/* divider-z-fix */
-.slide-inner.divider-slide > * { position:relative; z-index:2; }
-.slide-inner.divider-slide > [style*="position:absolute"] { z-index:0 !important; }
-
-/* Comply-style Gantt roadmap */
-.rm-wrap{margin-top:.6rem}
-.rm-months{display:grid;grid-template-columns:160px repeat(12,1fr);gap:0;margin-bottom:.3rem}
-.rm-months span{text-align:center;font-size:.72rem;font-weight:800;color:var(--muted)}
-.rm-row{display:grid;grid-template-columns:160px 1fr;gap:0;align-items:center;margin:.35rem 0}
-.rm-label{font-size:.84rem;font-weight:700;color:var(--ink);padding-right:.5rem}
-.rm-track{position:relative;height:30px;border-radius:0}
-.rm-bar{position:absolute;top:2px;bottom:2px;border-radius:8px;display:flex;align-items:center;padding:0 .6rem;
-  font-size:.72rem;font-weight:700;color:#fff;white-space:nowrap;overflow:hidden}
-.rm-legend{display:flex;flex-wrap:wrap;gap:.7rem;margin-top:.8rem;font-size:.78rem;font-weight:700;color:var(--muted)}
-.rm-legend i{display:inline-block;width:.65rem;height:.65rem;border-radius:4px;margin-right:.25rem;vertical-align:middle}
-
-/* hero-z-fix */
-.divider-slide > .phase, .divider-slide > .h1, .divider-slide > .lede,
-.divider-slide > .footer-bar, .divider-slide > div:not([style*="position:absolute"]),
-.divider-slide > p, .divider-slide > img { position:relative !important; z-index:2 !important; }
+  box-shadow:0 30px 90px rgba(0,0,0,.6)!important}
 </style>
 </head>
 <body>
 <div class="deck">
   <div class="toolbar">
     <button class="btn btn-p" type="button" onclick="window.print()">Print / PDF</button>
-    <button class="btn btn-g" type="button" onclick="baTheme('light')">Light slides</button>
-    <button class="btn btn-g" type="button" onclick="baTheme('dark')">Dark slides</button>
+    <button class="btn btn-g" type="button" onclick="document.documentElement.setAttribute('data-theme','light')">Light</button>
+    <button class="btn btn-g" type="button" onclick="document.documentElement.setAttribute('data-theme','dark')">Dark</button>
     <button class="btn btn-p" type="button" onclick="document.getElementById('dkBtn').click()">&#9658; Present</button>
-    <a class="btn btn-g" href="/gameplan_marketing/" target="_blank">Hub</a>
-    <span class="hint">Brandastic 2027 growth strategy &middot; Comply-depth</span>
+    <a class="btn btn-g" href="/gameplan_marketing/brandastic-tam-icp.html" target="_blank">TAM / ICP hub</a>
+    <a class="btn btn-g" href="/gameplan_marketing/icp-education.html" target="_blank">Education ICP detail</a>
+    <span class="hint">Education growth strategy &middot; team deck</span>
   </div>
 
-  <!-- 01 TITLE -->
-  <section class="slide" id="title">
-    <div class="slide-inner divider-slide" style="background:linear-gradient(135deg,#001F40,#0a1628);color:#fff;padding-right:min(50%,30rem);justify-content:center;min-height:620px;padding-right:min(50%,30rem)"><div style="position:absolute;top:0;right:0;bottom:0;width:48%;overflow:hidden;z-index:0"><img src="../assets/ba-office-2027/office-4.jpg" alt="" style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;object-position:center 30%;filter:brightness(0.82)"/><div style="position:absolute;top:0;left:0;right:0;bottom:0;background:linear-gradient(90deg,rgba(0,31,64,1) 0%,rgba(0,31,64,0.2) 55%,rgba(0,31,64,0.4) 100%)"></div></div>
-      <div class="phase" style="color:#7eb6ff">BRANDASTIC &middot; 2027 GROWTH STRATEGY</div>
-      <div class="h1" style="color:#fff;max-width:14ch;font-size:clamp(2.4rem,5vw,3.6rem)">How we win more of the right clients</div>
-      <p class="lede" style="color:rgba(255,255,255,.75);max-width:38rem">Who we sell to, how we sell, what we say. Main goal: grow recurring from $120K to $160K/mo. Know the market. Know the buyer. Run the plan.</p>
-      <div style="margin-top:2rem">
-        <img src="../assets/brandastic-logo-white.png" alt="Brandastic" style="height:28px;filter:brightness(0) invert(1);opacity:.9"/>
-        <p style="margin-top:.5rem;font-size:.9rem;color:rgba(255,255,255,.6)">Focused. Growth. = <span style="color:#7eb6ff;font-weight:700">Progress.</span></p>
+  <!-- 01 COVER -->
+  <section class="slide" id="cover">
+    <div class="slide-inner divider-slide" style="background:linear-gradient(135deg,#001F40,#0a1628);color:#fff;justify-content:center;min-height:640px;padding-right:min(50%,30rem)">
+      <div style="position:absolute;top:0;right:0;bottom:0;width:48%;overflow:hidden;z-index:0">
+        <img src="assets/ba-office-2027/office-4.jpg" alt="" style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;filter:brightness(.82)"/>
+        <div style="position:absolute;inset:0;background:linear-gradient(90deg,rgba(0,31,64,1) 0%,rgba(0,31,64,.2) 60%,rgba(0,31,64,.4) 100%)"></div>
       </div>
-      <div class="footer-bar" style="color:rgba(255,255,255,.3)"><span>BRANDASTIC &middot; CONFIDENTIAL</span><span>brandastic.com</span></div>
+      <div style="position:relative;z-index:2">
+        <div class="kicker" style="color:#7eb6ff">Brandastic 2027 &middot; Education growth strategy</div>
+        <div class="h1" style="color:#fff;max-width:14ch;font-size:clamp(2.2rem,4.5vw,3.4rem)">Win enrollment clients at scale</div>
+        <p class="lede" style="color:rgba(255,255,255,.78);max-width:34rem">44,000+ schools need enrollment marketing. We have CalOPS proof at $21K/month. This is the game plan.</p>
+        <div style="margin-top:1.8rem">
+          <img src="assets/brandastic-logo-white.png" alt="Brandastic" style="height:28px;filter:brightness(0) invert(1);opacity:.9"/>
+          <p style="margin-top:.5rem;font-size:.9rem;color:rgba(255,255,255,.6)">Focused. Growth. = <span style="color:#7eb6ff;font-weight:700">Progress.</span></p>
+        </div>
+      </div>
+      <div class="footer-bar" style="color:rgba(255,255,255,.3);position:absolute;left:2.2rem;right:min(50%,30rem);bottom:1.1rem"><span>BRANDASTIC &middot; CONFIDENTIAL</span><span>brandastic.com</span></div>
     </div>
   </section>
 
-  <!-- 02 GOAL -->
-  <section class="slide" id="goal">
+  <!-- 02 SCOREBOARD -->
+  <section class="slide" id="scoreboard">
     <div class="slide-inner">
-      <div class="kicker">Main goal &middot; simple math the team can hold</div>
-      <div class="h2">$120K &rarr; $160K/mo recurring &middot; ~6 net new clients</div>
-      <p class="lede">Revenue goal everyone can say from memory &mdash; founders, AMs, and delivery team.</p>
-      <div class="grid3" style="margin-top:1rem">
-        <div class="card"><div class="stat">$120K</div><div class="stat-lbl">Monthly recurring now (~17 clients)</div></div>
-        <div class="card"><div class="stat">$160K</div><div class="stat-lbl">Monthly recurring target</div></div>
-        <div class="card"><div class="stat">~$6K</div><div class="stat-lbl">Avg package / month / client</div></div>
+      <div class="kicker">01 &middot; Where we are</div>
+      <div class="h2">Brandastic scoreboard</div>
+      <div class="grid4" style="margin-top:.8rem">
+        <div class="card"><div class="stat">$1.6M</div><div class="stat-lbl">2025 full year</div></div>
+        <div class="card"><div class="stat">~$2.12M</div><div class="stat-lbl">2026 run rate</div></div>
+        <div class="card"><div class="stat">$119,835</div><div class="stat-lbl">Monthly recurring</div></div>
+        <div class="card"><div class="stat">$160K</div><div class="stat-lbl">Recurring goal</div></div>
       </div>
       <div class="grid2" style="margin-top:1rem">
-        <div class="card">
-          <h3>Revenue picture</h3>
+        <div class="card"><h3>2026 by the numbers</h3>
           <ul>
-            <li>2025 full year: <strong>$1.6M</strong></li>
-            <li>2026 pace (Jan&ndash;Sep annualized): <strong>~$2.1M</strong></li>
-            <li>2026 Goal Sheet: <strong>$2.5M</strong></li>
-            <li>Gap to goal: <strong>~$400K</strong> = ~6 clients at $6K/mo</li>
-            <li>2030 vision: <strong>$3.5M &middot; 65 retainers</strong></li>
+            <li>93 leads, 15 contracts (16% close rate)</li>
+            <li>3 months with zero contracts (Apr, Jun, Jul)</li>
+            <li>CalOPS is our largest client at <strong>$21,000/month</strong></li>
+            <li>Gap to $160K recurring: <strong>$40,165/month</strong> &asymp; 7 clients at $6K</li>
           </ul>
         </div>
-        <div class="card">
-          <h3>Unit economics (per client)</h3>
+        <div class="card"><h3>Why education is the play</h3>
           <ul>
-            <li>Average monthly package: <strong>~$6,000</strong></li>
-            <li>Annual value per client: <strong>~$72K</strong></li>
-            <li>Expected retention: <strong>24&ndash;36 months</strong></li>
-            <li>LTV per client: <strong>$144&ndash;216K</strong></li>
-            <li>CAC target: <strong>&lt;$5,000</strong> (currently unknown)</li>
+            <li><strong>44,000+ schools</strong> in the US need enrollment marketing</li>
+            <li>We have live proof &mdash; CalOPS at $21K/month</li>
+            <li>Every school has the same pain: families have to find them online</li>
+            <li>Even <strong>1% capture = $3.4M+</strong> per year</li>
           </ul>
         </div>
       </div>
-      <p class="quote">Remember: $160K/mo recurring &times; 12 = $1.92M base. Plus project work = $2.5M path. The gap is <strong>~6 net new clients</strong>, not 30.</p>
-      <div class="footer-bar"><span>BRANDASTIC 2027</span><span class="num">02</span></div>
+      <div class="footer-bar"><span>BRANDASTIC 2027</span><span>02</span></div>
     </div>
   </section>
 
-  <section class="slide" id="real-data">
+  <!-- 03 THE OPPORTUNITY -->
+  <section class="slide" id="opportunity">
     <div class="slide-inner">
-      <div class="kicker">01 &middot; Real numbers from the goal sheet</div>
-      <div class="h2">Monthly deals closed (2026)</div>
-      <p class="lede">This is what actually happened. Not estimates.</p>
-      <div style="display:grid;grid-template-columns:repeat(9,1fr);gap:.4rem;margin-top:.6rem;text-align:center">
-        <div style="font-weight:800;font-size:.75rem;color:var(--muted)">Jan</div>
-        <div style="font-weight:800;font-size:.75rem;color:var(--muted)">Feb</div>
-        <div style="font-weight:800;font-size:.75rem;color:var(--muted)">Mar</div>
-        <div style="font-weight:800;font-size:.75rem;color:var(--muted)">Apr</div>
-        <div style="font-weight:800;font-size:.75rem;color:var(--muted)">May</div>
-        <div style="font-weight:800;font-size:.75rem;color:var(--muted)">Jun</div>
-        <div style="font-weight:800;font-size:.75rem;color:var(--muted)">Jul</div>
-        <div style="font-weight:800;font-size:.75rem;color:var(--muted)">Aug</div>
-        <div style="font-weight:800;font-size:.75rem;color:var(--muted)">Sep</div>
-      </div>
-      <!-- Leads bars -->
-      <div style="display:grid;grid-template-columns:repeat(9,1fr);gap:.4rem;margin-top:.25rem;align-items:end;height:120px">
-        <div style="background:rgba(6,68,237,.2);border-radius:6px 6px 0 0;height:70%;display:flex;flex-direction:column;justify-content:flex-end;align-items:center;padding-bottom:.3rem"><span style="font-size:.72rem;font-weight:800;color:var(--ink)">13</span></div>
-        <div style="background:rgba(6,68,237,.2);border-radius:6px 6px 0 0;height:27%;display:flex;flex-direction:column;justify-content:flex-end;align-items:center;padding-bottom:.3rem"><span style="font-size:.72rem;font-weight:800;color:var(--ink)">5</span></div>
-        <div style="background:rgba(6,68,237,.2);border-radius:6px 6px 0 0;height:27%;display:flex;flex-direction:column;justify-content:flex-end;align-items:center;padding-bottom:.3rem"><span style="font-size:.72rem;font-weight:800;color:var(--ink)">5</span></div>
-        <div style="background:rgba(6,68,237,.2);border-radius:6px 6px 0 0;height:27%;display:flex;flex-direction:column;justify-content:flex-end;align-items:center;padding-bottom:.3rem"><span style="font-size:.72rem;font-weight:800;color:var(--ink)">5</span></div>
-        <div style="background:rgba(6,68,237,.2);border-radius:6px 6px 0 0;height:37%;display:flex;flex-direction:column;justify-content:flex-end;align-items:center;padding-bottom:.3rem"><span style="font-size:.72rem;font-weight:800;color:var(--ink)">7</span></div>
-        <div style="background:rgba(6,68,237,.2);border-radius:6px 6px 0 0;height:100%;display:flex;flex-direction:column;justify-content:flex-end;align-items:center;padding-bottom:.3rem"><span style="font-size:.72rem;font-weight:800;color:var(--ink)">19</span></div>
-        <div style="background:rgba(6,68,237,.2);border-radius:6px 6px 0 0;height:42%;display:flex;flex-direction:column;justify-content:flex-end;align-items:center;padding-bottom:.3rem"><span style="font-size:.72rem;font-weight:800;color:var(--ink)">8</span></div>
-        <div style="background:rgba(6,68,237,.2);border-radius:6px 6px 0 0;height:84%;display:flex;flex-direction:column;justify-content:flex-end;align-items:center;padding-bottom:.3rem"><span style="font-size:.72rem;font-weight:800;color:var(--ink)">16</span></div>
-        <div style="background:rgba(6,68,237,.2);border-radius:6px 6px 0 0;height:79%;display:flex;flex-direction:column;justify-content:flex-end;align-items:center;padding-bottom:.3rem"><span style="font-size:.72rem;font-weight:800;color:var(--ink)">15</span></div>
-      </div>
-      <div style="font-size:.72rem;font-weight:700;color:var(--muted);text-align:center;margin-top:.1rem">Leads per month</div>
-      <!-- Contracts bars -->
-      <div style="display:grid;grid-template-columns:repeat(9,1fr);gap:.4rem;margin-top:.5rem;align-items:end;height:80px">
-        <div style="background:#0644ed;border-radius:6px 6px 0 0;height:20%;display:flex;align-items:center;justify-content:center"><span style="font-size:.72rem;font-weight:800;color:#fff">1</span></div>
-        <div style="background:#0644ed;border-radius:6px 6px 0 0;height:100%;display:flex;align-items:center;justify-content:center"><span style="font-size:.72rem;font-weight:800;color:#fff">5</span></div>
-        <div style="background:#0644ed;border-radius:6px 6px 0 0;height:20%;display:flex;align-items:center;justify-content:center"><span style="font-size:.72rem;font-weight:800;color:#fff">1</span></div>
-        <div style="background:#ef4444;border-radius:6px 6px 0 0;height:8%;min-height:22px;display:flex;align-items:center;justify-content:center"><span style="font-size:.72rem;font-weight:800;color:#fff">0</span></div>
-        <div style="background:#0644ed;border-radius:6px 6px 0 0;height:40%;display:flex;align-items:center;justify-content:center"><span style="font-size:.72rem;font-weight:800;color:#fff">2</span></div>
-        <div style="background:#ef4444;border-radius:6px 6px 0 0;height:8%;min-height:22px;display:flex;align-items:center;justify-content:center"><span style="font-size:.72rem;font-weight:800;color:#fff">0</span></div>
-        <div style="background:#ef4444;border-radius:6px 6px 0 0;height:8%;min-height:22px;display:flex;align-items:center;justify-content:center"><span style="font-size:.72rem;font-weight:800;color:#fff">0</span></div>
-        <div style="background:#0644ed;border-radius:6px 6px 0 0;height:80%;display:flex;align-items:center;justify-content:center"><span style="font-size:.72rem;font-weight:800;color:#fff">4</span></div>
-        <div style="background:#0644ed;border-radius:6px 6px 0 0;height:40%;display:flex;align-items:center;justify-content:center"><span style="font-size:.72rem;font-weight:800;color:#fff">2</span></div>
-      </div>
-      <div style="font-size:.72rem;font-weight:700;color:var(--muted);text-align:center;margin-top:.1rem">Contracts closed &middot; <span style="color:#ef4444">red = zero months</span></div>
-
-      <div class="grid3" style="margin-top:.8rem">
-        <div class="card">
-          <h3>The pattern</h3>
-          <ul>
-            <li><strong style="color:var(--ink)">3 months with zero contracts</strong> (Apr, Jun, Jul)</li>
-            <li>Feb was an outlier (5 of 5 = 100%)</li>
-            <li>Best months: Feb (5), Aug (4), May &amp; Sep (2 each)</li>
-            <li>Average: <strong>1.7 contracts/month</strong></li>
-          </ul>
-        </div>
-        <div class="card">
-          <h3>What this means</h3>
-          <ul>
-            <li>Close rate swings from <strong>0% to 100%</strong></li>
-            <li>Not a volume problem (19 leads in Jun, 0 closed)</li>
-            <li>It is a <strong>consistency + follow-up</strong> problem</li>
-            <li>Fix the zero months and the goal is within reach</li>
-          </ul>
-        </div>
-        <div class="card">
-          <h3>If we fix the zeros</h3>
-          <ul>
-            <li>Even 1 close per &ldquo;zero month&rdquo; = <strong>3 more contracts</strong></li>
-            <li>3 more at $6K/mo = <strong>$216K/year</strong></li>
-            <li>No extra leads needed. Just discipline.</li>
-          </ul>
-        </div>
-      </div>
-      <div class="footer-bar"><span>BRANDASTIC 2027</span><span class="num">DATA</span></div>
-    </div>
-  </section>
-
-
-  <section class="slide" id="pnl">
-    <div class="slide-inner">
-      <div class="kicker">01b &middot; P&amp;L snapshot (Jan&ndash;Sep 2026)</div>
-      <div class="h2">Where the money goes</div>
-      <table class="table" style="margin-top:.6rem">
-        <tr><th></th><th>YTD (9 months)</th><th>Monthly avg</th><th>% of revenue</th><th>Target</th></tr>
-        <tr><td><strong>Revenue</strong></td><td><strong>$1,590,085</strong></td><td>$176,676</td><td>100%</td><td>$2.5M annualized</td></tr>
-        <tr><td>COGS</td><td>$718,035</td><td>$79,782</td><td style="color:#ef4444"><strong>45%</strong></td><td style="color:#22c55e">20&ndash;30%</td></tr>
-        <tr><td>Gross profit</td><td>$872,019</td><td>$96,891</td><td>55%</td><td>70&ndash;80%</td></tr>
-        <tr><td>Expenses</td><td>$640,139</td><td>$71,127</td><td>40%</td><td>50&ndash;60%</td></tr>
-        <tr><td><strong>Net income</strong></td><td><strong>$231,880</strong></td><td>$25,764</td><td><strong>15%</strong></td><td style="color:#22c55e"><strong>20%</strong></td></tr>
+      <div class="kicker">02 &middot; The market</div>
+      <div class="h2">44,000+ schools &middot; $4.7B+ in marketing spend</div>
+      <p class="lede">Broken down by segment. All numbers sourced from NCES, IPEDS, EAB, and Simpson Scarborough.</p>
+      <table class="table">
+        <tr><th>Segment</th><th>Schools (US)</th><th>Avg marketing spend / year</th><th>What they need</th></tr>
+        <tr><td><strong>Private K-12</strong></td><td>~29,730</td><td>$50K&ndash;$500K (7&ndash;12% of tuition)</td><td>Enrollment inquiries, site trust, parent search</td></tr>
+        <tr><td><strong>Charter schools</strong></td><td>~7,500</td><td>$24K&ndash;$60K ($2&ndash;5K/month)</td><td>Be found online, community outreach, applications</td></tr>
+        <tr><td><strong>Colleges &amp; universities</strong></td><td>~5,999</td><td>$500K&ndash;$4M</td><td>Student recruitment, program marketing, digital</td></tr>
+        <tr><td><strong>Online / virtual</strong></td><td>~700+</td><td>$50K&ndash;$200K</td><td>100% dependent on digital &mdash; search is everything</td></tr>
       </table>
+      <div class="grid3" style="margin-top:1rem">
+        <div class="card" style="text-align:center"><div class="stat">$5.9M&ndash;$11.8M</div><div class="stat-lbl">If we got 10% of the market (nationwide)</div></div>
+        <div class="card" style="text-align:center"><div class="stat">$504K&ndash;$1.3M</div><div class="stat-lbl">If we got 10% of SoCal only</div></div>
+        <div class="card" style="text-align:center"><div class="stat">$3.4M+</div><div class="stat-lbl">Even at just 1% nationwide</div></div>
+      </div>
+      <div class="footer-bar"><span>BRANDASTIC 2027</span><span>03</span></div>
+    </div>
+  </section>
+
+  <!-- 04 WHO WE SELL TO -->
+  <section class="slide" id="buyer">
+    <div class="slide-inner">
+      <div class="kicker">03 &middot; The buyer</div>
+      <div class="h2">Maya &middot; enrollment and marketing leaders at schools</div>
+      <div class="persona-hero" style="display:grid;grid-template-columns:180px 1fr;gap:1.5rem;margin-top:.8rem">
+        <img src="assets/brandastic-personas/icp-education-leader.jpg" alt="Maya" style="width:100%;border-radius:16px;border:1px solid var(--line)"/>
+        <div>
+          <p style="font-size:1.1rem;font-weight:800;margin-bottom:.3rem">Maya Chen &middot; 41</p>
+          <p style="font-size:.88rem;color:var(--teal);font-weight:700;margin-bottom:.6rem">Director of Enrollment &middot; Online Public School</p>
+          <p style="font-size:1.05rem;font-style:italic;margin-bottom:.8rem">&ldquo;If families can&rsquo;t find us online, enrollment fails.&rdquo;</p>
+          <div class="grid2" style="margin-top:0">
+            <div><strong>Titles we target in Apollo:</strong>
+              <ul><li>Director of Enrollment</li><li>VP / Director of Marketing</li><li>Head of School</li><li>Superintendent</li><li>Dean of Admissions</li><li>Chief Growth Officer</li></ul>
+            </div>
+            <div><strong>What she deals with every day:</strong>
+              <ul><li>Family inquiries that depend on search</li><li>Ad spend that doesn&rsquo;t convert to applications</li><li>Board asking for enrollment numbers</li><li>Agencies that don&rsquo;t understand school rules</li><li>Compliance-safe messaging requirements</li></ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bar"><span>BRANDASTIC 2027</span><span>04</span></div>
+    </div>
+  </section>
+
+  <!-- 05 PAINS AND SOLUTIONS -->
+  <section class="slide" id="pains">
+    <div class="slide-inner">
+      <div class="kicker">03b &middot; Pain &rarr; how we help</div>
+      <div class="h2">What schools say &middot; what we do</div>
+      <table class="table" style="margin-top:.8rem">
+        <tr><th>What the school says</th><th>What is really broken</th><th>How Brandastic helps</th></tr>
+        <tr><td>&ldquo;Families can&rsquo;t find us.&rdquo;</td><td>Weak SEO, no inquiry path from search</td><td>Search + paid aimed at enrollment inquiries</td></tr>
+        <tr><td>&ldquo;Agencies don&rsquo;t get schools.&rdquo;</td><td>Wrong tone, compliance blind spots</td><td>CalOPS-scale proof &middot; school-safe messaging</td></tr>
+        <tr><td>&ldquo;We spend on ads but applications are flat.&rdquo;</td><td>Traffic without an inquiry path</td><td>Fix first screen &middot; forms &middot; follow-up tracking</td></tr>
+        <tr><td>&ldquo;Too much noise on social.&rdquo;</td><td>Vanity posts, no enrollment outcome</td><td>Content supports search + inquiry only</td></tr>
+        <tr><td>&ldquo;The board wants proof.&rdquo;</td><td>No simple enrollment scoreboard</td><td>Monthly inquiry and application metrics</td></tr>
+      </table>
+      <div class="quote" style="margin-top:.8rem"><strong>Our message to every school:</strong> We help families find your school and inquire &mdash; without noise.</div>
+      <div class="footer-bar"><span>BRANDASTIC 2027</span><span>05</span></div>
+    </div>
+  </section>
+
+  <!-- 06 CALOPS PROOF -->
+  <section class="slide" id="proof">
+    <div class="slide-inner">
+      <div class="kicker">04 &middot; Our proof</div>
+      <div class="h2">CalOPS &middot; $21,000/month &middot; live case</div>
+      <p class="lede">This is the one case study that opens every door. Every similar school is a warm lead.</p>
       <div class="grid2" style="margin-top:.8rem">
         <div class="card">
-          <h3>Year-over-year</h3>
+          <h3>What we do for CalOPS</h3>
           <ul>
-            <li>2024: <strong>$2,255,188</strong></li>
-            <li>2025: <strong>$1,673,870</strong> (down 26%)</li>
-            <li>2026 pace: <strong>~$2.1M</strong> (recovering)</li>
+            <li>Full enrollment marketing: search, paid, site, content</li>
+            <li>Family inquiry path from Google to application</li>
+            <li>Multi-channel: SEO + paid + social aimed at enrollment</li>
+            <li>Compliance-safe school messaging</li>
+            <li>Monthly reporting the board can read</li>
           </ul>
-          <p style="margin-top:.4rem;font-size:.84rem;color:var(--muted)">2025 was a down year. 2026 is a recovery. 2027 needs to be real growth.</p>
         </div>
         <div class="card">
-          <h3>Recurring: $119,835 vs $160K goal</h3>
+          <h3>Why this is our unfair advantage</h3>
           <ul>
-            <li>Gap: <strong>$40,165/mo</strong> = ~7 clients at $6K</li>
-            <li>CalOPS alone = $21K (17.5% of recurring)</li>
-            <li>Top 5 clients = ~$49K (41% of recurring)</li>
-            <li><strong>Concentration risk:</strong> losing CalOPS would hurt</li>
+            <li>Live proof at <strong>$21K/month</strong> &mdash; not a pitch, a real client</li>
+            <li>Same motion works for every CalOPS peer</li>
+            <li>Referral from CalOPS to sister schools</li>
+            <li>Case study that enrollment leaders understand</li>
+            <li>Shows we know schools &mdash; not just generic marketing</li>
           </ul>
         </div>
       </div>
-      <p class="quote"><strong>COGS at 45% is the margin problem.</strong> Target is 20&ndash;30%. Fixing this is as important as winning new clients. Every dollar saved on COGS drops straight to profit.</p>
-      <div class="footer-bar"><span>BRANDASTIC 2027</span><span class="num">P&amp;L</span></div>
+      <div class="quote" style="margin-top:.8rem"><strong>On every call, in every email, on every page:</strong> &ldquo;We run the same enrollment motion for California Online Public Schools. Happy to show you how it works in 15 minutes.&rdquo;</div>
+      <div class="footer-bar"><span>BRANDASTIC 2027</span><span>06</span></div>
     </div>
   </section>
 
-
-  <section class="slide" id="client-book">
+  <!-- 07 HOW WE WIN -->
+  <section class="slide" id="system">
     <div class="slide-inner">
-      <div class="kicker">01c &middot; The book (monthly recurring)</div>
-      <div class="h2">Who pays us every month</div>
+      <div class="kicker">05 &middot; How we win education clients</div>
+      <div class="h2">The system</div>
+      <div class="flow" style="margin:.6rem 0">
+        <div class="step">1. Be findable</div><div class="arrow">&rarr;</div>
+        <div class="step">2. Show CalOPS proof</div><div class="arrow">&rarr;</div>
+        <div class="step">3. 15-min call</div><div class="arrow">&rarr;</div>
+        <div class="step">4. One-pager</div><div class="arrow">&rarr;</div>
+        <div class="step">5. Proposal</div><div class="arrow">&rarr;</div>
+        <div class="step">6. Win &amp; grow</div>
+      </div>
+      <table class="table">
+        <tr><th>Channel</th><th>What we do</th><th>Weekly motion</th></tr>
+        <tr><td><strong>LinkedIn outbound</strong></td><td>Connect with enrollment directors at target schools</td><td>20+ connection requests + 5+ messages per week</td></tr>
+        <tr><td><strong>Direct email</strong></td><td>CalOPS proof email to enrollment leaders</td><td>10+ personalized emails per week</td></tr>
+        <tr><td><strong>SEO</strong></td><td>Rank for &ldquo;enrollment marketing,&rdquo; &ldquo;charter school marketing&rdquo;</td><td>1 page or guide shipped per week</td></tr>
+        <tr><td><strong>Education conferences</strong></td><td>NACAC, charter school summits, CASE</td><td>1 event per quarter &middot; 48h follow-up</td></tr>
+        <tr><td><strong>CalOPS referral</strong></td><td>Ask CalOPS to intro peer schools</td><td>Quarterly ask + warm intros</td></tr>
+        <tr><td><strong>Existing school clients</strong></td><td>Grow packages, get testimonials</td><td>Monthly QBR &middot; whitespace check</td></tr>
+      </table>
+      <div class="footer-bar"><span>BRANDASTIC 2027</span><span>07</span></div>
+    </div>
+  </section>
+
+  <!-- 08 EMAILS -->
+  <section class="slide" id="emails">
+    <div class="slide-inner">
+      <div class="kicker">06 &middot; Emails the team sends</div>
+      <div class="h2">Copy &middot; personalize &middot; send</div>
       <div class="grid2" style="margin-top:.5rem">
-        <div>
-          <table class="table">
-            <tr><th>Client</th><th>Service</th><th>Monthly</th></tr>
-            <tr><td><strong>CalOPS</strong></td><td>Marketing</td><td><strong>$21,000</strong></td></tr>
-            <tr><td>Friar Tux</td><td>Marketing</td><td>$8,400</td></tr>
-            <tr><td>Dental Smart Solutions</td><td>Brand Care</td><td>$7,800</td></tr>
-            <tr><td>Morehouse</td><td>Marketing</td><td>$6,250</td></tr>
-            <tr><td>LabTech Supply</td><td>SEO + Marketing</td><td>$6,125</td></tr>
-            <tr><td>Dhar Mann</td><td>Marketing</td><td>$5,925</td></tr>
-            <tr><td>Adopt A Highway</td><td>Brand Care</td><td>$5,775</td></tr>
-            <tr><td>Heart Christian</td><td>Marketing</td><td>$5,250</td></tr>
-            <tr><td>Mono B</td><td>Brand Care</td><td>$5,000</td></tr>
-            <tr><td>Salvin</td><td>Marketing</td><td>$4,900</td></tr>
-            <tr><td>Young Surgical</td><td>Marketing</td><td>$4,900</td></tr>
-          </table>
-        </div>
-        <div>
-          <table class="table">
-            <tr><th>Client</th><th>Service</th><th>Monthly</th></tr>
-            <tr><td>American TriStar</td><td>Brand Care</td><td>$4,500</td></tr>
-            <tr><td>Rogers|Beltran</td><td>SEO + Marketing</td><td>$4,375</td></tr>
-            <tr><td>Nordic Sauna</td><td>SEO + PPC + ChatGPT</td><td>$4,375</td></tr>
-            <tr><td>Wearparts</td><td>Marketing</td><td>$3,850</td></tr>
-            <tr><td>Paragon Implants</td><td>Marketing</td><td>$3,500</td></tr>
-            <tr><td>Criummack</td><td>Marketing</td><td>$3,500</td></tr>
-            <tr><td>TopGreener</td><td>SEO + PPC</td><td>$2,500</td></tr>
-            <tr><td>Revel</td><td>Marketing</td><td>$2,000</td></tr>
-            <tr><td>Grand Slam</td><td>PPC</td><td>$1,750</td></tr>
-            <tr><td>Lee Injury</td><td>PPC</td><td>$1,750</td></tr>
-            <tr><td colspan="2"><strong>Total recurring</strong></td><td><strong>$119,835</strong></td></tr>
-          </table>
-        </div>
-      </div>
-      <p class="quote"><strong>Gap to $160K goal: $40,165/mo.</strong> That is roughly 7 new clients at $6K average, or growing 8 existing clients by $5K each. Growing existing is cheaper.</p>
-      <div class="footer-bar"><span>BRANDASTIC 2027</span><span class="num">BOOK</span></div>
-    </div>
-  </section>
+        <div class="msg"><div class="lbl">Open &middot; CalOPS proof</div><div class="subj">Subject: How online schools get family inquiries</div>Hi [Name],
 
+We help online and heavy-online public schools get found so families inquire &mdash; not random social posts.
 
-  <!-- 03 VALUATION -->
-  <section class="slide" id="valuation">
-    <div class="slide-inner">
-      <div class="kicker">What the company could be worth</div>
-      <div class="h2">Bookings &minus; Churn = Growth. Higher eval follows.</div>
-      <div class="grid3" style="margin-top:1rem">
-        <div class="card"><div class="stat">~$2.1M</div><div class="stat-lbl">2026 pace &middot; base</div></div>
-        <div class="card"><div class="stat">~$1.4M</div><div class="stat-lbl">Midpoint EV today (0.5&ndash;1&times; rev)</div></div>
-        <div class="card"><div class="stat">$3.5M+</div><div class="stat-lbl">2030 &middot; 65 retainers &middot; better margin</div></div>
-      </div>
-      <table class="table" style="margin-top:1.2rem">
-        <tr><th>Revenue</th><th>Typical agency multiple</th><th>Company value range</th><th>What it takes</th></tr>
-        <tr><td><strong>$2M</strong></td><td>0.5&ndash;1&times;</td><td>$1&ndash;2M</td><td>Where we are &mdash; owner-dependent, growing</td></tr>
-        <tr><td><strong>$2.5M</strong></td><td>0.7&ndash;1.2&times;</td><td>$1.7&ndash;3M</td><td>Hit 2026 goal &middot; prove retention</td></tr>
-        <tr><td><strong>$3.5M</strong></td><td>1&ndash;2&times;</td><td>$3.5&ndash;7M</td><td>2030 &middot; 65 retainers &middot; 20%+ net margin &middot; less owner-dependent</td></tr>
-      </table>
-      <p class="quote">Agency multiples are low unless <strong>retention is proven</strong>, <strong>margin is clean</strong>, and <strong>the owner isn&rsquo;t the entire sales team</strong>. This strategy addresses all three.</p>
-      <div class="footer-bar"><span>BRANDASTIC 2027</span><span class="num">03</span></div>
-    </div>
-  </section>
+Same job we run for California Online Public Schools: search, paid, and site trust aimed at enrollment conversations.
 
-  <!-- 04 TOC -->
-  
-  <section class="slide" id="trajectory">
-    <div class="slide-inner">
-      <div class="kicker">Where we are heading</div>
-      <div class="h2">Revenue trajectory at 18% CAGR</div>
-      <p class="lede">From $1.6M in 2025 to $3.5M by 2030. This is the growth path if we keep building at the rate we have been.</p>
-      <svg viewBox="0 0 800 380" style="width:100%;max-height:320px;margin-top:.5rem;border:1px solid var(--line);border-radius:14px;background:var(--card)" aria-label="Revenue trajectory">
-        <g stroke="var(--line)" stroke-width="1">
-          <line x1="80" y1="50" x2="740" y2="50" stroke-dasharray="4"/>
-          <line x1="80" y1="110" x2="740" y2="110" stroke-dasharray="4"/>
-          <line x1="80" y1="170" x2="740" y2="170" stroke-dasharray="4"/>
-          <line x1="80" y1="230" x2="740" y2="230" stroke-dasharray="4"/>
-          <line x1="80" y1="310" x2="740" y2="310"/>
-        </g>
-        <text x="70" y="55" text-anchor="end" fill="var(--muted)" font-size="11" font-weight="700" font-family="Inter">$3.5M</text>
-        <text x="70" y="115" text-anchor="end" fill="var(--muted)" font-size="11" font-weight="700" font-family="Inter">$3.0M</text>
-        <text x="70" y="175" text-anchor="end" fill="var(--muted)" font-size="11" font-weight="700" font-family="Inter">$2.5M</text>
-        <text x="70" y="235" text-anchor="end" fill="var(--muted)" font-size="11" font-weight="700" font-family="Inter">$2.0M</text>
-        <text x="70" y="315" text-anchor="end" fill="var(--muted)" font-size="11" font-weight="700" font-family="Inter">$1.5M</text>
-        <text x="130" y="340" text-anchor="middle" fill="var(--muted)" font-size="12" font-weight="700" font-family="Inter">2025</text>
-        <text x="250" y="340" text-anchor="middle" fill="var(--muted)" font-size="12" font-weight="700" font-family="Inter">2026</text>
-        <text x="370" y="340" text-anchor="middle" fill="var(--muted)" font-size="12" font-weight="700" font-family="Inter">2027</text>
-        <text x="490" y="340" text-anchor="middle" fill="var(--muted)" font-size="12" font-weight="700" font-family="Inter">2028</text>
-        <text x="610" y="340" text-anchor="middle" fill="var(--muted)" font-size="12" font-weight="700" font-family="Inter">2029</text>
-        <text x="720" y="340" text-anchor="middle" fill="var(--muted)" font-size="12" font-weight="700" font-family="Inter">2030</text>
-        <polygon fill="url(#tGrad)" opacity=".12" points="130,296 250,230 370,183 490,136 610,108 720,50 720,310 130,310"/>
-        <defs><linearGradient id="tGrad" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#0644ed"/><stop offset="100%" stop-color="#0644ed" stop-opacity="0"/></linearGradient></defs>
-        <polyline fill="none" stroke="#0644ed" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" points="130,296 250,230 370,183 490,136 610,108 720,50"/>
-        <circle cx="130" cy="296" r="6" fill="#0644ed"/><circle cx="250" cy="230" r="6" fill="#0644ed"/>
-        <circle cx="370" cy="183" r="6" fill="#0644ed"/><circle cx="490" cy="136" r="6" fill="#0644ed"/>
-        <circle cx="610" cy="108" r="6" fill="#0644ed"/><circle cx="720" cy="50" r="8" fill="#7c3aed"/>
-        <text x="130" y="286" text-anchor="middle" fill="var(--ink)" font-size="13" font-weight="800" font-family="Inter">$1.6M</text>
-        <text x="250" y="220" text-anchor="middle" fill="var(--ink)" font-size="13" font-weight="800" font-family="Inter">~$2.1M</text>
-        <text x="370" y="173" text-anchor="middle" fill="var(--ink)" font-size="12" font-weight="700" font-family="Inter">$2.5M</text>
-        <text x="490" y="126" text-anchor="middle" fill="var(--ink)" font-size="12" font-weight="700" font-family="Inter">$2.8M</text>
-        <text x="610" y="98" text-anchor="middle" fill="var(--ink)" font-size="12" font-weight="700" font-family="Inter">$3.2M</text>
-        <text x="720" y="38" text-anchor="middle" fill="#7c3aed" font-size="14" font-weight="800" font-family="Inter">$3.5M</text>
-        <text x="420" y="26" text-anchor="middle" fill="var(--muted)" font-size="12" font-weight="800" font-family="Inter" letter-spacing=".08em">REVENUE TRAJECTORY AT 18% CAGR</text>
-      </svg>
-      <div class="grid3" style="margin-top:.8rem">
-        <div class="card"><h3>2025 (actual)</h3><p><strong>$1.6M</strong> full year</p></div>
-        <div class="card"><h3>2026 (run rate)</h3><p><strong>~$2.1M</strong> annualized</p></div>
-        <div class="card"><h3>2030 (goal)</h3><p><strong>$3.5M</strong> &middot; 65 retainers</p></div>
-      </div>
-      <div class="footer-bar"><span>BRANDASTIC 2027</span><span class="num">VISION</span></div>
-    </div>
-  </section>
+If useful, I can show the motion in 15 minutes and whether it fits [School].
 
-  <section class="slide" id="toc">
-    <div class="slide-inner">
-      <div class="kicker">Contents</div>
-      <div class="h2">How to read this deck</div>
-      <div class="toc-list">
-        <div>01 &middot; Goal &amp; valuation <span>&middot; $120K &rarr; $160K/mo &middot; unit economics</span></div>
-        <div>02 &middot; Market &amp; competitors <span>&middot; TAM by ICP &middot; named agencies &middot; positioning</span></div>
-        <div>03 &middot; Who we sell to <span>&middot; Dana 50% &middot; Maya 30% &middot; Sam 20%</span></div>
-        <div>04 &middot; Discovery <span>&middot; what we&rsquo;ve learned &middot; what&rsquo;s broken</span></div>
-        <div>05 &middot; How we sell <span>&middot; channel playbooks &middot; SEO &middot; Outbound &middot; Referral &middot; Events</span></div>
-        <div>06 &middot; Budget &amp; money results <span>&middot; monthly costs &middot; forecast</span></div>
-        <div>07 &middot; Ads &amp; copy <span>&middot; LinkedIn &middot; Google &middot; email templates &middot; posts</span></div>
-        <div>08 &middot; Measure &middot; 90 days &middot; roadmap <span>&middot; calendar &middot; runbook</span></div>
-        <div>09 &middot; Close <span>&middot; room decisions this week</span></div>
-      </div>
-      <div class="footer-bar"><span>BRANDASTIC 2027</span><span class="num">04</span></div>
-    </div>
-  </section>
-
-  <!-- 05 MARKET OPPORTUNITY -->
-  <section class="slide" id="market-opportunity">
-    <div class="slide-inner">
-      <div class="kicker">02 &middot; Total addressable market</div>
-      <div class="h2">Three markets we can size and reach</div>
-      <p class="lede">Not &ldquo;all businesses.&rdquo; Three specific buyer pools where Brandastic already has proof or positioning.</p>
-      <div class="grid3" style="margin-top:1rem">
-        <div class="card">
-          <h3>Dental / medical suppliers (Dana)</h3>
-          <p><strong>~12,000+</strong> dental and medical device/supply companies in the US. Many small distributors and specialty manufacturers.</p>
-          <p style="margin-top:.5rem">Typical marketing spend: <strong>$50&ndash;200K/yr</strong> for B2B suppliers.</p>
-          <p style="margin-top:.5rem">OC/SoCal cluster is notable. Brandastic targets <strong>supplier owners</strong>, not patient clinics.</p>
-          <p style="margin-top:.5rem"><strong>Our addressable slice:</strong> ~500&ndash;1,000 mid-size suppliers who would pay $5&ndash;8K/mo for SEO + paid.</p>
-        </div>
-        <div class="card">
-          <h3>Online / charter schools (Maya)</h3>
-          <p><strong>~7,800</strong> charter schools in the US + growing virtual programs. California alone has <strong>1,300+</strong> charters.</p>
-          <p style="margin-top:.5rem">Marketing spend for enrollment: <strong>$100&ndash;500K/yr</strong> for schools with real budgets.</p>
-          <p style="margin-top:.5rem">CalOPS-scale = online-heavy public schools. We have <strong>flagship proof</strong> here.</p>
-          <p style="margin-top:.5rem"><strong>Our addressable slice:</strong> ~200&ndash;400 online-heavy programs nationally that spend on enrollment.</p>
-        </div>
-        <div class="card">
-          <h3>SoCal manufacturers (Sam)</h3>
-          <p><strong>~2,000+</strong> aerospace/defense small manufacturers and suppliers in SoCal (not primes). OC, LA, SD clusters.</p>
-          <p style="margin-top:.5rem">Most have <strong>terrible websites</strong>. Marketing budgets small: <strong>$20&ndash;80K/yr</strong>.</p>
-          <p style="margin-top:.5rem">Hungry for quotes but skeptical of &ldquo;marketing.&rdquo;</p>
-          <p style="margin-top:.5rem"><strong>Our addressable slice:</strong> ~300&ndash;600 owner-led shops who need a web presence + quote path.</p>
-        </div>
-      </div>
-      <p class="quote"><strong>Combined addressable:</strong> ~1,000&ndash;2,000 companies across three markets. We need <strong>6 net new</strong> to close the 2026 gap. The pool is not the problem &mdash; targeting and close rate are.</p>
-      <div class="footer-bar"><span>BRANDASTIC 2027</span><span class="num">05</span></div>
-    </div>
-  </section>
-
-  <!-- 06 COMPETITORS -->
-  <section class="slide" id="competitors">
-    <div class="slide-inner">
-      <div class="kicker">02 &middot; Competitor landscape</div>
-      <div class="h2">Who we bump into &mdash; and how we win</div>
-      <p class="lede">Working view. Update names as you hear them on calls. Add real ones you&rsquo;ve lost to or beat.</p>
-      <table class="table" style="margin-top:.8rem">
-        <tr><th>Competitor type</th><th>Examples</th><th>What they say</th><th>Why we win</th><th>Where they beat us</th></tr>
-        <tr><td><strong>Big performance agencies</strong></td><td>Directive (Irvine), Power Digital (SD), Ignite Visibility (SD)</td><td>Data, scale, B2B demand gen</td><td>Speed, owner access, OC local, lower entry price</td><td>Brand name, case library, bigger teams</td></tr>
-        <tr><td><strong>National low-price shops</strong></td><td>WebFX, SmartSites, Thrive</td><td>Cheap packages, volume</td><td>Strategy + accountability, not template work</td><td>Price, SEO for &ldquo;SEO agency&rdquo;</td></tr>
-        <tr><td><strong>OC boutique agencies</strong></td><td>Small 1&ndash;5 person shops</td><td>Personal attention, niche</td><td>Full stack, bench depth</td><td>Hyper-niche specialization</td></tr>
-        <tr><td><strong>In-house hire</strong></td><td>Client hires a marketing person</td><td>Control, salary = fixed cost</td><td>Multi-channel + no single point of failure</td><td>&ldquo;We&rsquo;ll just hire someone&rdquo;</td></tr>
-        <tr><td><strong>DIY / AI tools</strong></td><td>HubSpot, ChatGPT, Canva, Wix</td><td>Cheap software</td><td>Judgment, creative, media skill</td><td>Free or near-free</td></tr>
-        <tr><td><strong>Freelancer networks</strong></td><td>Upwork, offshore stacks</td><td>Lowest price</td><td>Strategy + team + accountability</td><td>Pure cost</td></tr>
-      </table>
-      <p class="quote"><strong>Win pattern:</strong> we beat big shops on speed + access. We beat cheap shops on strategy + outcomes. We lose when we try to compete on price or when we can&rsquo;t show proof fast enough.</p>
-      <div class="footer-bar"><span>BRANDASTIC 2027</span><span class="num">06</span></div>
-    </div>
-  </section>
-
-  <!-- 07 COMPETITOR MAP -->
-  
-  <section class="slide" id="competitor-map">
-    <div class="slide-inner">
-      <div class="kicker">02 &middot; Where we sit</div>
-      <div class="h2">Price vs. service depth</div>
-      <p class="lede">Higher up = more expensive. Further right = more services. <strong style="color:#0644ed">Blue = us.</strong></p>
-      <div style="display:grid;grid-template-columns:90px 1fr;gap:0;margin-top:.6rem;flex:1;align-content:stretch">
-        <!-- Y axis label -->
-        <div style="display:flex;align-items:center;justify-content:center">
-          <span style="transform:rotate(-90deg);font-size:.78rem;font-weight:800;color:var(--muted);white-space:nowrap;letter-spacing:.06em">HIGHER PRICE &rarr;</span>
-        </div>
-        <!-- The grid -->
-        <div style="display:grid;grid-template-columns:1fr 1fr 1fr;grid-template-rows:1fr 1fr 1fr;gap:.5rem;min-height:400px">
-          <!-- Row 1: expensive -->
-          <div></div>
-          <div></div>
-          <div style="display:flex;flex-direction:column;gap:.4rem">
-            <div style="background:#ef4444;color:#fff;border-radius:14px;padding:.7rem .8rem;text-align:center">
-              <div style="font-weight:800;font-size:.88rem">Big national</div>
-              <div style="font-size:.75rem;opacity:.9">Expensive &middot; slow &middot; process theater</div>
-            </div>
-            <div style="background:#7c3aed;color:#fff;border-radius:14px;padding:.7rem .8rem;text-align:center">
-              <div style="font-weight:800;font-size:.88rem">Directive</div>
-              <div style="font-size:.75rem;opacity:.9">B2B demand gen &middot; $27M+ &middot; Irvine</div>
-            </div>
-          </div>
-          <!-- Row 2: mid price -->
-          <div style="display:flex;align-items:center">
-            <div style="background:#d97706;color:#fff;border-radius:14px;padding:.7rem .8rem;text-align:center;width:100%">
-              <div style="font-weight:800;font-size:.88rem">DIY / AI tools</div>
-              <div style="font-size:.75rem;opacity:.9">Software only &middot; no team</div>
-            </div>
-          </div>
-          <div style="display:flex;align-items:center">
-            <div style="background:#6366f1;color:#fff;border-radius:14px;padding:.7rem .8rem;text-align:center;width:100%">
-              <div style="font-weight:800;font-size:.88rem">In-house hire</div>
-              <div style="font-size:.75rem;opacity:.9">One person &middot; salary cost</div>
-            </div>
-          </div>
-          <div style="display:flex;align-items:center">
-            <div style="background:#0644ed;color:#fff;border-radius:18px;padding:1rem;text-align:center;width:100%;box-shadow:0 0 0 4px rgba(6,68,237,.25),0 12px 32px rgba(6,68,237,.3)">
-              <div style="font-weight:800;font-size:1.1rem">BRANDASTIC</div>
-              <div style="font-size:.85rem;margin-top:.2rem">Full stack &middot; mid price &middot; fast</div>
-            </div>
-          </div>
-          <!-- Row 3: cheap -->
-          <div style="display:flex;flex-direction:column;gap:.4rem;justify-content:center">
-            <div style="background:#64748b;color:#fff;border-radius:14px;padding:.7rem .8rem;text-align:center">
-              <div style="font-weight:800;font-size:.88rem">Freelance</div>
-              <div style="font-size:.75rem;opacity:.9">Cheap &middot; thin</div>
-            </div>
-            <div style="background:#ef4444;color:#fff;border-radius:14px;padding:.6rem .8rem;text-align:center;opacity:.75">
-              <div style="font-weight:800;font-size:.82rem">WebFX / SmartSites</div>
-              <div style="font-size:.72rem;opacity:.9">Volume &middot; template work</div>
-            </div>
-          </div>
-          <div style="display:flex;align-items:center">
-            <div style="background:#0ea5e9;color:#fff;border-radius:14px;padding:.7rem .8rem;text-align:center;width:100%">
-              <div style="font-weight:800;font-size:.88rem">Boutique OC</div>
-              <div style="font-size:.75rem;opacity:.9">One channel deep</div>
-            </div>
-          </div>
-          <div></div>
-        </div>
-      </div>
-      <!-- X axis -->
-      <div style="text-align:center;margin-top:.3rem;font-size:.78rem;font-weight:800;color:var(--muted);letter-spacing:.06em;padding-left:90px">THINNER SERVICE &rarr; FULL STACK</div>
-      <div class="footer-bar"><span>BRANDASTIC 2027</span><span class="num">07</span></div>
-    </div>
-  </section>
-
-
-  <!-- 08 DISCOVERY -->
-  <section class="slide" id="discovery">
-    <div class="slide-inner">
-      <div class="kicker">04 &middot; Discovery snapshot</div>
-      <div class="h2">What we&rsquo;ve learned about Brandastic</div>
-      <div class="grid2">
-        <div class="card">
-          <h3>Strengths</h3>
-          <ul>
-            <li>Real growth year over year, from $1.6M to about $2.1M</li>
-            <li>Most new clients come from search and referrals, not ads</li>
-            <li>We do search, paid ads, websites, creative, and content, all under one roof</li>
-            <li>We have real proof from large-scale education work that builds trust</li>
-            <li>We use AI to move faster without hiring more people</li>
-            <li>Orange County roots and local market knowledge</li>
-          </ul>
-        </div>
-        <div class="card">
-          <h3>What&rsquo;s broken (honest)</h3>
-          <ul>
-            <li><strong>78 out of 93 leads went nowhere</strong> &mdash; no systematic tracking of why</li>
-            <li>We do not track how many clients we lose each month</li>
-            <li>We do not know which channels actually bring in our clients</li>
-            <li>We say yes to everyone instead of focusing on our best buyers</li>
-            <li>Some leads go cold because nobody owns the follow-up</li>
-            <li>Our pricing is inconsistent and needs clear packages</li>
-            <li>We ask for referrals randomly instead of having a real system</li>
-          </ul>
-        </div>
-      </div>
-      <div class="card" style="margin-top:1rem">
-        <h3>Opportunities (this strategy addresses these)</h3>
-        <ul>
-          <li><strong>Close rate:</strong> 16% &rarr; 22% on same leads = ~5 more contracts = ~$360K/yr. No extra ad spend.</li>
-          <li><strong>Whitespace:</strong> growing existing clients is 3&ndash;5&times; cheaper than finding new ones.</li>
-          <li><strong>Referral system:</strong> formalize the ask after every win &mdash; highest-quality leads at zero cost.</li>
-          <li><strong>SEO compounds:</strong> pages we ship now earn traffic for years. Weekly ship cadence = compounding asset.</li>
-          <li><strong>AI + process:</strong> use AI for draft speed, human for judgment + quality. More output without more people.</li>
-        </ul>
-      </div>
-      <div class="footer-bar"><span>BRANDASTIC 2027</span><span class="num">08</span></div>
-    </div>
-  </section>
-
-  <!-- 09 METHODOLOGY -->
-  <section class="slide" id="methodology">
-    <div class="slide-inner">
-      <div class="kicker">Our targeting edge</div>
-      <div class="h2">We know exactly who to sell to</div>
-      <p class="big" style="margin-top:.5rem">Most agencies spray the market. We don&rsquo;t. Before we spend time on anyone, we already know the titles, the company profile, and the fit.</p>
-      <div class="grid3" style="margin-top:1rem">
-        <div class="card">
-          <h3>How we target</h3>
-          <ul>
-            <li><strong>Exact target list</strong> &mdash; not a vague industry</li>
-            <li>Filtered by company, job title, size, and location</li>
-            <li>We use Apollo and LinkedIn to find them</li>
-            <li>A real person reviews every name before we reach out</li>
-            <li>We score each one as ideal fit, secondary, or skip</li>
-          </ul>
-        </div>
-        <div class="card">
-          <h3>ICP allocation</h3>
-          <ul>
-            <li><strong>Dana (dental/med):</strong> 50% of outreach &mdash; largest pool + best package fit</li>
-            <li><strong>Maya (education):</strong> 30% of outreach &mdash; proven CalOPS work + high-value retainers</li>
-            <li><strong>Sam (SoCal mfg):</strong> 20% of outreach &mdash; local advantage but smaller budgets</li>
-          </ul>
-        </div>
-        <div class="card">
-          <h3>What this means</h3>
-          <ul>
-            <li>Every hour spent is on a real buyer</li>
-            <li>Copy never blends across ICPs</li>
-            <li>Different offer, different page, different email per buyer</li>
-            <li>Time is protected from scatter</li>
-          </ul>
-        </div>
-      </div>
-      <div class="footer-bar"><span>BRANDASTIC 2027</span><span class="num">09</span></div>
-    </div>
-  </section>
-
-  <!-- 10 PERSONA: DANA -->
-  <section class="slide" id="persona-dana">
-    <div class="slide-inner">
-      <div class="kicker">03 &middot; Primary &middot; 50% of outreach</div>
-      <div class="persona-hero">
-        <img src="../assets/brandastic-personas/icp-dental-owner.jpg" alt="Dana" class="persona-photo"/>
-        <div>
-          <div class="persona-name">Dana Reyes &middot; 44</div>
-          <div class="persona-role" style="color:#0644ed">The Supplier Owner &middot; Dental / Medical B2B</div>
-          <div class="persona-quote">&ldquo;My product is good. Dealers still can&rsquo;t find what we sell without a PDF scavenger hunt.&rdquo;</div>
-          <div class="persona-meta"><strong>Role:</strong> Owner, Founder, GM, VP Sales, or Marketing Manager at a dental/medical supplier, lab, or specialty manufacturer.</div>
-          <div class="persona-meta"><strong>Day:</strong> Catalog clarity, dealer demand, trade shows, quotes, site leads that don&rsquo;t come.</div>
-          <div class="persona-meta"><strong>Buy path:</strong> Search proof or referral &rarr; 15-min call &rarr; one-page 90-day plan &rarr; $5&ndash;8K/mo SEO + paid package.</div>
-        </div>
-      </div>
-      <div class="grid2" style="margin-top:1rem">
-        <div class="card">
-          <h3>Pains (their words)</h3>
-          <ul>
-            <li>&ldquo;Dealers can&rsquo;t find the right product on our site.&rdquo;</li>
-            <li>&ldquo;We get random website traffic but no real leads.&rdquo;</li>
-            <li>&ldquo;Marketing feels random &mdash; no plan, no owner.&rdquo;</li>
-            <li>&ldquo;We tried an agency / ads before and it didn&rsquo;t work.&rdquo;</li>
-            <li>&ldquo;We don&rsquo;t know what works.&rdquo;</li>
-          </ul>
-        </div>
-        <div class="card">
-          <h3>How Brandastic solves it</h3>
-          <ul>
-            <li>Clear offer pages per product line &mdash; who it&rsquo;s for, next step</li>
-            <li>SEO on dealer/clinic search terms that convert</li>
-            <li>90-day plan with monthly numbers and one AM owner</li>
-            <li>Fix pages first, then small paid only if ready</li>
-            <li>CRM channel tags + simple monthly report</li>
-          </ul>
-        </div>
-      </div>
-      <p class="quote"><strong>Message to Dana:</strong> We make it obvious what you sell &mdash; so dealers and clinics find you and start.</p>
-      <div class="footer-bar"><span>BRANDASTIC 2027</span><span class="num">10</span></div>
-    </div>
-  </section>
-
-  <!-- 11 PERSONA: MAYA -->
-  <section class="slide" id="persona-maya">
-    <div class="slide-inner">
-      <div class="kicker">03 &middot; Secondary &middot; 30% of outreach</div>
-      <div class="persona-hero">
-        <img src="../assets/brandastic-personas/icp-education-leader.jpg" alt="Maya" class="persona-photo"/>
-        <div>
-          <div class="persona-name">Maya Chen &middot; 41</div>
-          <div class="persona-role" style="color:#0ea5e9">The Enrollment Leader &middot; Online Public Schools</div>
-          <div class="persona-quote">&ldquo;Families have to find us online and inquire. If search fails, enrollment fails.&rdquo;</div>
-          <div class="persona-meta"><strong>Role:</strong> Director of Enrollment, Marketing Director, Head of School (wears marketing hat), Growth lead.</div>
-          <div class="persona-meta"><strong>Day:</strong> Family inquiries, paid + organic, site trust, compliance-safe messaging, board reporting.</div>
-          <div class="persona-meta"><strong>Buy path:</strong> CalOPS-style proof &rarr; 15-min motion show &rarr; multi-channel enrollment retainer.</div>
-        </div>
-      </div>
-      <div class="grid2" style="margin-top:1rem">
-        <div class="card">
-          <h3>Pains</h3>
-          <ul>
-            <li>&ldquo;Families can&rsquo;t find us online.&rdquo;</li>
-            <li>&ldquo;Agencies don&rsquo;t understand school rules.&rdquo;</li>
-            <li>&ldquo;We spend on ads but applications are flat.&rdquo;</li>
-            <li>&ldquo;Too much noise on social &mdash; no enrollment path.&rdquo;</li>
-            <li>&ldquo;The board wants proof and numbers.&rdquo;</li>
-          </ul>
-        </div>
-        <div class="card">
-          <h3>How Brandastic solves it</h3>
-          <ul>
-            <li>SEO + paid + site trust aimed at enrollment conversations</li>
-            <li>CalOPS-scale motion &mdash; school-safe messaging</li>
-            <li>Fix first-screen inquiry path before spending more</li>
-            <li>Content supports search + inquiry, not vanity</li>
-            <li>Monthly inquiry / application metrics for the board</li>
-          </ul>
-        </div>
-      </div>
-      <p class="quote"><strong>Message to Maya:</strong> We help families find your school and inquire &mdash; without noise.</p>
-      <div class="footer-bar"><span>BRANDASTIC 2027</span><span class="num">11</span></div>
-    </div>
-  </section>
-
-  <!-- 12 PERSONA: SAM -->
-  <section class="slide" id="persona-sam">
-    <div class="slide-inner">
-      <div class="kicker">03 &middot; Tertiary &middot; 20% of outreach</div>
-      <div class="persona-hero">
-        <img src="../assets/brandastic-personas/icp-mfg-owner.jpg" alt="Sam" class="persona-photo"/>
-        <div>
-          <div class="persona-name">Sam Ortega &middot; 51</div>
-          <div class="persona-role" style="color:#6366f1">The Shop Owner &middot; Aero / Defense / Specialty Mfg</div>
-          <div class="persona-quote">&ldquo;I&rsquo;m not a prime. I need buyers to see the real shop and ask for a quote.&rdquo;</div>
-          <div class="persona-meta"><strong>Role:</strong> Owner, President, or Ops lead who owns the website. Owner-led SoCal manufacturer, not primes.</div>
-          <div class="persona-meta"><strong>Day:</strong> Quotes, certifications, capacity, relationship sales, weak web presence that embarrasses him.</div>
-          <div class="persona-meta"><strong>Buy path:</strong> Get-found package open $5&ndash;8K &rarr; monthly care if quotes flow. No cold PPC day one.</div>
-        </div>
-      </div>
-      <div class="grid2" style="margin-top:1rem">
-        <div class="card">
-          <h3>Pains</h3>
-          <ul>
-            <li>&ldquo;We&rsquo;re invisible online.&rdquo;</li>
-            <li>&ldquo;Buyers don&rsquo;t request quotes from the site.&rdquo;</li>
-            <li>&ldquo;I don&rsquo;t want a huge ad machine.&rdquo;</li>
-            <li>&ldquo;Primes and big shops own the airwaves.&rdquo;</li>
-            <li>&ldquo;I don&rsquo;t have time for marketing.&rdquo;</li>
-          </ul>
-        </div>
-        <div class="card">
-          <h3>How Brandastic solves it</h3>
-          <ul>
-            <li>Get-found package: site + search basics</li>
-            <li>Capability + certs + &ldquo;request a quote&rdquo; above the fold</li>
-            <li>Simple $5&ndash;8K open package, not enterprise theater</li>
-            <li>Own a clear niche capability online</li>
-            <li>One plan, one report, we run the work</li>
-          </ul>
-        </div>
-      </div>
-      <p class="quote"><strong>Message to Sam:</strong> We help buyers see the real shop and ask for a quote.</p>
-      <div class="footer-bar"><span>BRANDASTIC 2027</span><span class="num">12</span></div>
-    </div>
-  </section>
-
-  <!-- 13 ICP SAMPLES -->
-  <section class="slide" id="icp-samples">
-    <div class="slide-inner">
-      <div class="kicker">Target-company samples</div>
-      <div class="h2">Real companies to pursue</div>
-      <p class="lede">From Apollo / LinkedIn / local research. Team can say &ldquo;yes, those people&rdquo; or &ldquo;no, not them.&rdquo;</p>
-      <div class="grid3" style="margin-top:.8rem">
-        <div class="card">
-          <h3 style="color:#0644ed">Dana targets &middot; dental/med</h3>
-          <ul>
-            
-            <li>Paragon Dental (existing &mdash; expand)</li>
-            <li>Young Surgical (existing)</li>
-            <li>Dental Smart (existing)</li>
-            <li>SoCal dental labs with 20&ndash;100 employees</li>
-            <li>Medical device distributors in OC/LA</li>
-            <li>Specialty surgical suppliers with dealer networks</li>
-          </ul>
-          <p style="margin-top:.5rem;font-size:.78rem;color:var(--muted)"><strong>Build list:</strong> Apollo filter &mdash; dental/medical supplies, 10&ndash;200 employees, US, owner/GM/VP Sales title.</p>
-        </div>
-        <div class="card">
-          <h3 style="color:#0ea5e9">Maya targets &middot; education</h3>
-          <ul>
-            <li>CalOPS (existing &mdash; flagship)</li>
-            <li>California online/hybrid public schools</li>
-            <li>Charter school networks (enrollment-focused)</li>
-            <li>Virtual academy programs nationally</li>
-            <li>Schools spending $100K+ on enrollment marketing</li>
-          </ul>
-          <p style="margin-top:.5rem;font-size:.78rem;color:var(--muted)"><strong>Build list:</strong> National charter school directory + state enrollment data. Filter for online-heavy + marketing budget signals.</p>
-        </div>
-        <div class="card">
-          <h3 style="color:#6366f1">Sam targets &middot; SoCal mfg</h3>
-          <ul>
-            <li>LabTech (existing &mdash; expand)</li>
-            <li>Wearparts (existing)</li>
-            <li>Morehouse (existing)</li>
-            <li>SoCal machine shops with AS9100 / ITAR certs</li>
-            <li>OC/LA precision manufacturers, 10&ndash;75 employees</li>
-            <li>Defense sub-tier suppliers with weak web</li>
-          </ul>
-          <p style="margin-top:.5rem;font-size:.78rem;color:var(--muted)"><strong>Build list:</strong> SoCal manufacturing directories + Apollo. Filter for aero/defense, 10&ndash;100 employees, owner title.</p>
-        </div>
-      </div>
-      <div class="footer-bar"><span>BRANDASTIC 2027</span><span class="num">13</span></div>
-    </div>
-  </section>
-
-  <!-- 14 STRATEGY -->
-  <section class="slide" id="strategy">
-    <div class="slide-inner divider-slide" style="background:linear-gradient(135deg,#001F40,#0a1628);color:#fff;padding-right:min(50%,30rem);justify-content:center"><div style="position:absolute;top:0;right:0;bottom:0;width:48%;overflow:hidden;z-index:0"><img src="../assets/ba-office-2027/DSC02928.jpg" alt="" style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;object-position:center 30%;filter:brightness(0.82)"/><div style="position:absolute;top:0;left:0;right:0;bottom:0;background:linear-gradient(90deg,rgba(0,31,64,1) 0%,rgba(0,31,64,0.2) 55%,rgba(0,31,64,0.4) 100%)"></div></div>
-      <div class="phase" style="color:#7eb6ff">04 &middot; THE GAME PLAN</div>
-      <div class="h1" style="color:#fff;max-width:16ch">How we get more clients</div>
-      <p class="lede" style="color:rgba(255,255,255,.7)">Five levers in order. Start with what costs the least. Ads last.</p>
-      <div class="footer-bar" style="color:rgba(255,255,255,.3)"><span>BRANDASTIC 2027</span><span class="num">14</span></div>
-    </div>
-  </section>
-
-  <!-- 15 FIVE LEVERS -->
-  <section class="slide" id="levers">
-    <div class="slide-inner">
-      <div class="kicker">Five levers in order</div>
-      <div class="h2">Start with what costs the least</div>
-      <p class="lede">Most agencies jump to &ldquo;more leads.&rdquo; That&rsquo;s lever five. We start at one.</p>
-      <table class="table" style="margin-top:1rem">
-        <tr><th>#</th><th>Lever</th><th>Cost</th><th>What it means for Brandastic</th><th>Expected impact</th></tr>
-        <tr><td><strong>1</strong></td><td>Retain better</td><td>$0</td><td>Name churn monthly. Fix gaps before they leave. QBR with $5K+ clients.</td><td>Every saved client = one less to find</td></tr>
-        <tr><td><strong>2</strong></td><td>Grow existing</td><td>$0</td><td>Whitespace top 15 sheet. Expand after hitting current goals. Upsell paths.</td><td>3&ndash;5&times; cheaper than new client acquisition</td></tr>
-        <tr><td><strong>3</strong></td><td>Close better</td><td>$0</td><td>16% &rarr; 22% close rate. Same-day follow-up. One-pager per ICP. Pipeline discipline.</td><td>~5 more contracts = ~$360K/yr on same leads</td></tr>
-        <tr><td><strong>4</strong></td><td>Better leads</td><td>Low</td><td>Lock 2&ndash;3 ICPs. ICP-focused pages. Referral system. Say no to scatter.</td><td>Higher close rate per lead + better LTV</td></tr>
-        <tr><td><strong>5</strong></td><td>More volume</td><td>$$</td><td>SEO compounds. Outbound sequences. Paid only after 1&ndash;4 are working.</td><td>Scale what already converts</td></tr>
-      </table>
-      <p class="quote"><strong>The close rate math:</strong> 93 leads &times; 16% = 15 wins. Same 93 leads &times; 22% = <strong>20 wins</strong>. Five more at $6K/mo = <strong>$360K/year</strong>. That nearly closes the $400K gap &mdash; without a dollar on ads.</p>
-      <div class="footer-bar"><span>BRANDASTIC 2027</span><span class="num">15</span></div>
-    </div>
-  </section>
-
-  <!-- 16 FUNNEL -->
-  <section class="slide" id="funnel">
-    <div class="slide-inner">
-      <div class="kicker">How every lead should move</div>
-      <div class="h2">Simple steps</div>
-      <div class="flow">
-        <div class="step">1. Findable</div><div class="arrow">&rarr;</div>
-        <div class="step">2. Clear offer</div><div class="arrow">&rarr;</div>
-        <div class="step">3. Human touch</div><div class="arrow">&rarr;</div>
-        <div class="step">4. Fit call</div><div class="arrow">&rarr;</div>
-        <div class="step">5. One-pager</div><div class="arrow">&rarr;</div>
-        <div class="step">6. Proposal</div><div class="arrow">&rarr;</div>
-        <div class="step">7. Win &amp; grow</div>
-      </div>
-      <table class="table" style="margin-top:1rem">
-        <tr><th>Stage</th><th>Channels</th><th>Team job</th><th>KPI</th></tr>
-        <tr><td><strong>Findable</strong></td><td>SEO &middot; LinkedIn &middot; Events &middot; AEO</td><td>Ship 1 page/week &middot; 3&ndash;5 posts</td><td>Impressions &middot; traffic by ICP</td></tr>
-        <tr><td><strong>Clear offer</strong></td><td>Site &middot; pages &middot; proof</td><td>Offer obvious in 10 seconds</td><td>Bounce rate &middot; time on page</td></tr>
-        <tr><td><strong>Human touch</strong></td><td>Email &middot; outbound &middot; referral</td><td>10&ndash;20 warm touches/week</td><td>Reply rate &middot; meetings set</td></tr>
-        <tr><td><strong>Fit call</strong></td><td>Calls &middot; discovery</td><td>15-min script &middot; qualify ICP fit</td><td>Show rate &middot; ICP match %</td></tr>
-        <tr><td><strong>One-pager</strong></td><td>Same-day delivery</td><td>Goal + 90 days + investment</td><td>One-pagers sent same day</td></tr>
-        <tr><td><strong>Proposal</strong></td><td>Sales board</td><td>Proposal out &middot; next step + date</td><td>Proposals out / week &middot; close rate</td></tr>
-        <tr><td><strong>Win &amp; grow</strong></td><td>Existing &middot; referral &middot; QBR</td><td>Referral ask &middot; whitespace &middot; retain</td><td>Bookings &minus; churn &middot; net growth</td></tr>
-      </table>
-      <p class="quote">If close rate is weak, <strong>do not buy more awareness</strong>. Fix the middle of the funnel first.</p>
-      <div class="footer-bar"><span>BRANDASTIC 2027</span><span class="num">16</span></div>
-    </div>
-  </section>
-
-  <!-- 17-20: CHANNEL PLAYBOOKS -->
-  <section class="slide" id="channels-hub">
-    <div class="slide-inner">
-      <div class="kicker">05 &middot; Where we run the plan</div>
-      <div class="h2">Channel system</div>
-      <p class="big" style="margin:.5rem 0 1rem">One target customer. One offer path. Multiple channels feeding the same funnel.</p>
-      <div class="grid3">
-        <div class="card"><h3>1 &middot; SEO</h3><p>Pages + guides + cases for locked markets. The compounding asset. Always on.</p></div>
-        <div class="card"><h3>2 &middot; Outbound</h3><p>LinkedIn connects + email sequences. 50-name warm list. Weekly human touches.</p></div>
-        <div class="card"><h3>3 &middot; Referral</h3><p>Formal ask after every win. Highest-quality, zero-cost leads.</p></div>
-        <div class="card"><h3>4 &middot; Existing clients</h3><p>Whitespace top 15. QBRs. Grow before only hunting new.</p></div>
-        <div class="card"><h3>5 &middot; LinkedIn posts</h3><p>3&ndash;5 human posts/week. Pain &middot; process &middot; proof &middot; offer mix.</p></div>
-        <div class="card"><h3>6 &middot; Events</h3><p>Select OC rooms &middot; 48h follow-up &middot; no booth vanity.</p></div>
-        <div class="card"><h3>7 &middot; Google Ads</h3><p>Client delivery yes. Brandastic ads only after sales OS is tight.</p></div>
-        <div class="card"><h3>8 &middot; Meta</h3><p>Client work. Brandastic test selective and measured.</p></div>
-        <div class="card"><h3>9 &middot; AI / AEO</h3><p>Clear pages AI can quote honestly. Readability pass on every new page.</p></div>
-      </div>
-      <div class="footer-bar"><span>BRANDASTIC 2027</span><span class="num">17</span></div>
-    </div>
-  </section>
-
-  <section class="slide" id="channel-seo">
-    <div class="slide-inner">
-      <div class="kicker">05 &middot; Channel &middot; SEO</div>
-      <div class="h2">8-piece content machine per ICP</div>
-      <p class="lede">Same system Brandastic runs for clients. Now we run it for ourselves, per locked market.</p>
-      <div class="grid2">
-        <div class="card">
-          <h3>System per ICP market</h3>
-          <ul>
-            <li>1 Ultimate guide (&ldquo;how [market] gets more customers&rdquo;)</li>
-            <li>1 Listicle (top tools / mistakes / trends)</li>
-            <li>1 Buyer guide (what to look for in an agency)</li>
-            <li>5 Thought-leadership / pain-point articles</li>
-          </ul>
-          <p style="margin-top:.5rem">Finish all 8 before starting the next ICP node. Ship weekly.</p>
-        </div>
-        <div class="card">
-          <h3>First nodes by ICP</h3>
-          <ul>
-            <li><strong>Dana:</strong> dealer demand &middot; supplier SEO &middot; product page clarity</li>
-            <li><strong>Maya:</strong> enrollment marketing &middot; school search &middot; inquiry path</li>
-            <li><strong>Sam:</strong> manufacturer found online &middot; quote path &middot; capability pages</li>
-          </ul>
-          <p style="margin-top:.5rem">Every page CTA &rarr; 15-min call or 90-day one-pager.</p>
-        </div>
-      </div>
-      <p class="quote">SEO won&rsquo;t replace outbound in month one. It <strong>compounds</strong> so that by month 6, website interest supports the same offer without cold effort.</p>
-      <div class="footer-bar"><span>BRANDASTIC 2027</span><span class="num">18</span></div>
-    </div>
-  </section>
-
-  <section class="slide" id="channel-outbound">
-    <div class="slide-inner">
-      <div class="kicker">05 &middot; Channel &middot; Outbound</div>
-      <div class="h2">LinkedIn + email warm list</div>
-      <div class="grid2">
-        <div class="card">
-          <h3>What we do</h3>
-          <ul>
-            <li>Build 50-name list per ICP (Apollo + LinkedIn Sales Nav)</li>
-            <li>Short plain-English connection notes</li>
-            <li>Email openers with 90-day CTA</li>
-            <li>Same-day follow-up after every reply</li>
-            <li>Bump at 4&ndash;5 business days</li>
-          </ul>
-        </div>
-        <div class="card">
-          <h3>Plan math (monthly)</h3>
-          <ul>
-            <li>80&ndash;100 warm touches (email + LI combined)</li>
-            <li>Target: 6&ndash;10 replies</li>
-            <li>Target: 3&ndash;5 fit calls held</li>
-            <li>Target: 1&ndash;2 proposals out</li>
-            <li>Target: ~1 new client / month from this channel alone</li>
-          </ul>
-          <p style="margin-top:.5rem">Combined with referral + SEO inbound = 1.5&ndash;2 new/month total.</p>
-        </div>
-      </div>
-      <p class="quote">This is the <strong>near-term engine</strong> while SEO compounds. Core rhythm: Tue sends, same-day replies, Thu pipeline review.</p>
-      <div class="footer-bar"><span>BRANDASTIC 2027</span><span class="num">19</span></div>
-    </div>
-  </section>
-
-  <section class="slide" id="channel-referral">
-    <div class="slide-inner">
-      <div class="kicker">05 &middot; Channel &middot; Referral system</div>
-      <div class="h2">Highest-quality leads at zero cost</div>
-      <div class="grid2">
-        <div class="card">
-          <h3>System (not random)</h3>
-          <ul>
-            <li>After every clear win: send the referral email within 48 hours</li>
-            <li>Quarterly check-in with happy clients: &ldquo;who else should we help?&rdquo;</li>
-            <li>Partner referrals: web dev, PR, accounting firms</li>
-            <li>Log every referral intro in CRM with channel tag</li>
-          </ul>
-        </div>
-        <div class="card">
-          <h3>Expected volume</h3>
-          <ul>
-            <li>17 current clients &times; quarterly ask = ~68 asks/year</li>
-            <li>If 15% produce an intro = ~10 warm referral leads/year</li>
-            <li>Referral close rate typically 2&ndash;3&times; cold = ~40%+</li>
-            <li>Expected: <strong>4&ndash;6 new clients/year from referrals alone</strong></li>
-          </ul>
-          <p style="margin-top:.5rem">That&rsquo;s potentially the entire 2026 gap from one free channel.</p>
-        </div>
-      </div>
-      <div class="footer-bar"><span>BRANDASTIC 2027</span><span class="num">20</span></div>
-    </div>
-  </section>
-
-  <!-- 21 BUDGET -->
-  <section class="slide" id="budget">
-    <div class="slide-inner">
-      <div class="kicker">06 &middot; Budget</div>
-      <div class="h2">Where the money goes</div>
-      <p class="lede">Working monthly plan. Same numbers for Justin and the team.</p>
-      <table class="table" style="margin-top:1rem">
-        <tr><th>Campaign</th><th>What it buys</th><th>Monthly</th></tr>
-        <tr><td><strong>SEO / content</strong></td><td>Internal team time + AI drafting. 8-piece content nodes per ICP. Weekly ship cadence.</td><td>Team time (no extra spend)</td></tr>
-        <tr><td><strong>Outbound tools</strong></td><td>Apollo / LinkedIn Sales Nav / email sequencing. 50-name list maintenance.</td><td>$200&ndash;$400</td></tr>
-        <tr><td><strong>LinkedIn posts / social</strong></td><td>Organic posts (free). Optional boost on winners.</td><td>$0&ndash;$200</td></tr>
-        <tr><td><strong>Events / chambers</strong></td><td>1 event/quarter. Membership + networking.</td><td>$100&ndash;$300 avg</td></tr>
-        <tr><td><strong>Google Ads (Brandastic)</strong></td><td>Only after sales OS is tight. One offer, one audience.</td><td>$0 (now) &rarr; $500&ndash;$1,500 later</td></tr>
-        <tr><td><strong>Meta (Brandastic)</strong></td><td>Selective test. Client creative repurposed.</td><td>$0 (now) &rarr; $300&ndash;$800 later</td></tr>
-        <tr><td><strong>Referral program</strong></td><td>Thank-you gifts after intro. Client appreciation.</td><td>$100&ndash;$300</td></tr>
-      </table>
-      <div class="card" style="margin-top:1rem">
-        <h3>Total marketing spend (Brandastic for Brandastic)</h3>
-        <p><strong>Now:</strong> ~$400&ndash;$1,200/mo (tools + events + gifts). <strong>Later:</strong> ~$1,500&ndash;$3,500/mo when paid tests run.</p>
-        <p style="margin-top:.5rem">CAC target: &lt;$5,000 per new client. At $6K/mo package, payback in &lt;1 month of client revenue.</p>
-      </div>
-      <div class="footer-bar"><span>BRANDASTIC 2027</span><span class="num">21</span></div>
-    </div>
-  </section>
-
-  <!-- 22 AD EXAMPLES -->
-  <section class="slide" id="ad-examples">
-    <div class="slide-inner">
-      <div class="kicker">07 &middot; Sample copy</div>
-      <div class="h2">Emails the team sends</div>
-      <div class="grid2">
-        <div class="msg"><div class="lbl">Dana &middot; reopen</div><div class="subj">Subject: Still thinking about dealer demand for [Product]?</div>Hi [Name],
-
-We talked about making it obvious what [Company] makes &mdash; so dealers stop hunting PDFs.
-
-I can send a one-page 90-day view: offer pages, search terms that convert, what &ldquo;good&rdquo; looks like.
-
-15 minutes this week?
-
-[Name] &middot; Brandastic
+[Your name] &middot; Brandastic
 (949) 617-2731</div>
-        <div class="msg"><div class="lbl">Maya &middot; proof-led</div><div class="subj">Subject: How online schools get family inquiries</div>Hi [Name],
+        <div class="msg"><div class="lbl">Reopen &middot; past conversation</div><div class="subj">Subject: Enrollment path for [School] &mdash; still relevant?</div>Hi [Name],
 
-We help online schools get found so families inquire &mdash; search, paid, site trust aimed at enrollment.
+We talked about families finding [School] and starting an inquiry without friction.
 
-Same motion we run at CalOPS-scale. Happy to show it in 15 minutes.
+I can send a one-page view of the first 90 days &mdash; what we&rsquo;d fix on the site, what we&rsquo;d rank for, what paid looks like if you use it.
 
-[Name] &middot; Brandastic</div>
-        <div class="msg"><div class="lbl">Sam &middot; get-found</div><div class="subj">Subject: Make the real shop easy to find</div>Hi [Name],
+Worth a short call?
 
-Goal is simple: buyer sees real capability, asks for a quote.
-
-Not a prime RFP circus. Not a giant ad machine.
-
-I can sketch a clear $5&ndash;8K start package &mdash; one page.
-
-[Name] &middot; Brandastic</div>
-        <div class="msg"><div class="lbl">Referral &middot; after a win</div><div class="subj">Subject: Quick ask</div>Hi [Name],
-
-Glad [result] is moving. If you know one owner who needs the same help, I&rsquo;d love an intro &mdash; even a name.
-
-Thank you either way.
-
-[Name]</div>
-      </div>
-      <div class="footer-bar"><span>BRANDASTIC 2027</span><span class="num">22</span></div>
-    </div>
-  </section>
-
-  <!-- 23 MORE EMAILS -->
-  <section class="slide" id="email-channels">
-    <div class="slide-inner">
-      <div class="kicker">07 &middot; More emails</div>
-      <div class="h2">Bump &middot; chamber &middot; inbound &middot; expand</div>
-      <div class="grid2">
-        <div class="msg"><div class="lbl">Bump &middot; 4&ndash;5 days later</div><div class="subj">Re: [original subject]</div>Hi [Name],
+[Your name] &middot; Brandastic</div>
+        <div class="msg"><div class="lbl">Bump &middot; 4&ndash;5 days later</div><div class="subj">Subject: Re: How online schools get family inquiries</div>Hi [Name],
 
 Floating this once more in case it got buried.
 
 Happy to keep it to 12 minutes &mdash; or tell me a better month and I&rsquo;ll check back.
 
-[Name]</div>
-        <div class="msg"><div class="lbl">Chamber / event &middot; 48h</div><div class="subj">Good meeting you at [Event]</div>Hi [Name],
+[Your name]</div>
+        <div class="msg"><div class="lbl">Referral &middot; after a win</div><div class="subj">Subject: Quick ask</div>Hi [Name],
 
-Good to meet you at [event]. You mentioned [goal].
+Glad inquiry volume is improving. If you know one enrollment or marketing lead at a peer school who needs the same help, an intro would mean a lot.
 
-I can send a one-pager on how we help [market] &mdash; plain English.
+Even a name is enough.
 
-15 minutes next week?
+Thank you either way.
 
-[Name] &middot; Brandastic</div>
-        <div class="msg"><div class="lbl">Existing client &middot; whitespace</div><div class="subj">One gap I see on [Company]</div>Hi [Name],
-
-Looking at the account: [search is working / paid is thin / mobile path is weak].
-
-I can sketch a small 30-day test &mdash; budget, goal, what &ldquo;good&rdquo; looks like.
-
-Want that one-pager?
-
-[Name]</div>
-        <div class="msg"><div class="lbl">Ad / form inbound</div><div class="subj">Next step for [Company]</div>Hi [Name],
-
-Thanks for reaching out. What does &ldquo;good&rdquo; look like in 90 days?
-
-Reply in one line. I&rsquo;ll send a short plan shape &mdash; not a 40-page deck.
-
-[Name]</div>
+[Your name]</div>
       </div>
-      <div class="footer-bar"><span>BRANDASTIC 2027</span><span class="num">23</span></div>
+      <div class="footer-bar"><span>BRANDASTIC 2027</span><span>08</span></div>
     </div>
   </section>
 
-  <!-- 24 LINKEDIN POSTS -->
-  <section class="slide" id="social-copy">
+  <!-- 09 LINKEDIN POSTS -->
+  <section class="slide" id="posts">
     <div class="slide-inner">
       <div class="kicker">07 &middot; LinkedIn posts</div>
-      <div class="h2">Pain &middot; proof &middot; offer &middot; culture</div>
-      <div class="grid2">
-        <div class="msg"><div class="lbl">Dental/Med</div>Most supplier sites hide the product in a PDF.
-
-Dealers don&rsquo;t wait.
-
-Clear offer pages + search so the right buyers start &mdash; without guessing.</div>
-        <div class="msg"><div class="lbl">Education</div>Online schools don&rsquo;t need more noise.
+      <div class="h2">Education-specific &middot; rotate weekly</div>
+      <div class="grid2" style="margin-top:.5rem">
+        <div class="msg"><div class="lbl">Enrollment pain</div>Online schools don&rsquo;t need &ldquo;brand awareness.&rdquo;
 
 They need families to find them and inquire.
 
-Search. Paid. Site trust &mdash; aimed at enrollment conversations.</div>
-        <div class="msg"><div class="lbl">Manufacturing</div>Put capability + &ldquo;request a quote&rdquo; where a tired buyer can see it today.
+Search. Paid. Site trust.
+Aimed at enrollment conversations &mdash; not noise.</div>
+        <div class="msg"><div class="lbl">10-second test</div>Enrollment marketing fails in the first 10 seconds.
 
-Get found first. Ads later.</div>
-        <div class="msg"><div class="lbl">Agency / culture</div>Search still brings us clients. Referrals still bring us clients.
+Can a parent tell:
+&bull; who the school is for
+&bull; what happens next
+&bull; why trust you
 
-Ads for our agency come later &mdash; after follow-up is tight.
+If not, spend won&rsquo;t save it.</div>
+        <div class="msg"><div class="lbl">Order matters</div>Fix the inquiry path before buying more ads.
 
-Order matters more than clever campaigns.</div>
+Most schools pour money into awareness while their site loses families at the front door.
+
+Get found. Make it clear. Then scale.</div>
+        <div class="msg"><div class="lbl">Proof</div>We run enrollment marketing for CalOPS-scale online schools.
+
+Same motion, different school.
+
+If families have to find you online, that&rsquo;s the job &mdash; and we already know how.</div>
       </div>
-      <div class="footer-bar"><span>BRANDASTIC 2027</span><span class="num">24</span></div>
+      <div class="footer-bar"><span>BRANDASTIC 2027</span><span>09</span></div>
     </div>
   </section>
 
-  <!-- 25 CALL SCRIPT + ONE-PAGER -->
-  <section class="slide" id="call-script">
-    <div class="slide-inner">
-      <div class="kicker">07 &middot; Call script + one-pager</div>
-      <div class="h2">15-minute fit call</div>
-      <div class="grid2">
-        <div class="card">
-          <h3>Script</h3>
-          <ul>
-            <li><strong>0&ndash;3 min:</strong> &ldquo;You said [goal] &mdash; right? What does good look like in 90 days?&rdquo;</li>
-            <li><strong>3&ndash;8:</strong> Where new customers come from today &middot; what they&rsquo;ve tried &middot; who says yes</li>
-            <li><strong>8&ndash;12:</strong> One path in their language (Dana/Maya/Sam) &mdash; not 12 services</li>
-            <li><strong>12&ndash;15:</strong> &ldquo;I&rsquo;ll send the one-pager today. Hold [day] to review?&rdquo;</li>
-          </ul>
-          <p style="margin-top:.5rem"><strong>Never leave without:</strong> next step, date, owner, channel tag.</p>
-        </div>
-        <div class="card">
-          <h3>One-pager blocks</h3>
-          <ul>
-            <li>Goal (their words + a number)</li>
-            <li>Who (ICP one line)</li>
-            <li>Days 1&ndash;30 / 31&ndash;60 / 61&ndash;90 (3 bullets each)</li>
-            <li>Investment range</li>
-            <li>Next step + date</li>
-          </ul>
-          <p style="margin-top:.5rem">Templates: <code>90-day &mdash; Dana</code>, <code>&mdash; Maya</code>, <code>&mdash; Sam</code>. Duplicate per prospect.</p>
-        </div>
-      </div>
-      <div class="footer-bar"><span>BRANDASTIC 2027</span><span class="num">25</span></div>
-    </div>
-  </section>
-
-  <!-- 26 MEASURE -->
-  <section class="slide" id="measure">
-    <div class="slide-inner">
-      <div class="kicker">08 &middot; How we measure success</div>
-      <div class="h2">Weekly scoreboard</div>
-      <div class="grid3" style="margin-top:.8rem">
-        <div class="card"><h3>Pipeline</h3><ul>
-          <li><strong>Close rate</strong> (target: 22%+)</li>
-          <li>Conversations started by channel</li>
-          <li>Proposals out this week</li>
-          <li>Won / lost + one-sentence reason</li>
-          <li>Days to first follow-up (same day)</li>
-        </ul></div>
-        <div class="card"><h3>Revenue</h3><ul>
-          <li>Recurring vs $160K/mo</li>
-          <li>Pace vs $2.5M</li>
-          <li>Bookings &minus; churn (must be positive)</li>
-          <li>Avg package trend</li>
-          <li>Whitespace wins from existing</li>
-        </ul></div>
-        <div class="card"><h3>By channel</h3><ul>
-          <li>SEO (organic)</li>
-          <li>Referral</li>
-          <li>Outbound (LI + email)</li>
-          <li>Existing client</li>
-          <li>Direct &middot; Events &middot; Paid &middot; AI</li>
-        </ul>
-        <p style="margin-top:.5rem"><strong>If we can&rsquo;t say which channel booked the meeting, we can&rsquo;t fund the right engines.</strong></p></div>
-      </div>
-      <div class="footer-bar"><span>BRANDASTIC 2027</span><span class="num">26</span></div>
-    </div>
-  </section>
-
-  <!-- 27 FIRST 90 -->
-  <section class="slide" id="first-90">
+  <!-- 10 90-DAY PLAN -->
+  <section class="slide" id="ninety">
     <div class="slide-inner">
       <div class="kicker">08 &middot; First 90 days</div>
-      <div class="h2">Week by week</div>
-      <div class="cal-week"><b>Week 1</b><span>Lock 2&ndash;3 markets. Scorecard empty. Start 50-name list. Assign rock owners. Calculate churn rate.</span></div>
-      <div class="cal-week"><b>Week 2</b><span>Finish list. Approve email templates. Pipeline board live. First weekly numbers. Audit 78 lost leads &mdash; categorize reasons.</span></div>
-      <div class="cal-week"><b>Week 3</b><span>Ship proof #1 (case study). 10&ndash;15 warm touches. 3&ndash;5 posts. Tag every conversation with CRM channel. Whitespace top 10 notes.</span></div>
-      <div class="cal-week"><b>Week 4</b><span>Proof #2. More reopens + first referral asks. Kill weak copy from replies. One-pager templates ready for Dana/Maya/Sam.</span></div>
-      <div class="cal-week"><b>W5&ndash;6</b><span>Full reopen pass on warm list. Search pages live. QBR with top 3 clients. Board without fail. Referral system on.</span></div>
-      <div class="cal-week"><b>W7&ndash;8</b><span>Second proof wave. Double what books meetings. SEO node #1 complete (8 pieces). Close rate tracking live.</span></div>
-      <div class="cal-week"><b>W9&ndash;12</b><span>Tighten close path. Every loss has one-sentence reason. Proof story published. Decide paid test or not. Name next-quarter rocks.</span></div>
-      <div class="footer-bar"><span>BRANDASTIC 2027</span><span class="num">27</span></div>
-    </div>
-  </section>
-
-  <!-- 28 ROADMAP 12 -->
-  
-  <section class="slide" id="roadmap-gantt">
-    <div class="slide-inner">
-      <div class="kicker">07 &middot; Long-term roadmap</div>
-      <div class="h2">12-month build</div>
-      <p class="lede">Start now. Scale what works. Paid only when the system is tight.</p>
-      <div class="rm-wrap">
-        <div class="rm-months">
-          <span></span><span>NOV</span><span>DEC</span><span>JAN</span><span>FEB</span><span>MAR</span><span>APR</span><span>MAY</span><span>JUN</span><span>JUL</span><span>AUG</span><span>SEP</span><span>OCT</span>
+      <div class="h2">Build the education pipeline</div>
+      <div class="grid3" style="margin-top:.6rem">
+        <div class="card" style="background:linear-gradient(165deg,#001F40,#0644ed);color:#fff;border:0">
+          <h3 style="color:#fff">Days 1&ndash;30 &middot; Foundation</h3>
+          <ul style="color:rgba(255,255,255,.9)">
+            <li>Build Apollo list: 200+ enrollment leaders</li>
+            <li>Write CalOPS proof one-pager</li>
+            <li>Ship 2 education SEO pages</li>
+            <li>Send first 40 outreach emails</li>
+            <li>Ask CalOPS for 3 peer school intros</li>
+          </ul>
         </div>
-        <div class="rm-row"><div class="rm-label">SEO content</div><div class="rm-track">
-          <div class="rm-bar" style="left:0%;width:16%;background:#94a3b8">Set-up</div>
-          <div class="rm-bar" style="left:16%;width:30%;background:#6366f1">8-pack nodes &middot; publish</div>
-          <div class="rm-bar" style="left:46%;width:54%;background:#818cf8;opacity:.85">Compound &middot; refresh &middot; scale</div>
-        </div></div>
-        <div class="rm-row"><div class="rm-label">Outbound (LI + email)</div><div class="rm-track">
-          <div class="rm-bar" style="left:0%;width:14%;background:#94a3b8">Set-up</div>
-          <div class="rm-bar" style="left:14%;width:86%;background:#0644ed">Warm list &middot; sequences &middot; same-day follow-up</div>
-        </div></div>
-        <div class="rm-row"><div class="rm-label">Social / LinkedIn posts</div><div class="rm-track">
-          <div class="rm-bar" style="left:0%;width:14%;background:#94a3b8">Set-up</div>
-          <div class="rm-bar" style="left:14%;width:86%;background:#22c55e">3&ndash;5 posts/week &middot; pain &middot; proof &middot; offer</div>
-        </div></div>
-        <div class="rm-row"><div class="rm-label">Referral system</div><div class="rm-track">
-          <div class="rm-bar" style="left:8%;width:10%;background:#94a3b8">Build script</div>
-          <div class="rm-bar" style="left:18%;width:82%;background:#0ea5e9">Ask after every win &middot; quarterly asks</div>
-        </div></div>
-        <div class="rm-row"><div class="rm-label">Existing clients</div><div class="rm-track">
-          <div class="rm-bar" style="left:0%;width:18%;background:#0ea5e9">Whitespace top 15</div>
-          <div class="rm-bar" style="left:18%;width:82%;background:#38bdf8;opacity:.85">QBRs &middot; expand packages &middot; retain</div>
-        </div></div>
-        <div class="rm-row"><div class="rm-label">Events / chambers</div><div class="rm-track">
-          <div class="rm-bar" style="left:8%;width:12%;background:#f59e0b">Q1</div>
-          <div class="rm-bar" style="left:33%;width:12%;background:#f59e0b">Q2</div>
-          <div class="rm-bar" style="left:58%;width:12%;background:#f59e0b">Q3</div>
-          <div class="rm-bar" style="left:83%;width:12%;background:#f59e0b">Q4</div>
-        </div></div>
-        <div class="rm-row"><div class="rm-label">Sales board</div><div class="rm-track">
-          <div class="rm-bar" style="left:0%;width:100%;background:#3b6cf5">Thursday 20 minutes &middot; every week &middot; non-negotiable</div>
-        </div></div>
-        <div class="rm-row"><div class="rm-label">Google / Meta (us)</div><div class="rm-track">
-          <div class="rm-bar" style="left:0%;width:50%;background:#e5e7eb;color:#64748b">Not yet &middot; system first</div>
-          <div class="rm-bar" style="left:50%;width:50%;background:#ef4444;opacity:.8">One offer test &middot; only if ready</div>
-        </div></div>
+        <div class="card" style="background:linear-gradient(165deg,#0644ed,#3b6cf5);color:#fff;border:0">
+          <h3 style="color:#fff">Days 31&ndash;60 &middot; Pipeline</h3>
+          <ul style="color:rgba(255,255,255,.9)">
+            <li>80+ outreach touches per month</li>
+            <li>3&ndash;5 fit calls held</li>
+            <li>LinkedIn posts live (3&ndash;5/week)</li>
+            <li>Case study published</li>
+            <li>First proposals out</li>
+          </ul>
+        </div>
+        <div class="card" style="background:linear-gradient(165deg,#3b6cf5,#6366f1);color:#fff;border:0">
+          <h3 style="color:#fff">Days 61&ndash;90 &middot; Close</h3>
+          <ul style="color:rgba(255,255,255,.9)">
+            <li>Target: 1&ndash;2 new education clients</li>
+            <li>Win/loss reasons documented</li>
+            <li>SEO pages ranking for enrollment terms</li>
+            <li>Identify first education conference</li>
+            <li>Refresh outreach list + iterate copy</li>
+          </ul>
+        </div>
       </div>
-      <div class="rm-legend">
-        <span><i style="background:#0644ed"></i>LinkedIn / outbound</span>
-        <span><i style="background:#22c55e"></i>Social / creative</span>
-        <span><i style="background:#0ea5e9"></i>Referral / existing</span>
-        <span><i style="background:#6366f1"></i>SEO</span>
-        <span><i style="background:#f59e0b"></i>Events</span>
-        <span><i style="background:#3b6cf5"></i>Sales</span>
-        <span><i style="background:#ef4444"></i>Paid (later)</span>
-      </div>
-      <div class="footer-bar"><span>BRANDASTIC 2027</span><span class="num">ROADMAP</span></div>
+      <div class="quote" style="margin-top:.8rem"><strong>90-day goal:</strong> 1&ndash;2 new education clients. If each pays $5K&ndash;$10K/month, that&rsquo;s $60K&ndash;$120K/year added to recurring &mdash; from one quarter of focused work.</div>
+      <div class="footer-bar"><span>BRANDASTIC 2027</span><span>10</span></div>
     </div>
   </section>
 
-
-  <!-- 29 WEEKLY RHYTHM -->
+  <!-- 11 WEEKLY RHYTHM -->
   <section class="slide" id="rhythm">
     <div class="slide-inner">
-      <div class="kicker">Operating rhythm</div>
-      <div class="h2">The week</div>
-      <table class="table" style="margin-top:1rem">
+      <div class="kicker">09 &middot; Weekly rhythm</div>
+      <div class="h2">The education pipeline machine</div>
+      <table class="table" style="margin-top:.8rem">
         <tr><th>Day</th><th>Focus</th><th>Done looks like</th></tr>
-        <tr><td><strong>Monday</strong></td><td>Numbers by channel. Churn check. Set week targets.</td><td>Scorecard filled. Targets on board.</td></tr>
-        <tr><td><strong>Tuesday</strong></td><td>Warm outreach. 5+ emails per owner. Same-day replies.</td><td>Sends logged. Replies followed up.</td></tr>
-        <tr><td><strong>Wednesday</strong></td><td>Ship one page or proof piece. SEO / site work. AEO check.</td><td>Something published or improved.</td></tr>
-        <tr><td><strong>Thursday</strong></td><td>Pipeline 20 minutes. Every deal: next step + date. Referral asks.</td><td>Board clean. Lost deals have reasons.</td></tr>
-        <tr><td><strong>Friday</strong></td><td>Short standup. 2 LinkedIn posts live. Log pains for next week.</td><td>Posts live. Pains captured for content.</td></tr>
+        <tr><td><strong>Monday</strong></td><td>Numbers: outreach sent, replies, calls booked, proposals out</td><td>Scorecard filled</td></tr>
+        <tr><td><strong>Tuesday</strong></td><td>Outreach: 10+ emails to enrollment leaders, LinkedIn connects</td><td>Sends logged in CRM</td></tr>
+        <tr><td><strong>Wednesday</strong></td><td>SEO: ship or improve one education page or guide</td><td>Something published</td></tr>
+        <tr><td><strong>Thursday</strong></td><td>Pipeline: 20-min review, next step on every deal, referral asks</td><td>Board clean, lost deals have reasons</td></tr>
+        <tr><td><strong>Friday</strong></td><td>2 LinkedIn posts live, capture pains for next week&rsquo;s content</td><td>Posts scheduled, pains logged</td></tr>
       </table>
-      <p class="quote"><strong>Done =</strong> sent &middot; shipped &middot; board updated &middot; posted &middot; reasons logged. Not &ldquo;worked on strategy.&rdquo;</p>
-      <div class="footer-bar"><span>BRANDASTIC 2027</span><span class="num">29</span></div>
+      <div class="quote"><strong>This rhythm runs every week.</strong> Done means sent, shipped, board updated, posted. Not &ldquo;worked on strategy.&rdquo;</div>
+      <div class="footer-bar"><span>BRANDASTIC 2027</span><span>11</span></div>
     </div>
   </section>
 
-  <!-- 30 RUNBOOK -->
-  <section class="slide" id="runbook">
+  <!-- 12 WHAT WE MEASURE -->
+  <section class="slide" id="measure">
     <div class="slide-inner">
-      <div class="kicker">Runbook &middot; step-by-step</div>
-      <div class="h2">The simple version</div>
-      <div class="grid2">
-        <div class="card">
-          <h3>This week (literally)</h3>
-          <ul class="check">
-            <li>Audit the 78 lost leads &mdash; categorize reasons</li>
-            <li>Calculate churn rate &mdash; put it on the board</li>
-            <li>Lock 2&ndash;3 markets. Say no to the rest.</li>
-            <li>Build the 50-name warm list (Apollo + existing)</li>
-            <li>Approve the 4 email templates</li>
-            <li>Name an owner on each of the 3 rocks</li>
-            <li>Set up the pipeline board with stages</li>
-          </ul>
-        </div>
-        <div class="card">
-          <h3>Every week after that</h3>
-          <ul class="check">
-            <li>Monday: fill the scorecard by channel</li>
-            <li>Tuesday: 5+ outreach sends</li>
-            <li>Wednesday: ship one content piece</li>
-            <li>Thursday: 20-min pipeline &mdash; next step on every deal</li>
-            <li>Friday: 2 LinkedIn posts + log pains</li>
-            <li>After every win: send the referral email</li>
-            <li>Monthly: QBR one top client &middot; whitespace check</li>
-          </ul>
-        </div>
+      <div class="kicker">10 &middot; What we measure</div>
+      <div class="h2">Education pipeline scoreboard</div>
+      <div class="grid3" style="margin-top:.8rem">
+        <div class="card"><h3>Pipeline</h3><ul>
+          <li><strong>Outreach sent</strong> (target: 80+/month)</li>
+          <li><strong>Replies</strong> (target: 6&ndash;10/month)</li>
+          <li><strong>Fit calls held</strong> (target: 3&ndash;5/month)</li>
+          <li><strong>Proposals out</strong></li>
+          <li><strong>Close rate</strong> (target: 20%+)</li>
+        </ul></div>
+        <div class="card"><h3>Revenue</h3><ul>
+          <li><strong>New education clients</strong> this quarter</li>
+          <li><strong>Education recurring</strong> (track separately)</li>
+          <li><strong>CalOPS retention</strong> (protect the flagship)</li>
+          <li><strong>Avg education package</strong> size</li>
+          <li><strong>Total recurring</strong> vs $160K goal</li>
+        </ul></div>
+        <div class="card"><h3>Content &amp; brand</h3><ul>
+          <li><strong>SEO pages</strong> shipped for education</li>
+          <li><strong>Rankings</strong> for enrollment terms</li>
+          <li><strong>LinkedIn posts</strong> / week</li>
+          <li><strong>Conference pipeline</strong> (upcoming events)</li>
+          <li><strong>Referral intros</strong> from CalOPS + clients</li>
+        </ul></div>
       </div>
-      <p class="quote" style="margin-top:1rem"><strong>North star:</strong> $120K &rarr; $160K/mo recurring. ~6 net new clients. Close rate 16% &rarr; 22%. Bookings &minus; churn positive every quarter. Path to $3.5M / 65 retainers by 2030.</p>
-      <div class="footer-bar"><span>BRANDASTIC 2027</span><span class="num">30</span></div>
+      <div class="footer-bar"><span>BRANDASTIC 2027</span><span>12</span></div>
     </div>
   </section>
 
-  <!-- 31 CLOSE -->
+  <!-- 13 CLOSE -->
   <section class="slide" id="close">
-    <div class="slide-inner divider-slide" style="background:linear-gradient(135deg,#001F40,#0a1628);color:#fff;padding-right:min(50%,30rem);justify-content:center;min-height:620px;padding-right:min(50%,30rem)"><div style="position:absolute;top:0;right:0;bottom:0;width:48%;overflow:hidden;z-index:0"><img src="../assets/ba-office-2027/office-team.jpg" alt="" style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;object-position:center 30%;filter:brightness(0.82)"/><div style="position:absolute;top:0;left:0;right:0;bottom:0;background:linear-gradient(90deg,rgba(0,31,64,1) 0%,rgba(0,31,64,0.2) 55%,rgba(0,31,64,0.4) 100%)"></div></div>
-      <div class="phase" style="color:#7eb6ff">BRANDASTIC 2027</div>
-      <div class="h1" style="color:#fff;max-width:12ch">Let's win together</div>
-      <p class="lede" style="color:rgba(255,255,255,.75);max-width:32rem">The plan is here. The market is real. The team is ready. Now we run it &mdash; it&rsquo;s a system you never stop running.</p>
-      <div style="margin-top:2rem">
-        <img src="../assets/brandastic-logo-white.png" alt="Brandastic" style="height:28px;filter:brightness(0) invert(1);opacity:.9"/>
-        <p style="margin-top:.5rem;font-size:.95rem;color:rgba(255,255,255,.6)">Focused. Growth. = <span style="color:#7eb6ff;font-weight:700">Progress.</span></p>
+    <div class="slide-inner divider-slide" style="background:linear-gradient(135deg,#001F40,#0a1628);color:#fff;justify-content:center;min-height:640px;padding-right:min(50%,30rem)">
+      <div style="position:absolute;top:0;right:0;bottom:0;width:48%;overflow:hidden;z-index:0">
+        <img src="assets/ba-office-2027/office-team.jpg" alt="" style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;filter:brightness(.82)"/>
+        <div style="position:absolute;inset:0;background:linear-gradient(90deg,rgba(0,31,64,1) 0%,rgba(0,31,64,.2) 60%,rgba(0,31,64,.4) 100%)"></div>
       </div>
-      <div class="footer-bar" style="color:rgba(255,255,255,.3)"><span>BRANDASTIC</span><span>2027</span></div>
+      <div style="position:relative;z-index:2">
+        <div class="kicker" style="color:#7eb6ff">BRANDASTIC 2027</div>
+        <div class="h1" style="color:#fff;max-width:14ch;font-size:clamp(2.2rem,4.5vw,3.4rem)">Let&rsquo;s win together</div>
+        <p class="lede" style="color:rgba(255,255,255,.78);max-width:34rem;margin-top:.8rem">44,000 schools. CalOPS proof. The plan is here. Now we run it.</p>
+        <div style="margin-top:1.8rem">
+          <img src="assets/brandastic-logo-white.png" alt="Brandastic" style="height:28px;filter:brightness(0) invert(1);opacity:.9"/>
+          <p style="margin-top:.5rem;font-size:.9rem;color:rgba(255,255,255,.6)">Focused. Growth. = <span style="color:#7eb6ff;font-weight:700">Progress.</span></p>
+        </div>
+      </div>
+      <div class="footer-bar" style="color:rgba(255,255,255,.3);position:absolute;left:2.2rem;right:min(50%,30rem);bottom:1.1rem"><span>BRANDASTIC</span><span>2027</span></div>
     </div>
   </section>
 
@@ -3276,10 +439,7 @@ Order matters more than clever campaigns.</div>
   <button type="button" class="dk-prev" id="dkP">&lsaquo;</button>
   <button type="button" class="dk-next" id="dkNx">&rsaquo;</button>
 </div>
-
 <script>
-function baTheme(t){document.documentElement.setAttribute('data-theme',t);try{localStorage.setItem('ba27t',t)}catch(e){}}
-(function(){try{var t=localStorage.getItem('ba27t');if(t==='dark'||t==='light')baTheme(t);else baTheme('dark')}catch(e){}})();
 (function(){
   var s=[].slice.call(document.querySelectorAll('section.slide'));if(!s.length)return;
   var db=document.getElementById('dkBtn'),dx=document.getElementById('dkX'),dn=document.getElementById('dkN'),
