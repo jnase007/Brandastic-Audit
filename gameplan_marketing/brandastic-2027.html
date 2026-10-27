@@ -290,6 +290,66 @@ body.deck-mode .slide.deck-active .slide-inner.close-slide{
   justify-content:center!important;
 }
 
+
+/* Photo title panels (better than weak SVG) */
+.slide-inner.title-photo{
+  background:#0d1b2a!important;color:#e8eef5!important;border:0!important;
+  min-height:560px!important;padding:2.4rem 2.4rem!important;
+  padding-right:min(52%, 32rem)!important;
+  display:flex!important;flex-direction:column!important;
+  justify-content:center!important;align-items:flex-start!important;
+  position:relative!important;overflow:hidden!important
+}
+.slide-inner.title-photo .site-hero-stack{
+  position:absolute!important;top:0!important;right:0!important;bottom:0!important;
+  width:min(50%,34rem)!important;z-index:0!important;overflow:hidden!important;margin:0!important;
+  background:#0d1b2a!important
+}
+.slide-inner.title-photo .site-hero-stack img{
+  position:absolute!important;inset:0!important;width:100%!important;height:100%!important;
+  object-fit:cover!important;object-position:center 30%!important;
+  animation:baPhotoKen 18s ease-in-out infinite alternate;
+  transform-origin:center center
+}
+@keyframes baPhotoKen{
+  0%{ transform:scale(1) translate3d(0,0,0); }
+  100%{ transform:scale(1.08) translate3d(-2%,1%,0); }
+}
+.slide-inner.title-photo .site-hero-fade{
+  position:absolute!important;top:0;bottom:0;right:min(44%,28rem);width:7rem!important;
+  background:linear-gradient(90deg,#0d1b2a 0%,rgba(13,27,42,0) 100%)!important;
+  z-index:1!important;pointer-events:none!important
+}
+.slide-inner.title-photo .phase,
+.slide-inner.title-photo .h1,
+.slide-inner.title-photo .lede{
+  position:relative;z-index:2;max-width:min(34rem,48%)
+}
+.slide-inner.title-photo .h1{
+  color:#fff!important;font-size:clamp(2.2rem,4.2vw,3rem)!important;line-height:1.05!important;margin:0!
+}
+.slide-inner.title-photo .phase{color:#5CFFB0!important;margin-bottom:.55rem}
+.slide-inner.title-photo .lede{color:rgba(232,238,245,.88)!important;margin-top:.7rem}
+.slide-inner.title-photo .footer-bar{
+  position:absolute!important;left:2.4rem;right:min(52%,32rem);bottom:1.15rem;
+  margin:0!important;padding:0!important;z-index:2;color:rgba(232,238,245,.5)!important
+}
+.slide-inner.title-photo .cad-art{display:none!important}
+@media (prefers-reduced-motion:reduce){
+  .slide-inner.title-photo .site-hero-stack img{animation:none!important}
+}
+@media print{
+  .slide-inner.title-photo .site-hero-stack img{animation:none!important}
+}
+@media (max-width:900px){
+  .slide-inner.title-photo{padding-right:1.5rem!important}
+  .slide-inner.title-photo .site-hero-stack{width:100%!important;height:42%!important;top:auto!important;opacity:.4}
+  .slide-inner.title-photo .site-hero-fade{display:none!important}
+  .slide-inner.title-photo .phase,
+  .slide-inner.title-photo .h1,
+  .slide-inner.title-photo .lede{max-width:100%}
+}
+
 /* Present mode */
 .deck-present-btn{
   position:fixed;right:18px;bottom:18px;z-index:99999;appearance:none;border:0;cursor:pointer;
@@ -396,13 +456,14 @@ body.deck-mode .slide.deck-active .slide-inner{
   </section>
 
   <!-- 02 DIVIDER -->
-  <section class="slide" id="section-reality">
-    <div class="slide-inner section-dark">
-      <img class="cad-art" src="../assets/ba-art-reality.svg?v=sense1" alt="" />
+    <section class="slide" id="section-reality">
+    <div class="slide-inner section-dark divider-slide title-photo">
+      <div class="site-hero-stack" aria-hidden="true"><img src="../images/results/Calops-breakdown.jpg?v=photo1" alt="" class="site-hero-main"/></div>
+      <div class="site-hero-fade" aria-hidden="true"></div>
       <div class="phase">01 · Reality</div>
       <div class="h1">Where we are — and what must change</div>
       <p class="lede">Real 2026 numbers first. Then the plan.</p>
-      <div class="footer-bar"><span>BRANDASTIC 2027</span><span>02</span></div>
+      <div class="footer-bar"><span>BRANDASTIC 2027</span><span>BA</span></div>
     </div>
   </section>
 
@@ -439,13 +500,14 @@ body.deck-mode .slide.deck-active .slide-inner{
   </section>
 
   <!-- 04 COMPETITORS -->
-  <section class="slide" id="section-compete">
-    <div class="slide-inner section-dark divider-slide">
-      <img class="cad-art" src="../assets/ba-art-compete.svg?v=sense1" alt="" />
+    <section class="slide" id="section-compete">
+    <div class="slide-inner section-dark divider-slide title-photo">
+      <div class="site-hero-stack" aria-hidden="true"><img src="../images/team/Post2-conference.jpg?v=photo1" alt="" class="site-hero-main"/></div>
+      <div class="site-hero-fade" aria-hidden="true"></div>
       <div class="phase">02 · Field</div>
       <div class="h1">Competitors</div>
       <p class="lede">Who we bump into — and how we win.</p>
-      <div class="footer-bar"><span>BRANDASTIC 2027</span><span></span></div>
+      <div class="footer-bar"><span>BRANDASTIC 2027</span><span>BA</span></div>
     </div>
   </section>
 
@@ -469,13 +531,14 @@ body.deck-mode .slide.deck-active .slide-inner{
   </section>
 
   <!-- 05 TARGET -->
-  <section class="slide" id="section-target">
-    <div class="slide-inner section-dark divider-slide">
-      <img class="cad-art" src="../assets/ba-art-target.svg?v=sense1" alt="" />
+    <section class="slide" id="section-target">
+    <div class="slide-inner section-dark divider-slide title-photo">
+      <div class="site-hero-stack" aria-hidden="true"><img src="../images/client-meeting.jpg?v=photo1" alt="" class="site-hero-main"/></div>
+      <div class="site-hero-fade" aria-hidden="true"></div>
       <div class="phase">03 · Who</div>
       <div class="h1">Ideal target market</div>
       <p class="lede">Who we want more of — and who we skip.</p>
-      <div class="footer-bar"><span>BRANDASTIC 2027</span><span></span></div>
+      <div class="footer-bar"><span>BRANDASTIC 2027</span><span>BA</span></div>
     </div>
   </section>
 
@@ -508,13 +571,14 @@ body.deck-mode .slide.deck-active .slide-inner{
 
 
   <!-- ICP DIVIDER -->
-  <section class="slide" id="section-icp">
-    <div class="slide-inner section-dark divider-slide">
-      <img class="cad-art" src="../assets/ba-art-icp.svg?v=sense1" alt="" />
+    <section class="slide" id="section-icp">
+    <div class="slide-inner section-dark divider-slide title-photo">
+      <div class="site-hero-stack" aria-hidden="true"><img src="../images/team/C_DSC03021_Edited.jpg?v=photo1" alt="" class="site-hero-main"/></div>
+      <div class="site-hero-fade" aria-hidden="true"></div>
       <div class="phase">Who we sell to</div>
       <div class="h1">Three ICPs</div>
       <p class="lede">Three markets. Three people. Don’t blend the copy.</p>
-      <div class="footer-bar"><span>BRANDASTIC 2027</span><span>ICP</span></div>
+      <div class="footer-bar"><span>BRANDASTIC 2027</span><span>BA</span></div>
     </div>
   </section>
 
@@ -568,13 +632,14 @@ body.deck-mode .slide.deck-active .slide-inner{
   </section>
 
   <!-- 06 GTM DIVIDER -->
-  <section class="slide" id="section-gtm">
-    <div class="slide-inner section-dark">
-      <img class="cad-art" src="../assets/ba-art-gtm.svg?v=sense1" alt="" />
+    <section class="slide" id="section-gtm">
+    <div class="slide-inner section-dark divider-slide title-photo">
+      <div class="site-hero-stack" aria-hidden="true"><img src="../images/work/highland-commercial-roofing-laptop.jpg?v=photo1" alt="" class="site-hero-main"/></div>
+      <div class="site-hero-fade" aria-hidden="true"></div>
       <div class="phase">02 · Go-to-market</div>
       <div class="h1">How demand becomes booked work</div>
       <p class="lede">Search and referrals first. Ads only after the sales system is tight.</p>
-      <div class="footer-bar"><span>BRANDASTIC 2027</span><span>06</span></div>
+      <div class="footer-bar"><span>BRANDASTIC 2027</span><span>BA</span></div>
     </div>
   </section>
 
@@ -613,6 +678,40 @@ body.deck-mode .slide.deck-active .slide-inner{
   </section>
 
   <!-- 08 SEQUENCE -->
+
+  <section class="slide" id="section-channels">
+    <div class="slide-inner section-dark divider-slide title-photo">
+      <div class="site-hero-stack" aria-hidden="true"><img src="../images/work/highland-commercial-roofing-laptop.jpg?v=photo1" alt="" class="site-hero-main"/></div>
+      <div class="site-hero-fade" aria-hidden="true"></div>
+      <div class="phase">Channels</div>
+      <div class="h1">How clients find us</div>
+      <p class="lede">The real source list from our pipeline — not a theory board.</p>
+      <div class="footer-bar"><span>BRANDASTIC 2027</span><span>CH</span></div>
+    </div>
+  </section>
+
+  <section class="slide" id="channels">
+    <div class="slide-inner">
+      <div class="kicker">06 · Client channels (locked from CRM)</div>
+      <h2 class="h2">Every source we track for new work</h2>
+      <p class="lede">These are the real channels on client records. Strategy should fund the ones that already book work first.</p>
+      <table class="table">
+        <tr><th>Channel</th><th>What it is</th><th>Job in 2027</th><th>Priority</th></tr>
+        <tr><td><strong>SEO (organic)</strong></td><td>Google / search finding brandastic.com + service pages</td><td>Primary engine — pages + guides for locked ICPs</td><td><span class="pill">Fund first</span></td></tr>
+        <tr><td><strong>Referral</strong></td><td>Client / partner intros</td><td>Formal ask after wins · quarterly reminders</td><td><span class="pill">Fund first</span></td></tr>
+        <tr><td><strong>Existing client</strong></td><td>Whitespace · expand · reopen inside accounts</td><td>Grow package size before only hunting new logos</td><td><span class="pill">Fund first</span></td></tr>
+        <tr><td><strong>Direct</strong></td><td>Typed URL, bookmark, prior relationship</td><td>Keep site conversion tight · proof easy to find</td><td>Always on</td></tr>
+        <tr><td><strong>Outbound (LinkedIn + Email)</strong></td><td>Warm reopen + soft outbound</td><td>50-name list · weekly human touches</td><td>High</td></tr>
+        <tr><td><strong>Google Ads</strong></td><td>Paid search for Brandastic or client work</td><td>Client delivery yes · Brandastic ads only after sales OS</td><td>Later for us</td></tr>
+        <tr><td><strong>Meta</strong></td><td>Facebook / Instagram paid or organic</td><td>Client campaigns · light Brandastic only if tested</td><td>Selective</td></tr>
+        <tr><td><strong>Chamber + Events</strong></td><td>Rooms, mixers, local presence</td><td>Small measured · relationships not booth vanity</td><td>Support</td></tr>
+        <tr><td><strong>OpenAI / ChatGPT</strong></td><td>AI answers / mentions / assisted discovery</td><td>Watch + earn with clear pages (AEO readiness)</td><td>Build</td></tr>
+      </table>
+      <p class="quote">Default money mix still holds: <strong>70%</strong> SEO + referrals + existing · <strong>20%</strong> one paid test when ready · <strong>10%</strong> events / relationships.</p>
+      <div class="footer-bar"><span>BRANDASTIC 2027</span><span>CHANNELS</span></div>
+    </div>
+  </section>
+
   <section class="slide" id="sequence">
     <div class="slide-inner">
       <div class="kicker">05 · Masterclass order · do not shuffle</div>
@@ -628,25 +727,6 @@ body.deck-mode .slide.deck-active .slide-inner{
       </table>
       <p class="quote">If we jump to ads or new services first, we waste money. That is the whole recommendation.</p>
       <div class="footer-bar"><span>BRANDASTIC 2027</span><span>08</span></div>
-    </div>
-  </section>
-
-  <!-- 09 CHANNELS -->
-  <section class="slide" id="channels">
-    <div class="slide-inner">
-      <div class="kicker">06 · Channel communication</div>
-      <h2 class="h2">What we say where</h2>
-      <table class="table">
-        <tr><th>Channel</th><th>Job</th><th>Core message</th><th>When</th></tr>
-        <tr><td><strong>Website / search</strong></td><td>Be found + convert</td><td>“We help [market] get more of the right customers — clear work, real proof.”</td><td>Always on · ship weekly</td></tr>
-        <tr><td><strong>Email</strong></td><td>Warm pipeline</td><td>Helpful, specific, one ask. No hype.</td><td>Weekly human outreach</td></tr>
-        <tr><td><strong>Referral asks</strong></td><td>Multiply happy clients</td><td>“Who else should we help like we helped you?”</td><td>After wins · quarterly</td></tr>
-        <tr><td><strong>LinkedIn</strong></td><td>Authority + soft outbound</td><td>Operator stories, lessons, proof</td><td>3–5 posts/week team-wide</td></tr>
-        <tr><td><strong>Client delivery</strong></td><td>Keep + expand</td><td>Results, next opportunity, clear next step</td><td>Monthly / QBR</td></tr>
-        <tr><td><strong>Paid (later)</strong></td><td>Scale known offer</td><td>One offer · one audience</td><td>Only after sales OS ready</td></tr>
-      </table>
-      <p class="note">Voice lock: plain English always. Say <strong>new clients</strong>, not “new logos.”</p>
-      <div class="footer-bar"><span>BRANDASTIC 2027</span><span>09</span></div>
     </div>
   </section>
 
@@ -862,13 +942,14 @@ Open to a 12-minute show-and-tell of what “good” looks like?</div>
   </section>
 
   <!-- 14 MEASURE -->
-  <section class="slide" id="section-measure">
-    <div class="slide-inner section-dark divider-slide">
-      <img class="cad-art" src="../assets/ba-art-measure.svg?v=sense1" alt="" />
+    <section class="slide" id="section-measure">
+    <div class="slide-inner section-dark divider-slide title-photo">
+      <div class="site-hero-stack" aria-hidden="true"><img src="../images/results/calops-phone.jpg?v=photo1" alt="" class="site-hero-main"/></div>
+      <div class="site-hero-fade" aria-hidden="true"></div>
       <div class="phase">Scoreboard</div>
       <div class="h1">How we measure</div>
       <p class="lede">Numbers the room watches every week.</p>
-      <div class="footer-bar"><span>BRANDASTIC 2027</span><span></span></div>
+      <div class="footer-bar"><span>BRANDASTIC 2027</span><span>BA</span></div>
     </div>
   </section>
 
@@ -932,13 +1013,14 @@ Open to a 12-minute show-and-tell of what “good” looks like?</div>
 
 
   <!-- CALENDAR DIVIDER -->
-  <section class="slide" id="calendar">
-    <div class="slide-inner section-dark">
-      <img class="cad-art" src="../assets/ba-art-calendar.svg?v=sense1" alt="" />
+    <section class="slide" id="calendar">
+    <div class="slide-inner section-dark divider-slide title-photo">
+      <div class="site-hero-stack" aria-hidden="true"><img src="../images/diag/ops.png?v=photo1" alt="" class="site-hero-main"/></div>
+      <div class="site-hero-fade" aria-hidden="true"></div>
       <div class="phase">90 days · weekly machine</div>
       <div class="h1">Calendar</div>
       <p class="lede">What the team runs each week — then the 90-day build week by week.</p>
-      <div class="footer-bar"><span>BRANDASTIC 2027</span><span>CAL</span></div>
+      <div class="footer-bar"><span>BRANDASTIC 2027</span><span>BA</span></div>
     </div>
   </section>
 
