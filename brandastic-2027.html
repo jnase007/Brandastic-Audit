@@ -3,671 +3,671 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Brandastic 2027</title>
+<title>Brandastic 2027 · Growth strategy</title>
 <meta name="robots" content="noindex,nofollow"/>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
 :root,html[data-theme="light"]{
-  --bg:#eef2f8;--slide:#fff;--ink:#001F40;--muted:#5a6b80;--line:rgba(0,31,64,.10);
-  --blue:#0644ed;--blue2:#3b6cf5;--navy:#001F40;--sky:#0ea5e9;--violet:#6366f1;
-  --card:#f5f8fd;--soft:#eef3fb;--hero:#001F40;--neon:#8bb8ff;
+  --bg:#eef2f8;--s:#fff;--ink:#001F40;--m:#5a6b80;--ln:rgba(0,31,64,.10);
+  --bl:#0644ed;--b2:#3b6cf5;--nv:#001F40;--sk:#0ea5e9;--vi:#6366f1;--gn:#059669;
+  --cd:#f5f8fd;--sf:#eef3fb;--th:#e7eef8;--hr:#001F40;--nn:#8bb8ff;
 }
 html[data-theme="dark"]{
-  --bg:#070f1c;--slide:#0d1829;--ink:#e8eef7;--muted:#9aabbf;--line:rgba(232,238,247,.12);
-  --blue:#4d7cff;--blue2:#6b93ff;--navy:#0a1628;--sky:#38bdf8;--violet:#818cf8;
-  --card:#132036;--soft:#15243b;--hero:#001F40;--neon:#8bb8ff;
+  --bg:#04060c;--s:#0a0f1a;--ink:#f0f4fa;--m:#8a9bb4;--ln:rgba(255,255,255,.07);
+  --bl:#4d7cff;--b2:#6b93ff;--nv:#060a14;--sk:#38bdf8;--vi:#818cf8;--gn:#34d399;
+  --cd:rgba(255,255,255,.03);--sf:rgba(255,255,255,.04);--th:rgba(255,255,255,.05);--hr:#030508;--nn:#8bb8ff;
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html,body{background:var(--bg);color:var(--ink);font-family:Inter,system-ui,sans-serif}
-.deck{max-width:1200px;margin:0 auto;padding:1rem 1rem 4rem}
-.toolbar{display:flex;flex-wrap:wrap;gap:.4rem;align-items:center;position:sticky;top:.3rem;z-index:50;
-  background:rgba(238,242,248,.92);backdrop-filter:blur(12px);padding:.45rem 0;margin-bottom:.75rem}
-html[data-theme="dark"] .toolbar{background:rgba(7,15,28,.92)}
-.btn{border:1px solid var(--line);background:var(--slide);color:var(--ink);border-radius:999px;font:700 .78rem Inter,system-ui,sans-serif;
-  padding:.5rem .85rem;cursor:pointer;text-decoration:none;display:inline-flex}
-.btn-p{background:linear-gradient(135deg,var(--blue),var(--navy));color:#fff;border:0}
-section.slide{margin:0 0 .9rem}
-.slide-inner{
-  background:var(--slide);border:1px solid var(--line);border-radius:20px;
-  padding:2rem 2.1rem 1.4rem;min-height:640px;display:flex;flex-direction:column;
-  position:relative;overflow:hidden;box-shadow:0 12px 36px rgba(0,31,64,.06)
-}
-.kicker{font-size:.72rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--blue);margin-bottom:.55rem}
-.h1{font-size:clamp(2.2rem,4.2vw,3.2rem);font-weight:800;letter-spacing:-.04em;line-height:1.05;margin:0 0 .55rem;max-width:16ch}
-.h2{font-size:clamp(1.7rem,3vw,2.35rem);font-weight:800;letter-spacing:-.03em;line-height:1.1;margin:0 0 .5rem;max-width:22ch}
-.lede{font-size:1.12rem;line-height:1.45;color:var(--muted);max-width:36rem;margin:0 0 1.1rem;font-weight:500}
-.foot{margin-top:auto;padding-top:1.1rem;display:flex;justify-content:space-between;font-size:.7rem;font-weight:700;color:var(--muted);letter-spacing:.06em}
+.deck{max-width:1240px;margin:0 auto;padding:1rem 1rem 4rem}
+.tb{display:flex;flex-wrap:wrap;gap:.4rem;align-items:center;position:sticky;top:.3rem;z-index:50;
+  background:rgba(4,6,12,.88);backdrop-filter:blur(14px);padding:.5rem 0;margin-bottom:.85rem;border-bottom:1px solid var(--ln)}
+.bt{border:1px solid var(--ln);background:var(--s);color:var(--ink);border-radius:999px;font:700 .78rem Inter,system-ui,sans-serif;
+  padding:.52rem .85rem;cursor:pointer;text-decoration:none;display:inline-flex}
+.bp{background:linear-gradient(135deg,var(--bl),#001F40);color:#fff;border:0;box-shadow:0 0 20px rgba(6,68,237,.3)}
+section.slide{margin:0 0 .95rem}
+.si{background:var(--s);border:1px solid var(--ln);border-radius:20px;padding:2.2rem 2.3rem 1.4rem;
+  min-height:680px;display:flex;flex-direction:column;position:relative;overflow:hidden;
+  box-shadow:0 24px 80px rgba(0,0,0,.45),inset 0 1px 0 rgba(255,255,255,.04)}
+.k{font:.8rem/1 Inter,system-ui,sans-serif;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--nn);margin-bottom:.55rem}
+.h1{font-size:clamp(2.2rem,4.5vw,3.4rem);font-weight:800;letter-spacing:-.04em;line-height:1.04;margin:0 0 .6rem;color:#fff;max-width:16ch;
+  text-shadow:0 0 60px rgba(6,68,237,.2)}
+.h2{font-size:clamp(1.8rem,3.2vw,2.6rem);font-weight:800;letter-spacing:-.03em;line-height:1.08;margin:0 0 .5rem;color:#fff;max-width:20ch}
+.ld{font-size:1.15rem;line-height:1.45;color:var(--m);max-width:38rem;margin:0 0 1rem;font-weight:500}
+.ft{margin-top:auto;padding-top:1rem;display:flex;justify-content:space-between;font-size:.7rem;font-weight:700;color:rgba(255,255,255,.3);letter-spacing:.06em}
+h3{font-size:1rem;font-weight:800;margin:0 0 .3rem;color:#fff}
+p,li{font-size:.9rem;line-height:1.4;color:var(--m)}
+ul{margin:.15rem 0 0 1rem}
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:.85rem;margin-top:.6rem}
+.g3{display:grid;grid-template-columns:repeat(3,1fr);gap:.75rem;margin-top:.55rem}
+.g4{display:grid;grid-template-columns:repeat(4,1fr);gap:.6rem;margin-top:.45rem}
+.g5{display:grid;grid-template-columns:repeat(5,1fr);gap:.55rem;margin-top:.45rem}
+.cd{background:var(--cd);border:1px solid var(--ln);border-radius:18px;padding:1.1rem 1.15rem}
+.cd h3{margin-bottom:.55rem}
+.qt{margin:.7rem 0 0;padding:.85rem 1.1rem;border-left:4px solid var(--bl);background:var(--sf);border-radius:0 14px 14px 0;font-size:.95rem;color:rgba(255,255,255,.88);font-weight:600}
+.pl{display:inline-block;font-size:.64rem;font-weight:800;padding:.18rem .5rem;border-radius:999px;background:rgba(77,124,255,.15);color:var(--bl);margin-bottom:.3rem}
+.tb2{width:100%;border-collapse:collapse;font-size:.82rem;margin-top:.4rem}
+.tb2 th{text-align:left;background:var(--th);padding:.55rem .6rem;font-weight:800;border-bottom:1px solid var(--ln);color:#fff}
+.tb2 td{padding:.55rem .6rem;border-bottom:1px solid var(--ln);vertical-align:top;color:var(--m)}
+.tb2 td strong{color:#fff}
 
 /* cover */
-.cover{background:var(--hero)!important;border:0!important;color:#fff;padding:2.4rem!important;padding-right:min(50%,30rem)!important;justify-content:center}
-.cover .kicker{color:var(--neon)}
-.cover .h1{color:#fff;max-width:12ch;font-size:clamp(2.4rem,4.5vw,3.4rem)}
-.cover .lede{color:rgba(255,255,255,.82)}
-.cover .foot{color:rgba(255,255,255,.45);position:absolute;left:2.4rem;right:min(50%,30rem);bottom:1.2rem;margin:0;padding:0}
-.hero{position:absolute;top:0;right:0;bottom:0;width:min(48%,32rem);overflow:hidden}
-.hero img{width:100%;height:100%;object-fit:cover;object-position:center 30%;filter:brightness(.9);animation:ken 20s ease-in-out infinite alternate}
-.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,var(--hero) 0%,rgba(0,31,64,.15) 55%,rgba(0,31,64,.35) 100%)}
-@keyframes ken{from{transform:scale(1)}to{transform:scale(1.07)}}
-.brand{position:relative;z-index:2;margin-top:1.6rem}
-.brand img{height:28px;filter:brightness(0) invert(1)}
-.brand p{margin-top:.5rem;font-size:.95rem;color:rgba(255,255,255,.75)}
-.brand p span{color:var(--neon);font-weight:700}
+.cv{background:var(--hr)!important;border:0!important;color:#fff;padding:2.6rem!important;padding-right:min(50%,30rem)!important;justify-content:center}
+.cv .ft{position:absolute;left:2.6rem;right:min(50%,30rem);bottom:1.2rem;margin:0;padding:0}
+.hr{position:absolute;top:0;right:0;bottom:0;width:min(48%,32rem);overflow:hidden}
+.hr img{width:100%;height:100%;object-fit:cover;object-position:center 30%;filter:brightness(.85) contrast(1.08);animation:kn 20s ease-in-out infinite alternate}
+@keyframes kn{from{transform:scale(1)}to{transform:scale(1.07)}}
+.hr::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,var(--hr),rgba(3,5,8,.1) 60%,rgba(3,5,8,.4))}
+.br{position:relative;z-index:2;margin-top:1.8rem}
+.br img{height:28px;filter:brightness(0) invert(1)}
+.br p{margin-top:.55rem;font-size:.95rem;color:rgba(255,255,255,.7)}
+.br p span{color:var(--nn);font-weight:700}
 
-/* big stats */
-.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;margin-top:.4rem;flex:1;align-content:center}
-.stat{padding:1.3rem 1.2rem;border-radius:18px;background:var(--card);border:1px solid var(--line);border-top:5px solid var(--blue)}
-.stat:nth-child(2){border-top-color:var(--sky)}
-.stat:nth-child(3){border-top-color:var(--blue2)}
-.stat:nth-child(4){border-top-color:var(--violet)}
-.stat .n{font-size:clamp(1.8rem,3vw,2.4rem);font-weight:800;color:var(--blue);letter-spacing:-.03em;line-height:1}
-.stat .l{margin-top:.55rem;font-size:.85rem;color:var(--muted);font-weight:600;line-height:1.3}
-.line{margin-top:1.2rem;font-size:1.15rem;font-weight:600;color:var(--ink);max-width:40rem;line-height:1.4}
+/* stat cards */
+.st{border-radius:20px;padding:1.5rem 1.3rem;background:var(--cd);border:1px solid var(--ln);border-top:5px solid var(--bl)}
+.st:nth-child(2){border-top-color:var(--sk)}.st:nth-child(3){border-top-color:var(--b2)}.st:nth-child(4){border-top-color:var(--vi)}
+.st .n{font-size:clamp(2rem,3.5vw,2.8rem);font-weight:800;color:#fff;letter-spacing:-.03em;text-shadow:0 0 40px rgba(77,124,255,.25)}
+.st .l{margin-top:.5rem;font-size:.9rem;color:var(--m);font-weight:600}
 
-/* three buyers */
-.buyers{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-top:.6rem;flex:1}
-.buyer{border-radius:18px;border:1px solid var(--line);background:var(--card);overflow:hidden;display:flex;flex-direction:column}
-.buyer .ph{height:210px;background:#0d1829;display:flex;align-items:center;justify-content:center}
-.buyer .ph img{width:100%;height:100%;object-fit:contain}
-.buyer .bd{padding:1rem 1.05rem 1.15rem;flex:1;display:flex;flex-direction:column}
-.buyer .who{font-size:.68rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--blue);margin-bottom:.35rem}
-.buyer:nth-child(2) .who{color:var(--sky)}
-.buyer:nth-child(3) .who{color:var(--violet)}
-.buyer h3{font-size:1.25rem;font-weight:800;margin:0 0 .35rem}
-.buyer .role{font-size:.82rem;color:var(--muted);font-weight:600;margin-bottom:.55rem}
-.buyer .pain{font-size:.95rem;font-weight:600;line-height:1.35;margin-bottom:.55rem}
-.buyer .help{font-size:.88rem;color:var(--muted);line-height:1.4;margin-top:auto;padding-top:.6rem;border-top:1px solid var(--line)}
-.buyer .help strong{color:var(--ink)}
+/* lever cards */
+.lv{border-radius:20px;padding:1.3rem;background:var(--cd);border:1px solid var(--ln);min-height:160px;position:relative;overflow:hidden}
+.lv .num{position:absolute;top:1rem;right:1.1rem;font-size:2.8rem;font-weight:800;color:rgba(77,124,255,.12);line-height:1}
+.lv h3{font-size:1.1rem;margin-bottom:.45rem}
+.lv p{font-size:.88rem}
+
+/* buyer cards */
+.by{border-radius:20px;background:var(--cd);border:1px solid var(--ln);overflow:hidden;display:flex;flex-direction:column}
+.by .ph{height:200px;background:#060a14;display:flex;align-items:center;justify-content:center}
+.by .ph img{width:100%;height:100%;object-fit:contain}
+.by .bd{padding:1.1rem;flex:1;display:flex;flex-direction:column}
+.by .who{font-size:.7rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--bl);margin-bottom:.3rem}
+.by:nth-child(2) .who{color:var(--sk)}.by:nth-child(3) .who{color:var(--vi)}
+.by h3{font-size:1.3rem;margin-bottom:.3rem}
+.by .rl{font-size:.84rem;color:var(--m);font-weight:600;margin-bottom:.5rem}
+.by .pn{font-size:.98rem;font-weight:600;color:#fff;margin-bottom:.5rem;line-height:1.3}
+.by .hp{font-size:.88rem;color:var(--m);margin-top:auto;padding-top:.55rem;border-top:1px solid var(--ln)}
+.by .hp strong{color:#fff}
+.by .titles{font-size:.76rem;color:var(--m);margin-top:.45rem;padding-top:.4rem;border-top:1px solid var(--ln)}
 
 /* competitor map */
-.cmap{position:relative;flex:1;min-height:420px;margin-top:.5rem;border-radius:18px;border:1px solid var(--line);
-  background:linear-gradient(180deg,#f7f9fd,#fff)}
-html[data-theme="dark"] .cmap{background:linear-gradient(180deg,#101c2e,#0d1829)}
-.cmap-grid{position:absolute;inset:28px 24px 48px 64px;background-image:
-  linear-gradient(to right,rgba(0,31,64,.07) 1px,transparent 1px),
-  linear-gradient(to bottom,rgba(0,31,64,.07) 1px,transparent 1px);background-size:25% 25%}
-.ax{position:absolute;background:rgba(0,31,64,.18)}
-.ax.x{left:64px;right:24px;bottom:48px;height:2px}
-.ax.y{left:64px;top:28px;bottom:48px;width:2px}
-.al{position:absolute;font-size:.7rem;font-weight:800;color:var(--muted);letter-spacing:.06em;text-transform:uppercase}
-.al.x{bottom:16px;left:50%;transform:translateX(-50%)}
-.al.y{left:14px;top:50%;transform:translateY(-50%) rotate(-90deg)}
-.dot{position:absolute;transform:translate(-50%,-50%);border-radius:16px;padding:.55rem .7rem;color:#fff;font-weight:800;
-  font-size:.72rem;line-height:1.15;text-align:center;min-width:96px;box-shadow:0 10px 24px rgba(0,31,64,.18)}
-.dot small{display:block;font-size:.62rem;font-weight:600;opacity:.9;margin-top:.15rem}
-.dot.us{background:linear-gradient(135deg,#0644ed,#001F40);min-width:118px;font-size:.8rem;z-index:5;
-  box-shadow:0 0 0 5px rgba(6,68,237,.22),0 14px 32px rgba(6,68,237,.35)}
-.dot.a{background:#64748b}.dot.b{background:#0ea5e9}.dot.c{background:#f59e0b}
-.dot.d{background:#8b5cf6}.dot.e{background:#ef4444}.dot.f{background:#6366f1}
+.cm{position:relative;flex:1;min-height:440px;margin-top:.45rem;border-radius:20px;border:1px solid var(--ln);
+  background:radial-gradient(ellipse at 58% 45%,rgba(6,68,237,.14),transparent 55%),linear-gradient(180deg,#0a101c,#060a10)}
+.cm-g{position:absolute;inset:28px 24px 52px 68px;background-image:
+  linear-gradient(to right,rgba(255,255,255,.04) 1px,transparent 1px),
+  linear-gradient(to bottom,rgba(255,255,255,.04) 1px,transparent 1px);background-size:25% 25%}
+.ax{position:absolute;background:rgba(255,255,255,.12)}
+.axx{left:68px;right:24px;bottom:52px;height:2px}.axy{left:68px;top:28px;bottom:52px;width:2px}
+.al{position:absolute;font-size:.72rem;font-weight:800;color:rgba(255,255,255,.35);letter-spacing:.06em;text-transform:uppercase}
+.alx{bottom:18px;left:50%;transform:translateX(-50%)}.aly{left:16px;top:50%;transform:translateY(-50%) rotate(-90deg)}
+.dt{position:absolute;transform:translate(-50%,-50%);border-radius:16px;padding:.6rem .75rem;color:#fff;font-weight:800;
+  font-size:.74rem;line-height:1.15;text-align:center;min-width:100px;box-shadow:0 12px 28px rgba(0,0,0,.35)}
+.dt small{display:block;font-size:.64rem;font-weight:600;opacity:.88;margin-top:.15rem}
+.dt.us{background:linear-gradient(135deg,#0644ed,#001F40);min-width:120px;font-size:.82rem;z-index:5;
+  box-shadow:0 0 0 6px rgba(6,68,237,.25),0 16px 36px rgba(6,68,237,.4)}
+.dt.a{background:#475569}.dt.b{background:#0ea5e9}.dt.c{background:#d97706}
+.dt.d{background:#7c3aed}.dt.e{background:#dc2626}.dt.f{background:#6366f1}
 
 /* funnel */
-.funnel{display:flex;flex-direction:column;align-items:center;gap:10px;margin:auto 0;width:100%;max-width:880px;align-self:center}
-.fs{width:100%;color:#fff;border-radius:16px;padding:1rem 1.2rem;display:grid;grid-template-columns:1.1fr 1.4fr .7fr;gap:.8rem;align-items:center;
-  box-shadow:0 12px 28px rgba(0,31,64,.16)}
+.fn{display:flex;flex-direction:column;align-items:center;gap:8px;margin:.3rem auto 0;width:100%;max-width:900px}
+.fs{width:100%;color:#fff;border-radius:16px;padding:.9rem 1.1rem;display:grid;grid-template-columns:1.1fr 1.5fr .7fr;gap:.7rem;align-items:center;
+  box-shadow:0 14px 36px rgba(0,0,0,.35),inset 0 1px 0 rgba(255,255,255,.06)}
 .fs:nth-child(1){width:100%;background:linear-gradient(135deg,#001F40,#0644ed)}
 .fs:nth-child(3){width:88%;background:linear-gradient(135deg,#0644ed,#3b6cf5)}
 .fs:nth-child(5){width:76%;background:linear-gradient(135deg,#1d4ed8,#0ea5e9)}
 .fs:nth-child(7){width:64%;background:linear-gradient(135deg,#3b6cf5,#6366f1)}
-.fs:nth-child(9){width:54%;background:linear-gradient(135deg,#001F40,#0644ed)}
-.fs .t{font-size:1.05rem;font-weight:800}
-.fs .j{font-size:.8rem;opacity:.9;margin-top:.15rem}
-.fs .ch{display:flex;flex-wrap:wrap;gap:.3rem}
-.fs .ch i{background:rgba(255,255,255,.2);border-radius:999px;padding:.18rem .5rem;font-size:.68rem;font-weight:800;font-style:normal}
-.fs .m{text-align:right;font-size:.75rem;font-weight:800}
-.fs .m b{display:block;font-size:1.15rem}
-.fa{width:0;height:0;border-left:11px solid transparent;border-right:11px solid transparent;border-top:11px solid rgba(6,68,237,.3)}
+.fs:nth-child(9){width:54%;background:linear-gradient(135deg,#001F40,#3b6cf5)}
+.fs .t{font-size:1rem;font-weight:800}.fs .j{font-size:.78rem;opacity:.9;margin-top:.12rem}
+.fs .ch{display:flex;flex-wrap:wrap;gap:.25rem}
+.fs .ch i{background:rgba(255,255,255,.18);border-radius:999px;padding:.15rem .48rem;font-size:.68rem;font-weight:800;font-style:normal}
+.fs .mt{text-align:right;font-size:.72rem;font-weight:800}.fs .mt b{display:block;font-size:1.05rem}
+.fa{width:0;height:0;border-left:10px solid transparent;border-right:10px solid transparent;border-top:10px solid rgba(77,124,255,.25)}
 
 /* gantt */
-.key{display:flex;flex-wrap:wrap;gap:.35rem;margin:.2rem 0 .7rem}
-.chip{border-radius:999px;padding:.28rem .65rem;font-size:.7rem;font-weight:800;color:#fff}
-.gantt{flex:1;display:flex;flex-direction:column;justify-content:space-evenly;min-height:360px}
-.gh{display:grid;grid-template-columns:130px repeat(12,1fr);gap:4px;margin-bottom:6px}
-.gh span{text-align:center;font-size:.68rem;font-weight:800;color:var(--muted)}
-.gr{display:grid;grid-template-columns:130px 1fr;gap:12px;align-items:center;min-height:44px}
-.gl{font-size:.88rem;font-weight:800}
-.gt{position:relative;height:34px;border-radius:10px;background:var(--soft);border:1px solid var(--line);overflow:hidden}
-.gb{position:absolute;top:4px;bottom:4px;border-radius:8px;display:flex;align-items:center;padding:0 .55rem;
-  color:#fff;font-size:.7rem;font-weight:800;white-space:nowrap}
+.ky{display:flex;flex-wrap:wrap;gap:.35rem;margin:.25rem 0 .6rem}
+.cp{border-radius:999px;padding:.25rem .6rem;font-size:.7rem;font-weight:800;color:#fff}
+.gn{flex:1;display:flex;flex-direction:column;justify-content:space-evenly;min-height:380px}
+.gh{display:grid;grid-template-columns:140px repeat(12,1fr);gap:4px;margin-bottom:6px}
+.gh span{text-align:center;font-size:.68rem;font-weight:800;color:rgba(255,255,255,.35)}
+.gr{display:grid;grid-template-columns:140px 1fr;gap:12px;align-items:center;min-height:42px}
+.gl{font-size:.85rem;font-weight:800;color:#fff}
+.gt{position:relative;height:32px;border-radius:10px;background:rgba(255,255,255,.04);border:1px solid var(--ln);overflow:hidden}
+.gb{position:absolute;top:3px;bottom:3px;border-radius:8px;display:flex;align-items:center;padding:0 .5rem;
+  color:#fff;font-size:.66rem;font-weight:800;white-space:nowrap;overflow:hidden}
 
-/* rocks */
-.rocks{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-top:.5rem;flex:1;align-content:center}
-.rock{border-radius:20px;padding:1.4rem 1.3rem;color:#fff;min-height:280px;display:flex;flex-direction:column}
-.rock:nth-child(1){background:linear-gradient(165deg,#001F40,#0644ed)}
-.rock:nth-child(2){background:linear-gradient(165deg,#0644ed,#0ea5e9)}
-.rock:nth-child(3){background:linear-gradient(165deg,#1d4ed8,#6366f1)}
-.rock .num{font-size:.75rem;font-weight:800;letter-spacing:.12em;opacity:.85;margin-bottom:.5rem}
-.rock h3{font-size:1.45rem;font-weight:800;margin:0 0 .8rem}
-.rock li{list-style:none;margin:.45rem 0;font-size:.95rem;font-weight:600;padding-left:1.1rem;position:relative;line-height:1.3}
-.rock li:before{content:"";position:absolute;left:0;top:.45rem;width:.45rem;height:.45rem;border-radius:50%;background:rgba(255,255,255,.85)}
+/* phases */
+.ph-cd{border-radius:20px;padding:1.3rem 1.2rem;color:#fff;min-height:200px;display:flex;flex-direction:column}
+.ph-cd h3{font-size:1.1rem;margin-bottom:.6rem}
+.ph-cd li{list-style:none;margin:.4rem 0;font-size:.9rem;font-weight:600;padding-left:1.1rem;position:relative;line-height:1.3;color:rgba(255,255,255,.9)}
+.ph-cd li:before{content:"";position:absolute;left:0;top:.4rem;width:.45rem;height:.45rem;border-radius:50%;background:rgba(255,255,255,.8)}
 
 /* week */
-.week{display:grid;grid-template-columns:repeat(5,1fr);gap:.7rem;margin-top:.5rem;flex:1;align-content:center}
-.day{border-radius:18px;padding:1.1rem 1rem;background:var(--card);border:1px solid var(--line);border-top:5px solid var(--blue);min-height:180px}
-.day:nth-child(2){border-top-color:var(--sky)}
-.day:nth-child(3){border-top-color:var(--violet)}
-.day:nth-child(4){border-top-color:var(--blue2)}
-.day:nth-child(5){border-top-color:#1d4ed8}
-.day b{display:block;font-size:1rem;margin-bottom:.55rem}
-.day span{display:block;font-size:.88rem;color:var(--muted);font-weight:600;line-height:1.35;margin:.3rem 0}
+.wk{display:grid;grid-template-columns:repeat(5,1fr);gap:.7rem;margin-top:.5rem;flex:1;align-content:center}
+.dy{border-radius:18px;padding:1.1rem 1rem;background:var(--cd);border:1px solid var(--ln);border-top:5px solid var(--bl);min-height:170px}
+.dy:nth-child(2){border-top-color:var(--sk)}.dy:nth-child(3){border-top-color:var(--vi)}
+.dy:nth-child(4){border-top-color:var(--b2)}.dy:nth-child(5){border-top-color:var(--gn)}
+.dy b{display:block;font-size:1.05rem;color:#fff;margin-bottom:.5rem}
+.dy span{display:block;font-size:.9rem;color:var(--m);font-weight:600;line-height:1.35;margin:.25rem 0}
 
-/* measure */
-.meas{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-top:.5rem;flex:1;align-content:center}
-.meas .card{border-radius:18px;padding:1.3rem 1.2rem;background:var(--card);border:1px solid var(--line)}
-.meas h3{font-size:1.05rem;margin-bottom:.7rem}
-.meas li{margin:.4rem 0;font-size:.95rem;font-weight:600;color:var(--muted)}
-.meas li strong{color:var(--ink)}
+/* emails */
+.em{border-radius:18px;padding:1.05rem 1.1rem;background:var(--sf);border:1px solid var(--ln);border-left:5px solid var(--bl)}
+.em:nth-child(2){border-left-color:var(--sk)}.em:nth-child(3){border-left-color:var(--vi)}.em:nth-child(4){border-left-color:var(--b2)}
+.em .lb{font-size:.68rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--bl);margin-bottom:.25rem}
+.em .sj{font-weight:800;font-size:.95rem;margin-bottom:.4rem;color:#fff}
+.em pre{white-space:pre-wrap;font-family:Inter,system-ui,sans-serif;font-size:.84rem;line-height:1.4;color:var(--m);font-weight:500}
 
-/* emails sparse */
-.emails{display:grid;grid-template-columns:1fr 1fr;gap:.85rem;margin-top:.4rem;flex:1}
-.em{border-radius:16px;padding:1rem 1.05rem;background:var(--soft);border:1px solid var(--line);border-left:5px solid var(--blue)}
-.em:nth-child(2){border-left-color:var(--sky)}
-.em:nth-child(3){border-left-color:var(--violet)}
-.em:nth-child(4){border-left-color:var(--blue2)}
-.em .lbl{font-size:.68rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--blue);margin-bottom:.25rem}
-.em .subj{font-weight:800;font-size:.9rem;margin-bottom:.4rem}
-.em pre{white-space:pre-wrap;font-family:Inter,system-ui,sans-serif;font-size:.8rem;line-height:1.4;color:var(--muted);font-weight:500}
+/* close */
+.cl{list-style:none;margin:.9rem 0 0;padding:0;position:relative;z-index:2}
+.cl li{color:rgba(255,255,255,.92);font-weight:600;margin:.38rem 0;padding-left:1.3rem;position:relative;font-size:1rem}
+.cl li:before{content:"¹3";position:absolute;left:0;color:var(--nn);font-weight:800}
+
+/* msgs */
+.ms{border-radius:14px;padding:.85rem .95rem;background:var(--sf);border:1px solid var(--ln);font-size:.82rem;line-height:1.35;color:var(--m)}
 
 @media(max-width:960px){
-  .stats,.buyers,.rocks,.week,.meas,.emails,.fs{grid-template-columns:1fr}
+  .g2,.g3,.g4,.g5,.wk,.by,.fs{grid-template-columns:1fr}
   .fs{width:100%!important}
-  .cover{padding-right:1.5rem!important}
-  .hero{width:100%;height:40%;top:auto;opacity:.35}
+  .cv{padding-right:1.5rem!important}
+  .hr{width:100%;height:38%;top:auto;opacity:.35}
   .gh{display:none}.gr{grid-template-columns:1fr}
 }
-@media(prefers-reduced-motion:reduce){.hero img{animation:none!important}}
+@media(prefers-reduced-motion:reduce){.hr img{animation:none!important}}
 
-.deck-present-btn{position:fixed;right:16px;bottom:16px;z-index:99999;border:0;border-radius:999px;cursor:pointer;
-  font:800 .82rem Inter,system-ui,sans-serif;color:#fff;padding:.7rem 1rem;background:linear-gradient(135deg,var(--blue),var(--navy));
-  box-shadow:0 10px 28px rgba(0,31,64,.28)}
-.deck-exit-btn,.deck-exit-hint,.deck-nav,.deck-counter{display:none!important}
-body.deck-mode{background:#001F40!important;overflow:hidden!important;height:100vh!important}
-body.deck-mode .deck{margin:0!important;padding:0!important;max-width:none!important;width:100%!important}
-body.deck-mode .toolbar,body.deck-mode .deck-present-btn{display:none!important}
-body.deck-mode .deck-exit-btn{display:inline-flex!important;position:fixed;top:14px;left:14px;z-index:100002;border:0;border-radius:999px;
+/* present */
+.dk-btn{position:fixed;right:16px;bottom:16px;z-index:99999;border:0;border-radius:999px;cursor:pointer;
+  font:800 .82rem Inter,system-ui,sans-serif;color:#fff;padding:.72rem 1rem;background:linear-gradient(135deg,#0644ed,#001F40);
+  box-shadow:0 0 28px rgba(6,68,237,.35)}
+.dk-x,.dk-h,.dk-n,.dk-c{display:none!important}
+body.dk{background:#030508!important;overflow:hidden!important;height:100vh!important}
+body.dk .deck{margin:0!important;padding:0!important;max-width:none!important;width:100%!important}
+body.dk .tb,body.dk .dk-btn{display:none!important}
+body.dk .dk-x{display:inline-flex!important;position:fixed;top:14px;left:14px;z-index:100002;border:0;border-radius:999px;
   background:#dc2626;color:#fff;font:800 .8rem Inter,system-ui,sans-serif;padding:.55rem .9rem;cursor:pointer}
-body.deck-mode .deck-exit-hint{display:block!important;position:fixed;left:50%;bottom:12px;transform:translateX(-50%);z-index:100001;
+body.dk .dk-h{display:block!important;position:fixed;left:50%;bottom:12px;transform:translateX(-50%);z-index:100001;
   color:#fff;font-size:.7rem;font-weight:600;background:rgba(0,0,0,.5);padding:.3rem .7rem;border-radius:999px}
-body.deck-mode .deck-counter{display:block!important;position:fixed;top:16px;right:14px;z-index:100001;color:#fff;font-size:.72rem;font-weight:700;
+body.dk .dk-c{display:block!important;position:fixed;top:16px;right:14px;z-index:100001;color:#fff;font-size:.72rem;font-weight:700;
   background:rgba(0,0,0,.45);padding:.3rem .55rem;border-radius:8px}
-body.deck-mode .deck-nav{display:block!important;position:fixed;inset:0;z-index:100000;pointer-events:none}
-body.deck-mode .deck-nav button{pointer-events:auto;position:absolute;top:50%;transform:translateY(-50%);width:44px;height:64px;border:0;border-radius:12px;
-  background:rgba(255,255,255,.15);color:#fff;font-size:1.5rem;cursor:pointer}
-body.deck-mode .deck-nav .deck-prev{left:8px}body.deck-mode .deck-nav .deck-next{right:8px}
-body.deck-mode section.slide{display:none!important;position:fixed!important;inset:0!important;margin:0!important}
-body.deck-mode section.slide.deck-active{display:flex!important;align-items:center!important;justify-content:center!important}
-body.deck-mode .slide.deck-active .slide-inner{width:min(1320px,96vw)!important;height:min(740px,calc(100vh - 36px))!important;
-  max-height:calc(100vh - 36px)!important;overflow:auto!important;border-radius:16px!important;box-shadow:0 20px 60px rgba(0,0,0,.45)!important}
+body.dk .dk-n{display:block!important;position:fixed;inset:0;z-index:100000;pointer-events:none}
+body.dk .dk-n button{pointer-events:auto;position:absolute;top:50%;transform:translateY(-50%);width:44px;height:64px;border:0;border-radius:12px;
+  background:rgba(255,255,255,.14);color:#fff;font-size:1.5rem;cursor:pointer}
+body.dk .dk-n .p{left:8px}body.dk .dk-n .nx{right:8px}
+body.dk section.slide{display:none!important;position:fixed!important;inset:0!important;margin:0!important}
+body.dk section.slide.active{display:flex!important;align-items:center!important;justify-content:center!important}
+body.dk .slide.active .si{width:min(1320px,96vw)!important;height:min(740px,calc(100vh - 36px))!important;
+  max-height:calc(100vh - 36px)!important;overflow:auto!important;border-radius:16px!important;
+  box-shadow:0 30px 90px rgba(0,0,0,.6),0 0 0 1px rgba(255,255,255,.05)!important}
 @media print{
-  .toolbar,.deck-present-btn,.deck-exit-btn,.deck-exit-hint,.deck-nav,.deck-counter{display:none!important}
-  section.slide{break-after:page}
-  .slide-inner{box-shadow:none;border-radius:0;min-height:0}
-  .hero img{animation:none!important}
+  .tb,.dk-btn,.dk-x,.dk-h,.dk-n,.dk-c{display:none!important}
+  section.slide{break-after:page}.si{box-shadow:none;border-radius:0;min-height:0}
+  .hr img{animation:none!important}
   @page{size:landscape;margin:.35in}
   html,body{-webkit-print-color-adjust:exact;print-color-adjust:exact}
 }
-
-/* Lunar-style cinematic deck (Brandastic blue, not green) */
-html[data-theme="dark"], html[data-theme="dark"] body{
-  background:#05070c!important; color:#f2f5fa!important;
-}
-html[data-theme="dark"] .deck{max-width:1240px}
-html[data-theme="dark"] .toolbar{
-  background:rgba(5,7,12,.88)!important; border-bottom:1px solid rgba(255,255,255,.06);
-  margin:0 0 1rem; padding:.55rem 0;
-}
-html[data-theme="dark"] .btn{
-  background:#0d121c; color:#e8eef7; border-color:rgba(255,255,255,.1);
-}
-html[data-theme="dark"] .btn-p{
-  background:linear-gradient(135deg,#0644ed,#001F40); color:#fff; border:0;
-  box-shadow:0 0 24px rgba(6,68,237,.35);
-}
-html[data-theme="dark"] .slide-inner{
-  background:linear-gradient(180deg,#0a0f18 0%, #070b12 100%)!important;
-  border:1px solid rgba(255,255,255,.08)!important;
-  box-shadow:0 24px 80px rgba(0,0,0,.55), inset 0 1px 0 rgba(255,255,255,.04)!important;
-  min-height:680px!important; padding:2.35rem 2.4rem 1.5rem!important;
-}
-html[data-theme="dark"] .kicker{
-  color:#7eb6ff!important; font-size:.78rem!important; letter-spacing:.18em!important;
-}
-html[data-theme="dark"] .h1, html[data-theme="dark"] .h2{
-  color:#fff!important; text-wrap:balance;
-}
-html[data-theme="dark"] .h2{font-size:clamp(1.9rem,3.4vw,2.7rem)!important; max-width:18ch!important}
-html[data-theme="dark"] .lede{
-  color:rgba(226,232,240,.72)!important; font-size:1.18rem!important; max-width:34rem!important;
-}
-html[data-theme="dark"] .foot{color:rgba(255,255,255,.35)!important}
-html[data-theme="dark"] .stat{
-  background:rgba(255,255,255,.03)!important; border:1px solid rgba(255,255,255,.08)!important;
-  border-top-width:5px!important; border-radius:20px!important; padding:1.5rem 1.3rem!important;
-}
-html[data-theme="dark"] .stat .n{
-  color:#fff!important; font-size:clamp(2rem,3.4vw,2.7rem)!important;
-  text-shadow:0 0 40px rgba(6,68,237,.35);
-}
-html[data-theme="dark"] .stat .l{color:rgba(226,232,240,.6)!important; font-size:.9rem!important}
-html[data-theme="dark"] .line{
-  color:rgba(242,245,250,.88)!important; font-size:1.2rem!important; font-weight:600!important;
-  max-width:42rem!important;
-}
-html[data-theme="dark"] .buyer{
-  background:rgba(255,255,255,.03)!important; border:1px solid rgba(255,255,255,.08)!important;
-  border-radius:20px!important;
-}
-html[data-theme="dark"] .buyer h3{color:#fff!important; font-size:1.4rem!important}
-html[data-theme="dark"] .buyer .role, html[data-theme="dark"] .buyer .help{color:rgba(226,232,240,.62)!important}
-html[data-theme="dark"] .buyer .pain{color:#fff!important; font-size:1.02rem!important}
-html[data-theme="dark"] .buyer .help{border-top-color:rgba(255,255,255,.08)!important}
-html[data-theme="dark"] .cmap{
-  background:
-    radial-gradient(ellipse at 60% 45%, rgba(6,68,237,.18), transparent 55%),
-    linear-gradient(180deg,#0a101c,#06090f)!important;
-  border:1px solid rgba(255,255,255,.08)!important;
-}
-html[data-theme="dark"] .cmap-grid{
-  background-image:
-    linear-gradient(to right, rgba(255,255,255,.05) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(255,255,255,.05) 1px, transparent 1px)!important;
-}
-html[data-theme="dark"] .ax{background:rgba(255,255,255,.14)!important}
-html[data-theme="dark"] .al{color:rgba(255,255,255,.4)!important}
-html[data-theme="dark"] .dot.us{
-  box-shadow:0 0 0 6px rgba(6,68,237,.28), 0 0 48px rgba(6,68,237,.45)!important;
-}
-html[data-theme="dark"] .fs{
-  box-shadow:0 16px 40px rgba(0,0,0,.4), 0 0 0 1px rgba(255,255,255,.06) inset!important;
-}
-html[data-theme="dark"] .gt{
-  background:rgba(255,255,255,.04)!important; border-color:rgba(255,255,255,.08)!important;
-}
-html[data-theme="dark"] .gl{color:#fff!important}
-html[data-theme="dark"] .gh span{color:rgba(255,255,255,.4)!important}
-html[data-theme="dark"] .day{
-  background:rgba(255,255,255,.03)!important; border-color:rgba(255,255,255,.08)!important;
-  border-top-width:5px!important;
-}
-html[data-theme="dark"] .day b{color:#fff!important; font-size:1.1rem!important}
-html[data-theme="dark"] .day span{color:rgba(226,232,240,.65)!important; font-size:.92rem!important}
-html[data-theme="dark"] .meas .card{
-  background:rgba(255,255,255,.03)!important; border:1px solid rgba(255,255,255,.08)!important;
-  border-radius:20px!important; padding:1.5rem!important;
-}
-html[data-theme="dark"] .meas h3{color:#fff!important; font-size:1.15rem!important}
-html[data-theme="dark"] .meas li{color:rgba(226,232,240,.65)!important; font-size:1rem!important}
-html[data-theme="dark"] .meas li strong{color:#fff!important}
-html[data-theme="dark"] .em{
-  background:rgba(255,255,255,.03)!important; border:1px solid rgba(255,255,255,.08)!important;
-  border-left-width:5px!important; border-radius:18px!important;
-}
-html[data-theme="dark"] .em .subj{color:#fff!important; font-size:1rem!important}
-html[data-theme="dark"] .em pre{color:rgba(226,232,240,.7)!important; font-size:.86rem!important}
-html[data-theme="dark"] .cover{
-  background:#03050a!important;
-}
-html[data-theme="dark"] .cover .h1{
-  font-size:clamp(2.6rem,5vw,3.8rem)!important;
-  text-shadow:0 0 60px rgba(6,68,237,.25);
-}
-html[data-theme="dark"] .deck-present-btn{
-  background:linear-gradient(135deg,#0644ed,#001F40)!important;
-  box-shadow:0 0 28px rgba(6,68,237,.4)!important;
-}
-body.deck-mode{background:#03050a!important}
-body.deck-mode .slide.deck-active .slide-inner{
-  box-shadow:0 30px 90px rgba(0,0,0,.7), 0 0 0 1px rgba(255,255,255,.06)!important;
-}
-/* contract-card style detail callouts */
-.contract{
-  margin-top:1rem; border:1px solid rgba(255,255,255,.1); border-radius:16px;
-  background:rgba(6,68,237,.08); padding:1rem 1.15rem; display:grid; grid-template-columns:repeat(3,1fr); gap:.8rem;
-}
-.contract div{font-size:.82rem; color:rgba(226,232,240,.7); line-height:1.35}
-.contract strong{display:block; color:#fff; font-size:.78rem; letter-spacing:.08em; text-transform:uppercase; margin-bottom:.25rem}
-@media(max-width:900px){.contract{grid-template-columns:1fr}}
-
 </style>
 </head>
 <body>
 <div class="deck">
-  <div class="toolbar">
-    <button class="btn btn-p" type="button" onclick="window.print()">Print / PDF</button>
-    <button class="btn" type="button" onclick="baSetTheme('light')">Light</button>
-    <button class="btn" type="button" onclick="baSetTheme('dark')">Dark</button>
-    <button class="btn btn-p" type="button" onclick="document.getElementById('deckPresentBtn').click()">▸ Present</button>
+  <div class="tb">
+    <button class="bt bp" type="button" onclick="window.print()">Print / PDF</button>
+    <button class="bt" type="button" onclick="T('light')">Light</button>
+    <button class="bt" type="button" onclick="T('dark')">Dark</button>
+    <button class="bt bp" type="button" onclick="document.getElementById('db').click()">&#9658; Present</button>
   </div>
 
   <!-- 1 COVER -->
-  <section class="slide" id="title">
-    <div class="slide-inner cover">
-      <div class="hero" aria-hidden="true"><img src="assets/ba-office-2027/office-4.jpg" alt=""/></div>
-      <div class="kicker">Brandastic · 2027</div>
+  <section class="slide" id="cover">
+    <div class="si cv">
+      <div class="hr" aria-hidden="true"><img src="assets/ba-office-2027/office-4.jpg" alt=""/></div>
+      <div class="k">Brandastic &middot; 2027 growth strategy</div>
       <div class="h1">Win more of the right clients</div>
-      <p class="lede">Who we sell. How demand becomes revenue. What the team runs every week.</p>
-      <div class="brand">
+      <p class="ld">Who we sell to. How we get work. What we say. The math that makes it real.</p>
+      <div class="br">
         <img src="assets/brandastic-logo-white.png" alt="Brandastic"/>
         <p>Focused. Growth. = <span>Progress.</span></p>
       </div>
-      <div class="foot"><span>BRANDASTIC</span><span>CONFIDENTIAL</span></div>
+      <div class="ft"><span>BRANDASTIC &middot; CONFIDENTIAL</span><span>brandastic.com</span></div>
     </div>
   </section>
 
-  <!-- 2 SCOREBOARD -->
-  <section class="slide" id="score">
-    <div class="slide-inner">
-      <div class="kicker">01 · Reality</div>
-      <h2 class="h2">The only numbers that matter</h2>
-      <div class="stats">
-        <div class="stat"><div class="n">$1.67M</div><div class="l">2025 full-year sales</div></div>
-        <div class="stat"><div class="n">~$2.12M</div><div class="l">2026 pace</div></div>
-        <div class="stat"><div class="n">$2.5M</div><div class="l">2026 goal</div></div>
-        <div class="stat"><div class="n">$160K</div><div class="l">Monthly recurring target</div></div>
+  <!-- 2 HONEST DIAGNOSIS -->
+  <section class="slide" id="diagnosis">
+    <div class="si">
+      <div class="k">01 &middot; Honest diagnosis</div>
+      <h2 class="h2">What works. What doesn&rsquo;t.</h2>
+      <div class="g2">
+        <div class="cd" style="border-top:5px solid var(--gn)">
+          <h3 style="color:var(--gn)">Working</h3>
+          <ul>
+            <li>Search + referral engine creates most new clients</li>
+            <li>Deep delivery &mdash; paid, SEO, web, creative under one roof</li>
+            <li>Flagship proof (CalOPS-scale education work)</li>
+            <li>$1.67M &rarr; ~$2.12M year-over-year growth is real</li>
+            <li>AI-assisted drafting speeds content without adding headcount</li>
+          </ul>
+        </div>
+        <div class="cd" style="border-top:5px solid #dc2626">
+          <h3 style="color:#f87171">Broken</h3>
+          <ul>
+            <li><strong style="color:#fff">78 of 93 leads went nowhere</strong> &mdash; we don&rsquo;t know why</li>
+            <li>Churn rate is invisible &mdash; no monthly number on the board</li>
+            <li>Channel attribution missing &mdash; can&rsquo;t fund what we can&rsquo;t measure</li>
+            <li>ICP still too wide day-to-day &mdash; saying yes to everyone</li>
+            <li>Follow-up gaps &mdash; leads go cold because nobody owns the next step</li>
+            <li>Package pricing uneven &mdash; $5.5&ndash;7K avg is too wide a range</li>
+          </ul>
+        </div>
       </div>
-      <p class="line">Search and referrals still create most new clients. We fund that first. Brandastic ads come after the system is tight.</p>
-      <div class="foot"><span>BRANDASTIC 2027</span><span>02</span></div>
+      <p class="qt">This strategy exists because growth is real but the system under it is fragile. Fix the system and the growth accelerates. Ignore it and we plateau.</p>
+      <div class="ft"><span>BRANDASTIC 2027</span><span>02</span></div>
     </div>
   </section>
 
-  <!-- 3 MARKET -->
-  <section class="slide" id="market">
-    <div class="slide-inner">
-      <div class="kicker">02 · Where we play</div>
-      <h2 class="h2">Three buyers. No scatter.</h2>
-      <div class="buyers">
-        <div class="buyer">
+  <!-- 3 THE MATH -->
+  <section class="slide" id="math">
+    <div class="si">
+      <div class="k">02 &middot; The math</div>
+      <h2 class="h2">How ~$2.12M becomes $2.5M becomes $3.5M</h2>
+      <div class="g4" style="margin-top:.55rem">
+        <div class="st"><div class="n">$1.67M</div><div class="l">2025 full-year sales</div></div>
+        <div class="st"><div class="n">~$2.12M</div><div class="l">2026 pace (Jan&ndash;Sep)</div></div>
+        <div class="st"><div class="n">$2.5M</div><div class="l">2026 goal</div></div>
+        <div class="st"><div class="n">$3.5M</div><div class="l">2030 &middot; 65 retainers</div></div>
+      </div>
+      <div class="g2" style="margin-top:1rem">
+        <div class="cd">
+          <h3>The gap</h3>
+          <ul>
+            <li><strong style="color:#fff">$380K</strong> between pace and 2026 goal</li>
+            <li>$120K/mo recurring vs $160K target = <strong style="color:#fff">$40K/mo gap</strong></li>
+            <li>At $6K avg package, that&rsquo;s <strong style="color:#fff">~6 net new clients</strong></li>
+            <li>Or grow existing packages &mdash; 3&ndash;5x cheaper than finding new</li>
+          </ul>
+        </div>
+        <div class="cd">
+          <h3>The path to $3.5M (2030)</h3>
+          <ul>
+            <li>CAGR needed: <strong style="color:#fff">~13%/year</strong> over 4 years</li>
+            <li>That&rsquo;s ~$275K additional revenue per year</li>
+            <li>Less than 1 net new client/month if we retain well</li>
+            <li>If churn eats 3&ndash;4 clients/year, we need 7&ndash;8 gross new</li>
+            <li><strong style="color:#fff">Retention is the hidden variable</strong></li>
+          </ul>
+        </div>
+      </div>
+      <p class="qt"><strong>93 leads, 15 contracts &mdash; 16% close rate.</strong> If we move that to 22%, same leads = 5 more contracts. That alone closes the gap. Volume is not the first problem. Conversion is.</p>
+      <div class="ft"><span>BRANDASTIC 2027</span><span>03</span></div>
+    </div>
+  </section>
+
+  <!-- 4 FIVE LEVERS -->
+  <section class="slide" id="levers">
+    <div class="si">
+      <div class="k">03 &middot; Five levers in order</div>
+      <h2 class="h2">Cheapest growth first</h2>
+      <p class="ld">Most agencies jump to &ldquo;more leads.&rdquo; That&rsquo;s lever five. We start at one.</p>
+      <div class="g5" style="flex:1;align-content:center">
+        <div class="lv" style="border-top:5px solid var(--gn)"><div class="num">01</div><h3>Retain</h3><p>Every client saved = one less to find. Name churn monthly. Fix gaps before they leave.</p></div>
+        <div class="lv" style="border-top:5px solid var(--sk)"><div class="num">02</div><h3>Grow existing</h3><p>Whitespace is 3&ndash;5x cheaper than new. Top 15 sheet. QBR. Expand after winning.</p></div>
+        <div class="lv" style="border-top:5px solid var(--bl)"><div class="num">03</div><h3>Close better</h3><p>16% &rarr; 22% close rate = 5 more wins, same leads. Fix follow-up + one-pagers.</p></div>
+        <div class="lv" style="border-top:5px solid var(--vi)"><div class="num">04</div><h3>Better leads</h3><p>ICP-focused leads close higher. Lock 2&ndash;3 markets. Say no to scatter.</p></div>
+        <div class="lv" style="border-top:5px solid var(--b2)"><div class="num">05</div><h3>More volume</h3><p>Only after 1&ndash;4 are working. SEO compounds. Paid comes last.</p></div>
+      </div>
+      <div class="ft"><span>BRANDASTIC 2027</span><span>04</span></div>
+    </div>
+  </section>
+
+  <!-- 5 THREE BUYERS -->
+  <section class="slide" id="buyers">
+    <div class="si">
+      <div class="k">04 &middot; Three buyers</div>
+      <h2 class="h2">Titles. Pains. How we help.</h2>
+      <div class="g3" style="flex:1">
+        <div class="by">
           <div class="ph"><img src="assets/brandastic-personas/icp-dental-owner.jpg" alt=""/></div>
           <div class="bd">
             <div class="who">Primary</div>
-            <h3>Dana</h3>
-            <div class="role">Owner / GM · Dental & medical suppliers</div>
-            <div class="pain">“Dealers can’t find what we sell.”</div>
-            <div class="help"><strong>We help:</strong> clear offer pages + search that creates demand</div>
+            <h3>Dana &middot; 44</h3>
+            <div class="rl">Owner / GM &middot; Dental &amp; medical suppliers</div>
+            <div class="pn">&ldquo;Dealers can&rsquo;t find what we sell.&rdquo;</div>
+            <div class="hp"><strong>We help:</strong> clear offer pages + search that books dealer demand + monthly plan with tracking</div>
+            <div class="titles"><strong>Titles:</strong> Owner, Founder, GM, VP Sales, Marketing Manager at labs &amp; specialty suppliers</div>
           </div>
         </div>
-        <div class="buyer">
+        <div class="by">
           <div class="ph"><img src="assets/brandastic-personas/icp-education-leader.jpg" alt=""/></div>
           <div class="bd">
             <div class="who">Secondary</div>
-            <h3>Maya</h3>
-            <div class="role">Enrollment lead · Online public schools</div>
-            <div class="pain">“If families can’t find us, enrollment fails.”</div>
-            <div class="help"><strong>We help:</strong> search + paid + site aimed at inquiries</div>
+            <h3>Maya &middot; 41</h3>
+            <div class="rl">Enrollment lead &middot; Online public schools</div>
+            <div class="pn">&ldquo;If families can&rsquo;t find us, enrollment fails.&rdquo;</div>
+            <div class="hp"><strong>We help:</strong> search + paid + site trust aimed at enrollment conversations</div>
+            <div class="titles"><strong>Titles:</strong> Director of Enrollment, Marketing Director, Head of School, Growth lead</div>
           </div>
         </div>
-        <div class="buyer">
+        <div class="by">
           <div class="ph"><img src="assets/brandastic-personas/icp-mfg-owner.jpg" alt=""/></div>
           <div class="bd">
             <div class="who">Tertiary</div>
-            <h3>Sam</h3>
-            <div class="role">Owner · SoCal manufacturers</div>
-            <div class="pain">“Buyers need to see the shop and ask for a quote.”</div>
-            <div class="help"><strong>We help:</strong> get found + simple quote path</div>
+            <h3>Sam &middot; 51</h3>
+            <div class="rl">Owner &middot; SoCal manufacturer</div>
+            <div class="pn">&ldquo;Buyers need to see the shop and ask for a quote.&rdquo;</div>
+            <div class="hp"><strong>We help:</strong> get-found package + capability + quote path above the fold</div>
+            <div class="titles"><strong>Titles:</strong> Owner, President, Ops lead who owns the website (not primes)</div>
           </div>
         </div>
       </div>
-      <div class="foot"><span>BRANDASTIC 2027</span><span>03</span></div>
+      <div class="ft"><span>BRANDASTIC 2027</span><span>05</span></div>
     </div>
   </section>
 
-  <!-- 4 COMPETE -->
+  <!-- 6 COMPETITOR MAP -->
   <section class="slide" id="compete">
-    <div class="slide-inner">
-      <div class="kicker">03 · How we win</div>
+    <div class="si">
+      <div class="k">05 &middot; Where we win</div>
       <h2 class="h2">Positioning map</h2>
-      <p class="lede">Price up. Full-service right. Brandastic sits where clients get speed, stack, and care — without enterprise bloat.</p>
-      <div class="cmap">
-        <div class="cmap-grid"></div>
-        <div class="ax x"></div><div class="ax y"></div>
-        <div class="al x">Thinner service → Full stack</div>
-        <div class="al y">Higher price →</div>
-        <div class="dot a" style="left:24%;top:74%">Freelance<small>Cheap · thin</small></div>
-        <div class="dot c" style="left:32%;top:50%">DIY / AI tools<small>Software only</small></div>
-        <div class="dot b" style="left:48%;top:60%">Boutique<small>One channel</small></div>
-        <div class="dot f" style="left:63%;top:42%">In-house<small>One person</small></div>
-        <div class="dot d" style="left:80%;top:28%">Big national<small>Slow · expensive</small></div>
-        <div class="dot e" style="left:72%;top:16%">Demand-gen giants<small>High spend</small></div>
-        <div class="dot us" style="left:58%;top:46%">BRANDASTIC<small>Full stack · mid · fast</small></div>
+      <p class="ld">Price up. Full-service right. We sit where clients get speed, stack, and care &mdash; without enterprise bloat or freelance risk.</p>
+      <div class="cm">
+        <div class="cm-g"></div>
+        <div class="ax axy"></div><div class="ax axx"></div>
+        <div class="al alx">Thinner service &rarr; Full stack</div>
+        <div class="al aly">Higher price &rarr;</div>
+        <div class="dt a" style="left:22%;top:74%">Freelance<small>Cheap &middot; thin</small></div>
+        <div class="dt c" style="left:30%;top:50%">DIY / AI tools<small>Software only</small></div>
+        <div class="dt b" style="left:48%;top:60%">Boutique<small>One channel</small></div>
+        <div class="dt f" style="left:64%;top:40%">In-house<small>One person</small></div>
+        <div class="dt d" style="left:80%;top:26%">Big national<small>Slow &middot; expensive</small></div>
+        <div class="dt e" style="left:72%;top:16%">Demand-gen giants<small>High spend B2B</small></div>
+        <div class="dt us" style="left:58%;top:46%">BRANDASTIC<small>Full stack &middot; mid &middot; fast</small></div>
       </div>
-      <div class="foot"><span>BRANDASTIC 2027</span><span>04</span></div>
+      <div class="ft"><span>BRANDASTIC 2027</span><span>06</span></div>
     </div>
   </section>
 
-  <!-- 5 FUNNEL -->
-  <section class="slide" id="funnel">
-    <div class="slide-inner">
-      <div class="kicker">04 · The system</div>
-      <h2 class="h2">Awareness → revenue</h2>
-      <div class="funnel">
-        <div class="fs"><div><div class="t">Awareness</div><div class="j">Be findable</div></div><div class="ch"><i>SEO</i><i>LinkedIn</i><i>Events</i></div><div class="m"><b>Seen</b></div></div>
+  <!-- 7 THE SYSTEM (FUNNEL) -->
+  <section class="slide" id="system">
+    <div class="si">
+      <div class="k">06 &middot; The system</div>
+      <h2 class="h2">Awareness &rarr; revenue &rarr; expand</h2>
+      <div class="fn">
+        <div class="fs"><div><div class="t">Awareness</div><div class="j">Be findable in locked markets</div></div><div class="ch"><i>SEO</i><i>LinkedIn</i><i>Events</i></div><div class="mt"><b>Seen</b>impressions &middot; reach</div></div>
         <div class="fa"></div>
-        <div class="fs"><div><div class="t">Interest</div><div class="j">Offer clear in 10 seconds</div></div><div class="ch"><i>Site</i><i>Pages</i><i>Proof</i></div><div class="m"><b>Engaged</b></div></div>
+        <div class="fs"><div><div class="t">Interest</div><div class="j">Offer clear in 10 seconds</div></div><div class="ch"><i>Site</i><i>Pages</i><i>Proof</i></div><div class="mt"><b>Engaged</b>page views &middot; time</div></div>
         <div class="fa"></div>
-        <div class="fs"><div><div class="t">Conversation</div><div class="j">Human outreach</div></div><div class="ch"><i>Email</i><i>Outbound</i><i>Referral</i></div><div class="m"><b>Meetings</b></div></div>
+        <div class="fs"><div><div class="t">Conversation</div><div class="j">Human touch &mdash; not spam</div></div><div class="ch"><i>Email</i><i>Outbound</i><i>Referral</i></div><div class="mt"><b>Meetings</b>replies &middot; show rate</div></div>
         <div class="fa"></div>
-        <div class="fs"><div><div class="t">Close</div><div class="j">One-pager → proposal</div></div><div class="ch"><i>Sales board</i><i>Win/loss</i></div><div class="m"><b>Won</b></div></div>
+        <div class="fs"><div><div class="t">Close</div><div class="j">One-pager &rarr; proposal &rarr; deal</div></div><div class="ch"><i>Sales board</i><i>Win/loss</i></div><div class="mt"><b>Won</b>close rate &middot; size</div></div>
         <div class="fa"></div>
-        <div class="fs"><div><div class="t">Expand</div><div class="j">Grow + intros</div></div><div class="ch"><i>Existing</i><i>Referral</i></div><div class="m"><b>Net growth</b></div></div>
+        <div class="fs"><div><div class="t">Expand + refer</div><div class="j">Grow accounts &middot; ask for intros</div></div><div class="ch"><i>Existing</i><i>Referral</i><i>QBR</i></div><div class="mt"><b>Net growth</b>bookings &minus; churn</div></div>
       </div>
-      <div class="foot"><span>BRANDASTIC 2027</span><span>05</span></div>
+      <p class="qt">If close rate is weak, do not buy more awareness. Fix the middle first. If churn is eating growth, fix retention before hunting new clients.</p>
+      <div class="ft"><span>BRANDASTIC 2027</span><span>07</span></div>
     </div>
   </section>
 
-  <!-- 6 TIMELINE -->
+  <!-- 8 CLOSE RATE PROBLEM -->
+  <section class="slide" id="closerate">
+    <div class="si">
+      <div class="k">07 &middot; The close rate problem</div>
+      <h2 class="h2">78 leads went nowhere</h2>
+      <p class="ld">93 leads. 15 contracts. 78 lost. We do not systematically know why &mdash; and that is the single biggest strategy gap.</p>
+      <div class="g3">
+        <div class="cd">
+          <h3>What to audit this month</h3>
+          <ul>
+            <li>Categorize every lost lead: wrong ICP, budget, timing, ghosted, lost to competitor, slow follow-up</li>
+            <li>Tag which channel each came from</li>
+            <li>How many got a proposal vs just a call?</li>
+            <li>How many had same-day follow-up?</li>
+          </ul>
+        </div>
+        <div class="cd">
+          <h3>What we expect to find</h3>
+          <ul>
+            <li>30&ndash;40% were wrong ICP (reason to lock markets)</li>
+            <li>15&ndash;20% ghosted after slow follow-up (process fix)</li>
+            <li>10&ndash;15% lost on price (package architecture fix)</li>
+            <li>The rest: timing, budget, competitor &mdash; real losses</li>
+          </ul>
+        </div>
+        <div class="cd">
+          <h3>What 22% close rate means</h3>
+          <ul>
+            <li>Same 93 leads &rarr; <strong style="color:#fff">20 contracts</strong> instead of 15</li>
+            <li>5 more at $6K/mo = <strong style="color:#fff">$360K/year</strong></li>
+            <li>That nearly closes the $380K gap alone</li>
+            <li>No extra ad spend. No extra leads. Just discipline.</li>
+          </ul>
+        </div>
+      </div>
+      <p class="qt"><strong>Rule:</strong> every lost deal gets a one-sentence reason within 48 hours. No exceptions. If we can&rsquo;t name why we lose, we can&rsquo;t fix it.</p>
+      <div class="ft"><span>BRANDASTIC 2027</span><span>08</span></div>
+    </div>
+  </section>
+
+  <!-- 9 FIVE PHASES -->
+  <section class="slide" id="phases">
+    <div class="si">
+      <div class="k">08 &middot; Five phases in order</div>
+      <h2 class="h2">Structure over speed</h2>
+      <div class="g5" style="flex:1;align-content:center">
+        <div class="ph-cd" style="background:linear-gradient(165deg,#001F40,#0644ed)">
+          <h3>Phase 0<br>Stop bleeding</h3>
+          <ul><li>Name every lost client + why</li><li>Calculate real churn rate</li><li>Audit 78 lost leads</li><li>Channel attribution on 15 wins</li></ul>
+        </div>
+        <div class="ph-cd" style="background:linear-gradient(165deg,#0644ed,#0ea5e9)">
+          <h3>Phase 1<br>Protect &amp; grow</h3>
+          <ul><li>Whitespace top 15</li><li>QBR with $5K+ clients</li><li>Fix flagged service gaps</li><li>Target $5K+/mo recurring lift from existing</li></ul>
+        </div>
+        <div class="ph-cd" style="background:linear-gradient(165deg,#1d4ed8,#3b6cf5)">
+          <h3>Phase 2<br>Fix close rate</h3>
+          <ul><li>One-pager per ICP</li><li>Same-day follow-up rule</li><li>Pipeline board: next step + date</li><li>16% &rarr; 22%</li></ul>
+        </div>
+        <div class="ph-cd" style="background:linear-gradient(165deg,#3b6cf5,#6366f1)">
+          <h3>Phase 3<br>Focus top</h3>
+          <ul><li>Lock 2&ndash;3 ICPs</li><li>1 case + 1 page per ICP</li><li>Referral system</li><li>SEO weekly ship</li></ul>
+        </div>
+        <div class="ph-cd" style="background:linear-gradient(165deg,#6366f1,#7c3aed)">
+          <h3>Phase 4<br>Rhythm + test</h3>
+          <ul><li>Mon&ndash;Fri machine</li><li>One paid test (one offer, one audience)</li><li>Kill fast if ugly</li><li>Never pause organic spine</li></ul>
+        </div>
+      </div>
+      <div class="ft"><span>BRANDASTIC 2027</span><span>09</span></div>
+    </div>
+  </section>
+
+  <!-- 10 CHANNEL TIMELINE -->
   <section class="slide" id="timeline">
-    <div class="slide-inner">
-      <div class="kicker">05 · Channel plan</div>
-      <h2 class="h2">What runs when</h2>
-      <div class="key">
-        <span class="chip" style="background:#6366f1">SEO</span>
-        <span class="chip" style="background:#0ea5e9">Outbound</span>
-        <span class="chip" style="background:#0644ed">Referral</span>
-        <span class="chip" style="background:#1d4ed8">Existing</span>
-        <span class="chip" style="background:#3b6cf5">Sales board</span>
-        <span class="chip" style="background:#ef4444">Paid later</span>
-        <span class="chip" style="background:#f59e0b">Events</span>
+    <div class="si" style="min-height:640px">
+      <div class="k">09 &middot; Channel plan</div>
+      <h2 class="h2">Same colors &middot; whole year</h2>
+      <div class="ky">
+        <span class="cp" style="background:#6366f1">SEO</span>
+        <span class="cp" style="background:#0ea5e9">Outbound</span>
+        <span class="cp" style="background:#0644ed">Referral</span>
+        <span class="cp" style="background:#1d4ed8">Existing</span>
+        <span class="cp" style="background:#3b6cf5">Sales board</span>
+        <span class="cp" style="background:#dc2626">Paid later</span>
+        <span class="cp" style="background:#d97706">Events</span>
       </div>
       <div class="gh"><span></span><span>N</span><span>D</span><span>J</span><span>F</span><span>M</span><span>A</span><span>M</span><span>J</span><span>J</span><span>A</span><span>S</span><span>O</span></div>
-      <div class="gantt">
-        <div class="gr"><div class="gl">SEO</div><div class="gt"><div class="gb" style="left:0;width:100%;background:#6366f1">Always on</div></div></div>
+      <div class="gn">
+        <div class="gr"><div class="gl">SEO</div><div class="gt"><div class="gb" style="left:0;width:100%;background:#6366f1">Always on &middot; pages + proof</div></div></div>
         <div class="gr"><div class="gl">Outbound</div><div class="gt"><div class="gb" style="left:0;width:100%;background:#0ea5e9">Weekly warm list</div></div></div>
         <div class="gr"><div class="gl">Referral</div><div class="gt"><div class="gb" style="left:8%;width:92%;background:#0644ed">After every win</div></div></div>
         <div class="gr"><div class="gl">Existing</div><div class="gt"><div class="gb" style="left:8%;width:92%;background:#1d4ed8">Grow packages</div></div></div>
-        <div class="gr"><div class="gl">Sales board</div><div class="gt"><div class="gb" style="left:0;width:100%;background:#3b6cf5">Thursday 20 min</div></div></div>
-        <div class="gr"><div class="gl">Paid (us)</div><div class="gt">
-          <div class="gb" style="left:0;width:55%;background:#ef4444;opacity:.35">Not yet</div>
-          <div class="gb" style="left:55%;width:45%;background:#ef4444">Only if ready</div></div></div>
-        <div class="gr"><div class="gl">Events</div><div class="gt">
-          <div class="gb" style="left:10%;width:12%;background:#f59e0b">Q1</div>
-          <div class="gb" style="left:35%;width:12%;background:#f59e0b">Q2</div>
-          <div class="gb" style="left:60%;width:12%;background:#f59e0b">Q3</div>
-          <div class="gb" style="left:84%;width:12%;background:#f59e0b">Q4</div></div></div>
+        <div class="gr"><div class="gl">Sales board</div><div class="gt"><div class="gb" style="left:0;width:100%;background:#3b6cf5">Thu 20 min</div></div></div>
+        <div class="gr"><div class="gl">Paid (us)</div><div class="gt"><div class="gb" style="left:0;width:55%;background:#dc2626;opacity:.35">Not yet</div><div class="gb" style="left:55%;width:45%;background:#dc2626">Only if ready</div></div></div>
+        <div class="gr"><div class="gl">Events</div><div class="gt"><div class="gb" style="left:10%;width:12%;background:#d97706">Q1</div><div class="gb" style="left:35%;width:12%;background:#d97706">Q2</div><div class="gb" style="left:60%;width:12%;background:#d97706">Q3</div><div class="gb" style="left:84%;width:12%;background:#d97706">Q4</div></div></div>
       </div>
-      <div class="foot"><span>BRANDASTIC 2027</span><span>06</span></div>
+      <div class="ft"><span>BRANDASTIC 2027</span><span>10</span></div>
     </div>
   </section>
 
-  <!-- 7 ROCKS -->
-  <section class="slide" id="rocks">
-    <div class="slide-inner">
-      <div class="kicker">06 · First 90 days</div>
-      <h2 class="h2">Three rocks only</h2>
-      <div class="rocks">
-        <div class="rock">
-          <div class="num">ROCK 01</div>
-          <h3>Lock + proof</h3>
-          <ul>
-            <li>2–3 markets only</li>
-            <li>One case study each</li>
-            <li>One clear offer page each</li>
-          </ul>
-        </div>
-        <div class="rock">
-          <div class="num">ROCK 02</div>
-          <h3>Warm machine</h3>
-          <ul>
-            <li>50-name list</li>
-            <li>Weekly outreach</li>
-            <li>Referral ask after wins</li>
-          </ul>
-        </div>
-        <div class="rock">
-          <div class="num">ROCK 03</div>
-          <h3>Sales board</h3>
-          <ul>
-            <li>Stages visible</li>
-            <li>Thursday 20 minutes</li>
-            <li>Win/loss reason every time</li>
-          </ul>
-        </div>
-      </div>
-      
-      <div class="contract">
-        <div><strong>Done looks like</strong>Markets locked · list live · board used every Thursday</div>
-        <div><strong>Do not</strong>Launch Brandastic ads before rocks 1–3 are boringly reliable</div>
-        <div><strong>Owner rule</strong>Blank owner = not real work</div>
-      </div>
-      <div class="foot"><span>BRANDASTIC 2027</span><span>07</span></div>
-    </div>
-  </section>
-
-  <!-- 8 WEEK -->
+  <!-- 11 OPERATING RHYTHM -->
   <section class="slide" id="week">
-    <div class="slide-inner">
-      <div class="kicker">07 · Operating rhythm</div>
+    <div class="si">
+      <div class="k">10 &middot; Operating rhythm</div>
       <h2 class="h2">The week</h2>
-      <div class="week">
-        <div class="day"><b>Mon</b><span>Channel numbers</span><span>Set week targets</span></div>
-        <div class="day"><b>Tue</b><span>Warm emails + LinkedIn</span><span>5+ sends per owner</span></div>
-        <div class="day"><b>Wed</b><span>Ship one page or proof</span><span>SEO / site</span></div>
-        <div class="day"><b>Thu</b><span>Pipeline 20 minutes</span><span>Referral asks</span></div>
-        <div class="day"><b>Fri</b><span>Short standup</span><span>Two posts live</span></div>
+      <div class="wk">
+        <div class="dy"><b>Mon</b><span>Numbers by channel</span><span>Churn check</span><span>Set week targets</span></div>
+        <div class="dy"><b>Tue</b><span>Warm outreach</span><span>5+ emails per owner</span><span>Same-day replies</span></div>
+        <div class="dy"><b>Wed</b><span>Ship one page or proof</span><span>SEO / site work</span><span>AEO check if new page</span></div>
+        <div class="dy"><b>Thu</b><span>Pipeline 20 min</span><span>Every deal: next step + date</span><span>Referral asks after wins</span></div>
+        <div class="dy"><b>Fri</b><span>Short standup</span><span>2 LinkedIn posts live</span><span>Log pains for next week</span></div>
       </div>
-      <div class="foot"><span>BRANDASTIC 2027</span><span>08</span></div>
+      <p class="qt">Done = sent &middot; shipped &middot; board updated &middot; posted &middot; reasons logged. Not &ldquo;worked on strategy.&rdquo;</p>
+      <div class="ft"><span>BRANDASTIC 2027</span><span>11</span></div>
     </div>
   </section>
 
-  <!-- 9 MEASURE -->
+  <!-- 12 WHAT WE MEASURE -->
   <section class="slide" id="measure">
-    <div class="slide-inner">
-      <div class="kicker">08 · Scoreboard</div>
+    <div class="si">
+      <div class="k">11 &middot; Scoreboard</div>
       <h2 class="h2">What we review weekly</h2>
-      <div class="meas">
-        <div class="card">
+      <div class="g3" style="flex:1;align-content:center">
+        <div class="cd" style="border-top:5px solid var(--bl)">
           <h3>Pipeline</h3>
           <ul>
-            <li><strong>Conversations</strong> started</li>
-            <li><strong>Proposals</strong> out</li>
-            <li><strong>Won / lost</strong> + reason</li>
+            <li><strong style="color:#fff">Close rate</strong> (target: 22%+)</li>
+            <li><strong style="color:#fff">Conversations</strong> started by channel</li>
+            <li><strong style="color:#fff">Proposals</strong> out this week</li>
+            <li><strong style="color:#fff">Won / lost</strong> + one-sentence reason</li>
+            <li><strong style="color:#fff">Days to first follow-up</strong> (target: same day)</li>
           </ul>
         </div>
-        <div class="card">
+        <div class="cd" style="border-top:5px solid var(--sk)">
           <h3>Revenue</h3>
           <ul>
-            <li><strong>Recurring</strong> vs $160K</li>
-            <li><strong>Pace</strong> vs $2.5M</li>
-            <li><strong>Bookings − churn</strong></li>
+            <li><strong style="color:#fff">Recurring</strong> vs $160K/mo</li>
+            <li><strong style="color:#fff">Pace</strong> vs $2.5M</li>
+            <li><strong style="color:#fff">Bookings &minus; churn</strong> (must be positive)</li>
+            <li><strong style="color:#fff">Avg package</strong> (track trend)</li>
+            <li><strong style="color:#fff">Whitespace wins</strong> from existing clients</li>
           </ul>
         </div>
-        <div class="card">
-          <h3>By channel</h3>
+        <div class="cd" style="border-top:5px solid var(--vi)">
+          <h3>By channel (every opportunity)</h3>
           <ul>
-            <li><strong>SEO · Referral · Outbound</strong></li>
-            <li><strong>Existing · Direct</strong></li>
-            <li><strong>Events · Paid</strong> when used</li>
+            <li>SEO (organic)</li>
+            <li>Referral</li>
+            <li>Outbound (LI + email)</li>
+            <li>Existing client</li>
+            <li>Direct &middot; Events &middot; Paid &middot; AI</li>
           </ul>
+          <p style="margin-top:.55rem;font-size:.86rem"><strong style="color:#fff">If we can&rsquo;t say which channel booked the meeting, we can&rsquo;t fund the right engines.</strong></p>
         </div>
       </div>
-      <p class="line" style="margin-top:1.2rem">If close rate is weak, do not buy more awareness. Fix the middle of the funnel first.</p>
-      <div class="foot"><span>BRANDASTIC 2027</span><span>09</span></div>
+      <div class="ft"><span>BRANDASTIC 2027</span><span>12</span></div>
     </div>
   </section>
 
-  <!-- 10 COPY -->
-  <section class="slide" id="copy">
-    <div class="slide-inner">
-      <div class="kicker">09 · Language the team sends</div>
+  <!-- 13 EMAILS -->
+  <section class="slide" id="emails">
+    <div class="si">
+      <div class="k">12 &middot; Copy the team sends</div>
       <h2 class="h2">Four emails</h2>
-      <div class="emails">
-        <div class="em"><div class="lbl">Dana</div><div class="subj">Still thinking about dealer demand for [Product]?</div><pre>Hi [Name],
+      <div class="g2" style="flex:1">
+        <div class="em"><div class="lb">Dana &middot; supplier</div><div class="sj">Still thinking about dealer demand for [Product]?</div><pre>Hi [Name],
 
-We talked about making it obvious what [Company] makes — so dealers stop hunting PDFs.
+We talked about making it obvious what [Company] makes &mdash; so dealers stop hunting PDFs.
 I can send a one-page 90-day view.
 
 15 minutes this week?
 
-[Name] · Brandastic</pre></div>
-        <div class="em"><div class="lbl">Maya</div><div class="subj">How online schools get family inquiries</div><pre>Hi [Name],
+[Name] &middot; Brandastic</pre></div>
+        <div class="em"><div class="lb">Maya &middot; school</div><div class="sj">How online schools get family inquiries</div><pre>Hi [Name],
 
 We help online schools get found so families inquire.
 Happy to show the motion in 15 minutes.
 
-[Name] · Brandastic</pre></div>
-        <div class="em"><div class="lbl">Sam</div><div class="subj">Make the real shop easy to find</div><pre>Hi [Name],
+[Name] &middot; Brandastic</pre></div>
+        <div class="em"><div class="lb">Sam &middot; shop</div><div class="sj">Make the real shop easy to find</div><pre>Hi [Name],
 
 Goal: buyer sees capability and asks for a quote.
-I can sketch a simple start package — one page.
+I can sketch a simple start package &mdash; one page.
 
 Open to a short call?
 
-[Name] · Brandastic</pre></div>
-        <div class="em"><div class="lbl">Referral</div><div class="subj">Quick ask</div><pre>Hi [Name],
+[Name] &middot; Brandastic</pre></div>
+        <div class="em"><div class="lb">Referral &middot; after a win</div><div class="sj">Quick ask</div><pre>Hi [Name],
 
-Glad [result] is moving.
-If you know one owner who needs the same help, I’d love an intro — even a name.
+Glad [result] is moving. If you know one owner who needs the same help, I&rsquo;d love an intro &mdash; even a name.
 
 Thank you either way.
 
 [Name]</pre></div>
       </div>
-      <div class="foot"><span>BRANDASTIC 2027</span><span>10</span></div>
+      <div class="ft"><span>BRANDASTIC 2027</span><span>13</span></div>
     </div>
   </section>
 
-  <!-- 11 CLOSE -->
+  <!-- 14 LINKEDIN -->
+  <section class="slide" id="posts">
+    <div class="si">
+      <div class="k">13 &middot; LinkedIn posts</div>
+      <h2 class="h2">Copy &middot; personalize &middot; post</h2>
+      <div class="g2" style="flex:1;align-content:center">
+        <div class="ms" style="border-top:5px solid var(--bl)">Most supplier sites hide the product in a PDF.<br><br>Dealers don&rsquo;t wait.<br><br>Clear offer pages + search so the right buyers start.</div>
+        <div class="ms" style="border-top:5px solid var(--sk)">Online schools don&rsquo;t need more noise.<br><br>They need families to find them and inquire.<br><br>Search. Paid. Site trust.</div>
+        <div class="ms" style="border-top:5px solid var(--vi)">Put capability + &ldquo;request a quote&rdquo; where a tired buyer can see it today.<br><br>Get found first. Ads later.</div>
+        <div class="ms" style="border-top:5px solid var(--b2)">Search still brings us clients.<br>Referrals still bring us clients.<br><br>Ads for our agency come later &mdash; after follow-up is tight.</div>
+      </div>
+      <div class="ft"><span>BRANDASTIC 2027</span><span>14</span></div>
+    </div>
+  </section>
+
+  <!-- 15 CLOSE -->
   <section class="slide" id="close">
-    <div class="slide-inner cover">
-      <div class="hero" aria-hidden="true"><img src="assets/ba-office-2027/office-team.jpg" alt=""/></div>
-      <div class="kicker">This week</div>
+    <div class="si cv">
+      <div class="hr" aria-hidden="true"><img src="assets/ba-office-2027/office-team.jpg" alt=""/></div>
+      <div class="k">This week</div>
       <div class="h1">Decide. Own. Ship.</div>
-      <p class="lede" style="max-width:28rem">Lock 2–3 markets. Build the 50-name list. Name owners on the three rocks. Run Thursday pipeline.</p>
-      <div class="brand">
+      <ul class="cl">
+        <li>Audit the 78 lost leads &mdash; categorize reasons</li>
+        <li>Calculate churn rate &mdash; put it on the board</li>
+        <li>Lock 2&ndash;3 markets &mdash; say no to the rest</li>
+        <li>Build the 50-name warm list</li>
+        <li>Name an owner on each rock</li>
+        <li>Run Thursday pipeline &mdash; every deal has a next step</li>
+      </ul>
+      <div class="br">
         <img src="assets/brandastic-logo-white.png" alt="Brandastic"/>
         <p>Focused. Growth. = <span>Progress.</span></p>
       </div>
-      <div class="foot"><span>BRANDASTIC</span><span>2027</span></div>
+      <div class="ft"><span>BRANDASTIC</span><span>2027</span></div>
     </div>
   </section>
 </div>
 
-<button type="button" class="deck-present-btn" id="deckPresentBtn">▸ Present</button>
-<button type="button" class="deck-exit-btn" id="deckExitBtn">✕ Exit</button>
-<div class="deck-exit-hint">← → · click sides · Esc</div>
-<div class="deck-counter" id="deckCounter"></div>
-<div class="deck-nav" id="deckNav" aria-hidden="true">
-  <button type="button" class="deck-prev" id="deckPrev">‹</button>
-  <button type="button" class="deck-next" id="deckNext">›</button>
+<button type="button" class="dk-btn" id="db">&#9658; Present</button>
+<button type="button" class="dk-x" id="dx">&#10005; Exit</button>
+<div class="dk-h">&larr; &rarr; &middot; click sides &middot; Esc</div>
+<div class="dk-c" id="dc"></div>
+<div class="dk-n" id="dn" aria-hidden="true">
+  <button type="button" class="p" id="dp">&lsaquo;</button>
+  <button type="button" class="nx" id="dnx">&rsaquo;</button>
 </div>
 <script>
-function baSetTheme(t){document.documentElement.setAttribute('data-theme',t);try{localStorage.setItem('ba2027-theme',t)}catch(e){}}
-(function(){try{var t=localStorage.getItem('ba2027-theme');if(t==='dark'||t==='light')baSetTheme(t);else baSetTheme('dark')}catch(e){}})();
+function T(t){document.documentElement.setAttribute('data-theme',t);try{localStorage.setItem('ba27t',t)}catch(e){}}
+(function(){try{var t=localStorage.getItem('ba27t');if(t==='dark'||t==='light')T(t);else T('dark')}catch(e){}})();
 (function(){
-  var slides=[].slice.call(document.querySelectorAll('section.slide')); if(!slides.length)return;
-  var btn=document.getElementById('deckPresentBtn'), exitBtn=document.getElementById('deckExitBtn');
-  var nav=document.getElementById('deckNav'), prev=document.getElementById('deckPrev'), next=document.getElementById('deckNext');
-  var counter=document.getElementById('deckCounter'), i=0, mode=false;
-  function upd(){if(counter)counter.textContent=(i+1)+' / '+slides.length}
-  function show(n){i=((n%slides.length)+slides.length)%slides.length;for(var k=0;k<slides.length;k++)slides[k].classList.toggle('deck-active',k===i);upd()}
-  function enterFS(){var r=document.documentElement,req=r.requestFullscreen||r.webkitRequestFullscreen;if(req)try{var p=req.call(r);if(p&&p.catch)p.catch(function(){})}catch(e){}}
-  function exitFS(){var d=document;if(!(d.fullscreenElement||d.webkitFullscreenElement))return;var x=d.exitFullscreen||d.webkitExitFullscreen;if(x)try{x.call(d)}catch(e){}}
-  function enter(){if(mode)return;mode=true;document.body.classList.add('deck-mode');nav.setAttribute('aria-hidden','false');show(i);enterFS()}
-  function exit(){if(!mode)return;mode=false;document.body.classList.remove('deck-mode');for(var k=0;k<slides.length;k++)slides[k].classList.remove('deck-active');nav.setAttribute('aria-hidden','true');exitFS()}
-  btn.onclick=function(e){e.preventDefault();e.stopPropagation();enter()};
-  exitBtn.onclick=function(e){e.preventDefault();e.stopPropagation();exit()};
-  prev.onclick=function(e){e.preventDefault();e.stopPropagation();show(i-1)};
-  next.onclick=function(e){e.preventDefault();e.stopPropagation();show(i+1)};
-  document.addEventListener('keydown',function(e){if(!mode)return;if(e.key==='Escape'){exit();return}if(e.key==='ArrowRight'||e.key===' '||e.key==='Enter'){e.preventDefault();show(i+1)}if(e.key==='ArrowLeft'){e.preventDefault();show(i-1)}});
-  document.addEventListener('click',function(e){if(!mode)return;if(e.target.closest&&(e.target.closest('#deckPrev')||e.target.closest('#deckNext')||e.target.closest('#deckExitBtn')))return;if(e.clientX/window.innerWidth>=.5)show(i+1);else show(i-1)});
-  document.addEventListener('fullscreenchange',function(){if(!document.fullscreenElement&&mode)exit()});
+  var s=[].slice.call(document.querySelectorAll('section.slide'));if(!s.length)return;
+  var db=document.getElementById('db'),dx=document.getElementById('dx'),dn=document.getElementById('dn'),
+      dp=document.getElementById('dp'),dnx=document.getElementById('dnx'),dc=document.getElementById('dc'),
+      i=0,m=false;
+  function u(){if(dc)dc.textContent=(i+1)+' / '+s.length}
+  function sh(n){i=((n%s.length)+s.length)%s.length;for(var k=0;k<s.length;k++)s[k].classList.toggle('active',k===i);u()}
+  function eF(){var r=document.documentElement,q=r.requestFullscreen||r.webkitRequestFullscreen;if(q)try{var p=q.call(r);if(p&&p.catch)p.catch(function(){})}catch(e){}}
+  function xF(){var d=document;if(!(d.fullscreenElement||d.webkitFullscreenElement))return;var x=d.exitFullscreen||d.webkitExitFullscreen;if(x)try{x.call(d)}catch(e){}}
+  function en(){if(m)return;m=true;document.body.classList.add('dk');dn.setAttribute('aria-hidden','false');sh(i);eF()}
+  function ex(){if(!m)return;m=false;document.body.classList.remove('dk');for(var k=0;k<s.length;k++)s[k].classList.remove('active');dn.setAttribute('aria-hidden','true');xF()}
+  db.onclick=function(e){e.preventDefault();e.stopPropagation();en()};
+  dx.onclick=function(e){e.preventDefault();e.stopPropagation();ex()};
+  dp.onclick=function(e){e.preventDefault();e.stopPropagation();sh(i-1)};
+  dnx.onclick=function(e){e.preventDefault();e.stopPropagation();sh(i+1)};
+  document.addEventListener('keydown',function(e){if(!m)return;if(e.key==='Escape'){ex();return}if(e.key==='ArrowRight'||e.key===' '||e.key==='Enter'){e.preventDefault();sh(i+1)}if(e.key==='ArrowLeft'){e.preventDefault();sh(i-1)}});
+  document.addEventListener('click',function(e){if(!m)return;if(e.target.closest&&(e.target.closest('#dp')||e.target.closest('#dnx')||e.target.closest('#dx')))return;if(e.clientX/window.innerWidth>=.5)sh(i+1);else sh(i-1)});
+  document.addEventListener('fullscreenchange',function(){if(!document.fullscreenElement&&m)ex()});
 })();
 </script>
 </body>
