@@ -905,3 +905,19 @@ html[data-theme="light"] nav details.nav-fold.sec-course{
 .ba-search-hit-sub{display:block;font-size:.72rem;opacity:.7;margin-top:.15rem;line-height:1.3}
 .ba-search-empty{padding:.7rem .65rem;font-size:.8rem;opacity:.75}
 [data-theme="dark"] #ba-search-input,[data-theme="dark"] .ba-search-results{background:#141820;border-color:rgba(255,255,255,.12)}
+
+
+/* Font consistency - Inter everywhere */
+body, nav, nav a, nav .item, nav summary, .nav-sec, .nav-video, button, input, select, textarea {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif !important;
+}
+
+
+/* Hide quick actions by default */
+.quick-actions, .fab, [class*="quick-action"], [class*="floating-btn"],
+button[style*="position:fixed"][style*="bottom"], 
+div[style*="position:fixed"][style*="bottom"][style*="right"] {
+  display: none !important;
+}
+/* Show when nav is visible (if toggled) */
+nav.visible ~ .quick-actions, nav.visible ~ .fab { display: block !important; }
