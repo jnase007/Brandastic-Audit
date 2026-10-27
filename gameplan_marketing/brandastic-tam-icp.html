@@ -2,487 +2,186 @@
 <html lang="en"><head>
 <meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
 <meta name="robots" content="noindex"/>
-<title>ICP hub · compare all three</title>
+<title>Brandastic TAM &middot; ICP comparison &middot; Pick one</title>
 <link rel="stylesheet" href="/gameplan_marketing/_shell.css"/>
-<link rel="stylesheet" href="/gameplan_marketing/_icp-full.css"/>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
-<script>(function(){try{var t=localStorage.getItem('ba_strategies_theme');document.documentElement.setAttribute('data-theme',t==='dark'?'dark':'light');}catch(e){document.documentElement.setAttribute('data-theme','light');}})();</script>
-
-<style id="ba-pill-actions">
-.ba-topbar{
-  display:flex; flex-wrap:wrap; gap:.6rem; align-items:center;
-  position:sticky; top:0; z-index:20;
-  padding:.75rem 0 .85rem; margin:0 0 1.15rem;
-  background:rgba(248,250,252,.94);
-  backdrop-filter: blur(12px);
-  border-bottom:1px solid rgba(15,23,42,.07);
-}
-.ba-pill{
-  display:inline-flex; align-items:center; justify-content:center; gap:.4rem;
-  padding:.72rem 1.2rem;
-  border-radius:999px;
-  font-size:.92rem; font-weight:800; letter-spacing:-.01em;
-  text-decoration:none !important; border:1.5px solid transparent;
-  cursor:pointer; font-family:inherit; line-height:1;
-  transition: transform .14s ease, box-shadow .14s ease;
-  box-shadow: 0 1px 2px rgba(15,23,42,.04);
-  background:#fff; color:#0f172a !important;
-}
-.ba-pill:hover{ transform:translateY(-1px); box-shadow:0 10px 22px rgba(15,23,42,.12); }
-.ba-pill-grad{
-  background: linear-gradient(135deg, #0284c7 0%, #6366f1 55%, #7c3aed 100%);
-  color:#fff !important; border-color:transparent;
-}
-.ba-pill-ghost{ border-color:#e2e8f0; }
-.ba-pill-ghost:hover{ border-color:#cbd5e1; background:#f8fafc; }
-html[data-theme="dark"] .ba-topbar{ background:rgba(15,23,42,.94); border-bottom-color:rgba(255,255,255,.08); }
-html[data-theme="dark"] .ba-pill-ghost{ background:#1e293b; color:#e2e8f0 !important; border-color:rgba(255,255,255,.12); }
-@media print{ .ba-topbar, .no-print{ display:none !important; } }
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+.icp-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-top:.8rem}
+.icp-card{border-radius:18px;border:1px solid var(--line);padding:1.2rem;background:var(--card)}
+.icp-card h3{font-size:1.15rem;margin-bottom:.6rem}
+.icp-card .big{font-size:2rem;font-weight:800;margin:.3rem 0}
+.icp-card .sub{font-size:.82rem;color:var(--muted);line-height:1.4}
+.icp-card ul{margin:.4rem 0 0 1rem;font-size:.84rem;color:var(--muted);line-height:1.45}
+.icp-card li{margin:.25rem 0}
+.icp-card strong{color:var(--ink)}
+.badge{display:inline-block;font-size:.72rem;font-weight:800;padding:.25rem .6rem;border-radius:999px;margin-top:.5rem}
+.tb2{width:100%;border-collapse:collapse;font-size:.82rem;margin-top:.5rem}
+.tb2 th{text-align:left;background:var(--th);padding:.5rem .6rem;font-weight:800;border-bottom:1px solid var(--line)}
+.tb2 td{padding:.5rem .6rem;border-bottom:1px solid var(--line);vertical-align:top;color:var(--muted)}
+.tb2 td strong{color:var(--ink)}
+.rec{border-left:5px solid;border-radius:0 14px 14px 0;padding:1rem;margin-top:1rem;background:var(--card)}
+@media(max-width:860px){.icp-grid{grid-template-columns:1fr}}
 </style>
+</head>
+<body>
+<div class="deck">
 
-</head><body><div class="layout">
-<nav id="side-nav">
-<a class="brand-lockup" href="/gameplan_marketing/index.html" title="Brandastic"><img class="brand-logo" src="/assets/brandastic-logo-black.png" alt="Brandastic"/></a>
-<div class="brand">STRATEGIES</div>
-<div class="sub">Plan · ICPs · Masterclass · Courses</div>
-<div class="theme-toggle" role="group" aria-label="Color mode"><button type="button" id="theme-light" data-theme-set="light">Light</button><button type="button" id="theme-dark" data-theme-set="dark">Dark</button></div>
-<a class="nav-home" href="/gameplan_marketing/index.html">Home</a>
-
-<details class="nav-fold sec-plan" data-sec="plan">
-<summary>Plan</summary>
-<a class="item" href="/gameplan_marketing/goals-vision.html">Goals & vision</a>
-<a class="item" href="/gameplan_marketing/planning-2027.html" target="_blank" rel="noopener">2027 planning</a>
-<a class="item" href="/gameplan_marketing/brandastic-2027.html" target="_blank" rel="noopener">Brandastic 2027 strategy</a>
-<a class="item" href="/gameplan_marketing/strategic-plan.html">Strategic plan</a>
-<a class="item" href="/gameplan_marketing/org-structure.html">Org structure</a>
-<a class="item" href="/gameplan_marketing/how-to-use.html">How to use</a>
-</details>
-
-<details class="nav-fold sec-icp" data-sec="icp">
-<summary>ICPs</summary>
-<a class="item" href="/gameplan_marketing/brandastic-tam-icp.html">All ICPs hub</a>
-<a class="item" href="/gameplan_marketing/icp-dental-med.html">Dental, Medical, Surgical</a>
-<a class="item" href="/gameplan_marketing/icp-education.html">Education (CalOPS peers)</a>
-<a class="item" href="/gameplan_marketing/icp-aerospace-defense.html">Aerospace & Defense</a>
-<a class="item" href="/gameplan_marketing/apollo-filters.html">Apollo filters</a>
-</details>
-
-<details class="nav-fold sec-mc" data-sec="mc">
-<summary>Masterclass 2026</summary>
-<div class="nav-sec v1">Video 01</div><div class="nav-video v1">
-<a class="nav-video-title" href="/gameplan_marketing/v1-overview.html">Marketing Strategies That Drive Bookings<span>Video title</span></a>
-<a class="item rev" href="/gameplan_marketing/events.html"><span class="dot"></span>Client nights</a>
-<a class="item rev" href="/gameplan_marketing/gifting.html"><span class="dot"></span>Gifts / Goody</a>
-<a class="item rev" href="/gameplan_marketing/customer.html"><span class="dot"></span>Reopen / stay close</a>
-<a class="item rev" href="/gameplan_marketing/seo.html"><span class="dot"></span>SEO 8-piece</a>
-<a class="item rev" href="/gameplan_marketing/paid.html"><span class="dot"></span>Ads backup</a>
-<a class="item rev" href="/gameplan_marketing/team.html"><span class="dot"></span>Thursday OS</a>
-<a class="item rev" href="/gameplan_marketing/loss.html"><span class="dot"></span>When we lose</a>
-<a class="item rev" href="/gameplan_marketing/whitespace.html"><span class="dot"></span>White space</a>
-<a class="item rev" href="/gameplan_marketing/this-week.html"><span class="dot"></span>Start this week</a>
-</div>
-<div class="nav-sec v2">Video 02</div><div class="nav-video v2">
-<a class="nav-video-title" href="/gameplan_marketing/video-02-launch-services.html">How To Launch New Services/Offerings<span>Video title</span></a>
-<a class="item rev" href="/gameplan_marketing/v2-when-to-launch.html"><span class="dot"></span>Build vs buy</a>
-<a class="item rev" href="/gameplan_marketing/v2-launch-checklist.html"><span class="dot"></span>30-day kit</a>
-<a class="item rev" href="/gameplan_marketing/v2-offer-rules.html"><span class="dot"></span>ICP + RFP</a>
-<a class="item rev" href="/gameplan_marketing/v2-leadership.html"><span class="dot"></span>NRR / leadership</a>
-<a class="item rev" href="/gameplan_marketing/v2-brandastic.html"><span class="dot"></span>Brandastic</a>
-</div>
-<div class="nav-sec v3">Video 03</div><div class="nav-video v3">
-<a class="nav-video-title" href="/gameplan_marketing/video-03-content-2026.html">Content Marketing To Grow Your Agency In 2026<span>Video title</span></a>
-<a class="item rev" href="/gameplan_marketing/v3-ia-architecture.html"><span class="dot"></span>IA + spend</a>
-<a class="item rev" href="/gameplan_marketing/v3-listicles-guides.html"><span class="dot"></span>Listicles + Clutch</a>
-<a class="item rev" href="/gameplan_marketing/v3-pillars-brand.html"><span class="dot"></span>Pillars</a>
-<a class="item rev" href="/gameplan_marketing/v3-team-flywheel.html"><span class="dot"></span>Team OS</a>
-<a class="item rev" href="/gameplan_marketing/v3-brandastic.html"><span class="dot"></span>Brandastic</a>
-</div>
-<div class="nav-sec v4">Video 04</div><div class="nav-video v4">
-<a class="nav-video-title" href="/gameplan_marketing/video-04-advertise.html">How to Advertise Your Agency<span>Video title</span></a>
-<a class="item rev" href="/gameplan_marketing/v4-principles.html"><span class="dot"></span>TAM + Primer</a>
-<a class="item rev" href="/gameplan_marketing/v4-channels.html"><span class="dot"></span>Channels + offers</a>
-<a class="item rev" href="/gameplan_marketing/v4-sales-ops.html"><span class="dot"></span>Sales + measurement</a>
-<a class="item rev" href="/gameplan_marketing/v4-brand-structure.html"><span class="dot"></span>Who to advertise</a>
-<a class="item rev" href="/gameplan_marketing/v4-brandastic.html"><span class="dot"></span>Brandastic</a>
-</div>
-</details>
-
-<details class="nav-fold sec-course" data-sec="course">
-<summary>Courses</summary>
-<a class="item" href="/gameplan_marketing/agency-academy-course.html">Course hub</a>
-<a class="item" href="/gameplan_marketing/course-downloads.html">All downloads (32)</a>
-<div class="nav-sublabel">Sales</div>
-<a class="item" href="/gameplan_marketing/course-intro.html">Intro</a>
-<a class="item" href="/gameplan_marketing/course-sales-process.html">Sales process</a>
-<a class="item" href="/gameplan_marketing/course-sales-team.html">Sales team</a>
-<a class="item" href="/gameplan_marketing/course-sales-comp.html">Comp plans</a>
-<a class="item" href="/gameplan_marketing/course-sales-pitch.html">Pitch / proposals</a>
-<a class="item" href="/gameplan_marketing/course-sales-pricing.html">Pricing</a>
-<a class="item" href="/gameplan_marketing/course-sales-contracts.html">Contracts / SOW</a>
-<div class="nav-sublabel">Marketing</div>
-<a class="item" href="/gameplan_marketing/course-mkt-position.html">Positioning</a>
-<a class="item" href="/gameplan_marketing/course-mkt-brand.html">Branding</a>
-<a class="item" href="/gameplan_marketing/course-mkt-channels.html">Channels</a>
-<a class="item" href="/gameplan_marketing/course-mkt-budget.html">Budget</a>
-<div class="nav-sublabel">Finance</div>
-<a class="item" href="/gameplan_marketing/course-fin-dept.html">Finance dept</a>
-<a class="item" href="/gameplan_marketing/course-fin-pl.html">P&L</a>
-<a class="item" href="/gameplan_marketing/course-fin-monthend.html">Month-end close</a>
-<a class="item" href="/gameplan_marketing/course-fin-kpis.html">Exec KPIs</a>
-<a class="item" href="/gameplan_marketing/course-fin-model.html">Financial model</a>
-<a class="item" href="/gameplan_marketing/course-fin-reporting.html">Reporting</a>
-<div class="nav-sublabel">Operations</div>
-<a class="item" href="/gameplan_marketing/course-ops-jit.html">JIT labor</a>
-<a class="item" href="/gameplan_marketing/course-ops-global.html">Global hiring</a>
-<a class="item" href="/gameplan_marketing/course-ops-talent-gate.html">Talent gate</a>
-<a class="item" href="/gameplan_marketing/course-ops-kpis.html">Ops KPIs</a>
-<a class="item" href="/gameplan_marketing/course-ops-reporting.html">Weekly + QBR</a>
-<a class="item" href="/gameplan_marketing/course-ops-referrals.html">Referrals</a>
-<div class="nav-sublabel">People</div>
-<a class="item" href="/gameplan_marketing/course-people-hiring.html">Hiring</a>
-<a class="item" href="/gameplan_marketing/course-people-jd.html">Job descriptions</a>
-<a class="item" href="/gameplan_marketing/course-people-onboard.html">Onboarding</a>
-<a class="item" href="/gameplan_marketing/course-people-1on1.html">1:1s + reviews</a>
-<a class="item" href="/gameplan_marketing/course-people-benefits.html">Benefits</a>
-<a class="item" href="/gameplan_marketing/course-people-perf.html">Performance</a>
-<a class="item" href="/gameplan_marketing/course-people-bonus.html">Bonus</a>
-<a class="item" href="/gameplan_marketing/course-people-allhands.html">All-hands</a>
-<a class="item" href="/gameplan_marketing/course-people-retreats.html">Retreats</a>
-</details>
-</nav>
-<script>(function(){
-var path=(location.pathname||'').split('/').pop()||'index.html';
-var a=[].slice.call(document.querySelectorAll('#side-nav a[href]'));
-var hit=null;
-a.forEach(function(el){
-  var h=(el.getAttribute('href')||'').split('/').pop();
-  if(h===path){ el.classList.add('on'); hit=el; }
-});
-if(hit){
-  var d=hit.closest('details.nav-fold'); if(d) d.open=true;
-  var b=hit.closest('.nav-video'); if(b) b.classList.add('nav-video-active');
-}
-// only one top section forced open if none matched
-var anyOpen=[].some.call(document.querySelectorAll('#side-nav details.nav-fold'), function(d){return d.open});
-if(!anyOpen){
-  var first=document.querySelector('#side-nav details.nav-fold.sec-plan'); if(first) first.open=true;
-}
-})();</script>
-<main class="sec-icp">
-
-<div class="ba-topbar no-print">
-  <button type="button" class="ba-pill ba-pill-ghost" onclick="window.print()">Print / Save PDF</button>
-  <a class="ba-pill ba-pill-grad" href="/gameplan_marketing/planning-2027.html" target="_blank" rel="noopener">2027 planning</a>
-  <a class="ba-pill ba-pill-ghost" href="/gameplan_marketing/brandastic-2027.html" target="_blank" rel="noopener">2027 strategy</a>
-  <a class="ba-pill ba-pill-ghost" href="/gameplan_marketing/goals-vision.html">Goals & vision</a>
-</div>
-
-<div class="icp-kicker">Brandastic · ICP hub</div>
-<h1>Three ICPs — same format for the team</h1>
-<p class="lead" style="color:var(--muted)">Every ICP page has the same 8 sections (Geo → Market charts → Profile → Titles → Offer → Copy → 90-day → Apollo). Print all three and line them up.</p>
-<div class="geo-compare">
-  <div class="geo-card national" style="border-top-color:#059669">
-    <h3>ICP 1 · Dental / Med / Surgical</h3>
-    <p class="tagline">PRIMARY</p>
-    <div class="verdict national" style="margin:0">Go <strong>national</strong></div>
-    <p style="margin:.8rem 0 0"><a class="btn" href="/gameplan_marketing/icp-dental-med.html">Open full ICP 1</a></p>
-  </div>
-  <div class="geo-card local">
-    <h3>ICP 2 · Online schools (CalOPS niche)</h3>
-    <p class="tagline">SECONDARY · CalOps</p>
-    <div class="verdict local" style="margin:0">Go <strong>CA local</strong></div>
-    <p style="margin:.8rem 0 0"><a class="btn g" href="/gameplan_marketing/icp-education.html">Open full ICP 2</a></p>
-  </div>
-</div>
-<div class="geo-card local" style="border-top-color:#7c3aed;margin:1rem 0">
-  <h3>ICP 3 · Aerospace/Defense manufacturers</h3>
-  <p class="tagline">TERTIARY</p>
-  <div class="verdict local" style="margin:0">Go <strong>SoCal local</strong></div>
-  <p style="margin:.8rem 0 0"><a class="btn g" href="/gameplan_marketing/icp-aerospace-defense.html">Open full ICP 3</a>
-  <a class="btn g" href="/gameplan_marketing/apollo-filters.html">Apollo filters</a></p>
-</div>
-<div class="cardx">
-  <h3>Section map (identical on every ICP)</h3>
-  <ol style="margin:0;padding-left:1.2rem;color:var(--text)">
-    <li>Local vs national + verdict</li>
-    <li>Market numbers + charts</li>
-    <li>Ideal customer profile</li>
-    <li>Titles (primary / secondary / exclude)</li>
-    <li>Pain → offer</li>
-    <li>Copy templates</li>
-    <li>90-day motion + owners</li>
-    <li>Exact Apollo filters</li>
-  </ol>
-</div>
-</main></div>
-
-<script>(function(){var KEY="***";function apply(t){if(t!=="dark")t="light";document.documentElement.setAttribute("data-theme",t);try{localStorage.setItem(KEY,t)}catch(e){}var L=document.getElementById("theme-light"),D=document.getElementById("theme-dark");if(L&&D){L.classList.toggle("on",t==="light");D.classList.toggle("on",t==="dark")}document.querySelectorAll("img.brand-logo,a.brand-lockup img").forEach(function(img){img.style.height="24px";img.style.width="auto";img.style.objectFit="contain";img.style.filter="none";var s=img.getAttribute("src")||"";img.setAttribute("src",t==="dark"?s.replace("logo-black","logo-white"):s.replace("logo-white","logo-black"))})}var s=null;try{s=localStorage.getItem(KEY)}catch(e){}apply(s==="dark"?"dark":"light");document.addEventListener("click",function(e){var b=e.target.closest("[data-theme-set]");if(b)apply(b.getAttribute("data-theme-set"))})})();</script>
-
-<script src="/gameplan_marketing/_search.js" defer></script>
-
-<section class="slide" id="tam-overview">
-  <div class="slide-inner">
-    <div class="kicker">TAM &middot; ICP overview</div>
-    <div class="h2">Three markets. Which one do we go after?</div>
-    <p class="lede">Every number below is sourced. Estimates are labeled. The recommendation is based on three things: how big is the market, how easy is it to win, and how much can we make.</p>
-
-    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-top:1rem">
-      <div class="card" style="border-top:5px solid #0644ed;text-align:center;padding:1.2rem">
-        <div style="font-size:.72rem;font-weight:800;letter-spacing:.12em;color:#0644ed;margin-bottom:.5rem">EDUCATION</div>
-        <div style="font-size:2.4rem;font-weight:800;color:var(--ink)">44,000+</div>
-        <div style="font-size:.88rem;color:var(--muted);margin-top:.2rem">schools in the US</div>
-        <div style="font-size:.72rem;color:var(--muted);margin-top:.6rem">Charter &middot; Private K-12 &middot; Colleges &middot; Online</div>
+  <section class="slide" id="header">
+    <div class="slide-inner">
+      <div class="kicker">Pick one &middot; go deep</div>
+      <div class="h2">Three markets. Which one do we build around?</div>
+      <p class="lede">Each card below answers five questions: how big is the market, what can we make, who do we target in Apollo, where do we find them, and what do we recommend. The team picks one. That one goes into the strategy deck.</p>
+      <div class="icp-grid">
+        <div class="icp-card" style="border-top:5px solid #0644ed">
+          <h3 style="color:#0644ed">Education</h3>
+          <div class="big" style="color:#0644ed">44,000+</div>
+          <div class="sub">schools in the US (charter, private K-12, colleges, online)</div>
+          <div class="big" style="color:#0644ed;font-size:1.4rem;margin-top:.6rem">$5.9M&ndash;$11.8M</div>
+          <div class="sub">at 10% capture &middot; $7K avg package</div>
+          <div class="badge" style="background:rgba(6,68,237,.12);color:#0644ed">PRIORITY 1 &middot; GO NOW</div>
+        </div>
+        <div class="icp-card" style="border-top:5px solid #0ea5e9">
+          <h3 style="color:#0ea5e9">Dental / Implant Mfg</h3>
+          <div class="big" style="color:#0ea5e9">35&ndash;9,300</div>
+          <div class="sub">abutment mfrs (35) vs labs (4,200&ndash;9,300) vs distributors (473+)</div>
+          <div class="big" style="color:#0ea5e9;font-size:1.4rem;margin-top:.6rem">$48K&ndash;$8.2M</div>
+          <div class="sub">wide range &mdash; depends if we expand beyond abutments</div>
+          <div class="badge" style="background:rgba(14,165,233,.12);color:#0ea5e9">PRIORITY 2 &middot; KEEP + EXPLORE</div>
+        </div>
+        <div class="icp-card" style="border-top:5px solid #6366f1">
+          <h3 style="color:#6366f1">Aero / Defense Mfg</h3>
+          <div class="big" style="color:#6366f1">Hundreds</div>
+          <div class="sub">SoCal Tier 2/3 suppliers, small budgets</div>
+          <div class="big" style="color:#6366f1;font-size:1.4rem;margin-top:.6rem">$864K&ndash;$1.6M</div>
+          <div class="sub">at 10% SoCal capture</div>
+          <div class="badge" style="background:rgba(99,102,241,.12);color:#6366f1">PRIORITY 3 &middot; STEADY</div>
+        </div>
       </div>
-      <div class="card" style="border-top:5px solid #0ea5e9;text-align:center;padding:1.2rem">
-        <div style="font-size:.72rem;font-weight:800;letter-spacing:.12em;color:#0ea5e9;margin-bottom:.5rem">DENTAL / IMPLANT MFG</div>
-        <div style="font-size:2.4rem;font-weight:800;color:var(--ink)">35&ndash;9,300</div>
-        <div style="font-size:.88rem;color:var(--muted);margin-top:.2rem">depends on sub-segment</div>
-        <div style="font-size:.72rem;color:var(--muted);margin-top:.6rem">Abutment mfrs (35) &middot; Labs (4,200&ndash;9,300) &middot; Distributors (473+)</div>
-      </div>
-      <div class="card" style="border-top:5px solid #6366f1;text-align:center;padding:1.2rem">
-        <div style="font-size:.72rem;font-weight:800;letter-spacing:.12em;color:#6366f1;margin-bottom:.5rem">AERO / DEFENSE MFG</div>
-        <div style="font-size:2.4rem;font-weight:800;color:var(--ink)">Hundreds</div>
-        <div style="font-size:.88rem;color:var(--muted);margin-top:.2rem">SoCal Tier 2/3 suppliers</div>
-        <div style="font-size:.72rem;color:var(--muted);margin-top:.6rem">Machine shops &middot; Component suppliers &middot; Defense sub-tier</div>
-      </div>
+      <div class="footer-bar"><span>BRANDASTIC 2027</span><span>TAM</span></div>
     </div>
+  </section>
 
-    <div class="footer-bar"><span>BRANDASTIC 2027</span><span class="num">TAM</span></div>
-  </div>
-</section>
-
-<section class="slide" id="tam-education">
-  <div class="slide-inner">
-    <div class="kicker" style="color:#0644ed">Education &middot; market breakdown</div>
-    <div class="h2">44,000+ schools &middot; $4.7B+ in marketing spend</div>
-
-    <table class="table" style="margin-top:.6rem">
-      <tr><th>Segment</th><th>Number of schools (US)</th><th>Avg marketing spend / year</th><th>Total market</th><th>Source</th></tr>
-      <tr><td><strong>Colleges &amp; universities</strong></td><td>~5,999</td><td>$500K&ndash;$4M</td><td style="color:#0644ed"><strong>$3B&ndash;$24B</strong></td><td>EAB, UPCEA, IPEDS</td></tr>
-      <tr><td><strong>Private K-12</strong></td><td>~29,730</td><td>$50K&ndash;$500K (7&ndash;12% of tuition)</td><td style="color:#0644ed"><strong>$1.5B&ndash;$14.9B</strong></td><td>NCES, Zoe Marketing</td></tr>
-      <tr><td><strong>Charter schools</strong></td><td>~7,500</td><td>$24K&ndash;$60K ($2&ndash;5K/mo)</td><td style="color:#0644ed"><strong>$180M&ndash;$450M</strong></td><td>NCES, Truth Tree</td></tr>
-      <tr><td><strong>Online / virtual</strong></td><td>~700+</td><td>$50K&ndash;$200K</td><td style="color:#0644ed"><strong>$35M&ndash;$140M</strong></td><td>EdWeek</td></tr>
-    </table>
-
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:1rem">
-      <div class="card">
-        <h3>SoCal breakdown</h3>
-        <ul>
-          <li>Charter schools: <strong>~300&ndash;400</strong> (LA metro = 154, Cause IQ)</li>
-          <li>Private K-12: <strong>~2,500&ndash;3,500</strong> (LA County alone ~1,600+)</li>
-          <li>Colleges: <strong>100+</strong> (NCES/IPEDS)</li>
-          <li>Online programs (CA-based): <strong>~50&ndash;80</strong></li>
-        </ul>
+  <section class="slide" id="edu-detail">
+    <div class="slide-inner">
+      <div class="kicker" style="color:#0644ed">Education &middot; the full picture</div>
+      <div class="h2">TAM &middot; targets &middot; channels &middot; recommendation</div>
+      <table class="tb2">
+        <tr><th style="width:22%">Question</th><th>Answer</th></tr>
+        <tr><td><strong>How big?</strong></td><td><strong>44,000+ schools</strong> in the US. Charter (~7,500), private K-12 (~29,730), colleges (~5,999), online/virtual (~700+). Total education marketing spend: <strong>$4.7B+/year</strong>. Higher ed digital alone: $2.77B. SoCal: ~3,000&ndash;4,000 schools. <em>Sources: NCES, IPEDS, EAB, Simpson Scarborough.</em></td></tr>
+        <tr><td><strong>What we&rsquo;d focus on</strong></td><td>Online and hybrid charter schools that depend on search for enrollment. Private K-12 with real tuition revenue ($50K&ndash;$500K marketing budgets). Small-to-mid colleges that can&rsquo;t afford a big agency. Start with <strong>CalOPS peers</strong> (online-heavy public schools).</td></tr>
+        <tr><td><strong>Revenue at 10%</strong></td><td>~700&ndash;1,400 addressable schools &times; $7K avg package &times; 12 = <strong>$5.9M&ndash;$11.8M/year</strong>. Even 1% = $3.4M+ (more than the 2030 goal from one segment alone).</td></tr>
+        <tr><td><strong>Apollo targeting</strong></td><td><strong>Titles:</strong> Director of Enrollment, VP Marketing, Director of Marketing, Head of School, Superintendent, Chief Growth Officer, Dean of Admissions.<br><strong>Filters:</strong> Industry = Education. Sub-type = charter, private, online. Size = 50&ndash;2,000 employees. Location = start SoCal, expand national for online schools.</td></tr>
+        <tr><td><strong>Where to find them</strong></td><td><strong>LinkedIn outbound</strong> (enrollment/marketing leaders). <strong>Direct email</strong> with CalOPS proof. <strong>SEO</strong> targeting &ldquo;enrollment marketing,&rdquo; &ldquo;school digital marketing,&rdquo; &ldquo;charter school marketing.&rdquo; <strong>Education conferences</strong> (NACAC, charter school summits, CASE). <strong>Referral from CalOPS</strong> to peer schools.</td></tr>
+        <tr><td><strong>Proof we have</strong></td><td>CalOPS at <strong>$21,000/month</strong>. Live case. The enrollment pain is real and every school has it.</td></tr>
+      </table>
+      <div class="rec" style="border-left-color:#0644ed">
+        <strong style="color:#0644ed">Recommendation:</strong> This is the best growth bet. Biggest market, best proof, highest revenue potential, national reach. If the team picks one market, this is the one. Build outbound sequences, CalOPS proof deck, and enrollment-focused SEO pages.
       </div>
-      <div class="card">
-        <h3>Why education is easiest</h3>
-        <ul>
-          <li><strong>CalOPS at $21K/month</strong> is real proof</li>
-          <li>Every school needs enrollment marketing</li>
-          <li>Clear pain: families have to find the school online</li>
-          <li>National reach &mdash; not limited to SoCal</li>
-          <li>Higher ed digital spend: <strong>$2.77B</strong> in 2025 (Simpson Scarborough)</li>
-        </ul>
-      </div>
+      <div class="footer-bar"><span>BRANDASTIC 2027</span><span>EDU</span></div>
     </div>
+  </section>
 
-    <div class="footer-bar"><span>BRANDASTIC 2027</span><span class="num">EDU</span></div>
-  </div>
-</section>
-
-<section class="slide" id="tam-dental">
-  <div class="slide-inner">
-    <div class="kicker" style="color:#0ea5e9">Dental / implant manufacturing &middot; market breakdown</div>
-    <div class="h2">Tiny niche or big opportunity? Depends on the segment.</div>
-
-    <table class="table" style="margin-top:.6rem">
-      <tr><th>Sub-segment</th><th>Number of companies (US)</th><th>Market value</th><th>Source</th></tr>
-      <tr><td><strong>Implant/abutment manufacturers</strong></td><td><strong>~35</strong></td><td>US market: $1.1B+ (iData Research)</td><td>iData Research, KokoQuest</td></tr>
-      <tr><td><strong>Dental laboratories</strong></td><td><strong>4,216&ndash;9,341</strong></td><td>Custom prosthetics, crowns, bridges</td><td>IBISWorld, Mordor Intelligence</td></tr>
-      <tr><td><strong>Dental supply distributors</strong></td><td><strong>473+</strong></td><td>Equipment and supply distribution</td><td>Industry databases</td></tr>
-      <tr><td>Dental equipment manufacturers</td><td>550+</td><td>Broader dental equipment market</td><td>DHP company data</td></tr>
-    </table>
-
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:1rem">
-      <div class="card" style="border-left:4px solid #ef4444">
-        <h3>The honest problem</h3>
-        <ul>
-          <li>Abutment manufacturers = <strong>only ~35 companies</strong> in the whole US</li>
-          <li>Big four (Nobel Biocare, Dentsply Sirona, Straumann, Zimmer Biomet) have in-house teams</li>
-          <li>Our niche (Preat, Endes USA type companies) = maybe 10&ndash;15 potential clients total</li>
-          <li>Surgical marketing is <strong>complex</strong> &mdash; compliance, regulation, long sales cycles</li>
-          <li>We have <strong>no medical device clients</strong> currently</li>
-        </ul>
+  <section class="slide" id="dental-detail">
+    <div class="slide-inner">
+      <div class="kicker" style="color:#0ea5e9">Dental / implant manufacturing &middot; the full picture</div>
+      <div class="h2">TAM &middot; targets &middot; channels &middot; recommendation</div>
+      <table class="tb2">
+        <tr><th style="width:22%">Question</th><th>Answer</th></tr>
+        <tr><td><strong>How big?</strong></td><td>Abutment/implant manufacturers: <strong>only ~35 in the US</strong> ($1.1B market). Dental labs: <strong>4,216&ndash;9,341</strong>. Supply distributors: <strong>473+</strong>. Equipment manufacturers: 550+. The niche we know (abutments) is tiny. The broader dental supply chain is much bigger. <em>Sources: iData Research, IBISWorld, KokoQuest.</em></td></tr>
+        <tr><td><strong>What we&rsquo;d focus on</strong></td><td>Today: companies like <strong>Preat, Endes USA</strong> &mdash; dental abutment/implant component manufacturers. To scale: expand into <strong>dental labs</strong> and <strong>supply distributors</strong> that need SEO to reach dentists. NOT general dentist offices.</td></tr>
+        <tr><td><strong>Revenue at 10%</strong></td><td>Abutments only: 1&ndash;2 clients = <strong>$48K&ndash;$168K</strong> (too small). Expanded to labs + distributors: 96&ndash;170 clients = <strong>$4.6M&ndash;$8.2M</strong>. The gap between these two numbers is the whole question.</td></tr>
+        <tr><td><strong>Apollo targeting</strong></td><td><strong>Titles:</strong> Owner, President, GM, VP Sales, Marketing Manager.<br><strong>Filters:</strong> Industry = Medical Devices, Dental. Sub-type = manufacturer, supplier, lab. Size = 10&ndash;200 employees. NAICS = 339114 (dental equipment), 339116 (dental labs). Keywords = implant, abutment, prosthetic, crown, bridge.</td></tr>
+        <tr><td><strong>Where to find them</strong></td><td><strong>Trade shows</strong> (Chicago Dental Society Midwinter, Greater New York Dental Meeting, ADA). <strong>LinkedIn</strong> (owner/GM titles at dental manufacturers). <strong>Direct email</strong> with case studies from Salvin, Young Surgical, Dental Smart. <strong>Industry directories</strong> (KokoQuest, Thomas). SEO is slower here &mdash; relationship-driven market.</td></tr>
+        <tr><td><strong>Proof we have</strong></td><td>Salvin ($4.9K/mo), Paragon ($3.5K/mo), Young Surgical ($4.9K/mo), Dental Smart ($7.8K/mo). Real clients, real results. But all in the surgical/implant adjacent space.</td></tr>
+      </table>
+      <div class="rec" style="border-left-color:#0ea5e9">
+        <strong style="color:#0ea5e9">Recommendation:</strong> Keep current dental clients happy and growing. They are good revenue. But do NOT build the primary growth strategy around abutment manufacturers &mdash; there are only 35 of them. If we want dental to scale, we need to test expanding into dental labs and distributors, which is a different buyer and a different pitch. Explore, don&rsquo;t bet the farm.
       </div>
-      <div class="card">
-        <h3>Where scale exists (if we expand)</h3>
-        <ul>
-          <li><strong>Dental labs (4,200&ndash;9,300)</strong> &mdash; much bigger pool</li>
-          <li><strong>Supply distributors (473+)</strong> &mdash; need SEO to reach dentists</li>
-          <li>Current clients (Salvin $4.9K, Paragon $3.5K, Young Surgical $4.9K, Dental Smart $7.8K) prove the offering</li>
-          <li>But this would be a <strong>different sell</strong> than abutment manufacturers</li>
-        </ul>
-      </div>
+      <div class="footer-bar"><span>BRANDASTIC 2027</span><span>DENTAL</span></div>
     </div>
+  </section>
 
-    <div class="footer-bar"><span>BRANDASTIC 2027</span><span class="num">DENTAL</span></div>
-  </div>
-</section>
-
-<section class="slide" id="tam-aero">
-  <div class="slide-inner">
-    <div class="kicker" style="color:#6366f1">Aero / defense manufacturing &middot; market breakdown</div>
-    <div class="h2">SoCal local play &middot; smaller budgets</div>
-
-    <table class="table" style="margin-top:.6rem">
-      <tr><th>Sub-segment</th><th>Estimated count (SoCal)</th><th>Typical marketing budget</th><th>Source</th></tr>
-      <tr><td><strong>Machine shops / precision mfg</strong></td><td>~500&ndash;1,000</td><td>$20K&ndash;$80K/year</td><td>Industry estimates</td></tr>
-      <tr><td><strong>Aero component suppliers</strong></td><td>~200&ndash;400</td><td>$20K&ndash;$60K/year</td><td>OC Business Journal, industry</td></tr>
-      <tr><td><strong>Defense sub-tier suppliers</strong></td><td>~100&ndash;200</td><td>$20K&ndash;$50K/year</td><td>Industry estimates</td></tr>
-    </table>
-
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:1rem">
-      <div class="card">
-        <h3>Our lane</h3>
-        <ul>
-          <li>Tier 2 and Tier 3 suppliers (10&ndash;200 employees, owner-led)</li>
-          <li>AS9100 / ITAR certified shops</li>
-          <li>Current clients: Morehouse ($6.3K), Wearparts ($3.9K), LabTech ($6.1K)</li>
-          <li>SoCal advantage &mdash; we are local, can visit shops</li>
-        </ul>
+  <section class="slide" id="aero-detail">
+    <div class="slide-inner">
+      <div class="kicker" style="color:#6366f1">Aero / defense manufacturing &middot; the full picture</div>
+      <div class="h2">TAM &middot; targets &middot; channels &middot; recommendation</div>
+      <table class="tb2">
+        <tr><th style="width:22%">Question</th><th>Answer</th></tr>
+        <tr><td><strong>How big?</strong></td><td>SoCal has <strong>hundreds</strong> of small aero/defense Tier 2/3 suppliers. No public count of all small shops. OC alone: 26+ companies surveyed (~21K employees). Marketing budgets are small: <strong>$20K&ndash;$80K/year</strong>. <em>Sources: OC Business Journal, industry estimates.</em></td></tr>
+        <tr><td><strong>What we&rsquo;d focus on</strong></td><td>Owner-led SoCal shops with 10&ndash;200 employees. AS9100 / ITAR certified. Precision machining, fabrication, surface treatment. Companies that need a website and quote path &mdash; not primes like Boeing or Raytheon.</td></tr>
+        <tr><td><strong>Revenue at 10%</strong></td><td>~175&ndash;330 hirable companies &times; $4K avg &times; 12 = <strong>$864K&ndash;$1.6M/year</strong>. Decent but smaller packages and slower sales cycles than education.</td></tr>
+        <tr><td><strong>Apollo targeting</strong></td><td><strong>Titles:</strong> Owner, President, VP Operations, Business Development Manager.<br><strong>Filters:</strong> Industry = Aerospace &amp; Defense, Manufacturing. Size = 10&ndash;200 employees. Location = LA, OC, San Diego, Riverside, San Bernardino counties. Keywords = AS9100, ITAR, CNC, precision, machining, fabrication.</td></tr>
+        <tr><td><strong>Where to find them</strong></td><td><strong>In person</strong> &mdash; this is a relationship market. SoCal manufacturing events, NTMA meetings, local chambers. <strong>LinkedIn</strong> (owner titles at SoCal shops). <strong>Referral</strong> from Morehouse, Wearparts, LabTech. <strong>Direct email</strong> is harder &mdash; owners are skeptical of marketing. SEO works long-term for &ldquo;CNC machining Orange County&rdquo; type searches.</td></tr>
+        <tr><td><strong>Proof we have</strong></td><td>Morehouse ($6.3K/mo), Wearparts ($3.9K/mo), LabTech ($6.1K/mo). We know this buyer. But budgets are smaller and the sales cycle is long.</td></tr>
+      </table>
+      <div class="rec" style="border-left-color:#6366f1">
+        <strong style="color:#6366f1">Recommendation:</strong> Keep Morehouse, Wearparts, and LabTech happy. Take referrals when they come. Do NOT pour outbound campaigns into this segment &mdash; the budgets are too small and the sales cycle is too long for it to be the growth engine. This is a steady local pipeline alongside a bigger national play.
       </div>
-      <div class="card" style="border-left:4px solid #d97706">
-        <h3>The challenge</h3>
-        <ul>
-          <li>Relationship-driven &mdash; buyers know their suppliers</li>
-          <li>Many owners <strong>don&rsquo;t believe in marketing</strong></li>
-          <li>Budgets are small: $20K&ndash;$80K/year</li>
-          <li>Long sales cycle &mdash; certs matter more than websites</li>
-          <li>No public data on exact small supplier count</li>
-        </ul>
-      </div>
+      <div class="footer-bar"><span>BRANDASTIC 2027</span><span>AERO</span></div>
     </div>
+  </section>
 
-    <div class="footer-bar"><span>BRANDASTIC 2027</span><span class="num">AERO</span></div>
-  </div>
-</section>
+  <section class="slide" id="decision">
+    <div class="slide-inner">
+      <div class="kicker">The decision</div>
+      <div class="h2">Score &middot; pick &middot; build the strategy</div>
+      <table class="tb2">
+        <tr><th>ICP</th><th>Market size</th><th>How easy to win</th><th>Revenue at 10%</th><th>Best channels</th><th>Priority</th></tr>
+        <tr style="background:rgba(6,68,237,.06)">
+          <td><strong style="color:#0644ed">Education</strong></td>
+          <td><strong>44,000+</strong></td>
+          <td>Easiest. Proven.</td>
+          <td><strong>$5.9M&ndash;$11.8M</strong></td>
+          <td>LinkedIn, email, SEO, conferences, CalOPS referral</td>
+          <td style="text-align:center;font-size:1.3rem;font-weight:800;color:#0644ed">1st</td>
+        </tr>
+        <tr style="background:rgba(14,165,233,.06)">
+          <td><strong style="color:#0ea5e9">Dental</strong></td>
+          <td><strong>35&ndash;9,300</strong></td>
+          <td>Hard. Tiny niche unless we expand.</td>
+          <td><strong>$48K&ndash;$8.2M</strong></td>
+          <td>Trade shows, LinkedIn, directories, email</td>
+          <td style="text-align:center;font-size:1.3rem;font-weight:800;color:#0ea5e9">2nd</td>
+        </tr>
+        <tr style="background:rgba(99,102,241,.06)">
+          <td><strong style="color:#6366f1">Aero/Defense</strong></td>
+          <td><strong>Hundreds</strong></td>
+          <td>Slow. Relationship-driven.</td>
+          <td><strong>$864K&ndash;$1.6M</strong></td>
+          <td>In person, referrals, LinkedIn, events</td>
+          <td style="text-align:center;font-size:1.3rem;font-weight:800;color:#6366f1">3rd</td>
+        </tr>
+      </table>
 
-<section class="slide" id="tam-10pct">
-  <div class="slide-inner">
-    <div class="kicker">What 10% capture looks like &middot; all three ICPs</div>
-    <div class="h2">Revenue opportunity side by side</div>
-    <p class="lede">If Brandastic captured 10% of the schools or companies in each market that would realistically hire an outside agency at our package range ($3K&ndash;$21K/month).</p>
-
-    <table class="table" style="margin-top:.8rem">
-      <tr><th>ICP</th><th>Total market</th><th>Would hire agency</th><th>Avg package</th><th>10% capture</th><th>Annual revenue</th></tr>
-      <tr style="background:rgba(6,68,237,.06)">
-        <td><strong style="color:#0644ed">Education</strong></td><td>44,000+ schools</td><td>~700&ndash;1,400</td><td>$7K/mo</td><td>70&ndash;140 clients</td><td style="color:#0644ed"><strong>$5.9M&ndash;$11.8M</strong></td>
-      </tr>
-      <tr style="background:rgba(14,165,233,.06)">
-        <td><strong style="color:#0ea5e9">Dental (abutment only)</strong></td><td>~35 companies</td><td>~15</td><td>$5K/mo</td><td>1&ndash;2 clients</td><td><strong>$48K&ndash;$168K</strong></td>
-      </tr>
-      <tr style="background:rgba(14,165,233,.06)">
-        <td><strong style="color:#0ea5e9">Dental (expanded to labs + distributors)</strong></td><td>~4,700&ndash;9,800</td><td>~960&ndash;1,700</td><td>$4K/mo</td><td>96&ndash;170 clients</td><td style="color:#0ea5e9"><strong>$4.6M&ndash;$8.2M</strong></td>
-      </tr>
-      <tr style="background:rgba(99,102,241,.06)">
-        <td><strong style="color:#6366f1">Aero / Defense (SoCal)</strong></td><td>~800&ndash;1,600</td><td>~175&ndash;330</td><td>$4K/mo</td><td>18&ndash;33 clients</td><td style="color:#6366f1"><strong>$864K&ndash;$1.6M</strong></td>
-      </tr>
-    </table>
-
-    <!-- Visual bar chart -->
-    <h3 style="margin-top:1.2rem">10% capture revenue comparison</h3>
-    <svg viewBox="0 0 800 220" style="width:100%;max-height:200px;margin-top:.4rem;border:1px solid var(--line);border-radius:14px;background:var(--card)">
-      <line x1="200" y1="30" x2="200" y2="190" stroke="var(--line)"/>
-      <line x1="200" y1="190" x2="780" y2="190" stroke="var(--line)"/>
-      <text x="185" y="190" text-anchor="end" fill="var(--muted)" font-size="10" font-weight="700" font-family="Inter">$0</text>
-      <text x="185" y="150" text-anchor="end" fill="var(--muted)" font-size="10" font-weight="700" font-family="Inter">$3M</text>
-      <text x="185" y="110" text-anchor="end" fill="var(--muted)" font-size="10" font-weight="700" font-family="Inter">$6M</text>
-      <text x="185" y="70" text-anchor="end" fill="var(--muted)" font-size="10" font-weight="700" font-family="Inter">$9M</text>
-      <text x="185" y="35" text-anchor="end" fill="var(--muted)" font-size="10" font-weight="700" font-family="Inter">$12M</text>
-
-      <!-- Education bar -->
-      <rect x="220" y="32" width="120" height="158" rx="6" fill="#0644ed" opacity=".85"/>
-      <text x="280" y="24" text-anchor="middle" fill="var(--ink)" font-size="11" font-weight="800" font-family="Inter">$5.9M&ndash;$11.8M</text>
-      <text x="280" y="205" text-anchor="middle" fill="var(--muted)" font-size="10" font-weight="700" font-family="Inter">Education</text>
-
-      <!-- Dental expanded bar -->
-      <rect x="380" y="80" width="120" height="110" rx="6" fill="#0ea5e9" opacity=".85"/>
-      <text x="440" y="72" text-anchor="middle" fill="var(--ink)" font-size="11" font-weight="800" font-family="Inter">$4.6M&ndash;$8.2M</text>
-      <text x="440" y="205" text-anchor="middle" fill="var(--muted)" font-size="10" font-weight="700" font-family="Inter">Dental (expanded)</text>
-
-      <!-- Aero bar -->
-      <rect x="540" y="162" width="120" height="28" rx="6" fill="#6366f1" opacity=".85"/>
-      <text x="600" y="156" text-anchor="middle" fill="var(--ink)" font-size="11" font-weight="800" font-family="Inter">$864K&ndash;$1.6M</text>
-      <text x="600" y="205" text-anchor="middle" fill="var(--muted)" font-size="10" font-weight="700" font-family="Inter">Aero / Defense</text>
-    </svg>
-
-    <div class="footer-bar"><span>BRANDASTIC 2027</span><span class="num">10%</span></div>
-  </div>
-</section>
-
-<section class="slide" id="tam-recommendation">
-  <div class="slide-inner">
-    <div class="kicker">Recommendation</div>
-    <div class="h2">Where to put the growth energy</div>
-    <p class="lede">Scored on market size, how easy it is to win, and how much revenue we can make.</p>
-
-    <table class="table" style="margin-top:.6rem">
-      <tr><th>ICP</th><th>Market size</th><th>How easy to win</th><th>Revenue at 10%</th><th>Priority</th><th>What to do</th></tr>
-      <tr style="background:rgba(6,68,237,.08)">
-        <td><strong style="color:#0644ed">Education</strong></td>
-        <td>44,000+ schools</td>
-        <td><strong>Easiest.</strong> CalOPS proof at $21K/mo. Clear pain. National reach.</td>
-        <td><strong>$5.9M&ndash;$11.8M</strong></td>
-        <td style="font-size:1.4rem;font-weight:800;color:#0644ed;text-align:center">1st</td>
-        <td style="color:#0644ed"><strong>GO NOW.</strong> Make this the primary growth engine.</td>
-      </tr>
-      <tr style="background:rgba(14,165,233,.06)">
-        <td><strong style="color:#0ea5e9">Dental</strong></td>
-        <td>35 (abutment) to 9,300 (labs)</td>
-        <td><strong>Hard.</strong> Abutment niche is tiny. Need to expand to labs/distributors for scale.</td>
-        <td>$48K&ndash;$8.2M (wide range)</td>
-        <td style="font-size:1.4rem;font-weight:800;color:#0ea5e9;text-align:center">2nd</td>
-        <td><strong>KEEP current clients.</strong> Explore labs as expansion.</td>
-      </tr>
-      <tr style="background:rgba(99,102,241,.06)">
-        <td><strong style="color:#6366f1">Aero / Defense</strong></td>
-        <td>Hundreds (SoCal only)</td>
-        <td><strong>Slow.</strong> Relationship-driven. Small budgets. Skeptical owners.</td>
-        <td><strong>$864K&ndash;$1.6M</strong></td>
-        <td style="font-size:1.4rem;font-weight:800;color:#6366f1;text-align:center">3rd</td>
-        <td><strong>STEADY pipeline.</strong> Keep happy. Take referrals.</td>
-      </tr>
-    </table>
-
-    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:.8rem;margin-top:1rem">
-      <div class="card" style="border-top:5px solid #0644ed;text-align:center">
-        <div style="font-size:.72rem;font-weight:800;color:#0644ed;letter-spacing:.1em;margin-bottom:.4rem">EDUCATION</div>
-        <div style="font-size:1.8rem;font-weight:800;color:var(--ink)">$5.9M+</div>
-        <div style="font-size:.82rem;color:var(--muted);margin:.3rem 0">at 10% capture</div>
-        <div style="background:rgba(6,68,237,.1);color:#0644ed;font-weight:800;font-size:.82rem;border-radius:999px;padding:.35rem .7rem;display:inline-block;margin-top:.3rem">Priority 1 &middot; GO NOW</div>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:.8rem;margin-top:1rem">
+        <div class="icp-card" style="border-top:5px solid #0644ed;text-align:center">
+          <div style="font-size:1.6rem;font-weight:800;color:#0644ed">$5.9M+</div>
+          <div class="sub">at 10% capture</div>
+          <div class="badge" style="background:#0644ed;color:#fff">GO NOW</div>
+        </div>
+        <div class="icp-card" style="border-top:5px solid #0ea5e9;text-align:center">
+          <div style="font-size:1.6rem;font-weight:800;color:#0ea5e9">$4.6M+</div>
+          <div class="sub">only if expanded</div>
+          <div class="badge" style="background:#0ea5e9;color:#fff">KEEP + EXPLORE</div>
+        </div>
+        <div class="icp-card" style="border-top:5px solid #6366f1;text-align:center">
+          <div style="font-size:1.6rem;font-weight:800;color:#6366f1">$1.6M</div>
+          <div class="sub">SoCal only</div>
+          <div class="badge" style="background:#6366f1;color:#fff">STEADY</div>
+        </div>
       </div>
-      <div class="card" style="border-top:5px solid #0ea5e9;text-align:center">
-        <div style="font-size:.72rem;font-weight:800;color:#0ea5e9;letter-spacing:.1em;margin-bottom:.4rem">DENTAL</div>
-        <div style="font-size:1.8rem;font-weight:800;color:var(--ink)">$4.6M+</div>
-        <div style="font-size:.82rem;color:var(--muted);margin:.3rem 0">only if expanded to labs</div>
-        <div style="background:rgba(14,165,233,.1);color:#0ea5e9;font-weight:800;font-size:.82rem;border-radius:999px;padding:.35rem .7rem;display:inline-block;margin-top:.3rem">Priority 2 &middot; KEEP + EXPLORE</div>
+
+      <div class="rec" style="border-left-color:#0644ed;margin-top:1rem">
+        <strong style="color:#0644ed;font-size:1.05rem">My recommendation: Education first.</strong><br><br>
+        Biggest market. Best proof. Easiest to win. National reach. Even 1% capture covers the 2030 goal. Build the outbound sequences, CalOPS proof deck, enrollment SEO pages, and conference calendar around this segment. Keep dental and aero/defense clients happy &mdash; but put the growth energy into education.<br><br>
+        <strong>Next step:</strong> Team picks one. Then we build the full outbound + content + channel plan for that ICP into the <a href="/gameplan_marketing/brandastic-2027.html" target="_blank">strategy deck</a>.
       </div>
-      <div class="card" style="border-top:5px solid #6366f1;text-align:center">
-        <div style="font-size:.72rem;font-weight:800;color:#6366f1;letter-spacing:.1em;margin-bottom:.4rem">AERO / DEFENSE</div>
-        <div style="font-size:1.8rem;font-weight:800;color:var(--ink)">$1.6M</div>
-        <div style="font-size:.82rem;color:var(--muted);margin:.3rem 0">at 10% SoCal capture</div>
-        <div style="background:rgba(99,102,241,.1);color:#6366f1;font-weight:800;font-size:.82rem;border-radius:999px;padding:.35rem .7rem;display:inline-block;margin-top:.3rem">Priority 3 &middot; STEADY</div>
-      </div>
+
+      <p style="font-size:.72rem;color:var(--muted);margin-top:.6rem"><strong>All numbers sourced from:</strong> NCES, IPEDS, CDE, iData Research, IBISWorld, EAB, Simpson Scarborough, OC Business Journal, KokoQuest, Truth Tree. Package sizes from actual Brandastic contracts. Estimates labeled throughout.</p>
+      <div class="footer-bar"><span>BRANDASTIC 2027</span><span>DECISION</span></div>
     </div>
+  </section>
 
-    <div class="quote" style="margin-top:.8rem">
-      <strong>Bottom line:</strong> Education has the biggest market, the best proof, and the clearest path. Even 1% capture = $3.4M+ per year &mdash; more than the entire $3.5M 2030 goal. Dental works if we expand beyond abutment manufacturers into labs and distributors. Aero/defense is a steady local pipeline, not a growth engine. Put the outbound energy into education first.
-    </div>
-
-    <p style="font-size:.72rem;color:var(--muted);margin-top:.5rem"><strong>Sources:</strong> NCES, IPEDS, CDE, EAB, Simpson Scarborough, iData Research, IBISWorld, OC Business Journal, Truth Tree, Zoe Marketing. Package sizes from actual Brandastic contracts. &ldquo;Would hire agency&rdquo; percentages are estimates, clearly labeled throughout.</p>
-
-    <div class="footer-bar"><span>BRANDASTIC 2027</span><span class="num">RECOMMENDATION</span></div>
-  </div>
-</section>
-
-</body></html>
+</div>
+</body>
+</html>
