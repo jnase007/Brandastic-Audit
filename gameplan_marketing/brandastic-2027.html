@@ -2012,6 +2012,22 @@ body.deck-mode .slide.deck-active .slide-inner{width:min(1320px,96vw)!important;
   box-shadow:0 30px 90px rgba(0,0,0,.6),0 0 0 1px rgba(255,255,255,.05)!important}
 
 
+
+/* Hero images on title slides */
+.title-hero{position:absolute;top:0;right:0;bottom:0;width:min(48%,32rem);overflow:hidden;z-index:0}
+.title-hero img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 30%;
+  filter:brightness(.85) contrast(1.05);animation:heroKen 20s ease-in-out infinite alternate}
+@keyframes heroKen{from{transform:scale(1)}to{transform:scale(1.07)}}
+.title-hero::after{content:"";position:absolute;inset:0;z-index:1;
+  background:linear-gradient(90deg,rgba(0,31,64,1) 0%,rgba(0,31,64,.4) 50%,rgba(0,31,64,.5) 100%)}
+.divider-slide{position:relative;overflow:hidden}
+.divider-slide .phase,.divider-slide .h1,.divider-slide .lede,.divider-slide .footer-bar,
+.divider-slide>div,.divider-slide>p,.divider-slide>img{position:relative;z-index:2}
+@media(max-width:900px){
+  .title-hero{width:100%;height:40%;top:auto;opacity:.35}
+}
+@media(prefers-reduced-motion:reduce){.title-hero img{animation:none!important}}
+@media print{.title-hero img{animation:none!important}}
 </style>
 </head>
 <body>
@@ -2027,7 +2043,7 @@ body.deck-mode .slide.deck-active .slide-inner{width:min(1320px,96vw)!important;
 
   <!-- 01 TITLE -->
   <section class="slide" id="title">
-    <div class="slide-inner divider-slide" style="background:linear-gradient(135deg,#001F40,#0a1628);color:#fff;justify-content:center;min-height:620px">
+    <div class="slide-inner divider-slide" style="background:linear-gradient(135deg,#001F40,#0a1628);color:#fff;justify-content:center;min-height:620px;padding-right:min(50%,30rem)">
       <div class="phase" style="color:#7eb6ff">BRANDASTIC &middot; 2027 GROWTH STRATEGY</div>
       <div class="h1" style="color:#fff;max-width:14ch;font-size:clamp(2.4rem,5vw,3.6rem)">How we win more of the right clients</div>
       <p class="lede" style="color:rgba(255,255,255,.75);max-width:38rem">Who we sell to, how we sell, what we say. Main goal: grow recurring from $120K to $160K/mo. Know the market. Know the buyer. Run the plan.</p>
@@ -2925,7 +2941,7 @@ Order matters more than clever campaigns.</div>
 
   <!-- 31 CLOSE -->
   <section class="slide" id="close">
-    <div class="slide-inner divider-slide" style="background:linear-gradient(135deg,#001F40,#0a1628);color:#fff;justify-content:center;min-height:620px">
+    <div class="slide-inner divider-slide" style="background:linear-gradient(135deg,#001F40,#0a1628);color:#fff;justify-content:center;min-height:620px;padding-right:min(50%,30rem)">
       <div class="phase" style="color:#7eb6ff">This week</div>
       <div class="h1" style="color:#fff;max-width:12ch">Decide. Own. Ship.</div>
       <p class="lede" style="color:rgba(255,255,255,.75);max-width:32rem">Lock the markets. Build the list. Name the owners. Run Thursday pipeline. Every week after that, the same rhythm. Growth is not a campaign &mdash; it&rsquo;s a system you never stop running.</p>
