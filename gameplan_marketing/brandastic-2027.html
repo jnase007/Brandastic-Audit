@@ -93,18 +93,30 @@ ul{margin:.15rem 0 0 1.05rem}
 .close-checks li{color:rgba(232,238,245,.92);font-weight:600;margin:.4rem 0;padding-left:1.3rem;position:relative;font-size:.95rem}
 .close-checks li:before{content:"✓";position:absolute;left:0;color:var(--neon);font-weight:800}
 
-/* personas */
-.persona-board{display:grid;grid-template-columns:repeat(3,1fr);gap:.7rem;margin-top:.5rem}
-.persona-board .card{display:flex;flex-direction:column;padding:.7rem}
-.persona-board img{width:100%;height:165px;object-fit:cover;object-position:center 12%;border-radius:12px;margin-bottom:.45rem;border:1px solid var(--line)}
-.persona-role{font-size:.64rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--teal);margin:.1rem 0 .2rem}
-.persona-name{font-size:1rem;font-weight:800;margin:0 0 .2rem}
-.persona-quote{font-size:.76rem;line-height:1.35;color:var(--muted);font-style:italic;margin:0 0 .4rem}
-.persona-meta{font-size:.7rem;line-height:1.35;color:var(--muted);margin:0 0 .4rem}
-.persona-meta strong{color:var(--ink)}
-.mini{display:grid;grid-template-columns:1fr 1fr;gap:.4rem;margin-top:auto}
-.mini h4{font-size:.64rem;font-weight:800;letter-spacing:.05em;text-transform:uppercase;color:var(--teal);margin:0 0 .15rem}
-.mini ul{margin:0;padding-left:.85rem;font-size:.68rem;color:var(--muted);line-height:1.3}
+
+/* Persona faces — full head visible */
+.persona-board{display:grid;grid-template-columns:repeat(3,1fr);gap:.75rem;margin-top:.55rem;align-items:stretch}
+.persona-board .card{display:flex;flex-direction:column;padding:.75rem .8rem .85rem;min-height:0}
+.persona-photo{
+  width:100%;aspect-ratio:4/5;border-radius:14px;overflow:hidden;margin:0 0 .55rem;
+  border:1px solid var(--line);background:#1a2230
+}
+.persona-photo img{
+  display:block;width:100%;height:100%;object-fit:cover;object-position:center 18%;
+  /* slight zoom-out feel via scale so forehead/chin aren't clipped as hard */
+  transform:scale(1.02);transform-origin:center 20%
+}
+.persona-board .pill{margin-bottom:.25rem;align-self:flex-start}
+.persona-role{font-size:.68rem;font-weight:800;letter-spacing:.05em;text-transform:uppercase;color:var(--teal);margin:0 0 .2rem}
+.persona-name{font-size:1.05rem;font-weight:800;margin:0 0 .3rem;color:var(--ink)}
+.persona-quote{font-size:.84rem;line-height:1.35;color:var(--muted);font-style:italic;margin:0 0 .5rem}
+.persona-simple{margin:.1rem 0 0 1rem;padding:0;font-size:.8rem;line-height:1.4;color:var(--ink)}
+.persona-simple li{margin:.18rem 0}
+@media (max-width:900px){
+  .persona-board{grid-template-columns:1fr}
+  .persona-photo{aspect-ratio:1/1;max-height:280px}
+}
+
 
 /* phases */
 .phases{display:grid;grid-template-columns:repeat(3,1fr);gap:.7rem;margin-top:.7rem}
@@ -327,39 +339,47 @@ body.deck-mode .slide.deck-active .slide-inner{width:min(1280px,96vw)!important;
 
   <section class="slide" id="personas">
     <div class="slide-inner">
-      <div class="kicker">03 · Ideal customers</div>
+      <div class="kicker">03 · Who we sell to</div>
       <h2 class="h2">Three markets. Three people.</h2>
-      <p class="lede"><strong>Dental/Med primary</strong> · Education secondary · Aero/Defense mfg tertiary. Lists, ads, and pages stay pure.</p>
+      <p class="lede">Dental/Med first · Education second · Aero/Defense third. Keep lists pure.</p>
       <div class="persona-board">
         <div class="card" style="border-color:rgba(15,143,151,.45)">
-          <img src="../assets/brandastic-personas/icp-dental-owner.jpg" alt="Dana Reyes"/>
-          <div class="pill">Primary · locked</div>
-          <div class="persona-role">Supplier owner · Dental / Med B2B</div>
+          <div class="persona-photo"><img src="../assets/brandastic-personas/icp-dental-owner.jpg" alt="Dana Reyes"/></div>
+          <div class="pill">Primary</div>
+          <div class="persona-role">Dental / Med supplier</div>
           <div class="persona-name">Dana Reyes · 44</div>
-          <div class="persona-quote">“Dealers still can’t find what we sell without a PDF scavenger hunt.”</div>
-          <div class="persona-meta"><strong>Role:</strong> Owner/GM at lab or specialty supplier.<br><strong>Day:</strong> Catalog clarity, dealer demand, quotes, site leads.<br><strong>Buy path:</strong> Search proof → 90-day plan → SEO + PPC package</div>
-          <div class="mini"><div><h4>Pains</h4><ul><li>Offer buried</li><li>Dealers Google competitors</li><li>Random marketing</li></ul></div><div><h4>Win</h4><ul><li>Clear offer pages</li><li>Search + paid that books demand</li><li>Monthly plan, not vanity</li></ul></div></div>
+          <div class="persona-quote">“Dealers can’t find what we sell.”</div>
+          <ul class="persona-simple">
+            <li>Clear offer pages</li>
+            <li>Search + paid for dealer demand</li>
+            <li>Monthly plan, not vanity posts</li>
+          </ul>
         </div>
         <div class="card" style="border-color:rgba(31,143,201,.4)">
-          <img src="../assets/brandastic-personas/icp-education-leader.jpg" alt="Maya Chen"/>
-          <div class="pill">Secondary · CalOPS peers</div>
-          <div class="persona-role">Enrollment leader · Online public schools</div>
+          <div class="persona-photo"><img src="../assets/brandastic-personas/icp-education-leader.jpg" alt="Maya Chen"/></div>
+          <div class="pill">Secondary</div>
+          <div class="persona-role">Online school enrollment</div>
           <div class="persona-name">Maya Chen · 41</div>
-          <div class="persona-quote">“If families can’t find us online, enrollment fails.”</div>
-          <div class="persona-meta"><strong>Role:</strong> Marketing/enrollment at heavy-online public/charter.<br><strong>Day:</strong> Inquiries, paid + organic, site trust.<br><strong>Buy path:</strong> CalOPS-style proof → multi-channel retain</div>
-          <div class="mini"><div><h4>Pains</h4><ul><li>Must be found</li><li>Agencies miss school rules</li><li>Spend without inquiry path</li></ul></div><div><h4>Win</h4><ul><li>Live CalOPS-scale proof</li><li>SEO + paid for inquiries</li><li>Same motion for peers</li></ul></div></div>
+          <div class="persona-quote">“If families can’t find us, enrollment fails.”</div>
+          <ul class="persona-simple">
+            <li>CalOPS-style proof</li>
+            <li>Search + paid for inquiries</li>
+            <li>Same motion for peer schools</li>
+          </ul>
         </div>
         <div class="card" style="border-color:rgba(124,58,237,.4)">
-          <img src="../assets/brandastic-personas/icp-mfg-owner.jpg" alt="Sam Ortega"/>
-          <div class="pill">Tertiary · SoCal</div>
-          <div class="persona-role">Shop owner · Aero / Defense supplier</div>
+          <div class="persona-photo"><img src="../assets/brandastic-personas/icp-mfg-owner.jpg" alt="Sam Ortega"/></div>
+          <div class="pill">Tertiary</div>
+          <div class="persona-role">SoCal shop owner</div>
           <div class="persona-name">Sam Ortega · 51</div>
-          <div class="persona-quote">“I’m not a prime. I need buyers to see the real shop and ask for a quote.”</div>
-          <div class="persona-meta"><strong>Role:</strong> Owner-led SoCal manufacturer (not primes).<br><strong>Day:</strong> Quotes, certs, capacity, weak web.<br><strong>Buy path:</strong> $5–8k get-found package · no cold PPC first</div>
-          <div class="mini"><div><h4>Pains</h4><ul><li>Invisible online</li><li>Old site / thin trust</li><li>Doesn’t want ad machine</li></ul></div><div><h4>Win</h4><ul><li>Found + quote path</li><li>Owners first · SoCal first</li><li>Clear package</li></ul></div></div>
+          <div class="persona-quote">“Buyers need to see the real shop.”</div>
+          <ul class="persona-simple">
+            <li>Get found + quote path</li>
+            <li>Owners first · SoCal first</li>
+            <li>Simple package, no ad machine day one</li>
+          </ul>
         </div>
       </div>
-      <p class="note">Portraits are placeholders for layout. Swap Imagen faces when ready.</p>
       <div class="footer-bar"><span>BRANDASTIC 2027</span><span>07</span></div>
     </div>
   </section>
