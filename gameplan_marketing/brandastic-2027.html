@@ -3,670 +3,1017 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Brandastic 2027 · Growth strategy</title>
+<title>Brandastic 2027 &middot; Growth strategy</title>
 <meta name="robots" content="noindex,nofollow"/>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
-:root,html[data-theme="light"]{
-  --bg:#eef2f8;--s:#fff;--ink:#001F40;--m:#5a6b80;--ln:rgba(0,31,64,.10);
-  --bl:#0644ed;--b2:#3b6cf5;--nv:#001F40;--sk:#0ea5e9;--vi:#6366f1;--gn:#059669;
-  --cd:#f5f8fd;--sf:#eef3fb;--th:#e7eef8;--hr:#001F40;--nn:#8bb8ff;
+
+
+/* Dark cinematic default */
+html[data-theme="dark"] {
+  --bg:#04060c; --slide:#0a0f1a; --ink:#f0f4fa; --muted:#8a9bb4; --line:rgba(255,255,255,.07);
+  --blue:#4d7cff; --blue2:#6b93ff; --navy:#060a14; --teal:#4d7cff; --accent:#6b93ff; --purple:#060a14;
 }
-html[data-theme="dark"]{
-  --bg:#04060c;--s:#0a0f1a;--ink:#f0f4fa;--m:#8a9bb4;--ln:rgba(255,255,255,.07);
-  --bl:#4d7cff;--b2:#6b93ff;--nv:#060a14;--sk:#38bdf8;--vi:#818cf8;--gn:#34d399;
-  --cd:rgba(255,255,255,.03);--sf:rgba(255,255,255,.04);--th:rgba(255,255,255,.05);--hr:#030508;--nn:#8bb8ff;
+html[data-theme="dark"] .slide {
+  background:linear-gradient(180deg,#0a0f18,#070b12);
+  border-color:rgba(255,255,255,.06);
+  box-shadow:0 24px 80px rgba(0,0,0,.45),inset 0 1px 0 rgba(255,255,255,.04);
 }
-*{box-sizing:border-box;margin:0;padding:0}
-html,body{background:var(--bg);color:var(--ink);font-family:Inter,system-ui,sans-serif}
-.deck{max-width:1240px;margin:0 auto;padding:1rem 1rem 4rem}
-.tb{display:flex;flex-wrap:wrap;gap:.4rem;align-items:center;position:sticky;top:.3rem;z-index:50;
-  background:rgba(4,6,12,.88);backdrop-filter:blur(14px);padding:.5rem 0;margin-bottom:.85rem;border-bottom:1px solid var(--ln)}
-.bt{border:1px solid var(--ln);background:var(--s);color:var(--ink);border-radius:999px;font:700 .78rem Inter,system-ui,sans-serif;
-  padding:.52rem .85rem;cursor:pointer;text-decoration:none;display:inline-flex}
-.bp{background:linear-gradient(135deg,var(--bl),#001F40);color:#fff;border:0;box-shadow:0 0 20px rgba(6,68,237,.3)}
-section.slide{margin:0 0 .95rem}
-.si{background:var(--s);border:1px solid var(--ln);border-radius:20px;padding:2.2rem 2.3rem 1.4rem;
-  min-height:680px;display:flex;flex-direction:column;position:relative;overflow:hidden;
-  box-shadow:0 24px 80px rgba(0,0,0,.45),inset 0 1px 0 rgba(255,255,255,.04)}
-.k{font:.8rem/1 Inter,system-ui,sans-serif;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--nn);margin-bottom:.55rem}
-.h1{font-size:clamp(2.2rem,4.5vw,3.4rem);font-weight:800;letter-spacing:-.04em;line-height:1.04;margin:0 0 .6rem;color:#fff;max-width:16ch;
-  text-shadow:0 0 60px rgba(6,68,237,.2)}
-.h2{font-size:clamp(1.8rem,3.2vw,2.6rem);font-weight:800;letter-spacing:-.03em;line-height:1.08;margin:0 0 .5rem;color:#fff;max-width:20ch}
-.ld{font-size:1.15rem;line-height:1.45;color:var(--m);max-width:38rem;margin:0 0 1rem;font-weight:500}
-.ft{margin-top:auto;padding-top:1rem;display:flex;justify-content:space-between;font-size:.7rem;font-weight:700;color:rgba(255,255,255,.3);letter-spacing:.06em}
-h3{font-size:1rem;font-weight:800;margin:0 0 .3rem;color:#fff}
-p,li{font-size:.9rem;line-height:1.4;color:var(--m)}
-ul{margin:.15rem 0 0 1rem}
-.g2{display:grid;grid-template-columns:1fr 1fr;gap:.85rem;margin-top:.6rem}
-.g3{display:grid;grid-template-columns:repeat(3,1fr);gap:.75rem;margin-top:.55rem}
-.g4{display:grid;grid-template-columns:repeat(4,1fr);gap:.6rem;margin-top:.45rem}
-.g5{display:grid;grid-template-columns:repeat(5,1fr);gap:.55rem;margin-top:.45rem}
-.cd{background:var(--cd);border:1px solid var(--ln);border-radius:18px;padding:1.1rem 1.15rem}
-.cd h3{margin-bottom:.55rem}
-.qt{margin:.7rem 0 0;padding:.85rem 1.1rem;border-left:4px solid var(--bl);background:var(--sf);border-radius:0 14px 14px 0;font-size:.95rem;color:rgba(255,255,255,.88);font-weight:600}
-.pl{display:inline-block;font-size:.64rem;font-weight:800;padding:.18rem .5rem;border-radius:999px;background:rgba(77,124,255,.15);color:var(--bl);margin-bottom:.3rem}
-.tb2{width:100%;border-collapse:collapse;font-size:.82rem;margin-top:.4rem}
-.tb2 th{text-align:left;background:var(--th);padding:.55rem .6rem;font-weight:800;border-bottom:1px solid var(--ln);color:#fff}
-.tb2 td{padding:.55rem .6rem;border-bottom:1px solid var(--ln);vertical-align:top;color:var(--m)}
-.tb2 td strong{color:#fff}
+html[data-theme="dark"] .slide::before{background:radial-gradient(circle,rgba(77,124,255,.08),transparent 70%)}
+html[data-theme="dark"] .card{background:rgba(255,255,255,.03);border-color:rgba(255,255,255,.06)}
+html[data-theme="dark"] .card h3{color:#fff}
+html[data-theme="dark"] .msg{background:rgba(255,255,255,.04);border-color:rgba(255,255,255,.06)}
+html[data-theme="dark"] .table th{background:rgba(255,255,255,.05);color:#fff}
+html[data-theme="dark"] .table td{color:#8a9bb4}
+html[data-theme="dark"] .h1,.h2{color:var(--ink)}
+html[data-theme="dark"] .stat{color:#fff}
+html[data-theme="dark"] .toolbar{background:rgba(4,6,12,.88)}
+html[data-theme="dark"] .btn-g{background:rgba(255,255,255,.05);border-color:rgba(255,255,255,.08);color:#e0e8f0}
+html[data-theme="dark"] .comp-bubbles{background:rgba(255,255,255,.03);border-color:rgba(255,255,255,.06)}
+html[data-theme="dark"] .persona-photo,.persona-photo-ph,.persona-photo-sm-ph{background:#0a1020;border-color:rgba(255,255,255,.08)}
+html[data-theme="dark"] .persona-quote{color:#8a9bb4}
 
-/* cover */
-.cv{background:var(--hr)!important;border:0!important;color:#fff;padding:2.6rem!important;padding-right:min(50%,30rem)!important;justify-content:center}
-.cv .ft{position:absolute;left:2.6rem;right:min(50%,30rem);bottom:1.2rem;margin:0;padding:0}
-.hr{position:absolute;top:0;right:0;bottom:0;width:min(48%,32rem);overflow:hidden}
-.hr img{width:100%;height:100%;object-fit:cover;object-position:center 30%;filter:brightness(.85) contrast(1.08);animation:kn 20s ease-in-out infinite alternate}
-@keyframes kn{from{transform:scale(1)}to{transform:scale(1.07)}}
-.hr::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,var(--hr),rgba(3,5,8,.1) 60%,rgba(3,5,8,.4))}
-.br{position:relative;z-index:2;margin-top:1.8rem}
-.br img{height:28px;filter:brightness(0) invert(1)}
-.br p{margin-top:.55rem;font-size:.95rem;color:rgba(255,255,255,.7)}
-.br p span{color:var(--nn);font-weight:700}
-
-/* stat cards */
-.st{border-radius:20px;padding:1.5rem 1.3rem;background:var(--cd);border:1px solid var(--ln);border-top:5px solid var(--bl)}
-.st:nth-child(2){border-top-color:var(--sk)}.st:nth-child(3){border-top-color:var(--b2)}.st:nth-child(4){border-top-color:var(--vi)}
-.st .n{font-size:clamp(2rem,3.5vw,2.8rem);font-weight:800;color:#fff;letter-spacing:-.03em;text-shadow:0 0 40px rgba(77,124,255,.25)}
-.st .l{margin-top:.5rem;font-size:.9rem;color:var(--m);font-weight:600}
-
-/* lever cards */
-.lv{border-radius:20px;padding:1.3rem;background:var(--cd);border:1px solid var(--ln);min-height:160px;position:relative;overflow:hidden}
-.lv .num{position:absolute;top:1rem;right:1.1rem;font-size:2.8rem;font-weight:800;color:rgba(77,124,255,.12);line-height:1}
-.lv h3{font-size:1.1rem;margin-bottom:.45rem}
-.lv p{font-size:.88rem}
-
-/* buyer cards */
-.by{border-radius:20px;background:var(--cd);border:1px solid var(--ln);overflow:hidden;display:flex;flex-direction:column}
-.by .ph{height:200px;background:#060a14;display:flex;align-items:center;justify-content:center}
-.by .ph img{width:100%;height:100%;object-fit:contain}
-.by .bd{padding:1.1rem;flex:1;display:flex;flex-direction:column}
-.by .who{font-size:.7rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--bl);margin-bottom:.3rem}
-.by:nth-child(2) .who{color:var(--sk)}.by:nth-child(3) .who{color:var(--vi)}
-.by h3{font-size:1.3rem;margin-bottom:.3rem}
-.by .rl{font-size:.84rem;color:var(--m);font-weight:600;margin-bottom:.5rem}
-.by .pn{font-size:.98rem;font-weight:600;color:#fff;margin-bottom:.5rem;line-height:1.3}
-.by .hp{font-size:.88rem;color:var(--m);margin-top:auto;padding-top:.55rem;border-top:1px solid var(--ln)}
-.by .hp strong{color:#fff}
-.by .titles{font-size:.76rem;color:var(--m);margin-top:.45rem;padding-top:.4rem;border-top:1px solid var(--ln)}
-
-/* competitor map */
-.cm{position:relative;flex:1;min-height:440px;margin-top:.45rem;border-radius:20px;border:1px solid var(--ln);
-  background:radial-gradient(ellipse at 58% 45%,rgba(6,68,237,.14),transparent 55%),linear-gradient(180deg,#0a101c,#060a10)}
-.cm-g{position:absolute;inset:28px 24px 52px 68px;background-image:
-  linear-gradient(to right,rgba(255,255,255,.04) 1px,transparent 1px),
-  linear-gradient(to bottom,rgba(255,255,255,.04) 1px,transparent 1px);background-size:25% 25%}
-.ax{position:absolute;background:rgba(255,255,255,.12)}
-.axx{left:68px;right:24px;bottom:52px;height:2px}.axy{left:68px;top:28px;bottom:52px;width:2px}
-.al{position:absolute;font-size:.72rem;font-weight:800;color:rgba(255,255,255,.35);letter-spacing:.06em;text-transform:uppercase}
-.alx{bottom:18px;left:50%;transform:translateX(-50%)}.aly{left:16px;top:50%;transform:translateY(-50%) rotate(-90deg)}
-.dt{position:absolute;transform:translate(-50%,-50%);border-radius:16px;padding:.6rem .75rem;color:#fff;font-weight:800;
-  font-size:.74rem;line-height:1.15;text-align:center;min-width:100px;box-shadow:0 12px 28px rgba(0,0,0,.35)}
-.dt small{display:block;font-size:.64rem;font-weight:600;opacity:.88;margin-top:.15rem}
-.dt.us{background:linear-gradient(135deg,#0644ed,#001F40);min-width:120px;font-size:.82rem;z-index:5;
-  box-shadow:0 0 0 6px rgba(6,68,237,.25),0 16px 36px rgba(6,68,237,.4)}
-.dt.a{background:#475569}.dt.b{background:#0ea5e9}.dt.c{background:#d97706}
-.dt.d{background:#7c3aed}.dt.e{background:#dc2626}.dt.f{background:#6366f1}
-
-/* funnel */
-.fn{display:flex;flex-direction:column;align-items:center;gap:8px;margin:.3rem auto 0;width:100%;max-width:900px}
-.fs{width:100%;color:#fff;border-radius:16px;padding:.9rem 1.1rem;display:grid;grid-template-columns:1.1fr 1.5fr .7fr;gap:.7rem;align-items:center;
-  box-shadow:0 14px 36px rgba(0,0,0,.35),inset 0 1px 0 rgba(255,255,255,.06)}
-.fs:nth-child(1){width:100%;background:linear-gradient(135deg,#001F40,#0644ed)}
-.fs:nth-child(3){width:88%;background:linear-gradient(135deg,#0644ed,#3b6cf5)}
-.fs:nth-child(5){width:76%;background:linear-gradient(135deg,#1d4ed8,#0ea5e9)}
-.fs:nth-child(7){width:64%;background:linear-gradient(135deg,#3b6cf5,#6366f1)}
-.fs:nth-child(9){width:54%;background:linear-gradient(135deg,#001F40,#3b6cf5)}
-.fs .t{font-size:1rem;font-weight:800}.fs .j{font-size:.78rem;opacity:.9;margin-top:.12rem}
-.fs .ch{display:flex;flex-wrap:wrap;gap:.25rem}
-.fs .ch i{background:rgba(255,255,255,.18);border-radius:999px;padding:.15rem .48rem;font-size:.68rem;font-weight:800;font-style:normal}
-.fs .mt{text-align:right;font-size:.72rem;font-weight:800}.fs .mt b{display:block;font-size:1.05rem}
-.fa{width:0;height:0;border-left:10px solid transparent;border-right:10px solid transparent;border-top:10px solid rgba(77,124,255,.25)}
-
-/* gantt */
-.ky{display:flex;flex-wrap:wrap;gap:.35rem;margin:.25rem 0 .6rem}
-.cp{border-radius:999px;padding:.25rem .6rem;font-size:.7rem;font-weight:800;color:#fff}
-.gn{flex:1;display:flex;flex-direction:column;justify-content:space-evenly;min-height:380px}
-.gh{display:grid;grid-template-columns:140px repeat(12,1fr);gap:4px;margin-bottom:6px}
-.gh span{text-align:center;font-size:.68rem;font-weight:800;color:rgba(255,255,255,.35)}
-.gr{display:grid;grid-template-columns:140px 1fr;gap:12px;align-items:center;min-height:42px}
-.gl{font-size:.85rem;font-weight:800;color:#fff}
-.gt{position:relative;height:32px;border-radius:10px;background:rgba(255,255,255,.04);border:1px solid var(--ln);overflow:hidden}
-.gb{position:absolute;top:3px;bottom:3px;border-radius:8px;display:flex;align-items:center;padding:0 .5rem;
-  color:#fff;font-size:.66rem;font-weight:800;white-space:nowrap;overflow:hidden}
-
-/* phases */
-.ph-cd{border-radius:20px;padding:1.3rem 1.2rem;color:#fff;min-height:200px;display:flex;flex-direction:column}
-.ph-cd h3{font-size:1.1rem;margin-bottom:.6rem}
-.ph-cd li{list-style:none;margin:.4rem 0;font-size:.9rem;font-weight:600;padding-left:1.1rem;position:relative;line-height:1.3;color:rgba(255,255,255,.9)}
-.ph-cd li:before{content:"";position:absolute;left:0;top:.4rem;width:.45rem;height:.45rem;border-radius:50%;background:rgba(255,255,255,.8)}
-
-/* week */
-.wk{display:grid;grid-template-columns:repeat(5,1fr);gap:.7rem;margin-top:.5rem;flex:1;align-content:center}
-.dy{border-radius:18px;padding:1.1rem 1rem;background:var(--cd);border:1px solid var(--ln);border-top:5px solid var(--bl);min-height:170px}
-.dy:nth-child(2){border-top-color:var(--sk)}.dy:nth-child(3){border-top-color:var(--vi)}
-.dy:nth-child(4){border-top-color:var(--b2)}.dy:nth-child(5){border-top-color:var(--gn)}
-.dy b{display:block;font-size:1.05rem;color:#fff;margin-bottom:.5rem}
-.dy span{display:block;font-size:.9rem;color:var(--m);font-weight:600;line-height:1.35;margin:.25rem 0}
-
-/* emails */
-.em{border-radius:18px;padding:1.05rem 1.1rem;background:var(--sf);border:1px solid var(--ln);border-left:5px solid var(--bl)}
-.em:nth-child(2){border-left-color:var(--sk)}.em:nth-child(3){border-left-color:var(--vi)}.em:nth-child(4){border-left-color:var(--b2)}
-.em .lb{font-size:.68rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--bl);margin-bottom:.25rem}
-.em .sj{font-weight:800;font-size:.95rem;margin-bottom:.4rem;color:#fff}
-.em pre{white-space:pre-wrap;font-family:Inter,system-ui,sans-serif;font-size:.84rem;line-height:1.4;color:var(--m);font-weight:500}
-
-/* close */
-.cl{list-style:none;margin:.9rem 0 0;padding:0;position:relative;z-index:2}
-.cl li{color:rgba(255,255,255,.92);font-weight:600;margin:.38rem 0;padding-left:1.3rem;position:relative;font-size:1rem}
-.cl li:before{content:"¹3";position:absolute;left:0;color:var(--nn);font-weight:800}
-
-/* msgs */
-.ms{border-radius:14px;padding:.85rem .95rem;background:var(--sf);border:1px solid var(--ln);font-size:.82rem;line-height:1.35;color:var(--m)}
-
-@media(max-width:960px){
-  .g2,.g3,.g4,.g5,.wk,.by,.fs{grid-template-columns:1fr}
-  .fs{width:100%!important}
-  .cv{padding-right:1.5rem!important}
-  .hr{width:100%;height:38%;top:auto;opacity:.35}
-  .gh{display:none}.gr{grid-template-columns:1fr}
-}
-@media(prefers-reduced-motion:reduce){.hr img{animation:none!important}}
-
-/* present */
-.dk-btn{position:fixed;right:16px;bottom:16px;z-index:99999;border:0;border-radius:999px;cursor:pointer;
-  font:800 .82rem Inter,system-ui,sans-serif;color:#fff;padding:.72rem 1rem;background:linear-gradient(135deg,#0644ed,#001F40);
-  box-shadow:0 0 28px rgba(6,68,237,.35)}
-.dk-x,.dk-h,.dk-n,.dk-c{display:none!important}
-body.dk{background:#030508!important;overflow:hidden!important;height:100vh!important}
-body.dk .deck{margin:0!important;padding:0!important;max-width:none!important;width:100%!important}
-body.dk .tb,body.dk .dk-btn{display:none!important}
-body.dk .dk-x{display:inline-flex!important;position:fixed;top:14px;left:14px;z-index:100002;border:0;border-radius:999px;
-  background:#dc2626;color:#fff;font:800 .8rem Inter,system-ui,sans-serif;padding:.55rem .9rem;cursor:pointer}
-body.dk .dk-h{display:block!important;position:fixed;left:50%;bottom:12px;transform:translateX(-50%);z-index:100001;
+/* Present mode */
+.deck-present-btn{position:fixed;right:16px;bottom:16px;z-index:99999;border:0;border-radius:12px;cursor:pointer;
+  font:800 .82rem Inter,system-ui,sans-serif;color:#fff;padding:.72rem 1rem;
+  background:linear-gradient(135deg,#0644ed,#001F40);box-shadow:0 0 24px rgba(6,68,237,.35)}
+.deck-exit-btn,.deck-exit-hint,.deck-nav,.deck-counter{display:none!important}
+body.deck-mode{background:#030508!important;overflow:hidden!important;height:100vh!important}
+body.deck-mode .deck{margin:0!important;padding:0!important;max-width:none!important;width:100%!important}
+body.deck-mode .toolbar,body.deck-mode .deck-present-btn{display:none!important}
+body.deck-mode .deck-exit-btn{display:inline-flex!important;position:fixed;top:14px;left:14px;z-index:100002;border:0;border-radius:10px;
+  background:#dc2626;color:#fff;font:800 .8rem Inter,system-ui,sans-serif;padding:.5rem .9rem;cursor:pointer}
+body.deck-mode .deck-exit-hint{display:block!important;position:fixed;left:50%;bottom:12px;transform:translateX(-50%);z-index:100001;
   color:#fff;font-size:.7rem;font-weight:600;background:rgba(0,0,0,.5);padding:.3rem .7rem;border-radius:999px}
-body.dk .dk-c{display:block!important;position:fixed;top:16px;right:14px;z-index:100001;color:#fff;font-size:.72rem;font-weight:700;
+body.deck-mode .deck-counter{display:block!important;position:fixed;top:16px;right:14px;z-index:100001;color:#fff;font-size:.72rem;font-weight:700;
   background:rgba(0,0,0,.45);padding:.3rem .55rem;border-radius:8px}
-body.dk .dk-n{display:block!important;position:fixed;inset:0;z-index:100000;pointer-events:none}
-body.dk .dk-n button{pointer-events:auto;position:absolute;top:50%;transform:translateY(-50%);width:44px;height:64px;border:0;border-radius:12px;
+body.deck-mode .deck-nav{display:block!important;position:fixed;inset:0;z-index:100000;pointer-events:none}
+body.deck-mode .deck-nav button{pointer-events:auto;position:absolute;top:50%;transform:translateY(-50%);width:44px;height:64px;border:0;border-radius:12px;
   background:rgba(255,255,255,.14);color:#fff;font-size:1.5rem;cursor:pointer}
-body.dk .dk-n .p{left:8px}body.dk .dk-n .nx{right:8px}
-body.dk section.slide{display:none!important;position:fixed!important;inset:0!important;margin:0!important}
-body.dk section.slide.active{display:flex!important;align-items:center!important;justify-content:center!important}
-body.dk .slide.active .si{width:min(1320px,96vw)!important;height:min(740px,calc(100vh - 36px))!important;
+body.deck-mode .deck-nav .dk-prev{left:8px}body.deck-mode .deck-nav .dk-next{right:8px}
+body.deck-mode section.slide{display:none!important;position:fixed!important;inset:0!important;margin:0!important;border:0!important;border-radius:0!important}
+body.deck-mode section.slide.deck-active{display:flex!important;align-items:center!important;justify-content:center!important}
+body.deck-mode .slide.deck-active{padding:0!important}
+body.deck-mode .slide.deck-active .slide-inner{width:min(1320px,96vw)!important;height:min(740px,calc(100vh - 36px))!important;
   max-height:calc(100vh - 36px)!important;overflow:auto!important;border-radius:16px!important;
   box-shadow:0 30px 90px rgba(0,0,0,.6),0 0 0 1px rgba(255,255,255,.05)!important}
-@media print{
-  .tb,.dk-btn,.dk-x,.dk-h,.dk-n,.dk-c{display:none!important}
-  section.slide{break-after:page}.si{box-shadow:none;border-radius:0;min-height:0}
-  .hr img{animation:none!important}
-  @page{size:landscape;margin:.35in}
-  html,body{-webkit-print-color-adjust:exact;print-color-adjust:exact}
-}
+
 </style>
 </head>
 <body>
 <div class="deck">
-  <div class="tb">
-    <button class="bt bp" type="button" onclick="window.print()">Print / PDF</button>
-    <button class="bt" type="button" onclick="T('light')">Light</button>
-    <button class="bt" type="button" onclick="T('dark')">Dark</button>
-    <button class="bt bp" type="button" onclick="document.getElementById('db').click()">&#9658; Present</button>
+  <div class="toolbar">
+    <button class="btn btn-p" type="button" onclick="window.print()">Print / PDF</button>
+    <button class="btn btn-g" type="button" onclick="baTheme('light')">Light slides</button>
+    <button class="btn btn-g" type="button" onclick="baTheme('dark')">Dark slides</button>
+    <button class="btn btn-p" type="button" onclick="document.getElementById('dkBtn').click()">&#9658; Present</button>
+    <a class="btn btn-g" href="/gameplan_marketing/" target="_blank">Hub</a>
+    <span class="hint">Brandastic 2027 growth strategy &middot; Comply-depth</span>
   </div>
 
-  <!-- 1 COVER -->
-  <section class="slide" id="cover">
-    <div class="si cv">
-      <div class="hr" aria-hidden="true"><img src="../assets/ba-office-2027/office-4.jpg" alt=""/></div>
-      <div class="k">Brandastic &middot; 2027 growth strategy</div>
-      <div class="h1">Win more of the right clients</div>
-      <p class="ld">Who we sell to. How we get work. What we say. The math that makes it real.</p>
-      <div class="br">
-        <img src="../assets/brandastic-logo-white.png" alt="Brandastic"/>
-        <p>Focused. Growth. = <span>Progress.</span></p>
+  <!-- 01 TITLE -->
+  <section class="slide" id="title">
+    <div class="slide-inner divider-slide" style="background:linear-gradient(135deg,#001F40,#0a1628);color:#fff;justify-content:center;min-height:620px">
+      <div class="phase" style="color:#7eb6ff">BRANDASTIC &middot; 2027 GROWTH STRATEGY</div>
+      <div class="h1" style="color:#fff;max-width:14ch;font-size:clamp(2.4rem,5vw,3.6rem)">How we win more of the right clients</div>
+      <p class="lede" style="color:rgba(255,255,255,.75);max-width:38rem">Who we sell to, how we sell, what we say. Main goal: grow recurring from $120K to $160K/mo. Know the market. Know the buyer. Run the plan.</p>
+      <div style="margin-top:2rem">
+        <img src="../assets/brandastic-logo-white.png" alt="Brandastic" style="height:28px;filter:brightness(0) invert(1);opacity:.9"/>
+        <p style="margin-top:.5rem;font-size:.9rem;color:rgba(255,255,255,.6)">Focused. Growth. = <span style="color:#7eb6ff;font-weight:700">Progress.</span></p>
       </div>
-      <div class="ft"><span>BRANDASTIC &middot; CONFIDENTIAL</span><span>brandastic.com</span></div>
+      <div class="footer-bar" style="color:rgba(255,255,255,.3)"><span>BRANDASTIC &middot; CONFIDENTIAL</span><span>brandastic.com</span></div>
     </div>
   </section>
 
-  <!-- 2 HONEST DIAGNOSIS -->
-  <section class="slide" id="diagnosis">
-    <div class="si">
-      <div class="k">01 &middot; Honest diagnosis</div>
-      <h2 class="h2">What works. What doesn&rsquo;t.</h2>
-      <div class="g2">
-        <div class="cd" style="border-top:5px solid var(--gn)">
-          <h3 style="color:var(--gn)">Working</h3>
+  <!-- 02 GOAL -->
+  <section class="slide" id="goal">
+    <div class="slide-inner">
+      <div class="kicker">Main goal &middot; simple math the team can hold</div>
+      <div class="h2">$120K &rarr; $160K/mo recurring &middot; ~6 net new clients</div>
+      <p class="lede">Revenue goal everyone can say from memory &mdash; founders, AMs, and delivery team.</p>
+      <div class="grid3" style="margin-top:1rem">
+        <div class="card"><div class="stat">$120K</div><div class="stat-lbl">Monthly recurring now (~17 clients)</div></div>
+        <div class="card"><div class="stat">$160K</div><div class="stat-lbl">Monthly recurring target</div></div>
+        <div class="card"><div class="stat">~$6K</div><div class="stat-lbl">Avg package / month / client</div></div>
+      </div>
+      <div class="grid2" style="margin-top:1rem">
+        <div class="card">
+          <h3>Revenue picture</h3>
           <ul>
-            <li>Search + referral engine creates most new clients</li>
-            <li>Deep delivery &mdash; paid, SEO, web, creative under one roof</li>
-            <li>Flagship proof (CalOPS-scale education work)</li>
-            <li>$1.67M &rarr; ~$2.12M year-over-year growth is real</li>
-            <li>AI-assisted drafting speeds content without adding headcount</li>
+            <li>2025 full year: <strong>$1,673,870</strong></li>
+            <li>2026 pace (Jan&ndash;Sep annualized): <strong>~$2.12M</strong></li>
+            <li>2026 Goal Sheet: <strong>$2.5M</strong></li>
+            <li>Gap to goal: <strong>~$380K</strong> = ~6 clients at $6K/mo</li>
+            <li>2030 vision: <strong>$3.5M &middot; 65 retainers</strong></li>
           </ul>
         </div>
-        <div class="cd" style="border-top:5px solid #dc2626">
-          <h3 style="color:#f87171">Broken</h3>
+        <div class="card">
+          <h3>Unit economics (per client)</h3>
           <ul>
-            <li><strong style="color:#fff">78 of 93 leads went nowhere</strong> &mdash; we don&rsquo;t know why</li>
-            <li>Churn rate is invisible &mdash; no monthly number on the board</li>
+            <li>Average monthly package: <strong>~$6,000</strong></li>
+            <li>Annual value per client: <strong>~$72K</strong></li>
+            <li>Expected retention: <strong>24&ndash;36 months</strong></li>
+            <li>LTV per client: <strong>$144&ndash;216K</strong></li>
+            <li>CAC target: <strong>&lt;$5,000</strong> (currently unknown)</li>
+          </ul>
+        </div>
+      </div>
+      <p class="quote">Remember: $160K/mo recurring &times; 12 = $1.92M base. Plus project work = $2.5M path. The gap is <strong>~6 net new clients</strong>, not 30.</p>
+      <div class="footer-bar"><span>BRANDASTIC 2027</span><span class="num">02</span></div>
+    </div>
+  </section>
+
+  <!-- 03 VALUATION -->
+  <section class="slide" id="valuation">
+    <div class="slide-inner">
+      <div class="kicker">What the company could be worth</div>
+      <div class="h2">Bookings &minus; Churn = Growth. Higher eval follows.</div>
+      <div class="grid3" style="margin-top:1rem">
+        <div class="card"><div class="stat">~$2.12M</div><div class="stat-lbl">2026 pace &middot; base</div></div>
+        <div class="card"><div class="stat">~$1.4M</div><div class="stat-lbl">Midpoint EV today (0.5&ndash;1&times; rev)</div></div>
+        <div class="card"><div class="stat">$3.5M+</div><div class="stat-lbl">2030 &middot; 65 retainers &middot; better margin</div></div>
+      </div>
+      <table class="table" style="margin-top:1.2rem">
+        <tr><th>Revenue</th><th>Typical agency multiple</th><th>Company value range</th><th>What it takes</th></tr>
+        <tr><td><strong>$2M</strong></td><td>0.5&ndash;1&times;</td><td>$1&ndash;2M</td><td>Where we are &mdash; owner-dependent, growing</td></tr>
+        <tr><td><strong>$2.5M</strong></td><td>0.7&ndash;1.2&times;</td><td>$1.7&ndash;3M</td><td>Hit 2026 goal &middot; prove retention</td></tr>
+        <tr><td><strong>$3.5M</strong></td><td>1&ndash;2&times;</td><td>$3.5&ndash;7M</td><td>2030 &middot; 65 retainers &middot; 20%+ net margin &middot; less owner-dependent</td></tr>
+      </table>
+      <p class="quote">Agency multiples are low unless <strong>retention is proven</strong>, <strong>margin is clean</strong>, and <strong>the owner isn&rsquo;t the entire sales team</strong>. This strategy addresses all three.</p>
+      <div class="footer-bar"><span>BRANDASTIC 2027</span><span class="num">03</span></div>
+    </div>
+  </section>
+
+  <!-- 04 TOC -->
+  <section class="slide" id="toc">
+    <div class="slide-inner">
+      <div class="kicker">Contents</div>
+      <div class="h2">How to read this deck</div>
+      <div class="toc-list">
+        <div>01 &middot; Goal &amp; valuation <span>&middot; $120K &rarr; $160K/mo &middot; unit economics</span></div>
+        <div>02 &middot; Market &amp; competitors <span>&middot; TAM by ICP &middot; named agencies &middot; positioning</span></div>
+        <div>03 &middot; Who we sell to <span>&middot; Dana 50% &middot; Maya 30% &middot; Sam 20%</span></div>
+        <div>04 &middot; Discovery <span>&middot; what we&rsquo;ve learned &middot; what&rsquo;s broken</span></div>
+        <div>05 &middot; How we sell <span>&middot; channel playbooks &middot; SEO &middot; Outbound &middot; Referral &middot; Events</span></div>
+        <div>06 &middot; Budget &amp; money results <span>&middot; monthly costs &middot; forecast</span></div>
+        <div>07 &middot; Ads &amp; copy <span>&middot; LinkedIn &middot; Google &middot; email templates &middot; posts</span></div>
+        <div>08 &middot; Measure &middot; 90 days &middot; roadmap <span>&middot; calendar &middot; runbook</span></div>
+        <div>09 &middot; Close <span>&middot; room decisions this week</span></div>
+      </div>
+      <div class="footer-bar"><span>BRANDASTIC 2027</span><span class="num">04</span></div>
+    </div>
+  </section>
+
+  <!-- 05 MARKET OPPORTUNITY -->
+  <section class="slide" id="market-opportunity">
+    <div class="slide-inner">
+      <div class="kicker">02 &middot; Total addressable market</div>
+      <div class="h2">Three markets we can size and reach</div>
+      <p class="lede">Not &ldquo;all businesses.&rdquo; Three specific buyer pools where Brandastic already has proof or positioning.</p>
+      <div class="grid3" style="margin-top:1rem">
+        <div class="card">
+          <h3>Dental / medical suppliers (Dana)</h3>
+          <p><strong>~12,000+</strong> dental and medical device/supply companies in the US. Many small distributors and specialty manufacturers.</p>
+          <p style="margin-top:.5rem">Typical marketing spend: <strong>$50&ndash;200K/yr</strong> for B2B suppliers.</p>
+          <p style="margin-top:.5rem">OC/SoCal cluster is notable. Brandastic targets <strong>supplier owners</strong>, not patient clinics.</p>
+          <p style="margin-top:.5rem"><strong>Our addressable slice:</strong> ~500&ndash;1,000 mid-size suppliers who would pay $5&ndash;8K/mo for SEO + paid.</p>
+        </div>
+        <div class="card">
+          <h3>Online / charter schools (Maya)</h3>
+          <p><strong>~7,800</strong> charter schools in the US + growing virtual programs. California alone has <strong>1,300+</strong> charters.</p>
+          <p style="margin-top:.5rem">Marketing spend for enrollment: <strong>$100&ndash;500K/yr</strong> for schools with real budgets.</p>
+          <p style="margin-top:.5rem">CalOPS-scale = online-heavy public schools. We have <strong>flagship proof</strong> here.</p>
+          <p style="margin-top:.5rem"><strong>Our addressable slice:</strong> ~200&ndash;400 online-heavy programs nationally that spend on enrollment.</p>
+        </div>
+        <div class="card">
+          <h3>SoCal manufacturers (Sam)</h3>
+          <p><strong>~2,000+</strong> aerospace/defense small manufacturers and suppliers in SoCal (not primes). OC, LA, SD clusters.</p>
+          <p style="margin-top:.5rem">Most have <strong>terrible websites</strong>. Marketing budgets small: <strong>$20&ndash;80K/yr</strong>.</p>
+          <p style="margin-top:.5rem">Hungry for quotes but skeptical of &ldquo;marketing.&rdquo;</p>
+          <p style="margin-top:.5rem"><strong>Our addressable slice:</strong> ~300&ndash;600 owner-led shops who need a web presence + quote path.</p>
+        </div>
+      </div>
+      <p class="quote"><strong>Combined addressable:</strong> ~1,000&ndash;2,000 companies across three markets. We need <strong>6 net new</strong> to close the 2026 gap. The pool is not the problem &mdash; targeting and close rate are.</p>
+      <div class="footer-bar"><span>BRANDASTIC 2027</span><span class="num">05</span></div>
+    </div>
+  </section>
+
+  <!-- 06 COMPETITORS -->
+  <section class="slide" id="competitors">
+    <div class="slide-inner">
+      <div class="kicker">02 &middot; Competitor landscape</div>
+      <div class="h2">Who we bump into &mdash; and how we win</div>
+      <p class="lede">Working view. Update names as you hear them on calls. Add real ones you&rsquo;ve lost to or beat.</p>
+      <table class="table" style="margin-top:.8rem">
+        <tr><th>Competitor type</th><th>Examples</th><th>Their pitch</th><th>Our edge</th><th>Their edge</th></tr>
+        <tr><td><strong>Big performance agencies</strong></td><td>Directive (Irvine), Power Digital (SD), Ignite Visibility (SD)</td><td>Data, scale, B2B demand gen</td><td>Speed, owner access, OC local, lower entry price</td><td>Brand name, case library, bigger teams</td></tr>
+        <tr><td><strong>National low-price shops</strong></td><td>WebFX, SmartSites, Thrive</td><td>Cheap packages, volume</td><td>Strategy + accountability, not template work</td><td>Price, SEO for &ldquo;SEO agency&rdquo;</td></tr>
+        <tr><td><strong>OC boutique agencies</strong></td><td>Small 1&ndash;5 person shops</td><td>Personal attention, niche</td><td>Full stack, bench depth</td><td>Hyper-niche specialization</td></tr>
+        <tr><td><strong>In-house hire</strong></td><td>Client hires a marketing person</td><td>Control, salary = fixed cost</td><td>Multi-channel + no single point of failure</td><td>&ldquo;We&rsquo;ll just hire someone&rdquo;</td></tr>
+        <tr><td><strong>DIY / AI tools</strong></td><td>HubSpot, ChatGPT, Canva, Wix</td><td>Cheap software</td><td>Judgment, creative, media skill</td><td>Free or near-free</td></tr>
+        <tr><td><strong>Freelancer networks</strong></td><td>Upwork, offshore stacks</td><td>Lowest price</td><td>Strategy + team + accountability</td><td>Pure cost</td></tr>
+      </table>
+      <p class="quote"><strong>Win pattern:</strong> we beat big shops on speed + access. We beat cheap shops on strategy + outcomes. We lose when we try to compete on price or when we can&rsquo;t show proof fast enough.</p>
+      <div class="footer-bar"><span>BRANDASTIC 2027</span><span class="num">06</span></div>
+    </div>
+  </section>
+
+  <!-- 07 COMPETITOR MAP -->
+  <section class="slide" id="competitor-map">
+    <div class="slide-inner">
+      <div class="kicker">02 &middot; Where we sit</div>
+      <div class="h2">Price vs. service depth</div>
+      <p class="lede">Up = higher price. Right = fuller stack. <strong style="color:#0644ed">Blue = us.</strong> Working map &mdash; rename dots with real shops.</p>
+      <svg viewBox="0 0 800 500" class="comp-bubbles" style="margin-top:.5rem" aria-hidden="true">
+        <!-- grid -->
+        <g stroke="rgba(6,68,237,.08)" stroke-width="1"><line x1="80" y1="40" x2="80" y2="460"/><line x1="80" y1="460" x2="760" y2="460"/><line x1="80" y1="150" x2="760" y2="150" stroke-dasharray="4"/><line x1="80" y1="300" x2="760" y2="300" stroke-dasharray="4"/><line x1="300" y1="40" x2="300" y2="460" stroke-dasharray="4"/><line x1="520" y1="40" x2="520" y2="460" stroke-dasharray="4"/></g>
+        <!-- axis labels -->
+        <text x="420" y="490" text-anchor="middle" fill="#5a6b80" font-size="12" font-weight="700">Thinner service &rarr; Full stack</text>
+        <text x="20" y="250" text-anchor="middle" fill="#5a6b80" font-size="12" font-weight="700" transform="rotate(-90,20,250)">Higher price &rarr;</text>
+        <!-- dots -->
+        <circle cx="200" cy="380" r="32" fill="#64748b" opacity=".85"/><text x="200" y="378" text-anchor="middle" fill="#fff" font-size="10" font-weight="800">Freelance</text><text x="200" y="393" text-anchor="middle" fill="rgba(255,255,255,.75)" font-size="9">Cheap &middot; thin</text>
+        <circle cx="260" cy="280" r="30" fill="#d97706" opacity=".85"/><text x="260" y="278" text-anchor="middle" fill="#fff" font-size="10" font-weight="800">DIY / AI</text><text x="260" y="293" text-anchor="middle" fill="rgba(255,255,255,.75)" font-size="9">Software only</text>
+        <circle cx="400" cy="320" r="32" fill="#0ea5e9" opacity=".85"/><text x="400" y="318" text-anchor="middle" fill="#fff" font-size="10" font-weight="800">Boutique</text><text x="400" y="333" text-anchor="middle" fill="rgba(255,255,255,.75)" font-size="9">One channel</text>
+        <circle cx="500" cy="220" r="28" fill="#6366f1" opacity=".85"/><text x="500" y="218" text-anchor="middle" fill="#fff" font-size="10" font-weight="800">In-house</text><text x="500" y="233" text-anchor="middle" fill="rgba(255,255,255,.75)" font-size="9">One person</text>
+        <circle cx="650" cy="120" r="36" fill="#7c3aed" opacity=".85"/><text x="650" y="116" text-anchor="middle" fill="#fff" font-size="10" font-weight="800">Directive</text><text x="650" y="133" text-anchor="middle" fill="rgba(255,255,255,.75)" font-size="9">B2B &middot; $27M+</text>
+        <circle cx="620" cy="80" r="30" fill="#dc2626" opacity=".75"/><text x="620" y="78" text-anchor="middle" fill="#fff" font-size="9" font-weight="800">Big national</text><text x="620" y="92" text-anchor="middle" fill="rgba(255,255,255,.75)" font-size="8">Expensive &middot; slow</text>
+        <circle cx="180" cy="350" r="26" fill="#dc2626" opacity=".6"/><text x="180" y="348" text-anchor="middle" fill="#fff" font-size="9" font-weight="800">WebFX</text><text x="180" y="362" text-anchor="middle" fill="rgba(255,255,255,.75)" font-size="8">Volume &middot; cheap</text>
+        <!-- US -->
+        <circle cx="480" cy="250" r="42" fill="#0644ed" stroke="#fff" stroke-width="3"/><text x="480" y="245" text-anchor="middle" fill="#fff" font-size="13" font-weight="800">BRANDASTIC</text><text x="480" y="263" text-anchor="middle" fill="rgba(255,255,255,.9)" font-size="10" font-weight="600">Full stack &middot; mid &middot; fast</text>
+      </svg>
+      <p class="comp-note">Directive is our structural model to learn from &mdash; not a direct competitor at our price point. Our opening: speed + owner access + OC market knowledge at a price Directive won&rsquo;t touch.</p>
+      <div class="footer-bar"><span>BRANDASTIC 2027</span><span class="num">07</span></div>
+    </div>
+  </section>
+
+  <!-- 08 DISCOVERY -->
+  <section class="slide" id="discovery">
+    <div class="slide-inner">
+      <div class="kicker">04 &middot; Discovery snapshot</div>
+      <div class="h2">What we&rsquo;ve learned about Brandastic</div>
+      <div class="grid2">
+        <div class="card">
+          <h3>Strengths</h3>
+          <ul>
+            <li>Real year-over-year growth ($1.67M &rarr; ~$2.12M)</li>
+            <li>Search + referral engine creates most new clients organically</li>
+            <li>Deep delivery bench: SEO, paid, web, creative, content under one roof</li>
+            <li>Flagship proof: CalOPS-scale education work wins confidence</li>
+            <li>AI-assisted workflows speed content without adding headcount</li>
+            <li>OC roots &mdash; local trust in dental/med supplier cluster</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>What&rsquo;s broken (honest)</h3>
+          <ul>
+            <li><strong>78 of 93 leads went nowhere</strong> &mdash; no systematic tracking of why</li>
+            <li>Churn rate invisible &mdash; no monthly number on any board</li>
             <li>Channel attribution missing &mdash; can&rsquo;t fund what we can&rsquo;t measure</li>
-            <li>ICP still too wide day-to-day &mdash; saying yes to everyone</li>
-            <li>Follow-up gaps &mdash; leads go cold because nobody owns the next step</li>
-            <li>Package pricing uneven &mdash; $5.5&ndash;7K avg is too wide a range</li>
+            <li>ICP too wide day-to-day &mdash; saying yes to anyone who calls</li>
+            <li>Follow-up uneven &mdash; leads go cold, nobody owns next step</li>
+            <li>Package pricing is a $5.5&ndash;7K range, not a clear tier</li>
+            <li>No formal referral system &mdash; asks happen randomly</li>
           </ul>
         </div>
       </div>
-      <p class="qt">This strategy exists because growth is real but the system under it is fragile. Fix the system and the growth accelerates. Ignore it and we plateau.</p>
-      <div class="ft"><span>BRANDASTIC 2027</span><span>02</span></div>
+      <div class="card" style="margin-top:1rem">
+        <h3>Opportunities (this strategy addresses these)</h3>
+        <ul>
+          <li><strong>Close rate:</strong> 16% &rarr; 22% on same leads = ~5 more contracts = ~$360K/yr. No extra ad spend.</li>
+          <li><strong>Whitespace:</strong> growing existing clients is 3&ndash;5&times; cheaper than finding new ones.</li>
+          <li><strong>Referral system:</strong> formalize the ask after every win &mdash; highest-quality leads at zero cost.</li>
+          <li><strong>SEO compounds:</strong> pages we ship now earn traffic for years. Weekly ship cadence = compounding asset.</li>
+          <li><strong>AI + process:</strong> use AI for draft speed, human for judgment + quality. More output without more people.</li>
+        </ul>
+      </div>
+      <div class="footer-bar"><span>BRANDASTIC 2027</span><span class="num">08</span></div>
     </div>
   </section>
 
-  <!-- 3 THE MATH -->
-  <section class="slide" id="math">
-    <div class="si">
-      <div class="k">02 &middot; The math</div>
-      <h2 class="h2">How ~$2.12M becomes $2.5M becomes $3.5M</h2>
-      <div class="g4" style="margin-top:.55rem">
-        <div class="st"><div class="n">$1.67M</div><div class="l">2025 full-year sales</div></div>
-        <div class="st"><div class="n">~$2.12M</div><div class="l">2026 pace (Jan&ndash;Sep)</div></div>
-        <div class="st"><div class="n">$2.5M</div><div class="l">2026 goal</div></div>
-        <div class="st"><div class="n">$3.5M</div><div class="l">2030 &middot; 65 retainers</div></div>
-      </div>
-      <div class="g2" style="margin-top:1rem">
-        <div class="cd">
-          <h3>The gap</h3>
+  <!-- 09 METHODOLOGY -->
+  <section class="slide" id="methodology">
+    <div class="slide-inner">
+      <div class="kicker">Our targeting edge</div>
+      <div class="h2">We know exactly who to sell to</div>
+      <p class="big" style="margin-top:.5rem">Most agencies spray the market. We don&rsquo;t. Before we spend time on anyone, we already know the titles, the company profile, and the fit.</p>
+      <div class="grid3" style="margin-top:1rem">
+        <div class="card">
+          <h3>How we target</h3>
           <ul>
-            <li><strong style="color:#fff">$380K</strong> between pace and 2026 goal</li>
-            <li>$120K/mo recurring vs $160K target = <strong style="color:#fff">$40K/mo gap</strong></li>
-            <li>At $6K avg package, that&rsquo;s <strong style="color:#fff">~6 net new clients</strong></li>
-            <li>Or grow existing packages &mdash; 3&ndash;5x cheaper than finding new</li>
+            <li><strong>Exact target list</strong> &mdash; not a vague industry</li>
+            <li>Company + title + size + location filter</li>
+            <li>Apollo / LinkedIn Sales Nav for sourcing</li>
+            <li>Human review before any outreach</li>
+            <li>Fit score: A (ideal) / B (secondary) / skip</li>
           </ul>
         </div>
-        <div class="cd">
-          <h3>The path to $3.5M (2030)</h3>
+        <div class="card">
+          <h3>ICP allocation</h3>
           <ul>
-            <li>CAGR needed: <strong style="color:#fff">~13%/year</strong> over 4 years</li>
-            <li>That&rsquo;s ~$275K additional revenue per year</li>
-            <li>Less than 1 net new client/month if we retain well</li>
-            <li>If churn eats 3&ndash;4 clients/year, we need 7&ndash;8 gross new</li>
-            <li><strong style="color:#fff">Retention is the hidden variable</strong></li>
+            <li><strong>Dana (dental/med):</strong> 50% of outreach &mdash; largest pool + best package fit</li>
+            <li><strong>Maya (education):</strong> 30% of outreach &mdash; proven CalOPS work + high-value retainers</li>
+            <li><strong>Sam (SoCal mfg):</strong> 20% of outreach &mdash; local advantage but smaller budgets</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>What this means</h3>
+          <ul>
+            <li>Every hour spent is on a real buyer</li>
+            <li>Copy never blends across ICPs</li>
+            <li>Different offer, different page, different email per buyer</li>
+            <li>Time is protected from scatter</li>
           </ul>
         </div>
       </div>
-      <p class="qt"><strong>93 leads, 15 contracts &mdash; 16% close rate.</strong> If we move that to 22%, same leads = 5 more contracts. That alone closes the gap. Volume is not the first problem. Conversion is.</p>
-      <div class="ft"><span>BRANDASTIC 2027</span><span>03</span></div>
+      <div class="footer-bar"><span>BRANDASTIC 2027</span><span class="num">09</span></div>
     </div>
   </section>
 
-  <!-- 4 FIVE LEVERS -->
+  <!-- 10 PERSONA: DANA -->
+  <section class="slide" id="persona-dana">
+    <div class="slide-inner">
+      <div class="kicker">03 &middot; Primary &middot; 50% of outreach</div>
+      <div class="persona-hero">
+        <img src="../assets/brandastic-personas/icp-dental-owner.jpg" alt="Dana" class="persona-photo"/>
+        <div>
+          <div class="persona-name">Dana Reyes &middot; 44</div>
+          <div class="persona-role" style="color:#0644ed">The Supplier Owner &middot; Dental / Medical B2B</div>
+          <div class="persona-quote">&ldquo;My product is good. Dealers still can&rsquo;t find what we sell without a PDF scavenger hunt.&rdquo;</div>
+          <div class="persona-meta"><strong>Role:</strong> Owner, Founder, GM, VP Sales, or Marketing Manager at a dental/medical supplier, lab, or specialty manufacturer.</div>
+          <div class="persona-meta"><strong>Day:</strong> Catalog clarity, dealer demand, trade shows, quotes, site leads that don&rsquo;t come.</div>
+          <div class="persona-meta"><strong>Buy path:</strong> Search proof or referral &rarr; 15-min call &rarr; one-page 90-day plan &rarr; $5&ndash;8K/mo SEO + paid package.</div>
+        </div>
+      </div>
+      <div class="grid2" style="margin-top:1rem">
+        <div class="card">
+          <h3>Pains (their words)</h3>
+          <ul>
+            <li>&ldquo;Dealers can&rsquo;t find the right product on our site.&rdquo;</li>
+            <li>&ldquo;We get random website traffic but no real leads.&rdquo;</li>
+            <li>&ldquo;Marketing feels random &mdash; no plan, no owner.&rdquo;</li>
+            <li>&ldquo;We tried an agency / ads before and it didn&rsquo;t work.&rdquo;</li>
+            <li>&ldquo;We don&rsquo;t know what works.&rdquo;</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>How Brandastic solves it</h3>
+          <ul>
+            <li>Clear offer pages per product line &mdash; who it&rsquo;s for, next step</li>
+            <li>SEO on dealer/clinic search terms that convert</li>
+            <li>90-day plan with monthly numbers and one AM owner</li>
+            <li>Fix pages first, then small paid only if ready</li>
+            <li>CRM channel tags + simple monthly report</li>
+          </ul>
+        </div>
+      </div>
+      <p class="quote"><strong>Message to Dana:</strong> We make it obvious what you sell &mdash; so dealers and clinics find you and start.</p>
+      <div class="footer-bar"><span>BRANDASTIC 2027</span><span class="num">10</span></div>
+    </div>
+  </section>
+
+  <!-- 11 PERSONA: MAYA -->
+  <section class="slide" id="persona-maya">
+    <div class="slide-inner">
+      <div class="kicker">03 &middot; Secondary &middot; 30% of outreach</div>
+      <div class="persona-hero">
+        <img src="../assets/brandastic-personas/icp-education-leader.jpg" alt="Maya" class="persona-photo"/>
+        <div>
+          <div class="persona-name">Maya Chen &middot; 41</div>
+          <div class="persona-role" style="color:#0ea5e9">The Enrollment Leader &middot; Online Public Schools</div>
+          <div class="persona-quote">&ldquo;Families have to find us online and inquire. If search fails, enrollment fails.&rdquo;</div>
+          <div class="persona-meta"><strong>Role:</strong> Director of Enrollment, Marketing Director, Head of School (wears marketing hat), Growth lead.</div>
+          <div class="persona-meta"><strong>Day:</strong> Family inquiries, paid + organic, site trust, compliance-safe messaging, board reporting.</div>
+          <div class="persona-meta"><strong>Buy path:</strong> CalOPS-style proof &rarr; 15-min motion show &rarr; multi-channel enrollment retainer.</div>
+        </div>
+      </div>
+      <div class="grid2" style="margin-top:1rem">
+        <div class="card">
+          <h3>Pains</h3>
+          <ul>
+            <li>&ldquo;Families can&rsquo;t find us online.&rdquo;</li>
+            <li>&ldquo;Agencies don&rsquo;t understand school rules.&rdquo;</li>
+            <li>&ldquo;We spend on ads but applications are flat.&rdquo;</li>
+            <li>&ldquo;Too much noise on social &mdash; no enrollment path.&rdquo;</li>
+            <li>&ldquo;The board wants proof and numbers.&rdquo;</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>How Brandastic solves it</h3>
+          <ul>
+            <li>SEO + paid + site trust aimed at enrollment conversations</li>
+            <li>CalOPS-scale motion &mdash; school-safe messaging</li>
+            <li>Fix first-screen inquiry path before spending more</li>
+            <li>Content supports search + inquiry, not vanity</li>
+            <li>Monthly inquiry / application metrics for the board</li>
+          </ul>
+        </div>
+      </div>
+      <p class="quote"><strong>Message to Maya:</strong> We help families find your school and inquire &mdash; without noise.</p>
+      <div class="footer-bar"><span>BRANDASTIC 2027</span><span class="num">11</span></div>
+    </div>
+  </section>
+
+  <!-- 12 PERSONA: SAM -->
+  <section class="slide" id="persona-sam">
+    <div class="slide-inner">
+      <div class="kicker">03 &middot; Tertiary &middot; 20% of outreach</div>
+      <div class="persona-hero">
+        <img src="../assets/brandastic-personas/icp-mfg-owner.jpg" alt="Sam" class="persona-photo"/>
+        <div>
+          <div class="persona-name">Sam Ortega &middot; 51</div>
+          <div class="persona-role" style="color:#6366f1">The Shop Owner &middot; Aero / Defense / Specialty Mfg</div>
+          <div class="persona-quote">&ldquo;I&rsquo;m not a prime. I need buyers to see the real shop and ask for a quote.&rdquo;</div>
+          <div class="persona-meta"><strong>Role:</strong> Owner, President, or Ops lead who owns the website. Owner-led SoCal manufacturer, not primes.</div>
+          <div class="persona-meta"><strong>Day:</strong> Quotes, certifications, capacity, relationship sales, weak web presence that embarrasses him.</div>
+          <div class="persona-meta"><strong>Buy path:</strong> Get-found package open $5&ndash;8K &rarr; monthly care if quotes flow. No cold PPC day one.</div>
+        </div>
+      </div>
+      <div class="grid2" style="margin-top:1rem">
+        <div class="card">
+          <h3>Pains</h3>
+          <ul>
+            <li>&ldquo;We&rsquo;re invisible online.&rdquo;</li>
+            <li>&ldquo;Buyers don&rsquo;t request quotes from the site.&rdquo;</li>
+            <li>&ldquo;I don&rsquo;t want a huge ad machine.&rdquo;</li>
+            <li>&ldquo;Primes and big shops own the airwaves.&rdquo;</li>
+            <li>&ldquo;I don&rsquo;t have time for marketing.&rdquo;</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>How Brandastic solves it</h3>
+          <ul>
+            <li>Get-found package: site + search basics</li>
+            <li>Capability + certs + &ldquo;request a quote&rdquo; above the fold</li>
+            <li>Simple $5&ndash;8K open package, not enterprise theater</li>
+            <li>Own a clear niche capability online</li>
+            <li>One plan, one report, we run the work</li>
+          </ul>
+        </div>
+      </div>
+      <p class="quote"><strong>Message to Sam:</strong> We help buyers see the real shop and ask for a quote.</p>
+      <div class="footer-bar"><span>BRANDASTIC 2027</span><span class="num">12</span></div>
+    </div>
+  </section>
+
+  <!-- 13 ICP SAMPLES -->
+  <section class="slide" id="icp-samples">
+    <div class="slide-inner">
+      <div class="kicker">Target-company samples</div>
+      <div class="h2">Real companies to pursue</div>
+      <p class="lede">From Apollo / LinkedIn / local research. Team can say &ldquo;yes, those people&rdquo; or &ldquo;no, not them.&rdquo;</p>
+      <div class="grid3" style="margin-top:.8rem">
+        <div class="card">
+          <h3 style="color:#0644ed">Dana targets &middot; dental/med</h3>
+          <ul>
+            <li>JB White Dental (existing &mdash; expand)</li>
+            <li>Paragon Dental (existing &mdash; expand)</li>
+            <li>Young Surgical (existing)</li>
+            <li>Dental Smart (existing)</li>
+            <li>SoCal dental labs with 20&ndash;100 employees</li>
+            <li>Medical device distributors in OC/LA</li>
+            <li>Specialty surgical suppliers with dealer networks</li>
+          </ul>
+          <p style="margin-top:.5rem;font-size:.78rem;color:var(--muted)"><strong>Build list:</strong> Apollo filter &mdash; dental/medical supplies, 10&ndash;200 employees, US, owner/GM/VP Sales title.</p>
+        </div>
+        <div class="card">
+          <h3 style="color:#0ea5e9">Maya targets &middot; education</h3>
+          <ul>
+            <li>CalOPS (existing &mdash; flagship)</li>
+            <li>California online/hybrid public schools</li>
+            <li>Charter school networks (enrollment-focused)</li>
+            <li>Virtual academy programs nationally</li>
+            <li>Schools spending $100K+ on enrollment marketing</li>
+          </ul>
+          <p style="margin-top:.5rem;font-size:.78rem;color:var(--muted)"><strong>Build list:</strong> National charter school directory + state enrollment data. Filter for online-heavy + marketing budget signals.</p>
+        </div>
+        <div class="card">
+          <h3 style="color:#6366f1">Sam targets &middot; SoCal mfg</h3>
+          <ul>
+            <li>LabTech (existing &mdash; expand)</li>
+            <li>Wearparts (existing)</li>
+            <li>Morehouse (existing)</li>
+            <li>SoCal machine shops with AS9100 / ITAR certs</li>
+            <li>OC/LA precision manufacturers, 10&ndash;75 employees</li>
+            <li>Defense sub-tier suppliers with weak web</li>
+          </ul>
+          <p style="margin-top:.5rem;font-size:.78rem;color:var(--muted)"><strong>Build list:</strong> SoCal manufacturing directories + Apollo. Filter for aero/defense, 10&ndash;100 employees, owner title.</p>
+        </div>
+      </div>
+      <div class="footer-bar"><span>BRANDASTIC 2027</span><span class="num">13</span></div>
+    </div>
+  </section>
+
+  <!-- 14 STRATEGY -->
+  <section class="slide" id="strategy">
+    <div class="slide-inner divider-slide" style="background:linear-gradient(135deg,#001F40,#0a1628);color:#fff;justify-content:center">
+      <div class="phase" style="color:#7eb6ff">04 &middot; THE GAME PLAN</div>
+      <div class="h1" style="color:#fff;max-width:16ch">How we get more clients</div>
+      <p class="lede" style="color:rgba(255,255,255,.7)">Five levers in order. Cheapest growth first. Ads last.</p>
+      <div class="footer-bar" style="color:rgba(255,255,255,.3)"><span>BRANDASTIC 2027</span><span class="num">14</span></div>
+    </div>
+  </section>
+
+  <!-- 15 FIVE LEVERS -->
   <section class="slide" id="levers">
-    <div class="si">
-      <div class="k">03 &middot; Five levers in order</div>
-      <h2 class="h2">Cheapest growth first</h2>
-      <p class="ld">Most agencies jump to &ldquo;more leads.&rdquo; That&rsquo;s lever five. We start at one.</p>
-      <div class="g5" style="flex:1;align-content:center">
-        <div class="lv" style="border-top:5px solid var(--gn)"><div class="num">01</div><h3>Retain</h3><p>Every client saved = one less to find. Name churn monthly. Fix gaps before they leave.</p></div>
-        <div class="lv" style="border-top:5px solid var(--sk)"><div class="num">02</div><h3>Grow existing</h3><p>Whitespace is 3&ndash;5x cheaper than new. Top 15 sheet. QBR. Expand after winning.</p></div>
-        <div class="lv" style="border-top:5px solid var(--bl)"><div class="num">03</div><h3>Close better</h3><p>16% &rarr; 22% close rate = 5 more wins, same leads. Fix follow-up + one-pagers.</p></div>
-        <div class="lv" style="border-top:5px solid var(--vi)"><div class="num">04</div><h3>Better leads</h3><p>ICP-focused leads close higher. Lock 2&ndash;3 markets. Say no to scatter.</p></div>
-        <div class="lv" style="border-top:5px solid var(--b2)"><div class="num">05</div><h3>More volume</h3><p>Only after 1&ndash;4 are working. SEO compounds. Paid comes last.</p></div>
-      </div>
-      <div class="ft"><span>BRANDASTIC 2027</span><span>04</span></div>
+    <div class="slide-inner">
+      <div class="kicker">Five levers in order</div>
+      <div class="h2">Cheapest growth first</div>
+      <p class="lede">Most agencies jump to &ldquo;more leads.&rdquo; That&rsquo;s lever five. We start at one.</p>
+      <table class="table" style="margin-top:1rem">
+        <tr><th>#</th><th>Lever</th><th>Cost</th><th>What it means for Brandastic</th><th>Expected impact</th></tr>
+        <tr><td><strong>1</strong></td><td>Retain better</td><td>$0</td><td>Name churn monthly. Fix gaps before they leave. QBR with $5K+ clients.</td><td>Every saved client = one less to find</td></tr>
+        <tr><td><strong>2</strong></td><td>Grow existing</td><td>$0</td><td>Whitespace top 15 sheet. Expand after hitting current goals. Upsell paths.</td><td>3&ndash;5&times; cheaper than new client acquisition</td></tr>
+        <tr><td><strong>3</strong></td><td>Close better</td><td>$0</td><td>16% &rarr; 22% close rate. Same-day follow-up. One-pager per ICP. Pipeline discipline.</td><td>~5 more contracts = ~$360K/yr on same leads</td></tr>
+        <tr><td><strong>4</strong></td><td>Better leads</td><td>Low</td><td>Lock 2&ndash;3 ICPs. ICP-focused pages. Referral system. Say no to scatter.</td><td>Higher close rate per lead + better LTV</td></tr>
+        <tr><td><strong>5</strong></td><td>More volume</td><td>$$</td><td>SEO compounds. Outbound sequences. Paid only after 1&ndash;4 are working.</td><td>Scale what already converts</td></tr>
+      </table>
+      <p class="quote"><strong>The close rate math:</strong> 93 leads &times; 16% = 15 wins. Same 93 leads &times; 22% = <strong>20 wins</strong>. Five more at $6K/mo = <strong>$360K/year</strong>. That nearly closes the $380K gap &mdash; without a dollar on ads.</p>
+      <div class="footer-bar"><span>BRANDASTIC 2027</span><span class="num">15</span></div>
     </div>
   </section>
 
-  <!-- 5 THREE BUYERS -->
-  <section class="slide" id="buyers">
-    <div class="si">
-      <div class="k">04 &middot; Three buyers</div>
-      <h2 class="h2">Titles. Pains. How we help.</h2>
-      <div class="g3" style="flex:1">
-        <div class="by">
-          <div class="ph"><img src="../assets/brandastic-personas/icp-dental-owner.jpg" alt=""/></div>
-          <div class="bd">
-            <div class="who">Primary</div>
-            <h3>Dana &middot; 44</h3>
-            <div class="rl">Owner / GM &middot; Dental &amp; medical suppliers</div>
-            <div class="pn">&ldquo;Dealers can&rsquo;t find what we sell.&rdquo;</div>
-            <div class="hp"><strong>We help:</strong> clear offer pages + search that books dealer demand + monthly plan with tracking</div>
-            <div class="titles"><strong>Titles:</strong> Owner, Founder, GM, VP Sales, Marketing Manager at labs &amp; specialty suppliers</div>
-          </div>
-        </div>
-        <div class="by">
-          <div class="ph"><img src="../assets/brandastic-personas/icp-education-leader.jpg" alt=""/></div>
-          <div class="bd">
-            <div class="who">Secondary</div>
-            <h3>Maya &middot; 41</h3>
-            <div class="rl">Enrollment lead &middot; Online public schools</div>
-            <div class="pn">&ldquo;If families can&rsquo;t find us, enrollment fails.&rdquo;</div>
-            <div class="hp"><strong>We help:</strong> search + paid + site trust aimed at enrollment conversations</div>
-            <div class="titles"><strong>Titles:</strong> Director of Enrollment, Marketing Director, Head of School, Growth lead</div>
-          </div>
-        </div>
-        <div class="by">
-          <div class="ph"><img src="../assets/brandastic-personas/icp-mfg-owner.jpg" alt=""/></div>
-          <div class="bd">
-            <div class="who">Tertiary</div>
-            <h3>Sam &middot; 51</h3>
-            <div class="rl">Owner &middot; SoCal manufacturer</div>
-            <div class="pn">&ldquo;Buyers need to see the shop and ask for a quote.&rdquo;</div>
-            <div class="hp"><strong>We help:</strong> get-found package + capability + quote path above the fold</div>
-            <div class="titles"><strong>Titles:</strong> Owner, President, Ops lead who owns the website (not primes)</div>
-          </div>
-        </div>
+  <!-- 16 FUNNEL -->
+  <section class="slide" id="funnel">
+    <div class="slide-inner">
+      <div class="kicker">How every lead should move</div>
+      <div class="h2">Simple steps</div>
+      <div class="flow">
+        <div class="step">1. Findable</div><div class="arrow">&rarr;</div>
+        <div class="step">2. Clear offer</div><div class="arrow">&rarr;</div>
+        <div class="step">3. Human touch</div><div class="arrow">&rarr;</div>
+        <div class="step">4. Fit call</div><div class="arrow">&rarr;</div>
+        <div class="step">5. One-pager</div><div class="arrow">&rarr;</div>
+        <div class="step">6. Proposal</div><div class="arrow">&rarr;</div>
+        <div class="step">7. Win &amp; grow</div>
       </div>
-      <div class="ft"><span>BRANDASTIC 2027</span><span>05</span></div>
+      <table class="table" style="margin-top:1rem">
+        <tr><th>Stage</th><th>Channels</th><th>Team job</th><th>KPI</th></tr>
+        <tr><td><strong>Findable</strong></td><td>SEO &middot; LinkedIn &middot; Events &middot; AEO</td><td>Ship 1 page/week &middot; 3&ndash;5 posts</td><td>Impressions &middot; traffic by ICP</td></tr>
+        <tr><td><strong>Clear offer</strong></td><td>Site &middot; pages &middot; proof</td><td>Offer obvious in 10 seconds</td><td>Bounce rate &middot; time on page</td></tr>
+        <tr><td><strong>Human touch</strong></td><td>Email &middot; outbound &middot; referral</td><td>10&ndash;20 warm touches/week</td><td>Reply rate &middot; meetings set</td></tr>
+        <tr><td><strong>Fit call</strong></td><td>Calls &middot; discovery</td><td>15-min script &middot; qualify ICP fit</td><td>Show rate &middot; ICP match %</td></tr>
+        <tr><td><strong>One-pager</strong></td><td>Same-day delivery</td><td>Goal + 90 days + investment</td><td>One-pagers sent same day</td></tr>
+        <tr><td><strong>Proposal</strong></td><td>Sales board</td><td>Proposal out &middot; next step + date</td><td>Proposals out / week &middot; close rate</td></tr>
+        <tr><td><strong>Win &amp; grow</strong></td><td>Existing &middot; referral &middot; QBR</td><td>Referral ask &middot; whitespace &middot; retain</td><td>Bookings &minus; churn &middot; net growth</td></tr>
+      </table>
+      <p class="quote">If close rate is weak, <strong>do not buy more awareness</strong>. Fix the middle of the funnel first.</p>
+      <div class="footer-bar"><span>BRANDASTIC 2027</span><span class="num">16</span></div>
     </div>
   </section>
 
-  <!-- 6 COMPETITOR MAP -->
-  <section class="slide" id="compete">
-    <div class="si">
-      <div class="k">05 &middot; Where we win</div>
-      <h2 class="h2">Positioning map</h2>
-      <p class="ld">Price up. Full-service right. We sit where clients get speed, stack, and care &mdash; without enterprise bloat or freelance risk.</p>
-      <div class="cm">
-        <div class="cm-g"></div>
-        <div class="ax axy"></div><div class="ax axx"></div>
-        <div class="al alx">Thinner service &rarr; Full stack</div>
-        <div class="al aly">Higher price &rarr;</div>
-        <div class="dt a" style="left:22%;top:74%">Freelance<small>Cheap &middot; thin</small></div>
-        <div class="dt c" style="left:30%;top:50%">DIY / AI tools<small>Software only</small></div>
-        <div class="dt b" style="left:48%;top:60%">Boutique<small>One channel</small></div>
-        <div class="dt f" style="left:64%;top:40%">In-house<small>One person</small></div>
-        <div class="dt d" style="left:80%;top:26%">Big national<small>Slow &middot; expensive</small></div>
-        <div class="dt e" style="left:72%;top:16%">Demand-gen giants<small>High spend B2B</small></div>
-        <div class="dt us" style="left:58%;top:46%">BRANDASTIC<small>Full stack &middot; mid &middot; fast</small></div>
+  <!-- 17-20: CHANNEL PLAYBOOKS -->
+  <section class="slide" id="channels-hub">
+    <div class="slide-inner">
+      <div class="kicker">05 &middot; Where we run the plan</div>
+      <div class="h2">Channel system</div>
+      <p class="big" style="margin:.5rem 0 1rem">One target customer. One offer path. Multiple channels feeding the same funnel.</p>
+      <div class="grid3">
+        <div class="card"><h3>1 &middot; SEO</h3><p>Pages + guides + cases for locked markets. The compounding asset. Always on.</p></div>
+        <div class="card"><h3>2 &middot; Outbound</h3><p>LinkedIn connects + email sequences. 50-name warm list. Weekly human touches.</p></div>
+        <div class="card"><h3>3 &middot; Referral</h3><p>Formal ask after every win. Highest-quality, zero-cost leads.</p></div>
+        <div class="card"><h3>4 &middot; Existing clients</h3><p>Whitespace top 15. QBRs. Grow before only hunting new.</p></div>
+        <div class="card"><h3>5 &middot; LinkedIn posts</h3><p>3&ndash;5 human posts/week. Pain &middot; process &middot; proof &middot; offer mix.</p></div>
+        <div class="card"><h3>6 &middot; Events</h3><p>Select OC rooms &middot; 48h follow-up &middot; no booth vanity.</p></div>
+        <div class="card"><h3>7 &middot; Google Ads</h3><p>Client delivery yes. Brandastic ads only after sales OS is tight.</p></div>
+        <div class="card"><h3>8 &middot; Meta</h3><p>Client work. Brandastic test selective and measured.</p></div>
+        <div class="card"><h3>9 &middot; AI / AEO</h3><p>Clear pages AI can quote honestly. Readability pass on every new page.</p></div>
       </div>
-      <div class="ft"><span>BRANDASTIC 2027</span><span>06</span></div>
+      <div class="footer-bar"><span>BRANDASTIC 2027</span><span class="num">17</span></div>
     </div>
   </section>
 
-  <!-- 7 THE SYSTEM (FUNNEL) -->
-  <section class="slide" id="system">
-    <div class="si">
-      <div class="k">06 &middot; The system</div>
-      <h2 class="h2">Awareness &rarr; revenue &rarr; expand</h2>
-      <div class="fn">
-        <div class="fs"><div><div class="t">Awareness</div><div class="j">Be findable in locked markets</div></div><div class="ch"><i>SEO</i><i>LinkedIn</i><i>Events</i></div><div class="mt"><b>Seen</b>impressions &middot; reach</div></div>
-        <div class="fa"></div>
-        <div class="fs"><div><div class="t">Interest</div><div class="j">Offer clear in 10 seconds</div></div><div class="ch"><i>Site</i><i>Pages</i><i>Proof</i></div><div class="mt"><b>Engaged</b>page views &middot; time</div></div>
-        <div class="fa"></div>
-        <div class="fs"><div><div class="t">Conversation</div><div class="j">Human touch &mdash; not spam</div></div><div class="ch"><i>Email</i><i>Outbound</i><i>Referral</i></div><div class="mt"><b>Meetings</b>replies &middot; show rate</div></div>
-        <div class="fa"></div>
-        <div class="fs"><div><div class="t">Close</div><div class="j">One-pager &rarr; proposal &rarr; deal</div></div><div class="ch"><i>Sales board</i><i>Win/loss</i></div><div class="mt"><b>Won</b>close rate &middot; size</div></div>
-        <div class="fa"></div>
-        <div class="fs"><div><div class="t">Expand + refer</div><div class="j">Grow accounts &middot; ask for intros</div></div><div class="ch"><i>Existing</i><i>Referral</i><i>QBR</i></div><div class="mt"><b>Net growth</b>bookings &minus; churn</div></div>
-      </div>
-      <p class="qt">If close rate is weak, do not buy more awareness. Fix the middle first. If churn is eating growth, fix retention before hunting new clients.</p>
-      <div class="ft"><span>BRANDASTIC 2027</span><span>07</span></div>
-    </div>
-  </section>
-
-  <!-- 8 CLOSE RATE PROBLEM -->
-  <section class="slide" id="closerate">
-    <div class="si">
-      <div class="k">07 &middot; The close rate problem</div>
-      <h2 class="h2">78 leads went nowhere</h2>
-      <p class="ld">93 leads. 15 contracts. 78 lost. We do not systematically know why &mdash; and that is the single biggest strategy gap.</p>
-      <div class="g3">
-        <div class="cd">
-          <h3>What to audit this month</h3>
+  <section class="slide" id="channel-seo">
+    <div class="slide-inner">
+      <div class="kicker">05 &middot; Channel &middot; SEO</div>
+      <div class="h2">8-piece content machine per ICP</div>
+      <p class="lede">Same system Brandastic runs for clients. Now we run it for ourselves, per locked market.</p>
+      <div class="grid2">
+        <div class="card">
+          <h3>System per ICP market</h3>
           <ul>
-            <li>Categorize every lost lead: wrong ICP, budget, timing, ghosted, lost to competitor, slow follow-up</li>
-            <li>Tag which channel each came from</li>
-            <li>How many got a proposal vs just a call?</li>
-            <li>How many had same-day follow-up?</li>
+            <li>1 Ultimate guide (&ldquo;how [market] gets more customers&rdquo;)</li>
+            <li>1 Listicle (top tools / mistakes / trends)</li>
+            <li>1 Buyer guide (what to look for in an agency)</li>
+            <li>5 Thought-leadership / pain-point articles</li>
+          </ul>
+          <p style="margin-top:.5rem">Finish all 8 before starting the next ICP node. Ship weekly.</p>
+        </div>
+        <div class="card">
+          <h3>First nodes by ICP</h3>
+          <ul>
+            <li><strong>Dana:</strong> dealer demand &middot; supplier SEO &middot; product page clarity</li>
+            <li><strong>Maya:</strong> enrollment marketing &middot; school search &middot; inquiry path</li>
+            <li><strong>Sam:</strong> manufacturer found online &middot; quote path &middot; capability pages</li>
+          </ul>
+          <p style="margin-top:.5rem">Every page CTA &rarr; 15-min call or 90-day one-pager.</p>
+        </div>
+      </div>
+      <p class="quote">SEO won&rsquo;t replace outbound in month one. It <strong>compounds</strong> so that by month 6, website interest supports the same offer without cold effort.</p>
+      <div class="footer-bar"><span>BRANDASTIC 2027</span><span class="num">18</span></div>
+    </div>
+  </section>
+
+  <section class="slide" id="channel-outbound">
+    <div class="slide-inner">
+      <div class="kicker">05 &middot; Channel &middot; Outbound</div>
+      <div class="h2">LinkedIn + email warm list</div>
+      <div class="grid2">
+        <div class="card">
+          <h3>What we do</h3>
+          <ul>
+            <li>Build 50-name list per ICP (Apollo + LinkedIn Sales Nav)</li>
+            <li>Short plain-English connection notes</li>
+            <li>Email openers with 90-day CTA</li>
+            <li>Same-day follow-up after every reply</li>
+            <li>Bump at 4&ndash;5 business days</li>
           </ul>
         </div>
-        <div class="cd">
-          <h3>What we expect to find</h3>
+        <div class="card">
+          <h3>Plan math (monthly)</h3>
           <ul>
-            <li>30&ndash;40% were wrong ICP (reason to lock markets)</li>
-            <li>15&ndash;20% ghosted after slow follow-up (process fix)</li>
-            <li>10&ndash;15% lost on price (package architecture fix)</li>
-            <li>The rest: timing, budget, competitor &mdash; real losses</li>
+            <li>80&ndash;100 warm touches (email + LI combined)</li>
+            <li>Target: 6&ndash;10 replies</li>
+            <li>Target: 3&ndash;5 fit calls held</li>
+            <li>Target: 1&ndash;2 proposals out</li>
+            <li>Target: ~1 new client / month from this channel alone</li>
           </ul>
-        </div>
-        <div class="cd">
-          <h3>What 22% close rate means</h3>
-          <ul>
-            <li>Same 93 leads &rarr; <strong style="color:#fff">20 contracts</strong> instead of 15</li>
-            <li>5 more at $6K/mo = <strong style="color:#fff">$360K/year</strong></li>
-            <li>That nearly closes the $380K gap alone</li>
-            <li>No extra ad spend. No extra leads. Just discipline.</li>
-          </ul>
+          <p style="margin-top:.5rem">Combined with referral + SEO inbound = 1.5&ndash;2 new/month total.</p>
         </div>
       </div>
-      <p class="qt"><strong>Rule:</strong> every lost deal gets a one-sentence reason within 48 hours. No exceptions. If we can&rsquo;t name why we lose, we can&rsquo;t fix it.</p>
-      <div class="ft"><span>BRANDASTIC 2027</span><span>08</span></div>
+      <p class="quote">This is the <strong>near-term engine</strong> while SEO compounds. Core rhythm: Tue sends, same-day replies, Thu pipeline review.</p>
+      <div class="footer-bar"><span>BRANDASTIC 2027</span><span class="num">19</span></div>
     </div>
   </section>
 
-  <!-- 9 FIVE PHASES -->
-  <section class="slide" id="phases">
-    <div class="si">
-      <div class="k">08 &middot; Five phases in order</div>
-      <h2 class="h2">Structure over speed</h2>
-      <div class="g5" style="flex:1;align-content:center">
-        <div class="ph-cd" style="background:linear-gradient(165deg,#001F40,#0644ed)">
-          <h3>Phase 0<br>Stop bleeding</h3>
-          <ul><li>Name every lost client + why</li><li>Calculate real churn rate</li><li>Audit 78 lost leads</li><li>Channel attribution on 15 wins</li></ul>
-        </div>
-        <div class="ph-cd" style="background:linear-gradient(165deg,#0644ed,#0ea5e9)">
-          <h3>Phase 1<br>Protect &amp; grow</h3>
-          <ul><li>Whitespace top 15</li><li>QBR with $5K+ clients</li><li>Fix flagged service gaps</li><li>Target $5K+/mo recurring lift from existing</li></ul>
-        </div>
-        <div class="ph-cd" style="background:linear-gradient(165deg,#1d4ed8,#3b6cf5)">
-          <h3>Phase 2<br>Fix close rate</h3>
-          <ul><li>One-pager per ICP</li><li>Same-day follow-up rule</li><li>Pipeline board: next step + date</li><li>16% &rarr; 22%</li></ul>
-        </div>
-        <div class="ph-cd" style="background:linear-gradient(165deg,#3b6cf5,#6366f1)">
-          <h3>Phase 3<br>Focus top</h3>
-          <ul><li>Lock 2&ndash;3 ICPs</li><li>1 case + 1 page per ICP</li><li>Referral system</li><li>SEO weekly ship</li></ul>
-        </div>
-        <div class="ph-cd" style="background:linear-gradient(165deg,#6366f1,#7c3aed)">
-          <h3>Phase 4<br>Rhythm + test</h3>
-          <ul><li>Mon&ndash;Fri machine</li><li>One paid test (one offer, one audience)</li><li>Kill fast if ugly</li><li>Never pause organic spine</li></ul>
-        </div>
-      </div>
-      <div class="ft"><span>BRANDASTIC 2027</span><span>09</span></div>
-    </div>
-  </section>
-
-  <!-- 10 CHANNEL TIMELINE -->
-  <section class="slide" id="timeline">
-    <div class="si" style="min-height:640px">
-      <div class="k">09 &middot; Channel plan</div>
-      <h2 class="h2">Same colors &middot; whole year</h2>
-      <div class="ky">
-        <span class="cp" style="background:#6366f1">SEO</span>
-        <span class="cp" style="background:#0ea5e9">Outbound</span>
-        <span class="cp" style="background:#0644ed">Referral</span>
-        <span class="cp" style="background:#1d4ed8">Existing</span>
-        <span class="cp" style="background:#3b6cf5">Sales board</span>
-        <span class="cp" style="background:#dc2626">Paid later</span>
-        <span class="cp" style="background:#d97706">Events</span>
-      </div>
-      <div class="gh"><span></span><span>N</span><span>D</span><span>J</span><span>F</span><span>M</span><span>A</span><span>M</span><span>J</span><span>J</span><span>A</span><span>S</span><span>O</span></div>
-      <div class="gn">
-        <div class="gr"><div class="gl">SEO</div><div class="gt"><div class="gb" style="left:0;width:100%;background:#6366f1">Always on &middot; pages + proof</div></div></div>
-        <div class="gr"><div class="gl">Outbound</div><div class="gt"><div class="gb" style="left:0;width:100%;background:#0ea5e9">Weekly warm list</div></div></div>
-        <div class="gr"><div class="gl">Referral</div><div class="gt"><div class="gb" style="left:8%;width:92%;background:#0644ed">After every win</div></div></div>
-        <div class="gr"><div class="gl">Existing</div><div class="gt"><div class="gb" style="left:8%;width:92%;background:#1d4ed8">Grow packages</div></div></div>
-        <div class="gr"><div class="gl">Sales board</div><div class="gt"><div class="gb" style="left:0;width:100%;background:#3b6cf5">Thu 20 min</div></div></div>
-        <div class="gr"><div class="gl">Paid (us)</div><div class="gt"><div class="gb" style="left:0;width:55%;background:#dc2626;opacity:.35">Not yet</div><div class="gb" style="left:55%;width:45%;background:#dc2626">Only if ready</div></div></div>
-        <div class="gr"><div class="gl">Events</div><div class="gt"><div class="gb" style="left:10%;width:12%;background:#d97706">Q1</div><div class="gb" style="left:35%;width:12%;background:#d97706">Q2</div><div class="gb" style="left:60%;width:12%;background:#d97706">Q3</div><div class="gb" style="left:84%;width:12%;background:#d97706">Q4</div></div></div>
-      </div>
-      <div class="ft"><span>BRANDASTIC 2027</span><span>10</span></div>
-    </div>
-  </section>
-
-  <!-- 11 OPERATING RHYTHM -->
-  <section class="slide" id="week">
-    <div class="si">
-      <div class="k">10 &middot; Operating rhythm</div>
-      <h2 class="h2">The week</h2>
-      <div class="wk">
-        <div class="dy"><b>Mon</b><span>Numbers by channel</span><span>Churn check</span><span>Set week targets</span></div>
-        <div class="dy"><b>Tue</b><span>Warm outreach</span><span>5+ emails per owner</span><span>Same-day replies</span></div>
-        <div class="dy"><b>Wed</b><span>Ship one page or proof</span><span>SEO / site work</span><span>AEO check if new page</span></div>
-        <div class="dy"><b>Thu</b><span>Pipeline 20 min</span><span>Every deal: next step + date</span><span>Referral asks after wins</span></div>
-        <div class="dy"><b>Fri</b><span>Short standup</span><span>2 LinkedIn posts live</span><span>Log pains for next week</span></div>
-      </div>
-      <p class="qt">Done = sent &middot; shipped &middot; board updated &middot; posted &middot; reasons logged. Not &ldquo;worked on strategy.&rdquo;</p>
-      <div class="ft"><span>BRANDASTIC 2027</span><span>11</span></div>
-    </div>
-  </section>
-
-  <!-- 12 WHAT WE MEASURE -->
-  <section class="slide" id="measure">
-    <div class="si">
-      <div class="k">11 &middot; Scoreboard</div>
-      <h2 class="h2">What we review weekly</h2>
-      <div class="g3" style="flex:1;align-content:center">
-        <div class="cd" style="border-top:5px solid var(--bl)">
-          <h3>Pipeline</h3>
+  <section class="slide" id="channel-referral">
+    <div class="slide-inner">
+      <div class="kicker">05 &middot; Channel &middot; Referral system</div>
+      <div class="h2">Highest-quality leads at zero cost</div>
+      <div class="grid2">
+        <div class="card">
+          <h3>System (not random)</h3>
           <ul>
-            <li><strong style="color:#fff">Close rate</strong> (target: 22%+)</li>
-            <li><strong style="color:#fff">Conversations</strong> started by channel</li>
-            <li><strong style="color:#fff">Proposals</strong> out this week</li>
-            <li><strong style="color:#fff">Won / lost</strong> + one-sentence reason</li>
-            <li><strong style="color:#fff">Days to first follow-up</strong> (target: same day)</li>
+            <li>After every clear win: send the referral email within 48 hours</li>
+            <li>Quarterly check-in with happy clients: &ldquo;who else should we help?&rdquo;</li>
+            <li>Partner referrals: web dev, PR, accounting firms</li>
+            <li>Log every referral intro in CRM with channel tag</li>
           </ul>
         </div>
-        <div class="cd" style="border-top:5px solid var(--sk)">
-          <h3>Revenue</h3>
+        <div class="card">
+          <h3>Expected volume</h3>
           <ul>
-            <li><strong style="color:#fff">Recurring</strong> vs $160K/mo</li>
-            <li><strong style="color:#fff">Pace</strong> vs $2.5M</li>
-            <li><strong style="color:#fff">Bookings &minus; churn</strong> (must be positive)</li>
-            <li><strong style="color:#fff">Avg package</strong> (track trend)</li>
-            <li><strong style="color:#fff">Whitespace wins</strong> from existing clients</li>
+            <li>17 current clients &times; quarterly ask = ~68 asks/year</li>
+            <li>If 15% produce an intro = ~10 warm referral leads/year</li>
+            <li>Referral close rate typically 2&ndash;3&times; cold = ~40%+</li>
+            <li>Expected: <strong>4&ndash;6 new clients/year from referrals alone</strong></li>
           </ul>
-        </div>
-        <div class="cd" style="border-top:5px solid var(--vi)">
-          <h3>By channel (every opportunity)</h3>
-          <ul>
-            <li>SEO (organic)</li>
-            <li>Referral</li>
-            <li>Outbound (LI + email)</li>
-            <li>Existing client</li>
-            <li>Direct &middot; Events &middot; Paid &middot; AI</li>
-          </ul>
-          <p style="margin-top:.55rem;font-size:.86rem"><strong style="color:#fff">If we can&rsquo;t say which channel booked the meeting, we can&rsquo;t fund the right engines.</strong></p>
+          <p style="margin-top:.5rem">That&rsquo;s potentially the entire 2026 gap from one free channel.</p>
         </div>
       </div>
-      <div class="ft"><span>BRANDASTIC 2027</span><span>12</span></div>
+      <div class="footer-bar"><span>BRANDASTIC 2027</span><span class="num">20</span></div>
     </div>
   </section>
 
-  <!-- 13 EMAILS -->
-  <section class="slide" id="emails">
-    <div class="si">
-      <div class="k">12 &middot; Copy the team sends</div>
-      <h2 class="h2">Four emails</h2>
-      <div class="g2" style="flex:1">
-        <div class="em"><div class="lb">Dana &middot; supplier</div><div class="sj">Still thinking about dealer demand for [Product]?</div><pre>Hi [Name],
+  <!-- 21 BUDGET -->
+  <section class="slide" id="budget">
+    <div class="slide-inner">
+      <div class="kicker">06 &middot; Budget</div>
+      <div class="h2">Where the money goes</div>
+      <p class="lede">Working monthly plan. Same numbers for Justin and the team.</p>
+      <table class="table" style="margin-top:1rem">
+        <tr><th>Campaign</th><th>What it buys</th><th>Monthly</th></tr>
+        <tr><td><strong>SEO / content</strong></td><td>Internal team time + AI drafting. 8-piece content nodes per ICP. Weekly ship cadence.</td><td>Internal cost (team hours)</td></tr>
+        <tr><td><strong>Outbound tools</strong></td><td>Apollo / LinkedIn Sales Nav / email sequencing. 50-name list maintenance.</td><td>$200&ndash;$400</td></tr>
+        <tr><td><strong>LinkedIn posts / social</strong></td><td>Organic posts (free). Optional boost on winners.</td><td>$0&ndash;$200</td></tr>
+        <tr><td><strong>Events / chambers</strong></td><td>1 event/quarter. Membership + networking.</td><td>$100&ndash;$300 avg</td></tr>
+        <tr><td><strong>Google Ads (Brandastic)</strong></td><td>Only after sales OS is tight. One offer, one audience.</td><td>$0 (now) &rarr; $500&ndash;$1,500 later</td></tr>
+        <tr><td><strong>Meta (Brandastic)</strong></td><td>Selective test. Client creative repurposed.</td><td>$0 (now) &rarr; $300&ndash;$800 later</td></tr>
+        <tr><td><strong>Referral program</strong></td><td>Thank-you gifts after intro. Client appreciation.</td><td>$100&ndash;$300</td></tr>
+      </table>
+      <div class="card" style="margin-top:1rem">
+        <h3>Total marketing spend (Brandastic for Brandastic)</h3>
+        <p><strong>Now:</strong> ~$400&ndash;$1,200/mo (tools + events + gifts). <strong>Later:</strong> ~$1,500&ndash;$3,500/mo when paid tests run.</p>
+        <p style="margin-top:.5rem">CAC target: &lt;$5,000 per new client. At $6K/mo package, payback in &lt;1 month of client revenue.</p>
+      </div>
+      <div class="footer-bar"><span>BRANDASTIC 2027</span><span class="num">21</span></div>
+    </div>
+  </section>
+
+  <!-- 22 AD EXAMPLES -->
+  <section class="slide" id="ad-examples">
+    <div class="slide-inner">
+      <div class="kicker">07 &middot; Sample copy</div>
+      <div class="h2">Emails the team sends</div>
+      <div class="grid2">
+        <div class="msg"><div class="lbl">Dana &middot; reopen</div><div class="subj">Subject: Still thinking about dealer demand for [Product]?</div>Hi [Name],
 
 We talked about making it obvious what [Company] makes &mdash; so dealers stop hunting PDFs.
-I can send a one-page 90-day view.
+
+I can send a one-page 90-day view: offer pages, search terms that convert, what &ldquo;good&rdquo; looks like.
 
 15 minutes this week?
 
-[Name] &middot; Brandastic</pre></div>
-        <div class="em"><div class="lb">Maya &middot; school</div><div class="sj">How online schools get family inquiries</div><pre>Hi [Name],
+[Name] &middot; Brandastic
+(949) 617-2731</div>
+        <div class="msg"><div class="lbl">Maya &middot; proof-led</div><div class="subj">Subject: How online schools get family inquiries</div>Hi [Name],
 
-We help online schools get found so families inquire.
-Happy to show the motion in 15 minutes.
+We help online schools get found so families inquire &mdash; search, paid, site trust aimed at enrollment.
 
-[Name] &middot; Brandastic</pre></div>
-        <div class="em"><div class="lb">Sam &middot; shop</div><div class="sj">Make the real shop easy to find</div><pre>Hi [Name],
+Same motion we run at CalOPS-scale. Happy to show it in 15 minutes.
 
-Goal: buyer sees capability and asks for a quote.
-I can sketch a simple start package &mdash; one page.
+[Name] &middot; Brandastic</div>
+        <div class="msg"><div class="lbl">Sam &middot; get-found</div><div class="subj">Subject: Make the real shop easy to find</div>Hi [Name],
 
-Open to a short call?
+Goal is simple: buyer sees real capability, asks for a quote.
 
-[Name] &middot; Brandastic</pre></div>
-        <div class="em"><div class="lb">Referral &middot; after a win</div><div class="sj">Quick ask</div><pre>Hi [Name],
+Not a prime RFP circus. Not a giant ad machine.
+
+I can sketch a clear $5&ndash;8K start package &mdash; one page.
+
+[Name] &middot; Brandastic</div>
+        <div class="msg"><div class="lbl">Referral &middot; after a win</div><div class="subj">Subject: Quick ask</div>Hi [Name],
 
 Glad [result] is moving. If you know one owner who needs the same help, I&rsquo;d love an intro &mdash; even a name.
 
 Thank you either way.
 
-[Name]</pre></div>
+[Name]</div>
       </div>
-      <div class="ft"><span>BRANDASTIC 2027</span><span>13</span></div>
+      <div class="footer-bar"><span>BRANDASTIC 2027</span><span class="num">22</span></div>
     </div>
   </section>
 
-  <!-- 14 LINKEDIN -->
-  <section class="slide" id="posts">
-    <div class="si">
-      <div class="k">13 &middot; LinkedIn posts</div>
-      <h2 class="h2">Copy &middot; personalize &middot; post</h2>
-      <div class="g2" style="flex:1;align-content:center">
-        <div class="ms" style="border-top:5px solid var(--bl)">Most supplier sites hide the product in a PDF.<br><br>Dealers don&rsquo;t wait.<br><br>Clear offer pages + search so the right buyers start.</div>
-        <div class="ms" style="border-top:5px solid var(--sk)">Online schools don&rsquo;t need more noise.<br><br>They need families to find them and inquire.<br><br>Search. Paid. Site trust.</div>
-        <div class="ms" style="border-top:5px solid var(--vi)">Put capability + &ldquo;request a quote&rdquo; where a tired buyer can see it today.<br><br>Get found first. Ads later.</div>
-        <div class="ms" style="border-top:5px solid var(--b2)">Search still brings us clients.<br>Referrals still bring us clients.<br><br>Ads for our agency come later &mdash; after follow-up is tight.</div>
+  <!-- 23 MORE EMAILS -->
+  <section class="slide" id="email-channels">
+    <div class="slide-inner">
+      <div class="kicker">07 &middot; More emails</div>
+      <div class="h2">Bump &middot; chamber &middot; inbound &middot; expand</div>
+      <div class="grid2">
+        <div class="msg"><div class="lbl">Bump &middot; 4&ndash;5 days later</div><div class="subj">Re: [original subject]</div>Hi [Name],
+
+Floating this once more in case it got buried.
+
+Happy to keep it to 12 minutes &mdash; or tell me a better month and I&rsquo;ll check back.
+
+[Name]</div>
+        <div class="msg"><div class="lbl">Chamber / event &middot; 48h</div><div class="subj">Good meeting you at [Event]</div>Hi [Name],
+
+Good to meet you at [event]. You mentioned [goal].
+
+I can send a one-pager on how we help [market] &mdash; plain English.
+
+15 minutes next week?
+
+[Name] &middot; Brandastic</div>
+        <div class="msg"><div class="lbl">Existing client &middot; whitespace</div><div class="subj">One gap I see on [Company]</div>Hi [Name],
+
+Looking at the account: [search is working / paid is thin / mobile path is weak].
+
+I can sketch a small 30-day test &mdash; budget, goal, what &ldquo;good&rdquo; looks like.
+
+Want that one-pager?
+
+[Name]</div>
+        <div class="msg"><div class="lbl">Ad / form inbound</div><div class="subj">Next step for [Company]</div>Hi [Name],
+
+Thanks for reaching out. What does &ldquo;good&rdquo; look like in 90 days?
+
+Reply in one line. I&rsquo;ll send a short plan shape &mdash; not a 40-page deck.
+
+[Name]</div>
       </div>
-      <div class="ft"><span>BRANDASTIC 2027</span><span>14</span></div>
+      <div class="footer-bar"><span>BRANDASTIC 2027</span><span class="num">23</span></div>
     </div>
   </section>
 
-  <!-- 15 CLOSE -->
+  <!-- 24 LINKEDIN POSTS -->
+  <section class="slide" id="social-copy">
+    <div class="slide-inner">
+      <div class="kicker">07 &middot; LinkedIn posts</div>
+      <div class="h2">Pain &middot; proof &middot; offer &middot; culture</div>
+      <div class="grid2">
+        <div class="msg"><div class="lbl">Dental/Med</div>Most supplier sites hide the product in a PDF.
+
+Dealers don&rsquo;t wait.
+
+Clear offer pages + search so the right buyers start &mdash; without guessing.</div>
+        <div class="msg"><div class="lbl">Education</div>Online schools don&rsquo;t need more noise.
+
+They need families to find them and inquire.
+
+Search. Paid. Site trust &mdash; aimed at enrollment conversations.</div>
+        <div class="msg"><div class="lbl">Manufacturing</div>Put capability + &ldquo;request a quote&rdquo; where a tired buyer can see it today.
+
+Get found first. Ads later.</div>
+        <div class="msg"><div class="lbl">Agency / culture</div>Search still brings us clients. Referrals still bring us clients.
+
+Ads for our agency come later &mdash; after follow-up is tight.
+
+Order matters more than clever campaigns.</div>
+      </div>
+      <div class="footer-bar"><span>BRANDASTIC 2027</span><span class="num">24</span></div>
+    </div>
+  </section>
+
+  <!-- 25 CALL SCRIPT + ONE-PAGER -->
+  <section class="slide" id="call-script">
+    <div class="slide-inner">
+      <div class="kicker">07 &middot; Call script + one-pager</div>
+      <div class="h2">15-minute fit call</div>
+      <div class="grid2">
+        <div class="card">
+          <h3>Script</h3>
+          <ul>
+            <li><strong>0&ndash;3 min:</strong> &ldquo;You said [goal] &mdash; right? What does good look like in 90 days?&rdquo;</li>
+            <li><strong>3&ndash;8:</strong> Where new customers come from today &middot; what they&rsquo;ve tried &middot; who says yes</li>
+            <li><strong>8&ndash;12:</strong> One path in their language (Dana/Maya/Sam) &mdash; not 12 services</li>
+            <li><strong>12&ndash;15:</strong> &ldquo;I&rsquo;ll send the one-pager today. Hold [day] to review?&rdquo;</li>
+          </ul>
+          <p style="margin-top:.5rem"><strong>Never leave without:</strong> next step, date, owner, channel tag.</p>
+        </div>
+        <div class="card">
+          <h3>One-pager blocks</h3>
+          <ul>
+            <li>Goal (their words + a number)</li>
+            <li>Who (ICP one line)</li>
+            <li>Days 1&ndash;30 / 31&ndash;60 / 61&ndash;90 (3 bullets each)</li>
+            <li>Investment range</li>
+            <li>Next step + date</li>
+          </ul>
+          <p style="margin-top:.5rem">Templates: <code>90-day &mdash; Dana</code>, <code>&mdash; Maya</code>, <code>&mdash; Sam</code>. Duplicate per prospect.</p>
+        </div>
+      </div>
+      <div class="footer-bar"><span>BRANDASTIC 2027</span><span class="num">25</span></div>
+    </div>
+  </section>
+
+  <!-- 26 MEASURE -->
+  <section class="slide" id="measure">
+    <div class="slide-inner">
+      <div class="kicker">08 &middot; How we measure success</div>
+      <div class="h2">Weekly scoreboard</div>
+      <div class="grid3" style="margin-top:.8rem">
+        <div class="card"><h3>Pipeline</h3><ul>
+          <li><strong>Close rate</strong> (target: 22%+)</li>
+          <li>Conversations started by channel</li>
+          <li>Proposals out this week</li>
+          <li>Won / lost + one-sentence reason</li>
+          <li>Days to first follow-up (same day)</li>
+        </ul></div>
+        <div class="card"><h3>Revenue</h3><ul>
+          <li>Recurring vs $160K/mo</li>
+          <li>Pace vs $2.5M</li>
+          <li>Bookings &minus; churn (must be positive)</li>
+          <li>Avg package trend</li>
+          <li>Whitespace wins from existing</li>
+        </ul></div>
+        <div class="card"><h3>By channel</h3><ul>
+          <li>SEO (organic)</li>
+          <li>Referral</li>
+          <li>Outbound (LI + email)</li>
+          <li>Existing client</li>
+          <li>Direct &middot; Events &middot; Paid &middot; AI</li>
+        </ul>
+        <p style="margin-top:.5rem"><strong>If we can&rsquo;t say which channel booked the meeting, we can&rsquo;t fund the right engines.</strong></p></div>
+      </div>
+      <div class="footer-bar"><span>BRANDASTIC 2027</span><span class="num">26</span></div>
+    </div>
+  </section>
+
+  <!-- 27 FIRST 90 -->
+  <section class="slide" id="first-90">
+    <div class="slide-inner">
+      <div class="kicker">08 &middot; First 90 days</div>
+      <div class="h2">Week by week</div>
+      <div class="cal-week"><b>Week 1</b><span>Lock 2&ndash;3 markets. Scorecard empty. Start 50-name list. Assign rock owners. Calculate churn rate.</span></div>
+      <div class="cal-week"><b>Week 2</b><span>Finish list. Approve email templates. Pipeline board live. First weekly numbers. Audit 78 lost leads &mdash; categorize reasons.</span></div>
+      <div class="cal-week"><b>Week 3</b><span>Ship proof #1 (case study). 10&ndash;15 warm touches. 3&ndash;5 posts. Tag every conversation with CRM channel. Whitespace top 10 notes.</span></div>
+      <div class="cal-week"><b>Week 4</b><span>Proof #2. More reopens + first referral asks. Kill weak copy from replies. One-pager templates ready for Dana/Maya/Sam.</span></div>
+      <div class="cal-week"><b>W5&ndash;6</b><span>Full reopen pass on warm list. Search pages live. QBR with top 3 clients. Board without fail. Referral system on.</span></div>
+      <div class="cal-week"><b>W7&ndash;8</b><span>Second proof wave. Double what books meetings. SEO node #1 complete (8 pieces). Close rate tracking live.</span></div>
+      <div class="cal-week"><b>W9&ndash;12</b><span>Tighten close path. Every loss has one-sentence reason. Proof story published. Decide paid test or not. Name next-quarter rocks.</span></div>
+      <div class="footer-bar"><span>BRANDASTIC 2027</span><span class="num">27</span></div>
+    </div>
+  </section>
+
+  <!-- 28 ROADMAP 12 -->
+  <section class="slide" id="roadmap-12">
+    <div class="slide-inner">
+      <div class="kicker">12-month channel roadmap</div>
+      <div class="h2">Same channels &middot; full year</div>
+      <table class="table" style="margin-top:1rem">
+        <tr><th>Channel</th><th>Nov&ndash;Jan (build)</th><th>Feb&ndash;Apr (run)</th><th>May&ndash;Jul (compound)</th><th>Aug&ndash;Oct (scale/decide)</th></tr>
+        <tr><td><strong>SEO</strong></td><td>Lock markets &middot; outline 8-pack</td><td>Ship weekly &middot; node #1 complete</td><td>Node #2 &middot; ranking for terms</td><td>Inbound growing &middot; node #3</td></tr>
+        <tr><td><strong>Outbound</strong></td><td>50-name list &middot; templates</td><td>Full sends &middot; 80&ndash;100/mo</td><td>Refresh list &middot; iterate copy</td><td>Scale what converts</td></tr>
+        <tr><td><strong>Referral</strong></td><td>Build ask script &middot; test</td><td>After every win &middot; quarterly asks</td><td>Partner referrals added</td><td>System producing 4&ndash;6 leads/yr</td></tr>
+        <tr><td><strong>Existing</strong></td><td>Whitespace top 15</td><td>QBRs &middot; first expands</td><td>Upsell paths defined</td><td>Package growth visible</td></tr>
+        <tr><td><strong>Sales board</strong></td><td>Stand up &middot; stages</td><td>Thu 20 min forever</td><td>Win/loss discipline solid</td><td>Close rate tracked &gt;20%</td></tr>
+        <tr><td><strong>Paid (us)</strong></td><td>Off</td><td>Still off</td><td>Decision gate</td><td>One offer test if ready</td></tr>
+        <tr><td><strong>Events</strong></td><td>Pick 1 room</td><td>1/quarter &middot; 48h follow-up</td><td>Repeat what books</td><td>Cut what doesn&rsquo;t</td></tr>
+      </table>
+      <div class="footer-bar"><span>BRANDASTIC 2027</span><span class="num">28</span></div>
+    </div>
+  </section>
+
+  <!-- 29 WEEKLY RHYTHM -->
+  <section class="slide" id="rhythm">
+    <div class="slide-inner">
+      <div class="kicker">Operating rhythm</div>
+      <div class="h2">The week</div>
+      <table class="table" style="margin-top:1rem">
+        <tr><th>Day</th><th>Focus</th><th>Done looks like</th></tr>
+        <tr><td><strong>Monday</strong></td><td>Numbers by channel. Churn check. Set week targets.</td><td>Scorecard filled. Targets on board.</td></tr>
+        <tr><td><strong>Tuesday</strong></td><td>Warm outreach. 5+ emails per owner. Same-day replies.</td><td>Sends logged. Replies followed up.</td></tr>
+        <tr><td><strong>Wednesday</strong></td><td>Ship one page or proof piece. SEO / site work. AEO check.</td><td>Something published or improved.</td></tr>
+        <tr><td><strong>Thursday</strong></td><td>Pipeline 20 minutes. Every deal: next step + date. Referral asks.</td><td>Board clean. Lost deals have reasons.</td></tr>
+        <tr><td><strong>Friday</strong></td><td>Short standup. 2 LinkedIn posts live. Log pains for next week.</td><td>Posts live. Pains captured for content.</td></tr>
+      </table>
+      <p class="quote"><strong>Done =</strong> sent &middot; shipped &middot; board updated &middot; posted &middot; reasons logged. Not &ldquo;worked on strategy.&rdquo;</p>
+      <div class="footer-bar"><span>BRANDASTIC 2027</span><span class="num">29</span></div>
+    </div>
+  </section>
+
+  <!-- 30 RUNBOOK -->
+  <section class="slide" id="runbook">
+    <div class="slide-inner">
+      <div class="kicker">Runbook &middot; step-by-step</div>
+      <div class="h2">If you only read one slide</div>
+      <div class="grid2">
+        <div class="card">
+          <h3>This week (literally)</h3>
+          <ul class="check">
+            <li>Audit the 78 lost leads &mdash; categorize reasons</li>
+            <li>Calculate churn rate &mdash; put it on the board</li>
+            <li>Lock 2&ndash;3 markets. Say no to the rest.</li>
+            <li>Build the 50-name warm list (Apollo + existing)</li>
+            <li>Approve the 4 email templates</li>
+            <li>Name an owner on each of the 3 rocks</li>
+            <li>Set up the pipeline board with stages</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Every week after that</h3>
+          <ul class="check">
+            <li>Monday: fill the scorecard by channel</li>
+            <li>Tuesday: 5+ outreach sends</li>
+            <li>Wednesday: ship one content piece</li>
+            <li>Thursday: 20-min pipeline &mdash; next step on every deal</li>
+            <li>Friday: 2 LinkedIn posts + log pains</li>
+            <li>After every win: send the referral email</li>
+            <li>Monthly: QBR one top client &middot; whitespace check</li>
+          </ul>
+        </div>
+      </div>
+      <p class="quote" style="margin-top:1rem"><strong>North star:</strong> $120K &rarr; $160K/mo recurring. ~6 net new clients. Close rate 16% &rarr; 22%. Bookings &minus; churn positive every quarter. Path to $3.5M / 65 retainers by 2030.</p>
+      <div class="footer-bar"><span>BRANDASTIC 2027</span><span class="num">30</span></div>
+    </div>
+  </section>
+
+  <!-- 31 CLOSE -->
   <section class="slide" id="close">
-    <div class="si cv">
-      <div class="hr" aria-hidden="true"><img src="../assets/ba-office-2027/office-team.jpg" alt=""/></div>
-      <div class="k">This week</div>
-      <div class="h1">Decide. Own. Ship.</div>
-      <ul class="cl">
-        <li>Audit the 78 lost leads &mdash; categorize reasons</li>
-        <li>Calculate churn rate &mdash; put it on the board</li>
-        <li>Lock 2&ndash;3 markets &mdash; say no to the rest</li>
-        <li>Build the 50-name warm list</li>
-        <li>Name an owner on each rock</li>
-        <li>Run Thursday pipeline &mdash; every deal has a next step</li>
-      </ul>
-      <div class="br">
-        <img src="../assets/brandastic-logo-white.png" alt="Brandastic"/>
-        <p>Focused. Growth. = <span>Progress.</span></p>
+    <div class="slide-inner divider-slide" style="background:linear-gradient(135deg,#001F40,#0a1628);color:#fff;justify-content:center;min-height:620px">
+      <div class="phase" style="color:#7eb6ff">This week</div>
+      <div class="h1" style="color:#fff;max-width:12ch">Decide. Own. Ship.</div>
+      <p class="lede" style="color:rgba(255,255,255,.75);max-width:32rem">Lock the markets. Build the list. Name the owners. Run Thursday pipeline. Every week after that, the same rhythm. Growth is not a campaign &mdash; it&rsquo;s a system you never stop running.</p>
+      <div style="margin-top:2rem">
+        <img src="../assets/brandastic-logo-white.png" alt="Brandastic" style="height:28px;filter:brightness(0) invert(1);opacity:.9"/>
+        <p style="margin-top:.5rem;font-size:.95rem;color:rgba(255,255,255,.6)">Focused. Growth. = <span style="color:#7eb6ff;font-weight:700">Progress.</span></p>
       </div>
-      <div class="ft"><span>BRANDASTIC</span><span>2027</span></div>
+      <div class="footer-bar" style="color:rgba(255,255,255,.3)"><span>BRANDASTIC</span><span>2027</span></div>
     </div>
   </section>
+
 </div>
 
-<button type="button" class="dk-btn" id="db">&#9658; Present</button>
-<button type="button" class="dk-x" id="dx">&#10005; Exit</button>
-<div class="dk-h">&larr; &rarr; &middot; click sides &middot; Esc</div>
-<div class="dk-c" id="dc"></div>
-<div class="dk-n" id="dn" aria-hidden="true">
-  <button type="button" class="p" id="dp">&lsaquo;</button>
-  <button type="button" class="nx" id="dnx">&rsaquo;</button>
+<button type="button" class="deck-present-btn" id="dkBtn">&#9658; Present</button>
+<button type="button" class="deck-exit-btn" id="dkX">&#10005; Exit</button>
+<div class="deck-exit-hint">&larr; &rarr; &middot; click sides &middot; Esc</div>
+<div class="deck-counter" id="dkC"></div>
+<div class="deck-nav" id="dkN" aria-hidden="true">
+  <button type="button" class="dk-prev" id="dkP">&lsaquo;</button>
+  <button type="button" class="dk-next" id="dkNx">&rsaquo;</button>
 </div>
+
 <script>
-function T(t){document.documentElement.setAttribute('data-theme',t);try{localStorage.setItem('ba27t',t)}catch(e){}}
-(function(){try{var t=localStorage.getItem('ba27t');if(t==='dark'||t==='light')T(t);else T('dark')}catch(e){}})();
+function baTheme(t){document.documentElement.setAttribute('data-theme',t);try{localStorage.setItem('ba27t',t)}catch(e){}}
+(function(){try{var t=localStorage.getItem('ba27t');if(t==='dark'||t==='light')baTheme(t);else baTheme('dark')}catch(e){}})();
 (function(){
   var s=[].slice.call(document.querySelectorAll('section.slide'));if(!s.length)return;
-  var db=document.getElementById('db'),dx=document.getElementById('dx'),dn=document.getElementById('dn'),
-      dp=document.getElementById('dp'),dnx=document.getElementById('dnx'),dc=document.getElementById('dc'),
+  var db=document.getElementById('dkBtn'),dx=document.getElementById('dkX'),dn=document.getElementById('dkN'),
+      dp=document.getElementById('dkP'),dnx=document.getElementById('dkNx'),dc=document.getElementById('dkC'),
       i=0,m=false;
   function u(){if(dc)dc.textContent=(i+1)+' / '+s.length}
-  function sh(n){i=((n%s.length)+s.length)%s.length;for(var k=0;k<s.length;k++)s[k].classList.toggle('active',k===i);u()}
+  function sh(n){i=((n%s.length)+s.length)%s.length;for(var k=0;k<s.length;k++)s[k].classList.toggle('deck-active',k===i);u()}
   function eF(){var r=document.documentElement,q=r.requestFullscreen||r.webkitRequestFullscreen;if(q)try{var p=q.call(r);if(p&&p.catch)p.catch(function(){})}catch(e){}}
   function xF(){var d=document;if(!(d.fullscreenElement||d.webkitFullscreenElement))return;var x=d.exitFullscreen||d.webkitExitFullscreen;if(x)try{x.call(d)}catch(e){}}
-  function en(){if(m)return;m=true;document.body.classList.add('dk');dn.setAttribute('aria-hidden','false');sh(i);eF()}
-  function ex(){if(!m)return;m=false;document.body.classList.remove('dk');for(var k=0;k<s.length;k++)s[k].classList.remove('active');dn.setAttribute('aria-hidden','true');xF()}
+  function en(){if(m)return;m=true;document.body.classList.add('deck-mode');dn.setAttribute('aria-hidden','false');sh(i);eF()}
+  function ex(){if(!m)return;m=false;document.body.classList.remove('deck-mode');for(var k=0;k<s.length;k++)s[k].classList.remove('deck-active');dn.setAttribute('aria-hidden','true');xF()}
   db.onclick=function(e){e.preventDefault();e.stopPropagation();en()};
   dx.onclick=function(e){e.preventDefault();e.stopPropagation();ex()};
   dp.onclick=function(e){e.preventDefault();e.stopPropagation();sh(i-1)};
   dnx.onclick=function(e){e.preventDefault();e.stopPropagation();sh(i+1)};
   document.addEventListener('keydown',function(e){if(!m)return;if(e.key==='Escape'){ex();return}if(e.key==='ArrowRight'||e.key===' '||e.key==='Enter'){e.preventDefault();sh(i+1)}if(e.key==='ArrowLeft'){e.preventDefault();sh(i-1)}});
-  document.addEventListener('click',function(e){if(!m)return;if(e.target.closest&&(e.target.closest('#dp')||e.target.closest('#dnx')||e.target.closest('#dx')))return;if(e.clientX/window.innerWidth>=.5)sh(i+1);else sh(i-1)});
+  document.addEventListener('click',function(e){if(!m)return;if(e.target.closest&&(e.target.closest('#dkP')||e.target.closest('#dkNx')||e.target.closest('#dkX')))return;if(e.clientX/window.innerWidth>=.5)sh(i+1);else sh(i-1)});
   document.addEventListener('fullscreenchange',function(){if(!document.fullscreenElement&&m)ex()});
 })();
 </script>
