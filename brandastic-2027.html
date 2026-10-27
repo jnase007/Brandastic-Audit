@@ -170,15 +170,24 @@ ul{margin:.15rem 0 0 1.05rem}
 .ch-pill.li{background:var(--ch-li)}.ch-pill.gads{background:var(--ch-gads)}.ch-pill.meta{background:var(--ch-meta)}
 .ch-pill.event{background:var(--ch-event)}.ch-pill.ai{background:var(--ch-ai)}.ch-pill.sales{background:var(--ch-sales)}
 
-.gantt{margin-top:.35rem}
-.gantt-head{display:grid;grid-template-columns:148px repeat(12,1fr);gap:3px;margin-bottom:4px;padding-left:0}
-.gantt-head span{text-align:center;font-size:.58rem;font-weight:800;color:var(--muted);letter-spacing:.02em}
-.gantt-row{display:grid;grid-template-columns:148px 1fr;gap:8px;align-items:center;margin:.28rem 0}
-.gantt-label{font-size:.72rem;font-weight:800;color:var(--ink);line-height:1.2}
-.gantt-label small{display:block;font-weight:600;color:var(--muted);font-size:.6rem}
-.gantt-track{position:relative;height:26px;background:var(--th);border-radius:8px;overflow:hidden;border:1px solid var(--line)}
-.gantt-bar{position:absolute;top:3px;bottom:3px;border-radius:6px;display:flex;align-items:center;padding:0 .4rem;
-  font-size:.58rem;font-weight:800;color:#fff;white-space:nowrap;overflow:hidden;box-shadow:0 1px 2px rgba(0,0,0,.12)}
+.gantt{margin-top:.25rem;flex:1;display:flex;flex-direction:column;justify-content:space-evenly;min-height:0}
+#gantt-12 .slide-inner{min-height:620px}
+#gantt-12 .h2{margin-bottom:.15rem}
+#gantt-12 .ch-key{margin:.2rem 0 .35rem}
+#gantt-12 .footer-bar{padding-top:.45rem}
+.gantt-head{display:grid;grid-template-columns:168px repeat(12,1fr);gap:4px;margin:0 0 6px;padding-left:0}
+.gantt-head span{text-align:center;font-size:.7rem;font-weight:800;color:var(--muted);letter-spacing:.04em}
+.gantt-row{display:grid;grid-template-columns:168px 1fr;gap:12px;align-items:center;margin:0;flex:1;min-height:42px}
+.gantt-label{font-size:.82rem;font-weight:800;color:var(--ink);line-height:1.2}
+.gantt-label small{display:block;font-weight:600;color:var(--muted);font-size:.68rem;margin-top:.1rem}
+.gantt-track{position:relative;height:34px;background:var(--th);border-radius:10px;overflow:hidden;border:1px solid var(--line)}
+.gantt-bar{position:absolute;top:4px;bottom:4px;border-radius:8px;display:flex;align-items:center;padding:0 .55rem;
+  font-size:.68rem;font-weight:800;color:#fff;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;box-shadow:0 2px 6px rgba(0,0,0,.14)}
+body.deck-mode #gantt-12 .slide-inner{justify-content:flex-start}
+body.deck-mode #gantt-12 .gantt{flex:1;min-height:420px}
+body.deck-mode #gantt-12 .gantt-row{min-height:48px}
+body.deck-mode #gantt-12 .gantt-track{height:38px}
+
 .gantt-bar.dim{opacity:.55}
 .gantt-bar.outline{background:transparent!important;border:2px dashed;color:var(--ink)}
 
@@ -1494,7 +1503,7 @@ If the first draft needs a glossary, rewrite it.</div>
   </section>
 
   <section class="slide" id="gantt-12">
-    <div class="slide-inner">
+    <div class="slide-inner" style="min-height:640px;display:flex;flex-direction:column">
       <div class="kicker">12-month channel roadmap</div>
       <h2 class="h2">Nov → Oct · what runs when</h2>
       <div class="ch-key" style="margin-top:.25rem">
@@ -1696,7 +1705,7 @@ If the first draft needs a glossary, rewrite it.</div>
   </section>
 
   <section class="slide" id="campaign-swim">
-    <div class="slide-inner">
+    <div class="slide-inner" style="min-height:640px;display:flex;flex-direction:column">
       <div class="kicker">Campaign swimlanes · next 12 weeks</div>
       <h2 class="h2">One view · who owns the color</h2>
       <div class="gantt-head"><span></span><span>W1</span><span>W2</span><span>W3</span><span>W4</span><span>W5</span><span>W6</span><span>W7</span><span>W8</span><span>W9</span><span>W10</span><span>W11</span><span>W12</span></div>
