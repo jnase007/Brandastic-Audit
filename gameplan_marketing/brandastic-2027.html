@@ -247,6 +247,49 @@ html[data-theme="dark"] .cal-week.camp-proof{background:rgba(52,211,153,.08)}
 html[data-theme="dark"] .cal-week.camp-sales{background:rgba(129,140,248,.1)}
 html[data-theme="dark"] .cal-week.camp-social{background:rgba(167,139,250,.1)}
 
+
+/* Title / divider vertical center — content mid-left, footer pinned */
+.slide-inner.section-dark,
+.slide-inner.divider-slide{
+  display:flex!important;flex-direction:column!important;
+  justify-content:center!important;align-items:flex-start!important;
+  min-height:560px!important;position:relative!important;
+  padding:2.4rem 2.4rem 3.4rem!important;
+}
+.slide-inner.section-dark > .phase,
+.slide-inner.section-dark > .h1,
+.slide-inner.section-dark > .lede,
+.slide-inner.divider-slide > .phase,
+.slide-inner.divider-slide > .h1,
+.slide-inner.divider-slide > .lede{
+  position:relative;z-index:2;max-width:min(34rem, 48%);
+}
+.slide-inner.section-dark > .footer-bar,
+.slide-inner.divider-slide > .footer-bar{
+  position:absolute!important;left:2.4rem;right:2.4rem;bottom:1.15rem;
+  margin:0!important;padding:0!important;width:auto!important;z-index:2;
+}
+.slide-inner.title-slide,
+.slide-inner.close-slide{
+  justify-content:center!important;
+}
+.slide-inner.title-slide .title-main,
+.slide-inner.close-slide .title-main{
+  display:flex;flex-direction:column;justify-content:center;
+  margin-top:0!important;flex:0 1 auto;
+}
+.slide-inner.title-slide .footer-bar,
+.slide-inner.close-slide .footer-bar{
+  position:absolute!important;left:2.2rem;right:min(52%,32rem);bottom:1.1rem;
+  margin:0!important;padding:0!important;
+}
+body.deck-mode .slide.deck-active .slide-inner.section-dark,
+body.deck-mode .slide.deck-active .slide-inner.divider-slide,
+body.deck-mode .slide.deck-active .slide-inner.title-slide,
+body.deck-mode .slide.deck-active .slide-inner.close-slide{
+  justify-content:center!important;
+}
+
 /* Present mode */
 .deck-present-btn{
   position:fixed;right:18px;bottom:18px;z-index:99999;appearance:none;border:0;cursor:pointer;
@@ -355,7 +398,7 @@ body.deck-mode .slide.deck-active .slide-inner{
   <!-- 02 DIVIDER -->
   <section class="slide" id="section-reality">
     <div class="slide-inner section-dark">
-      <img class="cad-art" src="../assets/brandastic-growth-art.svg?v=move2" alt="" />
+      <img class="cad-art" src="../assets/ba-art-reality.svg?v=sense1" alt="" />
       <div class="phase">01 · Reality</div>
       <div class="h1">Where we are — and what must change</div>
       <p class="lede">Real 2026 numbers first. Then the plan.</p>
@@ -398,7 +441,7 @@ body.deck-mode .slide.deck-active .slide-inner{
   <!-- 04 COMPETITORS -->
   <section class="slide" id="section-compete">
     <div class="slide-inner section-dark divider-slide">
-      <img class="cad-art" src="../assets/brandastic-growth-art.svg?v=move2" alt="" />
+      <img class="cad-art" src="../assets/ba-art-compete.svg?v=sense1" alt="" />
       <div class="phase">02 · Field</div>
       <div class="h1">Competitors</div>
       <p class="lede">Who we bump into — and how we win.</p>
@@ -428,7 +471,7 @@ body.deck-mode .slide.deck-active .slide-inner{
   <!-- 05 TARGET -->
   <section class="slide" id="section-target">
     <div class="slide-inner section-dark divider-slide">
-      <img class="cad-art" src="../assets/brandastic-growth-art.svg?v=move2" alt="" />
+      <img class="cad-art" src="../assets/ba-art-target.svg?v=sense1" alt="" />
       <div class="phase">03 · Who</div>
       <div class="h1">Ideal target market</div>
       <p class="lede">Who we want more of — and who we skip.</p>
@@ -467,7 +510,7 @@ body.deck-mode .slide.deck-active .slide-inner{
   <!-- ICP DIVIDER -->
   <section class="slide" id="section-icp">
     <div class="slide-inner section-dark divider-slide">
-      <img class="cad-art" src="../assets/brandastic-growth-art.svg?v=move2" alt="" />
+      <img class="cad-art" src="../assets/ba-art-icp.svg?v=sense1" alt="" />
       <div class="phase">Who we sell to</div>
       <div class="h1">Three ICPs</div>
       <p class="lede">Three markets. Three people. Don’t blend the copy.</p>
@@ -527,7 +570,7 @@ body.deck-mode .slide.deck-active .slide-inner{
   <!-- 06 GTM DIVIDER -->
   <section class="slide" id="section-gtm">
     <div class="slide-inner section-dark">
-      <img class="cad-art" src="../assets/brandastic-growth-art.svg?v=move2" alt="" />
+      <img class="cad-art" src="../assets/ba-art-gtm.svg?v=sense1" alt="" />
       <div class="phase">02 · Go-to-market</div>
       <div class="h1">How demand becomes booked work</div>
       <p class="lede">Search and referrals first. Ads only after the sales system is tight.</p>
@@ -607,25 +650,54 @@ body.deck-mode .slide.deck-active .slide-inner{
     </div>
   </section>
 
-  <!-- 10 EMAIL -->
+
   <section class="slide" id="email">
     <div class="slide-inner">
-      <div class="kicker">07 · Email examples</div>
-      <h2 class="h2">Copy the team can use and improve</h2>
-      <div class="msg"><span class="lbl">Reopen · past proposal</span><span class="subj">Subject: Still thinking about growth for [Company]?</span>Hi [Name],
+      <div class="kicker">07 · Email examples · fleshed out</div>
+      <h2 class="h2">Emails the team can send this week</h2>
+      <div class="msg"><span class="lbl">Dental / Med · reopen (Dana)</span><span class="subj">Subject: Still thinking about dealer demand for [Product line]?</span>Hi [Name],
 
-We talked earlier about [goal: more patients / more enrollment / more qualified leads].
-I wanted to reopen that in a simple way.
+We talked about making it obvious what [Company] makes — so dealers and clinics stop hunting PDFs.
 
-If useful, I can send a one-page view of what we’d do in the first 90 days — no long deck.
+If useful, I can send a one-page 90-day view: 2–3 offer pages, search terms that already convert in your category, and what “good” looks like for leads.
 
-Open to a 15-minute call this week?
+15 minutes this week work?
 
-[Justin / AM name]
+[Name]
 Brandastic</div>
-      <div class="msg"><span class="lbl">Referral ask · after a win</span><span class="subj">Subject: Quick ask</span>Hi [Name],
+      <div class="msg"><span class="lbl">Education · CalOPS-style proof (Maya)</span><span class="subj">Subject: How online schools get family inquiries (without noise)</span>Hi [Name],
 
-Glad [result] is moving.
+We help online / heavy-online public schools get found so families inquire.
+
+Same job we run for California Online Public Schools: search + paid + site trust aimed at enrollment conversations — not random social posts.
+
+Happy to show the motion in 15 minutes and whether it fits [School].
+
+[Name]
+Brandastic</div>
+      <div class="msg"><span class="lbl">Aero / Defense shop · get found (Sam)</span><span class="subj">Subject: Make the real shop easy to find</span>Hi [Name],
+
+For owner-led SoCal manufacturers, the goal is simple: a buyer sees the real capability and asks for a quote.
+
+Not a prime RFP circus. Not a giant ad machine on day one.
+
+If you want, I’ll sketch a clear $5–8k start package (site + search basics) — no long deck.
+
+Open to a short call?
+
+[Name]
+Brandastic</div>
+      <div class="footer-bar"><span>BRANDASTIC 2027</span><span>EMAIL 1</span></div>
+    </div>
+  </section>
+
+  <section class="slide" id="email-2">
+    <div class="slide-inner">
+      <div class="kicker">07b · More email · referrals + whitespace + nurture</div>
+      <h2 class="h2">After wins · expand · stay close</h2>
+      <div class="msg"><span class="lbl">Referral ask · after a clear win</span><span class="subj">Subject: Quick ask</span>Hi [Name],
+
+Glad [result: more dealer inquiries / family applications / quote requests] is moving.
 
 If you know one owner who needs the same kind of help, I’d be grateful for an intro. Even a name is enough — I’ll take it from there.
 
@@ -634,44 +706,91 @@ Thank you either way.
 [Name]</div>
       <div class="msg"><span class="lbl">Whitespace · current client</span><span class="subj">Subject: One gap I see on [Company]</span>Hi [Name],
 
-Looking at your account, search is working. Paid social is thin relative to the opportunity in [market].
+Looking at the account: [search is working / enrollment paid is thin / quote path is weak on mobile].
 
-If you want, I can sketch a small test (budget + goal + what “good” looks like) — no obligation.
+I can sketch a small test — budget, goal, and what “good” looks like in 30 days — no obligation.
+
+Want me to send that one-pager?
 
 [Name]</div>
-      <div class="footer-bar"><span>BRANDASTIC 2027</span><span>10</span></div>
+      <div class="msg"><span class="lbl">Nurture · stayed warm, no pitch pile-on</span><span class="subj">Subject: One thing we’re seeing in [dental supply / online schools / SoCal mfg]</span>Hi [Name],
+
+Quick note — not a pitch.
+
+In [market], the teams booking work right now are the ones who made [one clear offer page / enrollment path / shop capability] obvious in the first 10 seconds.
+
+If you ever want a free 15-minute look at yours, I’m here.
+
+[Name]
+Brandastic</div>
+      <div class="footer-bar"><span>BRANDASTIC 2027</span><span>EMAIL 2</span></div>
     </div>
   </section>
 
-  <!-- 11 SOCIAL -->
+
   <section class="slide" id="social">
     <div class="slide-inner">
-      <div class="kicker">08 · Social examples</div>
-      <h2 class="h2">LinkedIn / short posts (plain English)</h2>
-      <div class="grid2" style="margin-top:.6rem">
-        <div class="msg"><span class="lbl">Proof</span>Most agencies talk about “brand.”
+      <div class="kicker">08 · Social · LinkedIn posts ready to adapt</div>
+      <h2 class="h2">Plain English posts (team voice)</h2>
+      <div class="grid2" style="margin-top:.45rem">
+        <div class="msg"><span class="lbl">Proof · dental / med</span>Most supplier sites hide the product in a PDF.
 
-Our clients care about something simpler:
-more of the right customers.
+Dealers don’t have time for a scavenger hunt.
 
-Here’s what that looked like for a [dental / school / B2B] team last quarter → [link]</div>
-        <div class="msg"><span class="lbl">Lesson</span>Search still brings us clients.
+We build clear offer pages + search so the right buyers start — without guessing.
+
+If you sell to clinics or dealers, that’s the whole game.</div>
+        <div class="msg"><span class="lbl">Proof · education</span>Online schools don’t need “brand awareness.”
+
+They need families to find them and inquire.
+
+That’s the job we run for CalOPS-style programs: search, paid, site trust — aimed at enrollment conversations.</div>
+        <div class="msg"><span class="lbl">Proof · manufacturing</span>Owner-led shops don’t need enterprise software theater.
+
+They need a buyer to see the real capability and ask for a quote.
+
+Get found first. Ads later — if at all.</div>
+        <div class="msg"><span class="lbl">Lesson · order matters</span>Search still brings us clients.
 Referrals still bring us clients.
 
 Ads for our own agency come later — after follow-up is tight.
 
-Order matters.</div>
-        <div class="msg"><span class="lbl">Offer</span>If you’re an owner who is tired of random marketing:
+Order matters more than clever campaigns.</div>
+      </div>
+      <div class="footer-bar"><span>BRANDASTIC 2027</span><span>SOCIAL 1</span></div>
+    </div>
+  </section>
+
+  <section class="slide" id="social-2">
+    <div class="slide-inner">
+      <div class="kicker">08b · Social · more posts + soft outbound</div>
+      <h2 class="h2">Culture · offer · soft outbound openers</h2>
+      <div class="grid2">
+        <div class="msg"><span class="lbl">Offer</span>If you’re an owner tired of random marketing:
 
 We build a clear monthly plan and run it.
 
-No jargon. No 40-page decks you never read.</div>
-        <div class="msg"><span class="lbl">Culture</span>We’re hiring people who can explain marketing to a normal person.
+No jargon. No 40-page deck you never read.
 
-If your first draft needs a glossary, rewrite it.</div>
+New clients from search, referrals, and proof — on purpose.</div>
+        <div class="msg"><span class="lbl">Culture / hiring</span>We’re hiring people who can explain marketing to a normal person.
+
+If your first draft needs a glossary, rewrite it.
+
+Plain English is the standard — not a style choice.</div>
+        <div class="msg"><span class="lbl">Soft outbound · dental</span>Saw [Company]’s line for [product].
+
+Quick thought: dealers usually bounce when the offer isn’t obvious in 10 seconds.
+
+If helpful, I can send 3 plain fixes we use on supplier sites — no pitch call required.</div>
+        <div class="msg"><span class="lbl">Soft outbound · school / shop</span>Respect the work you’re doing on [enrollment / shop growth].
+
+We only reach out when we already run a similar motion (online schools / SoCal manufacturers).
+
+Open to a 12-minute show-and-tell of what “good” looks like?</div>
       </div>
-      <p class="note">Team task: rewrite each post in your own voice. Keep the idea.</p>
-      <div class="footer-bar"><span>BRANDASTIC 2027</span><span>11</span></div>
+      <p class="note">Team task: rewrite in your voice. Keep the idea. Drop brochure lines.</p>
+      <div class="footer-bar"><span>BRANDASTIC 2027</span><span>SOCIAL 2</span></div>
     </div>
   </section>
 
@@ -745,7 +864,7 @@ If your first draft needs a glossary, rewrite it.</div>
   <!-- 14 MEASURE -->
   <section class="slide" id="section-measure">
     <div class="slide-inner section-dark divider-slide">
-      <img class="cad-art" src="../assets/brandastic-growth-art.svg?v=move2" alt="" />
+      <img class="cad-art" src="../assets/ba-art-measure.svg?v=sense1" alt="" />
       <div class="phase">Scoreboard</div>
       <div class="h1">How we measure</div>
       <p class="lede">Numbers the room watches every week.</p>
@@ -815,7 +934,7 @@ If your first draft needs a glossary, rewrite it.</div>
   <!-- CALENDAR DIVIDER -->
   <section class="slide" id="calendar">
     <div class="slide-inner section-dark">
-      <img class="cad-art" src="../assets/brandastic-growth-art.svg?v=move2" alt="" />
+      <img class="cad-art" src="../assets/ba-art-calendar.svg?v=sense1" alt="" />
       <div class="phase">90 days · weekly machine</div>
       <div class="h1">Calendar</div>
       <p class="lede">What the team runs each week — then the 90-day build week by week.</p>

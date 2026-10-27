@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 980 780" fill="none" aria-hidden="true">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#5CFFB0"/>
+      <stop offset="100%" stop-color="#38bdf8"/>
+    </linearGradient>
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="2" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+  <g stroke="#5CFFB0" stroke-opacity=".07" stroke-width="1">
+    <path d="M80 80 H900 M80 180 H900 M80 280 H900 M80 380 H900 M80 480 H900 M80 580 H900 M80 680 H900"/>
+    <path d="M80 80 V700 M220 80 V700 M360 80 V700 M500 80 V700 M640 80 V700 M780 80 V700 M900 80 V700"/>
+  </g>
+  <g stroke="#5CFFB0" stroke-opacity=".3" stroke-width="1.5">
+    <path d="M60 60 H140 M60 60 V140"/><path d="M920 60 H840 M920 60 V140"/>
+    <path d="M60 720 H140 M60 720 V640"/><path d="M920 720 H840 M920 720 V640"/>
+  </g>
+  
+  <g filter="url(#glow)" fill="url(#g)" opacity=".9">
+    <rect x="160" y="420" width="70" height="180" rx="10"><animate attributeName="height" values="80;180;180" dur="2.5s" fill="freeze"/><animate attributeName="y" values="520;420;420" dur="2.5s" fill="freeze"/></rect>
+    <rect x="270" y="320" width="70" height="280" rx="10" opacity=".85"><animate attributeName="height" values="100;280;280" dur="2.8s" begin=".2s" fill="freeze"/><animate attributeName="y" values="500;320;320" dur="2.8s" begin=".2s" fill="freeze"/></rect>
+    <rect x="380" y="240" width="70" height="360" rx="10" opacity=".75"><animate attributeName="height" values="120;360;360" dur="3s" begin=".4s" fill="freeze"/><animate attributeName="y" values="480;240;240" dur="3s" begin=".4s" fill="freeze"/></rect>
+  </g>
+  <text x="500" y="200" fill="#5CFFB0" font-family="Inter,Arial,sans-serif" font-size="42" font-weight="800">$2.12M</text>
+  <text x="500" y="250" fill="#9aa8bc" font-family="Inter,Arial,sans-serif" font-size="22" font-weight="600">pace → $2.5M goal</text>
+  <text x="500" y="310" fill="#e8eef5" font-family="Inter,Arial,sans-serif" font-size="28" font-weight="700">93 leads · 15 contracts</text>
+  <circle cx="820" cy="180" r="10" fill="#5CFFB0"><animate attributeName="opacity" values=".5;1;.5" dur="2s" repeatCount="indefinite"/></circle>
+
+</svg>
