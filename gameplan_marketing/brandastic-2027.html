@@ -2258,61 +2258,77 @@ body.deck-mode .slide.deck-active .slide-inner{width:min(1320px,96vw)!important;
   </section>
 
   <!-- 07 COMPETITOR MAP -->
+  
   <section class="slide" id="competitor-map">
     <div class="slide-inner">
       <div class="kicker">02 &middot; Where we sit</div>
       <div class="h2">Price vs. service depth</div>
-      <p class="lede">Up = higher price. Right = fuller stack. <strong style="color:#0644ed">Blue = us.</strong> Working map &mdash; rename dots with real shops.</p>
-      <svg viewBox="0 0 900 550" class="comp-bubbles" style="margin-top:.5rem;width:100%" aria-hidden="true">
-        <g stroke="var(--line)" stroke-width="1">
-          <line x1="90" y1="50" x2="860" y2="50" stroke-dasharray="4" opacity=".4"/>
-          <line x1="90" y1="160" x2="860" y2="160" stroke-dasharray="4" opacity=".4"/>
-          <line x1="90" y1="270" x2="860" y2="270" stroke-dasharray="4" opacity=".4"/>
-          <line x1="90" y1="380" x2="860" y2="380" stroke-dasharray="4" opacity=".4"/>
-          <line x1="90" y1="470" x2="860" y2="470"/>
-          <line x1="90" y1="50" x2="90" y2="470"/>
-          <line x1="350" y1="50" x2="350" y2="470" stroke-dasharray="4" opacity=".25"/>
-          <line x1="600" y1="50" x2="600" y2="470" stroke-dasharray="4" opacity=".25"/>
-        </g>
-        <text x="475" y="510" text-anchor="middle" fill="var(--muted)" font-size="14" font-weight="700" font-family="Inter,sans-serif">Thinner service &#8594; Full stack</text>
-        <text x="32" y="260" text-anchor="middle" fill="var(--muted)" font-size="14" font-weight="700" font-family="Inter,sans-serif" transform="rotate(-90,32,260)">Higher price &#8594;</text>
-
-        <circle cx="190" cy="420" r="38" fill="#64748b" opacity=".82"/>
-        <text x="190" y="416" text-anchor="middle" fill="#fff" font-size="13" font-weight="800">Freelance</text>
-        <text x="190" y="435" text-anchor="middle" fill="rgba(255,255,255,.8)" font-size="11">Cheap</text>
-
-        <circle cx="170" cy="320" r="34" fill="#ef4444" opacity=".72"/>
-        <text x="170" y="317" text-anchor="middle" fill="#fff" font-size="12" font-weight="800">WebFX</text>
-        <text x="170" y="335" text-anchor="middle" fill="rgba(255,255,255,.8)" font-size="10">Volume</text>
-
-        <circle cx="340" cy="290" r="36" fill="#d97706" opacity=".82"/>
-        <text x="340" y="286" text-anchor="middle" fill="#fff" font-size="13" font-weight="800">DIY / AI</text>
-        <text x="340" y="305" text-anchor="middle" fill="rgba(255,255,255,.8)" font-size="11">Software</text>
-
-        <circle cx="480" cy="350" r="38" fill="#0ea5e9" opacity=".82"/>
-        <text x="480" y="346" text-anchor="middle" fill="#fff" font-size="13" font-weight="800">Boutique</text>
-        <text x="480" y="366" text-anchor="middle" fill="rgba(255,255,255,.8)" font-size="11">One channel</text>
-
-        <circle cx="640" cy="220" r="34" fill="#6366f1" opacity=".82"/>
-        <text x="640" y="216" text-anchor="middle" fill="#fff" font-size="13" font-weight="800">In-house</text>
-        <text x="640" y="236" text-anchor="middle" fill="rgba(255,255,255,.8)" font-size="11">One person</text>
-
-        <circle cx="800" cy="80" r="36" fill="#ef4444" opacity=".78"/>
-        <text x="800" y="76" text-anchor="middle" fill="#fff" font-size="12" font-weight="800">Big national</text>
-        <text x="800" y="95" text-anchor="middle" fill="rgba(255,255,255,.8)" font-size="10">Expensive</text>
-
-        <circle cx="770" cy="160" r="40" fill="#7c3aed" opacity=".82"/>
-        <text x="770" y="155" text-anchor="middle" fill="#fff" font-size="13" font-weight="800">Directive</text>
-        <text x="770" y="175" text-anchor="middle" fill="rgba(255,255,255,.8)" font-size="11">B2B &middot; $27M+</text>
-
-        <circle cx="570" cy="260" r="52" fill="#0644ed" stroke="#fff" stroke-width="3"/>
-        <text x="570" y="252" text-anchor="middle" fill="#fff" font-size="16" font-weight="800">BRANDASTIC</text>
-        <text x="570" y="274" text-anchor="middle" fill="rgba(255,255,255,.95)" font-size="12" font-weight="700">Full stack &middot; mid &middot; fast</text>
-      </svg>
-      <p class="comp-note">Directive is our structural model to learn from &mdash; not a direct competitor at our price point. Our opening: speed + owner access + OC market knowledge at a price Directive won&rsquo;t touch.</p>
+      <p class="lede">Higher up = more expensive. Further right = more services. <strong style="color:#0644ed">Blue = us.</strong></p>
+      <div style="display:grid;grid-template-columns:90px 1fr;gap:0;margin-top:.6rem;flex:1;align-content:stretch">
+        <!-- Y axis label -->
+        <div style="display:flex;align-items:center;justify-content:center">
+          <span style="transform:rotate(-90deg);font-size:.78rem;font-weight:800;color:var(--muted);white-space:nowrap;letter-spacing:.06em">HIGHER PRICE &rarr;</span>
+        </div>
+        <!-- The grid -->
+        <div style="display:grid;grid-template-columns:1fr 1fr 1fr;grid-template-rows:1fr 1fr 1fr;gap:.5rem;min-height:400px">
+          <!-- Row 1: expensive -->
+          <div></div>
+          <div></div>
+          <div style="display:flex;flex-direction:column;gap:.4rem">
+            <div style="background:#ef4444;color:#fff;border-radius:14px;padding:.7rem .8rem;text-align:center">
+              <div style="font-weight:800;font-size:.88rem">Big national</div>
+              <div style="font-size:.75rem;opacity:.9">Expensive &middot; slow &middot; process theater</div>
+            </div>
+            <div style="background:#7c3aed;color:#fff;border-radius:14px;padding:.7rem .8rem;text-align:center">
+              <div style="font-weight:800;font-size:.88rem">Directive</div>
+              <div style="font-size:.75rem;opacity:.9">B2B demand gen &middot; $27M+ &middot; Irvine</div>
+            </div>
+          </div>
+          <!-- Row 2: mid price -->
+          <div style="display:flex;align-items:center">
+            <div style="background:#d97706;color:#fff;border-radius:14px;padding:.7rem .8rem;text-align:center;width:100%">
+              <div style="font-weight:800;font-size:.88rem">DIY / AI tools</div>
+              <div style="font-size:.75rem;opacity:.9">Software only &middot; no team</div>
+            </div>
+          </div>
+          <div style="display:flex;align-items:center">
+            <div style="background:#6366f1;color:#fff;border-radius:14px;padding:.7rem .8rem;text-align:center;width:100%">
+              <div style="font-weight:800;font-size:.88rem">In-house hire</div>
+              <div style="font-size:.75rem;opacity:.9">One person &middot; salary cost</div>
+            </div>
+          </div>
+          <div style="display:flex;align-items:center">
+            <div style="background:#0644ed;color:#fff;border-radius:18px;padding:1rem;text-align:center;width:100%;box-shadow:0 0 0 4px rgba(6,68,237,.25),0 12px 32px rgba(6,68,237,.3)">
+              <div style="font-weight:800;font-size:1.1rem">BRANDASTIC</div>
+              <div style="font-size:.85rem;margin-top:.2rem">Full stack &middot; mid price &middot; fast</div>
+            </div>
+          </div>
+          <!-- Row 3: cheap -->
+          <div style="display:flex;flex-direction:column;gap:.4rem;justify-content:center">
+            <div style="background:#64748b;color:#fff;border-radius:14px;padding:.7rem .8rem;text-align:center">
+              <div style="font-weight:800;font-size:.88rem">Freelance</div>
+              <div style="font-size:.75rem;opacity:.9">Cheap &middot; thin</div>
+            </div>
+            <div style="background:#ef4444;color:#fff;border-radius:14px;padding:.6rem .8rem;text-align:center;opacity:.75">
+              <div style="font-weight:800;font-size:.82rem">WebFX / SmartSites</div>
+              <div style="font-size:.72rem;opacity:.9">Volume &middot; template work</div>
+            </div>
+          </div>
+          <div style="display:flex;align-items:center">
+            <div style="background:#0ea5e9;color:#fff;border-radius:14px;padding:.7rem .8rem;text-align:center;width:100%">
+              <div style="font-weight:800;font-size:.88rem">Boutique OC</div>
+              <div style="font-size:.75rem;opacity:.9">One channel deep</div>
+            </div>
+          </div>
+          <div></div>
+        </div>
+      </div>
+      <!-- X axis -->
+      <div style="text-align:center;margin-top:.3rem;font-size:.78rem;font-weight:800;color:var(--muted);letter-spacing:.06em;padding-left:90px">THINNER SERVICE &rarr; FULL STACK</div>
       <div class="footer-bar"><span>BRANDASTIC 2027</span><span class="num">07</span></div>
     </div>
   </section>
+
 
   <!-- 08 DISCOVERY -->
   <section class="slide" id="discovery">
