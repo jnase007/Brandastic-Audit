@@ -155,6 +155,59 @@ ul{margin:.15rem 0 0 1.05rem}
 .persona-block{font-size:.72rem;line-height:1.35;color:var(--muted);margin-top:.35rem;padding-top:.35rem;border-top:1px solid var(--line)}
 .persona-block strong{color:var(--ink);font-size:.68rem;text-transform:uppercase;letter-spacing:.04em}
 
+
+/* Multi-channel visual calendar */
+:root{
+  --ch-seo:#7c3aed; --ch-ref:#0f8f97; --ch-exist:#0d9488; --ch-direct:#64748b;
+  --ch-out:#1f8fc9; --ch-email:#2563eb; --ch-li:#0a66c2; --ch-gads:#ea4335;
+  --ch-meta:#e1306c; --ch-event:#d97706; --ch-ai:#8b5cf6; --ch-sales:#4c6ef5;
+}
+.ch-key{display:flex;flex-wrap:wrap;gap:.4rem;margin:.55rem 0 .75rem}
+.ch-pill{display:inline-flex;align-items:center;gap:.3rem;border-radius:999px;padding:.28rem .65rem;font-weight:800;font-size:.68rem;color:#fff}
+.ch-pill i{width:.55rem;height:.55rem;border-radius:50%;background:rgba(255,255,255,.9);display:inline-block}
+.ch-pill.seo{background:var(--ch-seo)}.ch-pill.ref{background:var(--ch-ref)}.ch-pill.exist{background:var(--ch-exist)}
+.ch-pill.direct{background:var(--ch-direct)}.ch-pill.out{background:var(--ch-out)}.ch-pill.email{background:var(--ch-email)}
+.ch-pill.li{background:var(--ch-li)}.ch-pill.gads{background:var(--ch-gads)}.ch-pill.meta{background:var(--ch-meta)}
+.ch-pill.event{background:var(--ch-event)}.ch-pill.ai{background:var(--ch-ai)}.ch-pill.sales{background:var(--ch-sales)}
+
+.gantt{margin-top:.35rem}
+.gantt-head{display:grid;grid-template-columns:148px repeat(12,1fr);gap:3px;margin-bottom:4px;padding-left:0}
+.gantt-head span{text-align:center;font-size:.58rem;font-weight:800;color:var(--muted);letter-spacing:.02em}
+.gantt-row{display:grid;grid-template-columns:148px 1fr;gap:8px;align-items:center;margin:.28rem 0}
+.gantt-label{font-size:.72rem;font-weight:800;color:var(--ink);line-height:1.2}
+.gantt-label small{display:block;font-weight:600;color:var(--muted);font-size:.6rem}
+.gantt-track{position:relative;height:26px;background:var(--th);border-radius:8px;overflow:hidden;border:1px solid var(--line)}
+.gantt-bar{position:absolute;top:3px;bottom:3px;border-radius:6px;display:flex;align-items:center;padding:0 .4rem;
+  font-size:.58rem;font-weight:800;color:#fff;white-space:nowrap;overflow:hidden;box-shadow:0 1px 2px rgba(0,0,0,.12)}
+.gantt-bar.dim{opacity:.55}
+.gantt-bar.outline{background:transparent!important;border:2px dashed;color:var(--ink)}
+
+.week-cal{display:grid;grid-template-columns:72px repeat(5,1fr);gap:6px;margin-top:.55rem}
+.week-cal .hd{font-size:.68rem;font-weight:800;text-align:center;color:var(--muted);padding:.25rem}
+.week-cal .lab{font-size:.72rem;font-weight:800;display:flex;align-items:center}
+.week-cal .cell{min-height:72px;border-radius:10px;border:1px solid var(--line);background:var(--card);padding:.35rem;display:flex;flex-direction:column;gap:.25rem}
+.week-cal .chip{border-radius:6px;padding:.22rem .35rem;font-size:.58rem;font-weight:800;color:#fff;line-height:1.25}
+
+.q-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:.55rem;margin-top:.55rem}
+.q-card{border-radius:14px;border:1px solid var(--line);padding:.7rem;background:var(--card);min-height:160px}
+.q-card h3{font-size:.78rem;margin-bottom:.45rem}
+.q-card .chip{display:inline-block;border-radius:6px;padding:.15rem .4rem;font-size:.58rem;font-weight:800;color:#fff;margin:.12rem .12rem 0 0}
+.q-card ul{margin:.35rem 0 0 .9rem;font-size:.7rem;color:var(--muted);line-height:1.35}
+
+.month90{display:grid;grid-template-columns:repeat(3,1fr);gap:.6rem;margin-top:.5rem}
+.m90{border-radius:16px;padding:.85rem;color:#fff;min-height:300px}
+.m90 h3{text-align:center;font-size:.8rem;background:rgba(255,255,255,.2);border-radius:999px;padding:.35rem;margin:0 0 .65rem}
+.m90 .row{display:flex;gap:.35rem;align-items:flex-start;margin:.4rem 0;font-size:.72rem;line-height:1.3}
+.m90 .tag{flex:0 0 auto;border-radius:5px;padding:.12rem .35rem;font-size:.56rem;font-weight:800;background:rgba(0,0,0,.2)}
+.m90.a{background:linear-gradient(165deg,#1e3a5f,#0f8f97)}
+.m90.b{background:linear-gradient(165deg,#1e3a5f,#1f8fc9)}
+.m90.c{background:linear-gradient(165deg,#1e3a5f,#7c3aed)}
+@media(max-width:980px){
+  .gantt-head,.gantt-row,.week-cal,.q-grid,.month90{grid-template-columns:1fr}
+  .gantt-head{display:none}
+  .gantt-row{grid-template-columns:1fr}
+}
+
 /* Present */
 .deck-present-btn{position:fixed;right:16px;bottom:16px;z-index:99999;border:0;border-radius:999px;cursor:pointer;
   font:800 .82rem Inter,system-ui,sans-serif;color:#fff;padding:.72rem 1rem;
@@ -238,7 +291,7 @@ body.deck-mode .slide.deck-active .slide-inner{width:min(1280px,96vw)!important;
         <div>05 GTM + CRM channels <span>· all nine sources</span></div>
         <div>06 Content + sales OS <span>· before Brandastic ads</span></div>
         <div>07 Execution pack <span>· all emails, posts, scripts</span></div>
-        <div>08 Calendar + 90 days <span>· weekly machine</span></div>
+        <div>08 Media calendar <span>· color channels · timeline</span></div>
         <div>09 Measurement <span>· by channel</span></div>
         <div>10 Close <span>· room decisions</span></div>
       </div>
@@ -1191,6 +1244,304 @@ If the first draft needs a glossary, rewrite it.</div>
       </div>
       <p class="quote">Next level is not a new slogan. It’s <strong>more of the right clients</strong>, higher average package, and bookings − churn positive every quarter — with copy and cadence the team can run without guessing.</p>
       <div class="footer-bar"><span>BRANDASTIC 2027</span><span>E11</span></div>
+    </div>
+  </section>
+
+
+  <section class="slide" id="section-media-cal">
+    <div class="slide-inner title-photo">
+      <div class="site-hero-stack" aria-hidden="true"><img src="../assets/ba-office-2027/DSC02965.jpg?v=calv2" alt=""/></div>
+      <div class="site-hero-fade" aria-hidden="true"></div>
+      <div class="title-copy">
+        <div class="phase">Media calendar</div>
+        <div class="h1">Every channel · on a timeline</div>
+        <p class="lede">Color-coded plan the team can run. Same nine CRM sources. No mystery work.</p>
+      </div>
+      <div class="footer-bar"><span>BRANDASTIC 2027</span><span>CAL</span></div>
+    </div>
+  </section>
+
+  <section class="slide" id="channel-legend">
+    <div class="slide-inner">
+      <div class="kicker">Media system · legend</div>
+      <h2 class="h2">Color key (memorize this)</h2>
+      <div class="ch-key">
+        <span class="ch-pill seo">SEO (organic)</span>
+        <span class="ch-pill ref">Referral</span>
+        <span class="ch-pill exist">Existing client</span>
+        <span class="ch-pill direct">Direct / site</span>
+        <span class="ch-pill out">Outbound LI + Email</span>
+        <span class="ch-pill gads">Google Ads</span>
+        <span class="ch-pill meta">Meta</span>
+        <span class="ch-pill event">Chamber + Events</span>
+        <span class="ch-pill ai">OpenAI / ChatGPT</span>
+        <span class="ch-pill sales">Sales OS / board</span>
+      </div>
+      <div class="grid2">
+        <div class="card">
+          <h3>Fund first (always on)</h3>
+          <p style="font-size:.86rem;color:var(--muted);line-height:1.45;margin-top:.3rem">SEO · Referral · Existing client · Direct · Outbound. These already book work. Calendar treats them as the spine.</p>
+        </div>
+        <div class="card">
+          <h3>Support / timed</h3>
+          <p style="font-size:.86rem;color:var(--muted);line-height:1.45;margin-top:.3rem">Google Ads · Meta · Chamber + Events · AI readiness. Appear on the timeline when the spine is live — not before.</p>
+        </div>
+      </div>
+      <p class="quote" style="margin-top:.8rem"><strong>How to read the bars:</strong> solid = active work · dashed = optional / only if sales OS is tight · label on bar = the deliverable.</p>
+      <div class="footer-bar"><span>BRANDASTIC 2027</span><span>C0</span></div>
+    </div>
+  </section>
+
+  <section class="slide" id="gantt-12">
+    <div class="slide-inner">
+      <div class="kicker">12-month channel roadmap</div>
+      <h2 class="h2">Nov → Oct · what runs when</h2>
+      <div class="ch-key" style="margin-top:.25rem">
+        <span class="ch-pill seo">SEO</span><span class="ch-pill ref">Referral</span><span class="ch-pill exist">Existing</span>
+        <span class="ch-pill out">Outbound</span><span class="ch-pill gads">Google</span><span class="ch-pill meta">Meta</span>
+        <span class="ch-pill event">Events</span><span class="ch-pill ai">AI/AEO</span><span class="ch-pill sales">Sales OS</span>
+      </div>
+      <div class="gantt-head"><span></span><span>N</span><span>D</span><span>J</span><span>F</span><span>M</span><span>A</span><span>M</span><span>J</span><span>J</span><span>A</span><span>S</span><span>O</span></div>
+      <div class="gantt">
+        <div class="gantt-row"><div class="gantt-label">SEO (organic)<small>pages · guides · cases</small></div>
+          <div class="gantt-track">
+            <div class="gantt-bar" style="left:0%;width:16%;background:var(--ch-seo)">Lock + ship</div>
+            <div class="gantt-bar" style="left:16%;width:84%;background:var(--ch-seo)">Always-on compound</div>
+          </div></div>
+        <div class="gantt-row"><div class="gantt-label">Outbound<small>LI + email warm list</small></div>
+          <div class="gantt-track">
+            <div class="gantt-bar" style="left:0%;width:25%;background:var(--ch-out)">50-name build</div>
+            <div class="gantt-bar" style="left:8%;width:92%;background:var(--ch-out);opacity:.9">Weekly machine</div>
+          </div></div>
+        <div class="gantt-row"><div class="gantt-label">Referral<small>asks after wins</small></div>
+          <div class="gantt-track">
+            <div class="gantt-bar" style="left:8%;width:92%;background:var(--ch-ref)">After every win + quarterly</div>
+          </div></div>
+        <div class="gantt-row"><div class="gantt-label">Existing client<small>whitespace</small></div>
+          <div class="gantt-track">
+            <div class="gantt-bar" style="left:8%;width:92%;background:var(--ch-exist)">Top accounts monthly</div>
+          </div></div>
+        <div class="gantt-row"><div class="gantt-label">Direct / site<small>conversion</small></div>
+          <div class="gantt-track">
+            <div class="gantt-bar" style="left:0%;width:33%;background:var(--ch-direct)">Path fix</div>
+            <div class="gantt-bar" style="left:33%;width:67%;background:var(--ch-direct);opacity:.85">Always on</div>
+          </div></div>
+        <div class="gantt-row"><div class="gantt-label">Sales OS<small>board + win/loss</small></div>
+          <div class="gantt-track">
+            <div class="gantt-bar" style="left:0%;width:16%;background:var(--ch-sales)">Stand up</div>
+            <div class="gantt-bar" style="left:16%;width:84%;background:var(--ch-sales)">Thu 20 min forever</div>
+          </div></div>
+        <div class="gantt-row"><div class="gantt-label">Google Ads<small>Brandastic only later</small></div>
+          <div class="gantt-track">
+            <div class="gantt-bar" style="left:0%;width:50%;background:var(--ch-gads);opacity:.35">Client delivery only</div>
+            <div class="gantt-bar" style="left:50%;width:50%;background:var(--ch-gads)">Optional us test</div>
+          </div></div>
+        <div class="gantt-row"><div class="gantt-label">Meta<small>FB / IG</small></div>
+          <div class="gantt-track">
+            <div class="gantt-bar" style="left:0%;width:58%;background:var(--ch-meta);opacity:.35">Client campaigns</div>
+            <div class="gantt-bar" style="left:58%;width:42%;background:var(--ch-meta)">Selective us</div>
+          </div></div>
+        <div class="gantt-row"><div class="gantt-label">Chamber + Events<small>48h follow-up</small></div>
+          <div class="gantt-track">
+            <div class="gantt-bar" style="left:8%;width:12%;background:var(--ch-event)">Q1</div>
+            <div class="gantt-bar" style="left:33%;width:12%;background:var(--ch-event)">Q2</div>
+            <div class="gantt-bar" style="left:58%;width:12%;background:var(--ch-event)">Q3</div>
+            <div class="gantt-bar" style="left:83%;width:12%;background:var(--ch-event)">Q4</div>
+          </div></div>
+        <div class="gantt-row"><div class="gantt-label">OpenAI / AEO<small>clear pages</small></div>
+          <div class="gantt-track">
+            <div class="gantt-bar" style="left:16%;width:20%;background:var(--ch-ai)">Pass #1</div>
+            <div class="gantt-bar" style="left:50%;width:50%;background:var(--ch-ai)">Ongoing with SEO ships</div>
+          </div></div>
+      </div>
+      <div class="footer-bar"><span>BRANDASTIC 2027</span><span>C1</span></div>
+    </div>
+  </section>
+
+  <section class="slide" id="gantt-90">
+    <div class="slide-inner">
+      <div class="kicker">First 90 days · channel map</div>
+      <h2 class="h2">What each color does by phase</h2>
+      <div class="month90">
+        <div class="m90 a">
+          <h3>Days 1–30 · Build the spine</h3>
+          <div class="row"><span class="tag" style="background:var(--ch-sales)">SALES</span><span>Board live · stages · owners</span></div>
+          <div class="row"><span class="tag" style="background:var(--ch-out)">OUT</span><span>50-name sheet · templates approved</span></div>
+          <div class="row"><span class="tag" style="background:var(--ch-seo)">SEO</span><span>Market lock · outline case + guide #1</span></div>
+          <div class="row"><span class="tag" style="background:var(--ch-direct)">SITE</span><span>Fix weak paths · CTAs · proof links</span></div>
+          <div class="row"><span class="tag" style="background:var(--ch-ref)">REF</span><span>Write ask script · ready after first win</span></div>
+          <div class="row"><span class="tag" style="background:var(--ch-exist)">EXIST</span><span>List top 10 accounts for whitespace</span></div>
+          <div class="row"><span class="tag" style="background:var(--ch-event)">EVENT</span><span>Pick 1 room this month max</span></div>
+        </div>
+        <div class="m90 b">
+          <h3>Days 31–60 · Turn it on</h3>
+          <div class="row"><span class="tag" style="background:var(--ch-out)">OUT</span><span>Full reopen pass · 10–20 touches/week</span></div>
+          <div class="row"><span class="tag" style="background:var(--ch-email)">EMAIL</span><span>Dana/Maya/Sam sequences live</span></div>
+          <div class="row"><span class="tag" style="background:var(--ch-li)">LI</span><span>3–5 posts/week + soft DMs</span></div>
+          <div class="row"><span class="tag" style="background:var(--ch-seo)">SEO</span><span>Pages live · case #1 published</span></div>
+          <div class="row"><span class="tag" style="background:var(--ch-ref)">REF</span><span>Ask after every clear win</span></div>
+          <div class="row"><span class="tag" style="background:var(--ch-exist)">EXIST</span><span>Whitespace notes on top 5</span></div>
+          <div class="row"><span class="tag" style="background:var(--ch-ai)">AEO</span><span>First AI-readability pass on new pages</span></div>
+          <div class="row"><span class="tag" style="background:var(--ch-gads)">GADS</span><span>Client work only · Brandastic still off</span></div>
+        </div>
+        <div class="m90 c">
+          <h3>Days 61–90 · Tighten + decide</h3>
+          <div class="row"><span class="tag" style="background:var(--ch-sales)">SALES</span><span>Win/loss reasons · close path tight</span></div>
+          <div class="row"><span class="tag" style="background:var(--ch-seo)">SEO</span><span>Double what ranks/converts · kill weak</span></div>
+          <div class="row"><span class="tag" style="background:var(--ch-out)">OUT</span><span>Keep machine · refresh list</span></div>
+          <div class="row"><span class="tag" style="background:var(--ch-meta)">META</span><span>Decide selective Brandastic test or not</span></div>
+          <div class="row"><span class="tag" style="background:var(--ch-gads)">GADS</span><span>Brandastic test only if OS breathes</span></div>
+          <div class="row"><span class="tag" style="background:var(--ch-event)">EVENT</span><span>Q follow-ups complete · next quarter picks</span></div>
+          <div class="row"><span class="tag" style="background:var(--ch-ai)">AEO</span><span>Proof story page AI-clean</span></div>
+        </div>
+      </div>
+      <div class="footer-bar"><span>BRANDASTIC 2027</span><span>C2</span></div>
+    </div>
+  </section>
+
+  <section class="slide" id="week-calendar">
+    <div class="slide-inner">
+      <div class="kicker">Weekly media calendar</div>
+      <h2 class="h2">Color chips · Mon–Fri forever</h2>
+      <div class="week-cal">
+        <div class="hd"></div><div class="hd">Mon</div><div class="hd">Tue</div><div class="hd">Wed</div><div class="hd">Thu</div><div class="hd">Fri</div>
+
+        <div class="lab">Morning</div>
+        <div class="cell"><div class="chip" style="background:var(--ch-sales)">Scorecard by channel</div><div class="chip" style="background:var(--ch-exist)">Recurring $ check</div></div>
+        <div class="cell"><div class="chip" style="background:var(--ch-out)">Warm list block</div><div class="chip" style="background:var(--ch-email)">5 emails min</div></div>
+        <div class="cell"><div class="chip" style="background:var(--ch-seo)">Page / guide work</div><div class="chip" style="background:var(--ch-ai)">AEO check if ship</div></div>
+        <div class="cell"><div class="chip" style="background:var(--ch-sales)">Pipeline 20 min</div><div class="chip" style="background:var(--ch-ref)">Referral asks due</div></div>
+        <div class="cell"><div class="chip" style="background:var(--ch-sales)">Standup 20–30</div><div class="chip" style="background:var(--ch-li)">Schedule posts</div></div>
+
+        <div class="lab">Midday</div>
+        <div class="cell"><div class="chip" style="background:var(--ch-direct)">Site path fixes</div></div>
+        <div class="cell"><div class="chip" style="background:var(--ch-li)">Soft DMs</div><div class="chip" style="background:var(--ch-out)">Bump follow-ups</div></div>
+        <div class="cell"><div class="chip" style="background:var(--ch-seo)">Proof / case draft</div></div>
+        <div class="cell"><div class="chip" style="background:var(--ch-exist)">Whitespace notes</div><div class="chip" style="background:var(--ch-gads)">Client ads QA</div></div>
+        <div class="cell"><div class="chip" style="background:var(--ch-li)">2 posts live</div></div>
+
+        <div class="lab">Later</div>
+        <div class="cell"><div class="chip" style="background:var(--ch-sales)">Week targets set</div></div>
+        <div class="cell"><div class="chip" style="background:var(--ch-email)">Log CRM channel</div></div>
+        <div class="cell"><div class="chip" style="background:var(--ch-meta)">Client Meta QA</div></div>
+        <div class="cell"><div class="chip" style="background:var(--ch-event)">48h event follow-ups</div></div>
+        <div class="cell"><div class="chip" style="background:var(--ch-sales)">Pains → next posts</div></div>
+      </div>
+      <p class="note">Client Google/Meta delivery happens inside delivery teams daily — this grid is the <strong>Brandastic growth machine</strong> cadence.</p>
+      <div class="footer-bar"><span>BRANDASTIC 2027</span><span>C3</span></div>
+    </div>
+  </section>
+
+  <section class="slide" id="quarter-map">
+    <div class="slide-inner">
+      <div class="kicker">Quarter map · 2027</div>
+      <h2 class="h2">What “good” looks like each quarter</h2>
+      <div class="q-grid">
+        <div class="q-card">
+          <h3>Q1 · Spine</h3>
+          <span class="chip" style="background:var(--ch-seo)">SEO</span>
+          <span class="chip" style="background:var(--ch-out)">Outbound</span>
+          <span class="chip" style="background:var(--ch-sales)">Sales OS</span>
+          <span class="chip" style="background:var(--ch-ref)">Referral</span>
+          <ul>
+            <li>Markets locked</li>
+            <li>50-name machine running</li>
+            <li>2 proof assets shipped</li>
+            <li>Board never skipped</li>
+          </ul>
+        </div>
+        <div class="q-card">
+          <h3>Q2 · Compound</h3>
+          <span class="chip" style="background:var(--ch-seo)">SEO</span>
+          <span class="chip" style="background:var(--ch-exist)">Existing</span>
+          <span class="chip" style="background:var(--ch-ai)">AEO</span>
+          <span class="chip" style="background:var(--ch-event)">Events</span>
+          <ul>
+            <li>Pages ranking for locked terms</li>
+            <li>Whitespace expands closed</li>
+            <li>1 event/quarter max with 48h follow-up</li>
+            <li>Avg package trending up</li>
+          </ul>
+        </div>
+        <div class="q-card">
+          <h3>Q3 · Test paid (maybe)</h3>
+          <span class="chip" style="background:var(--ch-gads)">Google</span>
+          <span class="chip" style="background:var(--ch-meta)">Meta</span>
+          <span class="chip" style="background:var(--ch-seo)">SEO</span>
+          <span class="chip" style="background:var(--ch-out)">Outbound</span>
+          <ul>
+            <li>Only if win/loss + follow-up tight</li>
+            <li>One offer · one audience</li>
+            <li>Kill fast if CAC ugly</li>
+            <li>Spine never pauses for ads</li>
+          </ul>
+        </div>
+        <div class="q-card">
+          <h3>Q4 · Proof + plan</h3>
+          <span class="chip" style="background:var(--ch-seo)">SEO</span>
+          <span class="chip" style="background:var(--ch-ref)">Referral</span>
+          <span class="chip" style="background:var(--ch-sales)">Sales</span>
+          <span class="chip" style="background:var(--ch-ai)">AEO</span>
+          <ul>
+            <li>Year proof story published</li>
+            <li>Channel ROI known</li>
+            <li>2028 rocks named</li>
+            <li>Pace vs $2.5M honest</li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bar"><span>BRANDASTIC 2027</span><span>C4</span></div>
+    </div>
+  </section>
+
+  <section class="slide" id="campaign-swim">
+    <div class="slide-inner">
+      <div class="kicker">Campaign swimlanes · next 12 weeks</div>
+      <h2 class="h2">One view · who owns the color</h2>
+      <div class="gantt-head"><span></span><span>W1</span><span>W2</span><span>W3</span><span>W4</span><span>W5</span><span>W6</span><span>W7</span><span>W8</span><span>W9</span><span>W10</span><span>W11</span><span>W12</span></div>
+      <div class="gantt">
+        <div class="gantt-row"><div class="gantt-label">SEO ship lane<small>Content owner</small></div>
+          <div class="gantt-track">
+            <div class="gantt-bar" style="left:0%;width:25%;background:var(--ch-seo)">Outline</div>
+            <div class="gantt-bar" style="left:25%;width:25%;background:var(--ch-seo)">Case #1</div>
+            <div class="gantt-bar" style="left:50%;width:25%;background:var(--ch-seo)">Pages live</div>
+            <div class="gantt-bar" style="left:75%;width:25%;background:var(--ch-seo)">Guide #2</div>
+          </div></div>
+        <div class="gantt-row"><div class="gantt-label">Email sequences<small>AM owners</small></div>
+          <div class="gantt-track">
+            <div class="gantt-bar" style="left:0%;width:16%;background:var(--ch-email)">Templates</div>
+            <div class="gantt-bar" style="left:16%;width:84%;background:var(--ch-email)">Dana · Maya · Sam sends weekly</div>
+          </div></div>
+        <div class="gantt-row"><div class="gantt-label">LinkedIn<small>Team-wide</small></div>
+          <div class="gantt-track">
+            <div class="gantt-bar" style="left:8%;width:92%;background:var(--ch-li)">3–5 posts/week · soft DMs Tue</div>
+          </div></div>
+        <div class="gantt-row"><div class="gantt-label">Referral engine<small>After wins</small></div>
+          <div class="gantt-track">
+            <div class="gantt-bar" style="left:16%;width:84%;background:var(--ch-ref)">Ask script on every win</div>
+          </div></div>
+        <div class="gantt-row"><div class="gantt-label">Existing whitespace<small>AM + Justin</small></div>
+          <div class="gantt-track">
+            <div class="gantt-bar" style="left:25%;width:25%;background:var(--ch-exist)">Top 5</div>
+            <div class="gantt-bar" style="left:50%;width:50%;background:var(--ch-exist)">Expand / tests</div>
+          </div></div>
+        <div class="gantt-row"><div class="gantt-label">Sales OS<small>Leadership</small></div>
+          <div class="gantt-track">
+            <div class="gantt-bar" style="left:0%;width:100%;background:var(--ch-sales)">Thu board every week — non-negotiable</div>
+          </div></div>
+        <div class="gantt-row"><div class="gantt-label">Events<small>Selective</small></div>
+          <div class="gantt-track">
+            <div class="gantt-bar" style="left:16%;width:10%;background:var(--ch-event)">#1</div>
+            <div class="gantt-bar" style="left:58%;width:10%;background:var(--ch-event)">#2</div>
+          </div></div>
+        <div class="gantt-row"><div class="gantt-label">Paid (us)<small>Only if ready</small></div>
+          <div class="gantt-track">
+            <div class="gantt-bar" style="left:0%;width:66%;background:var(--ch-gads);opacity:.25">Off for Brandastic</div>
+            <div class="gantt-bar" style="left:66%;width:34%;background:var(--ch-meta)">Decision gate</div>
+          </div></div>
+      </div>
+      <p class="quote"><strong>Agency standard:</strong> if a color isn’t on this swimlane, it isn’t work — it’s a distraction.</p>
+      <div class="footer-bar"><span>BRANDASTIC 2027</span><span>C5</span></div>
     </div>
   </section>
 
