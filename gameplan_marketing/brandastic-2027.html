@@ -129,15 +129,34 @@ li{margin:.2rem 0}
 .section-dark .footer-bar,.divider-slide .footer-bar{
   position:relative;z-index:2;color:rgba(232,238,245,.45);margin-top:auto;padding-top:2rem;width:100%
 }
+/* cad-art animated below */
+@media (max-width:900px){
+  .cad-art{width:min(70%,340px);opacity:.35;right:-8%}
+  .section-dark .h1,.divider-slide .h1{max-width:16ch}
+}
+
+
+/* Living title graphic */
+@keyframes baCadFloat{
+  0%,100%{ transform:translateY(-50%) translateX(0) scale(1); }
+  50%{ transform:translateY(calc(-50% - 10px)) translateX(-6px) scale(1.02); }
+}
+@keyframes baCadGlow{
+  0%,100%{ filter:drop-shadow(0 0 14px rgba(0,230,160,.22)) drop-shadow(0 0 32px rgba(92,255,176,.10)); opacity:.92; }
+  50%{ filter:drop-shadow(0 0 28px rgba(0,230,160,.42)) drop-shadow(0 0 56px rgba(56,189,248,.22)); opacity:1; }
+}
 .cad-art{
   position:absolute;right:-2%;top:50%;transform:translateY(-50%);
   width:min(52%,480px);height:auto;max-height:88%;opacity:1;
   pointer-events:none;z-index:0;
-  filter:drop-shadow(0 0 18px rgba(0,230,160,.25)) drop-shadow(0 0 40px rgba(92,255,176,.12))
+  animation:baCadFloat 7s ease-in-out infinite, baCadGlow 4.5s ease-in-out infinite;
+  will-change:transform,filter,opacity
 }
-@media (max-width:900px){
-  .cad-art{width:min(70%,340px);opacity:.35;right:-8%}
-  .section-dark .h1,.divider-slide .h1{max-width:16ch}
+@media (prefers-reduced-motion: reduce){
+  .cad-art{animation:none!important}
+}
+@media print{
+  .cad-art{animation:none!important;opacity:.85!important}
 }
 
 /* 90-day phase cards */
@@ -336,7 +355,7 @@ body.deck-mode .slide.deck-active .slide-inner{
   <!-- 02 DIVIDER -->
   <section class="slide" id="section-reality">
     <div class="slide-inner section-dark">
-      <img class="cad-art" src="../assets/brandastic-growth-art.svg" alt="" />
+      <img class="cad-art" src="../assets/brandastic-growth-art.svg?v=move2" alt="" />
       <div class="phase">01 · Reality</div>
       <div class="h1">Where we are — and what must change</div>
       <p class="lede">Real 2026 numbers first. Then the plan.</p>
@@ -379,7 +398,7 @@ body.deck-mode .slide.deck-active .slide-inner{
   <!-- 04 COMPETITORS -->
   <section class="slide" id="section-compete">
     <div class="slide-inner section-dark divider-slide">
-      <img class="cad-art" src="../assets/brandastic-growth-art.svg" alt="" />
+      <img class="cad-art" src="../assets/brandastic-growth-art.svg?v=move2" alt="" />
       <div class="phase">02 · Field</div>
       <div class="h1">Competitors</div>
       <p class="lede">Who we bump into — and how we win.</p>
@@ -409,7 +428,7 @@ body.deck-mode .slide.deck-active .slide-inner{
   <!-- 05 TARGET -->
   <section class="slide" id="section-target">
     <div class="slide-inner section-dark divider-slide">
-      <img class="cad-art" src="../assets/brandastic-growth-art.svg" alt="" />
+      <img class="cad-art" src="../assets/brandastic-growth-art.svg?v=move2" alt="" />
       <div class="phase">03 · Who</div>
       <div class="h1">Ideal target market</div>
       <p class="lede">Who we want more of — and who we skip.</p>
@@ -448,7 +467,7 @@ body.deck-mode .slide.deck-active .slide-inner{
   <!-- ICP DIVIDER -->
   <section class="slide" id="section-icp">
     <div class="slide-inner section-dark divider-slide">
-      <img class="cad-art" src="../assets/brandastic-growth-art.svg" alt="" />
+      <img class="cad-art" src="../assets/brandastic-growth-art.svg?v=move2" alt="" />
       <div class="phase">Who we sell to</div>
       <div class="h1">Three ICPs</div>
       <p class="lede">Three markets. Three people. Don’t blend the copy.</p>
@@ -508,7 +527,7 @@ body.deck-mode .slide.deck-active .slide-inner{
   <!-- 06 GTM DIVIDER -->
   <section class="slide" id="section-gtm">
     <div class="slide-inner section-dark">
-      <img class="cad-art" src="../assets/brandastic-growth-art.svg" alt="" />
+      <img class="cad-art" src="../assets/brandastic-growth-art.svg?v=move2" alt="" />
       <div class="phase">02 · Go-to-market</div>
       <div class="h1">How demand becomes booked work</div>
       <p class="lede">Search and referrals first. Ads only after the sales system is tight.</p>
@@ -726,7 +745,7 @@ If your first draft needs a glossary, rewrite it.</div>
   <!-- 14 MEASURE -->
   <section class="slide" id="section-measure">
     <div class="slide-inner section-dark divider-slide">
-      <img class="cad-art" src="../assets/brandastic-growth-art.svg" alt="" />
+      <img class="cad-art" src="../assets/brandastic-growth-art.svg?v=move2" alt="" />
       <div class="phase">Scoreboard</div>
       <div class="h1">How we measure</div>
       <p class="lede">Numbers the room watches every week.</p>
@@ -796,7 +815,7 @@ If your first draft needs a glossary, rewrite it.</div>
   <!-- CALENDAR DIVIDER -->
   <section class="slide" id="calendar">
     <div class="slide-inner section-dark">
-      <img class="cad-art" src="../assets/brandastic-growth-art.svg" alt="" />
+      <img class="cad-art" src="../assets/brandastic-growth-art.svg?v=move2" alt="" />
       <div class="phase">90 days · weekly machine</div>
       <div class="h1">Calendar</div>
       <p class="lede">What the team runs each week — then the 90-day build week by week.</p>
