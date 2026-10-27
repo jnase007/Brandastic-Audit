@@ -189,6 +189,29 @@ li{margin:.2rem 0}
 }
 
 
+
+/* ICP persona board (Comply-style) */
+.persona-board{display:grid;grid-template-columns:repeat(3,1fr);gap:.75rem;align-items:stretch;margin-top:.55rem}
+.persona-board .card{padding:.7rem .75rem .8rem;display:flex;flex-direction:column;min-height:0}
+.persona-board .card > img{
+  display:block;width:100%;height:168px;object-fit:cover;object-position:center 12%;
+  border-radius:12px;margin:0 0 .5rem;border:1px solid var(--line);background:#e8eef3
+}
+.persona-role{font-size:.66rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--teal);margin:.15rem 0 .25rem}
+.persona-name{font-size:1.02rem;font-weight:800;margin:0 0 .25rem;color:var(--ink)}
+.persona-quote{font-size:.78rem;line-height:1.4;color:var(--muted);font-style:italic;margin:0 0 .45rem}
+.persona-meta{font-size:.72rem;line-height:1.4;color:var(--muted);margin:0 0 .45rem}
+.persona-meta strong{color:var(--ink)}
+.persona-board .mini{display:grid;grid-template-columns:1fr 1fr;gap:.45rem;margin-top:auto}
+.persona-board .mini h4{font-size:.66rem;font-weight:800;letter-spacing:.05em;text-transform:uppercase;color:var(--teal);margin:0 0 .2rem}
+.persona-board .mini ul{margin:0;padding-left:.9rem;font-size:.7rem;line-height:1.35;color:var(--muted)}
+.persona-board .mini li{margin:.12rem 0}
+.persona-board .pill{margin-bottom:.35rem}
+@media (max-width:900px){
+  .persona-board{grid-template-columns:1fr}
+  .persona-board .card > img{height:200px}
+}
+
 /* Calendar weeks (Comply-style) */
 .cal-week{display:grid;grid-template-columns:88px 1fr;gap:.65rem;padding:.65rem .75rem;border-bottom:1px solid var(--line);border-radius:10px;margin:.35rem 0;align-items:start}
 .cal-week:last-of-type{border-bottom:1px solid var(--line)}
@@ -399,9 +422,9 @@ body.deck-mode .slide.deck-active .slide-inner{
       <div class="kicker">03 · Ideal target market</div>
       <h2 class="h2">Who we want more of</h2>
       <div class="grid3" style="margin-top:.7rem">
-        <div class="card"><span class="pill">Priority</span><h3>Dental / medical / surgical</h3><p>Pattern already live (JB White, Paragon, Dental Smart, Young Surgical). Clear offers. Good monthly packages.</p></div>
-        <div class="card"><span class="pill">Priority</span><h3>Education (CalOps peers)</h3><p>Flagship proof. Schools and charters that need serious digital, not hobby social.</p></div>
-        <div class="card"><span class="pill">Priority</span><h3>Industrial / specialty B2B</h3><p>LabTech, Wearparts, Morehouse-style. Search + paid when the offer is sharp.</p></div>
+        <div class="card"><span class="pill">Primary · locked</span><h3>Dental / medical / surgical B2B</h3><p>Suppliers & labs that sell to clinics and dealers — not patient clinics as the main agency buyer. SEO + PPC core.</p></div>
+        <div class="card"><span class="pill">Secondary</span><h3>Education (CalOPS peers)</h3><p>Online / heavy-online public & charter schools. Enrollment inquiries. Live CalOPS-scale proof.</p></div>
+        <div class="card"><span class="pill">Tertiary · SoCal</span><h3>Aero / Defense manufacturers</h3><p>Owner-led shops & suppliers — not primes. Get found + quote path. $5–8k open packages.</p></div>
       </div>
       <div class="grid2">
         <div class="card"><h3>Buyer we sell to</h3><ul>
@@ -418,6 +441,67 @@ body.deck-mode .slide.deck-active .slide-inner{
       </div>
       <p class="quote">Room decision: lock <strong>two or three</strong> focus markets for 12 months. Everything else is exception-only.</p>
       <div class="footer-bar"><span>BRANDASTIC 2027</span><span>05</span></div>
+    </div>
+  </section>
+
+
+  <!-- ICP DIVIDER -->
+  <section class="slide" id="section-icp">
+    <div class="slide-inner section-dark divider-slide">
+      <img class="cad-art" src="../assets/brandastic-growth-art.svg" alt="" />
+      <div class="phase">Who we sell to</div>
+      <div class="h1">Three ICPs</div>
+      <p class="lede">Three markets. Three people. Don’t blend the copy.</p>
+      <div class="footer-bar"><span>BRANDASTIC 2027</span><span>ICP</span></div>
+    </div>
+  </section>
+
+  <!-- ICP PERSONAS -->
+  <section class="slide" id="personas">
+    <div class="slide-inner">
+      <div class="kicker">Who we sell to</div>
+      <h2 class="h2">Three markets. Three people.</h2>
+      <p class="lede" style="margin-bottom:.45rem"><strong>Dental/Med ~primary</strong> · Education ~secondary · Aero/Defense mfg ~tertiary. Never blend primary copy into tertiary lists.</p>
+      <div class="persona-board">
+        <div class="card" style="border-color:rgba(15,143,151,.45)">
+          <img src="../assets/brandastic-personas/icp-dental-owner.jpg" alt="Dana Reyes" width="400" height="500">
+          <div class="pill">Primary · locked</div>
+          <div class="persona-role">The Supplier Owner · Dental / Med B2B</div>
+          <div class="persona-name">Dana Reyes · 44</div>
+          <div class="persona-quote">“We make great product. Dealers still can’t find what we sell without a PDF scavenger hunt.”</div>
+          <div class="persona-meta"><strong>Role:</strong> Owner / GM at a dental or medical supplier (labs, instruments, specialty lines).<br><strong>Day:</strong> Catalog clarity, dealer demand, quotes, trade shows, site leads.<br><strong>Buy path:</strong> Search proof → short plan → monthly SEO + PPC package</div>
+          <div class="mini">
+            <div><h4>Pains</h4><ul><li>Website doesn’t show what they actually make</li><li>Dealers Google competitors first</li><li>Random marketing with no lead path</li></ul></div>
+            <div><h4>Brandastic win</h4><ul><li>Clear offer pages buyers understand</li><li>Search + paid that books dealer/clinic demand</li><li>Proof logos + monthly plan, not vanity posts</li></ul></div>
+          </div>
+        </div>
+        <div class="card" style="border-color:rgba(31,143,201,.4)">
+          <img src="../assets/brandastic-personas/icp-education-leader.jpg" alt="Maya Chen" width="400" height="500">
+          <div class="pill">Secondary · CalOPS peers</div>
+          <div class="persona-role">The Enrollment Leader · Online public schools</div>
+          <div class="persona-name">Maya Chen · 41</div>
+          <div class="persona-quote">“Families have to find us online and inquire. If search fails, enrollment fails.”</div>
+          <div class="persona-meta"><strong>Role:</strong> Marketing / enrollment lead at a full-time or heavy-online public/charter school.<br><strong>Day:</strong> Family inquiries, paid + organic, site trust, compliance-safe messaging.<br><strong>Buy path:</strong> CalOPS-style proof → multi-channel plan → retain + expand</div>
+          <div class="mini">
+            <div><h4>Pains</h4><ul><li>Enrollment depends on being found</li><li>Agencies that don’t get school rules</li><li>Spend without a clear inquiry path</li></ul></div>
+            <div><h4>Brandastic win</h4><ul><li>Live CalOPS-scale proof</li><li>SEO + paid + social aimed at inquiries</li><li>Same motion for peer schools</li></ul></div>
+          </div>
+        </div>
+        <div class="card" style="border-color:rgba(124,58,237,.4)">
+          <img src="../assets/brandastic-personas/icp-mfg-owner.jpg" alt="Sam Ortega" width="400" height="500">
+          <div class="pill">Tertiary · SoCal</div>
+          <div class="persona-role">The Shop Owner · Aero / Defense supplier</div>
+          <div class="persona-name">Sam Ortega · 51</div>
+          <div class="persona-quote">“I’m not a prime. I need buyers to see the real shop and ask for a quote.”</div>
+          <div class="persona-meta"><strong>Role:</strong> Owner-led SoCal manufacturer / specialty supplier (not primes).<br><strong>Day:</strong> Quotes, certifications, capacity, relationship sales, weak web presence.<br><strong>Buy path:</strong> Get-found package $5–8k open · no cold PPC first</div>
+          <div class="mini">
+            <div><h4>Pains</h4><ul><li>Invisible online vs bigger suppliers</li><li>Site looks old; trust is thin</li><li>Doesn’t want a huge ad machine</li></ul></div>
+            <div><h4>Brandastic win</h4><ul><li>Found + quote path without prime chase</li><li>Owners first · SoCal first</li><li>Clear package, not endless RFP theater</li></ul></div>
+          </div>
+        </div>
+      </div>
+      <p class="note">Photos are placeholders (same style as Comply deck). Swap with Imagen portraits when ready — names/copy are Brandastic ICPs.</p>
+      <div class="footer-bar"><span>BRANDASTIC 2027</span><span>ICP</span></div>
     </div>
   </section>
 
