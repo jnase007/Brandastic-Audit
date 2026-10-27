@@ -108,15 +108,37 @@ li{margin:.2rem 0}
 }
 .close-checks li:before{content:"✓";position:absolute;left:0;color:#5CFFB0;font-weight:800}
 
-/* Dark divider */
-.slide-inner.section-dark{
-  background:linear-gradient(145deg,#0d1b2a,#152238);color:#e8eef5;border:0;min-height:420px;
-  justify-content:center
+/* Dark divider / title pages (Comply-style) */
+.slide-inner.section-dark,
+.slide-inner.divider-slide{
+  background:linear-gradient(145deg,#0d1b2a,#152238)!important;color:#e8eef5!important;border:0!important;
+  min-height:560px;justify-content:center;align-items:flex-start;
+  padding:2.2rem 2.4rem;position:relative;overflow:hidden
 }
-.section-dark .phase{font-size:.8rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:#5CFFB0;margin-bottom:.6rem}
-.section-dark .h1{color:#fff;max-width:18ch}
-.section-dark .lede{color:rgba(232,238,245,.8)}
-.section-dark .footer-bar{color:rgba(232,238,245,.45)}
+.section-dark .phase,.divider-slide .phase{
+  position:relative;z-index:2;font-size:.82rem;font-weight:800;letter-spacing:.12em;
+  text-transform:uppercase;color:#5CFFB0;margin-bottom:.55rem
+}
+.section-dark .h1,.divider-slide .h1{
+  position:relative;z-index:2;color:#fff!important;max-width:14ch;
+  font-size:clamp(2.2rem,4.2vw,3rem);line-height:1.05;margin:0
+}
+.section-dark .lede,.divider-slide .lede{
+  position:relative;z-index:2;color:rgba(232,238,245,.82);max-width:28rem;margin-top:.7rem
+}
+.section-dark .footer-bar,.divider-slide .footer-bar{
+  position:relative;z-index:2;color:rgba(232,238,245,.45);margin-top:auto;padding-top:2rem;width:100%
+}
+.cad-art{
+  position:absolute;right:-2%;top:50%;transform:translateY(-50%);
+  width:min(52%,480px);height:auto;max-height:88%;opacity:1;
+  pointer-events:none;z-index:0;
+  filter:drop-shadow(0 0 18px rgba(0,230,160,.25)) drop-shadow(0 0 40px rgba(92,255,176,.12))
+}
+@media (max-width:900px){
+  .cad-art{width:min(70%,340px);opacity:.35;right:-8%}
+  .section-dark .h1,.divider-slide .h1{max-width:16ch}
+}
 
 /* 90-day phase cards */
 .phases{display:grid;grid-template-columns:repeat(3,1fr);gap:.75rem;margin-top:.85rem}
@@ -231,10 +253,27 @@ body.deck-mode .slide.deck-active .slide-inner{
 }
 
 @media print{
-  .toolbar,.deck-present-btn,.deck-exit-btn,.deck-exit-hint,.deck-nav,.deck-counter{display:none!important}
-  body{background:#fff}
-  section.slide{break-after:page;margin:0}
-  .slide-inner{box-shadow:none;border:1px solid #ddd;min-height:0}
+  .toolbar,.deck-present-btn,.deck-exit-btn,.deck-exit-hint,.deck-nav,.deck-counter,.hint{display:none!important}
+  html,body{background:#fff!important;color:#000!important;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .deck{max-width:none!important;margin:0!important;padding:0!important}
+  section.slide{
+    break-after:page;page-break-after:always;break-inside:avoid;page-break-inside:avoid;
+    margin:0!important;padding:0!important
+  }
+  section.slide:last-child{break-after:auto;page-break-after:auto}
+  .slide-inner{
+    box-shadow:none!important;border:1px solid #d0d7de!important;border-radius:0!important;
+    min-height:0!important;height:auto!important;max-height:none!important;
+    overflow:visible!important;padding:1.1rem 1.2rem!important
+  }
+  .slide-inner.title-slide,.slide-inner.close-slide,.slide-inner.section-dark,.slide-inner.divider-slide{
+    min-height:9.5in!important;height:9.5in!important;padding:1.4rem 1.5rem!important
+  }
+  .cad-art{opacity:.85!important;max-height:70%!important;width:min(48%,420px)!important}
+  .site-hero-stack img{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .phase-card,.rm-bar,.m-tag,.card,.msg{break-inside:avoid}
+  a{color:inherit!important;text-decoration:none!important}
+  @page{size:landscape;margin:.45in}
 }
 </style>
 </head>
@@ -274,6 +313,7 @@ body.deck-mode .slide.deck-active .slide-inner{
   <!-- 02 DIVIDER -->
   <section class="slide" id="section-reality">
     <div class="slide-inner section-dark">
+      <img class="cad-art" src="assets/brandastic-growth-art.svg" alt="" />
       <div class="phase">01 · Reality</div>
       <div class="h1">Where we are — and what must change</div>
       <p class="lede">Real 2026 numbers first. Then the plan.</p>
@@ -314,6 +354,16 @@ body.deck-mode .slide.deck-active .slide-inner{
   </section>
 
   <!-- 04 COMPETITORS -->
+  <section class="slide" id="section-compete">
+    <div class="slide-inner section-dark divider-slide">
+      <img class="cad-art" src="assets/brandastic-growth-art.svg" alt="" />
+      <div class="phase">02 · Field</div>
+      <div class="h1">Competitors</div>
+      <p class="lede">Who we bump into — and how we win.</p>
+      <div class="footer-bar"><span>BRANDASTIC 2027</span><span></span></div>
+    </div>
+  </section>
+
   <section class="slide" id="competitors">
     <div class="slide-inner">
       <div class="kicker">02 · Competitor analysis</div>
@@ -334,6 +384,16 @@ body.deck-mode .slide.deck-active .slide-inner{
   </section>
 
   <!-- 05 TARGET -->
+  <section class="slide" id="section-target">
+    <div class="slide-inner section-dark divider-slide">
+      <img class="cad-art" src="assets/brandastic-growth-art.svg" alt="" />
+      <div class="phase">03 · Who</div>
+      <div class="h1">Ideal target market</div>
+      <p class="lede">Who we want more of — and who we skip.</p>
+      <div class="footer-bar"><span>BRANDASTIC 2027</span><span></span></div>
+    </div>
+  </section>
+
   <section class="slide" id="target">
     <div class="slide-inner">
       <div class="kicker">03 · Ideal target market</div>
@@ -364,6 +424,7 @@ body.deck-mode .slide.deck-active .slide-inner{
   <!-- 06 GTM DIVIDER -->
   <section class="slide" id="section-gtm">
     <div class="slide-inner section-dark">
+      <img class="cad-art" src="assets/brandastic-growth-art.svg" alt="" />
       <div class="phase">02 · Go-to-market</div>
       <div class="h1">How demand becomes booked work</div>
       <p class="lede">Search and referrals first. Ads only after the sales system is tight.</p>
@@ -579,6 +640,16 @@ If your first draft needs a glossary, rewrite it.</div>
   </section>
 
   <!-- 14 MEASURE -->
+  <section class="slide" id="section-measure">
+    <div class="slide-inner section-dark divider-slide">
+      <img class="cad-art" src="assets/brandastic-growth-art.svg" alt="" />
+      <div class="phase">Scoreboard</div>
+      <div class="h1">How we measure</div>
+      <p class="lede">Numbers the room watches every week.</p>
+      <div class="footer-bar"><span>BRANDASTIC 2027</span><span></span></div>
+    </div>
+  </section>
+
   <section class="slide" id="measure">
     <div class="slide-inner">
       <div class="kicker">11 · Measurement</div>
@@ -641,6 +712,7 @@ If your first draft needs a glossary, rewrite it.</div>
   <!-- CALENDAR DIVIDER -->
   <section class="slide" id="calendar">
     <div class="slide-inner section-dark">
+      <img class="cad-art" src="assets/brandastic-growth-art.svg" alt="" />
       <div class="phase">90 days · weekly machine</div>
       <div class="h1">Calendar</div>
       <p class="lede">What the team runs each week — then the 90-day build week by week.</p>
