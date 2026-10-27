@@ -22,6 +22,22 @@
 .rec{border-left:5px solid;border-radius:0 14px 14px 0;padding:1rem;margin-top:1rem;background:var(--card)}
 @media(max-width:860px){.icp-grid{grid-template-columns:1fr}}
 </style>
+
+<style>
+/* Layout fix - proper margins */
+.deck { max-width: 1100px; margin: 0 auto; padding: 1.5rem 2rem 3rem; }
+.slide { margin: 0 0 1.2rem; }
+.slide-inner { padding: 1.6rem 1.8rem 1.3rem; }
+.tb2 { table-layout: fixed; }
+.tb2 td, .tb2 th { word-wrap: break-word; overflow-wrap: anywhere; }
+.icp-grid { margin-top: 1rem; }
+.icp-card { padding: 1.4rem; }
+.rec { margin: 1rem 0; }
+@media (max-width: 860px) {
+  .deck { padding: 1rem; }
+  .slide-inner { padding: 1.2rem; }
+}
+</style>
 </head>
 <body>
 <div class="deck">
