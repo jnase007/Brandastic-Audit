@@ -208,6 +208,83 @@ ul{margin:.15rem 0 0 1.05rem}
   .gantt-row{grid-template-columns:1fr}
 }
 
+
+/* Awareness → conversion funnel */
+.funnel-wrap{display:flex;flex-direction:column;align-items:center;gap:10px;margin:.5rem auto 0;max-width:920px;width:100%}
+.funnel-stage{
+  position:relative;color:#fff;border-radius:14px;padding:.85rem 1.1rem;width:100%;
+  display:grid;grid-template-columns:140px 1fr 160px;gap:.75rem;align-items:center;
+  box-shadow:0 8px 24px rgba(0,0,0,.18);overflow:hidden;
+  animation:funnelIn .7s ease both;
+}
+.funnel-stage:nth-child(1){width:100%;animation-delay:.05s;background:linear-gradient(135deg,#7c3aed,#a78bfa)}
+.funnel-stage:nth-child(2){width:92%;animation-delay:.15s;background:linear-gradient(135deg,#1f8fc9,#38bdf8)}
+.funnel-stage:nth-child(3){width:84%;animation-delay:.25s;background:linear-gradient(135deg,#0f8f97,#2dd4bf)}
+.funnel-stage:nth-child(4){width:76%;animation-delay:.35s;background:linear-gradient(135deg,#4c6ef5,#748ffc)}
+.funnel-stage:nth-child(5){width:68%;animation-delay:.45s;background:linear-gradient(135deg,#059669,#34d399)}
+.funnel-stage:nth-child(6){width:60%;animation-delay:.55s;background:linear-gradient(135deg,#0d1b2a,#1f8fc9)}
+@keyframes funnelIn{from{opacity:0;transform:translateY(14px) scale(.98)}to{opacity:1;transform:none}}
+.funnel-stage .st-name{font-weight:800;font-size:.95rem;letter-spacing:-.01em}
+.funnel-stage .st-job{font-size:.72rem;opacity:.92;line-height:1.35;margin-top:.15rem}
+.funnel-stage .st-channels{display:flex;flex-wrap:wrap;gap:.3rem}
+.funnel-stage .st-channels span{
+  background:rgba(255,255,255,.2);border:1px solid rgba(255,255,255,.28);
+  border-radius:999px;padding:.18rem .45rem;font-size:.6rem;font-weight:800
+}
+.funnel-stage .st-metric{text-align:right;font-size:.7rem;font-weight:800;line-height:1.3;opacity:.95}
+.funnel-stage .st-metric b{display:block;font-size:1.05rem}
+.funnel-stage::after{
+  content:"";position:absolute;inset:0;background:linear-gradient(110deg,transparent 30%,rgba(255,255,255,.14) 50%,transparent 70%);
+  transform:translateX(-120%);animation:shine 4.5s ease-in-out infinite
+}
+.funnel-stage:nth-child(2)::after{animation-delay:.4s}
+.funnel-stage:nth-child(3)::after{animation-delay:.8s}
+.funnel-stage:nth-child(4)::after{animation-delay:1.2s}
+.funnel-stage:nth-child(5)::after{animation-delay:1.6s}
+.funnel-stage:nth-child(6)::after{animation-delay:2s}
+@keyframes shine{0%,70%{transform:translateX(-120%)}100%{transform:translateX(120%)}}
+.funnel-arrow{width:0;height:0;border-left:12px solid transparent;border-right:12px solid transparent;border-top:12px solid rgba(15,143,151,.45);margin:-2px 0;animation:bob 1.6s ease-in-out infinite}
+@keyframes bob{0%,100%{transform:translateY(0);opacity:.7}50%{transform:translateY(4px);opacity:1}}
+
+.funnel-side{display:grid;grid-template-columns:1.15fr .85fr;gap:1rem;align-items:start;margin-top:.3rem}
+.flow-dots{display:flex;flex-direction:column;gap:.55rem}
+.flow-dot{display:grid;grid-template-columns:18px 1fr;gap:.5rem;align-items:start}
+.flow-dot i{width:14px;height:14px;border-radius:50%;margin-top:.2rem;animation:pulseDot 2s ease-in-out infinite}
+@keyframes pulseDot{0%,100%{transform:scale(1);box-shadow:0 0 0 0 rgba(15,143,151,.4)}50%{transform:scale(1.15);box-shadow:0 0 0 8px rgba(15,143,151,0)}}
+.flow-dot b{font-size:.8rem;display:block}
+.flow-dot span{font-size:.72rem;color:var(--muted);line-height:1.35}
+
+.kpi-row{display:grid;grid-template-columns:repeat(4,1fr);gap:.55rem;margin-top:.7rem}
+.kpi{border-radius:14px;padding:.75rem;border:1px solid var(--line);background:var(--card);text-align:center;animation:funnelIn .6s ease both}
+.kpi:nth-child(1){animation-delay:.1s}.kpi:nth-child(2){animation-delay:.2s}.kpi:nth-child(3){animation-delay:.3s}.kpi:nth-child(4){animation-delay:.4s}
+.kpi .n{font-size:1.35rem;font-weight:800;color:var(--teal)}
+.kpi .l{font-size:.68rem;color:var(--muted);margin-top:.2rem;line-height:1.3}
+
+/* motion on gantt bars */
+.gantt-bar{animation:barGrow .9s ease both}
+.gantt-row:nth-child(1) .gantt-bar{animation-delay:.05s}
+.gantt-row:nth-child(2) .gantt-bar{animation-delay:.1s}
+.gantt-row:nth-child(3) .gantt-bar{animation-delay:.15s}
+.gantt-row:nth-child(4) .gantt-bar{animation-delay:.2s}
+.gantt-row:nth-child(5) .gantt-bar{animation-delay:.25s}
+@keyframes barGrow{from{transform:scaleX(.2);transform-origin:left;opacity:.3}to{transform:none;opacity:1}}
+.week-cal .chip{animation:funnelIn .5s ease both}
+.ch-pill{transition:transform .2s ease}
+.ch-pill:hover{transform:translateY(-2px)}
+
+@media (max-width:900px){
+  .funnel-stage{grid-template-columns:1fr;width:100%!important;text-align:left}
+  .funnel-stage .st-metric{text-align:left}
+  .funnel-side,.kpi-row{grid-template-columns:1fr}
+}
+@media (prefers-reduced-motion:reduce){
+  .funnel-stage,.funnel-stage::after,.funnel-arrow,.flow-dot i,.gantt-bar,.kpi,.week-cal .chip{animation:none!important}
+}
+@media print{
+  .funnel-stage,.gantt-bar,.kpi{animation:none!important}
+  .funnel-stage::after{display:none!important}
+}
+
 /* Present */
 .deck-present-btn{position:fixed;right:16px;bottom:16px;z-index:99999;border:0;border-radius:999px;cursor:pointer;
   font:800 .82rem Inter,system-ui,sans-serif;color:#fff;padding:.72rem 1rem;
@@ -288,7 +365,7 @@ body.deck-mode .slide.deck-active .slide-inner{width:min(1280px,96vw)!important;
         <div>02 Competitors <span>· how we win</span></div>
         <div>03 ICPs <span>· three people, don’t blend</span></div>
         <div>04 Sequence <span>· do not shuffle</span></div>
-        <div>05 GTM + CRM channels <span>· all nine sources</span></div>
+        <div>05 GTM + funnel + channels <span>· awareness → expand</span></div>
         <div>06 Content + sales OS <span>· before Brandastic ads</span></div>
         <div>07 Execution pack <span>· all emails, posts, scripts</span></div>
         <div>08 Media calendar <span>· color channels · timeline</span></div>
@@ -717,7 +794,131 @@ body.deck-mode .slide.deck-active .slide-inner{width:min(1280px,96vw)!important;
     </div>
   </section>
 
-    <section class="slide" id="section-channels">
+  
+  <section class="slide" id="section-funnel">
+    <div class="slide-inner title-photo">
+      <div class="site-hero-stack" aria-hidden="true"><img src="assets/ba-office-2027/office-4.jpg?v=funnel1" alt=""/></div>
+      <div class="site-hero-fade" aria-hidden="true"></div>
+      <div class="title-copy">
+        <div class="phase">Growth system</div>
+        <div class="h1">Awareness → booked work</div>
+        <p class="lede">One funnel. Every channel has a job. Color-matched to the media calendar.</p>
+      </div>
+      <div class="footer-bar"><span>BRANDASTIC 2027</span><span>FUNNEL</span></div>
+    </div>
+  </section>
+
+  <section class="slide" id="funnel-main">
+    <div class="slide-inner">
+      <div class="kicker">Full-funnel map</div>
+      <h2 class="h2">Brandastic demand system</h2>
+      <div class="funnel-wrap">
+        <div class="funnel-stage">
+          <div><div class="st-name">1 · Awareness</div><div class="st-job">Be findable in the markets we lock</div></div>
+          <div class="st-channels"><span>SEO</span><span>LinkedIn</span><span>Events</span><span>AI / ChatGPT</span><span>Meta*</span></div>
+          <div class="st-metric"><b>Seen</b>Impressions · reach · branded search</div>
+        </div>
+        <div class="funnel-arrow"></div>
+        <div class="funnel-stage">
+          <div><div class="st-name">2 · Interest</div><div class="st-job">They understand the offer in 10 seconds</div></div>
+          <div class="st-channels"><span>Site / Direct</span><span>SEO pages</span><span>Case studies</span><span>Guides</span></div>
+          <div class="st-metric"><b>Engaged</b>Page views · time · scroll</div>
+        </div>
+        <div class="funnel-arrow"></div>
+        <div class="funnel-stage">
+          <div><div class="st-name">3 · Consideration</div><div class="st-job">Warm human contact + proof</div></div>
+          <div class="st-channels"><span>Email</span><span>Outbound LI</span><span>Referral</span><span>Existing</span></div>
+          <div class="st-metric"><b>Talking</b>Replies · meetings set</div>
+        </div>
+        <div class="funnel-arrow"></div>
+        <div class="funnel-stage">
+          <div><div class="st-name">4 · Intent</div><div class="st-job">One-pager + clear next step</div></div>
+          <div class="st-channels"><span>Sales OS</span><span>One-pager</span><span>Call script</span><div></div></div>
+          <div class="st-metric"><b>Qualified</b>Meetings held · fit yes</div>
+        </div>
+        <div class="funnel-arrow"></div>
+        <div class="funnel-stage">
+          <div><div class="st-name">5 · Conversion</div><div class="st-job">Proposal → win · reason on losses</div></div>
+          <div class="st-channels"><span>Proposal</span><span>Sales OS</span><span>Google Ads inbound*</span></div>
+          <div class="st-metric"><b>Won</b>Contracts · $ package</div>
+        </div>
+        <div class="funnel-arrow"></div>
+        <div class="funnel-stage">
+          <div><div class="st-name">6 · Expand + refer</div><div class="st-job">Whitespace + referral asks</div></div>
+          <div class="st-channels"><span>Existing client</span><span>Referral</span><span>QBR</span></div>
+          <div class="st-metric"><b>Net growth</b>Bookings − churn</div>
+        </div>
+      </div>
+      <p class="note">* Meta / Brandastic Google Ads only after stages 3–5 are tight. Client delivery ads sit inside delivery — this funnel is how Brandastic wins clients.</p>
+      <div class="footer-bar"><span>BRANDASTIC 2027</span><span>F1</span></div>
+    </div>
+  </section>
+
+  <section class="slide" id="funnel-channels">
+    <div class="slide-inner">
+      <div class="kicker">Funnel × channel jobs</div>
+      <h2 class="h2">Nothing orphaned</h2>
+      <div class="funnel-side">
+        <div>
+          <table class="table">
+            <tr><th>Stage</th><th>Primary channels</th><th>Team job this week</th></tr>
+            <tr><td><strong style="color:#7c3aed">Awareness</strong></td><td>SEO · LinkedIn · Events · AEO</td><td>Ship 1 findable asset · 2 posts</td></tr>
+            <tr><td><strong style="color:#1f8fc9">Interest</strong></td><td>Site · proof pages · guides</td><td>Offer clear in 10 seconds</td></tr>
+            <tr><td><strong style="color:#0f8f97">Consideration</strong></td><td>Email · Outbound · Referral</td><td>10–20 human touches</td></tr>
+            <tr><td><strong style="color:#4c6ef5">Intent</strong></td><td>Calls · one-pager · board</td><td>Every meeting → next step + date</td></tr>
+            <tr><td><strong style="color:#059669">Conversion</strong></td><td>Proposal · win/loss</td><td>Proposal out · reason if lost</td></tr>
+            <tr><td><strong style="color:#0d1b2a">Expand</strong></td><td>Existing · Referral</td><td>Whitespace + ask after wins</td></tr>
+          </table>
+        </div>
+        <div class="flow-dots">
+          <div class="flow-dot"><i style="background:#7c3aed"></i><div><b>Awareness health</b><span>Are locked-market pages live and posting steady?</span></div></div>
+          <div class="flow-dot"><i style="background:#1f8fc9"></i><div><b>Interest health</b><span>Can a stranger get the offer without a PDF hunt?</span></div></div>
+          <div class="flow-dot"><i style="background:#0f8f97"></i><div><b>Consideration health</b><span>Is the warm list moving every Tue?</span></div></div>
+          <div class="flow-dot"><i style="background:#4c6ef5"></i><div><b>Intent health</b><span>One-pagers out same day as good calls?</span></div></div>
+          <div class="flow-dot"><i style="background:#059669"></i><div><b>Conversion health</b><span>Win rate + package size on the board?</span></div></div>
+          <div class="flow-dot"><i style="background:#0d1b2a"></i><div><b>Expand health</b><span>Bookings − churn positive this quarter?</span></div></div>
+        </div>
+      </div>
+      <div class="footer-bar"><span>BRANDASTIC 2027</span><span>F2</span></div>
+    </div>
+  </section>
+
+  <section class="slide" id="funnel-kpis">
+    <div class="slide-inner">
+      <div class="kicker">Funnel scoreboard</div>
+      <h2 class="h2">Numbers that prove the system works</h2>
+      <div class="kpi-row">
+        <div class="kpi"><div class="n">SEO + LI</div><div class="l">Awareness · pages shipped · posts/week</div></div>
+        <div class="kpi"><div class="n">10–20</div><div class="l">Consideration · warm touches / week</div></div>
+        <div class="kpi"><div class="n">Same day</div><div class="l">Intent · one-pager after fit call</div></div>
+        <div class="kpi"><div class="n">$160K</div><div class="l">Expand · recurring monthly goal</div></div>
+      </div>
+      <div class="grid2" style="margin-top:.85rem">
+        <div class="card">
+          <h3>Stage conversion questions (weekly)</h3>
+          <ul>
+            <li>Awareness → Interest: are people landing on clear offer pages?</li>
+            <li>Interest → Consideration: are they replying / booking?</li>
+            <li>Consideration → Intent: meetings held rate?</li>
+            <li>Intent → Conversion: proposal close rate + reasons?</li>
+            <li>Conversion → Expand: whitespace + referrals fired?</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Where money goes in the funnel</h3>
+          <ul>
+            <li><strong>70%</strong> Awareness spine + Consideration machine (SEO, outbound, referral, existing, site)</li>
+            <li><strong>20%</strong> Optional paid at Intent/Awareness only when OS is tight</li>
+            <li><strong>10%</strong> Events + AI readiness</li>
+          </ul>
+          <p class="note" style="margin-top:.5rem">If Conversion is weak, do not buy more Awareness. Fix the middle.</p>
+        </div>
+      </div>
+      <div class="footer-bar"><span>BRANDASTIC 2027</span><span>F3</span></div>
+    </div>
+  </section>
+
+  <section class="slide" id="section-channels">
     <div class="slide-inner title-photo">
       <div class="site-hero-stack" aria-hidden="true"><img src="assets/ba-office-2027/DSC02965.jpg?v=fix1" alt=""/></div>
       <div class="site-hero-fade" aria-hidden="true"></div>
