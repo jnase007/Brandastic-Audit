@@ -2032,6 +2032,18 @@ body.deck-mode .slide.deck-active .slide-inner{width:min(1320px,96vw)!important;
 /* divider-z-fix */
 .slide-inner.divider-slide > * { position:relative; z-index:2; }
 .slide-inner.divider-slide > [style*="position:absolute"] { z-index:0 !important; }
+
+/* Comply-style Gantt roadmap */
+.rm-wrap{margin-top:.6rem}
+.rm-months{display:grid;grid-template-columns:160px repeat(12,1fr);gap:0;margin-bottom:.3rem}
+.rm-months span{text-align:center;font-size:.72rem;font-weight:800;color:var(--muted)}
+.rm-row{display:grid;grid-template-columns:160px 1fr;gap:0;align-items:center;margin:.35rem 0}
+.rm-label{font-size:.84rem;font-weight:700;color:var(--ink);padding-right:.5rem}
+.rm-track{position:relative;height:30px;border-radius:0}
+.rm-bar{position:absolute;top:2px;bottom:2px;border-radius:8px;display:flex;align-items:center;padding:0 .6rem;
+  font-size:.72rem;font-weight:700;color:#fff;white-space:nowrap;overflow:hidden}
+.rm-legend{display:flex;flex-wrap:wrap;gap:.7rem;margin-top:.8rem;font-size:.78rem;font-weight:700;color:var(--muted)}
+.rm-legend i{display:inline-block;width:.65rem;height:.65rem;border-radius:4px;margin-right:.25rem;vertical-align:middle}
 </style>
 </head>
 <body>
@@ -2948,23 +2960,64 @@ Order matters more than clever campaigns.</div>
   </section>
 
   <!-- 28 ROADMAP 12 -->
-  <section class="slide" id="roadmap-12">
+  
+  <section class="slide" id="roadmap-gantt">
     <div class="slide-inner">
-      <div class="kicker">12-month channel roadmap</div>
-      <div class="h2">Same channels &middot; full year</div>
-      <table class="table" style="margin-top:1rem">
-        <tr><th>Channel</th><th>Nov&ndash;Jan (build)</th><th>Feb&ndash;Apr (run)</th><th>May&ndash;Jul (compound)</th><th>Aug&ndash;Oct (scale/decide)</th></tr>
-        <tr><td><strong>SEO</strong></td><td>Lock markets &middot; outline 8-pack</td><td>Ship weekly &middot; node #1 complete</td><td>Node #2 &middot; ranking for terms</td><td>Inbound growing &middot; node #3</td></tr>
-        <tr><td><strong>Outbound</strong></td><td>50-name list &middot; templates</td><td>Full sends &middot; 80&ndash;100/mo</td><td>Refresh list &middot; iterate copy</td><td>Scale what converts</td></tr>
-        <tr><td><strong>Referral</strong></td><td>Build ask script &middot; test</td><td>After every win &middot; quarterly asks</td><td>Partner referrals added</td><td>System producing 4&ndash;6 leads/yr</td></tr>
-        <tr><td><strong>Existing</strong></td><td>Whitespace top 15</td><td>QBRs &middot; first expands</td><td>Upsell paths defined</td><td>Package growth visible</td></tr>
-        <tr><td><strong>Sales board</strong></td><td>Stand up &middot; stages</td><td>Thu 20 min forever</td><td>Win/loss discipline solid</td><td>Close rate tracked &gt;20%</td></tr>
-        <tr><td><strong>Paid (us)</strong></td><td>Off</td><td>Still off</td><td>Decision gate</td><td>One offer test if ready</td></tr>
-        <tr><td><strong>Events</strong></td><td>Pick 1 room</td><td>1/quarter &middot; 48h follow-up</td><td>Repeat what books</td><td>Cut what doesn&rsquo;t</td></tr>
-      </table>
-      <div class="footer-bar"><span>BRANDASTIC 2027</span><span class="num">28</span></div>
+      <div class="kicker">07 &middot; Long-term roadmap</div>
+      <div class="h2">12-month build</div>
+      <p class="lede">Start now. Scale what works. Paid only when the system is tight.</p>
+      <div class="rm-wrap">
+        <div class="rm-months">
+          <span></span><span>NOV</span><span>DEC</span><span>JAN</span><span>FEB</span><span>MAR</span><span>APR</span><span>MAY</span><span>JUN</span><span>JUL</span><span>AUG</span><span>SEP</span><span>OCT</span>
+        </div>
+        <div class="rm-row"><div class="rm-label">SEO content</div><div class="rm-track">
+          <div class="rm-bar" style="left:0%;width:16%;background:#94a3b8">Set-up</div>
+          <div class="rm-bar" style="left:16%;width:30%;background:#6366f1">8-pack nodes &middot; publish</div>
+          <div class="rm-bar" style="left:46%;width:54%;background:#818cf8;opacity:.85">Compound &middot; refresh &middot; scale</div>
+        </div></div>
+        <div class="rm-row"><div class="rm-label">Outbound (LI + email)</div><div class="rm-track">
+          <div class="rm-bar" style="left:0%;width:14%;background:#94a3b8">Set-up</div>
+          <div class="rm-bar" style="left:14%;width:86%;background:#0644ed">Warm list &middot; sequences &middot; same-day follow-up</div>
+        </div></div>
+        <div class="rm-row"><div class="rm-label">Social / LinkedIn posts</div><div class="rm-track">
+          <div class="rm-bar" style="left:0%;width:14%;background:#94a3b8">Set-up</div>
+          <div class="rm-bar" style="left:14%;width:86%;background:#22c55e">3&ndash;5 posts/week &middot; pain &middot; proof &middot; offer</div>
+        </div></div>
+        <div class="rm-row"><div class="rm-label">Referral system</div><div class="rm-track">
+          <div class="rm-bar" style="left:8%;width:10%;background:#94a3b8">Build script</div>
+          <div class="rm-bar" style="left:18%;width:82%;background:#0ea5e9">Ask after every win &middot; quarterly asks</div>
+        </div></div>
+        <div class="rm-row"><div class="rm-label">Existing clients</div><div class="rm-track">
+          <div class="rm-bar" style="left:0%;width:18%;background:#0ea5e9">Whitespace top 15</div>
+          <div class="rm-bar" style="left:18%;width:82%;background:#38bdf8;opacity:.85">QBRs &middot; expand packages &middot; retain</div>
+        </div></div>
+        <div class="rm-row"><div class="rm-label">Events / chambers</div><div class="rm-track">
+          <div class="rm-bar" style="left:8%;width:12%;background:#f59e0b">Q1</div>
+          <div class="rm-bar" style="left:33%;width:12%;background:#f59e0b">Q2</div>
+          <div class="rm-bar" style="left:58%;width:12%;background:#f59e0b">Q3</div>
+          <div class="rm-bar" style="left:83%;width:12%;background:#f59e0b">Q4</div>
+        </div></div>
+        <div class="rm-row"><div class="rm-label">Sales board</div><div class="rm-track">
+          <div class="rm-bar" style="left:0%;width:100%;background:#3b6cf5">Thursday 20 minutes &middot; every week &middot; non-negotiable</div>
+        </div></div>
+        <div class="rm-row"><div class="rm-label">Google / Meta (us)</div><div class="rm-track">
+          <div class="rm-bar" style="left:0%;width:50%;background:#e5e7eb;color:#64748b">Not yet &middot; system first</div>
+          <div class="rm-bar" style="left:50%;width:50%;background:#ef4444;opacity:.8">One offer test &middot; only if ready</div>
+        </div></div>
+      </div>
+      <div class="rm-legend">
+        <span><i style="background:#0644ed"></i>LinkedIn / outbound</span>
+        <span><i style="background:#22c55e"></i>Social / creative</span>
+        <span><i style="background:#0ea5e9"></i>Referral / existing</span>
+        <span><i style="background:#6366f1"></i>SEO</span>
+        <span><i style="background:#f59e0b"></i>Events</span>
+        <span><i style="background:#3b6cf5"></i>Sales</span>
+        <span><i style="background:#ef4444"></i>Paid (later)</span>
+      </div>
+      <div class="footer-bar"><span>BRANDASTIC 2027</span><span class="num">ROADMAP</span></div>
     </div>
   </section>
+
 
   <!-- 29 WEEKLY RHYTHM -->
   <section class="slide" id="rhythm">
