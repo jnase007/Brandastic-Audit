@@ -48,7 +48,71 @@
   </section>
 
   <!-- BUDGET -->
-  <section class="slide" id="budget">
+  
+  <!-- OUTREACH SEQUENCE -->
+  <section class="slide" id="sequence">
+    <div class="slide-inner">
+      <div class="kicker" style="color:var(--teal)">Cold / network / Apollo path &mdash; use this sequence for enrollment leaders</div>
+      <div class="h2">LinkedIn + email sequence</div>
+      <p class="lede">Set this up in Reply.io or Apollo. Same sequence for every enrollment director on the target list.</p>
+
+      <div style="display:flex;flex-direction:column;gap:.7rem;margin-top:.8rem">
+
+        <div class="card" style="border-left:4px solid #0644ed;padding:1.1rem 1.2rem">
+          <div style="font-size:.7rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:#0644ed;margin-bottom:.4rem">LinkedIn connect</div>
+          <p style="font-size:.92rem;line-height:1.5">Hey {{FirstName}} &mdash; I work with online and charter schools that need families to find them and enroll. Would be good to connect.</p>
+        </div>
+
+        <div class="card" style="border-left:4px solid #0644ed;padding:1.1rem 1.2rem">
+          <div style="font-size:.7rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:#0644ed;margin-bottom:.4rem">LinkedIn after accept</div>
+          <p style="font-size:.92rem;line-height:1.5">Thanks for connecting, {{FirstName}}!</p>
+          <p style="font-size:.92rem;line-height:1.5;margin-top:.5rem">We built the enrollment marketing for CalOPS &mdash; search, paid, and site trust aimed at getting families to find the school and inquire.</p>
+          <p style="font-size:.92rem;line-height:1.5;margin-top:.5rem">If useful: 15-minute walkthrough on how we do it, then you decide if it fits {{Company}}.</p>
+          <p style="font-size:.88rem;margin-top:.4rem;color:var(--muted)">brandastic.com</p>
+        </div>
+
+        <div class="card" style="border-left:4px solid #0644ed;padding:1.1rem 1.2rem">
+          <div style="font-size:.7rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:#0644ed;margin-bottom:.4rem">LinkedIn bump (day 4&ndash;7)</div>
+          <p style="font-size:.92rem;line-height:1.5">{{FirstName}} &mdash; quick bump. If enrollment inquiries are still coming from ads that don&rsquo;t convert, happy to walk through what CalOPS does differently. 15 minutes. No deck.</p>
+          <p style="font-size:.88rem;margin-top:.4rem;color:var(--muted)">brandastic.com</p>
+        </div>
+
+        <div class="card" style="border-left:4px solid #6366f1;padding:1.1rem 1.2rem">
+          <div style="font-size:.7rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:#6366f1;margin-bottom:.4rem">Email 1</div>
+          <p style="font-size:.92rem;font-weight:700;margin-bottom:.5rem">Subject: Enrollment marketing at {{Company}}</p>
+          <p style="font-size:.92rem;line-height:1.5">Hi {{FirstName}},</p>
+          <p style="font-size:.92rem;line-height:1.5;margin-top:.5rem">I work with online and charter schools &mdash; the ones where families have to find the school through search, not word of mouth.</p>
+          <p style="font-size:.92rem;line-height:1.5;margin-top:.5rem">Most schools we talk to spend on ads but lose families at the front door &mdash; the site doesn&rsquo;t make it obvious who the school is for, what happens next, or why trust it.</p>
+          <p style="font-size:.92rem;line-height:1.5;margin-top:.5rem">We run enrollment marketing for CalOPS. Same search + paid + site approach works for peer schools.</p>
+          <p style="font-size:.92rem;line-height:1.5;margin-top:.5rem">If useful: 15-minute walkthrough. No long deck.</p>
+          <p style="font-size:.92rem;line-height:1.5;margin-top:.5rem">{{YourName}}<br>Brandastic &middot; (949) 617-2731<br>brandastic.com</p>
+        </div>
+
+        <div class="card" style="border-left:4px solid #6366f1;padding:1.1rem 1.2rem">
+          <div style="font-size:.7rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:#6366f1;margin-bottom:.4rem">Email 2 &middot; bump (day 5&ndash;7)</div>
+          <p style="font-size:.92rem;font-weight:700;margin-bottom:.5rem">Subject: Re: Enrollment marketing at {{Company}}</p>
+          <p style="font-size:.92rem;line-height:1.5">Hi {{FirstName}},</p>
+          <p style="font-size:.92rem;line-height:1.5;margin-top:.5rem">Floating this once more in case it got buried.</p>
+          <p style="font-size:.92rem;line-height:1.5;margin-top:.5rem">Happy to keep it to 15 minutes &mdash; or if timing is off, tell me a better month and I&rsquo;ll check back.</p>
+          <p style="font-size:.92rem;line-height:1.5;margin-top:.5rem">{{YourName}}</p>
+        </div>
+
+        <div class="card" style="border-left:4px solid #22c55e;padding:1.1rem 1.2rem">
+          <div style="font-size:.7rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:#22c55e;margin-bottom:.4rem">Email 3 &middot; value add (day 12&ndash;14)</div>
+          <p style="font-size:.92rem;font-weight:700;margin-bottom:.5rem">Subject: One thing we see on {{Company}}&rsquo;s site</p>
+          <p style="font-size:.92rem;line-height:1.5">Hi {{FirstName}},</p>
+          <p style="font-size:.92rem;line-height:1.5;margin-top:.5rem">Not a pitch &mdash; quick note.</p>
+          <p style="font-size:.92rem;line-height:1.5;margin-top:.5rem">I looked at {{Company}}&rsquo;s site as a parent would. Most schools lose families because [the offer isn&rsquo;t clear in 10 seconds / there&rsquo;s no obvious next step / proof is buried].</p>
+          <p style="font-size:.92rem;line-height:1.5;margin-top:.5rem">Happy to mark up one page in 15 minutes if useful &mdash; no strings.</p>
+          <p style="font-size:.92rem;line-height:1.5;margin-top:.5rem">{{YourName}}</p>
+        </div>
+
+      </div>
+      <div class="footer-bar"><span>BRANDASTIC 2027</span><span>SEQUENCE</span></div>
+    </div>
+  </section>
+
+<section class="slide" id="budget">
     <div class="slide-inner">
       <div class="kicker">Where the money goes</div>
       <div class="h2">Working monthly budget</div>
@@ -654,640 +718,3 @@ img.comply-logo,
 .persona-photo img,
 .persona-photo-sm,
 .icp-face img,
-.market-photo img,
-.phone .img img,
-.ad-phone .ph-img img,
-.ad-wrap img{
-  filter: none !important;
-  -webkit-filter: none !important;
-  opacity: 1 !important;
-  object-fit: cover;
-  object-position: center 18%;
-}
-.market-photo img{
-  object-position: center top;
-}
-
-
-/* clean photo sizing */
-.persona-card img,
-.persona-photo img,
-.persona-photo-sm,
-.icp-face img{
-  display:block!important;
-  width:100%!important;
-  height:180px!important;
-  object-fit:cover!important;
-  object-position:center 15%!important;
-  border-radius:12px!important;
-  filter:none!important;
-  opacity:1!important;
-}
-.market-photo img{
-  width:100%!important;
-  height:100%!important;
-  min-height:260px!important;
-  object-fit:cover!important;
-  object-position:center top!important;
-  filter:none!important;
-}
-.phone .img img,
-.ad-phone .ph-img img{
-  width:100%!important;
-  aspect-ratio:1/1!important;
-  object-fit:cover!important;
-  filter:none!important;
-}
-
-
-/* kill earlier forced 180/155 heights on board */
-.persona-board .persona-card img,
-.persona-board img{
-  height:210px!important;
-}
-
-
-/* Dark section openers: CAD art + vertically centered titles */
-.slide.section-dark{
-  position:relative!important;
-  overflow:hidden!important;
-}
-.slide.section-dark .slide-inner,
-.slide-inner.divider-slide{
-  position:relative!important;
-  z-index:1!important;
-  min-height:520px!important;
-  display:flex!important;
-  flex-direction:column!important;
-  justify-content:center!important; /* vertical center */
-  align-items:flex-start!important; /* left text */
-  padding:2.4rem 2.6rem!important;
-  padding-right:42%!important; /* room for CAD */
-  box-sizing:border-box!important;
-}
-.slide.section-dark .cad-art{
-  position:absolute!important;
-  right:-2%!important;
-  top:50%!important;
-  transform:translateY(-50%)!important;
-  width:min(52%, 480px)!important;
-  height:auto!important;
-  max-height:88%!important;
-  opacity:1!important;
-  pointer-events:none!important;
-  z-index:0!important;
-  filter:drop-shadow(0 0 28px rgba(43,196,224,.12));
-}
-.slide.section-dark .h1{
-  position:relative;z-index:2;
-  margin:0!important;
-  max-width:14ch;
-}
-.slide.section-dark .phase,
-.slide.section-dark .lede,
-.slide.section-dark .sec-sub,
-.slide.section-dark p{
-  position:relative;z-index:2;
-  max-width:34rem;
-}
-.slide.section-dark .brand-top,
-.slide.section-dark .footer-bar{
-  position:relative;z-index:2;
-  width:100%;
-}
-.slide.section-dark .footer-bar{
-  margin-top:auto!important;
-  padding-top:2rem!important;
-}
-.slide.section-dark .brand-top{
-  position:absolute!important;
-  top:1.4rem!important;
-  left:2.6rem!important;
-  right:2.6rem!important;
-  display:flex!important;
-  justify-content:space-between!important;
-  width:auto!important;
-  margin:0!important;
-  opacity:.55;
-  font-size:.7rem;
-  font-weight:700;
-  letter-spacing:.08em;
-  text-transform:uppercase;
-}
-@media print{
-  .slide.section-dark .slide-inner{min-height:0!important;padding-right:38%!important}
-  .slide.section-dark .cad-art{opacity:.75!important}
-}
-
-
-#personas .persona-board{display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:.6rem!important;width:100%!important}
-#personas .persona-board .card{min-width:0!important;overflow:hidden!important}
-#personas .persona-board .card > img{width:100%!important;height:220px!important;object-fit:cover!important;object-position:center 8%!important;border-radius:12px!important}
-#personas .persona-board .card > img[alt="Jordan Park"]{object-position:42% 5%!important}
-
-
-/* Dark openers polish */
-.slide.section-dark .slide-inner{
-  justify-content:center!important;
-  align-items:flex-start!important;
-  min-height:520px!important;
-  padding-right:min(46%, 28rem)!important;
-}
-.slide.section-dark .cad-art{
-  right:-1%!important;
-  width:min(52%, 480px)!important;
-  opacity:1!important;
-  filter:drop-shadow(0 0 18px rgba(0,230,160,.25)) drop-shadow(0 0 40px rgba(92,255,176,.12))!important;
-}
-.slide.section-dark .h1{
-  font-size:clamp(2.4rem, 4.5vw, 3.2rem)!important;
-  line-height:1.05!important;
-  border:0!important;
-  max-width:12ch!important;
-}
-
-
-
-
-/* Dark cards: never black-on-black body copy */
-.card.dark-callout,
-.card.dark-callout p,
-.slide .card[style*="background:#0f1419"] p,
-.slide .card[style*="background:#0f1419"] li{
-  color:#e8eef5 !important;
-  opacity:1 !important;
-}
-.slide .card[style*="background:#0f1419"] h3{ color:#fff !important; }
-
-/* CAD right + fewer-line art */
-.slide.section-dark .slide-inner,
-.slide-inner.divider-slide{ padding-right: min(56%, 32rem) !important; }
-.slide.section-dark .cad-art{
-  right: -4% !important;
-  left: auto !important;
-  top: 50% !important;
-  transform: translateY(-50%) !important;
-  width: min(56%, 540px) !important;
-  max-width: 56% !important;
-  max-height: 90% !important;
-  opacity: 1 !important;
-  object-fit: contain !important;
-  object-position: right center !important;
-  filter: drop-shadow(0 0 22px rgba(0,230,160,.3)) drop-shadow(0 0 48px rgba(92,255,176,.14)) !important;
-}
-
-
-/* TAM math card — clean hierarchy */
-.tam-math{padding:1rem 1.05rem!important}
-.tam-math h3{margin:0 0 .75rem!important;font-size:.95rem!important}
-.tam-row{
-  display:grid;
-  grid-template-columns:1fr;
-  gap:.15rem;
-  padding:.7rem 0;
-  border-top:1px solid var(--line);
-}
-.tam-row:first-of-type{border-top:0;padding-top:.15rem}
-.tam-label{
-  font-size:.68rem!important;
-  font-weight:800!important;
-  letter-spacing:.06em!important;
-  text-transform:uppercase!important;
-  color:var(--muted)!important;
-  line-height:1.2!important;
-}
-.tam-value{
-  font-size:1.55rem!important;
-  font-weight:800!important;
-  letter-spacing:-.03em!important;
-  color:var(--ink)!important;
-  line-height:1.1!important;
-  margin:.1rem 0!important;
-}
-.tam-how{
-  font-size:.8rem!important;
-  color:var(--muted)!important;
-  line-height:1.35!important;
-  font-weight:600!important;
-}
-.tam-note{
-  margin-top:.55rem!important;
-  padding-top:.65rem!important;
-  border-top:1px solid var(--line)!important;
-  font-size:.78rem!important;
-  color:var(--muted)!important;
-  line-height:1.4!important;
-}
-.tam-goal{
-  margin-top:.55rem!important;
-  padding:.65rem .75rem!important;
-  border-radius:12px!important;
-  background:#0f1419!important;
-  color:#e8eef5!important;
-  font-size:.82rem!important;
-  line-height:1.4!important;
-}
-.tam-goal strong{color:#fff!important}
-
-
-/* Close slide — platform hero right, clean copy left */
-.slide#close .slide-inner{
-  position:relative!important;
-  overflow:hidden!important;
-  min-height:560px!important;
-  display:flex!important;
-  flex-direction:column!important;
-  justify-content:center!important;
-  align-items:flex-start!important;
-  padding:2.4rem 2.4rem!important;
-  padding-right:min(52%, 32rem)!important;
-  background:#0d1b2a!important;
-  color:#e8eef5!important;
-  border:0!important;
-  box-shadow:none!important;
-}
-.slide#close .site-hero-stack{
-  position:absolute!important;
-  top:0!important; right:0!important; bottom:0!important;
-  width:min(50%, 34rem)!important;
-  z-index:0!important;
-  overflow:hidden!important;
-  margin:0!important;
-  background:#0d1b2a!important;
-}
-.slide#close .site-hero-stack img,
-.slide#close .site-hero-stack img.site-hero-main{
-  position:absolute!important;
-  inset:0!important;
-  width:100%!important;
-  height:100%!important;
-  object-fit:cover!important;
-  object-position:left center!important;
-  opacity:1!important;
-  animation:none!important;
-  transform:none!important;
-  margin:0!important;
-  border:0!important;
-  border-radius:0!important;
-  filter:none!important;
-  min-height:0!important;
-  max-height:none!important;
-  aspect-ratio:auto!important;
-}
-.slide#close .site-hero-fade{
-  position:absolute!important;
-  top:0; bottom:0;
-  right:min(44%, 28rem);
-  width:6.5rem!important;
-  background:linear-gradient(90deg, #0d1b2a 0%, rgba(13,27,42,0) 100%)!important;
-  z-index:1!important;
-  pointer-events:none!important;
-}
-.slide#close .h1,
-.slide#close .lede,
-.slide#close .phase,
-.slide#close .footer-bar,
-.slide#close .title-brand,
-.slide#close .title-tagline,
-.slide#close .kicker{
-  position:relative!important;
-  z-index:2!important;
-}
-.slide#close .h1{
-  color:#fff!important;
-  max-width:14ch!important;
-  margin:0 0 .6rem!important;
-  border:0!important;
-}
-.slide#close .lede{
-  color:rgba(232,238,245,.88)!important;
-  max-width:28rem!important;
-  margin:0!important;
-}
-.slide#close .title-brand{ margin-top:1.4rem!important; }
-.slide#close .title-brand img.comply-logo{
-  filter:brightness(0) invert(1)!important;
-  opacity:.95!important;
-}
-.slide#close .title-tagline{ color:rgba(232,238,245,.78)!important; }
-.slide#close .title-tagline span{ color:#5CFFB0!important; }
-.slide#close .footer-bar{
-  margin-top:auto!important;
-  width:100%!important;
-  color:rgba(232,238,245,.45)!important;
-  border-top:1px solid rgba(255,255,255,.12)!important;
-}
-.slide#close .cad-art{ display:none!important; }
-@media print{
-  .slide#close .slide-inner{ min-height:0!important; -webkit-print-color-adjust:exact; print-color-adjust:exact; }
-}
-
-
-/* Personas: full faces — no mouth crop */
-#personas .persona-board{
-  display:grid!important;
-  grid-template-columns:repeat(3,minmax(0,1fr))!important;
-  gap:.55rem!important;
-  width:100%!important;
-  align-items:stretch!important;
-}
-#personas .persona-board .card{
-  min-width:0!important;
-  overflow:hidden!important;
-  display:flex!important;
-  flex-direction:column!important;
-  padding:.55rem .55rem .65rem!important;
-}
-#personas .persona-board .card > img,
-#personas .persona-board img{
-  display:block!important;
-  width:100%!important;
-  height:240px!important;
-  max-height:240px!important;
-  object-fit:cover!important;
-  /* bias upward so chin/mouth stay in frame */
-  object-position:center 12%!important;
-  border-radius:12px!important;
-  margin:0 0 .45rem!important;
-  background:#1a1f26!important;
-  flex:0 0 auto!important;
-}
-#personas .persona-board img[alt="Marcus Hale"],
-#personas .persona-board img[src*="marcus"]{ object-position:center 8%!important; }
-#personas .persona-board img[alt="Jordan Park"],
-#personas .persona-board img[src*="jordan"]{ object-position:center 10%!important; }
-#personas .persona-board img[alt="Elena Vargas"],
-#personas .persona-board img[src*="elena"]{ object-position:center 14%!important; }
-#personas .persona-board .persona-quote{ font-size:.7rem!important; line-height:1.25!important; }
-#personas .persona-board .persona-meta{ font-size:.66rem!important; line-height:1.3!important; }
-#personas .persona-board .mini li{ font-size:.62rem!important; }
-@media print{
-  #personas .persona-board .card > img,
-  #personas .persona-board img{ height:200px!important; max-height:200px!important; }
-}
-
-
-/* Title slide hero — always visible custom photo */
-.slide#title .slide-inner.title-slide,
-.slide#title .slide-inner{
-  position:relative!important;
-  overflow:hidden!important;
-  min-height:560px!important;
-  display:flex!important;
-  flex-direction:column!important;
-  justify-content:center!important;
-  align-items:flex-start!important;
-  padding:2.4rem 2.4rem!important;
-  padding-right:min(52%, 32rem)!important;
-  background:#0d1b2a!important;
-  color:#e8eef5!important;
-  border:0!important;
-  box-shadow:none!important;
-}
-.slide#title .site-hero-stack{
-  position:absolute!important;
-  top:0!important; right:0!important; bottom:0!important;
-  width:min(50%, 34rem)!important;
-  z-index:0!important;
-  overflow:hidden!important;
-  margin:0!important;
-  background:#0d1b2a!important;
-}
-.slide#title .site-hero-stack img,
-.slide#title .site-hero-stack img.site-hero-main,
-.slide#title .site-hero-stack.site-hero-static img{
-  position:absolute!important;
-  inset:0!important;
-  width:100%!important;
-  height:100%!important;
-  object-fit:cover!important;
-  object-position:center 28%!important;
-  opacity:1!important;
-  animation:none!important;
-  transform:none!important;
-  display:block!important;
-  margin:0!important;
-  border:0!important;
-  border-radius:0!important;
-  filter:none!important;
-  min-height:0!important;
-  max-height:none!important;
-  aspect-ratio:auto!important;
-  visibility:visible!important;
-}
-.slide#title .site-hero-fade{
-  position:absolute!important;
-  top:0; bottom:0;
-  right:min(44%, 28rem);
-  width:6.5rem!important;
-  background:linear-gradient(90deg,#0d1b2a 0%, rgba(13,27,42,0) 100%)!important;
-  z-index:1!important;
-  pointer-events:none!important;
-}
-.slide#title .title-main,
-.slide#title .title-brand,
-.slide#title .footer-bar,
-.slide#title .kicker,
-.slide#title .h1,
-.slide#title .lede{
-  position:relative!important;
-  z-index:2!important;
-}
-.slide#title .h1{ color:#fff!important; max-width:14ch!important; margin:0!important; border:0!important; }
-.slide#title .lede{ color:rgba(232,238,245,.88)!important; max-width:28rem!important; }
-.slide#title .kicker{ color:#00D4AA!important; }
-.slide#title .title-tagline{ color:rgba(232,238,245,.78)!important; }
-.slide#title .title-tagline span{ color:#5CFFB0!important; }
-.slide#title .title-brand{ margin-top:1.4rem!important; }
-.slide#title .title-brand img.comply-logo{
-  filter:brightness(0) invert(1)!important;
-  opacity:.95!important;
-}
-.slide#title .footer-bar{
-  margin-top:auto!important;
-  width:100%!important;
-  color:rgba(232,238,245,.45)!important;
-  border-top:1px solid rgba(255,255,255,.12)!important;
-}
-@media print{
-  .slide#title .slide-inner{ min-height:0!important; -webkit-print-color-adjust:exact; print-color-adjust:exact; }
-  .slide#title .site-hero-stack img{ opacity:1!important; animation:none!important; }
-}
-
-
-/* Close developers hero crop */
-.slide#close .site-hero-stack img,
-.slide#close .site-hero-stack img.site-hero-main{
-  object-position:center 22%!important;
-  opacity:1!important;
-  animation:none!important;
-}
-
-
-/* Hide ALL page chrome while presenting */
-body.deck-mode .toolbar,
-body.deck-mode .camp-nav,
-body.deck-mode #camp-nav,
-body.deck-mode .toc,
-body.deck-mode .deck-present-btn,
-body.deck-mode .page-nav,
-body.deck-mode .sticky-nav{
-  display:none!important;
-  visibility:hidden!important;
-  pointer-events:none!important;
-  height:0!important;
-  max-height:0!important;
-  overflow:hidden!important;
-  margin:0!important;
-  padding:0!important;
-  opacity:0!important;
-}
-body.deck-mode .deck-exit-btn{
-  display:inline-flex!important;
-  align-items:center;
-  gap:.35rem;
-  position:fixed;
-  top:14px;
-  left:14px;
-  z-index:100002;
-  appearance:none;
-  border:0;
-  cursor:pointer;
-  font-family:Inter,system-ui,sans-serif;
-  font-weight:800;
-  font-size:.8rem;
-  color:#fff;
-  background:rgba(220,38,38,.92);
-  padding:.55rem .9rem;
-  border-radius:999px;
-  box-shadow:0 8px 22px rgba(0,0,0,.35);
-}
-body.deck-mode .deck-exit-btn:hover{ filter:brightness(1.08); }
-body.deck-mode .deck-exit-hint{
-  display:block!important;
-  position:fixed; left:50%; bottom:12px; transform:translateX(-50%);
-  z-index:100001; color:rgba(255,255,255,.75); font-size:.7rem; font-weight:600;
-  background:rgba(0,0,0,.5); padding:.35rem .75rem; border-radius:999px; pointer-events:none;
-}
-body.deck-mode .deck-counter{
-  display:block!important;
-  position:fixed; top:16px; right:14px; z-index:100001;
-  color:rgba(255,255,255,.85); font-size:.72rem; font-weight:700;
-  background:rgba(0,0,0,.45); padding:.3rem .55rem; border-radius:8px; pointer-events:none;
-}
-body.deck-mode .deck-nav{
-  display:block!important; position:fixed; inset:0; z-index:100000; pointer-events:none;
-}
-body.deck-mode .deck-nav button{
-  pointer-events:auto; position:absolute; top:50%; transform:translateY(-50%);
-  width:44px; height:64px; border:0; border-radius:12px;
-  background:rgba(255,255,255,.14); color:#fff; font-size:1.5rem; cursor:pointer;
-}
-body.deck-mode .deck-nav button:hover{ background:rgba(255,255,255,.24); }
-body.deck-mode .deck-nav .deck-prev{ left:8px; }
-body.deck-mode .deck-nav .deck-next{ right:8px; }
-body.deck-mode section.slide,
-body.deck-mode .slide{
-  display:none!important; position:fixed!important; inset:0!important;
-  width:100vw!important; height:100vh!important; max-width:none!important;
-  margin:0!important; border:0!important; border-radius:0!important; box-shadow:none!important;
-  overflow:hidden!important; background:transparent!important; z-index:1!important;
-}
-body.deck-mode section.slide.deck-active,
-body.deck-mode .slide.deck-active{
-  display:flex!important; align-items:center!important; justify-content:center!important; z-index:2!important;
-}
-body.deck-mode .slide.deck-active .slide-inner{
-  width:min(1280px, 96vw)!important;
-  height:min(720px, calc(100vh - 40px))!important;
-  max-height:calc(100vh - 40px)!important;
-  min-height:0!important; margin:0 auto!important; border-radius:14px!important;
-  box-shadow:0 18px 50px rgba(0,0,0,.4)!important; overflow:hidden!important;
-}
-@media print{
-  .deck-present-btn,.deck-exit-btn,.deck-exit-hint,.deck-nav,.deck-counter{ display:none!important; }
-  body.deck-mode .slide{ display:block!important; position:relative!important; inset:auto!important; width:auto!important; height:auto!important; }
-  body.deck-mode .toolbar, body.deck-mode .camp-nav{ display:flex!important; visibility:visible!important; height:auto!important; opacity:1!important; }
-}
-
-
-/* LIGHT slides: forced white surface + dark ink */
-body.deck-mode .slide.deck-active .slide-inner{
-  width:min(1280px, 96vw)!important;
-  height:min(720px, calc(100vh - 44px))!important;
-  max-height:calc(100vh - 44px)!important;
-  min-height:0!important;
-  margin:0 auto!important;
-  border-radius:14px!important;
-  box-shadow:0 18px 50px rgba(0,0,0,.45)!important;
-  overflow:auto!important;
-  background:#ffffff!important;
-  color:#15202b!important;
-}
-body.deck-mode .slide:not(.section-dark).deck-active .slide-inner{
-  background:#ffffff!important;
-  color:#15202b!important;
-}
-body.deck-mode .slide:not(.section-dark).deck-active .h1,
-body.deck-mode .slide:not(.section-dark).deck-active .h2,
-body.deck-mode .slide:not(.section-dark).deck-active h1,
-body.deck-mode .slide:not(.section-dark).deck-active h2,
-body.deck-mode .slide:not(.section-dark).deck-active h3{
-  color:#15202b!important;
-}
-body.deck-mode .slide:not(.section-dark).deck-active .lede,
-body.deck-mode .slide:not(.section-dark).deck-active .big,
-body.deck-mode .slide:not(.section-dark).deck-active p,
-body.deck-mode .slide:not(.section-dark).deck-active li,
-body.deck-mode .slide:not(.section-dark).deck-active td,
-body.deck-mode .slide:not(.section-dark).deck-active label,
-body.deck-mode .slide:not(.section-dark).deck-active .persona-meta,
-body.deck-mode .slide:not(.section-dark).deck-active .persona-quote{
-  color:#1f2a36!important;
-}
-body.deck-mode .slide:not(.section-dark).deck-active .kicker{ color:#0f8f97!important; }
-body.deck-mode .slide:not(.section-dark).deck-active .muted,
-body.deck-mode .slide:not(.section-dark).deck-active .footer-bar,
-body.deck-mode .slide:not(.section-dark).deck-active .num{ color:#5b6b7c!important; }
-body.deck-mode .slide:not(.section-dark).deck-active .card{
-  background:#fff!important; color:#15202b!important; border-color:rgba(21,32,43,.12)!important;
-}
-body.deck-mode .slide:not(.section-dark).deck-active table,
-body.deck-mode .slide:not(.section-dark).deck-active .table{
-  background:#fff!important; color:#15202b!important;
-}
-body.deck-mode .slide:not(.section-dark).deck-active th{
-  background:#eef2f6!important; color:#15202b!important;
-}
-body.deck-mode .slide:not(.section-dark).deck-active td{
-  color:#1f2a36!important; border-color:rgba(21,32,43,.1)!important;
-}
-body.deck-mode .slide:not(.section-dark).deck-active .stat .n{ color:#15202b!important; }
-body.deck-mode .slide:not(.section-dark).deck-active .stat .l{ color:#5b6b7c!important; }
-body.deck-mode .slide:not(.section-dark).deck-active .quote{
-  color:#15202b!important; background:#f4f7fa!important;
-}
-
-/* DARK slides */
-body.deck-mode .slide.section-dark.deck-active .slide-inner,
-body.deck-mode .slide#title.deck-active .slide-inner,
-body.deck-mode .slide#close.deck-active .slide-inner{
-  background:#0d1b2a!important;
-  color:#e8eef5!important;
-}
-body.deck-mode .slide.section-dark.deck-active .h1,
-body.deck-mode .slide.section-dark.deck-active .h2,
-body.deck-mode .slide#title.deck-active .h1,
-body.deck-mode .slide#close.deck-active .h1{
-  color:#ffffff!important;
-}
-body.deck-mode .slide.section-dark.deck-active .lede,
-body.deck-mode .slide.section-dark.deck-active p,
-body.deck-mode .slide.section-dark.deck-active li,
-body.deck-mode .slide#title.deck-active .lede,
-body.deck-mode .slide#close.deck-active .lede{
-  color:rgba(232,238,245,.92)!important;
-}
-body.deck-mode .slide.section-dark.deck-active .kicker,
-body.deck-mode .slide#title.deck-active .kicker,
-body.deck-mode .slide#close.deck-active .kicker{
