@@ -66,6 +66,15 @@ ul{margin:.15rem 0 0 1.05rem}
   justify-content:center!important;align-items:flex-start!important
 }
 .site-hero-stack{position:absolute;inset:0 0 0 auto;width:min(50%,34rem);overflow:hidden;background:var(--hero);z-index:0}
+
+.site-hero-stack img{filter:brightness(.92) contrast(1.05) saturate(.95)}
+.site-hero-stack::after{
+  content:"";position:absolute;inset:0;z-index:1;pointer-events:none;
+  background:linear-gradient(90deg, rgba(13,27,42,.55) 0%, rgba(13,27,42,.18) 55%, rgba(13,27,42,.35) 100%),
+             linear-gradient(180deg, rgba(13,27,42,.2), transparent 40%, rgba(13,27,42,.35));
+}
+.site-hero-fade{width:8rem!important;background:linear-gradient(90deg,var(--hero) 0%,rgba(13,27,42,0) 100%)!important}
+
 .site-hero-stack img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 28%;
   animation:ken 20s ease-in-out infinite alternate;transform-origin:center}
 @keyframes ken{0%{transform:scale(1)}100%{transform:scale(1.07) translate(-1.5%,1%)}}
@@ -185,12 +194,12 @@ body.deck-mode .slide.deck-active .slide-inner{width:min(1280px,96vw)!important;
   <!-- COVER -->
   <section class="slide" id="title">
     <div class="slide-inner title-photo">
-      <div class="site-hero-stack" aria-hidden="true"><img src="../assets/ba-office-2027/office-4.jpg" alt=""/></div>
+      <div class="site-hero-stack" aria-hidden="true"><img src="../assets/ba-office-2027/office-4.jpg?v=fix1" alt=""/></div>
       <div class="site-hero-fade" aria-hidden="true"></div>
       <div class="title-copy">
         <div class="phase">Brandastic team · 2027 strategy</div>
         <div class="h1">How we win more of the right clients</div>
-        <p class="lede">Who we sell to. How demand becomes booked work. What we say on every channel. Built from the masterclass plan, real CRM sources, and locked numbers.</p>
+        <p class="lede">Who we sell to. How we get work. What we say on every channel. Real numbers. A plan the team can run.</p>
       </div>
       <div class="title-brand">
         <img src="../assets/brandastic-logo-white.png" alt="Brandastic"/>
@@ -225,7 +234,7 @@ body.deck-mode .slide.deck-active .slide-inner{width:min(1280px,96vw)!important;
 
     <section class="slide" id="section-reality">
     <div class="slide-inner title-photo">
-      <div class="site-hero-stack" aria-hidden="true"><img src="../assets/ba-office-2027/office-classic.jpg" alt=""/></div>
+      <div class="site-hero-stack" aria-hidden="true"><img src="../assets/ba-office-2027/office-classic.jpg?v=fix1" alt=""/></div>
       <div class="site-hero-fade" aria-hidden="true"></div>
       <div class="title-copy">
         <div class="phase">01 · Reality</div>
@@ -274,7 +283,7 @@ body.deck-mode .slide.deck-active .slide-inner{width:min(1280px,96vw)!important;
 
     <section class="slide" id="section-compete">
     <div class="slide-inner title-photo">
-      <div class="site-hero-stack" aria-hidden="true"><img src="../assets/ba-office-2027/Post2-conference.jpg" alt=""/></div>
+      <div class="site-hero-stack" aria-hidden="true"><img src="../assets/ba-office-2027/Post2-conference.jpg?v=fix1" alt=""/></div>
       <div class="site-hero-fade" aria-hidden="true"></div>
       <div class="title-copy">
         <div class="phase">02 · Field</div>
@@ -305,7 +314,7 @@ body.deck-mode .slide.deck-active .slide-inner{width:min(1280px,96vw)!important;
 
     <section class="slide" id="section-icp">
     <div class="slide-inner title-photo">
-      <div class="site-hero-stack" aria-hidden="true"><img src="../assets/ba-office-2027/C_DSC03021_Edited.jpg" alt=""/></div>
+      <div class="site-hero-stack" aria-hidden="true"><img src="../assets/ba-office-2027/C_DSC03021_Edited.jpg?v=fix1" alt=""/></div>
       <div class="site-hero-fade" aria-hidden="true"></div>
       <div class="title-copy">
         <div class="phase">03 · Who we sell to</div>
@@ -357,7 +366,7 @@ body.deck-mode .slide.deck-active .slide-inner{width:min(1280px,96vw)!important;
 
     <section class="slide" id="section-gtm">
     <div class="slide-inner title-photo">
-      <div class="site-hero-stack" aria-hidden="true"><img src="../assets/ba-office-2027/office-3.jpg" alt=""/></div>
+      <div class="site-hero-stack" aria-hidden="true"><img src="../assets/ba-office-2027/office-3.jpg?v=fix1" alt=""/></div>
       <div class="site-hero-fade" aria-hidden="true"></div>
       <div class="title-copy">
         <div class="phase">04 · Sequence</div>
@@ -422,7 +431,7 @@ body.deck-mode .slide.deck-active .slide-inner{width:min(1280px,96vw)!important;
 
     <section class="slide" id="section-channels">
     <div class="slide-inner title-photo">
-      <div class="site-hero-stack" aria-hidden="true"><img src="../assets/ba-office-2027/DSC02965.jpg" alt=""/></div>
+      <div class="site-hero-stack" aria-hidden="true"><img src="../assets/ba-office-2027/DSC02965.jpg?v=fix1" alt=""/></div>
       <div class="site-hero-fade" aria-hidden="true"></div>
       <div class="title-copy">
         <div class="phase">05 · Channels</div>
@@ -474,7 +483,7 @@ body.deck-mode .slide.deck-active .slide-inner{width:min(1280px,96vw)!important;
 
     <section class="slide" id="section-content">
     <div class="slide-inner title-photo">
-      <div class="site-hero-stack" aria-hidden="true"><img src="../assets/ba-office-2027/DSC02928.jpg" alt=""/></div>
+      <div class="site-hero-stack" aria-hidden="true"><img src="../assets/ba-office-2027/DSC02928.jpg?v=fix1" alt=""/></div>
       <div class="site-hero-fade" aria-hidden="true"></div>
       <div class="title-copy">
         <div class="phase">06 · Content + sales</div>
@@ -630,7 +639,7 @@ Plain English is the standard.</div>
 
     <section class="slide" id="section-calendar">
     <div class="slide-inner title-photo">
-      <div class="site-hero-stack" aria-hidden="true"><img src="../assets/ba-office-2027/DSC02924.jpg" alt=""/></div>
+      <div class="site-hero-stack" aria-hidden="true"><img src="../assets/ba-office-2027/DSC02924.jpg?v=fix1" alt=""/></div>
       <div class="site-hero-fade" aria-hidden="true"></div>
       <div class="title-copy">
         <div class="phase">08 · Calendar</div>
@@ -708,7 +717,7 @@ Plain English is the standard.</div>
 
     <section class="slide" id="section-measure">
     <div class="slide-inner title-photo">
-      <div class="site-hero-stack" aria-hidden="true"><img src="../assets/ba-office-2027/office-2.jpg" alt=""/></div>
+      <div class="site-hero-stack" aria-hidden="true"><img src="../assets/ba-office-2027/team-meeting.jpg?v=fix1" alt=""/></div>
       <div class="site-hero-fade" aria-hidden="true"></div>
       <div class="title-copy">
         <div class="phase">09 · Scoreboard</div>
@@ -754,7 +763,7 @@ Plain English is the standard.</div>
   <!-- CLOSE -->
   <section class="slide" id="close">
     <div class="slide-inner title-photo">
-      <div class="site-hero-stack" aria-hidden="true"><img src="../assets/ba-office-2027/office-team.jpg" alt=""/></div>
+      <div class="site-hero-stack" aria-hidden="true"><img src="../assets/ba-office-2027/office-team.jpg?v=fix1" alt=""/></div>
       <div class="site-hero-fade" aria-hidden="true"></div>
       <div class="title-copy">
         <div class="phase">Room decisions</div>
