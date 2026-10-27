@@ -47,6 +47,17 @@ td strong{color:#15202b}
 .rec{border-left:5px solid;border-radius:0 14px 14px 0;padding:1rem;margin-top:1rem;background:#f7fafc}
 @media(max-width:860px){.icp-grid{grid-template-columns:1fr!important}main{padding:1rem!important}}
 </style>
+<style>
+/* Force TAM-ICP layout */
+body main { max-width: none !important; width: 100% !important; min-width: 0 !important; overflow: visible !important; }
+body main > .section, body main > div.section { max-width: none !important; width: 100% !important; }
+body .icp-grid, body [style*="grid-template-columns:1fr 1fr 1fr"] { 
+  display: grid !important; 
+  grid-template-columns: repeat(3, 1fr) !important; 
+  gap: 1rem !important;
+  width: 100% !important;
+}
+</style>
 </head>
 <body><div class="layout">
 <nav id="side-nav">
