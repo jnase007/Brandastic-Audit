@@ -1,0 +1,669 @@
+{
+  "00_Overview": [
+    [
+      "Brandastic Digital Capacity Game Plan",
+      "",
+      ""
+    ],
+    [
+      "Updated",
+      "2026-10-02",
+      ""
+    ],
+    [
+      "Status",
+      "READY FOR JUSTIN + SANDY REVIEW",
+      ""
+    ],
+    [
+      "",
+      "",
+      ""
+    ],
+    [
+      "LOCKED DECISIONS",
+      "",
+      ""
+    ],
+    [
+      "Melissa title",
+      "Strategic Marketing Advisor (contractor) \u2014 APPROVED",
+      ""
+    ],
+    [
+      "Marketing Director seat",
+      "ELIMINATED \u2014 do not recreate",
+      ""
+    ],
+    [
+      "Samantha path",
+      "Director of Digital (paid/SEO leadership) \u2014 optional title",
+      ""
+    ],
+    [
+      "Samantha pay",
+      "$110K \u2192 $120K (+$10,000)",
+      ""
+    ],
+    [
+      "Main gap",
+      "English client-facing reporting capacity",
+      ""
+    ],
+    [
+      "Hire",
+      "Client-facing Paid Strategist contractor first",
+      ""
+    ],
+    [
+      "",
+      "",
+      ""
+    ],
+    [
+      "RECOMMENDED PACKAGE B",
+      "Sam +$10K + 25 hrs/wk contractor @ $50/hr",
+      ""
+    ],
+    [
+      "Monthly cost (approx)",
+      "$6,375",
+      ""
+    ],
+    [
+      "Annual cost (approx)",
+      "$76,500",
+      ""
+    ],
+    [
+      "",
+      "",
+      ""
+    ],
+    [
+      "TABS IN THIS WORKBOOK",
+      "",
+      ""
+    ],
+    [
+      "1_Role_Grid",
+      "Who owns what across the team",
+      ""
+    ],
+    [
+      "2_Current_Load",
+      "Today's load vs target",
+      ""
+    ],
+    [
+      "3_Cost_Model",
+      "Raise + contractor/W-2 cost scenarios",
+      ""
+    ],
+    [
+      "4_90_Day_Plan",
+      "Implementation timeline",
+      ""
+    ],
+    [
+      "5_Hire_Brief",
+      "Job brief for new contractor",
+      ""
+    ],
+    [
+      "6_Account_Roster",
+      "TEMPLATE \u2014 fill every client/call owner",
+      ""
+    ]
+  ],
+  "1_Role_Grid": [
+    [
+      "Area",
+      "Task / Responsibility",
+      "Samantha (Director of Digital path)",
+      "Jonathan (Paid Strategist)",
+      "New Contractor \u2014 Client-facing Strategist",
+      "CJ (current contractor)",
+      "Melissa (Strategic Marketing Advisor)",
+      "AMs (Stacy / Maxwell)",
+      "Gap today / notes"
+    ],
+    [
+      "Leadership",
+      "Digital dept leadership, QA, standards, capacity",
+      "PRIMARY after load relief",
+      "Supports / flags issues",
+      "Follows standards",
+      "Follows standards",
+      "\u2014",
+      "\u2014",
+      "Sam too buried in delivery to lead fully"
+    ],
+    [
+      "Leadership",
+      "Input on digital hires/contractors",
+      "PRIMARY input to Justin/Sandy",
+      "Peer input",
+      "\u2014",
+      "\u2014",
+      "\u2014",
+      "\u2014",
+      "Justin/Sandy final hire decisions"
+    ],
+    [
+      "Client strategy",
+      "Business goals, roadmap, relationship",
+      "STOP non-paid facilitation",
+      "\u2014",
+      "\u2014",
+      "\u2014",
+      "Handoff + upsell advisor",
+      "PRIMARY",
+      "Client strategy = AM lane (SOP)"
+    ],
+    [
+      "Digital strategy",
+      "How paid+SEO support goals",
+      "PRIMARY",
+      "Contributes on book",
+      "Contributes on book",
+      "Contributes",
+      "Aligns scope in sales",
+      "Partners",
+      "Keep Sam here"
+    ],
+    [
+      "Channel strategy",
+      "Campaigns, bids, keywords, testing",
+      "Oversight / escalations only",
+      "PRIMARY ~10 accounts",
+      "PRIMARY ~8\u201310 accounts",
+      "PRIMARY ~9 accounts",
+      "\u2014",
+      "\u2014",
+      "Delivery engine"
+    ],
+    [
+      "Reporting calls",
+      "Lead client reporting meetings",
+      "Priority/complex only after transition",
+      "Scale to lead ~8\u201310 (started 3 w/ Sam)",
+      "PRIMARY English calls on assigned book",
+      "Leads own book",
+      "\u2014",
+      "May attend",
+      "BIG GAP: English client point person"
+    ],
+    [
+      "Campaign management",
+      "Weekly opts, budgets, builds",
+      "Offload most; keep key accounts",
+      "PRIMARY",
+      "PRIMARY",
+      "PRIMARY",
+      "\u2014",
+      "\u2014",
+      "Sam still ~10 campaigns"
+    ],
+    [
+      "Technical / tracking",
+      "Pixels, call tracking, fixes",
+      "Train then exit day-to-day",
+      "PRIMARY tech backbone",
+      "Own on assigned book",
+      "As scoped",
+      "\u2014",
+      "\u2014",
+      "Jonathan strength"
+    ],
+    [
+      "Sales support",
+      "Digital estimates on proposals",
+      "PRIMARY digital input",
+      "\u2014",
+      "\u2014",
+      "\u2014",
+      "Builds proposals w/ Justin",
+      "\u2014",
+      "Keep"
+    ],
+    [
+      "Upsell flags",
+      "Expansion from performance",
+      "Flags digital opportunities",
+      "Flags on accounts",
+      "Flags on accounts",
+      "Flags",
+      "PRIMARY relationship upsell",
+      "Surfaces needs",
+      ""
+    ],
+    [
+      "Onboarding",
+      "Digital onboarding",
+      "Process owner + complex only",
+      "Executes assigned",
+      "Executes assigned",
+      "Executes",
+      "Sales\u2192service handoff",
+      "Owns client onboarding",
+      ""
+    ],
+    [
+      "Small accounts",
+      "Low-touch once stable",
+      "Sets min profitable MRR w/ Justin",
+      "Can own some small",
+      "Can own some small",
+      "Possible",
+      "\u2014",
+      "\u2014",
+      "$1,750/mo profitability still open"
+    ]
+  ],
+  "2_Current_Load": [
+    [
+      "Person",
+      "Path / title",
+      "Comp",
+      "Client load (from Sam proposal)",
+      "Reporting calls",
+      "Strengths",
+      "Risk / gap",
+      "Target after plan"
+    ],
+    [
+      "Samantha",
+      "Senior Paid Media Manager \u2192 Director of Digital (NOT Marketing Director)",
+      "$110K \u2192 $120K (+$10K)",
+      "~10 campaigns; touches ~14 reporting calls",
+      "~14 (too high)",
+      "Strategy, QA, training, sales digital input",
+      "Overload; can't lead while doing all calls",
+      "Priority accounts only; dept lead; \u22646 key relationships"
+    ],
+    [
+      "Jonathan",
+      "Paid Media Strategist",
+      "Fill actual rate/pay",
+      "~10 clients",
+      "Support \u2192 leading 3 w/ Sam, then more",
+      "Technical setup, tracking, fixes",
+      "Call presence still scaling",
+      "Lead ~10 clients + tech; 8\u201310 calls"
+    ],
+    [
+      "CJ",
+      "Paid contractor",
+      "Confirm hours/rate w/ Sandy",
+      "~9 clients",
+      "Leads reporting on book",
+      "Volume delivery + reporting",
+      "Hours ceiling unclear",
+      "Hold ~8\u20139 if SOW allows"
+    ],
+    [
+      "New contractor",
+      "Client-facing Paid Strategist (English)",
+      "See Cost tab",
+      "Target 8\u201310 clients",
+      "Lead calls on assigned book",
+      "Client communication + ownership",
+      "Does not exist = main gap",
+      "Absorb Sam offload"
+    ],
+    [
+      "Melissa",
+      "Strategic Marketing Advisor (LOCKED APPROVED)",
+      "Existing contractor",
+      "Not day-to-day digital",
+      "N/A",
+      "Sales, handoff, upsell, escalations",
+      "Was never full-time Marketing Director",
+      "Keep advisor \u2014 no Director title"
+    ],
+    [
+      "Marketing Director seat",
+      "ELIMINATED",
+      "$0",
+      "N/A",
+      "N/A",
+      "\u2014",
+      "Don't recreate over Melissa/Sam",
+      "Client strategy=AMs; Digital=Sam; Advisor=Melissa"
+    ]
+  ],
+  "3_Cost_Model": [
+    [
+      "Item",
+      "Type",
+      "Monthly low",
+      "Monthly mid",
+      "Monthly high",
+      "Annual low",
+      "Annual mid",
+      "Annual high",
+      "Notes"
+    ],
+    [
+      "Samantha raise +$10K",
+      "W-2 delta",
+      833,
+      833,
+      833,
+      10000,
+      10000,
+      10000,
+      "$110K \u2192 $120K"
+    ],
+    [
+      "Employer burden on raise (~15%)",
+      "Burden",
+      125,
+      125,
+      125,
+      1500,
+      1500,
+      1500,
+      "Rough on the +$10K only"
+    ],
+    [
+      "New contractor 20 hrs/wk @ $45/hr",
+      "Contractor",
+      3900,
+      3900,
+      3900,
+      46800,
+      46800,
+      46800,
+      "Light coverage"
+    ],
+    [
+      "New contractor 25 hrs/wk @ $50/hr",
+      "Contractor",
+      5417,
+      5417,
+      5417,
+      65000,
+      65000,
+      65000,
+      "Better call coverage \u2014 RECOMMENDED start"
+    ],
+    [
+      "New contractor 30\u201335 hrs/wk @ $55/hr",
+      "Contractor",
+      7150,
+      7865,
+      7865,
+      85800,
+      94380,
+      94380,
+      "Near full call replacement"
+    ],
+    [
+      "New W-2 strategist salary",
+      "W-2",
+      6667,
+      7500,
+      8333,
+      80000,
+      90000,
+      100000,
+      "If full-time later"
+    ],
+    [
+      "W-2 burden ~20%",
+      "Burden",
+      1333,
+      1500,
+      1667,
+      16000,
+      18000,
+      20000,
+      "Benefits/payroll approx"
+    ],
+    [
+      "PACKAGE A: Sam +$10K only",
+      "Package",
+      958,
+      958,
+      958,
+      11500,
+      11500,
+      11500,
+      "Title+bump; does NOT fix capacity"
+    ],
+    [
+      "PACKAGE B: Sam +$10K + 25hr contractor @ $50",
+      "Package",
+      6375,
+      6375,
+      6375,
+      76500,
+      76500,
+      76500,
+      "BEST near-term \u2014 RECOMMENDED"
+    ],
+    [
+      "PACKAGE C: Sam +$10K + W-2 $90K + burden",
+      "Package",
+      9916,
+      9916,
+      9916,
+      119000,
+      119000,
+      119000,
+      "Strong long-term when revenue supports"
+    ],
+    [
+      "Jonathan +5\u201310 hrs/wk (if contractor)",
+      "Optional",
+      800,
+      1500,
+      2000,
+      9600,
+      18000,
+      24000,
+      "Confirm his real rate first"
+    ],
+    [
+      "CJ extra hours if available",
+      "Optional",
+      500,
+      1000,
+      2000,
+      6000,
+      12000,
+      24000,
+      "Confirm SOW with Sandy"
+    ]
+  ],
+  "4_90_Day_Plan": [
+    [
+      "Phase",
+      "Week",
+      "Action",
+      "Owner",
+      "Success metric"
+    ],
+    [
+      "Lock",
+      "1",
+      "Melissa = Strategic Marketing Advisor in all docs",
+      "Sandy + Justin",
+      "Matrix updated"
+    ],
+    [
+      "Lock",
+      "1",
+      "Sam review: Director of Digital title + $10K + written load plan",
+      "Justin",
+      "Accepted in writing"
+    ],
+    [
+      "Lock",
+      "1\u20132",
+      "Full roster: every call + campaign + current owner",
+      "Sam + Sandy",
+      "Roster sheet complete"
+    ],
+    [
+      "Offload",
+      "2\u20134",
+      "Move 3 calls to Jonathan (Sam support) then +3 more",
+      "Sam + Jonathan",
+      "Sam calls down 3\u20136"
+    ],
+    [
+      "Offload",
+      "2\u20134",
+      "Post contractor: English client-facing paid strategist",
+      "Justin + Sandy + Sam",
+      "Candidates live"
+    ],
+    [
+      "Offload",
+      "3\u20136",
+      "Contractor starts; shadows then takes 4\u20136 accounts",
+      "Sam + new person",
+      "Solo on assigned book"
+    ],
+    [
+      "Stabilize",
+      "6\u201310",
+      "Sam = priority accounts + QA + capacity + process",
+      "Samantha",
+      "Campaigns \u22646; calls \u22646"
+    ],
+    [
+      "Stabilize",
+      "8\u201312",
+      "Capacity model: max calls/accounts + min profitable MRR",
+      "Justin + Sam + Sandy",
+      "Used in kickoffs"
+    ],
+    [
+      "Stabilize",
+      "12",
+      "Comp check only if offload + quality hit",
+      "Justin",
+      "Go/no-go further pay"
+    ]
+  ],
+  "5_Hire_Brief": [
+    [
+      "Field",
+      "Detail"
+    ],
+    [
+      "Role name",
+      "Paid Media Strategist (Client-Facing) \u2014 contractor first"
+    ],
+    [
+      "Reports to",
+      "Samantha for quality; Justin/Sandy for contract"
+    ],
+    [
+      "Why this role exists",
+      "Sam overloaded on reporting calls; need strong English client point person"
+    ],
+    [
+      "Core outcomes",
+      "Own 8\u201310 accounts; lead reporting calls; weekly opts; clear client English; flag issues to Sam"
+    ],
+    [
+      "Must-have skills",
+      "Google Ads + Meta; clear spoken/written English; reliable hours; agency experience preferred"
+    ],
+    [
+      "Nice-to-have",
+      "Call tracking; GA4; light SEO awareness"
+    ],
+    [
+      "Not this role",
+      "Marketing Director; full AM relationship owner; sales closer"
+    ],
+    [
+      "Hours target",
+      "25/wk start \u2192 30 if book grows"
+    ],
+    [
+      "Pay (contractor)",
+      "$45\u2013$55/hr"
+    ],
+    [
+      "Pay (W-2 alt)",
+      "$80\u2013$100K + burden if full-time later"
+    ],
+    [
+      "Start goal",
+      "30\u201345 days from post"
+    ],
+    [
+      "60-day success",
+      "\u22655 reporting calls solo; Sam off those accounts; no major client complaints"
+    ]
+  ],
+  "6_Account_Roster": [
+    [
+      "Client / Account",
+      "Service (Paid / SEO / Both)",
+      "MRR",
+      "Current reporting lead",
+      "Current campaign owner",
+      "Target owner after plan",
+      "Call cadence",
+      "Notes / complexity"
+    ],
+    [
+      "(fill)",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      ""
+    ],
+    [
+      "(fill)",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      ""
+    ],
+    [
+      "(fill)",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      ""
+    ],
+    [
+      "(fill)",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      ""
+    ],
+    [
+      "(fill)",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      ""
+    ]
+  ]
+}

@@ -1,0 +1,67 @@
+PPC / PAID MEDIA HOURS BY CLIENT						
+Source: Brand Care Clients Marketing Ownership PDF						
+Rule: Count hours labeled PPC, Paid, Paid Media, Paid Social, Paid Digital, Paid Google						
+						
+SUMMARY						
+Metric	Value					
+Clients with PPC / paid media (known hours)	17					
+TOTAL PPC / PAID MEDIA HOURS PER MONTH	265.5					
+Clients with paid work but hours not split (DEFY)	1 (50 total hrs - PPC portion unknown)					
+If DEFY paid share unknown - do not add to PPC total yet						
+						
+ALL CLIENTS - PPC DETAIL						
+Client	Services (from sheet)	Total monthly hours	PPC / Paid Media hours	Other hours (non-paid)	Has PPC?	Notes
+Adopt-A-Hwy	Quarterly campaigns + email	33	0	33	NO	Email 28 + PM 5 only
+American Tri-Star Insurance	SEO, Paid Digital	25	10	15	YES	PPC 10, SEO 10, PM 5
+Brandastic (internal)	Blog, email, organic, paid, SEO, social	170	30	140	YES	PPC 30 of 170
+CalOps	Google/Meta/TikTok/Spotify/X + web/email/organic/creative	120	40	80	YES	Reviewed 120 (was 140). PPC 40
+Crummack Huseby	SEO + PPC	20	7.5	12.5	YES	PPC 7.5, SEO 7.5, PM 5
+Dhar Mann	Email Marketing	34	0	34	NO	Email 30 + PM 4
+Dental Smart Solutions	Paid social, PPC, email, social, web	60	17	43	YES	PPC and paid social 17
+DEFY (Strategic Retail Partners)	Paid, influencer, social, email, SEO	50	TBD	TBD	YES - split unknown	Jira 10922 = 50 hrs. No PPC split on sheet - NEED BREAKDOWN
+Friar Tux	Email / Paid Social	55	20	35	YES	PPC 20, email 20, content 10, PM 5
+Grand Slam Tennis	Paid Social	10	10	0	YES	Paid social 10 (count as paid media)
+Heart Christian Academy	Paid Social / Paid Google	30	20	10	YES	Listed 5 video + 5 PM; remaining 20 treated as paid (services are paid). Confirm if needed.
+IPA 1031	SEO	9	0	9	NO	SEO 8 + PM 1
+JB White DDS	PPC / SEO	20	10	10	YES	PPC 10, SEO 10
+LabTech Supply	PPC / SEO	35	20	15	YES	PPC 20, SEO 15
+Lee Partners Law	PPC	10	10	0	YES	PPC 10
+Mono B Clothing	Emails, website banners, social	28	0	28	NO	No PPC listed
+Morehouse Foods	Organic social, paid media	35	11	24	YES	PPC 11, organic 10, email 10, PM 4
+Nordic Sauna PPC	PPC	10	8	2	YES	PPC 8 + PM 2
+Nordic Sauna SEO	SEO and AEO	10	0	10	NO	Separate SEO retainer
+Paragon Dental	PPC / SEO	20	15	5	YES	PPC 15 + PM 5
+Revel Private Wealth	Organic Social	28	0	28	NO	Organic only
+Rogers | Beltran	Google PPC / SEO	15	10	5	YES	PPC 10, SEO 5
+Salvin	Discovery / brand guide / strategy	28	0	28	NO	Email + social 25, PM 3
+Top Greener	Paid Media	14	14	0	YES	PPC 14
+Young Surgical	Organic social / emails	28	0	28	NO	Email + social 25, PM 3
+Wearparts	Paid Media	15	13	2	YES	PPC ~13 + PM 2
+						
+PPC CLIENTS ONLY (sorted by hours high to low)						
+Client	PPC / Paid hours / mo	Total retainer hours	Notes			
+CalOps	40.0	120	Reviewed 120 (was 140). PPC 40			
+Brandastic (internal)	30.0	170	PPC 30 of 170			
+Friar Tux	20.0	55	PPC 20, email 20, content 10, PM 5			
+Heart Christian Academy	20.0	30	Listed 5 video + 5 PM; remaining 20 treated as paid (services are paid). Confirm if needed.			
+LabTech Supply	20.0	35	PPC 20, SEO 15			
+Dental Smart Solutions	17.0	60	PPC and paid social 17			
+Paragon Dental	15.0	20	PPC 15 + PM 5			
+Top Greener	14.0	14	PPC 14			
+Wearparts	13.0	15	PPC ~13 + PM 2			
+Morehouse Foods	11.0	35	PPC 11, organic 10, email 10, PM 4			
+American Tri-Star Insurance	10.0	25	PPC 10, SEO 10, PM 5			
+Grand Slam Tennis	10.0	10	Paid social 10 (count as paid media)			
+JB White DDS	10.0	20	PPC 10, SEO 10			
+Lee Partners Law	10.0	10	PPC 10			
+Rogers | Beltran	10.0	15	PPC 10, SEO 5			
+Nordic Sauna PPC	8.0	10	PPC 8 + PM 2			
+Crummack Huseby	7.5	20	PPC 7.5, SEO 7.5, PM 5			
+						
+TOTAL PPC / PAID HOURS	265.5					
+						
+TEAM CAPACITY NOTE						
+This is allocated paid hours on paper (scope), not time-tracked actuals						
+~265.5 hrs/mo paid media is what the team is scoped to manage						
+At ~140 workable hrs/mo per FTE, that is roughly 1.9 full-time paid seats of scope						
+(Before AM/PM/creative/SEO load)						
