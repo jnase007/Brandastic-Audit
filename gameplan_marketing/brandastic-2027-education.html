@@ -1223,33 +1223,7 @@ body.deck-mode .slide.deck-active .slide-inner{width:min(1320px,96vw)!important;
 #rhythm .slide-inner { border-top: 4px solid #0644ed; }
 #measure .slide-inner { border-top: 4px solid #0644ed; }
 </style><style>
-/* XD-style commenting system */
-.note-btn{position:absolute;top:12px;right:12px;z-index:10;width:36px;height:36px;border-radius:50%;border:2px solid #0644ed;background:#0644ed;color:#fff;font-size:16px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .2s}
-.note-btn:hover{background:#f59e0b;border-color:#f59e0b;color:#fff}
-.note-btn.has-notes{background:#f59e0b;border-color:#f59e0b;color:#fff}
-html[data-theme="light"] .note-btn{border-color:rgba(0,0,0,.12);background:rgba(0,0,0,.03);color:rgba(0,0,0,.4)}
-html[data-theme="light"] .note-btn:hover,html[data-theme="light"] .note-btn.has-notes{background:#f59e0b;border-color:#f59e0b;color:#fff}
-.slide{position:relative}
-.note-panel{display:none;position:absolute;top:50px;right:12px;z-index:20;width:320px;background:#fff;border-radius:14px;box-shadow:0 12px 40px rgba(0,0,0,.25);font-family:Inter,system-ui,sans-serif}
-.note-panel.open{display:block}
-.note-panel-head{padding:.8rem 1rem;border-bottom:1px solid #eee;display:flex;justify-content:space-between;align-items:center}
-.note-panel-head h4{font-size:.85rem;color:#15202b;margin:0}
-.note-panel-close{border:0;background:0;font-size:1.2rem;cursor:pointer;color:#999}
-.note-panel-body{padding:.6rem .8rem;max-height:300px;overflow-y:auto}
-.note-item{padding:.5rem;border-bottom:1px solid #f0f0f0;font-size:.82rem;color:#333}
-.note-item .note-author{font-weight:700;color:#0644ed;font-size:.75rem}
-.note-item .note-time{font-size:.68rem;color:#999;margin-left:.4rem}
-.note-item .note-text{margin-top:.25rem;line-height:1.4}
-.note-form{padding:.8rem;border-top:1px solid #eee}
-.note-form input,.note-form textarea{width:100%;border:1px solid #ddd;border-radius:8px;padding:.5rem .6rem;font-size:.82rem;font-family:Inter,system-ui,sans-serif;margin-bottom:.4rem;box-sizing:border-box}
-.note-form textarea{height:60px;resize:vertical}
-.note-form button{width:100%;padding:.5rem;border:0;border-radius:8px;background:#0644ed;color:#fff;font-weight:700;font-size:.82rem;cursor:pointer}
-.note-form button:hover{background:#0538c7}
-.export-bar{position:fixed;bottom:16px;right:16px;z-index:99;display:flex;gap:.4rem}
-.export-bar button{border:0;border-radius:10px;padding:.6rem 1rem;font:700 .8rem Inter,system-ui,sans-serif;cursor:pointer;box-shadow:0 4px 16px rgba(0,0,0,.15)}
-.export-btn{background:#0644ed;color:#fff;font-size:.85rem;padding:.7rem 1.2rem}
-.clear-btn{background:#ef4444;color:#fff}
-</style></head>
+</style><script src="https://hypothes.is/embed.js" async></script></head>
 <body>
 <div class="deck">
  <div class="toolbar">
@@ -1259,7 +1233,7 @@ html[data-theme="light"] .note-btn:hover,html[data-theme="light"] .note-btn.has-
  
  <a class="btn btn-g" href="/gameplan_marketing/brandastic-2027.html" target="_blank">General strategy</a>
  <a class="btn btn-g" href="/gameplan_marketing/brandastic-tam-icp.html" target="_blank">TAM / target market hub</a>
- <button class="btn" type="button" onclick="toggleNotes()" style="background:#f59e0b;color:#fff;border:1px solid #f59e0b;border-radius:10px;font-weight:800;cursor:pointer">Notes</button><span class="hint">Education growth strategy</span>
+ <button class="btn btn-g" type="button" onclick="if(window.hypothesisConfig)window.hypothesisConfig();else{var s=document.querySelector('.annotator-frame');if(s)s.style.display=s.style.display==='none'?'':'none';}" style="background:#f59e0b;color:#fff;border-color:#f59e0b">Annotate</button><span class="hint">Education growth strategy · highlight any text to add notes</span>
  </div>
 
  <section class="slide" id="cover">
