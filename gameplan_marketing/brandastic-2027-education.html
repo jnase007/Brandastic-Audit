@@ -1234,7 +1234,146 @@ body.deck-mode .slide.deck-active .slide-inner{width:min(1320px,96vw)!important;
   box-shadow: 0 0 40px rgba(6,68,237,.35), 0 0 80px rgba(6,68,237,.15), 0 8px 30px rgba(0,0,0,.3) !important;
   border: 1px solid rgba(6,68,237,.25) !important;
 }
-</style></head>
+</style>
+<style id="mobile-edu">
+/* Phone/tablet: stack the landscape deck so it can be read on a small screen. */
+@media (max-width: 860px) {
+  html, body { overflow-x: hidden; }
+  .deck { max-width: 100%; padding: .55rem .7rem 2.4rem; }
+  .toolbar { top: 0; margin-bottom: .7rem; padding: .35rem 0; }
+  .hint { display: none; }
+  .btn { font-size: .75rem; padding: .45rem .7rem; }
+
+  .slide {
+    padding: 1rem .85rem 1.15rem !important;
+    min-height: 0 !important;
+    height: auto !important;
+    overflow: visible !important;
+    border-radius: 14px;
+    margin-bottom: .85rem;
+  }
+  .slide::before { display: none; }
+  .slide-inner,
+  .slide#title .slide-inner,
+  .slide#title .slide-inner.title-slide,
+  .slide#close .slide-inner,
+  .slide.section-dark .slide-inner,
+  .slide-inner.divider-slide,
+  .slide-inner.title-slide {
+    min-height: 0 !important;
+    height: auto !important;
+    padding: 0 !important;
+    padding-right: 0 !important;
+    padding-left: 0 !important;
+    justify-content: flex-start !important;
+    align-items: stretch !important;
+    overflow: visible !important;
+  }
+  .slide[data-camp] .slide-inner {
+    border-left-width: 4px !important;
+    padding-left: .55rem !important;
+  }
+
+  .h1,
+  .slide#title .title-main .h1,
+  .slide#title .h1,
+  .slide#close .h1,
+  .slide.section-dark .h1 {
+    font-size: 1.55rem !important;
+    line-height: 1.15 !important;
+    max-width: none !important;
+  }
+  .h2 { font-size: 1.22rem !important; }
+  .lede { font-size: .95rem !important; max-width: none !important; }
+  .kicker { margin-bottom: .55rem; }
+
+  .grid2, .grid3, .grid4, .trio,
+  .persona-hero, .persona-board,
+  #personas .persona-board,
+  .market-hero, .market-hero .stats, .stats,
+  .li-ad-wrap, .ad-spec-grid, .ad-spec-dark-wrap {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: .75rem !important;
+    min-height: 0 !important;
+    width: 100% !important;
+  }
+  .persona-photo, .persona-photo-ph {
+    width: 100% !important;
+    height: 200px !important;
+    max-width: 100% !important;
+  }
+  #personas .persona-board .card > img,
+  #personas .persona-board img,
+  .persona-board img {
+    height: 180px !important;
+    max-height: 180px !important;
+  }
+
+  .slide#title .site-hero-stack,
+  .slide#close .site-hero-stack {
+    position: relative !important;
+    inset: auto !important;
+    width: 100% !important;
+    max-width: none !important;
+    height: 170px !important;
+    margin: 0 0 .9rem !important;
+    border-radius: 12px;
+  }
+  .slide#title .site-hero-fade,
+  .slide#close .site-hero-fade { display: none !important; }
+  .slide#title .title-brand,
+  .slide#close .title-brand {
+    position: static !important;
+    left: auto !important;
+    bottom: auto !important;
+    margin: .85rem 0 0 !important;
+  }
+  .slide.section-dark .cad-art,
+  .slide#close .cad-art { display: none !important; }
+
+  .table, .budget-table, table {
+    font-size: .7rem !important;
+    display: block;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    max-width: 100%;
+  }
+  .table th, .table td, .budget-table th, .budget-table td {
+    padding: .32rem .35rem !important;
+  }
+  .budget-table .amt { white-space: normal; }
+  .msg { font-size: .8rem; padding: .75rem .8rem; overflow-wrap: anywhere; }
+  .card { padding: .8rem .8rem; }
+  .ad-spec-dark-wrap, .ad-spec-grid { min-height: 0 !important; }
+  .ad-spec-phone-wrap { padding: .7rem 0 !important; }
+  .ad-phone { max-width: 100%; }
+  .market-hero .visual { min-height: 180px !important; }
+  .market-photo img { min-height: 180px !important; }
+  .footer-bar { position: static !important; margin-top: .8rem; }
+
+  body.deck-mode .deck { padding: .4rem !important; }
+  body.deck-mode section.slide.deck-active,
+  body.deck-mode .slide.deck-active {
+    display: block !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+    max-height: none !important;
+    min-height: 0 !important;
+    overflow: visible !important;
+    border-radius: 12px !important;
+    margin: 0 auto !important;
+  }
+}
+@media (max-width: 480px) {
+  .h1, .slide#title .h1, .slide.section-dark .h1 {
+    font-size: 1.38rem !important;
+  }
+  .toolbar .btn { flex: 1 1 auto; justify-content: center; }
+}
+</style>
+</head>
 <body>
 <div class="deck">
  <div class="toolbar">
