@@ -1222,6 +1222,33 @@ body.deck-mode .slide.deck-active .slide-inner{width:min(1320px,96vw)!important;
 #ninety .slide-inner { border-top: 4px solid #0644ed; }
 #rhythm .slide-inner { border-top: 4px solid #0644ed; }
 #measure .slide-inner { border-top: 4px solid #0644ed; }
+</style><style>
+/* XD-style commenting system */
+.note-btn{position:absolute;top:12px;right:12px;z-index:10;width:32px;height:32px;border-radius:50%;border:2px solid rgba(255,255,255,.15);background:rgba(255,255,255,.06);color:rgba(255,255,255,.5);font-size:16px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .2s}
+.note-btn:hover{background:#f59e0b;border-color:#f59e0b;color:#fff}
+.note-btn.has-notes{background:#f59e0b;border-color:#f59e0b;color:#fff}
+html[data-theme="light"] .note-btn{border-color:rgba(0,0,0,.12);background:rgba(0,0,0,.03);color:rgba(0,0,0,.4)}
+html[data-theme="light"] .note-btn:hover,html[data-theme="light"] .note-btn.has-notes{background:#f59e0b;border-color:#f59e0b;color:#fff}
+.slide{position:relative}
+.note-panel{display:none;position:absolute;top:50px;right:12px;z-index:20;width:320px;background:#fff;border-radius:14px;box-shadow:0 12px 40px rgba(0,0,0,.25);font-family:Inter,system-ui,sans-serif}
+.note-panel.open{display:block}
+.note-panel-head{padding:.8rem 1rem;border-bottom:1px solid #eee;display:flex;justify-content:space-between;align-items:center}
+.note-panel-head h4{font-size:.85rem;color:#15202b;margin:0}
+.note-panel-close{border:0;background:0;font-size:1.2rem;cursor:pointer;color:#999}
+.note-panel-body{padding:.6rem .8rem;max-height:300px;overflow-y:auto}
+.note-item{padding:.5rem;border-bottom:1px solid #f0f0f0;font-size:.82rem;color:#333}
+.note-item .note-author{font-weight:700;color:#0644ed;font-size:.75rem}
+.note-item .note-time{font-size:.68rem;color:#999;margin-left:.4rem}
+.note-item .note-text{margin-top:.25rem;line-height:1.4}
+.note-form{padding:.8rem;border-top:1px solid #eee}
+.note-form input,.note-form textarea{width:100%;border:1px solid #ddd;border-radius:8px;padding:.5rem .6rem;font-size:.82rem;font-family:Inter,system-ui,sans-serif;margin-bottom:.4rem;box-sizing:border-box}
+.note-form textarea{height:60px;resize:vertical}
+.note-form button{width:100%;padding:.5rem;border:0;border-radius:8px;background:#0644ed;color:#fff;font-weight:700;font-size:.82rem;cursor:pointer}
+.note-form button:hover{background:#0538c7}
+.export-bar{position:fixed;bottom:16px;right:16px;z-index:99;display:flex;gap:.4rem}
+.export-bar button{border:0;border-radius:10px;padding:.6rem 1rem;font:700 .8rem Inter,system-ui,sans-serif;cursor:pointer;box-shadow:0 4px 16px rgba(0,0,0,.15)}
+.export-btn{background:#0644ed;color:#fff}
+.clear-btn{background:#ef4444;color:#fff}
 </style></head>
 <body>
 <div class="deck">
@@ -2094,5 +2121,103 @@ document.addEventListener('DOMContentLoaded', function() {
     observer.observe(slide);
   });
 });
+</script><script>
+(function(){
+  // Add note buttons to every slide
+  var slides = document.querySelectorAll('section.slide');
+  var savedName = localStorage.getItem('deck-reviewer-name') || '';
+  
+  slides.forEach(function(slide, i) {
+    var slideId = slide.id || 'slide-' + i;
+    
+    // Note button
+    var btn = document.createElement('button');
+    btn.className = 'note-btn';
+    btn.innerHTML = '&#9998;';
+    btn.title = 'Add a note';
+    
+    // Note panel
+    var panel = document.createElement('div');
+    panel.className = 'note-panel';
+    panel.innerHTML = '<div class="note-panel-head"><h4>Notes &middot; Slide ' + (i+1) + '</h4><button class="note-panel-close">&times;</button></div><div class="note-panel-body"></div><div class="note-form"><input type="text" placeholder="Your name" class="note-name" value="' + savedName + '"/><textarea placeholder="Type your note here..."></textarea><button>Add note</button></div>';
+    
+    slide.style.position = 'relative';
+    slide.appendChild(btn);
+    slide.appendChild(panel);
+    
+    // Load existing notes
+    var notes = JSON.parse(localStorage.getItem('deck-notes-' + slideId) || '[]');
+    updateNotes(panel, notes);
+    if (notes.length) btn.classList.add('has-notes');
+    
+    // Toggle panel
+    btn.onclick = function(e) { e.stopPropagation(); panel.classList.toggle('open'); };
+    panel.querySelector('.note-panel-close').onclick = function() { panel.classList.remove('open'); };
+    
+    // Add note
+    panel.querySelector('.note-form button').onclick = function() {
+      var nameInput = panel.querySelector('.note-name');
+      var textarea = panel.querySelector('textarea');
+      var name = nameInput.value.trim();
+      var text = textarea.value.trim();
+      if (!name || !text) return;
+      
+      localStorage.setItem('deck-reviewer-name', name);
+      savedName = name;
+      
+      notes.push({ name: name, text: text, time: new Date().toLocaleString() });
+      localStorage.setItem('deck-notes-' + slideId, JSON.stringify(notes));
+      updateNotes(panel, notes);
+      btn.classList.add('has-notes');
+      textarea.value = '';
+      
+      // Update all name fields
+      document.querySelectorAll('.note-name').forEach(function(inp) { inp.value = name; });
+    };
+  });
+  
+  function updateNotes(panel, notes) {
+    var body = panel.querySelector('.note-panel-body');
+    body.innerHTML = notes.length ? '' : '<p style="color:#999;font-size:.8rem;padding:.5rem">No notes yet</p>';
+    notes.forEach(function(n) {
+      body.innerHTML += '<div class="note-item"><span class="note-author">' + n.name + '</span><span class="note-time">' + n.time + '</span><div class="note-text">' + n.text + '</div></div>';
+    });
+  }
+  
+  // Export bar
+  var bar = document.createElement('div');
+  bar.className = 'export-bar';
+  bar.innerHTML = '<button class="export-btn">Export all notes</button><button class="clear-btn">Clear all</button>';
+  document.body.appendChild(bar);
+  
+  bar.querySelector('.export-btn').onclick = function() {
+    var all = [];
+    slides.forEach(function(slide, i) {
+      var slideId = slide.id || 'slide-' + i;
+      var notes = JSON.parse(localStorage.getItem('deck-notes-' + slideId) || '[]');
+      if (notes.length) {
+        all.push('--- Slide ' + (i+1) + ' (' + slideId + ') ---');
+        notes.forEach(function(n) { all.push(n.name + ' (' + n.time + '): ' + n.text); });
+        all.push('');
+      }
+    });
+    if (!all.length) { alert('No notes to export'); return; }
+    var text = all.join('
+');
+    navigator.clipboard.writeText(text).then(function() {
+      alert('All notes copied to clipboard! Paste them into an email or Slack message.');
+    });
+  };
+  
+  bar.querySelector('.clear-btn').onclick = function() {
+    if (!confirm('Clear ALL notes on every slide?')) return;
+    slides.forEach(function(slide, i) {
+      var slideId = slide.id || 'slide-' + i;
+      localStorage.removeItem('deck-notes-' + slideId);
+    });
+    document.querySelectorAll('.note-btn').forEach(function(b) { b.classList.remove('has-notes'); });
+    document.querySelectorAll('.note-panel-body').forEach(function(b) { b.innerHTML = '<p style="color:#999;font-size:.8rem;padding:.5rem">No notes yet</p>'; });
+  };
+})();
 </script></body>
 </html>
