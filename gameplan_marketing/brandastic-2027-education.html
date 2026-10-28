@@ -1223,7 +1223,12 @@ body.deck-mode .slide.deck-active .slide-inner{width:min(1320px,96vw)!important;
 #rhythm .slide-inner { border-top: 4px solid #0644ed; }
 #measure .slide-inner { border-top: 4px solid #0644ed; }
 </style><style>
-</style><script src="https://hypothes.is/embed.js" async></script></head>
+</style><script src="https://hypothes.is/embed.js" async></script><style>
+/* More space between colored top border and header text */
+.slide-inner[style*="border-top"] { padding-top: 2.8rem !important; }
+[id] .slide-inner { padding-top: 2.6rem !important; }
+.kicker { margin-top: .4rem; }
+</style></head>
 <body>
 <div class="deck">
  <div class="toolbar">
