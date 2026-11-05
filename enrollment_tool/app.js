@@ -750,6 +750,7 @@
   render();
   setupNav();
   setupDialogs();
+  setupStack();
 
   function setupNav() {
     var header = document.querySelector(".site-header");
@@ -855,6 +856,57 @@
         if (error) error.hidden = false;
       });
     });
+  }
+
+  function setupStack() {
+    var root = document.getElementById("stack");
+    if (!root) return;
+    var reduce = window.matchMedia("(prefers-reduced-motion: reduce)");
+    var narrow = window.matchMedia("(max-width: 800px)");
+    var plates = root.querySelectorAll(".plate");
+    var callouts = root.querySelectorAll(".callout");
+    var ticking = false;
+    function paint(spread, active) {
+      root.style.setProperty("--spread", String(spread));
+      plates.forEach(function (plate, index) {
+        var on = index === active && spread > 0.45;
+        plate.classList.toggle("is-on", on);
+        plate.classList.toggle("is-dim", !on && spread > 0.45);
+      });
+      callouts.forEach(function (card, index) {
+        card.classList.toggle("is-on", index === active && spread > 0.55);
+      });
+    }
+    function frame() {
+      if (reduce.matches || narrow.matches) {
+        root.classList.add("is-static");
+        root.style.setProperty("--spread", "0.85");
+        plates.forEach(function (plate) { plate.classList.remove("is-on", "is-dim"); });
+        callouts.forEach(function (card) { card.classList.add("is-on"); });
+        return;
+      }
+      root.classList.remove("is-static");
+      var rect = root.getBoundingClientRect();
+      var total = root.offsetHeight - window.innerHeight;
+      var scrolled = Math.min(Math.max(-rect.top, 0), Math.max(total, 0));
+      var progress = total > 0 ? scrolled / total : 0;
+      var spread = progress < 0.1 ? progress / 0.1 : progress > 0.9 ? (1 - progress) / 0.1 : 1;
+      var span = Math.min(Math.max((progress - 0.1) / 0.8, 0), 0.999);
+      paint(spread, Math.floor(span * 5));
+    }
+    function requestFrame() {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(function () {
+        ticking = false;
+        frame();
+      });
+    }
+    window.addEventListener("scroll", requestFrame, { passive: true });
+    window.addEventListener("resize", requestFrame);
+    if (reduce.addEventListener) reduce.addEventListener("change", frame);
+    if (narrow.addEventListener) narrow.addEventListener("change", frame);
+    frame();
   }
 
   if (new URLSearchParams(location.search).get("selftest") === "1") runSelfTest();

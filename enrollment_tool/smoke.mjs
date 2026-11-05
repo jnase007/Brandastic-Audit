@@ -207,6 +207,8 @@ assert.match(html, /follows every family from the ad to the inquiry to the enrol
 assert.match(html, /We send the data back to Google, so your ads can find more families like the ones who enroll\./);
 assert.match(html, /Teach Google who enrolls/);
 assert.match(html, /Meta comes next\./);
+assert.match(html, /The intelligence stack/);
+assert.match(html, /Client visualization/);
 assert.doesNotMatch(html, /No lift is promised/);
 assert.doesNotMatch(html, /No performance lift is guaranteed/);
 assert.doesNotMatch(html, /guaranteed lift|\d+% more leads/i);
