@@ -143,8 +143,9 @@ a.hero-link:hover { border-color: #0c7ea8; color: #0c7ea8; background: rgba(255,
   display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 28px;
 }
 .loop li {
-  position: relative; background: #fff; border: 1px solid var(--line); border-radius: 16px;
-  padding: 14px 14px 16px; box-shadow: var(--shadow); min-height: 112px;
+  position: relative; background: rgba(255, 255, 255, 0.62); border: 1px solid rgba(255, 255, 255, 0.85); border-radius: 16px;
+  padding: 14px 14px 16px; box-shadow: 0 10px 28px rgba(12, 126, 168, 0.08); min-height: 112px;
+  backdrop-filter: blur(12px);
 }
 .loop strong { display: block; margin: 0 0 6px; font-size: 1.02rem; letter-spacing: -0.02em; color: #142033; }
 .loop span { display: block; color: var(--muted); font-size: 0.9rem; line-height: 1.35; }
@@ -157,9 +158,16 @@ a.hero-link:hover { border-color: #0c7ea8; color: #0c7ea8; background: rgba(255,
 .band > .lede { margin-top: 0; margin-bottom: 20px; }
 .benefit-grid, .source-list { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
 .source-list { grid-template-columns: repeat(4, 1fr); list-style: none; margin: 0; padding: 0; }
+.benefit-grid article, .source-list li, .steps li, .loop li, .chart, .panel, .sheet {
+  background: rgba(255, 255, 255, 0.62);
+  border: 1px solid rgba(255, 255, 255, 0.85);
+  box-shadow: 0 10px 28px rgba(12, 126, 168, 0.08);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
 .benefit-grid article, .source-list li {
-  background: #fff; border: 1px solid var(--line); border-radius: 16px; padding: 18px 18px 16px;
-  box-shadow: var(--shadow);
+  background: rgba(255, 255, 255, 0.62); border: 1px solid rgba(255, 255, 255, 0.85); border-radius: 16px; padding: 18px 18px 16px;
+  box-shadow: 0 10px 28px rgba(12, 126, 168, 0.08);
 }
 .benefit-grid h3, .source-list strong, .steps h3 { margin: 0 0 8px; font-size: 1.05rem; letter-spacing: -0.02em; }
 .source-list strong, .source-list span { display: block; }
@@ -198,20 +206,23 @@ a.hero-link:hover { border-color: #0c7ea8; color: #0c7ea8; background: rgba(255,
   display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px;
 }
 .steps li {
-  display: block; background: #fff; border: 1px solid var(--line);
-  border-radius: 16px; padding: 18px; box-shadow: var(--shadow);
+  display: block; background: rgba(255, 255, 255, 0.62); border: 1px solid rgba(255, 255, 255, 0.85);
+  border-radius: 16px; padding: 18px; box-shadow: 0 10px 28px rgba(12, 126, 168, 0.08);
+  backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
 }
 .step-icon { display: block; width: 36px; height: 36px; margin-bottom: 12px; }
 .step-icon svg { width: 36px; height: 36px; display: block; }
 .steps h2 { margin: 2px 0 6px; font-size: 1.02rem; letter-spacing: -0.02em; }
 .steps p, .panel-head p, .pilot p, .foot, .fine { margin: 0; color: var(--muted); }
 .panel {
-  background: var(--card);
-  border: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.85);
   border-radius: 16px;
   padding: 20px 20px 8px;
   margin-top: 0;
-  box-shadow: var(--shadow);
+  box-shadow: 0 12px 30px rgba(12, 126, 168, 0.08);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
 }
 .panel, .wrap, .table-wrap { min-width: 0; }
 .panel-head h2, .pilot h2, .scope h1 { margin: 0 0 6px; letter-spacing: -0.03em; }
@@ -232,7 +243,7 @@ a.hero-link:hover { border-color: #0c7ea8; color: #0c7ea8; background: rgba(255,
   display: grid; grid-template-columns: repeat(4, 1fr);
   gap: 10px; margin: 8px 0 12px; border: 0;
 }
-.metric { padding: 12px 14px; text-align: left; background: #f4f7f8; border: 0; border-radius: 12px; width: 100%; }
+.metric { padding: 12px 14px; text-align: left; background: rgba(255, 255, 255, 0.55); border: 1px solid rgba(255, 255, 255, 0.8); border-radius: 12px; width: 100%; backdrop-filter: blur(8px); }
 .metric + .metric { padding-left: 14px; border-left: 0; }
 .metric span { display: block; color: var(--faint); font-size: 0.72rem; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; }
 .metric strong {
@@ -252,8 +263,10 @@ a.hero-link:hover { border-color: #0c7ea8; color: #0c7ea8; background: rgba(255,
 .charts { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin: 0 0 8px; }
 .chart-funnel { grid-column: auto; }
 .chart {
-  margin: 0; background: #fff; border: 1px solid var(--line);
+  margin: 0; background: rgba(255, 255, 255, 0.66); border: 1px solid rgba(255, 255, 255, 0.85);
   border-radius: 16px; padding: 16px;
+  box-shadow: 0 10px 28px rgba(12, 126, 168, 0.08);
+  backdrop-filter: blur(12px);
 }
 .chart figcaption { display: flex; flex-direction: column; gap: 4px; margin-bottom: 14px; }
 .chart figcaption strong { font-size: 1rem; letter-spacing: -0.02em; }
@@ -464,9 +477,11 @@ tbody tr[tabindex]:hover, tbody tr[tabindex]:focus { background: #f7f8fb; }
 .sheet {
   width: min(640px, calc(100% - 28px));
   max-height: min(88vh, 820px);
-  margin: auto; padding: 0; border: 0; border-radius: 16px;
-  color: #142033; background: #fff;
-  box-shadow: 0 24px 64px rgba(20, 32, 51, 0.28);
+  margin: auto; padding: 0; border: 1px solid rgba(255, 255, 255, 0.8); border-radius: 16px;
+  color: #142033; background: rgba(255, 255, 255, 0.82);
+  box-shadow: 0 24px 64px rgba(12, 126, 168, 0.16);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
 }
 .sheet::backdrop { background: rgba(20, 32, 51, 0.46); }
 .sheet-bar { display: flex; align-items: center; gap: 12px; padding: 16px 18px 0; }
