@@ -489,12 +489,6 @@
   }
 
   function renderHero() {
-    var snapshot = demo.compute(
-      { campus: "all", geography: "all", date: "window", channel: "all", campaign: "all" },
-      demo.defaultFeedbackOptions()
-    );
-    var cpe = document.querySelector("[data-hero-cpe]");
-    if (cpe) cpe.textContent = money(snapshot.costPerEnrollment);
     if (window.__heroVideoBoot) return;
     window.__heroVideoBoot = true;
     var tag = document.createElement("script");
@@ -773,7 +767,11 @@
     if (document.body.textContent.indexOf("sample for discussion") !== -1) fail("footer line");
     if (!document.querySelector(".hero-copy h1") || document.querySelector(".hero-copy h1").textContent !== "From Ads to Enrollments.") fail("headline");
     if (document.querySelector(".lede").textContent.indexOf("ad to the inquiry") === -1) fail("support line");
-    if (!document.querySelector("[data-hero-cpe]") || document.querySelector("[data-hero-cpe]").textContent !== "$130") fail("hero cost");
+    if (document.querySelector("[data-hero-cpe]")) fail("hero cost");
+    if (document.querySelector(".hero-copy").textContent.indexOf("$") !== -1) fail("hero dollar");
+    if (document.querySelector(".hero-media .seat-board")) fail("seats on video");
+    if (document.querySelector(".site-header .wordmark .line") || document.querySelector(".site-foot .wordmark .line")) fail("lockup line");
+    if (document.querySelector(".eyebrow").textContent.indexOf("Enrollment intelligence") === -1) fail("eyebrow");
     if (!document.querySelector(".hero-media iframe")) fail("hero video");
     if (!document.querySelector(".seat-row")) fail("empty seats");
     if (!document.querySelector('a.primary[href="#preview"]')) fail("cta");
@@ -783,6 +781,7 @@
     if (document.querySelector('input[type="file"]')) fail("file input present");
     if (document.querySelector('[data-metric="leads"]').textContent !== "43") fail("lead count");
     if (document.querySelector('[data-metric="enrolled"]').textContent !== "16") fail("enrolled count");
+    if (document.querySelector('[data-metric="cpe"]').textContent !== "$130") fail("workspace cost");
     document.getElementById("date").value = "oct";
     document.getElementById("date").dispatchEvent(new Event("change", { bubbles: true }));
     document.getElementById("campus").value = "Maple Ridge";
