@@ -1,11 +1,11 @@
 :root {
-  --bg: #e7f5fb;
+  --bg: #f6f4f0;
   --ink: #142033;
   --muted: #3d4c5c;
   --faint: #5c6b7a;
-  --line: #d5e6f0;
+  --line: #e4ddd2;
   --card: #ffffff;
-  --blue: #0b5bd3;
+  --blue: #0c7ea8;
   --cyan: #1a8fb8;
   --good: #0d6b40;
   --wait: #8a5a00;
@@ -51,7 +51,8 @@ img { max-width: 100%; display: block; }
   border: 0; background: transparent; font-weight: 650; color: var(--muted);
 }
 .primary { background: var(--blue); color: #fff; font-weight: 700; }
-.site-header { position: sticky; top: 0; z-index: 30; background: rgba(231, 245, 251, 0.92); backdrop-filter: blur(10px); border-bottom: 1px solid rgba(20, 32, 51, 0.06); }
+.site-header { position: sticky; top: 0; z-index: 30; background: rgba(246, 244, 240, 0.94); backdrop-filter: blur(10px); border-bottom: 1px solid rgba(20, 32, 51, 0.06); }
+.hero h1, .section-title, .workspace-intro h2, .closing h2 { font-family: "Source Serif 4", Georgia, serif; font-weight: 560; }
 .nav-cta { margin-left: 8px; }
 .hero {
   display: grid;
@@ -70,6 +71,13 @@ img { max-width: 100%; display: block; }
   font-weight: 800;
 }
 .lede { max-width: 36rem; margin: 16px 0 22px; font-size: 1.15rem; color: var(--muted); }
+.eyebrow { margin: 0 0 12px; color: var(--cyan); font-size: 0.75rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; }
+.hero-kpi { margin: 0 0 22px; }
+.hero-kpi span { display: block; color: var(--faint); font-size: 0.75rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; }
+.hero-kpi strong { display: block; margin-top: 4px; font-size: 2.4rem; letter-spacing: -0.04em; font-weight: 750; }
+.hero-actions { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+.hero-link { border: 1px solid var(--line); background: #fff; }
+.steps { grid-template-columns: repeat(4, 1fr); }
 .section-title { margin: 0 0 18px; font-size: clamp(1.7rem, 3vw, 2.2rem); letter-spacing: -0.035em; max-width: 18ch; }
 .benefits, .workflow, .sources { padding-top: 56px; }
 .benefit-grid, .source-list { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }

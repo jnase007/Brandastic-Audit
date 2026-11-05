@@ -501,8 +501,10 @@
     var top = snapshot.campaigns.slice().sort(function (a, b) { return b.enrolled - a.enrolled || b.leads - a.leads; }).slice(0, 4);
     var max = top.reduce(function (most, row) { return Math.max(most, row.enrolled); }, 1);
     var people = snapshot.leads.slice().sort(function (a, b) { return a.date < b.date ? 1 : -1; }).slice(0, 5);
+    var cpe = document.querySelector("[data-hero-cpe]");
+    if (cpe) cpe.textContent = money(snapshot.costPerEnrollment);
     host.innerHTML =
-      '<div class="stage-window"><div class="stage-top"><strong>Recent inquiries</strong><span>' + snapshot.funnel.leads + '</span></div><table class="stage-table"><tbody>' +
+      '<div class="stage-window"><div class="stage-top"><strong>True cost per enrollment</strong><span>' + esc(money(snapshot.costPerEnrollment)) + '</span></div><table class="stage-table"><tbody>' +
       people.map(function (lead) {
         return "<tr><td>" + esc(lead.guardian) + "</td><td>" + sourceMark(lead.channel) + "</td><td>" + esc(contactMethod(lead)) + "</td><td>" + esc(leadLifecycle(lead)) + "</td></tr>";
       }).join("") +
@@ -769,8 +771,9 @@
     if (document.body.textContent.indexOf("Demo / Sample data — not actual school results") !== -1) fail("banner copy");
     if (document.body.textContent.indexOf("Demo session — no account required") !== -1) fail("session heading");
     if (document.body.textContent.indexOf("sample for discussion") !== -1) fail("footer line");
-    if (document.querySelector(".hero h1").textContent !== "Lead tracking for private schools and universities.") fail("headline");
-    if (document.querySelector(".lede").textContent !== "Connect every inquiry to its source—and see which campaigns drive applications and enrollments.") fail("support line");
+    if (document.querySelector(".hero h1").textContent !== "From Ads to Enrollments.") fail("headline");
+    if (document.querySelector(".lede").textContent.indexOf("ad to the inquiry") === -1) fail("support line");
+    if (!document.querySelector("[data-hero-cpe]") || document.querySelector("[data-hero-cpe]").textContent === "—") fail("hero cost");
     if (!document.querySelector(".hero-stage .stage-window")) fail("hero product");
     if (document.querySelector(".hero-art")) fail("photo hero");
     if (!document.querySelector('a.primary[href="#preview"]')) fail("cta");
