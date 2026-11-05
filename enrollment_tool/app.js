@@ -504,19 +504,19 @@
     var cpe = document.querySelector("[data-hero-cpe]");
     if (cpe) cpe.textContent = money(snapshot.costPerEnrollment);
     host.innerHTML =
-      '<div class="stage-window"><div class="stage-top"><strong>True cost per enrollment</strong><span>' + esc(money(snapshot.costPerEnrollment)) + '</span></div><table class="stage-table"><tbody>' +
+      '<div class="stage-window"><div class="stage-top"><strong>True cost per enrollment</strong><span data-hero-cpe>' + esc(money(snapshot.costPerEnrollment)) + '</span></div><table class="stage-table"><tbody>' +
       people.map(function (lead) {
         return "<tr><td>" + esc(lead.guardian) + "</td><td>" + sourceMark(lead.channel) + "</td><td>" + esc(contactMethod(lead)) + "</td><td>" + esc(leadLifecycle(lead)) + "</td></tr>";
       }).join("") +
-      '</tbody></table></div><div class="stage-card stage-bars"><strong>Enrollments by campaign</strong>' +
+      '</tbody></table><div class="stage-split"><div><strong>Enrollments by campaign</strong>' +
       top.map(function (row) {
         return '<div class="stage-bar"><span>' + esc(row.campaign.name) + '</span><b>' + row.enrolled + '</b><span class="stage-track"><span style="width:' +
           Math.round((row.enrolled / max) * 100) + '%"></span></span></div>';
       }).join("") +
-      '</div><div class="stage-card stage-sources"><strong>' + snapshot.funnel.enrolled + ' enrolled</strong><p>' +
+      '</div><div><strong>' + snapshot.funnel.enrolled + ' enrolled</strong><p>' +
       snapshot.byChannel.filter(function (row) { return row.leads; }).map(function (row) {
         return esc(row.channel) + " " + row.leads;
-      }).join(" · ") + "</p></div>";
+      }).join(" · ") + "</p></div></div></div>";
   }
 
   function render() {
