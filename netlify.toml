@@ -494,3 +494,13 @@
   to = "/comply-full.html"
   status = 200
 
+[[redirects]]
+  from = "/enrollment_tool"
+  to = "/enrollment_tool/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/enrollment_tool/"
+  to = "/enrollment_tool/index.html"
+  status = 200
+

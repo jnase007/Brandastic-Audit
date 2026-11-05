@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<script>(function(){try{var t=localStorage.getItem("brandastic-theme");if(t==="dark")document.documentElement.setAttribute("data-theme","dark");}catch(e){}})();</script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<meta name="description" content="Brandastic proof of concept. A sample enrollment-outcome report on top of WhatConverts, using fictional school-approved admissions statuses. No live connection to WhatConverts, FACTS, or Google Ads.">
+<title>Enrollment outcomes sample · Brandastic</title>
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="stylesheet" href="/enrollment_tool/styles.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+<a class="skip" href="#goal">Skip to content</a>
+<div class="demo-banner" role="status">Demo / Sample data — not actual school results. <span>Fictional rows. WhatConverts, FACTS, and Google Ads are not connected.</span></div>
+<header class="site-header">
+  <div class="brand">
+    <a href="#goal" class="brand-mark">
+      <img class="logo-light" src="/assets/brandastic-logo-black.png" alt="Brandastic">
+      <img class="logo-dark" src="/assets/brandastic-logo-white.png" alt="">
+    </a>
+    <div>
+      <p class="eyebrow">Proof of concept</p>
+      <p class="brand-title">Enrollment outcomes</p>
+    </div>
+  </div>
+  <nav class="landing-nav" aria-label="Page sections">
+    <a href="#goal">Goal</a>
+    <a href="#path">Path</a>
+    <a href="#preview">Sample preview</a>
+    <a href="#pilot">Pilot</a>
+  </nav>
+  <div class="header-actions">
+    <button class="ghost" id="theme-toggle" type="button">Theme</button>
+    <button class="ghost" id="reset-demo" type="button">Reset sample</button>
+  </div>
+</header>
+
+<section class="landing" id="goal">
+  <p class="eyebrow">Discussion sample · not a live product</p>
+  <h1>See tracked inquiries through to enrolled students.</h1>
+  <p class="lede">WhatConverts already records the inquiry and where it came from. The report this page sketches asks the later question: which of those inquiries show up as school-approved applications and enrollments, by campus and channel, and what the sample media cost looks like per associated enrollment.</p>
+  <div class="hero-actions">
+    <a class="primary link-btn" href="#preview">Open the sample preview</a>
+    <a class="ghost link-btn" href="#pilot">How a pilot would work</a>
+  </div>
+  <div class="grid-3 landing-grid">
+    <article class="card">
+      <h2>The goal</h2>
+      <p>Give the school a campus and channel view of inquiries, applications, and enrolled students, with a sample cost per associated enrollment. The figure is an association. It is not causal proof and it is not a performance promise.</p>
+    </article>
+    <article class="card">
+      <h2>The gap</h2>
+      <p>A lead tracker answers who inquired. The admissions office answers who applied and who enrolled. Those records live in different places. This sample is the reporting layer in between, not a second lead form and not a replacement for call tracking.</p>
+    </article>
+    <article class="card">
+      <h2>What this page is</h2>
+      <p>A proof of concept with built-in fictional rows. It shows the screen. It does not pull WhatConverts, read FACTS, or upload anything to Google Ads. Conversion feedback on this page is a simulation, not a live sync.</p>
+    </article>
+  </div>
+</section>
+
+<section class="landing" id="path">
+  <p class="eyebrow">The path</p>
+  <h2>Sources, school-approved outcomes, then the insight.</h2>
+  <p class="lede">WhatConverts stays in place. A school-approved admissions status is the only thing that can move an inquiry into an application or an enrollment in this concept. An ads feedback record is optional, and on this page it is not sent.</p>
+  <div class="path">
+    <article class="card">
+      <p class="num">1</p>
+      <h3>WhatConverts sources</h3>
+      <p>Forms and calls Brandastic already tracks, with campaign and, when the ad click provides one, a click identifier. The tracker is retained. This page does not call it.</p>
+      <span class="chip">Illustrative · not connected</span>
+    </article>
+    <article class="card">
+      <p class="num">2</p>
+      <h3>Authorized admissions outcomes</h3>
+      <p>FACTS stays the admissions record. The pilot shape is a minimum file the school chooses to export: status, campus, date, and a shared key if they allow one. No grades, medical, financial, or child names.</p>
+      <span class="chip">Illustrative · not connected</span>
+    </article>
+    <article class="card">
+      <p class="num">3</p>
+      <h3>Insights, then an optional log</h3>
+      <p>Funnel stage, campus, channel, and sample cost per associated enrollment. Rows with a school-approved status and a Google click identifier can be shown as eligible for a later upload. That upload is not built and is not running.</p>
+      <span class="chip">Simulated · not sent</span>
+    </article>
+  </div>
+  <div class="grid-2">
+    <article class="card">
+      <h3>Built in this proof of concept</h3>
+      <ul class="plain-list">
+        <li>Fictional inquiries, a read-only sample admissions file, and a join on a shared key.</li>
+        <li>Filters for campus, online geography, date, and channel.</li>
+        <li>Stages from tracked lead to application to enrolled, plus sample cost per associated enrollment.</li>
+        <li>A simulated feedback log that shows the minimal fields that would be eligible, and the child and sensitive fields that would stay out.</li>
+      </ul>
+    </article>
+    <article class="card">
+      <h3>Not built, and not claimed</h3>
+      <ul class="plain-list">
+        <li>No live WhatConverts, FACTS, or Google Ads connection.</li>
+        <li>No statement that conversion upload is already happening in WhatConverts. That is being checked in the product’s own documentation.</li>
+        <li>No file upload, no stored school data, and no automated lead score.</li>
+        <li>No price, package, or subscription on this page.</li>
+      </ul>
+    </article>
+  </div>
+</section>
+
+<section class="landing" id="preview">
+  <p class="eyebrow">Interactive sample</p>
+  <h2>Preview the report with fictional rows.</h2>
+  <p class="lede">Change campus, online geography, date, or channel. The stages and the cost per associated enrollment recalculate from the same built-in rows. Organic and offline outcomes stay visible. Nothing you do here is saved or sent.</p>
+  <div id="filters"></div>
+  <nav id="nav" class="nav" aria-label="Sample sections"></nav>
+  <div id="main" tabindex="-1"></div>
+</section>
+
+<section class="landing" id="pilot">
+  <p class="eyebrow">How a pilot would work</p>
+  <h2>Manual and narrow before any connection.</h2>
+  <p class="lede">The first step in the concept is a conversation and a minimum file, not an integration project. This page is the picture of the report so the team can react before anyone commits.</p>
+  <ol class="steps">
+    <li class="step"><h3><span class="num">1</span>Keep WhatConverts.</h3><p class="note">Lead and call capture stay where they are. This report reads a sample shaped like that export. It does not replace the tracker.</p></li>
+    <li class="step"><h3><span class="num">2</span>Leave admissions in FACTS.</h3><p class="note">Staff keep working in the school’s system of record. No FACTS module or API is assumed to be turned on.</p></li>
+    <li class="step"><h3><span class="num">3</span>Start with one campus and a CSV.</h3><p class="note">Someone the school authorizes exports the minimum fields: an application or family id, campus, status, date, and a shared key if the school agrees. Names and sensitive student fields stay out of the file.</p></li>
+    <li class="step"><h3><span class="num">4</span>Reconcile, then show aggregates.</h3><p class="note">Rows join when the shared key is on both sides. Missing keys, inquiries with no status yet, and enrollments with no inquiry stay visible. The result is a campus and channel report, not a claim that an ad caused an enrollment.</p></li>
+    <li class="step"><h3><span class="num">5</span>Treat ads feedback as a later option.</h3><p class="note">Only a school-approved status would be eligible, and only as event, click identifier, time, and a sample value. This page prepares that picture. It does not send it, and it does not promise better auction results.</p></li>
+  </ol>
+  <div class="card confirm">
+    <h3>Still to confirm with the school</h3>
+    <ul class="plain-list">
+      <li>Which FACTS products are licensed, and who can export admissions status.</li>
+      <li>Which identifier the school will allow on a minimum file.</li>
+      <li>Whether click identifiers are present on the existing WhatConverts leads.</li>
+      <li>The real online eligibility list. The states in the sample are fictional.</li>
+    </ul>
+    <p class="note">Public product pages were used only to shape the sample fields. They are not a connection and they are not a statement of what this school has enabled.</p>
+  </div>
+</section>
+
+<footer class="site-footer">Brandastic · discussion sample · agency reporting complement, not a subscription product · /enrollment_tool</footer>
+<div id="drawer-root"></div>
+<script src="/enrollment_tool/fixtures.js"></script>
+<script src="/enrollment_tool/app.js"></script>
+</body>
+</html>
