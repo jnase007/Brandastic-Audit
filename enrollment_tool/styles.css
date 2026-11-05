@@ -249,6 +249,8 @@ tbody tr[tabindex]:hover, tbody tr[tabindex]:focus { background: #f7f8fb; }
 .pilot { padding: 8px 0 28px; }
 .pilot h2 { margin-top: 28px; font-size: 1.35rem; }
 .foot { padding-bottom: 32px; font-size: 0.85rem; color: var(--faint); }
+.photo-credits { margin: 28px auto 40px; font-size: 0.85rem; }
+.photo-credits a { color: var(--faint); }
 .drawer-root[hidden] { display: none !important; }
 .drawer-root {
   position: fixed; inset: 0; z-index: 60;

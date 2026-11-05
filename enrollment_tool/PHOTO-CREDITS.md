@@ -1,5 +1,7 @@
 # Photo credits
 
+The public attribution page is [/enrollment_tool/credits/](/enrollment_tool/credits/). This file records the same facts for the repository.
+
 These are real photographs of U.S. public-school classrooms. They are design images only. The schools and the people in them are not Brandastic, Heart, or CalOPS clients, and the photos are not endorsements.
 
 Location is taken from the source caption, categories, or GPS on the file. It is not inferred from how anyone looks.
