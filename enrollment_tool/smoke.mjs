@@ -147,14 +147,15 @@ assert.match(html, /id="goal"/);
 assert.match(html, /id="path"/);
 assert.match(html, /id="preview"/);
 assert.match(html, /id="pilot"/);
+assert.match(html, /id="feedback"/);
 assert.equal(/pricing|per month|\$\d+\s*\/\s*mo/i.test(html + app), false);
-assert.match(html, /not a live sync|is not sent/);
+assert.match(html + app, /Not sent|not sent/);
 assert.doesNotMatch(html, /<input[^>]*type=["']file["']/i);
 assert.doesNotMatch(app, /<input[^>]*type=["']file["']/i);
 assert.equal(copy.includes("WhatConverts cannot"), false);
 assert.equal(copy.includes("WhatConverts can't"), false);
 assert.equal(copy.includes("WhatConverts does not support"), false);
-assert.equal(app.includes("one of a kind"), true);
+assert.match(html, /See which marketing leads to applications and enrollments/);
 assert.equal(JSON.stringify({ inquiries: demo.inquiries, outcomes: demo.outcomes }).includes("aiScore"), false);
 
 const sibling = demo.outcomes.find((row) => row.id === "APP-5001B");
