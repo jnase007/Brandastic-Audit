@@ -61,16 +61,23 @@ img { max-width: 100%; display: block; }
   border: 0; background: transparent; font-weight: 650; color: var(--muted);
 }
 a.primary, button.primary {
-  background: #0c7ea8; color: #fff; font-weight: 700;
+  background: linear-gradient(180deg, #2eb4d4 0%, #0c7ea8 100%);
+  color: #fff; font-weight: 700;
+  border: 1px solid rgba(255, 255, 255, 0.45);
   border-radius: 10px; padding: 12px 18px; min-height: 44px;
-  box-shadow: 0 1px 0 rgba(20, 32, 51, 0.08);
+  box-shadow: 0 8px 18px rgba(12, 126, 168, 0.22);
 }
-a.primary:hover, button.primary:hover { background: #0a6b90; }
+a.primary:hover, button.primary:hover {
+  background: linear-gradient(180deg, #3ec0de 0%, #0a6d92 100%);
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.4), 0 10px 26px rgba(12, 126, 168, 0.36);
+}
 a.hero-link {
-  background: #fff; color: var(--ink); border: 1px solid #c9d7e0;
+  background: rgba(255, 255, 255, 0.55); color: var(--ink);
+  border: 1px solid rgba(12, 126, 168, 0.4);
   border-radius: 10px; padding: 12px 18px; min-height: 44px; font-weight: 700;
+  backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
 }
-a.hero-link:hover { border-color: #0c7ea8; color: #0c7ea8; }
+a.hero-link:hover { border-color: #0c7ea8; color: #0c7ea8; background: rgba(255, 255, 255, 0.78); }
 .site-header { position: sticky; top: 0; z-index: 30; background: rgba(255, 255, 255, 0.62); backdrop-filter: blur(16px) saturate(1.2); -webkit-backdrop-filter: blur(16px) saturate(1.2); border-bottom: 1px solid rgba(255, 255, 255, 0.75); box-shadow: 0 8px 24px rgba(12, 126, 168, 0.06); }
 .hero h1, .section-title { font-weight: 800; letter-spacing: -0.04em; }
 .nav-cta { margin-left: 8px; }
@@ -97,7 +104,7 @@ a.hero-link:hover { border-color: #0c7ea8; color: #0c7ea8; }
 .eyebrow { margin: 0 0 10px; color: var(--cyan); font-size: 1.05rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; }
 .hero-copy .lede { margin: 14px 0 22px; }
 .hero-actions { display: flex; flex-wrap: wrap; gap: 10px 16px; align-items: center; margin: 0; }
-.hero-link { border: 1px solid var(--line); background: #fff; }
+.hero-link { border: 1px solid rgba(12, 126, 168, 0.35); background: rgba(255, 255, 255, 0.55); }
 .section-title { margin: 0 0 12px; font-size: clamp(1.8rem, 3vw, 2.35rem); letter-spacing: -0.035em; max-width: 16em; line-height: 1.1; }
 .band { padding-top: 40px; }
 .hero-shell { position: relative; min-height: 460px; overflow: hidden; display: flex; align-items: center; }
