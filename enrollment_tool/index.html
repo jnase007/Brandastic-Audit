@@ -84,7 +84,7 @@
     <article class="card">
       <p class="num">3</p>
       <h3>Insights, then an optional log</h3>
-      <p>Funnel stage, campus, channel, and sample cost per associated enrollment. Rows with a school-approved status and a Google click identifier can be shown as eligible for a later upload. That upload is not built and is not running.</p>
+      <p>Campus, channel, and sample cost per associated enrollment. A later option is letting Google or Meta learn which inquiries the school confirmed. That option is not connected here.</p>
       <span class="chip">Simulated · not sent</span>
     </article>
   </div>
@@ -95,14 +95,14 @@
         <li>Fictional inquiries, a read-only sample admissions file, and a join on a shared key.</li>
         <li>Filters for campus, online geography, date, and channel.</li>
         <li>Stages from tracked lead to application to enrolled, plus sample cost per associated enrollment.</li>
-        <li>A simulated feedback log that shows the minimal fields that would be eligible, and the child and sensitive fields that would stay out.</li>
+        <li>A plain view of which sample outcomes are ready, waiting, or unmatched for ads.</li>
       </ul>
     </article>
     <article class="card">
       <h3>Not built, and not claimed</h3>
       <ul class="plain-list">
-        <li>No live WhatConverts, FACTS, or Google Ads connection.</li>
-        <li>No statement that conversion upload is already happening in WhatConverts. That is being checked in the product’s own documentation.</li>
+        <li>No live WhatConverts, FACTS, Google, or Meta connection from this page.</li>
+        <li>WhatConverts already tracks inquiries and can send platform feedback where that is configured. This page does not replace it.</li>
         <li>No file upload, no stored school data, and no automated lead score.</li>
         <li>No price, package, or subscription on this page.</li>
       </ul>
@@ -128,7 +128,7 @@
     <li class="step"><h3><span class="num">2</span>Leave admissions in FACTS.</h3><p class="note">Staff keep working in the school’s system of record. No FACTS module or API is assumed to be turned on.</p></li>
     <li class="step"><h3><span class="num">3</span>Start with one campus and a CSV.</h3><p class="note">Someone the school authorizes exports the minimum fields: an application or family id, campus, status, date, and a shared key if the school agrees. Names and sensitive student fields stay out of the file.</p></li>
     <li class="step"><h3><span class="num">4</span>Reconcile, then show aggregates.</h3><p class="note">Rows join when the shared key is on both sides. Missing keys, inquiries with no status yet, and enrollments with no inquiry stay visible. The result is a campus and channel report, not a claim that an ad caused an enrollment.</p></li>
-    <li class="step"><h3><span class="num">5</span>Treat ads feedback as a later option.</h3><p class="note">Only a school-approved status would be eligible, and only as event, click identifier, time, and a sample value. This page prepares that picture. It does not send it, and it does not promise better auction results.</p></li>
+    <li class="step"><h3><span class="num">5</span>Let ads learn only after the school confirms.</h3><p class="note">WhatConverts keeps tracking. The new piece is the school’s outcome. Google or Meta could be told later. This page does not send it and does not promise better results.</p></li>
   </ol>
   <div class="card confirm">
     <h3>Still to confirm with the school</h3>

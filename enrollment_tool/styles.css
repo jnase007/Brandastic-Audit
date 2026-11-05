@@ -155,6 +155,7 @@ main { padding: 12px 0 48px; }
 [data-theme="dark"] .path .num, [data-theme="dark"] .step .num { background: #f4f1ea; color: #191f24; }
 .confirm { margin-top: 12px; }
 #preview { padding-bottom: 12px; }
+#main h2 { scroll-margin-top: 72px; }
 .lede { font-size: 1.05rem; max-width: 74ch; color: var(--muted); margin: 4px 0 16px; }
 .grid-2 { display: grid; grid-template-columns: 1.3fr 0.7fr; gap: 14px; }
 .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
@@ -182,7 +183,7 @@ main { padding: 12px 0 48px; }
 .kpi .label, .meta { color: var(--muted); font-size: 0.84rem; }
 .loop {
   display: grid;
-  grid-template-columns: 1fr auto 1fr auto 1fr auto 1fr;
+  grid-template-columns: 1fr auto 1fr auto 1fr;
   gap: 8px;
   align-items: stretch;
   margin: 8px 0 16px;
@@ -273,6 +274,12 @@ tbody tr[tabindex]:hover, tbody tr[tabindex]:focus { background: var(--neutral-b
 .payload dt { font-weight: 700; }
 .payload dd { margin: 0 0 6px; font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 0.84rem; }
 .stack { display: flex; flex-direction: column; gap: 12px; margin: 12px 0; }
+.plain-steps { margin: 8px 0 0; padding-left: 1.2rem; }
+.plain-steps li { margin: 6px 0; }
+.status-card .value { font-size: 2rem; font-weight: 800; letter-spacing: -0.04em; margin: 8px 0; }
+.status-card .next { font-weight: 700; margin: 8px 0 0; }
+.tech { margin-top: 12px; background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); padding: 4px 16px 12px; }
+.tech summary { cursor: pointer; font-weight: 700; min-height: 44px; display: flex; align-items: center; }
 .log-card { padding: 14px; }
 .log-head { display: flex; justify-content: space-between; gap: 8px; align-items: center; }
 .log-card h3 { margin: 8px 0; font-size: 1rem; }

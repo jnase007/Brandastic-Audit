@@ -6,7 +6,7 @@
     ["inquiries", "WhatConverts"],
     ["facts", "FACTS export"],
     ["match", "Match"],
-    ["feedback", "Ads feedback"],
+    ["feedback", "Ad learning"],
     ["how", "How it works"]
   ];
 
@@ -142,19 +142,15 @@
         ? "No paid enrollment in this slice."
         : money(data.spend) + " sample spend / " + data.funnel.paidEnrolled + " associated";
     return '<p class="lede">Same fictional rows as the rest of this page. Campus, channel, and date change the stages and the sample cost per associated enrollment together. Association is not causal proof, and nothing here is sent.</p>' +
-      '<section class="card"><h2>Closed loop, simulated</h2><p class="note">Each connector is illustrative and unconnected. Existing WhatConverts capture stays in place. The return signal uses a school-approved status, not an automated lead score.</p>' +
+      '<section class="card"><h2>How an inquiry could teach the ads</h2><p class="note">WhatConverts already tracks the inquiry and can send platform feedback where that is configured. This sample adds the outcome the school confirms. It is not a second tracker, and nothing is sent.</p>' +
       '<div class="loop">' +
-      loopCard("inquiries", "1 · WhatConverts", "Inquiry, source, and click identifier when the ad click has one. Retained.") +
-      '<div class="arrow">Illustrative · not connected</div>' +
-      loopCard("facts", "2 · FACTS", "Admissions stays the record. Sample status export only.") +
-      '<div class="arrow">Illustrative · not connected</div>' +
-      loopCard("feedback", "3 · Minimal record", "Event, click identifier, time, sample value. Sensitive fields left out.") +
-      '<div class="arrow">Illustrative · not connected</div>' +
-      loopCard("feedback", "4 · Google Ads", "Unconnected. Nothing is uploaded. Performance is not promised.") +
+      loopCard("inquiries", "1 · Inquiry", "WhatConverts keeps the form or call and where it came from.") +
+      '<div class="arrow">Not connected</div>' +
+      loopCard("facts", "2 · School confirms", "Qualified inquiry, application, or enrollment from the school’s file.") +
+      '<div class="arrow">Not connected</div>' +
+      loopCard("feedback", "3 · Ads could learn", "Only that outcome. Not a child’s name. Not sent from this page.") +
       "</div>" +
-      '<p class="callout">Simulated Google signals in this filter: <strong>' + data.feedback.counts.eligible + '</strong> eligible · <strong>' +
-      data.feedback.counts.pending + "</strong> pending · <strong>" + data.feedback.counts.unmatched + "</strong> unmatched · <strong>" +
-      data.feedback.counts["not-eligible"] + '</strong> kept out of the Google log. <button class="text-btn" type="button" data-nav="feedback">Open the feedback log</button></p></section>' +
+      '<p class="callout">Ready, waiting, and unmatched outcomes are summarized for a school reader. <button class="text-btn" type="button" data-nav="feedback">See ad learning</button></p></section>' +
       '<div class="kpis">' +
       kpi("Tracked leads", String(data.funnel.leads), "WhatConverts sample rows", "leads") +
       kpi("Applications", String(data.funnel.applications), "School-approved application status", "applications") +
@@ -174,7 +170,7 @@
       "<li><strong>Application / enrolled.</strong> A school-approved status on the sample FACTS export. This demo does not score a lead or declare one qualified without that status.</li>" +
       "<li><strong>Associated.</strong> The same school-authorized shared key is on the inquiry and the outcome. That link is not causal proof.</li>" +
       "<li><strong>Cost per associated enrollment.</strong> Sample media cost in the selected months divided by enrolled outcomes tied to a paid campaign. Rounded to the nearest dollar. Organic and offline enrollments are excluded.</li>" +
-      "<li><strong>Eligible for sync.</strong> A school-approved qualified inquiry, application, or enrollment, plus a Google click identifier. Simulated only.</li>" +
+      "<li><strong>Ready for ads.</strong> The school confirmed the outcome, and the inquiry came from an ad. Simulated only. Not sent.</li>" +
       "</ul></section></div>" +
       '<div class="grid-2" style="margin-top:14px"><section class="card"><h2>By campus</h2>' + rollupTable(data.byCampus, "campus") + '</section><section class="card"><h2>By channel</h2>' + rollupTable(data.byChannel, "channel") + "</section></div>";
   }
@@ -292,49 +288,83 @@
       }) + "</div></div></section>";
   }
 
-function renderFeedback(data) {
-  var records = data.feedback.records.filter(function (record) {
-    return state.logFilter === "all" ? true : record.sync === state.logFilter;
+function distinctCount(records, sync) {
+  var seen = {};
+  records.forEach(function (record) {
+    if (record.sync !== sync) return;
+    seen[record.outcomeId || record.leadId || record.reason] = true;
   });
+  return Object.keys(seen).length;
+}
+
+function recordPlace(record) {
+  if (!record || !record.outcomeId) return "";
+  var outcome = null;
+  demo.outcomes.forEach(function (row) { if (row.id === record.outcomeId) outcome = row; });
+  if (!outcome) return "";
+  return outcome.mode === "online" ? "Online · " + outcome.state : outcome.campus;
+}
+
+function leadChannel(record) {
+  if (!record || !record.leadId) return "";
+  var channel = "";
+  demo.inquiries.forEach(function (row) { if (row.id === record.leadId) channel = row.channel; });
+  return channel;
+}
+
+function renderFeedback(data) {
+  var records = data.feedback.records;
+  var ready = distinctCount(records, "eligible");
+  var waiting = distinctCount(records, "pending");
+  var unmatched = distinctCount(records, "unmatched");
+  var reportOnly = distinctCount(records, "not-eligible");
   var exemplars = pickExemplars(records);
-  var exemplarHtml = exemplars.length
-    ? '<div class="stack">' + exemplars.map(renderLogCard).join("") + "</div>"
-    : '<p class="empty">No rows for this log filter.</p>';
+  var readyExample = exemplars.filter(function (record) { return record.sync === "eligible"; })[0];
+  var waitingExample = exemplars.filter(function (record) { return record.sync === "pending"; })[0];
+  var unmatchedExample = exemplars.filter(function (record) { return record.sync === "unmatched"; })[0];
+  var metaEnrolled = {};
+  records.forEach(function (record) {
+    if (leadChannel(record) === "Meta Ads" && record.schoolStatus === "Enrolled") metaEnrolled[record.outcomeId] = true;
+  });
+  var metaCount = Object.keys(metaEnrolled).length;
   var tableRows = records.map(function (record) {
-    var payloadClick = record.shared ? record.shared.click_id : "Not included";
-    var payloadValue = record.shared ? String(record.shared.value) : "—";
-    var school = record.outcomeId ? record.outcomeId + " · " + record.schoolStatus : "No school-approved row";
     return [
       syncLabel(record.sync),
       esc(record.signal),
-      esc(school),
+      esc(record.outcomeId ? record.outcomeId + " · " + record.schoolStatus : "No school row"),
       esc(record.shared ? record.shared.event_time : "—"),
-      esc(payloadClick),
-      esc(payloadValue),
+      esc(record.shared ? record.shared.click_id : "Not included"),
+      esc(record.shared ? String(record.shared.value) : "—"),
       esc(record.leadId || "—")
     ];
   });
-  return '<section class="card"><h2>Simulated Google Ads feedback log</h2><p class="lede">A signal is prepared only from a school-approved FACTS status. A WhatConverts lead with no school status stays pending. Nothing is scored, and nothing is sent.</p>' +
-    '<div class="checks" role="group" aria-label="Log status">' +
-    logFilterButton("all", "All") +
-    logFilterButton("eligible", "Eligible · " + data.feedback.counts.eligible) +
-    logFilterButton("pending", "Pending · " + data.feedback.counts.pending) +
-    logFilterButton("unmatched", "Unmatched · " + data.feedback.counts.unmatched) +
-    logFilterButton("not-eligible", "Not in this Google log · " + data.feedback.counts["not-eligible"]) +
-    "</div></section>" +
-    exemplarHtml +
-    '<section class="card"><div class="config"><div><h3>Signals prepared from the school status</h3><div class="checks">' +
-    check("qualified", "Qualified inquiry", "Admissions qualified on the export") +
+  return '<section class="card"><h2>Help ads learn which inquiries become enrollments</h2>' +
+    '<p class="lede">WhatConverts already tracks the inquiry and can send platform feedback where that is configured. This adds the outcome the school confirms. It is not another tracker. Not sent.</p>' +
+    '<ol class="plain-steps"><li><strong>School confirms</strong> a qualified inquiry, an application, or an enrollment.</li>' +
+    '<li><strong>What could be sent</strong> is that outcome only. Not a child’s name, contact, grade, or financial record.</li>' +
+    '<li><strong>Google or Meta</strong> only when the inquiry came from that ad. Neither platform is connected here, and results are not guaranteed.</li></ol>' +
+    '<p class="note">In this filter: <strong>' + ready + '</strong> ready for Google · <strong>' + metaCount + '</strong> Meta enrollments stay in the report · <strong>' + reportOnly + '</strong> not prepared for ads.</p></section>' +
+    '<div class="grid-3">' +
+    statusCard("good", ready, "Ready", "The school confirmed the outcome, and the inquiry came from Google.", readyExample ? "Example: " + readyExample.signal.toLowerCase() + (recordPlace(readyExample) ? " at " + recordPlace(readyExample) : "") + "." : "None in this filter.", "Review before any send. Not sent from this demo.") +
+    statusCard("wait", waiting, "Waiting", "The inquiry is tracked. The school has not confirmed an outcome in this sample yet.", waitingExample ? "Example: still waiting on the school file." : "None in this filter.", "Wait for the school. Do not treat the inquiry as enrolled.") +
+    statusCard("stop", unmatched, "Needs a match", "The inquiry and the school result could not be tied together, or the ad click was missing.", unmatchedExample ? "Example: " + (unmatchedExample.schoolStatus ? "school confirmed " + unmatchedExample.schoolStatus.toLowerCase() + (recordPlace(unmatchedExample) ? " at " + recordPlace(unmatchedExample) : "") : "the shared link is missing") + "." : "None in this filter.", "Agree on a shared id. Until then, do not send it.") +
+    "</div>" +
+    '<details class="tech"><summary>Technical details</summary>' +
+    '<div class="config"><div><h3>Which school statuses are included</h3><div class="checks">' +
+    check("qualified", "Qualified inquiry", "Admissions qualified") +
     check("application", "Application", "Application started or later") +
     check("enrollment", "Enrollment", "Enrolled only") +
-    '</div><p class="note">Switching a signal off hides it from the simulated payload. It does not change the school status.</p></div><div><h3>Where the click identifier is read</h3><div class="radios">' +
-    radio("whatconverts", "WhatConverts lead record, retained") +
-    radio("landing-form", "Landing-form field, alternate configuration") +
-    '</div><p class="note">' + esc(data.feedback.clickSourceLabel) + " Neither path is connected. This demo does not say whether WhatConverts already uploads conversions.</p></div></div></section>" +
-    '<section class="card"><h2>Full simulated log</h2><p class="note">One row per signal. Sample value is illustrative, not a bid and not tuition. Swipe sideways on a small screen.</p>' +
-    table(["Sync", "Signal", "School source (not sent)", "Event time", "Click id in payload", "Sample value", "Lead"], tableRows) +
-    "</section>" +
-    '<section class="card"><h2>What a later upload would not promise</h2><p class="note">Preparing a minimal record makes a school-approved outcome eligible to be synced later. It is not evidence that auctions, cost per lead, or enrollment volume will improve. Google Ads is unconnected in this demo.</p></section>';
+    '</div></div><div><h3>Where the ad click is read</h3><div class="radios">' +
+    radio("whatconverts", "WhatConverts lead, already in use") +
+    radio("landing-form", "Landing form, alternate and not connected") +
+    '</div><p class="note">' + esc(data.feedback.clickSourceLabel) + "</p></div></div>" +
+    '<p class="note">Would not share: ' + esc(demo.WITHHELD.join(", ")) + ". Sample values are not bids and not tuition. Eligible for sync only means the row is shaped for a later upload.</p>" +
+    table(["Sync", "Signal", "School source", "Event time", "Click id", "Sample value", "Lead"], tableRows) +
+    "</details>";
+}
+
+function statusCard(kind, count, title, body, example, next) {
+  return '<article class="card status-card"><span class="chip ' + kind + '">' + esc(title) + '</span><p class="value">' + count + "</p><p>" + esc(body) + '</p><p class="note">' + esc(example) + '</p><p class="next">Next: ' + esc(next) + "</p></article>";
 }
 
 function pickExemplars(records) {
@@ -364,30 +394,6 @@ function pickExemplars(records) {
       (state.feedback.clickSource === value ? " checked" : "") + "> <span>" + esc(label) + "</span></label>";
   }
 
-  function logFilterButton(value, label) {
-    var current = state.logFilter === value ? ' aria-current="page"' : "";
-    return '<button class="ghost" type="button" data-log="' + value + '"' + current + ">" + esc(label) + "</button>";
-  }
-
-  function renderLogCard(record) {
-    var shared = "<p class=\"note\">No ads payload. This row is not eligible to send.</p>";
-    if (record.shared) {
-      shared = '<dl class="payload"><dt>event</dt><dd>' + esc(record.shared.event) + "</dd><dt>click_id</dt><dd>" + esc(record.shared.click_id) +
-        "</dd><dt>event_time</dt><dd>" + esc(record.shared.event_time) + "</dd><dt>value</dt><dd>" + esc(record.shared.value) +
-        " sample</dd><dt>currency</dt><dd>" + esc(record.shared.currency) + " sample</dd></dl>";
-    }
-    var extras = record.extraClickIds.length
-      ? '<p class="note">Another click identifier on a duplicate lead (' + esc(record.extraClickIds.join(", ")) + ") stays noted and is not sent as a second event.</p>"
-      : "";
-    var school = record.outcomeId
-      ? "School source, not shared with ads: " + record.outcomeId + " · " + record.schoolStatus + " · key " + (record.sharedKey || "—")
-      : "No school-approved row attached.";
-    return '<article class="log-card"><div class="log-head">' + syncLabel(record.sync) + "<span class=\"note\">" + esc(record.leadId || "No lead") + "</span></div><h3>" +
-      esc(record.signal) + "</h3><p>" + esc(record.reason) + "</p>" + extras + '<p class="note">' + esc(school) + "</p>" +
-      '<div class="split"><div><h3>Would share</h3>' + shared + '<p class="note">' + esc(record.clickSourceLabel) + '</p></div><div><h3>Would not share</h3><ul class="withheld">' +
-      record.withheld.map(function (item) { return "<li>" + esc(item) + "</li>"; }).join("") + "</ul></div></div></article>";
-  }
-
   function renderHow() {
     var steps = [
       ["WhatConverts stays.", "Brandastic already records the inquiry there: form or call, campaign, and, when the ad click provides one, a click identifier. This demo does not open a second lead tracker and does not replace call tracking."],
@@ -395,13 +401,13 @@ function pickExemplars(records) {
       ["Staff keep working in FACTS.", "The pilot shape is one campus and a manual export of the minimum fields the school approves. Grades, medical, financial, and child names are not part of the file. No FACTS module or API is assumed to be turned on."],
       ["This view reconciles the two samples.", "Built-in fixtures only. Organic and offline outcomes stay visible when no ad inquiry exists. Unmatched inquiries stay visible too."],
       ["The report is aggregate.", "Funnel, campus, online geography, channel, and a sample cost per associated enrollment. The association supports a conversation. It is not causal proof."],
-      ["A minimal Google record can be prepared.", "Only after a school-approved status exists, and only with the event, click identifier, time, and sample value. The log is simulated. It does not claim WhatConverts lacks an upload, and it does not promise better optimization."]
+      ["Ads could learn later.", "WhatConverts keeps tracking and can send platform feedback where that is configured. This sample adds the school’s confirmed outcome. It is not sent here and is not a performance promise."]
     ];
     return '<section class="card"><h2>How this sits with WhatConverts and FACTS</h2><p class="lede">A picture of an enrollment-outcome report and a closed feedback loop, for the Nov 10 discussion. It is an agency reporting complement, not a product to subscribe to.</p><div class="steps">' +
       steps.map(function (step, index) {
         return '<article class="step"><h3><span class="num">' + (index + 1) + "</span>" + esc(step[0]) + "</h3><p class=\"note\">" + esc(step[1]) + "</p></article>";
       }).join("") + "</div></section>" +
-      '<section class="card" style="margin-top:12px"><h2>WhatConverts retained, configuration illustrative</h2><div class="table-wrap"><table class="compare"><thead><tr><th>Already in use</th><th>This sample view</th></tr></thead><tbody><tr><td>WhatConverts records the inquiry, source, call, and click identifier when one is present.</td><td>Reads fictional copies of those fields and joins them to school-approved statuses.</td></tr><tr><td>Stays the lead tracker. Whether it already sends conversions to Google Ads is being checked in the product’s own documentation.</td><td>Shows the payload this concept would prepare, and does not send it. Click identifier source can be shown as the WhatConverts record or a landing-form field.</td></tr></tbody></table></div>' +
+      '<section class="card" style="margin-top:12px"><h2>WhatConverts stays</h2><div class="table-wrap"><table class="compare"><thead><tr><th>Already in use</th><th>This sample view</th></tr></thead><tbody><tr><td>WhatConverts tracks the inquiry and can send platform feedback where that is configured.</td><td>Adds the outcome the school confirms. It does not replace the tracker.</td></tr><tr><td>Stays in place.</td><td>Shows which sample outcomes are ready, waiting, or unmatched. Nothing is sent.</td></tr></tbody></table></div>' +
       '<p class="callout">Whether another product already joins a lead tracker to admissions outcomes, or already returns those outcomes to Google Ads, is a separate research question. This demo does not claim the idea is one of a kind and does not evaluate vendors.</p></section>' +
       '<div class="grid-2" style="margin-top:12px"><section class="card"><h2>Still to confirm with the school</h2><ul class="plain-list"><li>Which FACTS products are licensed, and who can export admissions status.</li><li>Which identifier the school will allow on a minimum file.</li><li>Whether click identifiers are present on the existing WhatConverts leads.</li><li>The real online eligibility list. CA, AZ, TX, and NV are fictional for this demo.</li><li>Pilot campus, export cadence, and whether any later API is wanted. The first step in the concept remains manual CSV.</li></ul></section>' +
       '<section class="card"><h2>Public references behind the concept</h2><ul class="sources"><li><a href="https://factsmgt.com/intelligence/admissions/">FACTS Admissions Intelligence</a></li><li><a href="https://factsmgt.com/intelligence/facts-iq/">FACTS IQ</a></li><li><a href="https://www.misbo.com/file/secure/20230921-other-facts.pdf">Application &amp; Enrollment notes on CSV import/export</a></li></ul><p class="note">Listed so the sample fields have a public paper trail. They are not a connection, and they are not a statement of what this school has enabled.</p></section></div>';
@@ -492,11 +498,17 @@ function pickExemplars(records) {
     document.body.dataset.ready = "true";
   }
 
+  function showSampleHeading() {
+    var heading = document.querySelector("#main h2");
+    if (heading) heading.scrollIntoView({ block: "start" });
+  }
+
   function setView(view) {
     state.view = view;
     if (location.hash.replace("#", "") !== view) history.replaceState(null, "", "#" + view);
     state.drawer = null;
     render();
+    showSampleHeading();
   }
 
   document.body.addEventListener("change", function (event) {
@@ -626,11 +638,13 @@ function pickExemplars(records) {
       state.view = next;
       state.drawer = null;
       render();
+      showSampleHeading();
     }
   });
 
   state.view = viewFromHash();
   render();
+  if (location.hash && location.hash !== "#goal" && location.hash !== "#path" && location.hash !== "#preview" && location.hash !== "#pilot") showSampleHeading();
 
   if (new URLSearchParams(location.search).get("selftest") === "1") runSelfTest();
 
@@ -658,6 +672,8 @@ function pickExemplars(records) {
     if (!summary.match(/5 tracked/)) fail("filtered leads: " + summary);
     setView("feedback");
     var feedbackText = document.getElementById("main").textContent;
+    if (feedbackText.indexOf("Help ads learn which inquiries become enrollments") === -1) fail("headline");
+    if (document.querySelector("details.tech").open) fail("technical details should start closed");
     if (feedbackText.indexOf("sample-gclid-1003") === -1) fail("missing earliest click");
     if (feedbackText.indexOf("Child name") === -1) fail("withheld list");
     if (feedbackText.indexOf("Not sent") === -1 && feedbackText.indexOf("not sent") === -1) fail("sent claim");
