@@ -64,7 +64,7 @@ img { max-width: 100%; display: block; }
 .hero-art {
   position: absolute; inset: 0; z-index: 0;
   width: 100%; height: 100%;
-  object-fit: cover; object-position: 58% center;
+  object-fit: cover; object-position: 68% 22%;
 }
 .hero::before {
   content: "";
@@ -84,7 +84,7 @@ img { max-width: 100%; display: block; }
   gap: 28px; align-items: center; margin-top: 48px;
 }
 .feature-art {
-  width: 100%; height: 280px; object-fit: cover; object-position: center 42%;
+  width: 100%; height: 280px; object-fit: cover; object-position: center 30%;
   border-radius: 20px;
 }
 .steps {
@@ -268,7 +268,7 @@ tbody tr[tabindex]:hover, tbody tr[tabindex]:focus { background: #f7f8fb; }
 @media (max-width: 800px) {
   .hero { display: block; min-height: 0; overflow: visible; }
   .hero::before { display: none; }
-  .hero-art { position: relative; height: 240px; border-radius: 18px; object-position: center 28%; }
+  .hero-art { position: relative; height: 240px; border-radius: 18px; object-position: center 20%; }
   .hero-copy { max-width: none; padding: 12px 0 16px; }
   .steps, .filters, .metrics, .charts, .queue ul, .queue-list { grid-template-columns: 1fr 1fr; }
   .chart-funnel { grid-column: 1 / -1; }
