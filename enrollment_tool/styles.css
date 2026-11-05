@@ -63,14 +63,7 @@ img { max-width: 100%; display: block; }
   gap: 16px;
 }
 .brand { display: flex; align-items: center; gap: 14px; text-decoration: none; min-width: 0; }
-.brand img { height: 26px; width: auto; }
-.product {
-  color: var(--muted);
-  font-size: 0.92rem;
-  font-weight: 600;
-  letter-spacing: 0.01em;
-  white-space: nowrap;
-}
+.brand img { height: 52px; width: auto; max-width: min(280px, 68vw); }
 .text, .primary {
   border: 0;
   background: transparent;
@@ -268,6 +261,12 @@ tbody tr[tabindex]:hover, tbody tr[tabindex]:focus { background: rgba(90, 212, 2
 }
 .checks, .radios { display: flex; flex-wrap: wrap; gap: 8px 16px; margin: 8px 0; }
 .checks label, .radios label { display: flex; gap: 8px; align-items: center; min-height: 44px; }
+.scope { padding-bottom: 12px; }
+.scope h1 { max-width: 18ch; font-size: clamp(2.1rem, 4vw, 3.2rem); }
+.kicker { margin: 8px 0 0; color: var(--cyan); font-size: 0.78rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; }
+.scope-list { margin: 12px 0 0; padding-left: 1.2rem; color: var(--muted); }
+.scope-list li { margin: 10px 0; }
+.scope a, .foot a { color: var(--cyan); }
 .pilot { padding: 8px 0 36px; }
 .pilot h2 { margin-top: 28px; }
 .foot { padding-bottom: 28px; font-size: 0.85rem; color: var(--faint); }
@@ -302,8 +301,7 @@ tbody tr[tabindex]:hover, tbody tr[tabindex]:focus { background: rgba(90, 212, 2
   .metric:nth-child(even) { padding-left: 16px; border-left: 1px solid var(--line); }
   .hbar { grid-template-columns: 1fr; gap: 4px; }
   .hbar-value { text-align: left; }
-  .brand { align-items: flex-start; }
-  .product { white-space: normal; }
+  .brand img { height: 40px; }
 }
 @media (max-width: 640px) {
   .wrap, .bar { width: min(100% - 24px, 1080px); }

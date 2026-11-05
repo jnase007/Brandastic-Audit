@@ -156,7 +156,16 @@ assert.equal(copy.includes("WhatConverts cannot"), false);
 assert.equal(copy.includes("WhatConverts can't"), false);
 assert.equal(copy.includes("WhatConverts does not support"), false);
 assert.match(html, /See which marketing leads to applications and enrollments/);
-assert.match(html, /Enrollment Attribution Demo/);
+assert.match(html, /AdToSeat by Brandastic/);
+assert.match(html, /alt="AdToSeat by Brandastic"/);
+const scope = readFileSync(join(here, "scope/index.html"), "utf8");
+assert.match(scope, /AdToSeat shows which marketing campaigns actually fill school seats\./);
+assert.match(scope, /Not built/);
+assert.match(scope, /does not guess a confirmation/);
+assert.match(scope, /inquiry, application, accepted, and enrolled/);
+assert.match(scope, /No ROI calculator/);
+assert.match(scope, /A live API is not part of this version/);
+assert.match(scope, /does not say that integration is ready/);
 assert.equal(/roi calculator/i.test(html + app), false);
 assert.equal(JSON.stringify({ inquiries: demo.inquiries, outcomes: demo.outcomes }).includes("aiScore"), false);
 

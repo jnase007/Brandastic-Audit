@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<meta name="description" content="AdToSeat scope. The sample dashboard is fictional. The first version described here is proposed and not built.">
+<title>AdToSeat scope · by Brandastic</title>
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="stylesheet" href="/enrollment_tool/styles.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+<a class="skip" href="#scope">Skip to content</a>
+<div class="demo-banner" role="status">Demo / Sample data — not actual school results. <span>This page is scope, not a live product.</span></div>
+<header class="bar">
+  <a class="brand" href="/enrollment_tool/#goal">
+    <img src="/enrollment_tool/assets/adtoseat-by-brandastic.png" alt="AdToSeat by Brandastic">
+  </a>
+  <a class="text" href="/enrollment_tool/#preview">Sample</a>
+</header>
+<main class="wrap scope" id="scope">
+  <p class="kicker">Scope · proposed first version</p>
+  <h1>AdToSeat shows which marketing campaigns actually fill school seats.</h1>
+  <p class="lede">WhatConverts stays the lead-tracking foundation. AdToSeat is the connection to school outcomes. It is not a CRM and it does not replace WhatConverts.</p>
+
+  <section class="panel">
+    <h2>Working in the sample</h2>
+    <p>The <a href="/enrollment_tool/#goal">sample dashboard</a> is a fictional preview. Filters, charts, and the status list use built-in rows. Nothing is imported, nothing is matched to a real file, and nothing is sent to Google or Meta.</p>
+    <p>The sample chart counts inquiry, application, and enrolled. Accepted is not its own bar there.</p>
+  </section>
+
+  <section class="panel">
+    <h2>Proposed first version</h2>
+    <p>Not built. A first version would do these five things. CSV export is the honest starting point. An API is not assumed to be available.</p>
+    <ol class="scope-list">
+      <li>Import leads from WhatConverts and school application and enrollment outcomes from CSV exports. A live API is not part of this version. What a real export contains has to be checked before the import is trusted.</li>
+      <li>Match records with a confidence indicator. Uncertain and unmatched rows wait in a review queue. The product does not guess a confirmation.</li>
+      <li>Show distinct stages: inquiry, application, accepted, and enrolled, using statuses the school confirmed.</li>
+      <li>Report confirmed enrollments and cost per enrollment by channel, campaign, and campus when those fields are actually in the file.</li>
+      <li>Flag missing data and CSV problems so an incomplete row is not presented as a trustworthy outcome.</li>
+    </ol>
+  </section>
+
+  <section class="panel">
+    <h2>How a school would use it</h2>
+    <p>Import outcomes. Review uncertain matches. View results. Brandastic manages the technical setup.</p>
+  </section>
+
+  <section class="panel">
+    <h2>Not in this version</h2>
+    <ul class="scope-list">
+      <li>No live WhatConverts, FACTS, Avela, or CalOPS connection. FACTS stays the admissions record. Avela and CalOPS setup is unknown.</li>
+      <li>No conversion sends to Google or Meta.</li>
+      <li>No ROI calculator. That stays in Google Sheets.</li>
+      <li>No student names or private records on this page.</li>
+    </ul>
+    <p>A verified integration would be a later decision, after a CSV version shows whether the match is good enough. This page does not say that integration is ready.</p>
+  </section>
+</main>
+<footer class="wrap foot">AdToSeat by Brandastic · scope for discussion · <a href="/enrollment_tool/#goal">Sample</a></footer>
+</body>
+</html>
