@@ -59,11 +59,11 @@
   var PAYLOAD_KEYS = ["event", "click_id", "event_time", "value", "currency"];
 
   var campaigns = [
-    { id: "g-maple", name: "Maple Ridge · Fall open house", channel: "Google Ads", campus: "Maple Ridge", mode: "campus", spend: { "2026-08": 4800, "2026-09": 6200, "2026-10": 5100 } },
-    { id: "g-harbor", name: "Harbor View · Campus tour", channel: "Google Ads", campus: "Harbor View", mode: "campus", spend: { "2026-08": 3600, "2026-09": 4100, "2026-10": 3900 } },
-    { id: "g-online", name: "Online · Eligible states", channel: "Google Ads", campus: "Online", mode: "online", spend: { "2026-08": 5400, "2026-09": 7200, "2026-10": 6800 } },
-    { id: "m-cedar", name: "Cedar Falls · Enrollment", channel: "Meta Ads", campus: "Cedar Falls", mode: "campus", spend: { "2026-08": 2900, "2026-09": 3400, "2026-10": 3100 } },
-    { id: "m-online", name: "Online · Meta prospecting", channel: "Meta Ads", campus: "Online", mode: "online", spend: { "2026-08": 2200, "2026-09": 2600, "2026-10": 2400 } }
+    { id: "g-maple", name: "Maple Ridge · Fall open house", channel: "Google Ads", campus: "Maple Ridge", mode: "campus", spend: { "2026-08": 120, "2026-09": 150, "2026-10": 110 } },
+    { id: "g-harbor", name: "Harbor View · Campus tour", channel: "Google Ads", campus: "Harbor View", mode: "campus", spend: { "2026-08": 90, "2026-09": 100, "2026-10": 90 } },
+    { id: "g-online", name: "Online · Eligible states", channel: "Google Ads", campus: "Online", mode: "online", spend: { "2026-08": 130, "2026-09": 160, "2026-10": 150 } },
+    { id: "m-cedar", name: "Cedar Falls · Enrollment", channel: "Meta Ads", campus: "Cedar Falls", mode: "campus", spend: { "2026-08": 70, "2026-09": 80, "2026-10": 70 } },
+    { id: "m-online", name: "Online · Meta prospecting", channel: "Meta Ads", campus: "Online", mode: "online", spend: { "2026-08": 40, "2026-09": 35, "2026-10": 35 } }
   ];
 
   function lead(id, date, type, channel, campaignId, campus, mode, state, eligible, sharedKey, clickId, metaClickId) {

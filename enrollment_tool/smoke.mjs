@@ -59,16 +59,16 @@ assert.equal(last30.outcomes.some((row) => row.id === "APP-5003"), true);
 assert.equal(all.funnel.leads, 43);
 assert.equal(all.funnel.enrolled, 16);
 assert.equal(all.funnel.paidEnrolled, 11);
-assert.equal(all.spend, 63700);
-assert.equal(all.costPerEnrollment, 63700 / 11);
-assert.equal(Math.round(all.costPerEnrollment), 5791);
+assert.equal(all.spend, 1430);
+assert.equal(all.costPerEnrollment, 130);
+assert.equal(Math.round(all.costPerEnrollment), 130);
 assert.equal(all.funnel.organicOfflineEnrolled, 5);
 
 const august = demo.compute(
   { campus: "all", geography: "all", date: "aug", channel: "all" },
   demo.defaultFeedbackOptions()
 );
-assert.equal(august.spend, 18900);
+assert.equal(august.spend, 450);
 assert.equal(august.funnel.paidEnrolled, 1);
 assert.ok(august.funnel.leads < 43);
 assert.ok(august.leads.every((lead) => lead.date.startsWith("2026-08")));
@@ -81,9 +81,9 @@ assert.deepEqual(
   octoberMaple.leads.map((lead) => lead.id).sort(),
   ["WC-1006", "WC-1007", "WC-1008", "WC-1009", "WC-1042"]
 );
-assert.equal(octoberMaple.spend, 5100);
+assert.equal(octoberMaple.spend, 110);
 assert.equal(octoberMaple.funnel.paidEnrolled, 2);
-assert.equal(octoberMaple.costPerEnrollment, 2550);
+assert.equal(octoberMaple.costPerEnrollment, 55);
 
 const enrollmentSignals = (result) =>
   result.feedback.records.filter((record) => record.sync === "eligible" && record.signal === "Enrollment");
@@ -203,7 +203,7 @@ assert.equal(copy.includes("WhatConverts can't"), false);
 assert.equal(copy.includes("WhatConverts does not support"), false);
 assert.match(html, /From Ads to Enrollments\./);
 assert.match(html, /ad to the inquiry, the application, and the enrolled student/);
-assert.match(app, /True cost per enrollment/);
+assert.match(html, /True cost per enrollment/);
 assert.doesNotMatch(html, /Director of Admission/);
 assert.doesNotMatch(html, /byrd-middle-chromebooks/);
 assert.doesNotMatch(html, /pvusd-english-chromebooks/);

@@ -308,25 +308,22 @@
     var lensNote = pool.basis === "outcome"
       ? pool.outcomeCount + " school rows use the status date in this filter. " + pool.leads.length + " tracked inquiries sit behind them. " + pool.orphans.length + " have no tracked inquiry. Arrival day can be earlier than the status date. This is not a conversion rate."
       : "Inquiries that arrived in this filter. Quality is separate from inquiry, application, accepted, and enrolled. Applications and enrollments on Overview use the school status date.";
+    var dateOrder = Object.keys(grouped).sort(function (a, b) { return a < b ? 1 : -1; });
     host.innerHTML =
       '<p class="fine">' + listed.length + " leads · " + qualified + " qualified · " + unqualified + " unqualified · " + unknown + " unknown. " + esc(lensNote) + "</p>" +
-      (dayKeys.length ? '<div class="day-chart" role="group" aria-label="Leads per arrival day">' + dayKeys.map(function (day) {
-        var height = max ? Math.max(8, Math.round((days[day].total / max) * 48)) : 8;
-        var pressed = state.timelineDay === day ? ' aria-pressed="true"' : ' aria-pressed="false"';
-        return '<button type="button" class="day-col" data-day="' + esc(day) + '"' + pressed + ' aria-label="' + esc(prettyDate(day) + ", " + days[day].total + " leads, " + days[day].qualified + " qualified") + '"><span class="day-bar" style="height:' + height + 'px"></span><span>' + days[day].total + "</span></button>";
-      }).join("") + "</div>" : '<p class="empty">No leads in this filter.</p>') +
-      Object.keys(grouped).sort(function (a, b) { return a < b ? 1 : -1; }).map(function (day) {
-        return '<section class="day-block"><h3>' + esc(prettyDate(day)) + " · " + grouped[day].length + " leads · " +
-          grouped[day].filter(function (lead) { return leadQuality(lead) === "Qualified"; }).length + ' qualified</h3>' +
+      '<div class="table-wrap"><table class="lead-table"><thead><tr><th>Source</th><th>Name</th><th>Phone</th><th>Method</th><th>Campus</th><th>Campaign</th><th>Quality</th><th>Status</th></tr></thead><tbody>' +
+      (dateOrder.length ? dateOrder.map(function (day) {
+        return '<tr class="date-head"><th colspan="8">' + esc(prettyDate(day)) + " · " + grouped[day].length + " " + (grouped[day].length === 1 ? "lead" : "leads") + "</th></tr>" +
           grouped[day].map(function (lead) {
             var campaign = demo.campaignById(lead.campaignId);
-            return '<button type="button" class="lead-row" data-lead="' + esc(lead.id) + '">' +
-              sourceMark(lead.channel) +
-              '<span class="lead-meta">' + esc(lead.guardian) + " · " + esc(lead.id) + " · " + esc(contactMethod(lead)) + " · " + esc(lead.phone) + " · " + esc(campaign ? campaign.name : "No campaign") + "</span>" +
-              '<span class="quality ' + leadQuality(lead).toLowerCase() + '">' + esc(leadQuality(lead)) + "</span>" +
-              '<span class="lifecycle">' + esc(leadLifecycle(lead)) + "</span></button>";
-          }).join("") + "</section>";
-      }).join("") +
+            var campus = lead.mode === "online" ? "Online" + (lead.state ? " · " + lead.state : "") : lead.campus;
+            return '<tr data-lead="' + esc(lead.id) + '"><td>' + sourceMark(lead.channel) + '</td><td>' + esc(lead.guardian) + '<span class="lead-id">' + esc(lead.id) + "</span></td><td>" +
+              esc(lead.phone) + "</td><td>" + esc(contactMethod(lead)) + "</td><td>" + esc(campus) + "</td><td>" +
+              esc(campaign ? campaign.name : "—") + '</td><td><span class="quality ' + leadQuality(lead).toLowerCase() + '">' + esc(leadQuality(lead)) + "</span></td><td>" +
+              esc(leadLifecycle(lead)) + "</td></tr>";
+          }).join("");
+      }).join("") : '<tr><td colspan="8">No leads in this filter.</td></tr>') +
+      "</tbody></table></div>" +
       (orphans.length ? '<section class="day-block"><h3>No tracked inquiry</h3>' + orphans.map(function (row) {
         var quality = row.milestones.qualified ? "Qualified" : "Unqualified";
         var life = row.milestones.enrolled ? "Enrolled" : row.status === "Accepted" ? "Accepted" : row.milestones.application ? "Application" : row.status;
@@ -492,31 +489,34 @@
   }
 
   function renderHero() {
-    var host = document.getElementById("hero-stage");
-    if (!host) return;
     var snapshot = demo.compute(
       { campus: "all", geography: "all", date: "window", channel: "all", campaign: "all" },
       demo.defaultFeedbackOptions()
     );
-    var top = snapshot.campaigns.slice().sort(function (a, b) { return b.enrolled - a.enrolled || b.leads - a.leads; }).slice(0, 4);
-    var max = top.reduce(function (most, row) { return Math.max(most, row.enrolled); }, 1);
-    var people = snapshot.leads.slice().sort(function (a, b) { return a.date < b.date ? 1 : -1; }).slice(0, 5);
     var cpe = document.querySelector("[data-hero-cpe]");
     if (cpe) cpe.textContent = money(snapshot.costPerEnrollment);
-    host.innerHTML =
-      '<div class="stage-window"><div class="stage-top"><strong>True cost per enrollment</strong><span data-hero-cpe>' + esc(money(snapshot.costPerEnrollment)) + '</span></div><table class="stage-table"><tbody>' +
-      people.map(function (lead) {
-        return "<tr><td>" + esc(lead.guardian) + "</td><td>" + sourceMark(lead.channel) + "</td><td>" + esc(contactMethod(lead)) + "</td><td>" + esc(leadLifecycle(lead)) + "</td></tr>";
-      }).join("") +
-      '</tbody></table><div class="stage-split"><div><strong>Enrollments by campaign</strong>' +
-      top.map(function (row) {
-        return '<div class="stage-bar"><span>' + esc(row.campaign.name) + '</span><b>' + row.enrolled + '</b><span class="stage-track"><span style="width:' +
-          Math.round((row.enrolled / max) * 100) + '%"></span></span></div>';
-      }).join("") +
-      '</div><div><strong>' + snapshot.funnel.enrolled + ' enrolled</strong><p>' +
-      snapshot.byChannel.filter(function (row) { return row.leads; }).map(function (row) {
-        return esc(row.channel) + " " + row.leads;
-      }).join(" · ") + "</p></div></div></div>";
+    if (window.__heroVideoBoot) return;
+    window.__heroVideoBoot = true;
+    var tag = document.createElement("script");
+    tag.src = "https://www.youtube.com/iframe_api";
+    document.head.appendChild(tag);
+    window.onYouTubeIframeAPIReady = function () {
+      if (!window.YT || !document.getElementById("hero-video")) return;
+      new window.YT.Player("hero-video", {
+        events: {
+          onReady: function (event) {
+            event.target.mute();
+            event.target.playVideo();
+          },
+          onStateChange: function (event) {
+            if (event.data === 1) {
+              var media = document.querySelector(".hero-media");
+              if (media) media.classList.add("is-playing");
+            }
+          }
+        }
+      });
+    };
   }
 
   function render() {
@@ -771,11 +771,11 @@
     if (document.body.textContent.indexOf("Demo / Sample data — not actual school results") !== -1) fail("banner copy");
     if (document.body.textContent.indexOf("Demo session — no account required") !== -1) fail("session heading");
     if (document.body.textContent.indexOf("sample for discussion") !== -1) fail("footer line");
-    if (document.querySelector(".hero h1").textContent !== "From Ads to Enrollments.") fail("headline");
+    if (!document.querySelector(".hero-copy h1") || document.querySelector(".hero-copy h1").textContent !== "From Ads to Enrollments.") fail("headline");
     if (document.querySelector(".lede").textContent.indexOf("ad to the inquiry") === -1) fail("support line");
-    if (!document.querySelector("[data-hero-cpe]") || document.querySelector("[data-hero-cpe]").textContent === "—") fail("hero cost");
-    if (!document.querySelector(".hero-stage .stage-window")) fail("hero product");
-    if (document.querySelector(".hero-art")) fail("photo hero");
+    if (!document.querySelector("[data-hero-cpe]") || document.querySelector("[data-hero-cpe]").textContent !== "$130") fail("hero cost");
+    if (!document.querySelector(".hero-media iframe")) fail("hero video");
+    if (!document.querySelector(".seat-row")) fail("empty seats");
     if (!document.querySelector('a.primary[href="#preview"]')) fail("cta");
     if (document.getElementById("sample-info")) fail("sample badge");
     if (document.body.textContent.indexOf("Sample data") !== -1) fail("sample label");
@@ -790,8 +790,9 @@
     document.getElementById("channel").value = "Google Ads";
     document.getElementById("channel").dispatchEvent(new Event("change", { bubbles: true }));
     if (document.querySelector('[data-metric="leads"]').textContent !== "5") fail("filtered leads");
-    if (document.querySelector('[data-metric="cpe"]').textContent !== "$2,550") fail("filtered cost");
+    if (document.querySelector('[data-metric="cpe"]').textContent !== "$55") fail("filtered cost");
     if (document.getElementById("dashboard").textContent.indexOf("NaN") !== -1) fail("nan");
+    if (document.querySelector(".day-chart")) fail("capsule strip");
     if (document.querySelectorAll(".chart").length !== 2) fail("chart count");
     if (document.querySelector("[data-chart-leads]").textContent !== "5") fail("funnel does not match leads");
     var feedback = document.getElementById("feedback-body");

@@ -11,14 +11,14 @@
 <link rel="stylesheet" href="styles.css">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Source+Serif+4:opsz,wght@8..60,560;8..60,650&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
 <a class="skip" href="#goal">Skip to content</a>
 <header class="site-header">
   <div class="wrap bar">
     <a class="brand" href="#goal" aria-label="FullStory by Brandastic">
-      <span class="wordmark"><span class="name">FullStory<span class="dot">.</span></span><span class="by">by Brandastic</span></span>
+      <span class="wordmark"><span class="name">FullStory<span class="dot">.</span></span><span class="line">Enrollment Intelligence</span><span class="by">by Brandastic</span></span>
     </a>
     <nav class="bar-actions" aria-label="Page">
       <a class="text" href="#problem">Problem</a>
@@ -31,17 +31,33 @@
   </div>
 </header>
 <main>
-  <section class="wrap hero" id="goal">
-    <div class="hero-copy">
-      <p class="eyebrow">Intelligent marketing. Measurable growth.</p>
-      <h1>From Ads to Enrollments.</h1>
-      <p class="lede">FullStory follows the path from the ad to the inquiry, the application, and the enrolled student, for private schools and universities.</p>
-      <div class="hero-actions">
-        <a class="primary" href="#path">See how it works</a>
-        <a class="text hero-link" href="#preview">Explore results</a>
+  <section class="hero-shell" id="goal">
+    <div class="hero-media" id="hero-stage">
+      <img class="hero-poster" src="assets/school-campus-poster.jpg" alt="">
+      <iframe id="hero-video" title="School campus" src="https://www.youtube-nocookie.com/embed/U7AoS6cgJL4?autoplay=1&amp;mute=1&amp;controls=0&amp;loop=1&amp;playlist=U7AoS6cgJL4&amp;modestbranding=1&amp;playsinline=1&amp;rel=0&amp;enablejsapi=1" allow="autoplay; encrypted-media" tabindex="-1"></iframe>
+      <div class="hero-shade"></div>
+      <div class="seat-board" aria-hidden="true">
+        <div class="seat-row">
+          <span class="seat"></span><span class="seat"></span><span class="seat"></span><span class="seat"></span><span class="seat filled"></span>
+        </div>
+        <div class="seat-row">
+          <span class="seat"></span><span class="seat"></span><span class="seat filled"></span><span class="seat"></span><span class="seat"></span>
+        </div>
+        <p>Seats waiting to be filled</p>
       </div>
     </div>
-    <div class="hero-stage" id="hero-stage" aria-label="Product preview"></div>
+    <div class="wrap hero-grid">
+      <div class="hero-copy">
+        <p class="eyebrow">Enrollment intelligence</p>
+        <h1>From Ads to Enrollments.</h1>
+        <p class="lede">FullStory follows the path from the ad to the inquiry, the application, and the enrolled student, for private schools and universities.</p>
+        <p class="hero-kpi"><span>True cost per enrollment</span><strong data-hero-cpe>—</strong></p>
+        <div class="hero-actions">
+          <a class="primary" href="#path">See how it works</a>
+          <a class="text hero-link" href="#preview">Explore results</a>
+        </div>
+      </div>
+    </div>
   </section>
 
   <section class="wrap band" id="problem">
@@ -71,28 +87,28 @@
     <h2 class="section-title">How it works</h2>
     <ol class="steps">
       <li>
-        <span class="step-num">1</span>
+        <span class="step-icon" aria-hidden="true"><svg viewBox="0 0 32 32"><path d="M6 22V10M12 22V6M18 22v-8M24 22V8" fill="none" stroke="#0c7ea8" stroke-width="2.4" stroke-linecap="round"/></svg></span>
         <div>
           <h3>Connect the campaigns</h3>
           <p>Google Ads, Meta Ads, organic, and offline stay named on the inquiry.</p>
         </div>
       </li>
       <li>
-        <span class="step-num">2</span>
+        <span class="step-icon" aria-hidden="true"><svg viewBox="0 0 32 32"><rect x="7" y="6" width="18" height="20" rx="2" fill="none" stroke="#0c7ea8" stroke-width="2"/><path d="M11 12h10M11 17h10M11 22h6" fill="none" stroke="#142033" stroke-width="1.8" stroke-linecap="round"/></svg></span>
         <div>
           <h3>Record the inquiry</h3>
           <p>Call, form, or chat, with the parent or guardian, the date, and the campaign.</p>
         </div>
       </li>
       <li>
-        <span class="step-num">3</span>
+        <span class="step-icon" aria-hidden="true"><svg viewBox="0 0 32 32"><circle cx="11" cy="12" r="3.2" fill="none" stroke="#142033" stroke-width="2"/><circle cx="21" cy="12" r="3.2" fill="none" stroke="#0c7ea8" stroke-width="2"/><path d="M6 23c.6-3 2.6-4.5 5-4.5s4.4 1.5 5 4.5M16 23c.5-2.4 2.2-3.8 4.5-3.8 2.2 0 3.8 1.2 4.4 3.4" fill="none" stroke="#142033" stroke-width="1.8" stroke-linecap="round"/></svg></span>
         <div>
           <h3>Match the enrollment</h3>
           <p>The school file adds application, accepted, and enrolled, each on its own date.</p>
         </div>
       </li>
       <li>
-        <span class="step-num">4</span>
+        <span class="step-icon" aria-hidden="true"><svg viewBox="0 0 32 32"><circle cx="16" cy="16" r="9" fill="none" stroke="#0c7ea8" stroke-width="2"/><path d="M16 10.5v11M13.2 13.2c.6-1 1.6-1.5 2.8-1.5 1.8 0 3 1 3 2.4S17.8 16.4 16 16.4s-3.2.9-3.2 2.4 1.3 2.4 3.2 2.4c1.2 0 2.2-.5 2.8-1.4" fill="none" stroke="#142033" stroke-width="1.7" stroke-linecap="round"/></svg></span>
         <div>
           <h3>Read the true cost</h3>
           <p>Spend divided by enrollments tied to a paid campaign. Organic and offline stay in the count and out of that cost.</p>
@@ -154,7 +170,7 @@
 <footer class="site-foot">
   <div class="wrap">
   <a class="brand" href="#goal" aria-label="FullStory by Brandastic">
-    <span class="wordmark"><span class="name">FullStory<span class="dot">.</span></span><span class="by">by Brandastic</span></span>
+    <span class="wordmark"><span class="name">FullStory<span class="dot">.</span></span><span class="line">Enrollment Intelligence</span><span class="by">by Brandastic</span></span>
   </a>
   <nav aria-label="Footer">
     <a href="#preview">Results</a>
