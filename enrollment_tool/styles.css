@@ -95,8 +95,7 @@ a.hero-link:hover { border-color: #0c7ea8; color: #0c7ea8; }
 }
 .lede { max-width: 36rem; margin: 16px 0 22px; font-size: 1.15rem; color: var(--muted); }
 .eyebrow { margin: 0 0 10px; color: var(--cyan); font-size: 1.05rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; }
-.hero-copy .lede { margin: 14px 0 8px; }
-.return-line { margin: 0 0 22px; max-width: 34rem; color: #142033; font-size: 1.05rem; font-weight: 650; line-height: 1.45; }
+.hero-copy .lede { margin: 14px 0 22px; }
 .hero-actions { display: flex; flex-wrap: wrap; gap: 10px 16px; align-items: center; margin: 0; }
 .hero-link { border: 1px solid var(--line); background: #fff; }
 .section-title { margin: 0 0 12px; font-size: clamp(1.8rem, 3vw, 2.35rem); letter-spacing: -0.035em; max-width: 16em; line-height: 1.1; }

@@ -202,7 +202,7 @@ assert.equal(copy.includes("WhatConverts cannot"), false);
 assert.equal(copy.includes("WhatConverts can't"), false);
 assert.equal(copy.includes("WhatConverts does not support"), false);
 assert.match(html, /From Ads to Enrollments\./);
-assert.match(html, /sends those enrollments back to Google/);
+assert.match(html, /We send the data back to Google, so your ads can find more families like the ones who enroll\./);
 assert.match(html, /Teach Google who enrolls/);
 assert.match(html, /No lift is promised/);
 assert.doesNotMatch(html, /guaranteed lift|\d+% more leads/i);
