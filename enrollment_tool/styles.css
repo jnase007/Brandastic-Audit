@@ -85,16 +85,16 @@ a.hero-link:hover { border-color: #0c7ea8; color: #0c7ea8; }
   padding: 48px 0 0;
 }
 .hero-copy { max-width: 560px; }
-.hero h1 {
+.hero-copy h1 {
   margin: 0;
-  max-width: 14ch;
-  font-size: clamp(2.7rem, 4.6vw, 4.15rem);
-  line-height: 0.98;
+  max-width: 11em;
+  font-size: clamp(2.6rem, 5vw, 4.25rem);
+  line-height: 1.05;
   letter-spacing: -0.045em;
   font-weight: 800;
 }
 .lede { max-width: 36rem; margin: 16px 0 22px; font-size: 1.15rem; color: var(--muted); }
-.eyebrow { margin: 0 0 10px; color: var(--cyan); font-size: 0.75rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; }
+.eyebrow { margin: 0 0 10px; color: var(--cyan); font-size: 1.05rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; }
 .hero-copy .lede { margin: 14px 0 8px; }
 .return-line { margin: 0 0 22px; max-width: 34rem; color: #142033; font-size: 1.05rem; font-weight: 650; line-height: 1.45; }
 .hero-actions { display: flex; flex-wrap: wrap; gap: 10px 16px; align-items: center; margin: 0; }
@@ -118,20 +118,20 @@ a.hero-link:hover { border-color: #0c7ea8; color: #0c7ea8; }
 .hero-copy { max-width: 560px; margin-left: 0; padding-left: 0; }
 .problem {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) 400px;
+  grid-template-columns: minmax(0, 1fr) 280px;
   gap: 24px 48px;
   align-items: center;
 }
 .problem .section-title { max-width: 14em; }
 .problem .lede { margin: 0; max-width: 38rem; }
-.seat-board { position: relative; width: 400px; max-width: 100%; color: #142033; text-align: left; margin: 0; justify-self: end; }
-.seat-row { display: grid; grid-template-columns: repeat(5, 1fr); gap: 16px; margin-top: 40px; }
+.seat-board { position: relative; width: 280px; max-width: 100%; color: #142033; text-align: left; margin: 0; justify-self: end; }
+.seat-row { display: grid; grid-template-columns: repeat(5, 1fr); gap: 11px; margin-top: 28px; }
 .seat-row:first-child { margin-top: 0; }
-.seat { height: 44px; border: 3px solid #142033; border-radius: 7px 7px 5px 5px; position: relative; background: transparent; }
-.seat::before { content: ""; position: absolute; left: 10%; right: 10%; top: -20px; height: 18px; border: 3px solid #142033; border-bottom: 0; border-radius: 8px 8px 0 0; background: transparent; }
+.seat { height: 31px; border: 2px solid #142033; border-radius: 5px 5px 4px 4px; position: relative; background: transparent; }
+.seat::before { content: ""; position: absolute; left: 10%; right: 10%; top: -14px; height: 13px; border: 2px solid #142033; border-bottom: 0; border-radius: 6px 6px 0 0; background: transparent; }
 .seat.filled { background: #0c7ea8; border-color: #0c7ea8; }
 .seat.filled::before { background: #0c7ea8; border-color: #0c7ea8; }
-.seat-board p { margin: 18px 0 0; font-size: 1.02rem; font-weight: 700; letter-spacing: 0.01em; color: #142033; }
+.seat-board p { margin: 14px 0 0; font-size: 0.92rem; font-weight: 700; letter-spacing: 0.01em; color: #142033; }
 .loop {
   list-style: none; margin: 4px 0 0; padding: 0;
   display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 28px;
@@ -381,13 +381,15 @@ tbody tr[tabindex]:hover, tbody tr[tabindex]:focus { background: #f7f8fb; }
   .stage-split { grid-template-columns: 1fr; }
   .band { padding-top: 32px; }
   .hero-shell { min-height: 0; display: block; }
+  .hero-copy h1 { font-size: 2.4rem; }
+  .eyebrow { font-size: 1rem; }
   .hero-media, #hero-stage { position: relative; height: 220px; }
   .hero-shade { background: linear-gradient(180deg, rgba(246,244,240,0) 58%, #f6f4f0 100%); }
   .hero-media iframe { width: 100%; height: 56.25vw; min-height: 100%; }
-  .seat-board { width: min(320px, 100%); justify-self: start; margin: 4px 0 0; }
-  .seat { height: 30px; border-width: 2px; }
-  .seat::before { top: -13px; height: 11px; border-width: 2px; }
-  .seat-row { gap: 10px; margin-top: 26px; }
+  .seat-board { width: min(220px, 100%); justify-self: start; margin: 4px 0 0; }
+  .seat { height: 22px; border-width: 2px; }
+  .seat::before { top: -10px; height: 8px; border-width: 2px; }
+  .seat-row { gap: 8px; margin-top: 18px; }
   .seat-board p { margin-top: 12px; font-size: 0.92rem; }
   .problem { grid-template-columns: 1fr; gap: 8px; }
   .loop { grid-template-columns: 1fr; gap: 18px; }
