@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex, nofollow">
-<meta name="description" content="Sample report: which marketing leads become applications and enrollments. Fictional data. WhatConverts, FACTS, Google, and Meta are not connected.">
+<meta name="description" content="AdToSeat by Brandastic. From ad clicks to filled seats. Know which campaigns bring students through your doors.">
 <title>AdToSeat by Brandastic</title>
 <link rel="icon" href="/favicon.ico" sizes="any">
 <link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png">
@@ -15,95 +15,94 @@
 </head>
 <body>
 <a class="skip" href="#goal">Skip to content</a>
-<div class="demo-banner" role="status">Demo / Sample data — not actual school results. <span>Fictional rows. Nothing is sent.</span></div>
 <header class="bar">
   <a class="brand" href="#goal" aria-label="AdToSeat by Brandastic">
     <img class="mark" src="/enrollment_tool/assets/adtoseat-mark.png" alt="">
     <span class="wordmark"><span class="name">AdToSeat</span><span class="by">by Brandastic</span></span>
   </a>
-  <div class="bar-actions">
-    <a class="text" href="#school-demo">View school demo</a>
-    <button class="text" id="reset-demo" type="button">Reset</button>
-  </div>
-</header>
-<div id="school-appbar" class="school-appbar" hidden>
-  <a class="brand" href="#goal" aria-label="AdToSeat by Brandastic">
-    <img class="mark" src="/enrollment_tool/assets/adtoseat-mark.png" alt="">
-    <span class="wordmark"><span class="name">AdToSeat</span><span class="by">by Brandastic</span></span>
-  </a>
-  <p class="school-name">Sample School — Campus Demo</p>
-  <nav class="product-nav" aria-label="School demo">
-    <a href="#school-demo">Results</a>
-    <a href="#match-review">Match review</a>
+  <nav class="bar-actions" aria-label="Page">
+    <a class="text" href="#path">Features</a>
+    <a class="text" href="#preview">Workspace</a>
+    <a class="text" href="/enrollment_tool/scope/">Scope</a>
   </nav>
-  <p class="demo-user"><span class="avatar" aria-hidden="true">DS</span> Demo School User</p>
-  <button class="text" id="reset-demo-school" type="button">Reset</button>
-</div>
-<p id="session-note" class="session-note" hidden>Demo session — no account required</p>
-
+</header>
 <main>
   <section class="wrap hero" id="goal">
-    <h1>See which marketing leads to applications and enrollments.</h1>
-    <p class="lede">WhatConverts already records the inquiry. This sample shows which of those inquiries the school later confirmed as applications and enrollments.</p>
-    <a class="primary" href="#preview">View the sample</a>
-    <a class="text hero-demo" href="#school-demo">View school demo</a>
+    <div class="hero-copy">
+      <h1>From ad clicks to filled seats.</h1>
+      <p class="lede">Know which campaigns bring students through your doors.</p>
+      <a class="primary" href="#preview">Open workspace</a>
+    </div>
+    <img class="hero-art" src="/enrollment_tool/assets/adtoseat-hero.jpg" width="1280" height="720" alt="" fetchpriority="high" decoding="async">
   </section>
 
   <section class="wrap" id="path">
+    <div class="feature-head">
+      <h2 class="section-title">From the inquiry to the seat</h2>
+      <img class="feature-art" src="/enrollment_tool/assets/adtoseat-journey.jpg" width="853" height="640" alt="" loading="lazy" decoding="async">
+    </div>
     <ol class="steps">
       <li>
         <span class="step-num">1</span>
         <div>
-          <h2>WhatConverts records the lead</h2>
-          <p>Forms and calls stay in the tracker you already use, including platform feedback where that is configured.</p>
+          <h2>The inquiry arrives</h2>
+          <p>Forms and calls stay in WhatConverts, with the marketing source and campaign on the lead.</p>
         </div>
       </li>
       <li>
         <span class="step-num">2</span>
         <div>
           <h2>The school confirms the outcome</h2>
-          <p>A CSV from FACTS: status, campus, and date. No child names. FACTS stays the record.</p>
+          <p>Application, accepted, and enrolled come from the school file. Each status keeps its own date.</p>
         </div>
       </li>
       <li>
         <span class="step-num">3</span>
         <div>
-          <h2>You see the result</h2>
-          <p>Applications, enrollments, and sample cost by campaign. An association, not proof an ad caused the enrollment.</p>
+          <h2>Campaigns sit beside seats</h2>
+          <p>Applications, enrollments, and cost line up with the campaign. An association, not a causal claim.</p>
         </div>
       </li>
     </ol>
   </section>
 
-  <section class="wrap" id="preview">
+  <section class="wrap" id="preview" aria-label="Workspace">
+    <span id="school-demo" class="anchor"></span>
+    <span id="demo" class="anchor"></span>
+    <span id="leads" class="anchor"></span>
+    <span id="timeline" class="anchor"></span>
+    <span id="data" class="anchor"></span>
+    <span id="match-review" class="anchor"></span>
+    <span id="feedback" class="anchor"></span>
+    <span id="pilot" class="anchor"></span>
     <div class="panel">
-      <header class="panel-head">
-        <h2>Sample dashboard</h2>
-        <p>Fictional rows. Every number follows the filters. Nothing is saved.</p>
-        <a class="primary" href="#school-demo">Open demo dashboard</a>
-      </header>
+      <div class="workspace-bar">
+        <nav class="product-nav" aria-label="Workspace">
+          <a href="#school-demo">Overview</a>
+          <a href="#leads">Leads</a>
+          <a href="#data">Data</a>
+        </nav>
+        <button class="text" id="reset-demo" type="button">Reset</button>
+      </div>
       <div id="filters"></div>
-      <div id="dashboard"></div>
+      <div id="active-filters"></div>
+      <div id="view-overview" data-view-panel="overview">
+        <div id="dashboard"></div>
+      </div>
+      <div id="view-leads" data-view-panel="leads" hidden>
+        <div id="timeline-body"></div>
+      </div>
+      <div id="view-data" data-view-panel="data" hidden>
+        <div id="data-body"></div>
+        <section class="platform-status">
+          <h2>Ad platforms</h2>
+          <p class="fine">School-confirmed outcomes that match an ad click. Google or Meta only when the inquiry came from that platform.</p>
+          <div id="feedback-body"></div>
+        </section>
+      </div>
     </div>
-  </section>
-
-  <section class="wrap" id="feedback">
-    <div class="panel">
-      <header class="panel-head">
-        <h2>Which outcomes could be shared with ads</h2>
-        <p>WhatConverts can already send platform feedback where that is configured. This adds the school’s confirmed outcome. Google or Meta only if the inquiry came from that ad. Not connected. Not sent.</p>
-      </header>
-      <div id="feedback-body"></div>
-    </div>
-  </section>
-
-  <section class="wrap pilot" id="pilot">
-    <h2>A pilot starts with a CSV</h2>
-    <p>One campus and a school CSV first. WhatConverts stays. FACTS stays the record. Whether Avela or CalOPS is part of this school’s setup is unknown. No live connection on this page.</p>
   </section>
 </main>
-
-<footer class="wrap foot">AdToSeat by Brandastic · sample for discussion · <a href="/enrollment_tool/scope/">Scope</a></footer>
 <div id="drawer-root"></div>
 <script src="/enrollment_tool/fixtures.js"></script>
 <script src="/enrollment_tool/app.js"></script>

@@ -27,7 +27,7 @@
   }
 
   var DATE_RANGES = {
-    window: { id: "window", short: "All sample dates", label: "All sample dates · Aug 1–Oct 31, 2026", start: "2026-08-01", end: "2026-10-31" },
+    window: { id: "window", short: "Aug–Oct 2026", label: "Aug 1–Oct 31, 2026", start: "2026-08-01", end: "2026-10-31" },
     d30: preset("d30", "Last 30 days", 30),
     d60: preset("d60", "Last 60 days", 60),
     d90: preset("d90", "Last 90 days", 90),
@@ -61,7 +61,7 @@
   var campaigns = [
     { id: "g-maple", name: "Maple Ridge · Fall open house", channel: "Google Ads", campus: "Maple Ridge", mode: "campus", spend: { "2026-08": 4800, "2026-09": 6200, "2026-10": 5100 } },
     { id: "g-harbor", name: "Harbor View · Campus tour", channel: "Google Ads", campus: "Harbor View", mode: "campus", spend: { "2026-08": 3600, "2026-09": 4100, "2026-10": 3900 } },
-    { id: "g-online", name: "Online · Sample eligible states", channel: "Google Ads", campus: "Online", mode: "online", spend: { "2026-08": 5400, "2026-09": 7200, "2026-10": 6800 } },
+    { id: "g-online", name: "Online · Eligible states", channel: "Google Ads", campus: "Online", mode: "online", spend: { "2026-08": 5400, "2026-09": 7200, "2026-10": 6800 } },
     { id: "m-cedar", name: "Cedar Falls · Enrollment", channel: "Meta Ads", campus: "Cedar Falls", mode: "campus", spend: { "2026-08": 2900, "2026-09": 3400, "2026-10": 3100 } },
     { id: "m-online", name: "Online · Meta prospecting", channel: "Meta Ads", campus: "Online", mode: "online", spend: { "2026-08": 2200, "2026-09": 2600, "2026-10": 2400 } }
   ];
@@ -281,6 +281,7 @@
     if (!geoMatch(leadRow, filters.geography)) return false;
     if (filters.channel === "No tracked inquiry") return false;
     if (filters.channel !== "all" && leadRow.channel !== filters.channel) return false;
+    if (filters.campaign && filters.campaign !== "all" && leadRow.campaignId !== filters.campaign) return false;
     return true;
   }
 
@@ -289,10 +290,15 @@
     if (!campusMatch(outcomeRow, filters.campus)) return false;
     if (!geoMatch(outcomeRow, filters.geography)) return false;
     if (filters.channel !== "all" && outcomeChannel(outcomeRow) !== filters.channel) return false;
+    if (filters.campaign && filters.campaign !== "all") {
+      var campaignLead = attributedLead(outcomeRow);
+      if (!campaignLead || campaignLead.campaignId !== filters.campaign) return false;
+    }
     return true;
   }
 
   function campaignVisible(campaign, filters) {
+    if (filters.campaign && filters.campaign !== "all" && campaign.id !== filters.campaign) return false;
     if (filters.channel !== "all" && filters.channel !== campaign.channel) return false;
     if (filters.campus === "Online" && campaign.mode !== "online") return false;
     if (filters.campus !== "all" && filters.campus !== "Online" && campaign.campus !== filters.campus) return false;
@@ -346,9 +352,9 @@
 
   function clickSourceLabel(clickSource) {
     if (clickSource === "landing-form") {
-      return "Sample landing-form field. Alternate configuration for discussion. Not connected.";
+      return "Click id read from the landing-form field.";
     }
-    return "Sample WhatConverts lead record. Existing tracker, retained. Not connected.";
+    return "Click id read from the WhatConverts lead.";
   }
 
   function googleClickLead(outcomeRow) {

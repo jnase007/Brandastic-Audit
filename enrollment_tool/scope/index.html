@@ -15,13 +15,12 @@
 </head>
 <body>
 <a class="skip" href="#scope">Skip to content</a>
-<div class="demo-banner" role="status">Demo / Sample data — not actual school results. <span>This page is scope, not a live product.</span></div>
 <header class="bar">
   <a class="brand" href="/enrollment_tool/#goal" aria-label="AdToSeat by Brandastic">
     <img class="mark" src="/enrollment_tool/assets/adtoseat-mark.png" alt="">
     <span class="wordmark"><span class="name">AdToSeat</span><span class="by">by Brandastic</span></span>
   </a>
-  <a class="text" href="/enrollment_tool/#preview">Sample</a>
+  <a class="text" href="/enrollment_tool/#preview">Demo</a>
 </header>
 <main class="wrap scope" id="scope">
   <p class="kicker">Scope · proposed first version</p>
@@ -30,19 +29,21 @@
 
   <section class="panel">
     <h2>Working in the sample</h2>
-    <p>The <a href="/enrollment_tool/#goal">sample dashboard</a> is a fictional preview. Filters, charts, and the status list use built-in rows. Nothing is imported, nothing is matched to a real file, and nothing is sent to Google or Meta.</p>
-    <p>The sample chart counts inquiry, application, and enrolled. Accepted is not its own bar there.</p>
+    <p>The <a href="/enrollment_tool/#goal">sample dashboard</a> is a fictional preview with three views: Overview, Leads, and Data. Filters, charts, and the status list use built-in rows. Nothing is imported, nothing is matched to a real file, and nothing is sent to Google or Meta.</p>
+    <p>The sample chart counts inquiry, application, and enrolled. Accepted is not its own bar there. A lead counts on the inquiry date. An application or enrollment counts on the school status date. An older inquiry can sit behind an enrollment in a later window. The sample does not turn that pair into a conversion rate.</p>
+    <p>The <a href="/enrollment_tool/#leads">sample timeline</a> is the Leads view: a fictional feed of arrival day, contact method, and marketing source. Qualified, unqualified, and unknown stay separate from inquiry, application, accepted, and enrolled. The sample includes form and call only. It is not a WhatConverts timeline, a contact center, or the school’s admissions system.</p>
   </section>
 
   <section class="panel">
     <h2>Proposed first version</h2>
-    <p>Not built. A first version would do these five things. CSV export is the honest starting point. An API is not assumed to be available.</p>
+    <p>Not built. A first version would do the following. CSV export is the honest starting point. An API is not assumed to be available.</p>
     <ol class="scope-list">
       <li>Import leads from WhatConverts and school application and enrollment outcomes from CSV exports. A live API is not part of this version. What a real export contains has to be checked before the import is trusted.</li>
       <li>Match records with a confidence indicator. Uncertain and unmatched rows wait in a review queue. The product does not guess a confirmation.</li>
       <li>Show distinct stages: inquiry, application, accepted, and enrolled, using statuses the school confirmed.</li>
       <li>Report confirmed enrollments and cost per enrollment by channel, campaign, and campus when those fields are actually in the file.</li>
       <li>Flag missing data and CSV problems so an incomplete row is not presented as a trustworthy outcome.</li>
+      <li>Show a basic timeline of when leads arrived, whether quality is qualified, unqualified, or unknown, and the later school status on its own date. Not a copy of another product’s timeline.</li>
     </ol>
   </section>
 
@@ -88,6 +89,6 @@
     <p>A verified integration would be a later decision, after a CSV version shows whether the match is good enough. This page does not say that integration is ready.</p>
   </section>
 </main>
-<footer class="wrap foot">AdToSeat by Brandastic · scope for discussion · <a href="/enrollment_tool/#goal">Sample</a></footer>
+<footer class="wrap foot"><a href="/enrollment_tool/#preview">Back to AdToSeat</a></footer>
 </body>
 </html>
