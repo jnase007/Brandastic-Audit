@@ -95,7 +95,8 @@ a.hero-link:hover { border-color: #0c7ea8; color: #0c7ea8; }
 }
 .lede { max-width: 36rem; margin: 16px 0 22px; font-size: 1.15rem; color: var(--muted); }
 .eyebrow { margin: 0 0 10px; color: var(--cyan); font-size: 0.75rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; }
-.hero-copy .lede { margin: 16px 0 26px; }
+.hero-copy .lede { margin: 14px 0 8px; }
+.return-line { margin: 0 0 22px; max-width: 34rem; color: #142033; font-size: 1.05rem; font-weight: 650; line-height: 1.45; }
 .hero-actions { display: flex; flex-wrap: wrap; gap: 10px 16px; align-items: center; margin: 0; }
 .hero-link { border: 1px solid var(--line); background: #fff; }
 .section-title { margin: 0 0 12px; font-size: clamp(1.8rem, 3vw, 2.35rem); letter-spacing: -0.035em; max-width: 16em; line-height: 1.1; }
@@ -131,6 +132,22 @@ a.hero-link:hover { border-color: #0c7ea8; color: #0c7ea8; }
 .seat.filled { background: #0c7ea8; border-color: #0c7ea8; }
 .seat.filled::before { background: #0c7ea8; border-color: #0c7ea8; }
 .seat-board p { margin: 18px 0 0; font-size: 1.02rem; font-weight: 700; letter-spacing: 0.01em; color: #142033; }
+.loop {
+  list-style: none; margin: 4px 0 0; padding: 0;
+  display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 28px;
+}
+.loop li {
+  position: relative; background: #fff; border: 1px solid var(--line); border-radius: 16px;
+  padding: 14px 14px 16px; box-shadow: var(--shadow); min-height: 112px;
+}
+.loop strong { display: block; margin: 0 0 6px; font-size: 1.02rem; letter-spacing: -0.02em; color: #142033; }
+.loop span { display: block; color: var(--muted); font-size: 0.9rem; line-height: 1.35; }
+.loop li:not(:last-child)::after {
+  content: ""; position: absolute; right: -18px; top: calc(50% - 5px);
+  width: 8px; height: 8px; border: solid #0c7ea8; border-width: 0 2px 2px 0; transform: rotate(-45deg);
+}
+.loop li.back { box-shadow: var(--shadow), inset 0 3px 0 #0c7ea8; }
+.loop li.better { background: #f3fafc; border-color: #c5e4ee; }
 .band > .lede { margin-top: 0; margin-bottom: 20px; }
 .benefit-grid, .source-list { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
 .source-list { grid-template-columns: repeat(4, 1fr); list-style: none; margin: 0; padding: 0; }
@@ -373,6 +390,9 @@ tbody tr[tabindex]:hover, tbody tr[tabindex]:focus { background: #f7f8fb; }
   .seat-row { gap: 10px; margin-top: 26px; }
   .seat-board p { margin-top: 12px; font-size: 0.92rem; }
   .problem { grid-template-columns: 1fr; gap: 8px; }
+  .loop { grid-template-columns: 1fr; gap: 18px; }
+  .loop li { min-height: 0; }
+  .loop li:not(:last-child)::after { right: auto; left: 18px; top: auto; bottom: -14px; transform: rotate(45deg); }
   .hero-grid { padding: 18px 0 0; }
   .site-header .bar { min-height: 0; padding: 12px 0 8px; align-items: center; }
   .site-header .wordmark .name { font-size: 1.65rem; }
