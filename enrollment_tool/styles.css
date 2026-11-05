@@ -525,23 +525,23 @@ tbody tr[tabindex]:hover, tbody tr[tabindex]:focus { background: #f7f8fb; }
 .chip-scene {
   position: relative;
   width: min(980px, 100%);
-  height: 540px;
+  height: 640px;
   perspective: 900px;
 }
 .plate {
   position: absolute;
   left: 50%;
   top: 48%;
-  width: 200px;
-  height: 200px;
-  margin: -100px 0 0 -100px;
-  border-radius: 16px;
+  width: 280px;
+  height: 280px;
+  margin: -140px 0 0 -140px;
+  border-radius: 18px;
   border: 1px solid rgba(255, 255, 255, 0.45);
   background:
     linear-gradient(160deg, rgba(255, 255, 255, 0.45), transparent 40%),
     var(--glass);
-  box-shadow: 0 16px 28px rgba(0, 0, 0, 0.28), inset 0 0 0 1px rgba(255, 255, 255, 0.18);
-  transform: translateY(calc((var(--i) - 2) * var(--spread) * -40px)) rotateX(55deg) rotateZ(-45deg);
+  box-shadow: 0 18px 32px rgba(0, 0, 0, 0.28), inset 0 0 0 1px rgba(255, 255, 255, 0.18);
+  transform: translateY(calc((var(--i) - 2) * var(--spread) * -56px)) rotateX(55deg) rotateZ(-45deg);
   opacity: 0.82;
   z-index: calc(var(--i) + 1);
   transition: transform 420ms ease, opacity 420ms ease, filter 420ms ease;
@@ -549,8 +549,8 @@ tbody tr[tabindex]:hover, tbody tr[tabindex]:focus { background: #f7f8fb; }
 .plate::after {
   content: "";
   position: absolute;
-  inset: 12px;
-  border-radius: 10px;
+  inset: 16px;
+  border-radius: 12px;
   border: 1px solid rgba(255, 255, 255, 0.22);
   background: linear-gradient(180deg, rgba(255, 255, 255, 0.22), transparent 48%);
 }
@@ -563,13 +563,13 @@ tbody tr[tabindex]:hover, tbody tr[tabindex]:focus { background: #f7f8fb; }
   opacity: 1;
   z-index: 8;
   filter: drop-shadow(0 0 16px rgba(160, 220, 255, 0.55));
-  transform: translateY(calc((var(--i) - 2) * var(--spread) * -54px - 18px)) rotateX(55deg) rotateZ(-45deg) scale(1.06);
+  transform: translateY(calc((var(--i) - 2) * var(--spread) * -76px - 25px)) rotateX(55deg) rotateZ(-45deg) scale(1.06);
 }
 .plate.is-dim { opacity: 0.24; }
 .callouts { position: absolute; inset: 0; pointer-events: none; }
 .callout {
   position: absolute;
-  top: calc(42% + (var(--i) - 2) * var(--spread) * -36px);
+  top: calc(42% + (var(--i) - 2) * var(--spread) * -50px);
   width: 250px;
   opacity: 0;
   transform: translateY(12px);
