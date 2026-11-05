@@ -478,7 +478,10 @@ tbody tr[tabindex]:hover, tbody tr[tabindex]:focus { background: #f7f8fb; }
 .form-error { color: #8d2b2b; font-weight: 650; }
 .mail-link { margin: 12px 0 0; }
 .mail-link a { color: #0c7ea8; font-weight: 650; }
-.hp { position: absolute; left: -9999px; }
+.sheet.wide { width: min(820px, calc(100% - 28px)); }
+.sheet .panel { margin-top: 14px; }
+.sheet .panel h2 { margin: 0 0 8px; font-size: 1.12rem; }
+.sheet .scope > h2 { margin: 8px 0; font-size: 1.6rem; letter-spacing: -0.03em; }
 @media (max-width: 800px) {
   .demo-grid { grid-template-columns: 1fr; }
   .sheet { width: min(820px, calc(100% - 24px)); }

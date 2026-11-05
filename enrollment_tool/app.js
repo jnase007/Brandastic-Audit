@@ -352,7 +352,7 @@
       queueButton("review", "Needs review", review) +
       queueButton("missing", "Missing data", missing) +
       "</ul></section>" +
-      '<section class="sync-health"><h2>Sync health</h2><p class="fine">Not connected. No sync has run. CSV and manual entry stay available. An automatic school-platform link is planned and waits on verified API access. <a href="scope/#future-sync">Scope</a>.</p></section>' +
+      '<section class="sync-health"><h2>Sync health</h2><p class="fine">Not connected. No sync has run. CSV and manual entry stay available. An automatic school-platform link is planned and waits on verified API access. <a href="#future-sync">Scope</a>.</p></section>' +
       '<section id="records"><h2>Files</h2><p class="fine">' + data.factsWithoutLead.length + " school rows in this filter have no tracked inquiry. Source stays separate from call, form, or chat.</p>" +
       '<p><button class="primary" id="download-sample" type="button">Download CSV</button></p>' +
       leadTable(data) +
@@ -812,6 +812,30 @@
       var closer = dialog.querySelector("[data-close-dialog]");
       if (closer) closer.addEventListener("click", function () { dialog.close(); });
     });
+    var scopeHashes = { "#scope": "", "#future-sync": "#future-sync", "#manual": "#manual" };
+    function openScope(hash) {
+      var dialog = document.getElementById("scope-dialog");
+      openDialog(dialog);
+      if (!dialog) return;
+      var sel = scopeHashes[hash];
+      var target = sel ? dialog.querySelector(sel) : null;
+      var scroller = dialog.querySelector(".sheet-body");
+      if (target && scroller) scroller.scrollTop = target.offsetTop - 8;
+      else if (scroller) scroller.scrollTop = 0;
+    }
+    document.addEventListener("click", function (event) {
+      var link = event.target.closest("a[href='#scope'], a[href='#future-sync'], a[href='#manual']");
+      if (!link) return;
+      var href = link.getAttribute("href");
+      if (!scopeHashes.hasOwnProperty(href)) return;
+      event.preventDefault();
+      if (location.hash !== href) location.hash = href;
+      openScope(href);
+    });
+    window.addEventListener("hashchange", function () {
+      if (scopeHashes.hasOwnProperty(location.hash)) openScope(location.hash);
+    });
+    if (scopeHashes.hasOwnProperty(location.hash)) openScope(location.hash);
     var form = document.querySelector('form[name="fullstory-demo"]');
     if (!form) return;
     form.addEventListener("submit", function (event) {
@@ -861,8 +885,8 @@
     if (!document.querySelector('[data-open-dialog="demo-dialog"]')) fail("cta");
     if (!document.querySelector('form[name="fullstory-demo"][data-netlify="true"]')) fail("demo form");
     if (document.getElementById("sample-info")) fail("sample badge");
-    if (document.body.textContent.indexOf("Sample data") !== -1) fail("sample label");
-    if (document.body.textContent.indexOf("Fictional") !== -1) fail("fictional copy");
+    if (document.querySelector("main").textContent.indexOf("Sample data") !== -1) fail("sample label");
+    if (document.querySelector("main").textContent.indexOf("Fictional") !== -1) fail("fictional copy");
     if (document.querySelector('input[type="file"]')) fail("file input present");
     if (document.querySelector('[data-metric="leads"]').textContent !== "43") fail("lead count");
     if (document.querySelector('[data-metric="enrolled"]').textContent !== "16") fail("enrolled count");

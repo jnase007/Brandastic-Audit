@@ -29,7 +29,7 @@
         <a class="text" href="#path">How it works</a>
         <a class="text" href="#features">Features</a>
         <a class="text" href="#preview">Results</a>
-        <a class="text" href="scope/">Scope</a>
+        <a class="text" href="#scope">Scope</a>
       </nav>
       <button class="primary nav-cta" type="button" data-open-dialog="demo-dialog">Book a demo</button>
     </div>
@@ -196,7 +196,7 @@
   </a>
   <nav aria-label="Footer">
     <a href="#preview">Results</a>
-    <a href="scope/">Scope</a>
+    <a href="#scope">Scope</a>
   </nav>
   <p>From ads to enrollments. For private schools and universities.</p>
   </div>
@@ -233,6 +233,75 @@
       <p class="mail-link"><a href="https://brandastic.com/contact/" target="_blank" rel="noopener">Prefer email? Contact Brandastic</a></p>
     </form>
     <p class="form-thanks" id="demo-thanks" hidden>Thanks, the Brandastic team will reach out within one business day</p>
+  </div>
+</dialog>
+<dialog class="sheet wide" id="scope-dialog" aria-labelledby="scope-title">
+  <div class="sheet-bar">
+    <h2 id="scope-title">Scope</h2>
+    <button class="text sheet-close" type="button" data-close-dialog>Close</button>
+  </div>
+  <div class="sheet-body scope">
+    <p class="kicker">Scope · proposed first version</p>
+    <h2>FullStory shows the path from an ad to an enrolled student.</h2>
+    <p class="lede">WhatConverts stays the lead-tracking foundation. FullStory connects those inquiries to school outcomes. It is not a CRM and it does not replace WhatConverts. FullStory is a provisional name for this preview.</p>
+    <section class="panel">
+      <h2>Working in the sample</h2>
+      <p>The <a href="#goal">sample dashboard</a> is a preview with three views: Overview, Leads, and Data. Filters, charts, and the status list use built-in rows. Nothing is imported, nothing is matched to a real file, and nothing is sent to Google or Meta.</p>
+      <p>The sample chart counts inquiry, application, and enrolled. Accepted is not its own bar there. A lead counts on the inquiry date. An application or enrollment counts on the school status date. An older inquiry can sit behind an enrollment in a later window. The sample does not turn that pair into a conversion rate.</p>
+      <p>The <a href="#leads">sample timeline</a> is the Leads view: a feed of arrival day, guardian contact, contact method, and marketing source. Qualified, unqualified, and unknown stay separate from inquiry, application, accepted, and enrolled. Methods in the file are form, call, and chat. It is not a WhatConverts timeline, a contact center, or the school’s admissions system.</p>
+    </section>
+    <section class="panel">
+      <h2>Proposed first version</h2>
+      <p>Not built. A first version would do the following. CSV export is the honest starting point. An API is not assumed to be available.</p>
+      <ol class="scope-list">
+        <li>Import leads from WhatConverts and school application and enrollment outcomes from CSV exports. A live API is not part of this version. What a real export contains has to be checked before the import is trusted.</li>
+        <li>Match records with a confidence indicator. Uncertain and unmatched rows wait in a review queue. The product does not guess a confirmation.</li>
+        <li>Show distinct stages: inquiry, application, accepted, and enrolled, using statuses the school confirmed.</li>
+        <li>Report confirmed enrollments and cost per enrollment by channel, campaign, and campus when those fields are actually in the file.</li>
+        <li>Flag missing data and CSV problems so an incomplete row is not presented as a trustworthy outcome.</li>
+        <li>Show a basic timeline of when leads arrived, whether quality is qualified, unqualified, or unknown, and the later school status on its own date. Not a copy of another product’s timeline.</li>
+        <li>Send school-confirmed outcomes (inquiry qualified, application, enrolled) back to Google Ads as offline conversions / enhanced conversions for leads (matched via GCLID and hashed email/phone, consent-aware). Meta Conversions API is a later phase. No performance lift is guaranteed.</li>
+        <li>MVP path: CSV upload of enrollments, matched to attributed inquiries, then a scheduled upload to Google Ads. Later, the same outcomes can move automatically via FACTS (Heart) / Avela (CalOPS) sync, subject to API access verification.</li>
+      </ol>
+    </section>
+    <section class="panel">
+      <h2>How a school would use it</h2>
+      <p>Bring in outcomes from a CSV, or add a lead by hand when a file is not available. Review uncertain matches. View results. Brandastic manages the technical setup.</p>
+    </section>
+    <section class="panel" id="manual">
+      <h2>Manual entry, beside the CSV</h2>
+      <p>Not built. A school needs a way to record a lead when its software does not do that automatically. Manual entry sits next to the CSV import. It is not a second admissions system, and this page does not store a real student.</p>
+      <ol class="scope-list">
+        <li>Add a lead.</li>
+        <li>Search for an existing inquiry and link to it, so the same family is not entered twice.</li>
+        <li>Update application, accepted, or enrolled by hand. Enrolled stays a different status from an accepted offer.</li>
+        <li>Record who made the change and when.</li>
+        <li>Require a confirmation before an enrollment is treated as confirmed.</li>
+        <li>Mark a source typed by a person as manually recorded. Mark a source that arrived from WhatConverts as tracked. If the source is not known, store Unknown. Do not invent one.</li>
+      </ol>
+    </section>
+    <section class="panel" id="future-sync">
+      <h2>Later: automatic updates from the school platform</h2>
+      <p>Planned. Subject to verified API access, permissions, and platform capabilities. This is not a supported integration and it is not live.</p>
+      <p>The aim is a secure connection the school authorizes, so application and enrollment outcomes can update without uploading the same CSV again. CSV import and manual entry stay available when a connection is not possible.</p>
+      <ul class="scope-list">
+        <li>Show whether the connection is working.</li>
+        <li>Show the last successful update.</li>
+        <li>Show a failure in plain language, with a way to retry.</li>
+      </ul>
+      <p>The first platforms to evaluate are FACTS for Heart and Avela for CalOPS. This page does not say those connections exist, or that either school has turned them on. If that access is verified, the sync can take the place of the CSV step in the Google Ads upload. Until then, the upload stays on the CSV path.</p>
+      <p>How often data would move, including whether that could ever be real-time or by webhook, is not decided until access is verified. Confirmed enrollment stays distinct from an accepted offer.</p>
+    </section>
+    <section class="panel">
+      <h2>Not in this version</h2>
+      <ul class="scope-list">
+        <li>No live WhatConverts, FACTS, Avela, or CalOPS connection. FACTS stays the admissions record. Avela and CalOPS setup is unknown.</li>
+        <li>No Meta Conversions API in this version. That return is a later phase.</li>
+        <li>No ROI calculator. That stays in Google Sheets.</li>
+        <li>No student names or private records on this page.</li>
+      </ul>
+      <p>A verified integration would be a later decision, after a CSV version shows whether the match is good enough. This page does not say that integration is ready.</p>
+    </section>
   </div>
 </dialog>
 <script src="fixtures.js"></script>

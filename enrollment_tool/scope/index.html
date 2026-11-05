@@ -43,6 +43,8 @@
       <li>Report confirmed enrollments and cost per enrollment by channel, campaign, and campus when those fields are actually in the file.</li>
       <li>Flag missing data and CSV problems so an incomplete row is not presented as a trustworthy outcome.</li>
       <li>Show a basic timeline of when leads arrived, whether quality is qualified, unqualified, or unknown, and the later school status on its own date. Not a copy of another product’s timeline.</li>
+      <li>Send school-confirmed outcomes (inquiry qualified, application, enrolled) back to Google Ads as offline conversions / enhanced conversions for leads (matched via GCLID and hashed email/phone, consent-aware). Meta Conversions API is a later phase. No performance lift is guaranteed.</li>
+      <li>MVP path: CSV upload of enrollments, matched to attributed inquiries, then a scheduled upload to Google Ads. Later, the same outcomes can move automatically via FACTS (Heart) / Avela (CalOPS) sync, subject to API access verification.</li>
     </ol>
   </section>
 
@@ -73,7 +75,7 @@
       <li>Show the last successful update.</li>
       <li>Show a failure in plain language, with a way to retry.</li>
     </ul>
-    <p>The first platforms to evaluate are FACTS for Heart and Avela for CalOPS. This page does not say those connections exist, or that either school has turned them on.</p>
+    <p>The first platforms to evaluate are FACTS for Heart and Avela for CalOPS. This page does not say those connections exist, or that either school has turned them on. If that access is verified, the sync can take the place of the CSV step in the Google Ads upload. Until then, the upload stays on the CSV path.</p>
     <p>How often data would move, including whether that could ever be real-time or by webhook, is not decided until access is verified. Confirmed enrollment stays distinct from an accepted offer.</p>
   </section>
 
@@ -81,7 +83,7 @@
     <h2>Not in this version</h2>
     <ul class="scope-list">
       <li>No live WhatConverts, FACTS, Avela, or CalOPS connection. FACTS stays the admissions record. Avela and CalOPS setup is unknown.</li>
-      <li>No conversion sends to Google or Meta.</li>
+      <li>No Meta Conversions API in this version. That return is a later phase.</li>
       <li>No ROI calculator. That stays in Google Sheets.</li>
       <li>No student names or private records on this page.</li>
     </ul>
