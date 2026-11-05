@@ -751,6 +751,7 @@
   setupNav();
   setupDialogs();
   setupStack();
+  setupTilt();
 
   function setupNav() {
     var header = document.querySelector(".site-header");
@@ -939,6 +940,25 @@
     if (reduce.addEventListener) reduce.addEventListener("change", frame);
     if (narrow.addEventListener) narrow.addEventListener("change", frame);
     frame();
+  }
+
+  function setupTilt() {
+    var reduce = window.matchMedia("(prefers-reduced-motion: reduce)");
+    var fine = window.matchMedia("(hover: hover) and (pointer: fine)");
+    var cards = document.querySelectorAll(".benefit-grid article, .steps li");
+    if (!fine.matches || reduce.matches) return;
+    cards.forEach(function (card) {
+      card.addEventListener("pointermove", function (event) {
+        if (event.pointerType && event.pointerType !== "mouse") return;
+        var box = card.getBoundingClientRect();
+        var x = (event.clientX - box.left) / box.width - 0.5;
+        var y = (event.clientY - box.top) / box.height - 0.5;
+        var tiltY = Math.max(-4, Math.min(4, x * 8));
+        var tiltX = Math.max(-4, Math.min(4, -y * 8));
+        card.style.transform = "perspective(800px) rotateX(" + tiltX.toFixed(2) + "deg) rotateY(" + tiltY.toFixed(2) + "deg)";
+      });
+      card.addEventListener("pointerleave", function () { card.style.transform = ""; });
+    });
   }
 
   if (new URLSearchParams(location.search).get("selftest") === "1") runSelfTest();

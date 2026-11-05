@@ -694,6 +694,7 @@ tbody tr[tabindex]:hover, tbody tr[tabindex]:focus { background: #f7f8fb; }
     transform: translateX(130%);
     transition: transform 720ms ease;
   }
+  .benefit-grid article, .steps li { transition: transform 90ms ease-out; }
 }
 @media (prefers-reduced-motion: reduce) {
   .intel { height: auto; }
