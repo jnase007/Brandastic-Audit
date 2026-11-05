@@ -206,7 +206,9 @@ assert.match(html, /Most schools aren't filling all their seats, and that's wher
 assert.match(html, /follows every family from the ad to the inquiry to the enrolled student/);
 assert.match(html, /We send the data back to Google, so your ads can find more families like the ones who enroll\./);
 assert.match(html, /Teach Google who enrolls/);
-assert.match(html, /No lift is promised/);
+assert.match(html, /Meta comes next\./);
+assert.doesNotMatch(html, /No lift is promised/);
+assert.doesNotMatch(html, /No performance lift is guaranteed/);
 assert.doesNotMatch(html, /guaranteed lift|\d+% more leads/i);
 assert.match(html, /True cost per enrollment varies by school and market/);
 assert.doesNotMatch(html, /data-hero-cpe/);
