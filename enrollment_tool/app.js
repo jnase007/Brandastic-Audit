@@ -748,6 +748,35 @@
 
   window.addEventListener("hashchange", applyHash);
   render();
+  setupNav();
+
+  function setupNav() {
+    var header = document.querySelector(".site-header");
+    var toggle = document.querySelector(".nav-toggle");
+    var panel = document.getElementById("site-nav");
+    if (!header || !toggle || !panel) return;
+    var mq = window.matchMedia("(max-width: 860px)");
+    function setOpen(open) {
+      var mobile = mq.matches;
+      var shown = mobile ? open : true;
+      header.classList.toggle("is-open", mobile && open);
+      toggle.setAttribute("aria-expanded", mobile && open ? "true" : "false");
+      toggle.setAttribute("aria-label", mobile && open ? "Close menu" : "Open menu");
+      panel.setAttribute("aria-hidden", shown ? "false" : "true");
+      panel.inert = !shown;
+    }
+    toggle.addEventListener("click", function () {
+      setOpen(toggle.getAttribute("aria-expanded") !== "true");
+    });
+    panel.addEventListener("click", function (event) {
+      if (event.target.closest("a")) setOpen(false);
+    });
+    document.addEventListener("keydown", function (event) {
+      if (event.key === "Escape") setOpen(false);
+    });
+    if (mq.addEventListener) mq.addEventListener("change", function () { setOpen(false); });
+    setOpen(false);
+  }
 
   if (new URLSearchParams(location.search).get("selftest") === "1") runSelfTest();
 
