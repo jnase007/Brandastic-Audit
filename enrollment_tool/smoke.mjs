@@ -206,6 +206,13 @@ assert.match(scope, /inquiry, application, accepted, and enrolled/);
 assert.match(scope, /No ROI calculator/);
 assert.match(scope, /A live API is not part of this version/);
 assert.match(scope, /does not say that integration is ready/);
+assert.match(scope, /Manual entry, beside the CSV/);
+assert.match(scope, /store Unknown/);
+assert.match(scope, /Later: automatic updates from the school platform/);
+assert.match(scope, /Subject to verified API access, permissions, and platform capabilities/);
+assert.match(scope, /FACTS for Heart and Avela for CalOPS/);
+assert.match(scope, /not a supported integration and it is not live/);
+assert.match(scope, /is not decided until access is verified/);
 assert.equal(/roi calculator/i.test(html + app), false);
 assert.equal(JSON.stringify({ inquiries: demo.inquiries, outcomes: demo.outcomes }).includes("aiScore"), false);
 

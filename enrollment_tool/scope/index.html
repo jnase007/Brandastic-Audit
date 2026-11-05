@@ -48,7 +48,33 @@
 
   <section class="panel">
     <h2>How a school would use it</h2>
-    <p>Import outcomes. Review uncertain matches. View results. Brandastic manages the technical setup.</p>
+    <p>Bring in outcomes from a CSV, or add a lead by hand when a file is not available. Review uncertain matches. View results. Brandastic manages the technical setup.</p>
+  </section>
+
+  <section class="panel" id="manual">
+    <h2>Manual entry, beside the CSV</h2>
+    <p>Not built. A school needs a way to record a lead when its software does not do that automatically. Manual entry sits next to the CSV import. It is not a second admissions system, and this page does not store a real student.</p>
+    <ol class="scope-list">
+      <li>Add a lead.</li>
+      <li>Search for an existing inquiry and link to it, so the same family is not entered twice.</li>
+      <li>Update application, accepted, or enrolled by hand. Enrolled stays a different status from an accepted offer.</li>
+      <li>Record who made the change and when.</li>
+      <li>Require a confirmation before an enrollment is treated as confirmed.</li>
+      <li>Mark a source typed by a person as manually recorded. Mark a source that arrived from WhatConverts as tracked. If the source is not known, store Unknown. Do not invent one.</li>
+    </ol>
+  </section>
+
+  <section class="panel" id="future-sync">
+    <h2>Later: automatic updates from the school platform</h2>
+    <p>Planned. Subject to verified API access, permissions, and platform capabilities. This is not a supported integration and it is not live.</p>
+    <p>The aim is a secure connection the school authorizes, so application and enrollment outcomes can update without uploading the same CSV again. CSV import and manual entry stay available when a connection is not possible.</p>
+    <ul class="scope-list">
+      <li>Show whether the connection is working.</li>
+      <li>Show the last successful update.</li>
+      <li>Show a failure in plain language, with a way to retry.</li>
+    </ul>
+    <p>The first platforms to evaluate are FACTS for Heart and Avela for CalOPS. This page does not say those connections exist, or that either school has turned them on.</p>
+    <p>How often data would move, including whether that could ever be real-time or by webhook, is not decided until access is verified. Confirmed enrollment stays distinct from an accepted offer.</p>
   </section>
 
   <section class="panel">
