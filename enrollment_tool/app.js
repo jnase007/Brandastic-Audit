@@ -752,6 +752,7 @@
   setupDialogs();
   setupStack();
   setupTilt();
+  setupSpotlight();
 
   function setupNav() {
     var header = document.querySelector(".site-header");
@@ -957,7 +958,26 @@
         var tiltX = Math.max(-4, Math.min(4, -y * 8));
         card.style.transform = "perspective(800px) rotateX(" + tiltX.toFixed(2) + "deg) rotateY(" + tiltY.toFixed(2) + "deg)";
       });
-      card.addEventListener("pointerleave", function () { card.style.transform = ""; });
+    card.addEventListener("pointerleave", function () { card.style.transform = ""; });
+  });
+  }
+
+  function setupSpotlight() {
+    var reduce = window.matchMedia("(prefers-reduced-motion: reduce)");
+    var fine = window.matchMedia("(hover: hover) and (pointer: fine)");
+    if (!fine.matches || reduce.matches) return;
+    var glow = document.createElement("div");
+    glow.className = "cursor-glow";
+    glow.setAttribute("aria-hidden", "true");
+    document.body.appendChild(glow);
+    document.addEventListener("pointermove", function (event) {
+      if (event.pointerType && event.pointerType !== "mouse") {
+        glow.style.opacity = "0";
+        return;
+      }
+      var blocked = event.target.closest && event.target.closest("#stack, .hero-shell");
+      glow.style.opacity = blocked ? "0" : "1";
+      glow.style.transform = "translate3d(" + event.clientX + "px," + event.clientY + "px,0)";
     });
   }
 

@@ -695,6 +695,18 @@ tbody tr[tabindex]:hover, tbody tr[tabindex]:focus { background: #f7f8fb; }
     transition: transform 720ms ease;
   }
   .benefit-grid article, .steps li { transition: transform 90ms ease-out; }
+  .cursor-glow {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 340px;
+    height: 340px;
+    margin: -170px 0 0 -170px;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 3;
+    background: radial-gradient(circle, rgba(12, 126, 168, 0.14), rgba(12, 126, 168, 0) 68%);
+  }
 }
 @media (prefers-reduced-motion: reduce) {
   .intel { height: auto; }
@@ -709,5 +721,6 @@ tbody tr[tabindex]:hover, tbody tr[tabindex]:focus { background: #f7f8fb; }
   .leader, .leader-svg { display: none; }
   a.primary::before, button.primary::before, a.hero-link::before,
   .benefit-grid article::before, .steps li::before, .source-list li::before { display: none; }
+  .cursor-glow { display: none; }
   * { scroll-behavior: auto !important; animation: none !important; }
 }
