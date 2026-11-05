@@ -71,7 +71,7 @@ a.hero-link {
   border-radius: 10px; padding: 12px 18px; min-height: 44px; font-weight: 700;
 }
 a.hero-link:hover { border-color: #0c7ea8; color: #0c7ea8; }
-.site-header { position: sticky; top: 0; z-index: 30; background: rgba(246, 244, 240, 0.94); backdrop-filter: blur(10px); border-bottom: 1px solid rgba(20, 32, 51, 0.06); }
+.site-header { position: sticky; top: 0; z-index: 30; background: rgba(255, 255, 255, 0.62); backdrop-filter: blur(16px) saturate(1.2); -webkit-backdrop-filter: blur(16px) saturate(1.2); border-bottom: 1px solid rgba(255, 255, 255, 0.75); box-shadow: 0 8px 24px rgba(12, 126, 168, 0.06); }
 .hero h1, .section-title { font-weight: 800; letter-spacing: -0.04em; }
 .nav-cta { margin-left: 8px; }
 .nav-toggle { display: none; }
@@ -160,7 +160,7 @@ a.hero-link:hover { border-color: #0c7ea8; color: #0c7ea8; }
 .source-list span { margin-top: 6px; }
 .step-num { margin-bottom: 12px; }
 .source-lede { margin-top: 0; }
-.site-foot { border-top: 1px solid var(--line); margin-top: 40px; }
+.site-foot { border-top: 1px solid rgba(255, 255, 255, 0.8); margin-top: 40px; background: rgba(255, 255, 255, 0.48); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); }
 .site-foot .wrap {
   display: flex; align-items: center; gap: 18px; flex-wrap: wrap;
   padding: 28px 0 40px; color: var(--faint); font-size: 0.92rem;
@@ -439,7 +439,7 @@ tbody tr[tabindex]:hover, tbody tr[tabindex]:focus { background: #f7f8fb; }
     display: flex; flex-direction: column; align-items: stretch;
     position: absolute; left: 0; right: 0; top: 100%; z-index: 40;
     margin: 0; padding: 8px 24px 16px; gap: 4px;
-    background: #f6f4f0; border-bottom: 1px solid rgba(20, 32, 51, 0.08);
+    background: rgba(246, 244, 240, 0.78); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border-bottom: 1px solid rgba(255, 255, 255, 0.7);
     box-shadow: 0 12px 24px rgba(20, 32, 51, 0.06);
     opacity: 0; visibility: hidden; transform: translateY(-6px); pointer-events: none;
     transition: opacity 160ms ease, transform 160ms ease, visibility 160ms ease;
