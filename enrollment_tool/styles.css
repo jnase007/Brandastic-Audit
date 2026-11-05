@@ -105,9 +105,8 @@ a.hero-link:hover { border-color: #0c7ea8; color: #0c7ea8; background: rgba(255,
 .hero-copy .lede { margin: 14px 0 22px; }
 .hero-actions { display: flex; flex-wrap: wrap; gap: 10px 16px; align-items: center; margin: 0; }
 .hero-link { border: 1px solid rgba(12, 126, 168, 0.35); background: rgba(255, 255, 255, 0.55); }
-.section-title { margin: 0 0 12px; font-size: clamp(1.8rem, 3vw, 2.35rem); letter-spacing: -0.035em; max-width: 16em; line-height: 1.1; }
-.band { padding-top: 40px; }
-#features { padding-top: 112px; }
+.section-title { margin: 0 0 28px; font-size: clamp(1.8rem, 3vw, 2.35rem); letter-spacing: -0.035em; max-width: 16em; line-height: 1.1; }
+.band { padding-top: 112px; }
 .problem, #features, .cta-band { position: relative; }
 .problem::before, #features::before, .cta-band::before {
   content: "";
@@ -416,8 +415,7 @@ tbody tr[tabindex]:hover, tbody tr[tabindex]:focus { background: #f7f8fb; }
   .hero-copy { max-width: none; }
   .hero { grid-template-columns: 1fr; }
   .stage-split { grid-template-columns: 1fr; }
-  .band { padding-top: 32px; }
-  #features { padding-top: 64px; }
+  .band { padding-top: 72px; }
   .hero-shell { min-height: 0; display: block; }
   .hero-copy h1 { font-size: 2.4rem; }
   .eyebrow { font-size: 1rem; }
