@@ -876,6 +876,31 @@
       callouts.forEach(function (card, index) {
         card.classList.toggle("is-on", index === active && spread > 0.55);
       });
+      connectLeader();
+    }
+    function connectLeader() {
+      var svg = root.querySelector(".leader-svg");
+      if (!svg) return;
+      var line = svg.querySelector("line");
+      var plate = root.querySelector(".plate.is-on");
+      var card = root.querySelector(".callout.is-on .callout-card");
+      if (!plate || !card || root.classList.contains("is-static")) {
+        svg.style.opacity = "0";
+        return;
+      }
+      var box = svg.getBoundingClientRect();
+      var plateBox = plate.getBoundingClientRect();
+      var cardBox = card.getBoundingClientRect();
+      var onRight = card.closest(".callout").classList.contains("right");
+      var x1 = (onRight ? plateBox.right : plateBox.left) - box.left;
+      var y1 = plateBox.top + plateBox.height / 2 - box.top;
+      var x2 = (onRight ? cardBox.left : cardBox.right) - box.left;
+      var y2 = cardBox.top + Math.min(28, cardBox.height / 2) - box.top;
+      line.setAttribute("x1", x1);
+      line.setAttribute("y1", y1);
+      line.setAttribute("x2", x2);
+      line.setAttribute("y2", y2);
+      svg.style.opacity = "1";
     }
     function frame() {
       if (reduce.matches || narrow.matches) {
@@ -883,6 +908,7 @@
         root.style.setProperty("--spread", "0.85");
         plates.forEach(function (plate) { plate.classList.remove("is-on", "is-dim"); });
         callouts.forEach(function (card) { card.classList.add("is-on"); });
+        connectLeader();
         return;
       }
       root.classList.remove("is-static");
@@ -893,6 +919,12 @@
       var spread = progress < 0.1 ? progress / 0.1 : progress > 0.9 ? (1 - progress) / 0.1 : 1;
       var span = Math.min(Math.max((progress - 0.1) / 0.8, 0), 0.999);
       paint(spread, Math.floor(span * 5));
+      var started = performance.now();
+      function follow(now) {
+        connectLeader();
+        if (now - started < 460) requestAnimationFrame(follow);
+      }
+      requestAnimationFrame(follow);
     }
     function requestFrame() {
       if (ticking) return;
