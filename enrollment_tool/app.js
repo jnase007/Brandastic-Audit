@@ -43,12 +43,6 @@
       ["Cedar Falls", "Cedar Falls"],
       ["Online", "Online"]
     ];
-    var switcher = document.getElementById("campus-switch");
-    if (switcher) {
-      switcher.innerHTML = campusOptions.map(function (option) {
-        return '<option value="' + esc(option[0]) + '"' + (option[0] === state.filters.campus ? " selected" : "") + ">" + esc(option[1]) + "</option>";
-      }).join("");
-    }
     document.getElementById("filters").innerHTML =
       '<form class="filters" id="filter-form">' +
       select("campus", "Campus", state.filters.campus, campusOptions) +
@@ -100,13 +94,14 @@
       metric("applications", "Applications", String(data.funnel.applications)) +
       metric("enrolled", "Enrolled", String(data.funnel.enrolled)) +
       metric("cpe", "Cost / enrolled", money(data.costPerEnrollment)) +
-      '</div><div class="school-main"><p class="fine">' + esc(costNote) + "</p>" +
-      charts(data) + '</div><aside class="queue school-only"><h3>Match review queue</h3><ul>' +
+      '</div><div class="school-main"><p class="fine" id="date-basis">Sample as of Oct 31, 2026. ' + esc(data.range.label) + ". Leads use the inquiry date. Applications and enrollments use the school status date, so an earlier inquiry is not treated as a new enrollment in this window.</p><p class=\"fine\">" + esc(costNote) + "</p>" +
+      charts(data) + "</div></div>" +
+      '<h3 class="table-title">Sample campaigns</h3>' + table +
+      '<section id="match-review" class="queue school-only"><h3>Match review</h3><ul>' +
       '<li><span>High confidence</span><strong data-queue="high">' + queue.high + "</strong></li>" +
       '<li><span>Needs review</span><strong data-queue="review">' + queue.review + "</strong></li>" +
       '<li><span>Missing data</span><strong data-queue="missing">' + queue.missing + "</strong></li>" +
-      '</ul><p class="fine">These counts use this filter. A match is not guessed.</p></aside></div>' +
-      '<h3 class="table-title">Sample campaigns</h3>' + table +
+      '</ul><p class="fine">These counts use this filter. A match is not guessed. Nothing is sent.</p></section>' +
       '<details class="records"><summary>Sample records</summary><div id="records"></div></details>';
     renderRecords(data);
   }
@@ -303,7 +298,7 @@
   }
 
   function syncShell() {
-    var on = location.hash === "#school-demo";
+    var on = location.hash === "#school-demo" || location.hash === "#match-review";
     document.body.classList.toggle("school-demo", on);
     var bar = document.getElementById("school-appbar");
     var note = document.getElementById("session-note");
@@ -332,7 +327,7 @@
   });
 
   document.body.addEventListener("click", function (event) {
-    if (event.target.id === "reset-demo") {
+    if (event.target.id === "reset-demo" || event.target.id === "reset-demo-school") {
       state.filters = { campus: "all", geography: "all", date: "window", channel: "all" };
       state.feedback = demo.defaultFeedbackOptions();
       state.drawer = null;
@@ -439,8 +434,8 @@
     if (!document.body.classList.contains("school-demo")) fail("school shell");
     if (document.getElementById("session-note").hidden) fail("session note");
     if (document.querySelector('input[type="password"]')) fail("password");
-    document.getElementById("campus-switch").value = "Online";
-    document.getElementById("campus-switch").dispatchEvent(new Event("change", { bubbles: true }));
+    document.getElementById("campus").value = "Online";
+    document.getElementById("campus").dispatchEvent(new Event("change", { bubbles: true }));
     if (!document.body.classList.contains("school-demo")) fail("shell dropped");
     if (document.querySelector("[data-metric=leads]").textContent !== document.querySelector("[data-chart-leads]").textContent) fail("shell numbers diverged");
     if (document.querySelector("[data-queue=high]") == null) fail("queue");

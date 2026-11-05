@@ -8,8 +8,29 @@
 })(typeof globalThis !== "undefined" ? globalThis : this, function () {
   var ELIGIBLE_STATES = ["CA", "AZ", "TX", "NV"];
 
+  var SAMPLE_AS_OF = "2026-10-31";
+
+  function addDays(iso, delta) {
+    var parts = iso.split("-");
+    var utc = Date.UTC(Number(parts[0]), Number(parts[1]) - 1, Number(parts[2]) + delta);
+    var next = new Date(utc);
+    var month = String(next.getUTCMonth() + 1);
+    var day = String(next.getUTCDate());
+    if (month.length < 2) month = "0" + month;
+    if (day.length < 2) day = "0" + day;
+    return next.getUTCFullYear() + "-" + month + "-" + day;
+  }
+
+  function preset(id, short, days) {
+    var start = addDays(SAMPLE_AS_OF, 1 - days);
+    return { id: id, short: short, label: short + " · " + start + " to " + SAMPLE_AS_OF, start: start, end: SAMPLE_AS_OF };
+  }
+
   var DATE_RANGES = {
-    window: { id: "window", short: "Full window", label: "Full sample window · Aug 1–Oct 31, 2026", start: "2026-08-01", end: "2026-10-31" },
+    window: { id: "window", short: "All sample dates", label: "All sample dates · Aug 1–Oct 31, 2026", start: "2026-08-01", end: "2026-10-31" },
+    d30: preset("d30", "Last 30 days", 30),
+    d60: preset("d60", "Last 60 days", 60),
+    d90: preset("d90", "Last 90 days", 90),
     aug: { id: "aug", short: "August 2026", label: "August 2026", start: "2026-08-01", end: "2026-08-31" },
     sep: { id: "sep", short: "September 2026", label: "September 2026", start: "2026-09-01", end: "2026-09-30" },
     oct: { id: "oct", short: "October 2026", label: "October 2026", start: "2026-10-01", end: "2026-10-31" },
@@ -654,6 +675,7 @@
 
   return {
     ELIGIBLE_STATES: ELIGIBLE_STATES,
+    SAMPLE_AS_OF: SAMPLE_AS_OF,
     DATE_RANGES: DATE_RANGES,
     SAMPLE_VALUES: SAMPLE_VALUES,
     WITHHELD: WITHHELD,

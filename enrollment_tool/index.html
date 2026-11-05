@@ -17,8 +17,9 @@
 <a class="skip" href="#goal">Skip to content</a>
 <div class="demo-banner" role="status">Demo / Sample data — not actual school results. <span>Fictional rows. Nothing is sent.</span></div>
 <header class="bar">
-  <a class="brand" href="#goal">
-    <img src="/enrollment_tool/assets/adtoseat-by-brandastic.png" alt="AdToSeat by Brandastic">
+  <a class="brand" href="#goal" aria-label="AdToSeat by Brandastic">
+    <img class="mark" src="/enrollment_tool/assets/adtoseat-mark.png" alt="">
+    <span class="wordmark"><span class="name">AdToSeat</span><span class="by">by Brandastic</span></span>
   </a>
   <div class="bar-actions">
     <a class="text" href="#school-demo">View school demo</a>
@@ -26,14 +27,17 @@
   </div>
 </header>
 <div id="school-appbar" class="school-appbar" hidden>
-  <a class="brand" href="#goal">
-    <img src="/enrollment_tool/assets/adtoseat-by-brandastic.png" alt="AdToSeat by Brandastic">
+  <a class="brand" href="#goal" aria-label="AdToSeat by Brandastic">
+    <img class="mark" src="/enrollment_tool/assets/adtoseat-mark.png" alt="">
+    <span class="wordmark"><span class="name">AdToSeat</span><span class="by">by Brandastic</span></span>
   </a>
   <p class="school-name">Sample School — Campus Demo</p>
-  <label class="campus-switch">Campus
-    <select id="campus-switch" data-filter="campus" aria-label="Campus switcher"></select>
-  </label>
+  <nav class="product-nav" aria-label="School demo">
+    <a href="#school-demo">Results</a>
+    <a href="#match-review">Match review</a>
+  </nav>
   <p class="demo-user"><span class="avatar" aria-hidden="true">DS</span> Demo School User</p>
+  <button class="text" id="reset-demo-school" type="button">Reset</button>
 </div>
 <p id="session-note" class="session-note" hidden>Demo session — no account required</p>
 

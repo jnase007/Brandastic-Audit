@@ -21,6 +21,41 @@ const all = demo.compute(
 
 assert.equal(demo.inquiries.length, 43);
 assert.equal(demo.outcomes.length, 37);
+assert.equal(demo.DATE_RANGES.d30.start, "2026-10-02");
+assert.equal(demo.DATE_RANGES.d30.end, "2026-10-31");
+assert.equal(demo.DATE_RANGES.d60.start, "2026-09-02");
+assert.equal(demo.DATE_RANGES.d90.start, "2026-08-03");
+assert.equal(demo.SAMPLE_AS_OF, "2026-10-31");
+
+for (const id of ["d30", "d60", "d90"]) {
+  const slice = demo.compute(
+    { campus: "Maple Ridge", geography: "all", date: id, channel: "all" },
+    demo.defaultFeedbackOptions()
+  );
+  const range = demo.DATE_RANGES[id];
+  assert.ok(slice.funnel.leads > 0, id + " leads empty");
+  assert.ok(slice.leads.every((lead) => lead.date >= range.start && lead.date <= range.end));
+  assert.ok(slice.outcomes.every((row) => row.date >= range.start && row.date <= range.end));
+}
+
+const last30 = demo.compute(
+  { campus: "all", geography: "all", date: "d30", channel: "all" },
+  demo.defaultFeedbackOptions()
+);
+const last60 = demo.compute(
+  { campus: "all", geography: "all", date: "d60", channel: "all" },
+  demo.defaultFeedbackOptions()
+);
+const last90 = demo.compute(
+  { campus: "all", geography: "all", date: "d90", channel: "all" },
+  demo.defaultFeedbackOptions()
+);
+assert.ok(last30.funnel.leads < last60.funnel.leads);
+assert.ok(last60.funnel.leads < last90.funnel.leads);
+assert.ok(last90.funnel.leads <= all.funnel.leads);
+assert.equal(last30.leads.some((lead) => lead.id === "WC-1003"), false);
+assert.equal(last30.outcomes.some((row) => row.id === "APP-5003"), true);
+
 assert.equal(all.funnel.leads, 43);
 assert.equal(all.funnel.enrolled, 16);
 assert.equal(all.funnel.paidEnrolled, 11);
@@ -157,7 +192,7 @@ assert.equal(copy.includes("WhatConverts can't"), false);
 assert.equal(copy.includes("WhatConverts does not support"), false);
 assert.match(html, /See which marketing leads to applications and enrollments/);
 assert.match(html, /AdToSeat by Brandastic/);
-assert.match(html, /alt="AdToSeat by Brandastic"/);
+assert.match(html, /aria-label="AdToSeat by Brandastic"/);
 assert.match(html, /View school demo/);
 assert.match(html, /Open demo dashboard/);
 assert.match(html, /Demo session — no account required/);
