@@ -355,7 +355,7 @@
       queueButton("review", "Needs review", review) +
       queueButton("missing", "Missing data", missing) +
       "</ul></section>" +
-      '<section class="sync-health"><h2>Sync health</h2><p class="fine">Not connected. No sync has run. CSV and manual entry stay available. An automatic school-platform link is planned and waits on verified API access. <a href="/enrollment_tool/scope/#future-sync">Scope</a>.</p></section>' +
+      '<section class="sync-health"><h2>Sync health</h2><p class="fine">Not connected. No sync has run. CSV and manual entry stay available. An automatic school-platform link is planned and waits on verified API access. <a href="scope/#future-sync">Scope</a>.</p></section>' +
       '<section id="records"><h2>Files</h2><p class="fine">' + data.factsWithoutLead.length + " school rows in this filter have no tracked inquiry. Source stays separate from call, form, or chat.</p>" +
       '<p><button class="primary" id="download-sample" type="button">Download CSV</button></p>' +
       leadTable(data) +

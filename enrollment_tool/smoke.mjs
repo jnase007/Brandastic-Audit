@@ -180,7 +180,7 @@ assert.equal(all.siblings.length, 1);
 assert.doesNotMatch(html, /Demo \/ Sample data — not actual school results/);
 assert.doesNotMatch(html, /class="demo-banner"/);
 assert.doesNotMatch(html, /sample for discussion/);
-assert.match(html, /href="\/enrollment_tool\/credits\/">Photo credits/);
+assert.match(html, /href="credits\/">Photo credits/);
 const credits = readFileSync(join(here, "credits/index.html"), "utf8");
 assert.match(credits, /Virginia Department of Education/);
 assert.match(credits, /https:\/\/creativecommons.org\/licenses\/by\/2\.0\//);
