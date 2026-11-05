@@ -156,6 +156,8 @@ assert.equal(copy.includes("WhatConverts cannot"), false);
 assert.equal(copy.includes("WhatConverts can't"), false);
 assert.equal(copy.includes("WhatConverts does not support"), false);
 assert.match(html, /See which marketing leads to applications and enrollments/);
+assert.match(html, /Enrollment Attribution Demo/);
+assert.equal(/roi calculator/i.test(html + app), false);
 assert.equal(JSON.stringify({ inquiries: demo.inquiries, outcomes: demo.outcomes }).includes("aiScore"), false);
 
 const sibling = demo.outcomes.find((row) => row.id === "APP-5001B");

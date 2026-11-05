@@ -92,9 +92,66 @@
       metric("applications", "Applications", String(data.funnel.applications)) +
       metric("enrolled", "Enrolled", String(data.funnel.enrolled)) +
       metric("cpe", "Cost / enrolled", money(data.costPerEnrollment)) +
-      "</div><p class=\"fine\">" + esc(costNote) + "</p>" + table +
+      "</div><p class=\"fine\">" + esc(costNote) + "</p>" +
+      charts(data) + table +
       '<details class="records"><summary>Sample records</summary><div id="records"></div></details>';
     renderRecords(data);
+  }
+
+  function pct(value, max) {
+    if (!isFinite(value) || !isFinite(max) || max <= 0) return 0;
+    return Math.max(0, Math.min(100, (value / max) * 100));
+  }
+
+  function charts(data) {
+    var leads = data.funnel.leads;
+    var applications = data.funnel.applications;
+    var enrolled = data.funnel.enrolled;
+    var funnelMax = Math.max(leads, applications, enrolled, 0);
+    var funnel = funnelMax === 0
+      ? '<p class="empty">No inquiries, applications, or enrollments in this filter.</p>'
+      : '<div class="bars" role="group" aria-label="Inquiry, application, and enrollment counts">' +
+        bar("Inquiry", leads, funnelMax, "Tracked leads in this filter: " + leads, "data-chart-leads") +
+        bar("Application", applications, funnelMax, "School-confirmed applications in this filter: " + applications, "") +
+        bar("Enrolled", enrolled, funnelMax, "School-confirmed enrollments in this filter: " + enrolled, "") +
+        "</div>";
+    var channels = data.byChannel.filter(function (row) { return row.leads || row.applications || row.enrolled; });
+    var channelMax = channels.reduce(function (max, row) { return Math.max(max, row.leads, row.enrolled); }, 0);
+    var channelChart = !channels.length
+      ? '<p class="empty">No channel rows in this filter.</p>'
+      : '<div class="legend"><span><i class="swatch leads"></i>Leads</span><span><i class="swatch enrolled"></i>Enrolled</span></div>' +
+        '<div class="bars" role="group" aria-label="Leads and enrollments by channel">' +
+        channels.map(function (row) {
+          return '<div class="hbar dual" tabindex="0"><span class="hbar-label">' + esc(row.channel) + '</span><span class="hbar-stack">' +
+            '<span class="hbar-track"><span class="hbar-fill leads" style="width:' + pct(row.leads, channelMax) + '%"></span></span>' +
+            '<span class="hbar-track"><span class="hbar-fill enrolled" style="width:' + pct(row.enrolled, channelMax) + '%"></span></span>' +
+            '</span><span class="hbar-value">' + row.leads + " / " + row.enrolled + '</span><span class="tip" role="tooltip">' +
+            esc(row.channel + ": " + row.leads + " leads, " + row.enrolled + " enrolled. Same filter as the numbers above.") + "</span></div>";
+        }).join("") + "</div>";
+    var costs = data.campaigns.filter(function (row) { return row.costPerEnrollment != null && isFinite(row.costPerEnrollment); });
+    var costMax = costs.reduce(function (max, row) { return Math.max(max, row.costPerEnrollment); }, 0);
+    var costChart = !costs.length
+      ? '<p class="empty">No sample cost per enrollment in this filter.</p>'
+      : '<div class="bars" role="group" aria-label="Sample cost per associated enrollment by campaign">' +
+        costs.map(function (row) {
+          return bar(row.campaign.name, row.costPerEnrollment, costMax, row.campaign.name + ": " + money(row.costPerEnrollment) + " sample cost per associated enrollment. Not sent to Google or Meta.", "", true);
+        }).join("") + "</div>";
+    return '<div class="charts">' +
+      figure("From inquiry to enrollment", "Counts in this filter. Leads use the inquiry date. Applications and enrollments use the school status date.", funnel) +
+      figure("By channel", "Leads and school-confirmed enrollments. Organic and offline stay visible.", channelChart) +
+      figure("Sample cost per enrollment", "Paid spend in this filter divided by enrollments tied to that campaign.", costChart) +
+      "</div>";
+  }
+
+  function figure(title, note, body) {
+    return '<figure class="chart"><figcaption><strong>' + esc(title) + "</strong><span>" + esc(note) + "</span></figcaption>" + body + "</figure>";
+  }
+
+  function bar(label, value, max, tip, attr, asMoney) {
+    var shown = asMoney ? money(value) : String(value);
+    return '<div class="hbar" tabindex="0"><span class="hbar-label">' + esc(label) + '</span><span class="hbar-track"><span class="hbar-fill" style="width:' +
+      pct(value, max) + '%"></span></span><span class="hbar-value"' + (attr ? " " + attr : "") + ">" + esc(shown) +
+      '</span><span class="tip" role="tooltip">' + esc(tip) + "</span></div>";
   }
 
   function renderRecords(data) {
@@ -229,12 +286,6 @@
   });
 
   document.body.addEventListener("click", function (event) {
-    if (event.target.id === "theme-toggle") {
-      var next = document.documentElement.getAttribute("data-theme") === "dark" ? "light" : "dark";
-      document.documentElement.setAttribute("data-theme", next);
-      try { localStorage.setItem("brandastic-theme", next); } catch (err) { /* ignore */ }
-      return;
-    }
     if (event.target.id === "reset-demo") {
       state.filters = { campus: "all", geography: "all", date: "window", channel: "all" };
       state.feedback = demo.defaultFeedbackOptions();
@@ -318,6 +369,9 @@
     document.getElementById("channel").dispatchEvent(new Event("change", { bubbles: true }));
     if (document.querySelector('[data-metric="leads"]').textContent !== "5") fail("filtered leads");
     if (document.querySelector('[data-metric="cpe"]').textContent !== "$2,550") fail("filtered cost");
+    if (document.getElementById("dashboard").textContent.indexOf("NaN") !== -1) fail("nan");
+    if (document.querySelectorAll(".chart").length !== 3) fail("chart count");
+    if (document.querySelector("[data-chart-leads]").textContent !== "5") fail("funnel does not match leads");
     var feedback = document.getElementById("feedback");
     if (feedback.textContent.indexOf("Not sent") === -1 && feedback.textContent.indexOf("not sent") === -1) fail("sent claim");
     if (document.querySelector("details.tech").open) fail("technical details should start closed");
