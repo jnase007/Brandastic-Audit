@@ -81,7 +81,7 @@
       clickId: clickId,
       metaClickId: metaClickId,
       tracker: "WhatConverts",
-      personFields: "omitted"
+      personFields: "fictional"
     };
   }
 
@@ -150,7 +150,7 @@
     lead("WC-1037", "2026-08-20", "Form", "Organic", null, "Maple Ridge", "campus", "CA", null, "SK-1037", null, null),
     lead("WC-1038", "2026-09-14", "Form", "Organic", null, "Harbor View", "campus", "CA", null, "SK-1038", null, null),
     lead("WC-1039", "2026-10-08", "Call", "Organic", null, "Online", "online", "CA", true, "SK-1039", null, null),
-    lead("WC-1040", "2026-09-30", "Form", "Organic", null, "Cedar Falls", "campus", "AZ", null, "SK-1040", null, null),
+    lead("WC-1040", "2026-09-30", "Chat", "Organic", null, "Cedar Falls", "campus", "AZ", null, "SK-1040", null, null),
     lead("WC-1041", "2026-09-12", "Form", "Offline / referral", null, "Maple Ridge", "campus", "CA", null, "SK-1041", null, null)
   ];
 
@@ -625,21 +625,40 @@
     };
   }
 
+  var GIVEN = ["Avery", "Jordan", "Riley", "Cameron", "Harper", "Quinn", "Skyler", "Rowan", "Parker", "Reese", "Elliot", "Morgan", "Sawyer", "Finley", "Dakota"];
+  var FAMILY = ["Nguyen", "Patel", "Brooks", "Diaz", "Kim", "Owens", "Shah", "Bennett", "Cruz", "Walsh", "Ibrahim", "Cohen", "Park", "Reyes", "Hughes"];
+  var STUDENT = ["Mina", "Leo", "Noor", "Sam", "Hana", "Jules", "Ari", "Nico", "Priya", "Owen", "Lila", "Mateo", "Sasha", "Imani", "Theo"];
+  var GRADES = ["K", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"];
+  inquiries.forEach(function (row, index) {
+    var given = GIVEN[index % GIVEN.length];
+    var family = FAMILY[Math.floor(index / GIVEN.length)];
+    var two = index < 10 ? "0" + index : String(index);
+    row.guardian = given + " " + family;
+    row.phone = "(555) 01" + two;
+    row.email = given.toLowerCase() + "." + family.toLowerCase() + "@example.com";
+    row.student = STUDENT[index % STUDENT.length];
+    row.grade = GRADES[index % GRADES.length];
+  });
+
   function validate() {
     var errors = [];
     var leadIds = {};
     var clickIds = {};
     var outcomeIds = {};
     var blob = JSON.stringify({ inquiries: inquiries, outcomes: outcomes, campaigns: campaigns });
-    if (blob.indexOf("@") !== -1) errors.push("Fixture text contains @");
-    ["email", "phone", "firstName", "lastName", "childName", "studentName"].forEach(function (key) {
+    (blob.match(/@[A-Za-z0-9.-]+/g) || []).forEach(function (at) {
+      if (at !== "@example.com") errors.push("Unexpected address " + at);
+    });
+    ["firstName", "lastName", "childName", "studentName"].forEach(function (key) {
       if (blob.indexOf('"' + key + '"') !== -1) errors.push("Unexpected field " + key);
     });
 
     inquiries.forEach(function (leadRow) {
       if (leadIds[leadRow.id]) errors.push("Duplicate lead " + leadRow.id);
       leadIds[leadRow.id] = true;
-      if (leadRow.personFields !== "omitted") errors.push("Person fields not omitted on " + leadRow.id);
+      if (leadRow.personFields !== "fictional") errors.push("Person fields not fictional on " + leadRow.id);
+      if (!/^\(555\) 01\d\d$/.test(leadRow.phone)) errors.push("Phone out of reserved range " + leadRow.id);
+      if (!/@example\.com$/.test(leadRow.email)) errors.push("Email domain " + leadRow.id);
       if (leadRow.tracker !== "WhatConverts") errors.push("Tracker drifted on " + leadRow.id);
       if (leadRow.campaignId && !campaignById(leadRow.campaignId)) errors.push("Missing campaign " + leadRow.campaignId);
       if (!leadRow.campaignId && (leadRow.channel === "Google Ads" || leadRow.channel === "Meta Ads")) errors.push("Paid lead missing campaign " + leadRow.id);

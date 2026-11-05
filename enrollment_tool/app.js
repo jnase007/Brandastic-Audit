@@ -322,7 +322,7 @@
             var campaign = demo.campaignById(lead.campaignId);
             return '<button type="button" class="lead-row" data-lead="' + esc(lead.id) + '">' +
               sourceMark(lead.channel) +
-              '<span class="lead-meta">' + esc(lead.id) + " · " + esc(contactMethod(lead)) + " · " + esc(campaign ? campaign.name : "No campaign") + "</span>" +
+              '<span class="lead-meta">' + esc(lead.guardian) + " · " + esc(lead.id) + " · " + esc(contactMethod(lead)) + " · " + esc(lead.phone) + " · " + esc(campaign ? campaign.name : "No campaign") + "</span>" +
               '<span class="quality ' + leadQuality(lead).toLowerCase() + '">' + esc(leadQuality(lead)) + "</span>" +
               '<span class="lifecycle">' + esc(leadLifecycle(lead)) + "</span></button>";
           }).join("") + "</section>";
@@ -356,7 +356,7 @@
       queueButton("missing", "Missing data", missing) +
       "</ul></section>" +
       '<section class="sync-health"><h2>Sync health</h2><p class="fine">Not connected. No sync has run. CSV and manual entry stay available. An automatic school-platform link is planned and waits on verified API access. <a href="/enrollment_tool/scope/#future-sync">Scope</a>.</p></section>' +
-      '<section id="records"><h2>Files</h2><p class="fine">' + data.factsWithoutLead.length + " school rows in this filter have no tracked inquiry. Source stays separate from call or form.</p>" +
+      '<section id="records"><h2>Files</h2><p class="fine">' + data.factsWithoutLead.length + " school rows in this filter have no tracked inquiry. Source stays separate from call, form, or chat.</p>" +
       '<p><button class="primary" id="download-sample" type="button">Download CSV</button></p>' +
       leadTable(data) +
       '<h3>School rows in this filter</h3><div class="table-wrap"><table><thead><tr><th>Application</th><th>Status date</th><th>Status</th><th>Campus</th></tr></thead><tbody>' +
@@ -369,12 +369,13 @@
   function leadTable(data) {
     var inquiries = visibleLeads(data).map(function (lead) {
       var campaign = demo.campaignById(lead.campaignId);
-      return '<tr><td><button type="button" class="text" data-lead="' + esc(lead.id) + '">' + esc(lead.id) + "</button></td><td>" +
-        esc(prettyDate(lead.date)) + "</td><td>" + sourceMark(lead.channel) + "</td><td>" + esc(contactMethod(lead)) +
-        "</td><td>" + esc(campaign ? campaign.name : "—") + "</td><td>" + esc(leadQuality(lead)) + "</td><td>" + esc(leadLifecycle(lead)) + "</td></tr>";
+      return '<tr><td><button type="button" class="text" data-lead="' + esc(lead.id) + '">' + esc(lead.guardian) + "</button><div class=\"fine\">" + esc(lead.id) + "</div></td><td>" +
+        esc(lead.phone) + "</td><td>" + esc(lead.email) + "</td><td>" + esc(prettyDate(lead.date)) + "</td><td>" + esc(contactMethod(lead)) +
+        "</td><td>" + sourceMark(lead.channel) + "</td><td>" + esc(campaign ? campaign.name : "—") + "</td><td>" + esc(leadQuality(lead)) +
+        "</td><td>" + esc(leadLifecycle(lead)) + "</td></tr>";
     }).join("");
-    return '<div class="table-wrap"><table><thead><tr><th>Lead</th><th>Arrived</th><th>Source</th><th>Type</th><th>Campaign</th><th>Quality</th><th>Lifecycle</th></tr></thead><tbody>' +
-      (inquiries || '<tr><td colspan="7">None in this filter.</td></tr>') + "</tbody></table></div>";
+    return '<div class="table-wrap"><table><thead><tr><th>Guardian</th><th>Phone</th><th>Email</th><th>Arrived</th><th>Method</th><th>Source</th><th>Campaign</th><th>Quality</th><th>Lifecycle</th></tr></thead><tbody>' +
+      (inquiries || '<tr><td colspan="9">None in this filter.</td></tr>') + "</tbody></table></div>";
   }
 
   function distinct(records, sync) {
@@ -443,10 +444,14 @@
       if (lead) {
         var campaign = demo.campaignById(lead.campaignId);
         var match = demo.leadMatchLabel(lead);
-        title = lead.id;
-        note = "Date only. This record has no clock time.";
+        title = lead.guardian;
+        note = "Inquiry date only. This record has no clock time. The student name and grade stay in this detail.";
+        lines.push("Record " + lead.id);
+        lines.push("Phone " + lead.phone);
+        lines.push("Email " + lead.email);
         lines.push("Arrived " + prettyDate(lead.date));
         lines.push("Contact method " + contactMethod(lead));
+        lines.push("Student " + lead.student + ", grade " + lead.grade);
         lines.push("Marketing source " + (lead.channel || "Unknown"));
         lines.push("Campaign " + (campaign ? campaign.name : "None"));
         lines.push("Campus " + (lead.mode === "online" ? "Online · " + (lead.state || "—") : lead.campus));
@@ -486,9 +491,36 @@
     if (close) close.focus();
   }
 
+  function renderHero() {
+    var host = document.getElementById("hero-stage");
+    if (!host) return;
+    var snapshot = demo.compute(
+      { campus: "all", geography: "all", date: "window", channel: "all", campaign: "all" },
+      demo.defaultFeedbackOptions()
+    );
+    var top = snapshot.campaigns.slice().sort(function (a, b) { return b.enrolled - a.enrolled || b.leads - a.leads; }).slice(0, 4);
+    var max = top.reduce(function (most, row) { return Math.max(most, row.enrolled); }, 1);
+    var people = snapshot.leads.slice().sort(function (a, b) { return a.date < b.date ? 1 : -1; }).slice(0, 5);
+    host.innerHTML =
+      '<div class="stage-window"><div class="stage-top"><strong>Recent inquiries</strong><span>' + snapshot.funnel.leads + '</span></div><table class="stage-table"><tbody>' +
+      people.map(function (lead) {
+        return "<tr><td>" + esc(lead.guardian) + "</td><td>" + sourceMark(lead.channel) + "</td><td>" + esc(contactMethod(lead)) + "</td><td>" + esc(leadLifecycle(lead)) + "</td></tr>";
+      }).join("") +
+      '</tbody></table></div><div class="stage-card stage-bars"><strong>Enrollments by campaign</strong>' +
+      top.map(function (row) {
+        return '<div class="stage-bar"><span>' + esc(row.campaign.name) + '</span><b>' + row.enrolled + '</b><span class="stage-track"><span style="width:' +
+          Math.round((row.enrolled / max) * 100) + '%"></span></span></div>';
+      }).join("") +
+      '</div><div class="stage-card stage-sources"><strong>' + snapshot.funnel.enrolled + ' enrolled</strong><p>' +
+      snapshot.byChannel.filter(function (row) { return row.leads; }).map(function (row) {
+        return esc(row.channel) + " " + row.leads;
+      }).join(" · ") + "</p></div>";
+  }
+
   function render() {
     var activeId = document.activeElement && document.activeElement.id;
     var data = model();
+    renderHero();
     renderFilters();
     renderActiveFilters();
     renderDashboard(data);
@@ -737,8 +769,10 @@
     if (document.body.textContent.indexOf("Demo / Sample data — not actual school results") !== -1) fail("banner copy");
     if (document.body.textContent.indexOf("Demo session — no account required") !== -1) fail("session heading");
     if (document.body.textContent.indexOf("sample for discussion") !== -1) fail("footer line");
-    if (document.querySelector(".hero h1").textContent !== "From ad clicks to filled seats.") fail("headline");
-    if (document.querySelector(".lede").textContent !== "Know which campaigns bring students through your doors.") fail("support line");
+    if (document.querySelector(".hero h1").textContent !== "Lead tracking for private schools and universities.") fail("headline");
+    if (document.querySelector(".lede").textContent !== "Connect every inquiry to its source—and see which campaigns drive applications and enrollments.") fail("support line");
+    if (!document.querySelector(".hero-stage .stage-window")) fail("hero product");
+    if (document.querySelector(".hero-art")) fail("photo hero");
     if (!document.querySelector('a.primary[href="#preview"]')) fail("cta");
     if (document.getElementById("sample-info")) fail("sample badge");
     if (document.body.textContent.indexOf("Sample data") !== -1) fail("sample label");
