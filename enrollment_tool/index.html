@@ -20,14 +20,29 @@
   <a class="brand" href="#goal">
     <img src="/enrollment_tool/assets/adtoseat-by-brandastic.png" alt="AdToSeat by Brandastic">
   </a>
-  <button class="text" id="reset-demo" type="button">Reset</button>
+  <div class="bar-actions">
+    <a class="text" href="#school-demo">View school demo</a>
+    <button class="text" id="reset-demo" type="button">Reset</button>
+  </div>
 </header>
+<div id="school-appbar" class="school-appbar" hidden>
+  <a class="brand" href="#goal">
+    <img src="/enrollment_tool/assets/adtoseat-by-brandastic.png" alt="AdToSeat by Brandastic">
+  </a>
+  <p class="school-name">Sample School — Campus Demo</p>
+  <label class="campus-switch">Campus
+    <select id="campus-switch" data-filter="campus" aria-label="Campus switcher"></select>
+  </label>
+  <p class="demo-user"><span class="avatar" aria-hidden="true">DS</span> Demo School User</p>
+</div>
+<p id="session-note" class="session-note" hidden>Demo session — no account required</p>
 
 <main>
   <section class="wrap hero" id="goal">
     <h1>See which marketing leads to applications and enrollments.</h1>
     <p class="lede">WhatConverts already records the inquiry. This sample shows which of those inquiries the school later confirmed as applications and enrollments.</p>
     <a class="primary" href="#preview">View the sample</a>
+    <a class="text hero-demo" href="#school-demo">View school demo</a>
   </section>
 
   <section class="wrap" id="path">
@@ -61,6 +76,7 @@
       <header class="panel-head">
         <h2>Sample dashboard</h2>
         <p>Fictional rows. Every number follows the filters. Nothing is saved.</p>
+        <a class="primary" href="#school-demo">Open demo dashboard</a>
       </header>
       <div id="filters"></div>
       <div id="dashboard"></div>

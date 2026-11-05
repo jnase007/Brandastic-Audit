@@ -36,15 +36,22 @@
   }
 
   function renderFilters() {
+    var campusOptions = [
+      ["all", "All campuses"],
+      ["Maple Ridge", "Maple Ridge"],
+      ["Harbor View", "Harbor View"],
+      ["Cedar Falls", "Cedar Falls"],
+      ["Online", "Online"]
+    ];
+    var switcher = document.getElementById("campus-switch");
+    if (switcher) {
+      switcher.innerHTML = campusOptions.map(function (option) {
+        return '<option value="' + esc(option[0]) + '"' + (option[0] === state.filters.campus ? " selected" : "") + ">" + esc(option[1]) + "</option>";
+      }).join("");
+    }
     document.getElementById("filters").innerHTML =
       '<form class="filters" id="filter-form">' +
-      select("campus", "Campus", state.filters.campus, [
-        ["all", "All campuses"],
-        ["Maple Ridge", "Maple Ridge"],
-        ["Harbor View", "Harbor View"],
-        ["Cedar Falls", "Cedar Falls"],
-        ["Online", "Online"]
-      ]) +
+      select("campus", "Campus", state.filters.campus, campusOptions) +
       select("geography", "Online geography", state.filters.geography, [
         ["all", "All geographies"],
         ["in-person", "In-person campuses"],
@@ -86,14 +93,20 @@
             '</td><td class="num">' + row.applications + '</td><td class="num">' + row.enrolled + '</td><td class="num">' + esc(money(row.costPerEnrollment)) + "</td></tr>";
         }).join("") + "</tbody></table></div>"
       : '<p class="fine">No paid campaigns in this filter. Organic and offline inquiries are still in the counts above.</p>';
+    var queue = queueCounts(data);
     document.getElementById("dashboard").innerHTML =
-      '<div class="metrics" id="summary" aria-live="polite">' +
+      '<div class="school-layout"><div class="metrics" id="summary" aria-live="polite">' +
       metric("leads", "Tracked leads", String(data.funnel.leads)) +
       metric("applications", "Applications", String(data.funnel.applications)) +
       metric("enrolled", "Enrolled", String(data.funnel.enrolled)) +
       metric("cpe", "Cost / enrolled", money(data.costPerEnrollment)) +
-      "</div><p class=\"fine\">" + esc(costNote) + "</p>" +
-      charts(data) + table +
+      '</div><div class="school-main"><p class="fine">' + esc(costNote) + "</p>" +
+      charts(data) + '</div><aside class="queue school-only"><h3>Match review queue</h3><ul>' +
+      '<li><span>High confidence</span><strong data-queue="high">' + queue.high + "</strong></li>" +
+      '<li><span>Needs review</span><strong data-queue="review">' + queue.review + "</strong></li>" +
+      '<li><span>Missing data</span><strong data-queue="missing">' + queue.missing + "</strong></li>" +
+      '</ul><p class="fine">These counts use this filter. A match is not guessed.</p></aside></div>' +
+      '<h3 class="table-title">Sample campaigns</h3>' + table +
       '<details class="records"><summary>Sample records</summary><div id="records"></div></details>';
     renderRecords(data);
   }
@@ -136,15 +149,38 @@
         costs.map(function (row) {
           return bar(row.campaign.name, row.costPerEnrollment, costMax, row.campaign.name + ": " + money(row.costPerEnrollment) + " sample cost per associated enrollment. Not sent to Google or Meta.", "", true);
         }).join("") + "</div>";
+    var enrolledMax = rowsMax(data.campaigns, "enrolled");
+    var enrollChart = enrolledMax === 0
+      ? '<p class="empty">No enrollments in this filter.</p>'
+      : '<div class="bars" role="group" aria-label="Enrollments by campaign">' +
+        data.campaigns.map(function (row) {
+          return bar(row.campaign.name, row.enrolled, enrolledMax, row.campaign.name + ": " + row.enrolled + " school-confirmed enrollments in this filter.", "");
+        }).join("") + "</div>";
     return '<div class="charts">' +
-      figure("From inquiry to enrollment", "Counts in this filter. Leads use the inquiry date. Applications and enrollments use the school status date.", funnel) +
-      figure("By channel", "Leads and school-confirmed enrollments. Organic and offline stay visible.", channelChart) +
-      figure("Sample cost per enrollment", "Paid spend in this filter divided by enrollments tied to that campaign.", costChart) +
+      figure("From inquiry to enrollment", "Counts in this filter. Leads use the inquiry date. Applications and enrollments use the school status date.", funnel, "chart-funnel") +
+      figure("By channel", "Leads and school-confirmed enrollments. Organic and offline stay visible.", channelChart, "chart-channel") +
+      figure("Sample cost per enrollment", "Paid spend in this filter divided by enrollments tied to that campaign.", costChart, "chart-cost") +
+      figure("Enrollments by campaign", "School-confirmed enrollments in this filter. Same rows as the table.", enrollChart, "chart-enroll school-only") +
       "</div>";
   }
 
-  function figure(title, note, body) {
-    return '<figure class="chart"><figcaption><strong>' + esc(title) + "</strong><span>" + esc(note) + "</span></figcaption>" + body + "</figure>";
+  function rowsMax(rows, key) {
+    return rows.reduce(function (max, row) { return Math.max(max, row[key] || 0); }, 0);
+  }
+
+  function queueCounts(data) {
+    return {
+      high: data.outcomes.filter(function (row) { return row.sharedKey && demo.attributedLead(row) && !row.sibling; }).length,
+      review: data.leads.filter(function (lead) {
+        var label = demo.leadMatchLabel(lead);
+        return label === "No school status yet" || label === "Duplicate lead, same shared key";
+      }).length,
+      missing: data.leads.filter(function (lead) { return !lead.sharedKey; }).length + data.outcomes.filter(function (row) { return !row.sharedKey; }).length
+    };
+  }
+
+  function figure(title, note, body, extraClass) {
+    return '<figure class="chart' + (extraClass ? " " + extraClass : "") + '"><figcaption><strong>' + esc(title) + "</strong><span>" + esc(note) + "</span></figcaption>" + body + "</figure>";
   }
 
   function bar(label, value, max, tip, attr, asMoney) {
@@ -263,6 +299,16 @@
       if (next) next.focus();
     }
     document.body.dataset.ready = "true";
+    syncShell();
+  }
+
+  function syncShell() {
+    var on = location.hash === "#school-demo";
+    document.body.classList.toggle("school-demo", on);
+    var bar = document.getElementById("school-appbar");
+    var note = document.getElementById("session-note");
+    if (bar) bar.hidden = !on;
+    if (note) note.hidden = !on;
   }
 
   document.body.addEventListener("change", function (event) {
@@ -342,6 +388,7 @@
     URL.revokeObjectURL(link.href);
   }
 
+  window.addEventListener("hashchange", syncShell);
   render();
 
   if (new URLSearchParams(location.search).get("selftest") === "1") runSelfTest();
@@ -370,7 +417,7 @@
     if (document.querySelector('[data-metric="leads"]').textContent !== "5") fail("filtered leads");
     if (document.querySelector('[data-metric="cpe"]').textContent !== "$2,550") fail("filtered cost");
     if (document.getElementById("dashboard").textContent.indexOf("NaN") !== -1) fail("nan");
-    if (document.querySelectorAll(".chart").length !== 3) fail("chart count");
+    if (document.querySelectorAll(".chart").length !== 4) fail("chart count");
     if (document.querySelector("[data-chart-leads]").textContent !== "5") fail("funnel does not match leads");
     var feedback = document.getElementById("feedback");
     if (feedback.textContent.indexOf("Not sent") === -1 && feedback.textContent.indexOf("not sent") === -1) fail("sent claim");
@@ -387,6 +434,16 @@
     row.click();
     if (!document.getElementById("drawer-title")) fail("drawer");
     document.getElementById("close-drawer").click();
+    location.hash = "#school-demo";
+    syncShell();
+    if (!document.body.classList.contains("school-demo")) fail("school shell");
+    if (document.getElementById("session-note").hidden) fail("session note");
+    if (document.querySelector('input[type="password"]')) fail("password");
+    document.getElementById("campus-switch").value = "Online";
+    document.getElementById("campus-switch").dispatchEvent(new Event("change", { bubbles: true }));
+    if (!document.body.classList.contains("school-demo")) fail("shell dropped");
+    if (document.querySelector("[data-metric=leads]").textContent !== document.querySelector("[data-chart-leads]").textContent) fail("shell numbers diverged");
+    if (document.querySelector("[data-queue=high]") == null) fail("queue");
     document.body.dataset.selftest = "pass";
   }
 })();
