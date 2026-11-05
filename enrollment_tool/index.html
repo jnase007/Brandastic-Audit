@@ -31,7 +31,7 @@
         <a class="text" href="#preview">Results</a>
         <a class="text" href="scope/">Scope</a>
       </nav>
-      <a class="primary nav-cta" href="#preview">Book a demo</a>
+      <button class="primary nav-cta" type="button" data-open-dialog="demo-dialog">Book a demo</button>
     </div>
   </div>
 </header>
@@ -184,6 +184,10 @@
       </div>
     </div>
   </section>
+  <section class="wrap band cta-band">
+    <h2 class="section-title">See where your enrollments really come from</h2>
+    <button class="primary" type="button" data-open-dialog="demo-dialog">Book a free consultation</button>
+  </section>
 </main>
 <footer class="site-foot">
   <div class="wrap">
@@ -198,6 +202,39 @@
   </div>
 </footer>
 <div id="drawer-root"></div>
+<dialog class="sheet" id="demo-dialog" aria-labelledby="demo-title">
+  <div class="sheet-bar">
+    <h2 id="demo-title">Book a demo</h2>
+    <button class="text sheet-close" type="button" data-close-dialog>Close</button>
+  </div>
+  <div class="sheet-body">
+    <form name="fullstory-demo" method="POST" action="/" data-netlify="true" netlify-honeypot="bot-field">
+      <input type="hidden" name="form-name" value="fullstory-demo">
+      <p class="hp" hidden><label>Don’t fill this out if you’re human <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
+      <div class="demo-grid">
+        <label>Name<input name="name" type="text" required autocomplete="name"></label>
+        <label>Work email<input name="email" type="email" required autocomplete="email"></label>
+        <label>School / organization<input name="organization" type="text" required autocomplete="organization"></label>
+        <label>Role<input name="role" type="text" autocomplete="organization-title"></label>
+        <label>Phone<input name="phone" type="tel" autocomplete="tel"></label>
+        <label>Number of campuses
+          <select name="campuses">
+            <option value="">Select</option>
+            <option>1</option>
+            <option>2–5</option>
+            <option>6–10</option>
+            <option>11+</option>
+          </select>
+        </label>
+      </div>
+      <label>Message (optional)<textarea name="message" rows="3"></textarea></label>
+      <button class="primary" type="submit">Book a demo</button>
+      <p class="form-error" id="demo-error" hidden>That didn’t send. Try again, or use the email link below.</p>
+      <p class="mail-link"><a href="https://brandastic.com/contact/" target="_blank" rel="noopener">Prefer email? Contact Brandastic</a></p>
+    </form>
+    <p class="form-thanks" id="demo-thanks" hidden>Thanks, the Brandastic team will reach out within one business day</p>
+  </div>
+</dialog>
 <script src="fixtures.js"></script>
 <script src="app.js"></script>
 </body>

@@ -749,6 +749,7 @@
   window.addEventListener("hashchange", applyHash);
   render();
   setupNav();
+  setupDialogs();
 
   function setupNav() {
     var header = document.querySelector(".site-header");
@@ -778,6 +779,60 @@
     setOpen(false);
   }
 
+  function setupDialogs() {
+    function closeMobileNav() {
+      var header = document.querySelector(".site-header");
+      var toggle = document.querySelector(".nav-toggle");
+      var panel = document.getElementById("site-nav");
+      if (header) header.classList.remove("is-open");
+      if (toggle) {
+        toggle.setAttribute("aria-expanded", "false");
+        toggle.setAttribute("aria-label", "Open menu");
+      }
+      if (panel && window.matchMedia("(max-width: 860px)").matches) {
+        panel.setAttribute("aria-hidden", "true");
+        panel.inert = true;
+      }
+    }
+    function openDialog(dialog) {
+      if (!dialog || typeof dialog.showModal !== "function" || dialog.open) return;
+      closeMobileNav();
+      dialog.showModal();
+    }
+    document.addEventListener("click", function (event) {
+      var opener = event.target.closest("[data-open-dialog]");
+      if (!opener) return;
+      event.preventDefault();
+      openDialog(document.getElementById(opener.getAttribute("data-open-dialog")));
+    });
+    document.querySelectorAll("dialog.sheet").forEach(function (dialog) {
+      dialog.addEventListener("click", function (event) {
+        if (event.target === dialog) dialog.close();
+      });
+      var closer = dialog.querySelector("[data-close-dialog]");
+      if (closer) closer.addEventListener("click", function () { dialog.close(); });
+    });
+    var form = document.querySelector('form[name="fullstory-demo"]');
+    if (!form) return;
+    form.addEventListener("submit", function (event) {
+      event.preventDefault();
+      var thanks = document.getElementById("demo-thanks");
+      var error = document.getElementById("demo-error");
+      if (error) error.hidden = true;
+      fetch("/", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: new URLSearchParams(new FormData(form)).toString()
+      }).then(function (res) {
+        if (!res.ok) throw new Error("status");
+        form.hidden = true;
+        if (thanks) thanks.hidden = false;
+      }).catch(function () {
+        if (error) error.hidden = false;
+      });
+    });
+  }
+
   if (new URLSearchParams(location.search).get("selftest") === "1") runSelfTest();
 
   function fail(message) {
@@ -803,7 +858,8 @@
     if (document.querySelector(".eyebrow").textContent.indexOf("Enrollment intelligence") === -1) fail("eyebrow");
     if (!document.querySelector(".hero-media iframe")) fail("hero video");
     if (!document.querySelector(".seat-row")) fail("empty seats");
-    if (!document.querySelector('a.primary[href="#preview"]')) fail("cta");
+    if (!document.querySelector('[data-open-dialog="demo-dialog"]')) fail("cta");
+    if (!document.querySelector('form[name="fullstory-demo"][data-netlify="true"]')) fail("demo form");
     if (document.getElementById("sample-info")) fail("sample badge");
     if (document.body.textContent.indexOf("Sample data") !== -1) fail("sample label");
     if (document.body.textContent.indexOf("Fictional") !== -1) fail("fictional copy");
