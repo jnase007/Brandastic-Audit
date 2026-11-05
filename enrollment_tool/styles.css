@@ -673,6 +673,28 @@ tbody tr[tabindex]:hover, tbody tr[tabindex]:focus { background: #f7f8fb; }
   .intel.is-static .plate { opacity: 0.9; filter: none; }
   .leader, .leader-svg { display: none; }
 }
+@media (hover: hover) and (pointer: fine) {
+  a.primary, button.primary, a.hero-link,
+  .benefit-grid article, .steps li, .source-list li {
+    position: relative;
+    overflow: hidden;
+  }
+  a.primary::before, button.primary::before, a.hero-link::before,
+  .benefit-grid article::before, .steps li::before, .source-list li::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+    background: linear-gradient(110deg, transparent 32%, rgba(255, 255, 255, 0.42) 48%, transparent 64%);
+    transform: translateX(-130%);
+  }
+  a.primary:hover::before, button.primary:hover::before, a.hero-link:hover::before,
+  .benefit-grid article:hover::before, .steps li:hover::before, .source-list li:hover::before {
+    transform: translateX(130%);
+    transition: transform 720ms ease;
+  }
+}
 @media (prefers-reduced-motion: reduce) {
   .intel { height: auto; }
   .intel-pin { position: static; height: auto; display: block; padding: 48px 18px 32px; }
@@ -684,5 +706,7 @@ tbody tr[tabindex]:hover, tbody tr[tabindex]:focus { background: #f7f8fb; }
   .callout, .callout.is-on { position: static; opacity: 1; transform: none; width: auto; max-width: 640px; margin: 10px auto; }
   .intel.is-static .plate { opacity: 0.9; filter: none; }
   .leader, .leader-svg { display: none; }
+  a.primary::before, button.primary::before, a.hero-link::before,
+  .benefit-grid article::before, .steps li::before, .source-list li::before { display: none; }
   * { scroll-behavior: auto !important; animation: none !important; }
 }
