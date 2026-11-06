@@ -753,6 +753,7 @@
   setupStack();
   setupTilt();
   setupSpotlight();
+  setupSeats();
 
   function setupNav() {
     var header = document.querySelector(".site-header");
@@ -979,6 +980,43 @@
       glow.style.opacity = blocked ? "0" : "1";
       glow.style.transform = "translate3d(" + event.clientX + "px," + event.clientY + "px,0)";
     });
+  }
+
+  function setupSeats() {
+    var board = document.querySelector(".seat-board");
+    if (!board) return;
+    var reduce = window.matchMedia("(prefers-reduced-motion: reduce)");
+    var seats = board.querySelectorAll(".seat.filled");
+    var count = board.querySelector("[data-seat-count]");
+    function showFinal() {
+      board.classList.remove("is-arming");
+      seats.forEach(function (seat) { seat.classList.add("is-lit"); });
+      if (count) count.textContent = String(seats.length);
+    }
+    if (reduce.matches) {
+      showFinal();
+      return;
+    }
+    board.classList.add("is-arming");
+    if (count) count.textContent = "0";
+    var started = false;
+    if (!("IntersectionObserver" in window)) {
+      showFinal();
+      return;
+    }
+    var observer = new IntersectionObserver(function (entries) {
+      if (started || !entries.some(function (entry) { return entry.isIntersecting; })) return;
+      started = true;
+      observer.disconnect();
+      seats.forEach(function (seat, index) {
+        window.setTimeout(function () {
+          seat.classList.add("is-lit");
+          if (count) count.textContent = String(index + 1);
+          if (index === seats.length - 1) board.classList.remove("is-arming");
+        }, index * 150);
+      });
+    }, { threshold: 0.45 });
+    observer.observe(board);
   }
 
   if (new URLSearchParams(location.search).get("selftest") === "1") runSelfTest();

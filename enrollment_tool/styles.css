@@ -189,6 +189,19 @@ a.hero-link:hover { border-color: #0c7ea8; color: #0c7ea8; background: rgba(255,
   .seat:hover { transform: translateY(-3px); }
 }
 .seat-board p { margin: 14px 0 0; font-size: 0.92rem; font-weight: 700; letter-spacing: 0.01em; color: #142033; }
+.seat-count { font-variant-numeric: tabular-nums; }
+.seat-board.is-arming .seat.filled:not(.is-lit),
+.seat-board.is-arming .seat.filled:not(.is-lit)::before {
+  background: rgba(255, 255, 255, 0.5);
+  border-color: rgba(20, 32, 51, 0.7);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.95);
+}
+.seat.filled.is-lit { animation: seat-pop 420ms ease; }
+@keyframes seat-pop {
+  0% { transform: scale(0.86); }
+  55% { transform: scale(1.08); box-shadow: 0 0 0 6px rgba(12, 126, 168, 0.18), 0 8px 18px rgba(12, 126, 168, 0.45); }
+  100% { transform: scale(1); }
+}
 .loop {
   list-style: none; margin: 4px 0 0; padding: 0;
   display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 28px;
@@ -765,6 +778,7 @@ tbody tr[tabindex]:hover, tbody tr[tabindex]:focus { background: #f7f8fb; }
   .intel-pin { position: static; height: auto; display: block; padding: 48px 18px 32px; }
   .spark { animation: none; }
   .orb { animation: none; }
+  .seat.filled.is-lit { animation: none; }
   .plate, .callout { transition: none; }
   .chip-scene { height: 420px; margin: 0 auto 12px; }
   .callouts { position: static; }
