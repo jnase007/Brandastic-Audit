@@ -176,6 +176,29 @@ a.hero-link:hover { border-color: #0c7ea8; color: #0c7ea8; background: rgba(255,
   background: radial-gradient(circle, rgba(12, 126, 168, 0.22), rgba(12, 126, 168, 0) 70%);
 }
 .stage { --mx: 50%; --my: 28%; }
+.aurora { position: absolute; inset: 0; z-index: 0; pointer-events: none; overflow: hidden; }
+.aurora span {
+  position: absolute; width: 46%; height: 58%; border-radius: 50%;
+  opacity: 0.5; animation: aurora 16s ease-in-out infinite;
+}
+.aurora span:nth-child(1) {
+  left: -10%; top: -20%;
+  background: radial-gradient(circle, rgba(126, 231, 247, 0.55), rgba(126, 231, 247, 0) 68%);
+}
+.aurora span:nth-child(2) {
+  right: -14%; bottom: -24%;
+  background: radial-gradient(circle, rgba(12, 126, 168, 0.3), rgba(12, 126, 168, 0) 70%);
+  animation-duration: 21s; animation-direction: reverse;
+}
+.aurora span:nth-child(3) {
+  left: 36%; top: 28%; width: 34%; height: 42%;
+  background: radial-gradient(circle, rgba(186, 230, 253, 0.42), rgba(186, 230, 253, 0) 70%);
+  animation-duration: 18s;
+}
+@keyframes aurora {
+  0%, 100% { transform: translate3d(0, 0, 0) scale(1); }
+  50% { transform: translate3d(26px, -16px, 0) scale(1.06); }
+}
 .stage-glare {
   position: absolute; inset: 0; z-index: 2; pointer-events: none; opacity: 0;
   background: radial-gradient(380px circle at var(--mx) var(--my), rgba(255, 255, 255, 0.55), rgba(126, 231, 247, 0.16) 26%, rgba(126, 231, 247, 0) 58%);
