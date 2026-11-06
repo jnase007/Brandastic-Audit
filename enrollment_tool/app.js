@@ -755,6 +755,7 @@
   setupSpotlight();
   setupSeats();
   setupStageLight();
+  setupStageTilt();
 
   function setupNav() {
     var header = document.querySelector(".site-header");
@@ -1019,6 +1020,26 @@
     stage.addEventListener("pointerleave", function () {
       queued = null;
       stage.classList.remove("is-lit");
+    });
+  }
+
+  function setupStageTilt() {
+    var reduce = window.matchMedia("(prefers-reduced-motion: reduce)");
+    var fine = window.matchMedia("(hover: hover) and (pointer: fine)");
+    if (!fine.matches || reduce.matches) return;
+    var nodes = document.querySelectorAll("#origin .j-card, #origin .seat-grid");
+    nodes.forEach(function (el) {
+      el.addEventListener("pointermove", function (event) {
+        if (event.pointerType && event.pointerType !== "mouse") return;
+        var box = el.getBoundingClientRect();
+        if (!box.width || !box.height) return;
+        var x = (event.clientX - box.left) / box.width - 0.5;
+        var y = (event.clientY - box.top) / box.height - 0.5;
+        var tiltY = Math.max(-6, Math.min(6, x * 12));
+        var tiltX = Math.max(-6, Math.min(6, -y * 12));
+        el.style.transform = "perspective(900px) rotateX(" + tiltX.toFixed(2) + "deg) rotateY(" + tiltY.toFixed(2) + "deg)";
+      });
+      el.addEventListener("pointerleave", function () { el.style.transform = ""; });
     });
   }
 
