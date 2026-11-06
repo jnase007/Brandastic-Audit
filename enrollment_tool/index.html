@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<meta name="description" content="FullStory by Brandastic follows an inquiry through enrollment and sends confirmed enrollments back to Google Ads.">
+<title>FullStory by Brandastic</title>
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="stylesheet" href="/enrollment_tool/styles.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+<a class="skip" href="#goal">Skip to content</a>
+<header class="site-header">
+  <div class="wrap bar">
+    <a class="brand" href="#goal" aria-label="FullStory by Brandastic">
+      <span class="wordmark"><span class="name">FullStory<span class="dot">.</span></span><span class="by">by Brandastic</span></span>
+    </a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Open menu">
+      <span class="nav-toggle-box" aria-hidden="true"></span>
+    </button>
+    <div class="nav-panel" id="site-nav">
+      <nav class="bar-actions" aria-label="Page">
+        <a class="text" href="#problem">Problem</a>
+        <a class="text" href="#path">How it works</a>
+        <a class="text" href="#stack">Stack</a>
+        <a class="text" href="#features">Features</a>
+        <a class="text" href="#preview">Results</a>
+        <a class="text" href="#scope">Scope</a>
+      </nav>
+      <button class="primary nav-cta" type="button" data-open-dialog="demo-dialog">Book a demo</button>
+    </div>
+  </div>
+</header>
+<main>
+  <section class="hero-shell" id="goal">
+    <div class="hero-media" id="hero-stage">
+      <img class="hero-poster" src="/enrollment_tool/assets/school-campus-poster.jpg" alt="">
+      <iframe id="hero-video" title="School campus" src="https://www.youtube-nocookie.com/embed/U7AoS6cgJL4?autoplay=1&amp;mute=1&amp;controls=0&amp;loop=1&amp;playlist=U7AoS6cgJL4&amp;modestbranding=1&amp;playsinline=1&amp;rel=0&amp;enablejsapi=1" allow="autoplay; encrypted-media" tabindex="-1"></iframe>
+      <div class="hero-shade"></div>
+    </div>
+    <div class="wrap hero-grid">
+      <div class="hero-copy">
+        <p class="eyebrow">Enrollment intelligence</p>
+        <h1>From Ads to Enrollments.</h1>
+        <p class="lede">Most schools aren't filling all their seats, and that's where Brandastic steps in. FullStory follows every family from the ad to the inquiry to the enrolled student, so you know what fills your classrooms.</p>
+        <div class="hero-actions">
+          <a class="primary" href="#path">See how it works</a>
+          <a class="text hero-link" href="#preview">Explore results</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="wrap band problem" id="problem">
+    <div class="problem-copy">
+      <h2 class="section-title">Inquiries are not the result</h2>
+      <p class="lede">Most schools still measure the campaign by how many inquiries it produced. FullStory measures it by enrolled students, and by what each enrollment cost. True cost per enrollment varies by school and market.</p>
+    </div>
+    <div class="origin" id="origin">
+      <div class="stage">
+        <div class="aurora" aria-hidden="true"><span></span><span></span><span></span></div>
+        <p class="story-tag">Illustrative example</p>
+        <div class="story-grid">
+          <div class="journey-wrap">
+            <ol class="journey">
+              <li class="j-ad">
+                <span class="j-index">1</span>
+                <div class="j-card ad-card">
+                  <h3>Google ad</h3>
+                  <p>Fall Open House – Search</p>
+                  <p class="micro">utm_campaign=fall_open_house</p>
+                  <span class="tick" aria-hidden="true"></span>
+                </div>
+              </li>
+              <li>
+                <span class="j-index">2</span>
+                <div class="j-card">
+                  <h3>Inquiry</h3>
+                  <p>Form · Maya <span class="ping" aria-hidden="true"></span></p>
+                  <p class="micro">Maya R. · Grade 6</p>
+                  <span class="tick" aria-hidden="true"></span>
+                </div>
+              </li>
+              <li>
+                <span class="j-index">3</span>
+                <div class="j-card tour-card">
+                  <h3>Tour booked</h3>
+                  <p class="cal"><span>Tue</span><strong>10:00</strong></p>
+                  <p class="micro">hold=tue_10:00</p>
+                  <span class="tick" aria-hidden="true"></span>
+                </div>
+              </li>
+              <li class="j-seat">
+                <span class="j-index">4</span>
+                <div class="j-card">
+                  <h3>Enrolled</h3>
+                  <p>One seat, filled</p>
+                  <p class="micro">seat=filled</p>
+                  <span class="mini-seat" aria-hidden="true"><span class="burst"><i></i><i></i><i></i><i></i></span></span>
+                  <span class="tick" aria-hidden="true"></span>
+                </div>
+              </li>
+            </ol>
+            <p class="trace-label">Traced to: Fall Open House – Search</p>
+          </div>
+          <div class="seat-board">
+            <div class="seat-grid" role="img" aria-label="Ten classroom seats. Three are traced to Google, Meta, and a referral. Two are enrolled with an unknown source. Five are still open.">
+              <div class="seat-cell is-anchor">
+                <span class="source-chip">Google</span>
+                <span class="seat traced" id="traced-seat" data-source="Google"><i class="back"></i><i class="cushion"></i></span>
+                <span class="shock" aria-hidden="true"></span>
+                <span class="lock-sparks" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i></span>
+              </div>
+              <div class="seat-cell">
+                <span class="seat"><i class="back"></i><i class="cushion"></i></span>
+              </div>
+              <div class="seat-cell">
+                <span class="source-chip">Meta</span>
+                <span class="seat traced" data-source="Meta"><i class="back"></i><i class="cushion"></i></span>
+              </div>
+              <div class="seat-cell">
+                <span class="seat"><i class="back"></i><i class="cushion"></i></span>
+              </div>
+              <div class="seat-cell">
+                <span class="source-chip">Referral</span>
+                <span class="seat traced" data-source="Referral"><i class="back"></i><i class="cushion"></i></span>
+              </div>
+              <div class="seat-cell">
+                <span class="seat unknown"><i class="back"></i><i class="cushion">?</i></span>
+              </div>
+              <div class="seat-cell">
+                <span class="seat"><i class="back"></i><i class="cushion"></i></span>
+              </div>
+              <div class="seat-cell">
+                <span class="seat unknown"><i class="back"></i><i class="cushion">?</i></span>
+              </div>
+              <div class="seat-cell">
+                <span class="seat"><i class="back"></i><i class="cushion"></i></span>
+              </div>
+              <div class="seat-cell">
+                <span class="seat"><i class="back"></i><i class="cushion"></i></span>
+              </div>
+            </div>
+            <div class="story-close">
+              <h3 class="seat-end">Every seat, traced.</h3>
+              <p class="seat-why">Most schools see seats fill. FullStory shows why.</p>
+              <p class="story-stats"><span data-seat-count data-count="3">3</span> traced · <span data-count="2">2</span> unknown · <span data-count="5">5</span> open</p>
+              <button class="primary" type="button" data-open-dialog="demo-dialog">Book a demo</button>
+            </div>
+          </div>
+        </div>
+        <svg class="trace" aria-hidden="true">
+          <defs>
+            <linearGradient id="traceGrad" x1="0" y1="1" x2="1" y2="0">
+              <stop offset="0%" stop-color="#7ee7f7"></stop>
+              <stop offset="55%" stop-color="#1aa6d6"></stop>
+              <stop offset="100%" stop-color="#0c7ea8"></stop>
+            </linearGradient>
+          </defs>
+          <path class="trace-glow"></path>
+          <path class="trace-path"></path>
+          <circle class="trace-spark" r="4.5"></circle>
+        </svg>
+        <svg class="trace trace-comet-layer" aria-hidden="true">
+          <circle class="trace-comet" r="6.5"></circle>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <section class="wrap band" id="teach">
+    <h2 class="section-title">Teach Google who enrolls</h2>
+    <p class="lede">We send the data back to Google, so your ads can find more families like the ones who enroll. Meta comes next.</p>
+    <ol class="loop">
+      <li><strong>Ad</strong><span>A family clicks the campaign.</span></li>
+      <li><strong>Inquiry</strong><span>Call, form, or chat is recorded.</span></li>
+      <li><strong>Enrollment</strong><span>The school confirms the seat.</span></li>
+      <li class="back"><strong>Google Ads</strong><span>That enrollment is sent back.</span></li>
+      <li class="better"><strong>Better leads</strong><span>Bidding can look for similar families.</span></li>
+    </ol>
+  </section>
+
+  <section class="intel" id="stack" aria-label="The intelligence stack">
+    <div class="intel-pin">
+      <div class="orb o1" aria-hidden="true"></div>
+      <div class="orb o2" aria-hidden="true"></div>
+      <div class="orb o3" aria-hidden="true"></div>
+      <div class="orb o4" aria-hidden="true"></div>
+      <p class="intel-title">The intelligence stack</p>
+      <div class="chip-scene" aria-hidden="true">
+        <span class="spark s1"></span><span class="spark s2"></span><span class="spark s3"></span>
+        <span class="spark s4"></span><span class="spark s5"></span><span class="spark s6"></span>
+        <div class="plate" style="--i:0"></div>
+        <div class="plate" style="--i:1"></div>
+        <div class="plate" style="--i:2"></div>
+        <div class="plate" style="--i:3"></div>
+        <div class="plate" style="--i:4"></div>
+      </div>
+      <div class="callouts">
+        <svg class="leader-svg" aria-hidden="true"><line /></svg>
+        <article class="callout right" style="--i:0">
+          <span class="leader"></span>
+          <div class="callout-card"><span>1</span><h3>Data</h3><p>Ads, calls, forms, and website visits captured for every family.</p></div>
+        </article>
+        <article class="callout left" style="--i:1">
+          <span class="leader"></span>
+          <div class="callout-card"><span>2</span><h3>Intelligence layer</h3><p>Matches each inquiry to its source, campaign and cost.</p></div>
+        </article>
+        <article class="callout right" style="--i:2">
+          <span class="leader"></span>
+          <div class="callout-card"><span>3</span><h3>Data loop</h3><p>School-confirmed applications and enrollments flow back in.</p></div>
+        </article>
+        <article class="callout left" style="--i:3">
+          <span class="leader"></span>
+          <div class="callout-card"><span>4</span><h3>Feedback to Google</h3><p>We send the data back to Google, so your ads can find more families like the ones who enroll.</p></div>
+        </article>
+        <article class="callout right" style="--i:4">
+          <span class="leader"></span>
+          <div class="callout-card"><span>5</span><h3>Client visualization</h3><p>Your team sees enrollments, cost per enrollment and seats left in one dashboard.</p></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="wrap band" id="features">
+    <h2 class="section-title">What the record holds</h2>
+    <div class="benefit-grid">
+      <article>
+        <h3>Source and campaign</h3>
+        <p>Google Ads, Meta Ads, organic, and offline stay attached to the inquiry, separate from whether it arrived by call, form, or chat.</p>
+      </article>
+      <article>
+        <h3>School outcome, own date</h3>
+        <p>Application, accepted, and enrolled come from the school file. Each status keeps the date the school recorded.</p>
+      </article>
+      <article>
+        <h3>Cost beside enrollments</h3>
+        <p>Paid enrollments sit next to campaign spend. The association is visible. It is not a claim that an ad caused the seat.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="wrap band" id="path">
+    <h2 class="section-title">How it works</h2>
+    <ol class="steps">
+      <li>
+        <span class="step-icon" aria-hidden="true"><svg viewBox="0 0 32 32"><path d="M6 22V10M12 22V6M18 22v-8M24 22V8" fill="none" stroke="#0c7ea8" stroke-width="2.4" stroke-linecap="round"/></svg></span>
+        <div>
+          <h3>Connect the campaigns</h3>
+          <p>Google Ads, Meta Ads, organic, and offline stay named on the inquiry.</p>
+        </div>
+      </li>
+      <li>
+        <span class="step-icon" aria-hidden="true"><svg viewBox="0 0 32 32"><rect x="7" y="6" width="18" height="20" rx="2" fill="none" stroke="#0c7ea8" stroke-width="2"/><path d="M11 12h10M11 17h10M11 22h6" fill="none" stroke="#142033" stroke-width="1.8" stroke-linecap="round"/></svg></span>
+        <div>
+          <h3>Record the inquiry</h3>
+          <p>Call, form, or chat, with the parent or guardian, the date, and the campaign.</p>
+        </div>
+      </li>
+      <li>
+        <span class="step-icon" aria-hidden="true"><svg viewBox="0 0 32 32"><circle cx="11" cy="12" r="3.2" fill="none" stroke="#142033" stroke-width="2"/><circle cx="21" cy="12" r="3.2" fill="none" stroke="#0c7ea8" stroke-width="2"/><path d="M6 23c.6-3 2.6-4.5 5-4.5s4.4 1.5 5 4.5M16 23c.5-2.4 2.2-3.8 4.5-3.8 2.2 0 3.8 1.2 4.4 3.4" fill="none" stroke="#142033" stroke-width="1.8" stroke-linecap="round"/></svg></span>
+        <div>
+          <h3>Match the enrollment</h3>
+          <p>The school file adds application, accepted, and enrolled, each on its own date.</p>
+        </div>
+      </li>
+      <li>
+        <span class="step-icon" aria-hidden="true"><svg viewBox="0 0 32 32"><circle cx="16" cy="16" r="9" fill="none" stroke="#0c7ea8" stroke-width="2"/><path d="M16 10.5v11M13.2 13.2c.6-1 1.6-1.5 2.8-1.5 1.8 0 3 1 3 2.4S17.8 16.4 16 16.4s-3.2.9-3.2 2.4 1.3 2.4 3.2 2.4c1.2 0 2.2-.5 2.8-1.4" fill="none" stroke="#142033" stroke-width="1.7" stroke-linecap="round"/></svg></span>
+        <div>
+          <h3>Read the true cost</h3>
+          <p>Spend divided by enrollments tied to a paid campaign. Organic and offline stay in the count and out of that cost.</p>
+        </div>
+      </li>
+    </ol>
+  </section>
+
+  <section class="wrap band" id="sources">
+    <h2 class="section-title">Channels stay named</h2>
+    <p class="lede source-lede">Paid search stays Google Ads. Paid social stays Meta Ads. Organic and offline are their own sources. Nothing is guessed from a missing field.</p>
+    <ul class="source-list">
+      <li><strong>Google Ads</strong><span>Search campaigns and the click id when the lead has one.</span></li>
+      <li><strong>Meta Ads</strong><span>The Meta campaign. The record does not split Facebook and Instagram unless the file does.</span></li>
+      <li><strong>Organic</strong><span>Inquiries with no paid campaign.</span></li>
+      <li><strong>Offline / referral</strong><span>Tours, referrals, and other inquiries that did not start on an ad.</span></li>
+    </ul>
+  </section>
+
+  <section class="wrap band" id="preview" aria-label="Results">
+    <h2 class="section-title">Results</h2>
+    <p class="lede">This example is a K–12 campus. Private schools and universities use the same inquiry: contact, source, campaign, and the later application or enrollment.</p>
+    <span id="school-demo" class="anchor"></span>
+    <span id="demo" class="anchor"></span>
+    <span id="leads" class="anchor"></span>
+    <span id="timeline" class="anchor"></span>
+    <span id="data" class="anchor"></span>
+    <span id="match-review" class="anchor"></span>
+    <span id="feedback" class="anchor"></span>
+    <span id="pilot" class="anchor"></span>
+    <div class="panel">
+      <div class="workspace-bar">
+        <nav class="product-nav" aria-label="Workspace">
+          <a href="#school-demo">Overview</a>
+          <a href="#leads">Leads</a>
+          <a href="#data">Data</a>
+        </nav>
+        <button class="text" id="reset-demo" type="button">Reset</button>
+      </div>
+      <div id="filters"></div>
+      <div id="active-filters"></div>
+      <div id="view-overview" data-view-panel="overview">
+        <div id="dashboard"></div>
+      </div>
+      <div id="view-leads" data-view-panel="leads" hidden>
+        <div id="timeline-body"></div>
+      </div>
+      <div id="view-data" data-view-panel="data" hidden>
+        <div id="data-body"></div>
+        <section class="platform-status">
+          <h2>Ad platforms</h2>
+          <p class="fine">School-confirmed outcomes that match an ad click. Google or Meta only when the inquiry came from that platform.</p>
+          <div id="feedback-body"></div>
+        </section>
+      </div>
+    </div>
+  </section>
+  <section class="wrap band cta-band">
+    <h2 class="section-title">See where your enrollments really come from</h2>
+    <button class="primary" type="button" data-open-dialog="demo-dialog">Book a free consultation</button>
+  </section>
+</main>
+<footer class="site-foot">
+  <div class="wrap">
+  <a class="brand" href="#goal" aria-label="FullStory by Brandastic">
+    <span class="wordmark"><span class="name">FullStory<span class="dot">.</span></span><span class="by">by Brandastic</span></span>
+  </a>
+  <nav aria-label="Footer">
+    <a href="#preview">Results</a>
+    <a href="#scope">Scope</a>
+  </nav>
+  <p>From ads to enrollments. For private schools and universities.</p>
+  </div>
+</footer>
+<div id="drawer-root"></div>
+<dialog class="sheet" id="demo-dialog" aria-labelledby="demo-title">
+  <div class="sheet-bar">
+    <h2 id="demo-title">Book a demo</h2>
+    <button class="text sheet-close" type="button" data-close-dialog>Close</button>
+  </div>
+  <div class="sheet-body">
+    <form name="fullstory-demo" method="POST" action="/" data-netlify="true" netlify-honeypot="bot-field">
+      <input type="hidden" name="form-name" value="fullstory-demo">
+      <p class="hp" hidden><label>Don’t fill this out if you’re human <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
+      <div class="demo-grid">
+        <label>Name<input name="name" type="text" required autocomplete="name"></label>
+        <label>Work email<input name="email" type="email" required autocomplete="email"></label>
+        <label>School / organization<input name="organization" type="text" required autocomplete="organization"></label>
+        <label>Role<input name="role" type="text" autocomplete="organization-title"></label>
+        <label>Phone<input name="phone" type="tel" autocomplete="tel"></label>
+        <label>Number of campuses
+          <select name="campuses">
+            <option value="">Select</option>
+            <option>1</option>
+            <option>2–5</option>
+            <option>6–10</option>
+            <option>11+</option>
+          </select>
+        </label>
+      </div>
+      <label>Message (optional)<textarea name="message" rows="3"></textarea></label>
+      <button class="primary" type="submit">Book a demo</button>
+      <p class="form-error" id="demo-error" hidden>That didn’t send. Try again, or use the email link below.</p>
+      <p class="mail-link"><a href="https://brandastic.com/contact/" target="_blank" rel="noopener">Prefer email? Contact Brandastic</a></p>
+    </form>
+    <p class="form-thanks" id="demo-thanks" hidden>Thanks, the Brandastic team will reach out within one business day</p>
+  </div>
+</dialog>
+<dialog class="sheet wide" id="scope-dialog" aria-labelledby="scope-title">
+  <div class="sheet-bar">
+    <h2 id="scope-title">Scope</h2>
+    <button class="text sheet-close" type="button" data-close-dialog>Close</button>
+  </div>
+  <div class="sheet-body scope">
+    <p class="kicker">Scope · proposed first version</p>
+    <h2>FullStory shows the path from an ad to an enrolled student.</h2>
+    <p class="lede">WhatConverts stays the lead-tracking foundation. FullStory connects those inquiries to school outcomes. It is not a CRM and it does not replace WhatConverts. FullStory is a provisional name for this preview.</p>
+    <section class="panel">
+      <h2>Working in the sample</h2>
+      <p>The <a href="#goal">sample dashboard</a> is a preview with three views: Overview, Leads, and Data. Filters, charts, and the status list use built-in rows. Nothing is imported, nothing is matched to a real file, and nothing is sent to Google or Meta.</p>
+      <p>The sample chart counts inquiry, application, and enrolled. Accepted is not its own bar there. A lead counts on the inquiry date. An application or enrollment counts on the school status date. An older inquiry can sit behind an enrollment in a later window. The sample does not turn that pair into a conversion rate.</p>
+      <p>The <a href="#leads">sample timeline</a> is the Leads view: a feed of arrival day, guardian contact, contact method, and marketing source. Qualified, unqualified, and unknown stay separate from inquiry, application, accepted, and enrolled. Methods in the file are form, call, and chat. It is not a WhatConverts timeline, a contact center, or the school’s admissions system.</p>
+    </section>
+    <section class="panel">
+      <h2>Proposed first version</h2>
+      <p>Not built. A first version would do the following. CSV export is the honest starting point. An API is not assumed to be available.</p>
+      <ol class="scope-list">
+        <li>Import leads from WhatConverts and school application and enrollment outcomes from CSV exports. A live API is not part of this version. What a real export contains has to be checked before the import is trusted.</li>
+        <li>Match records with a confidence indicator. Uncertain and unmatched rows wait in a review queue. The product does not guess a confirmation.</li>
+        <li>Show distinct stages: inquiry, application, accepted, and enrolled, using statuses the school confirmed.</li>
+        <li>Report confirmed enrollments and cost per enrollment by channel, campaign, and campus when those fields are actually in the file.</li>
+        <li>Flag missing data and CSV problems so an incomplete row is not presented as a trustworthy outcome.</li>
+        <li>Show a basic timeline of when leads arrived, whether quality is qualified, unqualified, or unknown, and the later school status on its own date. Not a copy of another product’s timeline.</li>
+        <li>Send school-confirmed outcomes (inquiry qualified, application, enrolled) back to Google Ads as offline conversions / enhanced conversions for leads (matched via GCLID and hashed email/phone, consent-aware). Meta Conversions API is a later phase.</li>
+        <li>MVP path: CSV upload of enrollments, matched to attributed inquiries, then a scheduled upload to Google Ads. Later, the same outcomes can move automatically via FACTS (Heart) / Avela (CalOPS) sync, subject to API access verification.</li>
+      </ol>
+    </section>
+    <section class="panel">
+      <h2>How a school would use it</h2>
+      <p>Bring in outcomes from a CSV, or add a lead by hand when a file is not available. Review uncertain matches. View results. Brandastic manages the technical setup.</p>
+    </section>
+    <section class="panel" id="manual">
+      <h2>Manual entry, beside the CSV</h2>
+      <p>Not built. A school needs a way to record a lead when its software does not do that automatically. Manual entry sits next to the CSV import. It is not a second admissions system, and this page does not store a real student.</p>
+      <ol class="scope-list">
+        <li>Add a lead.</li>
+        <li>Search for an existing inquiry and link to it, so the same family is not entered twice.</li>
+        <li>Update application, accepted, or enrolled by hand. Enrolled stays a different status from an accepted offer.</li>
+        <li>Record who made the change and when.</li>
+        <li>Require a confirmation before an enrollment is treated as confirmed.</li>
+        <li>Mark a source typed by a person as manually recorded. Mark a source that arrived from WhatConverts as tracked. If the source is not known, store Unknown. Do not invent one.</li>
+      </ol>
+    </section>
+    <section class="panel" id="future-sync">
+      <h2>Later: automatic updates from the school platform</h2>
+      <p>Planned. Subject to verified API access, permissions, and platform capabilities. This is not a supported integration and it is not live.</p>
+      <p>The aim is a secure connection the school authorizes, so application and enrollment outcomes can update without uploading the same CSV again. CSV import and manual entry stay available when a connection is not possible.</p>
+      <ul class="scope-list">
+        <li>Show whether the connection is working.</li>
+        <li>Show the last successful update.</li>
+        <li>Show a failure in plain language, with a way to retry.</li>
+      </ul>
+      <p>The first platforms to evaluate are FACTS for Heart and Avela for CalOPS. This page does not say those connections exist, or that either school has turned them on. If that access is verified, the sync can take the place of the CSV step in the Google Ads upload. Until then, the upload stays on the CSV path.</p>
+      <p>How often data would move, including whether that could ever be real-time or by webhook, is not decided until access is verified. Confirmed enrollment stays distinct from an accepted offer.</p>
+    </section>
+    <section class="panel">
+      <h2>Not in this version</h2>
+      <ul class="scope-list">
+        <li>No live WhatConverts, FACTS, Avela, or CalOPS connection. FACTS stays the admissions record. Avela and CalOPS setup is unknown.</li>
+        <li>No Meta Conversions API in this version. That return is a later phase.</li>
+        <li>No ROI calculator. That stays in Google Sheets.</li>
+        <li>No student names or private records on this page.</li>
+      </ul>
+      <p>A verified integration would be a later decision, after a CSV version shows whether the match is good enough. This page does not say that integration is ready.</p>
+    </section>
+  </div>
+</dialog>
+<script src="/enrollment_tool/fixtures.js"></script>
+<script src="/enrollment_tool/app.js"></script>
+</body>
+</html>
