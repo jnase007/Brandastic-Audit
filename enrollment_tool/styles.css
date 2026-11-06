@@ -151,10 +151,43 @@ a.hero-link:hover { border-color: #0c7ea8; color: #0c7ea8; background: rgba(255,
 .seat-board { position: relative; width: 280px; max-width: 100%; color: #142033; text-align: left; margin: 0; justify-self: end; }
 .seat-row { display: grid; grid-template-columns: repeat(5, 1fr); gap: 11px; margin-top: 28px; }
 .seat-row:first-child { margin-top: 0; }
-.seat { height: 31px; border: 2px solid #142033; border-radius: 5px 5px 4px 4px; position: relative; background: transparent; }
-.seat::before { content: ""; position: absolute; left: 10%; right: 10%; top: -14px; height: 13px; border: 2px solid #142033; border-bottom: 0; border-radius: 6px 6px 0 0; background: transparent; }
-.seat.filled { background: #0c7ea8; border-color: #0c7ea8; }
-.seat.filled::before { background: #0c7ea8; border-color: #0c7ea8; }
+.seat {
+  height: 31px;
+  border: 1.5px solid rgba(20, 32, 51, 0.7);
+  border-radius: 5px 5px 4px 4px;
+  position: relative;
+  background: rgba(255, 255, 255, 0.5);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.95), inset 0 0 0 1px rgba(12, 126, 168, 0.08);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  transition: transform 160ms ease, box-shadow 160ms ease;
+}
+.seat::before {
+  content: "";
+  position: absolute;
+  left: 10%;
+  right: 10%;
+  top: -14px;
+  height: 13px;
+  border: 1.5px solid rgba(20, 32, 51, 0.7);
+  border-bottom: 0;
+  border-radius: 6px 6px 0 0;
+  background: rgba(255, 255, 255, 0.42);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.9);
+}
+.seat.filled {
+  background: linear-gradient(180deg, #4ec8e6 0%, #0c7ea8 100%);
+  border-color: #0a6e94;
+  box-shadow: 0 7px 16px rgba(12, 126, 168, 0.38), inset 0 1px 0 rgba(255, 255, 255, 0.55);
+}
+.seat.filled::before {
+  background: linear-gradient(180deg, #73d6ef 0%, #1494c2 100%);
+  border-color: #0a6e94;
+  box-shadow: 0 4px 10px rgba(12, 126, 168, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.5);
+}
+@media (hover: hover) and (pointer: fine) {
+  .seat:hover { transform: translateY(-3px); }
+}
 .seat-board p { margin: 14px 0 0; font-size: 0.92rem; font-weight: 700; letter-spacing: 0.01em; color: #142033; }
 .loop {
   list-style: none; margin: 4px 0 0; padding: 0;
