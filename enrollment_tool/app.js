@@ -1050,10 +1050,15 @@
     var narrow = window.matchMedia("(max-width: 800px)");
     var stage = root.querySelector(".stage");
     var svg = root.querySelector(".trace");
+    var cometSvg = root.querySelector(".trace-comet-layer");
+    var comet = root.querySelector(".trace-comet");
     var steps = root.querySelectorAll(".journey li");
     var path = root.querySelector(".trace-path");
     var glow = root.querySelector(".trace-glow");
     var spark = root.querySelector(".trace-spark");
+    var seat = document.getElementById("traced-seat");
+    var googleChip = root.querySelector(".seat-cell.is-anchor .source-chip");
+    var lockPlayed = false;
     var ad = root.querySelector(".j-ad");
     var count = root.querySelector("[data-seat-count]");
     var chips = root.querySelectorAll(".source-chip");
@@ -1069,7 +1074,9 @@
       var cards = root.querySelectorAll(".j-card");
       var seat = document.getElementById("traced-seat");
       if (box.width < 2 || cards.length < 4 || !seat) return 0;
-      svg.setAttribute("viewBox", "0 0 " + box.width.toFixed(1) + " " + box.height.toFixed(1));
+      var view = "0 0 " + box.width.toFixed(1) + " " + box.height.toFixed(1);
+      svg.setAttribute("viewBox", view);
+      if (cometSvg) cometSvg.setAttribute("viewBox", view);
       var sr = seat.getBoundingClientRect();
       var sx = sr.left - box.left;
       var sy = sr.top - box.top + sr.height * 0.62;
@@ -1139,6 +1146,29 @@
       }
     }
 
+    function playLock() {
+      if (lockPlayed || reduce.matches) return;
+      lockPlayed = true;
+      ensurePath();
+      root.classList.add("is-lock");
+      if (seat) seat.classList.add("is-hot");
+      if (googleChip) {
+        googleChip.style.transform = "";
+        googleChip.classList.add("is-snap");
+      }
+      if (!comet || !path || !(length > 1)) return;
+      var start = performance.now();
+      function step(now) {
+        var t = Math.min(1, (now - start) / 780);
+        var point = path.getPointAtLength(length * t);
+        comet.setAttribute("cx", point.x.toFixed(1));
+        comet.setAttribute("cy", point.y.toFixed(1));
+        comet.style.opacity = t > 0.98 ? "0" : "1";
+        if (t < 1) requestAnimationFrame(step);
+      }
+      requestAnimationFrame(step);
+    }
+
     function finalState() {
       root.classList.remove("is-scrub");
       root.classList.add("is-static");
@@ -1154,6 +1184,14 @@
     if (reduce.matches || narrow.matches || !("IntersectionObserver" in window)) {
       finalState();
       window.addEventListener("resize", function () { laidKey = ""; paint(1); });
+      if (narrow.matches && !reduce.matches && stage && "IntersectionObserver" in window) {
+        var once = new IntersectionObserver(function (entries) {
+          if (!entries.some(function (entry) { return entry.isIntersecting; })) return;
+          once.disconnect();
+          playLock();
+        }, { threshold: 0.4 });
+        once.observe(stage);
+      }
       return;
     }
 
@@ -1176,13 +1214,16 @@
       });
       var draw = seg(progress, 0.18, 0.7);
       paint(draw);
+      if (draw > 0.98) playLock();
       if (ad) ad.classList.toggle("is-locked", draw > 0.97);
       var traced = Math.round(seg(progress, 0.72, 0.9) * 3);
       if (count) count.textContent = String(traced);
       chips.forEach(function (chip, index) {
         var rise = seg(progress, 0.48 + index * 0.08, 0.6 + index * 0.08);
         chip.style.opacity = String(rise);
-        chip.style.transform = "translateY(" + ((1 - rise) * 8).toFixed(2) + "px)";
+        if (!chip.classList.contains("is-snap")) {
+          chip.style.transform = "translateY(" + ((1 - rise) * 8).toFixed(2) + "px)";
+        }
       });
       if (end) end.style.opacity = String(0.55 + 0.45 * seg(progress, 0.62, 0.9));
     }

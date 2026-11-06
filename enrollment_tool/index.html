@@ -102,9 +102,11 @@
           </div>
           <div class="seat-board">
             <div class="seat-grid" role="img" aria-label="Ten classroom seats. Three are traced to Google, Meta, and a referral. Two are enrolled with an unknown source. Five are still open.">
-              <div class="seat-cell">
+              <div class="seat-cell is-anchor">
                 <span class="source-chip">Google</span>
                 <span class="seat traced" id="traced-seat" data-source="Google"><i class="back"></i><i class="cushion"></i></span>
+                <span class="shock" aria-hidden="true"></span>
+                <span class="lock-sparks" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i></span>
               </div>
               <div class="seat-cell">
                 <span class="seat"><i class="back"></i><i class="cushion"></i></span>
@@ -155,6 +157,9 @@
           <path class="trace-glow"></path>
           <path class="trace-path"></path>
           <circle class="trace-spark" r="4.5"></circle>
+        </svg>
+        <svg class="trace trace-comet-layer" aria-hidden="true">
+          <circle class="trace-comet" r="6.5"></circle>
         </svg>
       </div>
     </div>
