@@ -1059,6 +1059,7 @@
     var seat = document.getElementById("traced-seat");
     var googleChip = root.querySelector(".seat-cell.is-anchor .source-chip");
     var lockPlayed = false;
+    var stepAt = [1, 1, 1, 1];
     var ad = root.querySelector(".j-ad");
     var count = root.querySelector("[data-seat-count]");
     var chips = root.querySelectorAll(".source-chip");
@@ -1113,7 +1114,20 @@
       }
       path.setAttribute("d", d);
       if (glow) glow.setAttribute("d", d);
-      return path.getTotalLength();
+      var total = path.getTotalLength();
+      if (total > 1 && !stacked) {
+        var run = 0;
+        stepAt[3] = 0.02;
+        run += Math.abs(ys[2] - ys[3]);
+        stepAt[2] = run / total;
+        run += Math.abs(ys[1] - ys[2]);
+        stepAt[1] = run / total;
+        run += Math.abs(ys[0] - ys[1]);
+        stepAt[0] = run / total;
+      } else {
+        stepAt = [0, 0, 0, 0];
+      }
+      return total;
     }
 
     function ensurePath() {
@@ -1172,7 +1186,12 @@
     function finalState() {
       root.classList.remove("is-scrub");
       root.classList.add("is-static");
-      steps.forEach(function (step) { step.style.opacity = ""; step.style.transform = ""; });
+      steps.forEach(function (step) {
+        step.style.opacity = "";
+        step.style.transform = "";
+        var card = step.querySelector(".j-card");
+        if (card) card.classList.add("is-on");
+      });
       chips.forEach(function (chip) { chip.style.opacity = ""; chip.style.transform = ""; });
       if (end) end.style.opacity = "";
       if (count) count.textContent = "3";
@@ -1215,6 +1234,10 @@
       var draw = seg(progress, 0.18, 0.7);
       paint(draw);
       if (draw > 0.98) playLock();
+      steps.forEach(function (step, index) {
+        var card = step.querySelector(".j-card");
+        if (card) card.classList.toggle("is-on", draw >= stepAt[index]);
+      });
       if (ad) ad.classList.toggle("is-locked", draw > 0.97);
       var traced = Math.round(seg(progress, 0.72, 0.9) * 3);
       if (count) count.textContent = String(traced);

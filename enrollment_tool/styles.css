@@ -225,12 +225,30 @@ a.hero-link:hover { border-color: #0c7ea8; color: #0c7ea8; background: rgba(255,
 .j-card h3, .j-card p { position: relative; z-index: 1; }
 .j-card h3 { margin: 0 0 2px; font-size: 0.95rem; }
 .j-card p { margin: 0; color: var(--muted); font-size: 0.88rem; }
-.ad-card { position: relative; }
-.lock-check {
-  position: absolute; right: 10px; top: 10px; width: 18px; height: 18px; border-radius: 50%;
-  border: 2px solid #0c7ea8; box-shadow: 0 0 0 4px rgba(12, 126, 168, 0.15);
+.micro {
+  display: block; margin-top: 6px; max-width: 100%;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.68rem; line-height: 1.3; color: #0c7ea8;
+  white-space: nowrap; overflow: hidden;
+  clip-path: inset(0 100% 0 0);
 }
-.lock-check::after { content: ""; position: absolute; left: 4px; top: 1px; width: 5px; height: 9px; border: solid #0c7ea8; border-width: 0 2px 2px 0; transform: rotate(45deg); }
+.j-card.is-on {
+  border-color: rgba(12, 126, 168, 0.75);
+  box-shadow: 0 0 0 1px rgba(126, 231, 247, 0.85), 0 10px 24px rgba(12, 126, 168, 0.18);
+}
+.j-card.is-on .micro { clip-path: inset(0 0 0 0); transition: clip-path 680ms steps(24, end); }
+.origin.is-static .micro { clip-path: none; }
+.tick {
+  position: absolute; right: 10px; top: 10px; z-index: 2;
+  width: 16px; height: 16px; border-radius: 50%;
+  border: 2px solid #0c7ea8; opacity: 0; transform: scale(0.6);
+}
+.tick::after {
+  content: ""; position: absolute; left: 4px; top: 1px; width: 4px; height: 8px;
+  border: solid #0c7ea8; border-width: 0 2px 2px 0; transform: rotate(45deg);
+}
+.j-card.is-on .tick { opacity: 1; transform: scale(1); transition: opacity 180ms linear, transform 240ms cubic-bezier(0.2, 1.4, 0.4, 1); }
+.ad-card { position: relative; }
 .ping { display: inline-block; width: 7px; height: 7px; margin-left: 6px; border-radius: 50%; background: #0c7ea8; box-shadow: 0 0 0 4px rgba(12, 126, 168, 0.18); vertical-align: middle; }
 .cal { display: inline-flex; align-items: center; gap: 8px; }
 .cal span { font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase; color: #0c7ea8; font-weight: 800; }
@@ -385,7 +403,7 @@ a.hero-link:hover { border-color: #0c7ea8; color: #0c7ea8; background: rgba(255,
 .origin.is-off .ping,
 .origin.is-off .seat.unknown,
 .origin.is-off .burst i { animation-play-state: paused; }
-.j-ad.is-locked .lock-check { animation: lock-ring 700ms ease; }
+.j-ad.is-locked .tick { animation: lock-ring 700ms ease; }
 .burst { position: absolute; inset: -8px; pointer-events: none; }
 .burst i {
   position: absolute; left: 50%; top: 50%; width: 5px; height: 5px; margin: -2px;
@@ -982,7 +1000,9 @@ tbody tr[tabindex]:hover, tbody tr[tabindex]:focus { background: #f7f8fb; }
   .intel-pin { position: static; height: auto; display: block; padding: 0 18px 32px; }
   .spark { animation: none; }
   .orb { animation: none; }
-  .seat.filled.is-lit, .origin.is-live .ad-card::after, .origin.is-live .ping, .origin.is-live .seat.unknown, .origin.is-live .burst i, .j-ad.is-locked .lock-check { animation: none; }
+  .seat.filled.is-lit, .origin.is-live .ad-card::after, .origin.is-live .ping, .origin.is-live .seat.unknown, .origin.is-live .burst i, .j-ad.is-locked .tick { animation: none; }
+  .micro { clip-path: none; }
+  .tick { opacity: 1; transform: none; }
   .plate, .callout { transition: none; }
   .chip-scene { height: 420px; margin: 0 auto 12px; }
   .callouts { position: static; }
