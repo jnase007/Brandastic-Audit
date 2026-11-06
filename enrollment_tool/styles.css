@@ -247,6 +247,7 @@ a.hero-link:hover { border-color: #0c7ea8; color: #0c7ea8; background: rgba(255,
 .panel-head h2, .pilot h2 { font-size: 1.35rem; }
 .panel-head .primary { margin-top: 12px; }
 #preview, #path, #goal { scroll-margin-top: 18px; }
+#stack { scroll-margin-top: 84px; }
 #preview { position: relative; }
 .anchor { position: absolute; top: 0; left: 0; width: 1px; height: 1px; overflow: hidden; }
 .filters { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin: 18px 0 4px; }
