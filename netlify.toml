@@ -504,3 +504,20 @@
   to = "/enrollment_tool/index.html"
   status = 200
 
+# FullStory lives in /enrollment_tool/. These rewrites only match /fullstory
+# and leave /, the audit form, and other routes alone.
+[[redirects]]
+  from = "/fullstory"
+  to = "/enrollment_tool/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/fullstory/"
+  to = "/enrollment_tool/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/fullstory/*"
+  to = "/enrollment_tool/:splat"
+  status = 200
+
