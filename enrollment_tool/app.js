@@ -1064,6 +1064,8 @@
     var count = root.querySelector("[data-seat-count]");
     var chips = root.querySelectorAll(".source-chip");
     var end = root.querySelector(".seat-end");
+    var counters = root.querySelectorAll("[data-count]");
+    var counted = false;
     var fine = window.matchMedia("(hover: hover) and (pointer: fine)");
     var ticking = false;
     var length = 0;
@@ -1160,9 +1162,42 @@
       }
     }
 
+    function setCounts(progress) {
+      counters.forEach(function (node) {
+        var target = Number(node.getAttribute("data-count")) || 0;
+        node.textContent = String(Math.round(target * progress));
+      });
+    }
+
+    function countUp() {
+      if (counted) return;
+      counted = true;
+      if (reduce.matches) {
+        setCounts(1);
+        return;
+      }
+      if (end) {
+        end.style.opacity = "1";
+        end.classList.add("is-shine");
+        end.addEventListener("animationend", function done() {
+          end.classList.remove("is-shine");
+          end.removeEventListener("animationend", done);
+        });
+      }
+      var start = performance.now();
+      function step(now) {
+        var t = Math.min(1, (now - start) / 700);
+        setCounts(1 - Math.pow(1 - t, 3));
+        if (t < 1) requestAnimationFrame(step);
+      }
+      setCounts(0);
+      requestAnimationFrame(step);
+    }
+
     function playLock() {
       if (lockPlayed || reduce.matches) return;
       lockPlayed = true;
+      countUp();
       ensurePath();
       root.classList.add("is-lock");
       if (seat) seat.classList.add("is-hot");
@@ -1193,8 +1228,16 @@
         if (card) card.classList.add("is-on");
       });
       chips.forEach(function (chip) { chip.style.opacity = ""; chip.style.transform = ""; });
-      if (end) end.style.opacity = "";
-      if (count) count.textContent = "3";
+      if (end) {
+        end.style.opacity = "";
+        end.classList.remove("is-shine");
+      }
+      if (reduce.matches || !narrow.matches) {
+        setCounts(1);
+        counted = true;
+      } else {
+        setCounts(0);
+      }
       if (ad) ad.classList.add("is-locked");
       laidKey = "";
       paint(1);
@@ -1233,14 +1276,13 @@
       });
       var draw = seg(progress, 0.18, 0.7);
       paint(draw);
-      if (draw > 0.98) playLock();
       steps.forEach(function (step, index) {
         var card = step.querySelector(".j-card");
         if (card) card.classList.toggle("is-on", draw >= stepAt[index]);
       });
       if (ad) ad.classList.toggle("is-locked", draw > 0.97);
-      var traced = Math.round(seg(progress, 0.72, 0.9) * 3);
-      if (count) count.textContent = String(traced);
+      if (draw > 0.98) playLock();
+      else if (!counted) setCounts(0);
       chips.forEach(function (chip, index) {
         var rise = seg(progress, 0.48 + index * 0.08, 0.6 + index * 0.08);
         chip.style.opacity = String(rise);
@@ -1248,7 +1290,7 @@
           chip.style.transform = "translateY(" + ((1 - rise) * 8).toFixed(2) + "px)";
         }
       });
-      if (end) end.style.opacity = String(0.55 + 0.45 * seg(progress, 0.62, 0.9));
+      if (end && !counted) end.style.opacity = String(0.55 + 0.45 * seg(progress, 0.62, 0.9));
     }
     function requestFrame() {
       if (ticking) return;

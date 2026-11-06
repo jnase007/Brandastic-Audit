@@ -375,6 +375,16 @@ a.hero-link:hover { border-color: #0c7ea8; color: #0c7ea8; background: rgba(255,
   font-size: clamp(2.15rem, 3.6vw, 3.25rem);
   line-height: 0.98; letter-spacing: -0.045em;
 }
+.seat-end.is-shine {
+  background-image: linear-gradient(100deg, #142033 0%, #142033 36%, #7ee7f7 50%, #142033 64%, #142033 100%);
+  background-size: 220% 100%;
+  background-position: 100% 0;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: title-shine 900ms ease forwards;
+}
+@keyframes title-shine { to { background-position: 0 0; } }
 .seat-why {
   margin: 10px 0 0; max-width: 22em;
   color: var(--muted); font-size: 1rem; font-weight: 500; line-height: 1.4;
