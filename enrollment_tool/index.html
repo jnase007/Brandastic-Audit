@@ -61,17 +61,81 @@
       <h2 class="section-title">Inquiries are not the result</h2>
       <p class="lede">Most schools still measure the campaign by how many inquiries it produced. FullStory measures it by enrolled students, and by what each enrollment cost. True cost per enrollment varies by school and market.</p>
     </div>
-    <div class="seat-board">
-      <div aria-hidden="true">
-      <div class="seat-row">
-        <span class="seat"></span><span class="seat"></span><span class="seat"></span><span class="seat"></span><span class="seat filled"></span>
+    <div class="origin" id="origin">
+      <p class="story-tag">Illustrative example</p>
+      <div class="origin-pin">
+        <div class="story-grid">
+          <div class="journey-wrap">
+            <ol class="journey">
+              <li class="j-ad">
+                <span class="j-index">1</span>
+                <div class="j-card ad-card">
+                  <h3>Google ad</h3>
+                  <p>Fall Open House – Search</p>
+                  <span class="lock-check" aria-hidden="true"></span>
+                </div>
+              </li>
+              <li>
+                <span class="j-index">2</span>
+                <div class="j-card">
+                  <h3>Inquiry</h3>
+                  <p>Form · Maya <span class="ping" aria-hidden="true"></span></p>
+                </div>
+              </li>
+              <li>
+                <span class="j-index">3</span>
+                <div class="j-card tour-card">
+                  <h3>Tour booked</h3>
+                  <p class="cal"><span>Tue</span><strong>10:00</strong></p>
+                </div>
+              </li>
+              <li class="j-seat">
+                <span class="j-index">4</span>
+                <div class="j-card">
+                  <h3>Enrolled</h3>
+                  <p>One seat, filled</p>
+                  <span class="mini-seat" aria-hidden="true"><span class="burst"></span></span>
+                </div>
+              </li>
+            </ol>
+            <svg class="trace" viewBox="0 0 24 320" preserveAspectRatio="none" aria-hidden="true">
+              <defs>
+                <linearGradient id="traceGrad" x1="0" y1="1" x2="0" y2="0">
+                  <stop offset="0%" stop-color="#7ee7f7"></stop>
+                  <stop offset="100%" stop-color="#0c7ea8"></stop>
+                </linearGradient>
+              </defs>
+              <path class="trace-path" d="M12 308 V12" pathLength="1"></path>
+              <circle class="trace-spark" cx="12" cy="12" r="3.2"></circle>
+            </svg>
+            <p class="trace-label">Traced to: Fall Open House – Search</p>
+          </div>
+          <div class="seat-board">
+            <div class="seat-row" aria-hidden="true">
+              <span class="seat traced" data-source="Google"></span>
+              <span class="seat"></span>
+              <span class="seat traced" data-source="Meta"></span>
+              <span class="seat"></span>
+              <span class="seat traced" data-source="Referral"></span>
+              <span class="seat unknown"></span>
+              <span class="seat"></span>
+              <span class="seat unknown"></span>
+              <span class="seat"></span>
+              <span class="seat"></span>
+            </div>
+            <div class="source-chips" aria-hidden="true">
+              <span class="source-chip">Google</span>
+              <span class="source-chip">Meta</span>
+              <span class="source-chip">Referral</span>
+            </div>
+            <p class="seat-unknown">Enrolled — source unknown</p>
+            <p class="seat-count"><span data-seat-count>3</span> enrollments traced to a source</p>
+            <p class="seat-why">Most schools see seats fill. FullStory shows why.</p>
+            <p class="seat-end">Every seat, traced.</p>
+            <button class="primary" type="button" data-open-dialog="demo-dialog">Book a demo</button>
+          </div>
+        </div>
       </div>
-      <div class="seat-row">
-        <span class="seat"></span><span class="seat filled"></span><span class="seat"></span><span class="seat"></span><span class="seat filled"></span>
-      </div>
-      </div>
-      <p class="seat-count"><span data-seat-count>0</span> of 10 seats filled</p>
-      <p>Seats waiting to be filled</p>
     </div>
   </section>
 
