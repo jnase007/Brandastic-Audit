@@ -754,6 +754,7 @@
   setupTilt();
   setupSpotlight();
   setupSeats();
+  setupStageLight();
 
   function setupNav() {
     var header = document.querySelector(".site-header");
@@ -979,6 +980,45 @@
       var blocked = event.target.closest && event.target.closest("#stack, .hero-shell");
       glow.style.opacity = blocked ? "0" : "1";
       glow.style.transform = "translate3d(" + event.clientX + "px," + event.clientY + "px,0)";
+    });
+  }
+
+  function setupStageLight() {
+    var stage = document.querySelector("#origin .stage");
+    var reduce = window.matchMedia("(prefers-reduced-motion: reduce)");
+    var fine = window.matchMedia("(hover: hover) and (pointer: fine)");
+    if (!stage || !fine.matches || reduce.matches) return;
+    var glare = document.createElement("div");
+    glare.className = "stage-glare";
+    glare.setAttribute("aria-hidden", "true");
+    stage.appendChild(glare);
+    var cards = stage.querySelectorAll(".j-card");
+    var queued = null;
+    var frame = 0;
+    stage.addEventListener("pointermove", function (event) {
+      if (event.pointerType && event.pointerType !== "mouse") return;
+      queued = event;
+      if (frame) return;
+      frame = requestAnimationFrame(function () {
+        frame = 0;
+        var point = queued;
+        if (!point) return;
+        var box = stage.getBoundingClientRect();
+        stage.style.setProperty("--mx", (point.clientX - box.left).toFixed(1) + "px");
+        stage.style.setProperty("--my", (point.clientY - box.top).toFixed(1) + "px");
+        stage.classList.add("is-lit");
+        var card = point.target.closest && point.target.closest(".j-card");
+        cards.forEach(function (el) {
+          if (el !== card) return;
+          var local = el.getBoundingClientRect();
+          el.style.setProperty("--cx", (point.clientX - local.left).toFixed(1) + "px");
+          el.style.setProperty("--cy", (point.clientY - local.top).toFixed(1) + "px");
+        });
+      });
+    });
+    stage.addEventListener("pointerleave", function () {
+      queued = null;
+      stage.classList.remove("is-lit");
     });
   }
 
