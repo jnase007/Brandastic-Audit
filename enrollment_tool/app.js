@@ -983,40 +983,82 @@
   }
 
   function setupSeats() {
-    var board = document.querySelector(".seat-board");
-    if (!board) return;
+    var root = document.getElementById("origin");
+    if (!root) return;
     var reduce = window.matchMedia("(prefers-reduced-motion: reduce)");
-    var seats = board.querySelectorAll(".seat.filled");
-    var count = board.querySelector("[data-seat-count]");
-    function showFinal() {
-      board.classList.remove("is-arming");
-      seats.forEach(function (seat) { seat.classList.add("is-lit"); });
-      if (count) count.textContent = String(seats.length);
+    var narrow = window.matchMedia("(max-width: 800px)");
+    var steps = root.querySelectorAll(".journey li");
+    var path = root.querySelector(".trace-path");
+    var spark = root.querySelector(".trace-spark");
+    var ad = root.querySelector(".j-ad");
+    var count = root.querySelector("[data-seat-count]");
+    var chips = root.querySelectorAll(".source-chip");
+    var fine = window.matchMedia("(hover: hover) and (pointer: fine)");
+    var ticking = false;
+    function finalState() {
+      root.classList.remove("is-scrub");
+      root.classList.add("is-static");
+      steps.forEach(function (step) { step.style.opacity = ""; step.style.transform = ""; });
+      if (path) { path.style.strokeDasharray = ""; path.style.strokeDashoffset = ""; }
+      if (count) count.textContent = "3";
+      if (ad) ad.classList.add("is-locked");
     }
-    if (reduce.matches) {
-      showFinal();
+    if (reduce.matches || narrow.matches || !("IntersectionObserver" in window)) {
+      finalState();
       return;
     }
-    board.classList.add("is-arming");
-    if (count) count.textContent = "0";
-    var started = false;
-    if (!("IntersectionObserver" in window)) {
-      showFinal();
-      return;
+    root.classList.add("is-scrub");
+    if (path) path.style.strokeDasharray = "1";
+    function seg(progress, start, end) {
+      return Math.max(0, Math.min(1, (progress - start) / (end - start)));
     }
-    var observer = new IntersectionObserver(function (entries) {
-      if (started || !entries.some(function (entry) { return entry.isIntersecting; })) return;
-      started = true;
-      observer.disconnect();
-      seats.forEach(function (seat, index) {
-        window.setTimeout(function () {
-          seat.classList.add("is-lit");
-          if (count) count.textContent = String(index + 1);
-          if (index === seats.length - 1) board.classList.remove("is-arming");
-        }, index * 150);
+    function frame() {
+      var rect = root.getBoundingClientRect();
+      var total = root.offsetHeight - window.innerHeight;
+      var scrolled = Math.min(Math.max(-rect.top, 0), Math.max(total, 0));
+      var progress = total > 0 ? scrolled / total : 1;
+      var inView = rect.bottom > 0 && rect.top < window.innerHeight;
+      root.classList.toggle("is-live", inView);
+      root.classList.toggle("is-off", !inView);
+      steps.forEach(function (step, index) {
+        var show = seg(progress, index * 0.12, index * 0.12 + 0.1);
+        step.style.opacity = String(show);
+        step.style.transform = "translateY(" + ((1 - show) * 16).toFixed(2) + "px)";
       });
-    }, { threshold: 0.45 });
-    observer.observe(board);
+      var draw = seg(progress, 0.5, 0.82);
+      if (path) path.style.strokeDashoffset = String(1 - draw);
+      if (spark) spark.setAttribute("cy", String(308 - draw * 296));
+      if (ad) ad.classList.toggle("is-locked", draw > 0.97);
+      var traced = Math.round(seg(progress, 0.82, 0.96) * 3);
+      if (count) count.textContent = String(traced);
+      chips.forEach(function (chip, index) {
+        var rise = seg(progress, 0.8 + index * 0.03, 0.9 + index * 0.03);
+        chip.style.opacity = String(rise);
+        chip.style.transform = "translateY(" + ((1 - rise) * 10 + (progress - 0.5) * 8).toFixed(2) + "px)";
+      });
+      var end = root.querySelector(".seat-end");
+      if (end) end.style.opacity = String(seg(progress, 0.9, 1));
+    }
+    function requestFrame() {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(function () { ticking = false; frame(); });
+    }
+    window.addEventListener("scroll", requestFrame, { passive: true });
+    window.addEventListener("resize", requestFrame);
+    if (fine.matches && !reduce.matches) {
+      chips.forEach(function (chip) {
+        chip.addEventListener("pointermove", function (event) {
+          if (event.pointerType && event.pointerType !== "mouse") return;
+          var box = chip.getBoundingClientRect();
+          var x = (event.clientX - box.left) / box.width - 0.5;
+          var y = (event.clientY - box.top) / box.height - 0.5;
+          chip.style.transform = "perspective(500px) rotateX(" + (-y * 8).toFixed(2) + "deg) rotateY(" + (x * 8).toFixed(2) + "deg)";
+        });
+        chip.addEventListener("pointerleave", function () { chip.style.transform = ""; });
+      });
+    }
+    frame();
   }
 
   if (new URLSearchParams(location.search).get("selftest") === "1") runSelfTest();

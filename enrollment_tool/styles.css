@@ -198,7 +198,46 @@ a.hero-link:hover { border-color: #0c7ea8; color: #0c7ea8; background: rgba(255,
 }
 .seat-unknown, .seat-why, .seat-end { font-size: 0.88rem; }
 .seat-end { font-size: 1.35rem; letter-spacing: -0.03em; margin-top: 16px; }
-.seat-board .primary { margin-top: 10px; }
+.origin.is-scrub { height: 280vh; }
+.origin.is-scrub .origin-pin {
+  position: sticky;
+  top: 84px;
+  min-height: calc(100vh - 108px);
+  display: flex;
+  align-items: center;
+}
+.origin.is-live .ad-card { overflow: hidden; }
+.origin.is-live .ad-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(110deg, transparent 30%, rgba(255,255,255,0.55) 48%, transparent 66%);
+  transform: translateX(-120%);
+  animation: ad-sheen 2.4s linear infinite;
+  pointer-events: none;
+}
+.origin.is-live .ping { animation: ping 1.3s ease-out infinite; }
+.origin.is-live .seat.unknown { animation: unknown-flicker 2.4s ease-in-out infinite; }
+.origin.is-live .burst i { animation: burst 1.1s ease-out infinite; }
+.origin.is-off .ad-card::after,
+.origin.is-off .ping,
+.origin.is-off .seat.unknown,
+.origin.is-off .burst i { animation-play-state: paused; }
+.j-ad.is-locked .lock-check { animation: lock-ring 700ms ease; }
+.burst { position: absolute; inset: -8px; pointer-events: none; }
+.burst i {
+  position: absolute; left: 50%; top: 50%; width: 5px; height: 5px; margin: -2px;
+  border-radius: 50%; background: #bff3ff; opacity: 0;
+}
+.burst i:nth-child(1) { --x: -14px; --y: -10px; }
+.burst i:nth-child(2) { --x: 12px; --y: -12px; animation-delay: .15s; }
+.burst i:nth-child(3) { --x: -8px; --y: 8px; animation-delay: .28s; }
+.burst i:nth-child(4) { --x: 14px; --y: 6px; animation-delay: .4s; }
+@keyframes ad-sheen { to { transform: translateX(120%); } }
+@keyframes ping { 70%, 100% { transform: scale(1.7); opacity: 0; } }
+@keyframes unknown-flicker { 50% { opacity: 0.4; } }
+@keyframes burst { to { transform: translate(var(--x), var(--y)) scale(1); opacity: 0; } }
+@keyframes lock-ring { from { box-shadow: 0 0 0 0 rgba(12,126,168,0.45); } to { box-shadow: 0 0 0 10px rgba(12,126,168,0); } }
 .seat-row { display: grid; grid-template-columns: repeat(5, 1fr); gap: 11px; margin-top: 28px; }
 .seat-row:first-child { margin-top: 0; }
 .seat {
@@ -830,7 +869,7 @@ tbody tr[tabindex]:hover, tbody tr[tabindex]:focus { background: #f7f8fb; }
   .intel-pin { position: static; height: auto; display: block; padding: 48px 18px 32px; }
   .spark { animation: none; }
   .orb { animation: none; }
-  .seat.filled.is-lit { animation: none; }
+  .seat.filled.is-lit, .origin.is-live .ad-card::after, .origin.is-live .ping, .origin.is-live .seat.unknown, .origin.is-live .burst i, .j-ad.is-locked .lock-check { animation: none; }
   .plate, .callout { transition: none; }
   .chip-scene { height: 420px; margin: 0 auto 12px; }
   .callouts { position: static; }
