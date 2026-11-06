@@ -987,30 +987,118 @@
     if (!root) return;
     var reduce = window.matchMedia("(prefers-reduced-motion: reduce)");
     var narrow = window.matchMedia("(max-width: 800px)");
+    var stage = root.querySelector(".stage");
+    var svg = root.querySelector(".trace");
     var steps = root.querySelectorAll(".journey li");
     var path = root.querySelector(".trace-path");
+    var glow = root.querySelector(".trace-glow");
     var spark = root.querySelector(".trace-spark");
     var ad = root.querySelector(".j-ad");
     var count = root.querySelector("[data-seat-count]");
     var chips = root.querySelectorAll(".source-chip");
+    var end = root.querySelector(".seat-end");
     var fine = window.matchMedia("(hover: hover) and (pointer: fine)");
     var ticking = false;
+    var length = 0;
+    var laidKey = "";
+
+    function layoutPath() {
+      if (!stage || !svg || !path) return 0;
+      var box = stage.getBoundingClientRect();
+      var cards = root.querySelectorAll(".j-card");
+      var seat = document.getElementById("traced-seat");
+      if (box.width < 2 || cards.length < 4 || !seat) return 0;
+      svg.setAttribute("viewBox", "0 0 " + box.width.toFixed(1) + " " + box.height.toFixed(1));
+      var sr = seat.getBoundingClientRect();
+      var sx = sr.left - box.left;
+      var sy = sr.top - box.top + sr.height * 0.62;
+      var index = root.querySelector(".j-index").getBoundingClientRect();
+      var rail = index.left - box.left + index.width / 2;
+      var ys = [0, 1, 2, 3].map(function (i) {
+        var r = cards[i].getBoundingClientRect();
+        return r.top - box.top + r.height / 2;
+      });
+      var stacked = sr.top > cards[3].getBoundingClientRect().bottom;
+      var d;
+      if (stacked) {
+        var seatMid = sr.left - box.left + sr.width / 2;
+        var seatTop = sr.top - box.top + 2;
+        d = "M " + rail.toFixed(1) + " " + ys[0].toFixed(1) +
+          " L " + rail.toFixed(1) + " " + ys[1].toFixed(1) +
+          " L " + rail.toFixed(1) + " " + ys[2].toFixed(1) +
+          " L " + rail.toFixed(1) + " " + ys[3].toFixed(1) +
+          " L " + rail.toFixed(1) + " " + seatTop.toFixed(1) +
+          " L " + seatMid.toFixed(1) + " " + seatTop.toFixed(1);
+      } else {
+        var top = cards[0].getBoundingClientRect();
+        var next = cards[1].getBoundingClientRect();
+        var lane = (top.bottom + next.top) / 2 - box.top;
+        var laneX = top.right - box.left + 10;
+        d = "M " + rail.toFixed(1) + " " + ys[3].toFixed(1) +
+          " L " + rail.toFixed(1) + " " + ys[2].toFixed(1) +
+          " L " + rail.toFixed(1) + " " + ys[1].toFixed(1) +
+          " L " + rail.toFixed(1) + " " + ys[0].toFixed(1) +
+          " L " + rail.toFixed(1) + " " + lane.toFixed(1) +
+          " L " + laneX.toFixed(1) + " " + lane.toFixed(1) +
+          " L " + laneX.toFixed(1) + " " + sy.toFixed(1) +
+          " L " + sx.toFixed(1) + " " + sy.toFixed(1);
+      }
+      path.setAttribute("d", d);
+      if (glow) glow.setAttribute("d", d);
+      return path.getTotalLength();
+    }
+
+    function ensurePath() {
+      if (!stage) return;
+      var box = stage.getBoundingClientRect();
+      var key = Math.round(box.width) + "x" + Math.round(box.height);
+      if (key === laidKey && length > 1) return;
+      laidKey = key;
+      length = layoutPath();
+      [path, glow].forEach(function (shape) {
+        if (!shape || !length) return;
+        shape.style.strokeDasharray = String(length);
+      });
+    }
+
+    function paint(draw) {
+      ensurePath();
+      var shown = length > 1 ? length * (1 - draw) : 0;
+      [path, glow].forEach(function (shape) {
+        if (!shape) return;
+        shape.style.strokeDashoffset = length > 1 ? String(shown) : "0";
+      });
+      if (spark && length > 1 && draw > 0.02) {
+        var point = path.getPointAtLength(length * draw);
+        spark.setAttribute("cx", point.x.toFixed(1));
+        spark.setAttribute("cy", point.y.toFixed(1));
+        spark.style.opacity = "1";
+      } else if (spark) {
+        spark.style.opacity = "0";
+      }
+    }
+
     function finalState() {
       root.classList.remove("is-scrub");
       root.classList.add("is-static");
       steps.forEach(function (step) { step.style.opacity = ""; step.style.transform = ""; });
-      if (path) { path.style.strokeDasharray = ""; path.style.strokeDashoffset = ""; }
+      chips.forEach(function (chip) { chip.style.opacity = ""; chip.style.transform = ""; });
+      if (end) end.style.opacity = "";
       if (count) count.textContent = "3";
       if (ad) ad.classList.add("is-locked");
+      laidKey = "";
+      paint(1);
     }
+
     if (reduce.matches || narrow.matches || !("IntersectionObserver" in window)) {
       finalState();
+      window.addEventListener("resize", function () { laidKey = ""; paint(1); });
       return;
     }
+
     root.classList.add("is-scrub");
-    if (path) path.style.strokeDasharray = "1";
-    function seg(progress, start, end) {
-      return Math.max(0, Math.min(1, (progress - start) / (end - start)));
+    function seg(progress, start, finish) {
+      return Math.max(0, Math.min(1, (progress - start) / (finish - start)));
     }
     function frame() {
       var rect = root.getBoundingClientRect();
@@ -1021,23 +1109,21 @@
       root.classList.toggle("is-live", inView);
       root.classList.toggle("is-off", !inView);
       steps.forEach(function (step, index) {
-        var show = seg(progress, index * 0.12, index * 0.12 + 0.1);
+        var show = seg(progress, -0.18 + index * 0.14, -0.04 + index * 0.14);
         step.style.opacity = String(show);
-        step.style.transform = "translateY(" + ((1 - show) * 16).toFixed(2) + "px)";
+        step.style.transform = "translateY(" + ((1 - show) * 14).toFixed(2) + "px)";
       });
-      var draw = seg(progress, 0.5, 0.82);
-      if (path) path.style.strokeDashoffset = String(1 - draw);
-      if (spark) spark.setAttribute("cy", String(308 - draw * 296));
+      var draw = seg(progress, 0.18, 0.7);
+      paint(draw);
       if (ad) ad.classList.toggle("is-locked", draw > 0.97);
-      var traced = Math.round(seg(progress, 0.82, 0.96) * 3);
+      var traced = Math.round(seg(progress, 0.72, 0.9) * 3);
       if (count) count.textContent = String(traced);
       chips.forEach(function (chip, index) {
-        var rise = seg(progress, 0.8 + index * 0.03, 0.9 + index * 0.03);
+        var rise = seg(progress, 0.48 + index * 0.08, 0.6 + index * 0.08);
         chip.style.opacity = String(rise);
-        chip.style.transform = "translateY(" + ((1 - rise) * 10 + (progress - 0.5) * 8).toFixed(2) + "px)";
+        chip.style.transform = "translateY(" + ((1 - rise) * 8).toFixed(2) + "px)";
       });
-      var end = root.querySelector(".seat-end");
-      if (end) end.style.opacity = String(seg(progress, 0.9, 1));
+      if (end) end.style.opacity = String(0.55 + 0.45 * seg(progress, 0.62, 0.9));
     }
     function requestFrame() {
       if (ticking) return;
@@ -1045,7 +1131,7 @@
       requestAnimationFrame(function () { ticking = false; frame(); });
     }
     window.addEventListener("scroll", requestFrame, { passive: true });
-    window.addEventListener("resize", requestFrame);
+    window.addEventListener("resize", function () { laidKey = ""; requestFrame(); });
     if (fine.matches && !reduce.matches) {
       chips.forEach(function (chip) {
         chip.addEventListener("pointermove", function (event) {
@@ -1053,7 +1139,7 @@
           var box = chip.getBoundingClientRect();
           var x = (event.clientX - box.left) / box.width - 0.5;
           var y = (event.clientY - box.top) / box.height - 0.5;
-          chip.style.transform = "perspective(500px) rotateX(" + (-y * 8).toFixed(2) + "deg) rotateY(" + (x * 8).toFixed(2) + "deg)";
+          chip.style.transform = "perspective(500px) rotateX(" + (-y * 6).toFixed(2) + "deg) rotateY(" + (x * 6).toFixed(2) + "deg)";
         });
         chip.addEventListener("pointerleave", function () { chip.style.transform = ""; });
       });
