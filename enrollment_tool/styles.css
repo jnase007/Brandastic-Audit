@@ -491,7 +491,8 @@ tbody tr[tabindex]:hover, tbody tr[tabindex]:focus { background: #f7f8fb; }
 @media (max-width: 640px) {
   .nav-panel { padding-left: 16px; padding-right: 16px; }
 }
-.cta-band { padding-bottom: 8px; }
+.cta-band { padding-bottom: 8px; text-align: center; }
+.cta-band .section-title { margin-left: auto; margin-right: auto; text-wrap: balance; }
 .cta-band .primary { margin-top: 4px; }
 .sheet {
   width: min(640px, calc(100% - 28px));
