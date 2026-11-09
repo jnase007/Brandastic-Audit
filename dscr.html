@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>Rent vs offer</title>
+  <style>
+    body { font-family: Georgia, serif; background: #EDE6D6; color: #1A1814; margin: 0; padding: 1.4rem; max-width: 28rem; }
+    h1 { font-size: 1.55rem; margin: 0 0 0.35rem; }
+    p.lead { margin: 0 0 1.1rem; line-height: 1.5; font-size: 0.98rem; }
+    label { display: block; font-size: 0.82rem; margin: 0.65rem 0 0.2rem; }
+    input { width: 100%; box-sizing: border-box; padding: 0.6rem 0.7rem; font-size: 1rem; border: 1px solid rgba(26,24,20,0.2); border-radius: 8px; }
+    button { margin-top: 1rem; width: 100%; padding: 0.85rem; font-size: 1rem; border: 0; border-radius: 999px; background: #0644ED; color: #fff; }
+    #out { margin-top: 1.1rem; padding: 1rem; background: #fff; border-radius: 12px; line-height: 1.55; }
+    .ok { color: #1a7a3a; font-weight: 700; }
+    .no { color: #a33; font-weight: 700; }
+  </style>
+</head>
+<body>
+  <h1>Look at a listing</h1>
+  <p class="lead">Ask price, doors, rent. Does rent cover the bill, and the most you can pay.</p>
+  <label>Ask price $</label>
+  <input id="price" type="number" value="1300000" />
+  <label>Doors (legal units)</label>
+  <input id="doors" type="number" value="1" />
+  <label>Rent per door $ / month</label>
+  <input id="per" type="number" value="4200" />
+  <label>Or total rent $ / month (0 = doors × rent)</label>
+  <input id="rent" type="number" value="0" />
+  <label>Down payment %</label>
+  <input id="down" type="number" value="20" />
+  <label>Rate %</label>
+  <input id="rate" type="number" step="0.1" value="7.5" />
+  <label>Tax % / year</label>
+  <input id="tax" type="number" step="0.1" value="1.1" />
+  <label>Insurance + HOA $ / month</label>
+  <input id="ins" type="number" value="300" />
+  <button type="button" onclick="run()">Run it</button>
+  <div id="out"></div>
+  <script>
+    function n(id) { return Number(document.getElementById(id).value) || 0; }
+    function money(x) { return Math.round(x).toLocaleString(); }
+    function pi(loan, annual) {
+      const r = annual / 12, m = 360;
+      if (r === 0) return loan / m;
+      return loan * r / (1 - Math.pow(1 + r, -m));
+    }
+    function billAt(price) {
+      const downPct = n("down") / 100;
+      const loan = price * (1 - downPct);
+      return pi(loan, n("rate") / 100) + price * (n("tax") / 100) / 12 + n("ins");
+    }
+    function run() {
+      const price = n("price");
+      const doors = n("doors") || 1;
+      let rent = n("rent");
+      if (!rent) rent = doors * n("per");
+      const bill = billAt(price);
+      const dscr = bill > 0 ? rent / bill : 0;
+      const ok = dscr >= 1;
+      let lo = 0, hi = 8000000, maxP = 0;
+      for (let i = 0; i < 40; i++) {
+        const mid = (lo + hi) / 2;
+        if (rent >= billAt(mid)) { maxP = mid; lo = mid; }
+        else hi = mid;
+      }
+      document.getElementById("out").innerHTML =
+        "Rent you’re using: <b>$" + money(rent) + "</b> / month (" + doors + " doors)<br>" +
+        "Bill at this ask: <b>$" + money(bill) + "</b> / month<br>" +
+        (ok
+          ? '<span class="ok">Covers. ' + dscr.toFixed(2) + "</span><br>"
+          : '<span class="no">Short. ' + dscr.toFixed(2) + " — $" + money(bill - rent) + " / month hole</span><br>") +
+        "Most you can pay at this rent: <b>$" + money(maxP) + "</b><br>" +
+        "Down at that price: $" + money(maxP * n("down") / 100);
+    }
+    run();
+  </script>
+</body>
+</html>

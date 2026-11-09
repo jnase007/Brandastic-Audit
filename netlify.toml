@@ -521,3 +521,12 @@
   to = "/enrollment_tool/:splat"
   status = 200
 
+[[redirects]]
+  from = "/dscr"
+  to = "/dscr.html"
+  status = 200
+
+[[redirects]]
+  from = "/dscr/"
+  to = "/dscr.html"
+  status = 200
