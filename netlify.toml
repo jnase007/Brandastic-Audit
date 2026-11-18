@@ -18,6 +18,16 @@
 
 
 [[redirects]]
+  from = "/enclave"
+  to = "/enclave.html"
+  status = 200
+
+[[redirects]]
+  from = "/enclave/"
+  to = "/enclave.html"
+  status = 200
+
+[[redirects]]
   from = "/waterchef"
   to = "/waterchef.html"
   status = 200
