@@ -9,120 +9,118 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
 <style>
   :root {
-    --bg: #191F24; --fog: #F5F3EF; --blue: #0644ED; --cyan: #40B4E5; --purple: #CC22FF;
-    --muted: rgba(255,255,255,.65); --line: rgba(255,255,255,.12);
+    --bg: #F5F3EF; --card: #fff; --ink: #191F24; --muted: #5c6570;
+    --blue: #0644ED; --cyan: #40B4E5; --line: #e6e2da;
   }
   * { box-sizing: border-box; margin: 0; padding: 0; }
-  body { font-family: Inter, system-ui, sans-serif; background: var(--bg); color: #fff; line-height: 1.55; }
-  a { color: var(--cyan); }
-  .wrap { max-width: 1080px; margin: 0 auto; padding: 28px 20px 80px; }
-  .eyebrow { font-size: 11px; letter-spacing: .16em; text-transform: uppercase; color: var(--cyan); font-weight: 700; }
-  h1 { font-size: clamp(28px, 5vw, 48px); letter-spacing: -.03em; margin: 10px 0 12px; font-weight: 900; }
+  body { font-family: Inter, system-ui, sans-serif; background: var(--bg); color: var(--ink); line-height: 1.55; }
+  a { color: var(--blue); }
+  .wrap { max-width: 1100px; margin: 0 auto; padding: 28px 20px 80px; }
+  .eyebrow { font-size: 11px; letter-spacing: .16em; text-transform: uppercase; color: var(--blue); font-weight: 700; }
+  h1 { font-size: clamp(28px, 5vw, 46px); letter-spacing: -.03em; margin: 10px 0 12px; font-weight: 900; }
   h2 { font-size: 22px; margin: 36px 0 12px; font-weight: 800; }
   p, li { color: var(--muted); }
   .grid { display: grid; gap: 12px; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); margin: 22px 0; }
-  .card { background: rgba(255,255,255,.05); border: 1px solid var(--line); border-radius: 14px; padding: 16px; }
-  .card b { display: block; font-size: 22px; color: #fff; margin-bottom: 4px; }
+  .card { background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 16px; box-shadow: 0 8px 24px rgba(25,31,36,.04); }
+  .card b { display: block; font-size: 22px; color: var(--ink); margin-bottom: 4px; }
   .card span { font-size: 12px; text-transform: uppercase; letter-spacing: .08em; color: var(--muted); }
-  table { width: 100%; border-collapse: collapse; font-size: 13px; margin-top: 8px; overflow-x: auto; display: block; }
-  th, td { text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--line); white-space: nowrap; }
-  th { color: var(--cyan); font-size: 11px; letter-spacing: .08em; text-transform: uppercase; }
-  td { color: #e8eef5; }
+  table { width: 100%; border-collapse: collapse; font-size: 13px; background: #fff; border-radius: 12px; overflow: hidden; border: 1px solid var(--line); }
+  th, td { text-align: left; padding: 9px 10px; border-bottom: 1px solid var(--line); }
+  th { background: #fff; color: var(--blue); font-size: 11px; letter-spacing: .08em; text-transform: uppercase; }
   .note { font-size: 13px; margin-top: 10px; }
-  ol { padding-left: 18px; }
-  ol li { margin: 8px 0; }
+  .warn { background: #fff7ed; border: 1px solid #fed7aa; border-radius: 14px; padding: 16px 18px; margin: 20px 0; }
+  .warn b { color: var(--ink); }
+  .month { background: #fff; border: 1px solid var(--line); border-radius: 12px; padding: 12px; }
+  .month .m { font-size: 12px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--blue); }
+  .month .n { font-size: 28px; font-weight: 800; letter-spacing: -.03em; }
+  .month small { display: block; color: var(--muted); font-size: 12px; margin-top: 4px; }
+  .track { height: 8px; background: #eeeae4; border-radius: 99px; overflow: hidden; margin: 10px 0 6px; }
+  .fill { height: 100%; background: linear-gradient(90deg, var(--blue), var(--cyan)); border-radius: 99px; }
+  .tl { display: grid; grid-template-columns: repeat(12, 1fr); gap: 8px; margin-top: 14px; }
+  @media (max-width: 900px) { .tl { grid-template-columns: repeat(3, 1fr); } }
+  .legend { display: flex; gap: 16px; font-size: 12px; color: var(--muted); margin-top: 10px; flex-wrap: wrap; }
+  .dot { width: 8px; height: 8px; border-radius: 50%; display: inline-block; margin-right: 6px; }
   footer { margin-top: 48px; font-size: 12px; color: var(--muted); }
-  .bars { display: grid; gap: 10px; margin: 16px 0 8px; }
-  .bar-row { display: grid; grid-template-columns: 110px 1fr 90px; gap: 10px; align-items: center; font-size: 13px; }
-  .track { height: 14px; background: rgba(255,255,255,.08); border-radius: 99px; overflow: hidden; }
-  .fill-g { height: 100%; background: linear-gradient(90deg, var(--blue), var(--cyan)); }
-  .fill-m { height: 100%; background: linear-gradient(90deg, var(--purple), var(--cyan)); }
-  .qgrid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-top: 12px; }
-  @media (max-width: 700px) { .qgrid { grid-template-columns: 1fr 1fr; } }
-  .q { background: rgba(255,255,255,.05); border: 1px solid var(--line); border-radius: 12px; padding: 14px; }
-  .q strong { display: block; font-size: 20px; margin: 4px 0; }
 </style>
 </head>
 <body>
   <div class="wrap">
     <p class="eyebrow">Brandastic × Enclave Remodeling · private</p>
     <h1>From $1.7M to $3M in 2027</h1>
-    <p>Google is almost the only lead source. About 3 qualified meetings a month. Goal is 10. Budget $8,000–$12,000 a month all-in. This is the visual plan: brand, funnel, Google, paid social, local shoots.</p>
+    <p>He is already at about <b>$10,000 / month on Google</b> for <b>3 qualified meetings</b> and about <b>1 close per 6 meetings</b>. That is the real starting line — not a blank $10k budget.</p>
 
     <div class="grid">
-      <div class="card"><b>$1.7M</b><span>Revenue now</span></div>
-      <div class="card"><b>$3M+</b><span>2027 goal</span></div>
-      <div class="card"><b>3 → 10</b><span>Meetings / month</span></div>
-      <div class="card"><b>~$118k</b><span>Implied job size</span></div>
+      <div class="card"><b>$10k</b><span>Google spend now</span></div>
+      <div class="card"><b>3</b><span>Meetings / month now</span></div>
+      <div class="card"><b>1 in 6</b><span>Meetings → signed</span></div>
+      <div class="card"><b>$3,333</b><span>Cost per meeting now</span></div>
     </div>
 
-    <h2>The $260 problem</h2>
-    <p>$3,000,000 at a $260 average job is about 11,500 jobs. That is not remodeling. From $1.7M and ~3 meetings a month at a 30–40% close, job size is about <b style="color:#fff">$118,000–$155,000</b>. We plan at <b style="color:#fff">$118,000</b> and 35% close until Enclave gives a real close rate.</p>
-
-    <h2>$10,000 / month all-in</h2>
-    <div class="bars">
-      <div class="bar-row"><span>Google ads</span><div class="track"><div class="fill-g" style="width:50%"></div></div><span>$5,000</span></div>
-      <div class="bar-row"><span>Meta ads</span><div class="track"><div class="fill-m" style="width:20%"></div></div><span>$2,000</span></div>
-      <div class="bar-row"><span>YouTube test</span><div class="track"><div class="fill-g" style="width:5%"></div></div><span>$500</span></div>
-      <div class="bar-row"><span>Shoot / creative</span><div class="track"><div class="fill-m" style="width:25%"></div></div><span>$2,500</span></div>
+    <div class="warn">
+      <b>$10,000 on Google is not enough to buy 10 meetings at today’s efficiency.</b>
+      3 meetings × $10,000 means each Clarity-ready meeting costs about $3,333. Ten meetings at the same rate is about <b>$33,000 / month</b> in Google. We either lower cost per meeting (tracking, page, offer, creative) or we raise spend. Paid social does not replace that math — it only helps if it books meetings cheaper than $3,333 or adds meetings Google cannot.
     </div>
-    <p class="note">At $8,000: Google $4,000 · Meta $1,500 · creative $2,500. At $12,000: Google $6,500 · Meta $3,000 after 6+ meetings is real. Do not 50/50 social until it books Clarity meetings.</p>
 
-    <h2>What each channel should produce in 2027</h2>
+    <h2>What the close rate does to the year</h2>
+    <p>36 meetings / year ÷ 6 = <b>6 signed jobs</b> today. $1.7M ÷ 6 ≈ <b>$283,000</b> average job (use this, not $260). $3M needs about <b>11 jobs</b> = about <b>66 meetings</b> = about <b>5–6 qualified meetings / month</b> if close stays 1 in 6. The “10 meetings” goal is how you overshoot $3M and start the $8M path (~20 jobs × $283k ≈ $5.7M).</p>
+
+    <h2>12-month picture — leads, meetings, closes</h2>
+    <p>Lead = inquiry (form/call). About 4 inquiries per qualified meeting, in line with a tight remodel funnel. Closes lag ~30–45 days. We do not jump from 3 to 10 meetings in January.</p>
+    <div class="tl" id="tl"></div>
+    <p class="legend"><span><i class="dot" style="background:#0644ED"></i>Bar = inquiries that month</span><span>Number = qualified meetings</span><span>Signed = lagged closes</span></p>
+
+    <h2>Month by month</h2>
+    <div style="overflow-x:auto">
     <table>
-      <thead><tr><th></th><th>Google</th><th>Paid social</th><th>Year</th></tr></thead>
+      <thead><tr><th>Month</th><th>Leads in</th><th>Qualified meetings</th><th>Signed jobs</th><th>Est. revenue</th><th>What we are doing</th></tr></thead>
       <tbody>
-        <tr><td>Inquiries</td><td>~250</td><td>~110</td><td>~360</td></tr>
-        <tr><td>Qualified meetings</td><td>~62 (70%)</td><td>~27 (30%)</td><td>~89</td></tr>
-        <tr><td>Signed jobs (35% close)</td><td>~22</td><td>~9</td><td>~31</td></tr>
-        <tr><td>Revenue at $118k</td><td>~$2.6M</td><td>~$1.1M</td><td>~$3.7M</td></tr>
-        <tr><td>Cost / meeting</td><td>$400–$700</td><td>$700–$1,200</td><td>blended ~$850</td></tr>
-        <tr><td>Cost / signed job</td><td>~$2,700</td><td>~$4,000</td><td>~$3,900 vs $118k job</td></tr>
+        <tr><td>Jan</td><td>16</td><td>4</td><td>1</td><td>$283,000</td><td>Fix tracking, landing, shoot. Google stays on.</td></tr>
+        <tr><td>Feb</td><td>16</td><td>4</td><td>1</td><td>$283,000</td><td>First social from the shoot. Don’t cut Google.</td></tr>
+        <tr><td>Mar</td><td>20</td><td>5</td><td>1</td><td>$283,000</td><td>Spring. Kill waste queries.</td></tr>
+        <tr><td>Apr</td><td>24</td><td>6</td><td>1</td><td>$283,000</td><td>First month at 6 meetings (2 closes/quarter pace).</td></tr>
+        <tr><td>May</td><td>28</td><td>7</td><td>1</td><td>$283,000</td><td>Peak season. Social only if it books meetings.</td></tr>
+        <tr><td>Jun</td><td>32</td><td>8</td><td>1</td><td>$283,000</td><td>Hold Google. Raise social only on proof.</td></tr>
+        <tr><td>Jul</td><td>32</td><td>8</td><td>1</td><td>$283,000</td><td>Same.</td></tr>
+        <tr><td>Aug</td><td>36</td><td>9</td><td>1</td><td>$283,000</td><td>Push toward 10 only if CPA is falling.</td></tr>
+        <tr><td>Sep</td><td>40</td><td>10</td><td>2</td><td>$566,000</td><td>10 meetings only if cost per meeting is well under $3,333.</td></tr>
+        <tr><td>Oct</td><td>40</td><td>10</td><td>2</td><td>$566,000</td><td>Hold.</td></tr>
+        <tr><td>Nov</td><td>32</td><td>8</td><td>1</td><td>$283,000</td><td>Don’t buy junk holiday leads.</td></tr>
+        <tr><td>Dec</td><td>24</td><td>6</td><td>1</td><td>$283,000</td><td>Book January Clarity calls.</td></tr>
+        <tr><td><b>2027</b></td><td><b>340</b></td><td><b>85</b></td><td><b>14</b></td><td><b>~$4.0M</b></td><td>1-in-6 close × ~$283k job</td></tr>
       </tbody>
     </table>
-
-    <h2>Meetings by quarter</h2>
-    <div class="qgrid">
-      <div class="q">Q1 setup<strong>13</strong><span style="color:var(--muted);font-size:13px">Google 10 · Social 3</span></div>
-      <div class="q">Q2 spring<strong>21</strong><span style="color:var(--muted);font-size:13px">Google 14 · Social 7</span></div>
-      <div class="q">Q3 peak<strong>29</strong><span style="color:var(--muted);font-size:13px">Google 19 · Social 10</span></div>
-      <div class="q">Q4 hold<strong>26</strong><span style="color:var(--muted);font-size:13px">Google 19 · Social 7</span></div>
     </div>
+    <p class="note">14 jobs × $283,000 ≈ $4.0M. That is the $3M year with room. If we never beat $3,333 per meeting, this ramp stalls at 4–5 meetings and we miss.</p>
 
-    <h2>Jan–Dec 2027</h2>
+    <h2>Budgets — two honest options</h2>
     <table>
-      <thead><tr><th>Month</th><th>Focus</th><th>Inquiries</th><th>Meetings</th><th>Signed</th><th>Revenue</th></tr></thead>
+      <thead><tr><th></th><th>Stay near $10k all-in</th><th>Buy more meetings</th></tr></thead>
       <tbody>
-        <tr><td>Jan</td><td>Tracking, shoot, Google</td><td>16</td><td>4</td><td>1</td><td>$118,000</td></tr>
-        <tr><td>Feb</td><td>First social from shoot</td><td>16</td><td>4</td><td>1</td><td>$118,000</td></tr>
-        <tr><td>Mar</td><td>Spring</td><td>20</td><td>5</td><td>2</td><td>$236,000</td></tr>
-        <tr><td>Apr</td><td>Scale winners</td><td>24</td><td>6</td><td>2</td><td>$236,000</td></tr>
-        <tr><td>May</td><td>Peak</td><td>28</td><td>7</td><td>2</td><td>$236,000</td></tr>
-        <tr><td>Jun</td><td>Peak</td><td>32</td><td>8</td><td>3</td><td>$354,000</td></tr>
-        <tr><td>Jul</td><td>Hold</td><td>36</td><td>9</td><td>3</td><td>$354,000</td></tr>
-        <tr><td>Aug</td><td>Hit 10 meetings</td><td>40</td><td>10</td><td>3</td><td>$354,000</td></tr>
-        <tr><td>Sep</td><td>Hold 10</td><td>40</td><td>10</td><td>4</td><td>$472,000</td></tr>
-        <tr><td>Oct</td><td>Hold 10</td><td>40</td><td>10</td><td>4</td><td>$472,000</td></tr>
-        <tr><td>Nov</td><td>9–10</td><td>36</td><td>9</td><td>3</td><td>$354,000</td></tr>
-        <tr><td>Dec</td><td>Book Q1</td><td>28</td><td>7</td><td>3</td><td>$354,000</td></tr>
-        <tr><td>2027</td><td></td><td>356</td><td>89</td><td>31</td><td>~$3.66M</td></tr>
+        <tr><td>Google</td><td>$7,000–$8,000 (must get cheaper than $3,333/meeting)</td><td>$15,000–$20,000 if CPA does not fall</td></tr>
+        <tr><td>Paid social</td><td>$1,500–$2,000 test after the shoot</td><td>$3,000 only if it books Clarity meetings</td></tr>
+        <tr><td>Shoot / creative</td><td>$1,500–$2,500 (Q1 heavy)</td><td>same</td></tr>
+        <tr><td>Expected meetings / mo</td><td>4–6 if we cut CPA in half</td><td>8–10 if we spend more and CPA improves</td></tr>
+        <tr><td>Expected closes / mo</td><td>~1</td><td>1–2</td></tr>
       </tbody>
     </table>
-    <p class="note">Signed jobs lag 30–45 days. Exact $3.0M only needs ~25 jobs. This ramp has headroom.</p>
+    <p class="note">Recommendation: do not promise 10 meetings on the same $10k Google buy. Promise Q1 work to cut cost per meeting, keep Google as the base, add social from real creative, and revisit spend in May with numbers.</p>
 
-    <h2>How we run it</h2>
-    <ol>
-      <li><b style="color:#fff">Tracking first.</b> Inquiry → booked → showed → qualified → signed Clarity → revenue.</li>
-      <li><b style="color:#fff">Google is the meeting machine.</b> High-intent remodel search in their cities.</li>
-      <li><b style="color:#fff">Paid social is not a second form factory.</b> Local photo/video → best posts → ads → same Clarity calendar.</li>
-      <li><b style="color:#fff">If Meta is not booking meetings by May,</b> keep it at $1,500 and put the rest in Google.</li>
-      <li><b style="color:#fff">$8M in 36 months</b> is more geos and more ticket after 10 meetings is real.</li>
-    </ol>
-
-    <footer>
-      Draft for Enclave review. Not indexed.<br />
-      <a href="https://enclaveremodeling.com/">enclaveremodeling.com</a>
-    </footer>
+    <footer>Draft. Not indexed. Hard refresh this page. <a href="https://enclaveremodeling.com/">enclaveremodeling.com</a></footer>
   </div>
+  <script>
+    const months = [
+      ["Jan", 16, 4, 1], ["Feb", 16, 4, 1], ["Mar", 20, 5, 1], ["Apr", 24, 6, 1],
+      ["May", 28, 7, 1], ["Jun", 32, 8, 1], ["Jul", 32, 8, 1], ["Aug", 36, 9, 1],
+      ["Sep", 40, 10, 2], ["Oct", 40, 10, 2], ["Nov", 32, 8, 1], ["Dec", 24, 6, 1]
+    ];
+    const max = 40;
+    document.getElementById("tl").innerHTML = months.map(([m, leads, meet, close]) => `
+      <div class="month">
+        <div class="m">${m}</div>
+        <div class="n">${leads}</div>
+        <div class="track"><div class="fill" style="width:${(leads/max)*100}%"></div></div>
+        <small>${meet} meetings · ${close} signed</small>
+      </div>`).join("");
+  </script>
 </body>
 </html>
