@@ -41,6 +41,13 @@
   .legend { display: flex; gap: 16px; font-size: 12px; color: var(--muted); margin-top: 10px; flex-wrap: wrap; }
   .dot { width: 8px; height: 8px; border-radius: 50%; display: inline-block; margin-right: 6px; }
   footer { margin-top: 48px; font-size: 12px; color: var(--muted); }
+  .pie-block { display: grid; grid-template-columns: 220px 1fr; gap: 28px; align-items: center; background: #fff; border: 1px solid var(--line); border-radius: 14px; padding: 22px; margin: 20px 0; }
+  .pie { width: 200px; height: 200px; border-radius: 50%; background: conic-gradient(#0644ED 0 50%, #CC22FF 50% 70%, #40B4E5 70% 75%, #c4bbb0 75% 100%); box-shadow: inset 0 0 0 8px #fff; }
+  .pie-list { list-style: none; }
+  .pie-list li { display: flex; justify-content: space-between; gap: 16px; padding: 8px 0; border-bottom: 1px solid var(--line); font-size: 14px; color: var(--ink); }
+  .pie-list li:last-child { border-bottom: 0; font-weight: 800; }
+  .sw { width: 10px; height: 10px; border-radius: 50%; display: inline-block; margin-right: 8px; }
+  @media (max-width: 700px) { .pie-block { grid-template-columns: 1fr; justify-items: center; } }
 </style>
 </head>
 <body>
@@ -60,6 +67,20 @@
       <b>$10,000 on Google is not enough to buy 10 meetings at today’s efficiency.</b>
       3 meetings × $10,000 means each Clarity-ready meeting costs about $3,333. Ten meetings at the same rate is about <b>$33,000 / month</b> in Google. We either lower cost per meeting (tracking, page, offer, creative) or we raise spend. Paid social does not replace that math — it only helps if it books meetings cheaper than $3,333 or adds meetings Google cannot.
     </div>
+
+    <h2>Channel spend at $10,000 / month</h2>
+    <p>Today that $10,000 is almost all Google. This pie is the mix we would run inside the same number: keep Google as the base, add paid social after a shoot, leave a slice for creative.</p>
+    <div class="pie-block">
+      <div class="pie" role="img" aria-label="Channel spend pie: Google 50 percent, Meta 20 percent, YouTube 5 percent, creative 25 percent"></div>
+      <ul class="pie-list">
+        <li><span><i class="sw" style="background:#0644ED"></i>Google Search</span><span>$5,000 · 50%</span></li>
+        <li><span><i class="sw" style="background:#CC22FF"></i>Paid social (Meta)</span><span>$2,000 · 20%</span></li>
+        <li><span><i class="sw" style="background:#40B4E5"></i>YouTube test</span><span>$500 · 5%</span></li>
+        <li><span><i class="sw" style="background:#c4bbb0"></i>Shoot / creative</span><span>$2,500 · 25%</span></li>
+        <li><span>Total</span><span>$10,000</span></li>
+      </ul>
+    </div>
+    <p class="note">If we do not cut cost per meeting, do not take money out of Google to fill the pie. Keep ~$8,000 on Google and treat Meta as a small test.</p>
 
     <h2>What the close rate does to the year</h2>
     <p>36 meetings / year ÷ 6 = <b>6 signed jobs</b> today. $1.7M ÷ 6 ≈ <b>$283,000</b> average job (use this, not $260). $3M needs about <b>11 jobs</b> = about <b>66 meetings</b> = about <b>5–6 qualified meetings / month</b> if close stays 1 in 6. The “10 meetings” goal is how you overshoot $3M and start the $8M path (~20 jobs × $283k ≈ $5.7M).</p>
