@@ -30,7 +30,7 @@
   .note { font-size: 13px; margin-top: 10px; }
   footer { margin-top: 48px; font-size: 12px; color: var(--muted); }
   .pie-block { display: grid; grid-template-columns: 220px 1fr; gap: 28px; align-items: center; background: #fff; border: 1px solid var(--line); border-radius: 14px; padding: 22px; margin: 20px 0; }
-  .pie { width: 200px; height: 200px; border-radius: 50%; background: conic-gradient(#0644ED 0 80%, #CC22FF 80% 100%); box-shadow: inset 0 0 0 8px #fff; }
+  .pie { width: 200px; height: 200px; border-radius: 50%; background: conic-gradient(#0644ED 0 50%, #CC22FF 50% 75%, #40B4E5 75% 100%); box-shadow: inset 0 0 0 8px #fff; }
   .pie-list { list-style: none; }
   .pie-list li { display: flex; justify-content: space-between; gap: 16px; padding: 8px 0; border-bottom: 1px solid var(--line); font-size: 14px; color: var(--ink); }
   .pie-list li:last-child { border-bottom: 0; font-weight: 800; }
@@ -132,16 +132,17 @@
     </div>
 
     <h2>Channel spend at $10,000 / month</h2>
-    <p>Today that $10,000 is almost all Google. This pie keeps the same total: Google as the base, and a smaller share for paid social.</p>
+    <p>Today that $10,000 is almost all Google. The mix inside the same $10,000 is half Google and half paid social plus ChatGPT ads.</p>
     <div class="pie-block">
-      <div class="pie" role="img" aria-label="Channel spend pie: Google 80 percent, Meta 20 percent"></div>
+      <div class="pie" role="img" aria-label="Channel spend pie: Google 50 percent, paid social 25 percent, ChatGPT ads 25 percent"></div>
       <ul class="pie-list">
-        <li><span><i class="sw" style="background:#0644ED"></i>Google Search</span><span>$8,000 · 80%</span></li>
-        <li><span><i class="sw" style="background:#CC22FF"></i>Paid social (Meta)</span><span>$2,000 · 20%</span></li>
+        <li><span><i class="sw" style="background:#0644ED"></i>Google</span><span>$5,000 · 50%</span></li>
+        <li><span><i class="sw" style="background:#CC22FF"></i>Paid social</span><span>$2,500 · 25%</span></li>
+        <li><span><i class="sw" style="background:#40B4E5"></i>ChatGPT ads</span><span>$2,500 · 25%</span></li>
         <li><span>Total</span><span>$10,000</span></li>
       </ul>
     </div>
-    <p class="note">Google stays at $8,000. Paid social is a $2,000 test. The total stays $10,000.</p>
+    <p class="note">Google is $5,000. Paid social is $2,500. ChatGPT ads are $2,500. The total stays $10,000.</p>
 
     <h2>Month by month</h2>
     <div style="overflow-x:auto">
@@ -151,19 +152,6 @@
     </table>
     </div>
     <p class="note">Spend stays $10,000 a month. About 3 meetings a month, and about 4 inquiries per meeting, so about 12 leads. That is an $833 cost per lead and $3,333 per meeting. A job signs every two months at that month's target size: $260,000 + $310,000 + $380,000 + $480,000 + $620,000 + $950,000 = $3,000,000. Six signed jobs. The $3,000,000 is the goal. A larger job, like the $1,300,000 one, is upside.</p>
-
-    <h2>Budgets — two honest options</h2>
-    <table>
-      <thead><tr><th></th><th>Stay near $10k all-in</th><th>Buy more meetings</th></tr></thead>
-      <tbody>
-        <tr><td>Google</td><td>$7,000–$8,000 (must get cheaper than $3,333/meeting)</td><td>$15,000–$20,000 if CPA does not fall</td></tr>
-        <tr><td>Paid social</td><td>$1,500–$2,000 test after the shoot</td><td>$3,000 only if it books Clarity meetings</td></tr>
-        <tr><td>Shoot / creative</td><td>$1,500–$2,500 (Q1 heavy)</td><td>same</td></tr>
-        <tr><td>Expected meetings / mo</td><td>4–6 if we cut CPA in half</td><td>8–10 if we spend more and CPA improves</td></tr>
-        <tr><td>Expected closes / mo</td><td>~1</td><td>1–2</td></tr>
-      </tbody>
-    </table>
-    <p class="note">Recommendation: do not promise 10 meetings on the same $10k Google buy. Promise Q1 work to cut cost per meeting, keep Google as the base, add social from real creative, and revisit spend in May with numbers.</p>
 
     <h2>Keywords and cost per click</h2>
     <p>Google Keyword Planner for Orange County. High-end cities are location targeting, not extra words in the keyword. Enclave is spending $10,000 per month on Google. At about $12–$25 CPC that is roughly 400–800 clicks. This plan keeps about 3 meetings a month on that spend. Today that is $3,333 per meeting.</p>
