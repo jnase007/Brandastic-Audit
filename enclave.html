@@ -48,6 +48,33 @@
   .pie-list li:last-child { border-bottom: 0; font-weight: 800; }
   .sw { width: 10px; height: 10px; border-radius: 50%; display: inline-block; margin-right: 8px; }
   @media (max-width: 700px) { .pie-block { grid-template-columns: 1fr; justify-items: center; } }
+  .ramp-card { background: #fff; border: 1px solid var(--line); border-radius: 14px; padding: 16px 14px 14px; margin: 14px 0; position: relative; }
+  .ramp-head { display: flex; justify-content: space-between; gap: 12px; align-items: baseline; flex-wrap: wrap; margin-bottom: 8px; }
+  .ramp-head strong { font-size: 14px; }
+  .ramp-row { display: grid; grid-template-columns: 48px 1fr; gap: 6px; }
+  .ramp-y { height: 220px; display: flex; flex-direction: column; justify-content: space-between; text-align: right; font-size: 10px; color: var(--muted); padding-bottom: 0; }
+  .ramp-plot { position: relative; height: 220px; }
+  .ramp-scroll { overflow-x: auto; }
+  .ramp-plot svg { position: absolute; inset: 0; width: 100%; height: 100%; display: block; pointer-events: none; }
+  .ramp-hits { position: absolute; inset: 0; display: grid; grid-template-columns: repeat(12, 1fr); }
+  .ramp-hit { appearance: none; background: transparent; border: 0; border-radius: 8px; cursor: pointer; padding: 0; min-height: 44px; }
+  .ramp-hit:hover, .ramp-hit:focus-visible, .ramp-hit[aria-current="true"] { background: rgba(6,68,237,.08); outline: none; }
+  .ramp-months { display: grid; grid-template-columns: repeat(12, 1fr); margin-top: 4px; font-size: 10px; color: var(--muted); text-align: center; }
+  .ramp-tip { position: absolute; z-index: 4; background: var(--ink); color: #fff; border-radius: 10px; padding: 10px 12px; font-size: 12px; line-height: 1.45; width: max-content; max-width: min(260px, calc(100% - 24px)); box-shadow: 0 10px 24px rgba(25,31,36,.2); pointer-events: none; }
+  .ramp-tip[hidden] { display: none; }
+  .ramp-tip b { color: #fff; font-size: 13px; }
+  .ramp-detail { margin-top: 10px; background: var(--bg); border-radius: 10px; padding: 10px 12px; font-size: 13px; color: var(--ink); }
+  .ramp-detail span { display: block; color: var(--muted); font-size: 12px; }
+  .change-list { margin: 8px 0 0 18px; }
+  .change-list li { color: var(--ink); font-size: 14px; margin: 3px 0; }
+  @media (max-width: 700px) {
+    .ramp-y { height: 200px; font-size: 9px; }
+    .ramp-plot { height: 200px; }
+    .ramp-row { min-width: 640px; }
+    .ramp-y { position: sticky; left: 0; background: #fff; z-index: 2; }
+    .ramp-months { font-size: 11px; letter-spacing: 0; }
+    .ramp-tip { position: static; width: auto; max-width: none; margin-top: 8px; }
+  }
 </style>
 </head>
 <body>
@@ -58,7 +85,7 @@
 
     <div class="grid">
       <div class="card"><b>Today</b><span style="text-transform:none;letter-spacing:0;font-size:14px;display:block;margin-top:8px;line-height:1.5">Enclave is spending about $10,000 per month on Google Ads. That brings about 3 qualified meetings a month and 1 signed job per 6 meetings. Typical closed job is $260,000. A recent job was $1,300,000 — we do not plan the year on that. Run-rate is about 6 jobs and about $1.6M from this path.</span></div>
-      <div class="card"><b>What we can do</b><span style="text-transform:none;letter-spacing:0;font-size:14px;display:block;margin-top:8px;line-height:1.5">Same $10,000 Google budget, aimed at custom / design-build in high-end Orange County zips. Over 2027, pull average job from $260,000 toward $800,000 (the $1,300,000 job shows it is possible; we do not plan every job at $1.3M). $3M at $800,000 is about 4 jobs. Keep about 6 jobs on the year and raise ticket: Q1 ~$260k, Q2 ~$400k, Q3 ~$600k, Q4 ~$800k. That mix is about $3.1M. Not 10 meetings a month.</span></div>
+      <div class="card"><b>What we can do</b><span style="text-transform:none;letter-spacing:0;font-size:14px;display:block;margin-top:8px;line-height:1.5">Same $10,000 Google budget, aimed at custom / design-build in high-end Orange County zips. Over 2027, pull the average job from $260,000 toward $950,000 by December (the $1,300,000 job shows a larger job is possible; we do not plan the year on it). Keep about 6 jobs and about 3 meetings a month. Signed jobs: $260,000, then $310,000, $380,000, $480,000, $620,000, and $950,000. That is $3,000,000. Not more meetings.</span></div>
     </div>
     <div class="grid">
 
@@ -70,12 +97,68 @@
     <h2>AOV over 2027</h2>
     <p>Today the typical signed job is <b>$260,000</b>. Latest job was <b>$1,300,000</b>. The plan is to lift average job size over the year with design/build in Newport, Laguna, and nearby zips — not to multiply cheap meetings.</p>
     <div class="grid">
-      <div class="card"><b>$260,000</b><span>Q1 typical job</span></div>
-      <div class="card"><b>$400,000</b><span>Q2 mix</span></div>
-      <div class="card"><b>$600,000</b><span>Q3 mix</span></div>
-      <div class="card"><b>$800,000</b><span>Q4 target job</span></div>
+      <div class="card"><b>$260,000</b><span>Q1 signed job</span></div>
+      <div class="card"><b>$345,000</b><span>Q2 avg ($310k + $380k)</span></div>
+      <div class="card"><b>$480,000</b><span>Q3 signed job</span></div>
+      <div class="card"><b>$950,000</b><span>December target</span></div>
     </div>
-    <p class="note">About 6 jobs still (1 close per 6 meetings). Rough year: 2 × $260k + 2 × $400k + 1 × $600k + 1 × $800k ≈ $2.7M, or 2 + 1 + 1 + 2 at those tickets ≈ $3.1M. Ticket is the lever. The $1.3M job is proof, not the average.</p>
+    <p class="note">About 6 jobs still (1 close per 6 meetings, about 3 meetings a month, so one signed job every two months). $260,000 + $310,000 + $380,000 + $480,000 + $620,000 + $950,000 = $3,000,000. December's target average is $950,000. The $3M figure is the goal. A larger job, like the $1.3M one, is upside.</p>
+
+    <h2>Deal size through 2027</h2>
+    <p>The line is the target average deal size, month by month, from <b>$260,000</b> in January to <b>$950,000</b> in December. A job signs every two months (3 meetings × 2 months = 6 meetings, and 1 in 6 signs). Hover a month — on a phone, tap it — for that month's target, the deals in the plan, and signed revenue against the <b>$3M</b> goal.</p>
+    <div class="ramp-card" id="ramp-card">
+      <div class="ramp-head"><strong>Target average deal size</strong><span class="note" style="margin:0">$10,000/mo · ~3 meetings/mo · 6 jobs</span></div>
+      <div class="ramp-scroll">
+        <div class="ramp-row">
+          <div class="ramp-y" aria-hidden="true"><span>$1.0M</span><span>$750k</span><span>$500k</span><span>$250k</span><span>$0</span></div>
+          <div>
+            <div class="ramp-plot" id="ramp-plot">
+              <svg id="ramp-svg" role="img" aria-label="Target average deal size rises from $260,000 in January 2027 to $950,000 in December 2027"></svg>
+              <div class="ramp-hits" id="ramp-hits"></div>
+            </div>
+            <div class="ramp-months" id="ramp-months"></div>
+          </div>
+        </div>
+      </div>
+      <div class="ramp-tip" id="ramp-tip" role="tooltip" hidden></div>
+      <div class="ramp-detail" id="ramp-detail">Hover a month. On a phone, tap the month.</div>
+    </div>
+    <div style="overflow-x:auto">
+      <table id="ramp-table">
+        <thead><tr><th>Month</th><th>Target deal size</th><th>Deals needed</th><th>Cumulative deals</th><th>Cumulative signed</th><th>Vs $3M goal</th></tr></thead>
+        <tbody></tbody>
+      </table>
+    </div>
+    <p class="note">Signed jobs only, every two months: $260,000 + $310,000 + $380,000 + $480,000 + $620,000 + $950,000 = $3,000,000. Months between those jobs still show the target average, with no job signing yet. Land on $3M in December. Anything above that target, including a job like the recent $1,300,000 one, is upside.</p>
+
+    <h2>What changes</h2>
+    <p>Same <b>$10,000</b> a month. The change is a better-fit client, so deal size can move from <b>$260,000</b> toward the December target. Not more meetings.</p>
+    <div class="grid">
+      <div class="card"><b style="font-size:16px">Keywords we want</b><span style="text-transform:none;letter-spacing:0;font-size:14px;display:block;margin-top:8px">High-end custom and design-build terms in high-end Orange County zips.</span>
+        <ul class="change-list">
+          <li>custom home builder Newport Beach</li>
+          <li>luxury design-build Laguna Beach</li>
+          <li>whole-home remodel Corona del Mar</li>
+          <li>home addition architect Orange County</li>
+        </ul>
+      </div>
+      <div class="card"><b style="font-size:16px">Negative keywords</b><span style="text-transform:none;letter-spacing:0;font-size:14px;display:block;margin-top:8px">Keep small-job searches out.</span>
+        <ul class="change-list">
+          <li>bathroom remodel cost</li>
+          <li>kitchen refacing</li>
+          <li>handyman</li>
+          <li>cheap</li>
+        </ul>
+      </div>
+      <div class="card"><b style="font-size:16px">Lead quality filters</b><span style="text-transform:none;letter-spacing:0;font-size:14px;display:block;margin-top:8px">A meeting counts only after these.</span>
+        <ul class="change-list">
+          <li>Project budget question, starting at $500,000+</li>
+          <li>Do you own the lot or the home?</li>
+          <li>Short phone screen</li>
+        </ul>
+      </div>
+      <div class="card"><b style="font-size:16px">What we track</b><span style="text-transform:none;letter-spacing:0;font-size:14px;display:block;margin-top:8px;line-height:1.5">Cost per qualified $500,000+ meeting. The goal is better-quality clients.</span></div>
+    </div>
 
     <div class="warn">
       <b>$10,000 on Google is not enough to buy 10 meetings at today’s efficiency.</b>
@@ -97,7 +180,7 @@
     <p class="note">If we do not cut cost per meeting, do not take money out of Google to fill the pie. Keep ~$8,000 on Google and treat Meta as a small test.</p>
 
     <h2>What the close rate does to the year</h2>
-    <p>36 meetings / year ÷ 6 = <b>6 signed jobs</b> today. $1.7M ÷ 6 ≈ <b>$260,000</b> average job (use this, not $260). $3M needs about <b>11 jobs</b> = about <b>66 meetings</b> = about <b>5–6 qualified meetings / month</b> if close stays 1 in 6. The “10 meetings” goal is how you overshoot $3M and start the $8M path (~20 jobs × $283k ≈ $5.7M).</p>
+    <p>36 meetings / year ÷ 6 = <b>6 signed jobs</b> today. $1.7M ÷ 6 ≈ <b>$260,000</b> average job (use this, not $260). $3M needs about <b>11 jobs</b> = about <b>66 meetings</b> = about <b>5–6 qualified meetings / month</b> if close stays 1 in 6 and the ticket stays $260,000. That 11-job count is the old ticket. The deal-size ramp above keeps about 6 jobs and reaches $3M by raising the ticket instead. The “10 meetings” goal is how you overshoot $3M and start the $8M path (~20 jobs × $283k ≈ $5.7M).</p>
 
     <h2>12-month picture — leads, meetings, closes</h2>
     <p>Lead = inquiry (form/call). About 4 inquiries per qualified meeting. Spend held at <b>$10,000 / month</b> (what Enclave is spending on Google now). Cost per lead = $10,000 ÷ leads that month. Cost per meeting = $10,000 ÷ meetings. Today that is ~$3,333 / meeting because only 3 meetings come in. The later months only work if tracking and creative actually produce more leads on the same $10k.</p>
@@ -125,7 +208,7 @@
       </tbody>
     </table>
     </div>
-    <p class="note">The $3M goal is about 11 jobs × $260,000 ≈ $3.1M — not a $4M stretch. If we never beat $3,333 per meeting, this ramp stalls at 4–5 meetings and we miss.</p>
+    <p class="note">The $3M goal is about 11 jobs × $260,000 ≈ $3.1M — not a $4M stretch. If we never beat $3,333 per meeting, this ramp stalls at 4–5 meetings and we miss. This table is the more-meetings picture. The 2027 plan above is the deal-size path: about 3 meetings a month, 6 signed jobs, and $3,000,000.</p>
 
     <h2>Budgets — two honest options</h2>
     <table>
@@ -181,6 +264,137 @@
         <div class="track"><div class="fill" style="width:${(leads/max)*100}%"></div></div>
         <small>CPL $${Math.round(spend/leads).toLocaleString()} · ${meet} mtg · ${close} signed</small>
       </div>`).join("");
+
+    const GOAL = 3000000;
+    const YMAX = 1000000;
+    const ramp = [
+      ["Jan", 260000, 0],
+      ["Feb", 260000, 1],
+      ["Mar", 285000, 0],
+      ["Apr", 310000, 1],
+      ["May", 345000, 0],
+      ["Jun", 380000, 1],
+      ["Jul", 430000, 0],
+      ["Aug", 480000, 1],
+      ["Sep", 550000, 0],
+      ["Oct", 620000, 1],
+      ["Nov", 785000, 0],
+      ["Dec", 950000, 1]
+    ];
+    const money = (n) => "$" + Math.round(n).toLocaleString("en-US");
+    let cumDeals = 0;
+    let cumRev = 0;
+    const model = ramp.map(([m, size, deals]) => {
+      cumDeals += deals;
+      cumRev += deals * size;
+      const gap = GOAL - cumRev;
+      return { m, size, deals, cumDeals, cumRev, gap };
+    });
+    const plot = document.getElementById("ramp-plot");
+    const svg = document.getElementById("ramp-svg");
+    const hits = document.getElementById("ramp-hits");
+    const monthsEl = document.getElementById("ramp-months");
+    const tip = document.getElementById("ramp-tip");
+    const detail = document.getElementById("ramp-detail");
+    const card = document.getElementById("ramp-card");
+    const tbody = document.querySelector("#ramp-table tbody");
+    const ns = "http://www.w3.org/2000/svg";
+    function gapText(row) {
+      if (row.gap > 0) return money(row.gap) + " still to reach the $3M goal";
+      if (row.gap < 0) return money(-row.gap) + " upside above the $3M goal";
+      return "On the $3M goal";
+    }
+    function tipLines(row) {
+      return [
+        row.m + " 2027",
+        "Target average deal size " + money(row.size),
+        "Deals needed this month " + row.deals,
+        "Deals needed, cumulative " + row.cumDeals,
+        "Cumulative signed " + money(row.cumRev) + " of $3,000,000",
+        gapText(row)
+      ];
+    }
+    function tipHtml(row) {
+      const lines = tipLines(row);
+      return "<b>" + lines[0] + "</b><br>" + lines.slice(1).join("<br>");
+    }
+    tbody.innerHTML = model.map((row) =>
+      "<tr data-m='" + row.m + "'><td>" + row.m + "</td><td>" + money(row.size) + "</td><td>" + row.deals +
+      "</td><td>" + row.cumDeals + "</td><td>" + money(row.cumRev) + "</td><td>" + gapText(row) + "</td></tr>"
+    ).join("");
+    model.forEach((row, i) => {
+      const lab = document.createElement("div");
+      lab.textContent = row.m;
+      monthsEl.appendChild(lab);
+      const btn = document.createElement("button");
+      btn.type = "button";
+      btn.className = "ramp-hit";
+      btn.setAttribute("aria-label", row.m + " 2027, target " + money(row.size));
+      btn.addEventListener("pointerenter", () => show(i));
+      btn.addEventListener("focus", () => show(i));
+      btn.addEventListener("pointerdown", () => show(i));
+      hits.appendChild(btn);
+    });
+    function show(i) {
+      const row = model[i];
+      tip.hidden = false;
+      const lines = tipLines(row);
+      tip.innerHTML = "<b>" + lines[0] + "</b><br>" + lines.slice(1).join("<br>");
+      detail.innerHTML = "<b>" + lines[0] + "</b>" + lines.slice(1).map((line) => "<span>" + line + "</span>").join("");
+      hits.querySelectorAll(".ramp-hit").forEach((el, n) => {
+        el.setAttribute("aria-current", n === i ? "true" : "false");
+      });
+      tbody.querySelectorAll("tr").forEach((tr, n) => {
+        tr.style.background = n === i ? "#eef3ff" : "";
+      });
+      svg.querySelectorAll("circle").forEach((d, n) => {
+        const on = n === i;
+        d.setAttribute("r", on ? "6" : "4.5");
+        d.setAttribute("fill", on ? "#0644ED" : "#fff");
+      });
+      const wide = window.matchMedia("(min-width: 701px)").matches;
+      if (!wide) {
+        tip.style.position = "";
+        tip.style.left = "";
+        tip.style.top = "";
+        return;
+      }
+      tip.style.position = "absolute";
+      const dot = svg.querySelectorAll("circle")[i];
+      const cardBox = card.getBoundingClientRect();
+      const box = (dot || hits.children[i]).getBoundingClientRect();
+      const left = box.left - cardBox.left + box.width / 2;
+      tip.style.left = Math.max(8, Math.min(left - 110, card.clientWidth - 230)) + "px";
+      tip.style.top = "8px";
+      const tipH = tip.offsetHeight;
+      const above = box.top - cardBox.top - tipH - 10;
+      tip.style.top = (above > 4 ? above : box.bottom - cardBox.top + 10) + "px";
+    }
+    function draw() {
+      const w = plot.clientWidth;
+      const h = plot.clientHeight;
+      if (!w || !h) return;
+      svg.setAttribute("viewBox", "0 0 " + w + " " + h);
+      const pts = model.map((row, i) => {
+        const x = ((i + 0.5) / model.length) * w;
+        const y = h - (row.size / YMAX) * (h - 16) - 8;
+        return { x, y };
+      });
+      const line = pts.map((p, i) => (i ? "L" : "M") + p.x.toFixed(1) + " " + p.y.toFixed(1)).join(" ");
+      const area = line + " L" + pts[pts.length - 1].x.toFixed(1) + " " + h + " L" + pts[0].x.toFixed(1) + " " + h + " Z";
+      const active = [...hits.children].findIndex((el) => el.getAttribute("aria-current") === "true");
+      const dots = pts.map((p, i) => "<circle cx='" + p.x.toFixed(1) + "' cy='" + p.y.toFixed(1) + "' r='" + (i === active ? "6" : "4.5") + "' fill='" + (i === active ? "#0644ED" : "#fff") + "' stroke='#0644ED' stroke-width='2'></circle>").join("");
+      svg.innerHTML = "<defs><linearGradient id='rampFill' x1='0' y1='0' x2='0' y2='1'><stop offset='0%' stop-color='#0644ED' stop-opacity='0.28'/><stop offset='100%' stop-color='#40B4E5' stop-opacity='0.02'/></linearGradient></defs>" +
+        "<path d='" + area + "' fill='url(#rampFill)'></path>" +
+        "<path d='" + line + "' fill='none' stroke='#0644ED' stroke-width='2.5' stroke-linejoin='round' stroke-linecap='round'></path>" +
+        dots;
+    }
+    draw();
+    window.addEventListener("resize", () => { draw(); if (!tip.hidden) {
+      const current = [...hits.children].findIndex((el) => el.getAttribute("aria-current") === "true");
+      if (current >= 0) show(current);
+    }});
+    if (window.ResizeObserver) new ResizeObserver(draw).observe(plot);
   </script>
 </body>
 </html>
