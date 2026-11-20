@@ -28,21 +28,9 @@
   th, td { text-align: left; padding: 9px 10px; border-bottom: 1px solid var(--line); }
   th { background: #fff; color: var(--blue); font-size: 11px; letter-spacing: .08em; text-transform: uppercase; }
   .note { font-size: 13px; margin-top: 10px; }
-  .warn { background: #fff7ed; border: 1px solid #fed7aa; border-radius: 14px; padding: 16px 18px; margin: 20px 0; }
-  .warn b { color: var(--ink); }
-  .month { background: #fff; border: 1px solid var(--line); border-radius: 12px; padding: 12px; }
-  .month .m { font-size: 12px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--blue); }
-  .month .n { font-size: 28px; font-weight: 800; letter-spacing: -.03em; }
-  .month small { display: block; color: var(--muted); font-size: 12px; margin-top: 4px; }
-  .track { height: 8px; background: #eeeae4; border-radius: 99px; overflow: hidden; margin: 10px 0 6px; }
-  .fill { height: 100%; background: linear-gradient(90deg, var(--blue), var(--cyan)); border-radius: 99px; }
-  .tl { display: grid; grid-template-columns: repeat(12, 1fr); gap: 8px; margin-top: 14px; }
-  @media (max-width: 900px) { .tl { grid-template-columns: repeat(3, 1fr); } }
-  .legend { display: flex; gap: 16px; font-size: 12px; color: var(--muted); margin-top: 10px; flex-wrap: wrap; }
-  .dot { width: 8px; height: 8px; border-radius: 50%; display: inline-block; margin-right: 6px; }
   footer { margin-top: 48px; font-size: 12px; color: var(--muted); }
   .pie-block { display: grid; grid-template-columns: 220px 1fr; gap: 28px; align-items: center; background: #fff; border: 1px solid var(--line); border-radius: 14px; padding: 22px; margin: 20px 0; }
-  .pie { width: 200px; height: 200px; border-radius: 50%; background: conic-gradient(#0644ED 0 50%, #CC22FF 50% 70%, #40B4E5 70% 75%, #c4bbb0 75% 100%); box-shadow: inset 0 0 0 8px #fff; }
+  .pie { width: 200px; height: 200px; border-radius: 50%; background: conic-gradient(#0644ED 0 80%, #CC22FF 80% 100%); box-shadow: inset 0 0 0 8px #fff; }
   .pie-list { list-style: none; }
   .pie-list li { display: flex; justify-content: space-between; gap: 16px; padding: 8px 0; border-bottom: 1px solid var(--line); font-size: 14px; color: var(--ink); }
   .pie-list li:last-child { border-bottom: 0; font-weight: 800; }
@@ -60,7 +48,7 @@
   .ramp-hit { appearance: none; background: transparent; border: 0; border-radius: 8px; cursor: pointer; padding: 0; min-height: 44px; }
   .ramp-hit:hover, .ramp-hit:focus-visible, .ramp-hit[aria-current="true"] { background: rgba(6,68,237,.08); outline: none; }
   .ramp-months { display: grid; grid-template-columns: repeat(12, 1fr); margin-top: 4px; font-size: 10px; color: var(--muted); text-align: center; }
-  .ramp-tip { position: absolute; z-index: 4; background: var(--ink); color: #fff; border-radius: 10px; padding: 10px 12px; font-size: 12px; line-height: 1.45; width: max-content; max-width: min(260px, calc(100% - 24px)); box-shadow: 0 10px 24px rgba(25,31,36,.2); pointer-events: none; }
+  .ramp-tip { position: absolute; z-index: 4; background: var(--ink); color: #fff; border-radius: 10px; padding: 10px 12px; font-size: 12px; line-height: 1.45; width: max-content; max-width: min(300px, calc(100% - 24px)); box-shadow: 0 10px 24px rgba(25,31,36,.2); pointer-events: none; }
   .ramp-tip[hidden] { display: none; }
   .ramp-tip b { color: #fff; font-size: 13px; }
   .ramp-detail { margin-top: 10px; background: var(--bg); border-radius: 10px; padding: 10px 12px; font-size: 13px; color: var(--ink); }
@@ -94,18 +82,8 @@
       <div class="card"><b>1 in 6</b><span>Meetings → signed</span></div>
       <div class="card"><b>$3,333</b><span>Cost per meeting now</span></div>
     </div>
-    <h2>AOV over 2027</h2>
-    <p>Today the typical signed job is <b>$260,000</b>. Latest job was <b>$1,300,000</b>. The plan is to lift average job size over the year with design/build in Newport, Laguna, and nearby zips — not to multiply cheap meetings.</p>
-    <div class="grid">
-      <div class="card"><b>$260,000</b><span>Q1 signed job</span></div>
-      <div class="card"><b>$345,000</b><span>Q2 avg ($310k + $380k)</span></div>
-      <div class="card"><b>$480,000</b><span>Q3 signed job</span></div>
-      <div class="card"><b>$950,000</b><span>December target</span></div>
-    </div>
-    <p class="note">About 6 jobs still (1 close per 6 meetings, about 3 meetings a month, so one signed job every two months). $260,000 + $310,000 + $380,000 + $480,000 + $620,000 + $950,000 = $3,000,000. December's target average is $950,000. The $3M figure is the goal. A larger job, like the $1.3M one, is upside.</p>
-
     <h2>Deal size through 2027</h2>
-    <p>The line is the target average deal size, month by month, from <b>$260,000</b> in January to <b>$950,000</b> in December. A job signs every two months (3 meetings × 2 months = 6 meetings, and 1 in 6 signs). Hover a month — on a phone, tap it — for that month's target, the deals in the plan, and signed revenue against the <b>$3M</b> goal.</p>
+    <p>The line is the target average deal size, from <b>$260,000</b> in January to <b>$950,000</b> in December. A job signs every two months (3 meetings × 2 months = 6 meetings, and 1 in 6 signs). Hover a month — on a phone, tap it — for deal size, signed jobs, spend, leads, and meetings.</p>
     <div class="ramp-card" id="ramp-card">
       <div class="ramp-head"><strong>Target average deal size</strong><span class="note" style="margin:0">$10,000/mo · ~3 meetings/mo · 6 jobs</span></div>
       <div class="ramp-scroll">
@@ -123,13 +101,6 @@
       <div class="ramp-tip" id="ramp-tip" role="tooltip" hidden></div>
       <div class="ramp-detail" id="ramp-detail">Hover a month. On a phone, tap the month.</div>
     </div>
-    <div style="overflow-x:auto">
-      <table id="ramp-table">
-        <thead><tr><th>Month</th><th>Target deal size</th><th>Deals needed</th><th>Cumulative deals</th><th>Cumulative signed</th><th>Vs $3M goal</th></tr></thead>
-        <tbody></tbody>
-      </table>
-    </div>
-    <p class="note">Signed jobs only, every two months: $260,000 + $310,000 + $380,000 + $480,000 + $620,000 + $950,000 = $3,000,000. Months between those jobs still show the target average, with no job signing yet. Land on $3M in December. Anything above that target, including a job like the recent $1,300,000 one, is upside.</p>
 
     <h2>What changes</h2>
     <p>Same <b>$10,000</b> a month. The change is a better-fit client, so deal size can move from <b>$260,000</b> toward the December target. Not more meetings.</p>
@@ -160,55 +131,26 @@
       <div class="card"><b style="font-size:16px">What we track</b><span style="text-transform:none;letter-spacing:0;font-size:14px;display:block;margin-top:8px;line-height:1.5">Cost per qualified $500,000+ meeting. The goal is better-quality clients.</span></div>
     </div>
 
-    <div class="warn">
-      <b>$10,000 on Google is not enough to buy 10 meetings at today’s efficiency.</b>
-      3 meetings × $10,000 means each Clarity-ready meeting costs about $3,333. Ten meetings at the same rate is about <b>$33,000 / month</b> in Google. We either lower cost per meeting (tracking, page, offer, creative) or we raise spend. Paid social does not replace that math — it only helps if it books meetings cheaper than $3,333 or adds meetings Google cannot.
-    </div>
-
     <h2>Channel spend at $10,000 / month</h2>
-    <p>Today that $10,000 is almost all Google. This pie is the mix we would run inside the same number: keep Google as the base, add paid social after a shoot, leave a slice for creative.</p>
+    <p>Today that $10,000 is almost all Google. This pie keeps the same total: Google as the base, and a smaller share for paid social.</p>
     <div class="pie-block">
-      <div class="pie" role="img" aria-label="Channel spend pie: Google 50 percent, Meta 20 percent, YouTube 5 percent, creative 25 percent"></div>
+      <div class="pie" role="img" aria-label="Channel spend pie: Google 80 percent, Meta 20 percent"></div>
       <ul class="pie-list">
-        <li><span><i class="sw" style="background:#0644ED"></i>Google Search</span><span>$5,000 · 50%</span></li>
+        <li><span><i class="sw" style="background:#0644ED"></i>Google Search</span><span>$8,000 · 80%</span></li>
         <li><span><i class="sw" style="background:#CC22FF"></i>Paid social (Meta)</span><span>$2,000 · 20%</span></li>
-        <li><span><i class="sw" style="background:#40B4E5"></i>YouTube test</span><span>$500 · 5%</span></li>
-        <li><span><i class="sw" style="background:#c4bbb0"></i>Shoot / creative</span><span>$2,500 · 25%</span></li>
         <li><span>Total</span><span>$10,000</span></li>
       </ul>
     </div>
-    <p class="note">If we do not cut cost per meeting, do not take money out of Google to fill the pie. Keep ~$8,000 on Google and treat Meta as a small test.</p>
-
-    <h2>What the close rate does to the year</h2>
-    <p>36 meetings / year ÷ 6 = <b>6 signed jobs</b> today. $1.7M ÷ 6 ≈ <b>$260,000</b> average job (use this, not $260). $3M needs about <b>11 jobs</b> = about <b>66 meetings</b> = about <b>5–6 qualified meetings / month</b> if close stays 1 in 6 and the ticket stays $260,000. That 11-job count is the old ticket. The deal-size ramp above keeps about 6 jobs and reaches $3M by raising the ticket instead. The “10 meetings” goal is how you overshoot $3M and start the $8M path (~20 jobs × $283k ≈ $5.7M).</p>
-
-    <h2>12-month picture — leads, meetings, closes</h2>
-    <p>Lead = inquiry (form/call). About 4 inquiries per qualified meeting. Spend held at <b>$10,000 / month</b> (what Enclave is spending on Google now). Cost per lead = $10,000 ÷ leads that month. Cost per meeting = $10,000 ÷ meetings. Today that is ~$3,333 / meeting because only 3 meetings come in. The later months only work if tracking and creative actually produce more leads on the same $10k.</p>
-    <div class="tl" id="tl"></div>
-    <p class="legend"><span><i class="dot" style="background:#0644ED"></i>Bar = leads that month</span><span>Big number = leads</span><span>CPL on each card at $10k spend</span></p>
+    <p class="note">Google stays at $8,000. Paid social is a $2,000 test. The total stays $10,000.</p>
 
     <h2>Month by month</h2>
     <div style="overflow-x:auto">
-    <table>
-      <thead><tr><th>Month</th><th>Spend</th><th>Leads in</th><th>CPL</th><th>Meetings</th><th>Cost / meeting</th><th>Signed</th><th>Est. revenue</th></tr></thead>
-      <tbody>
-        <tr><td>Jan</td><td>$10,000</td><td>16</td><td>$625</td><td>4</td><td>$2,500</td><td>1</td><td>$260,000</td></tr>
-        <tr><td>Feb</td><td>$10,000</td><td>16</td><td>$625</td><td>4</td><td>$2,500</td><td>1</td><td>$260,000</td></tr>
-        <tr><td>Mar</td><td>$10,000</td><td>20</td><td>$500</td><td>5</td><td>$2,000</td><td>1</td><td>$260,000</td></tr>
-        <tr><td>Apr</td><td>$10,000</td><td>24</td><td>$417</td><td>6</td><td>$1,667</td><td>1</td><td>$260,000</td></tr>
-        <tr><td>May</td><td>$10,000</td><td>28</td><td>$357</td><td>7</td><td>$1,429</td><td>1</td><td>$260,000</td></tr>
-        <tr><td>Jun</td><td>$10,000</td><td>32</td><td>$313</td><td>8</td><td>$1,250</td><td>1</td><td>$260,000</td></tr>
-        <tr><td>Jul</td><td>$10,000</td><td>32</td><td>$313</td><td>8</td><td>$1,250</td><td>1</td><td>$260,000</td></tr>
-        <tr><td>Aug</td><td>$10,000</td><td>36</td><td>$278</td><td>9</td><td>$1,111</td><td>1</td><td>$260,000</td></tr>
-        <tr><td>Sep</td><td>$10,000</td><td>40</td><td>$250</td><td>10</td><td>$1,000</td><td>2</td><td>$566,000</td></tr>
-        <tr><td>Oct</td><td>$10,000</td><td>40</td><td>$250</td><td>10</td><td>$1,000</td><td>2</td><td>$566,000</td></tr>
-        <tr><td>Nov</td><td>$10,000</td><td>32</td><td>$313</td><td>8</td><td>$1,250</td><td>1</td><td>$260,000</td></tr>
-        <tr><td>Dec</td><td>$10,000</td><td>24</td><td>$417</td><td>6</td><td>$1,667</td><td>1</td><td>$260,000</td></tr>
-        <tr><td><b>2027</b></td><td><b>$120,000</b></td><td><b>340</b></td><td><b>$353</b></td><td><b>85</b></td><td><b>$1,412</b></td><td><b>14</b></td><td><b>~$3.1M</b></td></tr>
-      </tbody>
+    <table id="month-table">
+      <thead><tr><th>Month</th><th>Spend</th><th>Leads in</th><th>CPL</th><th>Meetings</th><th>Cost / meeting</th><th>Target deal size</th><th>Signed</th><th>Est. revenue</th></tr></thead>
+      <tbody></tbody>
     </table>
     </div>
-    <p class="note">The $3M goal is about 11 jobs × $260,000 ≈ $3.1M — not a $4M stretch. If we never beat $3,333 per meeting, this ramp stalls at 4–5 meetings and we miss. This table is the more-meetings picture. The 2027 plan above is the deal-size path: about 3 meetings a month, 6 signed jobs, and $3,000,000.</p>
+    <p class="note">Spend stays $10,000 a month. About 3 meetings a month, and about 4 inquiries per meeting, so about 12 leads. That is an $833 cost per lead and $3,333 per meeting. A job signs every two months at that month's target size: $260,000 + $310,000 + $380,000 + $480,000 + $620,000 + $950,000 = $3,000,000. Six signed jobs. The $3,000,000 is the goal. A larger job, like the $1,300,000 one, is upside.</p>
 
     <h2>Budgets — two honest options</h2>
     <table>
@@ -224,49 +166,39 @@
     <p class="note">Recommendation: do not promise 10 meetings on the same $10k Google buy. Promise Q1 work to cut cost per meeting, keep Google as the base, add social from real creative, and revisit spend in May with numbers.</p>
 
     <h2>Keywords and cost per click</h2>
-    <p>Google Keyword Planner for Orange County. High-end cities are location targeting, not extra words in the keyword. Enclave is spending \$10,000 per month on Google. At about \$12–\$25 CPC that is roughly 400–800 clicks. The \$3M goal needs about 5–7 meetings a month. That only works if more clicks become meetings. Today 3 meetings at \$10,000 is \$3,333 per meeting.</p>
+    <p>Google Keyword Planner for Orange County. High-end cities are location targeting, not extra words in the keyword. Enclave is spending $10,000 per month on Google. At about $12–$25 CPC that is roughly 400–800 clicks. This plan keeps about 3 meetings a month on that spend. Today that is $3,333 per meeting.</p>
     <div style="overflow-x:auto">
     <table>
       <thead><tr><th>Keyword</th><th>Monthly searches</th><th>CPC low</th><th>CPC high</th></tr></thead>
       <tbody>
-        <tr><td>custom home builder</td><td>4,400</td><td>\$4.09</td><td>\$21.00</td></tr>
-        <tr><td>custom home builders near me</td><td>1,600</td><td>\$2.21</td><td>\$23.15</td></tr>
-        <tr><td>luxury home builders</td><td>1,000</td><td>\$3.72</td><td>\$20.00</td></tr>
-        <tr><td>home addition contractors</td><td>1,900</td><td>\$10.31</td><td>\$60.86</td></tr>
-        <tr><td>room addition contractors</td><td>1,000</td><td>\$7.77</td><td>\$38.40</td></tr>
-        <tr><td>home addition</td><td>880</td><td>\$6.22</td><td>\$30.10</td></tr>
-        <tr><td>design build contractor</td><td>720</td><td>\$4.78</td><td>\$20.92</td></tr>
-        <tr><td>whole house remodel</td><td>590</td><td>\$7.32</td><td>\$36.70</td></tr>
+        <tr><td>custom home builder</td><td>4,400</td><td>$4.09</td><td>$21.00</td></tr>
+        <tr><td>custom home builders near me</td><td>1,600</td><td>$2.21</td><td>$23.15</td></tr>
+        <tr><td>luxury home builders</td><td>1,000</td><td>$3.72</td><td>$20.00</td></tr>
+        <tr><td>home addition contractors</td><td>1,900</td><td>$10.31</td><td>$60.86</td></tr>
+        <tr><td>room addition contractors</td><td>1,000</td><td>$7.77</td><td>$38.40</td></tr>
+        <tr><td>home addition</td><td>880</td><td>$6.22</td><td>$30.10</td></tr>
+        <tr><td>design build contractor</td><td>720</td><td>$4.78</td><td>$20.92</td></tr>
+        <tr><td>whole house remodel</td><td>590</td><td>$7.32</td><td>$36.70</td></tr>
         <tr><td>custom home remodel</td><td>170</td><td>—</td><td>—</td></tr>
-        <tr><td>luxury kitchen remodel</td><td>110</td><td>\$10.29</td><td>\$44.71</td></tr>
-        <tr><td>design build remodel</td><td>90</td><td>\$8.11</td><td>\$12.31</td></tr>
-        <tr><td>high end bathroom remodel</td><td>20</td><td>\$5.81</td><td>\$27.09</td></tr>
+        <tr><td>luxury kitchen remodel</td><td>110</td><td>$10.29</td><td>$44.71</td></tr>
+        <tr><td>design build remodel</td><td>90</td><td>$8.11</td><td>$12.31</td></tr>
+        <tr><td>high end bathroom remodel</td><td>20</td><td>$5.81</td><td>$27.09</td></tr>
       </tbody>
     </table>
     </div>
     <p class="note">Target zips: Newport Beach 92660 / 92661 / 92663, Newport Coast 92657, Corona del Mar 92625, Laguna Beach 92651, Laguna Niguel 92677, Dana Point 92629, Coto 92679, Irvine 92603, Villa Park 92861.</p>
-    <p class="note">Does it make sense: yes for a ~\$260,000 design/build job. No if we expect 10 meetings from the same \$10,000 without better conversion. One signed job covers a long stretch of this CPC.</p>
+    <p class="note">These terms fit the ramp, from a $260,000 job up to the $950,000 December target. The plan stays at about 3 meetings a month on the same $10,000. One signed job covers a long stretch of this CPC.</p>
 
     <footer>Draft. Not indexed. Hard refresh this page. <a href="https://enclaveremodeling.com/">enclaveremodeling.com</a></footer>
   </div>
   <script>
-    const months = [
-      ["Jan", 16, 4, 1], ["Feb", 16, 4, 1], ["Mar", 20, 5, 1], ["Apr", 24, 6, 1],
-      ["May", 28, 7, 1], ["Jun", 32, 8, 1], ["Jul", 32, 8, 1], ["Aug", 36, 9, 1],
-      ["Sep", 40, 10, 2], ["Oct", 40, 10, 2], ["Nov", 32, 8, 1], ["Dec", 24, 6, 1]
-    ];
-    const max = 40;
-    const spend = 10000;
-    document.getElementById("tl").innerHTML = months.map(([m, leads, meet, close]) => `
-      <div class="month">
-        <div class="m">${m}</div>
-        <div class="n">${leads}</div>
-        <div class="track"><div class="fill" style="width:${(leads/max)*100}%"></div></div>
-        <small>CPL $${Math.round(spend/leads).toLocaleString()} · ${meet} mtg · ${close} signed</small>
-      </div>`).join("");
-
     const GOAL = 3000000;
     const YMAX = 1000000;
+    const SPEND = 10000;
+    const MEETINGS = 3;
+    const LEADS = 12;
+    const CPL = Math.round(SPEND / LEADS);
+    const CPM = Math.round(SPEND / MEETINGS);
     const ramp = [
       ["Jan", 260000, 0],
       ["Feb", 260000, 1],
@@ -297,8 +229,7 @@
     const tip = document.getElementById("ramp-tip");
     const detail = document.getElementById("ramp-detail");
     const card = document.getElementById("ramp-card");
-    const tbody = document.querySelector("#ramp-table tbody");
-    const ns = "http://www.w3.org/2000/svg";
+    const tbody = document.querySelector("#month-table tbody");
     function gapText(row) {
       if (row.gap > 0) return money(row.gap) + " still to reach the $3M goal";
       if (row.gap < 0) return money(-row.gap) + " upside above the $3M goal";
@@ -311,17 +242,28 @@
         "Deals needed this month " + row.deals,
         "Deals needed, cumulative " + row.cumDeals,
         "Cumulative signed " + money(row.cumRev) + " of $3,000,000",
-        gapText(row)
+        gapText(row),
+        "Spend " + money(SPEND),
+        "Leads in " + LEADS,
+        "CPL " + money(CPL),
+        "Meetings " + MEETINGS,
+        "Cost per meeting " + money(CPM)
       ];
     }
-    function tipHtml(row) {
-      const lines = tipLines(row);
-      return "<b>" + lines[0] + "</b><br>" + lines.slice(1).join("<br>");
-    }
+    const year = model.reduce((sum, row) => {
+      sum.signed += row.deals;
+      sum.rev += row.deals * row.size;
+      return sum;
+    }, { signed: 0, rev: 0 });
     tbody.innerHTML = model.map((row) =>
-      "<tr data-m='" + row.m + "'><td>" + row.m + "</td><td>" + money(row.size) + "</td><td>" + row.deals +
-      "</td><td>" + row.cumDeals + "</td><td>" + money(row.cumRev) + "</td><td>" + gapText(row) + "</td></tr>"
-    ).join("");
+      "<tr><td>" + row.m + "</td><td>" + money(SPEND) + "</td><td>" + LEADS + "</td><td>" + money(CPL) +
+      "</td><td>" + MEETINGS + "</td><td>" + money(CPM) + "</td><td>" + money(row.size) +
+      "</td><td>" + row.deals + "</td><td>" + money(row.deals * row.size) + "</td></tr>"
+    ).join("") +
+      "<tr><td><b>2027</b></td><td><b>" + money(SPEND * 12) + "</b></td><td><b>" + (LEADS * 12) +
+      "</b></td><td><b>" + money(Math.round((SPEND * 12) / (LEADS * 12))) + "</b></td><td><b>" + (MEETINGS * 12) +
+      "</b></td><td><b>" + money(Math.round((SPEND * 12) / (MEETINGS * 12))) + "</b></td><td><b>—</b></td><td><b>" +
+      year.signed + "</b></td><td><b>" + money(year.rev) + "</b></td></tr>";
     model.forEach((row, i) => {
       const lab = document.createElement("div");
       lab.textContent = row.m;
@@ -364,7 +306,7 @@
       const cardBox = card.getBoundingClientRect();
       const box = (dot || hits.children[i]).getBoundingClientRect();
       const left = box.left - cardBox.left + box.width / 2;
-      tip.style.left = Math.max(8, Math.min(left - 110, card.clientWidth - 230)) + "px";
+      tip.style.left = Math.max(8, Math.min(left - 140, card.clientWidth - 310)) + "px";
       tip.style.top = "8px";
       const tipH = tip.offsetHeight;
       const above = box.top - cardBox.top - tipH - 10;
